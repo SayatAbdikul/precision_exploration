@@ -1,0 +1,64 @@
+# OS and editor noise
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python / native build products
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+cmake-build-*/
+*.o
+*.so
+*.dylib
+
+# Environments and local secrets
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Dataset payloads are external; only manifests are tracked.
+data/raw/**
+!data/raw/.gitkeep
+
+# Generated artifacts and caches.
+artifacts/**
+!artifacts/**/
+!artifacts/**/.gitkeep
+!artifacts/README.md
+cache/**
+!cache/.gitkeep
+!cache/README.md
+
+# Raw result stores can be large. Curated summaries/tables/figures are tracked.
+results/raw/**
+!results/raw/.gitkeep
+results/databases/**
+!results/databases/.gitkeep
+
+# Common experiment and EDA outputs.
+*.db
+*.sqlite
+*.sqlite3
+*.vcd
+*.vcd.gz
+*.saif
+*.fsdb
+*.wlf
+*.vpd
+*.spef
+*.sdf
+*.lib
+*.lef
+*.def
+*.gds
+*.gdsii
+

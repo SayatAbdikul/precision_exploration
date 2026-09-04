@@ -1,0 +1,3610 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sub-8-Bit Numerical Format Exploration Plan for the MANT Edge AI Accelerator</title>
+<style>
+  :root{
+    --bg:#0b1020;
+    --panel:#121a2b;
+    --panel2:#172238;
+    --text:#eef3fb;
+    --muted:#a9b4c8;
+    --line:#2b3a56;
+    --accent:#7dd3fc;
+    --accent2:#a7f3d0;
+    --warn:#fde68a;
+    --bad:#fca5a5;
+    --good:#86efac;
+    --chip:#c4b5fd;
+    --shadow:0 10px 30px rgba(0,0,0,.28);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:linear-gradient(180deg,#09101e 0%,#0b1020 40%,#10172a 100%);
+    color:var(--text);
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.58;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .layout{
+    display:grid;
+    grid-template-columns:280px minmax(0,1fr);
+    min-height:100vh;
+  }
+  aside{
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow:auto;
+    background:rgba(10,16,30,.96);
+    border-right:1px solid var(--line);
+    padding:24px 18px;
+  }
+  aside .brand{
+    font-weight:800;
+    font-size:18px;
+    margin-bottom:6px;
+  }
+  aside .sub{
+    color:var(--muted);
+    font-size:12px;
+    margin-bottom:18px;
+  }
+  aside a{
+    display:block;
+    color:#d8e2f1;
+    font-size:13px;
+    padding:7px 8px;
+    border-radius:8px;
+  }
+  aside a:hover{
+    background:#152038;
+    text-decoration:none;
+  }
+  aside .group{
+    color:#7f8ba1;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:10px;
+    margin:16px 8px 5px;
+  }
+  main{
+    max-width:1120px;
+    padding:42px 56px 90px;
+  }
+  .hero{
+    background:
+      radial-gradient(circle at 85% 20%,rgba(125,211,252,.15),transparent 28%),
+      radial-gradient(circle at 25% 80%,rgba(167,243,208,.09),transparent 30%),
+      var(--panel);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:34px 34px 28px;
+    box-shadow:var(--shadow);
+  }
+  .eyebrow{
+    color:var(--accent);
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:12px;
+  }
+  h1{
+    font-size:40px;
+    line-height:1.12;
+    margin:8px 0 14px;
+    letter-spacing:-.03em;
+  }
+  .lead{
+    color:#c7d2e5;
+    font-size:18px;
+    max-width:82ch;
+    margin:0;
+  }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
+  }
+  .pill{
+    padding:7px 11px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:#cfd8e7;
+    background:#10182a;
+    font-size:12px;
+  }
+  section{
+    margin-top:44px;
+  }
+  h2{
+    margin:0 0 16px;
+    font-size:28px;
+    letter-spacing:-.02em;
+  }
+  h3{
+    margin:28px 0 10px;
+    font-size:20px;
+  }
+  h4{
+    margin:20px 0 8px;
+    font-size:16px;
+  }
+  p, li{max-width:88ch}
+  .muted{color:var(--muted)}
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px 22px;
+    margin:14px 0;
+  }
+  .card h3,.card h4{margin-top:0}
+  .grid2,.grid3,.grid4{
+    display:grid;
+    gap:14px;
+  }
+  .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mini{
+    background:var(--panel2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px;
+  }
+  .mini strong{display:block;margin-bottom:6px}
+  .callout{
+    border-left:4px solid var(--accent);
+    background:#10233a;
+    padding:14px 18px;
+    border-radius:0 12px 12px 0;
+    margin:16px 0;
+  }
+  .callout.good{border-left-color:var(--good);background:#102b23}
+  .callout.warn{border-left-color:var(--warn);background:#2d2813}
+  .callout.bad{border-left-color:var(--bad);background:#311a1d}
+  .callout.chip{border-left-color:var(--chip);background:#211b34}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 22px;
+    font-size:14px;
+    overflow:hidden;
+    border-radius:12px;
+  }
+  th,td{
+    border:1px solid var(--line);
+    padding:9px 10px;
+    vertical-align:top;
+    text-align:left;
+  }
+  th{background:#172238}
+  tr:nth-child(even) td{background:rgba(255,255,255,.012)}
+  code{
+    background:#0e1728;
+    border:1px solid #24334e;
+    padding:2px 5px;
+    border-radius:6px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    color:#e9f3ff;
+  }
+  pre{
+    background:#09111f;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px;
+    overflow:auto;
+    color:#dbe7f5;
+  }
+  .eq{
+    font-family:Georgia,serif;
+    font-size:18px;
+    padding:12px 16px;
+    background:#0f182b;
+    border:1px solid var(--line);
+    border-radius:12px;
+    text-align:center;
+    margin:12px 0;
+  }
+  .roadmap{
+    position:relative;
+    margin:18px 0 0;
+  }
+  .step{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .num{
+    width:36px;height:36px;border-radius:50%;
+    background:#16314c;
+    color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    border:1px solid #2d536f;
+  }
+  .stepbox{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+  }
+  .stepbox b{display:block;margin-bottom:3px}
+  .kpi{
+    font-size:26px;
+    font-weight:800;
+    color:var(--accent2);
+  }
+  .small{font-size:12px;color:var(--muted)}
+  .footer{
+    margin-top:56px;
+    color:#8794aa;
+    font-size:12px;
+    border-top:1px solid var(--line);
+    padding-top:18px;
+  }
+  @media(max-width:980px){
+    .layout{grid-template-columns:1fr}
+    aside{position:static;height:auto}
+    main{padding:28px 18px 64px}
+    .grid4,.grid3,.grid2{grid-template-columns:1fr}
+    h1{font-size:34px}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="brand">MANT Precision Exploration</div>
+  <div class="sub">Sub-8-bit numerical format research and chip-selection plan</div>
+
+  <div class="group">Overview</div>
+  <a href="#executive">Executive summary</a>
+  <a href="#why">Why this is research-worthy</a>
+  <a href="#questions">Research questions</a>
+
+  <div class="group">Workloads & formats</div>
+  <a href="#workloads">CNN workload suite</a>
+  <a href="#formats">Data-type search space</a>
+  <a href="#quant">Quantization methodology</a>
+  <a href="#scaling">Scaling semantics</a>
+  <a href="#accum">Accumulation model</a>
+  <a href="#ops">Quantized operator policy</a>
+  <a href="#bn-bias">BN & bias policy</a>
+  <a href="#runtime">Inference-engine implementation</a>
+  <a href="#cuda">CUDA optimization strategy</a>
+  <a href="#accum">Accumulator precision</a>
+
+  <div class="group">Hardware</div>
+  <a href="#hardware">Hardware evaluation levels</a>
+  <a href="#rtl">RTL methodology</a>
+  <a href="#mant">MANT-specific experiments</a>
+  <a href="#metrics">Metrics and Pareto analysis</a>
+
+  <div class="group">Execution</div>
+  <a href="#funnel">Search funnel</a>
+  <a href="#engine">Exact inference engine</a>
+  <a href="#compute">Compute & parallelization</a>
+  <a href="#schedule">Scheduling & reproducibility</a>
+  <a href="#statistics">Statistical screening</a>
+  <a href="#pruning">Conservative pruning</a>
+  <a href="#synth-method">Hardware synthesis methodology</a>
+  <a href="#arch-search">Architecture search space</a>
+  <a href="#power-method">Power methodology</a>
+  <a href="#memory-cost">Memory cost methodology</a>
+  <a href="#scaling-cost">Scaling hardware cost</a>
+  <a href="#end2end">End-to-end hardware metrics</a>
+  <a href="#pareto-objective">Pareto objective & decision rules</a>
+  <a href="#baselines">Baselines & reproduction</a>
+  <a href="#public-private">Public vs private MANT boundary</a>
+  <a href="#counts">Experiment count</a>
+  <a href="#roadmap">Step-by-step roadmap</a>
+  <a href="#integration">Research + chip co-development</a>
+  <a href="#paper">Publication strategy</a>
+  <a href="#risks">Risks and scope control</a>
+</aside>
+
+<main>
+  <div class="hero" id="executive">
+    <div class="eyebrow">Research & chip-development plan</div>
+    <h1>Exploration of Precision and Data Types for a Sub-8-Bit Edge AI Inference Accelerator</h1>
+    <p class="lead">
+      A structured plan to identify the best numerical representation for the MANT edge-AI chip while producing a rigorous,
+      publishable study of accuracy–area–energy–performance trade-offs across modern CNN workloads.
+    </p>
+    <div class="meta">
+      <span class="pill">Target: ≤8-bit inference</span>
+      <span class="pill">Workloads: edge CNNs</span>
+      <span class="pill">Evaluation: accuracy + RTL/PPA</span>
+      <span class="pill">Chip: MANT spatial fabric</span>
+      <span class="pill">Goal: Pareto-optimal numerical architecture</span>
+    </div>
+  </div>
+
+  <section id="why">
+    <h2>1. Executive assessment</h2>
+    <div class="callout good">
+      <b>Conclusion:</b> the exploration can be designed so that the same engineering effort both selects the numerical format for the chip
+      and forms the basis of an independent research paper. The key is to study the complete numerical architecture—not just multiplier area.
+    </div>
+    <p>
+      The project is most valuable if it asks a broader question than “which 6-bit or 8-bit format gives the best accuracy?”
+      The stronger question is:
+    </p>
+    <div class="eq">
+      Which sub-8-bit numerical representation gives the best accuracy–area–energy–throughput trade-off for real edge CNN inference under actual silicon constraints?
+    </div>
+    <p>
+      This matters particularly for MANT because its numerical format influences not only arithmetic, but also memory width,
+      accumulator width, interconnect width, tile cost, tile count, communication energy, and whole-chip throughput.
+    </p>
+    <div class="callout warn">
+      <b>Important architectural point:</b> the current MANT specification assumes floating-point-only arithmetic.
+      For a scientifically strong exploration, that should be treated as a design hypothesis during research rather than as an untouchable assumption.
+      Otherwise the study can only answer “which floating-point format is best?”
+    </div>
+  </section>
+
+  <section id="questions">
+    <h2>2. Research questions</h2>
+    <div class="grid3">
+      <div class="mini">
+        <strong>Q1 — Numerical quality</strong>
+        Which representation preserves inference accuracy best at 4–8 bits?
+      </div>
+      <div class="mini">
+        <strong>Q2 — Arithmetic cost</strong>
+        What is the real hardware cost of each representation when decode, multiply, accumulation, rounding and scaling are included?
+      </div>
+      <div class="mini">
+        <strong>Q3 — Chip-level efficiency</strong>
+        At equal silicon area and accuracy, which representation produces the best MANT chip?
+      </div>
+    </div>
+
+    <h3>Core hypothesis</h3>
+    <p>
+      The format with the smallest multiplier will not necessarily produce the smallest or most energy-efficient accelerator.
+      At ultra-low precision, memory, scaling logic, accumulator width and communication can dominate total hardware cost.
+    </p>
+
+    <h3>Potential higher-level finding</h3>
+    <p>
+      There may be no globally optimal numerical format. The best format may depend on network, layer type, tensor distribution,
+      accuracy target, accumulator precision and hardware budget. This can naturally lead to mixed-precision or heterogeneous-tile designs.
+    </p>
+  </section>
+
+  <section id="workloads">
+    <h2>3. CNN workload suite</h2>
+    <p>
+      The workload set should represent common edge-inference behavior while remaining small enough for deep, reproducible analysis.
+      The primary suite should use realistic datasets rather than relying on toy benchmarks.
+    </p>
+
+    <table>
+      <tr><th>Model</th><th>Primary reason to include it</th><th>Dataset / metric</th><th>Priority</th></tr>
+      <tr><td><b>ResNet-18</b></td><td>Canonical CNN baseline; standard convolutions and residual connections.</td><td>ImageNet-1K, Top-1 / Top-5</td><td>Mandatory</td></tr>
+      <tr><td><b>MobileNetV2</b></td><td>Representative mobile CNN; depthwise separable convolutions; quantization-sensitive.</td><td>ImageNet-1K, Top-1 / Top-5</td><td>Mandatory</td></tr>
+      <tr><td><b>MobileNetV3</b></td><td>Modern mobile architecture; SE blocks and hard-swish.</td><td>ImageNet-1K, Top-1 / Top-5</td><td>Mandatory</td></tr>
+      <tr><td><b>EfficientNet-B0 / Lite0</b></td><td>Different design style with depthwise convolution and SE blocks.</td><td>ImageNet-1K, Top-1 / Top-5</td><td>Recommended</td></tr>
+      <tr><td><b>YOLOv8n or similar tiny detector</b></td><td>Practical edge detection rather than classification only.</td><td>COCO, mAP50–95 / mAP50</td><td>Recommended</td></tr>
+    </table>
+
+    <div class="callout">
+      <b>Recommended minimum serious suite:</b> ResNet-18 + MobileNetV2 + MobileNetV3 + one tiny YOLO detector.
+      EfficientNet can be added if compute/time budgets allow.
+    </div>
+
+    <h3>Baseline procedure</h3>
+    <p>For each model, freeze a specific checkpoint and record:</p>
+    <ul>
+      <li>FP32 Top-1 / Top-5 accuracy for ImageNet models,</li>
+      <li>FP32 mAP metrics for detection,</li>
+      <li>exact preprocessing, dataset version and evaluation scripts,</li>
+      <li>all quantized results both as absolute accuracy and as <code>ΔAccuracy</code> relative to FP32.</li>
+    </ul>
+  </section>
+
+  
+  <section id="formats">
+    <h2>4. Candidate data-type universe</h2>
+
+    <div class="callout">
+      <b>The exact experimental datatype set is not frozen yet.</b>
+      At this stage, the plan defines a broad candidate universe and groups it into families.
+      A smaller final set will be selected after a pilot study based on relevance, implementability, overlap between formats, and expected hardware value.
+    </div>
+
+    <p>
+      The study targets <b>8-bit and smaller</b> representations for weights and activations.
+      “All possible datatypes” is not literally finite because arbitrary custom encodings can always be invented, so the goal is to cover all major
+      practically relevant numerical families used or proposed for low-precision neural-network inference.
+    </p>
+
+    <h3>4.1 Group A — Integer and fixed-point families</h3>
+    <table>
+      <tr><th>Family</th><th>Candidate examples</th><th>Notes</th></tr>
+      <tr><td>Signed integer</td><td>INT8, INT7, INT6, INT5, INT4, INT3, INT2</td><td>Mandatory hardware baseline.</td></tr>
+      <tr><td>Unsigned integer</td><td>UINT8 … UINT2</td><td>Relevant for non-negative post-activation tensors.</td></tr>
+      <tr><td>Fixed-point</td><td>Qm.n variants with total width ≤8</td><td>Binary-point position becomes a parameter.</td></tr>
+      <tr><td>Dynamic fixed-point</td><td>shared scale + integer mantissa</td><td>Closely related to scaled INT but useful to classify separately.</td></tr>
+      <tr><td>Power-of-two scaled integer</td><td>integer code + power-of-two scale</td><td>Potentially cheap scaling hardware.</td></tr>
+    </table>
+
+    <h3>4.2 Group B — Conventional and custom floating-point families</h3>
+    <p>Enumerate sensible sign/exponent/mantissa allocations for total widths from 4 to 8 bits.</p>
+    <table>
+      <tr><th>Total width</th><th>Representative layouts</th></tr>
+      <tr><td>8 bit</td><td>E5M2, E4M3, E3M4, E2M5</td></tr>
+      <tr><td>7 bit</td><td>E4M2, E3M3, E2M4</td></tr>
+      <tr><td>6 bit</td><td>E4M1, E3M2, E2M3</td></tr>
+      <tr><td>5 bit</td><td>E3M1, E2M2</td></tr>
+      <tr><td>4 bit</td><td>E2M1</td></tr>
+    </table>
+    <p>For custom minifloats, semantic variants may include:</p>
+    <ul>
+      <li>finite-only saturating floating point,</li>
+      <li>IEEE-like behavior with subnormals,</li>
+      <li>flush-to-zero underflow,</li>
+      <li>different exponent biases,</li>
+      <li>signed and unsigned variants,</li>
+      <li>RNE versus simpler rounding modes as a later ablation.</li>
+    </ul>
+    <div class="callout warn">
+      Standardized or widely used formats such as FP8 E4M3/E5M2 should use their published semantics.
+      Non-standard FP7/FP6/FP5/FP4 formats must be defined explicitly so that one label cannot silently represent different arithmetic rules.
+    </div>
+
+    <h3>4.3 Group C — Block floating point and microscaling</h3>
+    <table>
+      <tr><th>Family</th><th>Candidate examples</th><th>Main parameters</th></tr>
+      <tr><td>Block floating point (BFP)</td><td>BFP8, BFP6, BFP4-style variants</td><td>element width, shared exponent width, block size</td></tr>
+      <tr><td>MX floating point</td><td>MXFP8 E4M3/E5M2, MXFP6 E3M2/E2M3, MXFP4 E2M1</td><td>element format, shared-scale format, block size</td></tr>
+      <tr><td>MX integer</td><td>MXINT8 and experimental MXINT6/MXINT5/MXINT4</td><td>integer width, shared scale, block size</td></tr>
+      <tr><td>Scaled minifloat</td><td>FP5/FP6/FP8 + tensor/channel/block scale</td><td>scale precision and granularity</td></tr>
+    </table>
+
+    <h3>4.4 Group D — Tapered-precision formats</h3>
+    <table>
+      <tr><th>Family</th><th>Candidate examples</th><th>Notes</th></tr>
+      <tr><td>Posit</td><td>Posit(n, es), n=4…8, selected es values</td><td>Use standard posit semantics.</td></tr>
+      <tr><td>Regime/tapered custom variants</td><td>posit-like encodings</td><td>Include only if clearly distinct and hardware-relevant.</td></tr>
+    </table>
+
+    <h3>4.5 Group E — Logarithmic and power-of-two representations</h3>
+    <table>
+      <tr><th>Family</th><th>Candidate examples</th><th>Notes</th></tr>
+      <tr><td>Logarithmic number system (LNS)</td><td>LOG8, LOG7, LOG6, LOG5, LOG4 variants</td><td>Explore integer/fraction allocation in the log domain.</td></tr>
+      <tr><td>Pure power-of-two</td><td>sign + quantized exponent</td><td>Multiplication reduces to exponent addition / shifting.</td></tr>
+      <tr><td>Hybrid log/linear</td><td>logarithmic with a linear near-zero region</td><td>May improve small-value behavior.</td></tr>
+    </table>
+
+    <h3>4.6 Group F — Codebook and non-uniform quantization</h3>
+    <table>
+      <tr><th>Family</th><th>Candidate examples</th><th>Notes</th></tr>
+      <tr><td>NormalFloat / NF-style</td><td>NF4 and generalized NF5/NF6-like codebooks</td><td>Non-uniform levels matched to assumed distributions.</td></tr>
+      <tr><td>Learned codebook</td><td>k-means / optimized centroids</td><td>Hardware decode overhead must be included.</td></tr>
+      <tr><td>Arbitrary LUT quantization</td><td>2^n-value codebook</td><td>Useful as a flexible non-uniform reference.</td></tr>
+    </table>
+
+    <h3>4.7 Group G — Binary, ternary and very-low-cardinality formats</h3>
+    <table>
+      <tr><th>Family</th><th>Candidate examples</th><th>Notes</th></tr>
+      <tr><td>Binary</td><td>±1 and 0/1 variants</td><td>Extreme efficiency; likely difficult under PTQ.</td></tr>
+      <tr><td>Ternary</td><td>{−1,0,+1}</td><td>Useful extreme-efficiency reference.</td></tr>
+      <tr><td>2-bit multi-level</td><td>four-level signed/unsigned sets</td><td>Bridges INT2 and codebook methods.</td></tr>
+    </table>
+
+    <h3>4.8 Group H — Hybrid and custom research formats</h3>
+    <p>This group remains open and can include formats derived from the exploration itself:</p>
+    <ul>
+      <li>custom exponent/mantissa splits with non-standard bias,</li>
+      <li>shared-exponent + non-uniform mantissa formats,</li>
+      <li>hybrid logarithmic/floating representations,</li>
+      <li>piecewise or codebook-assisted minifloats,</li>
+      <li>different representations for weights and activations,</li>
+      <li>a new format discovered from tensor-distribution and hardware-Pareto analysis.</li>
+    </ul>
+
+    <h3>4.9 Required datatype manifest</h3>
+    <p>
+      Every tested format must be represented by a machine-readable manifest so PTQ, exact arithmetic, C++/CUDA execution,
+      and RTL all share identical numerical semantics.
+    </p>
+    <pre><code>{
+  "name": "fp6_e3m2_finite",
+  "family": "float",
+  "bits": 6,
+  "signed": true,
+  "exp_bits": 3,
+  "mantissa_bits": 2,
+  "bias": 3,
+  "subnormals": false,
+  "nan": false,
+  "infinity": false,
+  "overflow": "saturate",
+  "underflow": "flush_zero",
+  "rounding": "rne"
+}</code></pre>
+    <p>The manifest should define, where applicable:</p>
+    <ul>
+      <li>bit width and encoding,</li>
+      <li>signedness,</li>
+      <li>exponent/mantissa, integer, regime or logarithmic parameters,</li>
+      <li>bias,</li>
+      <li>zero, subnormal, NaN and infinity semantics,</li>
+      <li>overflow and underflow behavior,</li>
+      <li>rounding mode,</li>
+      <li>external scale representation and granularity,</li>
+      <li>block size for BFP/MX formats,</li>
+      <li>codebook contents for non-uniform formats.</li>
+    </ul>
+
+    <div class="callout good">
+      <b>Selection status:</b> the candidate universe is deliberately broader than the final experiment set.
+      The exact datatype list will be selected after pilot measurements of numerical quality, computational cost, redundancy between formats, and hardware relevance.
+    </div>
+  </section>
+
+<section id="quant">
+    <h2>5. Quantization methodology</h2>
+    <p>
+      Quantization method and number representation must be separated experimentally.
+      Otherwise a strong quantizer can make a weak representation appear superior.
+      This project uses <b>post-training quantization only</b>: all candidates start from the same pretrained floating-point checkpoints,
+      and the exploration does not include model retraining.
+    </p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Experiment A — controlled PTQ comparison</h3>
+        <p>
+          Experiment A uses one fixed PTQ protocol across all compatible datatype families so the numerical representation is the primary variable.
+          The mapping equation naturally differs by datatype because the representable-value set differs, but the optimization procedure is shared.
+        </p>
+
+        <h4>Frozen baseline protocol</h4>
+        <table>
+          <tr><th>Parameter</th><th>Baseline decision</th></tr>
+          <tr><td>Quantization mode</td><td>Static PTQ only</td></tr>
+          <tr><td>Calibration objective</td><td>MSE minimization</td></tr>
+          <tr><td>Weights</td><td>Per-output-channel scaling</td></tr>
+          <tr><td>Activations</td><td>Per-tensor scaling</td></tr>
+          <tr><td>Signed tensors</td><td>Symmetric quantization / zero-point 0</td></tr>
+          <tr><td>External scale</td><td>Real-valued scale optimized independently for each tensor and datatype</td></tr>
+          <tr><td>Rounding</td><td>Nearest representable value; RNE where applicable</td></tr>
+          <tr><td>Retraining</td><td>None</td></tr>
+          <tr><td>Bias correction / reconstruction</td><td>Disabled in Experiment A</td></tr>
+          <tr><td>Calibration images</td><td>Identical fixed subset for every datatype</td></tr>
+          <tr><td>Accumulator precision</td><td>Controlled separately as an independent experiment dimension</td></tr>
+        </table>
+
+        <div class="eq">
+          s* = arg min<sub>s</sub> (1/N) Σ<sub>i</sub> [x<sub>i</sub> − s·Q<sub>F</sub>(x<sub>i</sub>/s)]²
+        </div>
+
+        <p>
+          <code>Q_F</code> maps a value to the nearest value representable by datatype <code>F</code>.
+          The MSE optimization algorithm is the same across compatible families, while the representable-value set changes.
+        </p>
+
+        <h4>Scale search</h4>
+        <ol>
+          <li>evaluate approximately 100 coarse clipping/scale candidates,</li>
+          <li>identify the lowest-MSE region,</li>
+          <li>evaluate approximately 50 finer candidates around that region,</li>
+          <li>store the lowest-MSE scale for that tensor and datatype.</li>
+        </ol>
+
+        <p>
+          The scale is optimized <b>independently for every datatype</b>. INT6 and FP6 E3M2 therefore use the same MSE search procedure,
+          but they are not forced to share one numerical scale.
+        </p>
+
+        <p><b>Question answered:</b> under a controlled PTQ protocol, which numerical representation is intrinsically more robust?</p>
+      </div>
+      <div class="card">
+        <h3>Experiment B — optimized PTQ comparison</h3>
+        <ul>
+          <li>per-tensor / per-channel / block scaling,</li>
+          <li>optimized clipping and calibration,</li>
+          <li>power-of-two versus general scaling where relevant,</li>
+          <li>format-specific PTQ settings,</li>
+          <li>all models remain based on the same pretrained checkpoints.</li>
+        </ul>
+        <p><b>Question answered:</b> what is the best accuracy each representation can achieve using PTQ only?</p>
+      </div>
+    </div>
+
+    <h3>Weight and activation precision</h3>
+    <p>
+      Do not assume symmetric <code>WxAx</code>. Explore combinations such as:
+      <code>W4A8</code>, <code>W5A6</code>, <code>W6A6</code>, <code>W6A8</code>, <code>W8A6</code>, <code>W8A8</code>.
+    </p>
+
+
+    <h3>Calibration dataset protocol</h3>
+    <p>
+      Calibration data must be separate from all datasets used for reported accuracy.
+      The same fixed calibration subset is reused for every datatype in the controlled comparison.
+    </p>
+
+    <h4>ImageNet</h4>
+    <table>
+      <tr><th>Item</th><th>Decision</th></tr>
+      <tr><td>Source</td><td>ImageNet training split</td></tr>
+      <tr><td>Size</td><td><b>2,000 images</b></td></tr>
+      <tr><td>Sampling</td><td>Class-balanced: 2 images per class</td></tr>
+      <tr><td>Selection</td><td>Deterministic fixed seed and saved image list</td></tr>
+      <tr><td>Reuse</td><td>Same calibration subset across datatype comparisons for the same model</td></tr>
+      <tr><td>Evaluation overlap</td><td>None</td></tr>
+    </table>
+
+    <h4>COCO</h4>
+    <table>
+      <tr><th>Item</th><th>Decision</th></tr>
+      <tr><td>Source</td><td>COCO training split</td></tr>
+      <tr><td>Size</td><td>Approximately <b>1,000–2,000 images</b></td></tr>
+      <tr><td>Sampling</td><td>Fixed stratified subset preserving approximate category frequency, object-size distribution and objects-per-image distribution</td></tr>
+      <tr><td>Selection</td><td>Deterministic fixed seed and saved image list</td></tr>
+      <tr><td>Evaluation overlap</td><td>None</td></tr>
+    </table>
+
+    <h4>Calibration robustness</h4>
+    <p>
+      The full search uses one fixed calibration subset for efficiency.
+      For approximately 5–10 finalists, repeat calibration with a few alternative fixed seeds and verify that the datatype ranking remains stable.
+    </p>
+
+    <div class="callout warn">
+      The ≈1,000-image fast-screening evaluation subset is <b>not</b> the calibration subset.
+      Calibration and evaluation images remain separate.
+    </div>
+
+    <h3>Exact quality evaluation after PTQ</h3>
+    <p>
+      The research paper should not depend on the private MANT architecture or its golden model.
+      Accuracy should therefore be measured using an <b>architecture-independent bit-exact numerical inference engine</b>.
+      Quantized tensors are stored as actual low-precision codes, and arithmetic follows the published semantics of each datatype.
+    </p>
+    <div class="eq">
+      p<sub>i</sub> = Round<sub>F</sub>(x<sub>i</sub> × w<sub>i</sub>), &nbsp;&nbsp;
+      a<sub>i</sub> = Round<sub>A</sub>(a<sub>i−1</sub> + p<sub>i</sub>)
+    </div>
+    <p>
+      This is distinct from ordinary fake quantization, where tensors may be constrained to quantized values while convolution/GEMM still uses unrestricted FP32 accumulation.
+      High-precision arithmetic may be used internally only as an oracle for generating the correctly rounded low-precision result.
+    </p>
+
+    <h3>Layer sensitivity and statistics</h3>
+    <p>Collect per-layer:</p>
+    <ul>
+      <li>min / max / percentiles, mean, variance, kurtosis,</li>
+      <li>zero fraction and outlier fraction,</li>
+      <li>dynamic range and SQNR,</li>
+      <li>quantization MSE,</li>
+      <li>overflow / underflow / sign-clipping counts,</li>
+      <li>one-layer-at-a-time accuracy sensitivity.</li>
+    </ul>
+    <div class="eq">S<sub>i</sub>(F) = Accuracy<sub>FP32</sub> − Accuracy<sub>only layer i quantized to format F</sub></div>
+  </section>
+
+  <section id="accum">
+    <h2>6. Accumulator precision exploration</h2>
+    <p>
+      This should be a first-class experiment, not a detail. The current MANT semantics round each multiplication and each accumulation
+      in the active format, which can cause large error at 4–6 bits.
+    </p>
+
+    <table>
+      <tr><th>Operand width</th><th>Accumulator choices</th><th>Purpose</th></tr>
+      <tr><td>4–8 bits</td><td>native format</td><td>minimum hardware cost</td></tr>
+      <tr><td>4–8 bits</td><td>8 bit</td><td>small guard precision</td></tr>
+      <tr><td>4–8 bits</td><td>10 / 12 bit</td><td>likely practical compromise</td></tr>
+      <tr><td>4–8 bits</td><td>16 bit</td><td>high-quality reference accumulator</td></tr>
+    </table>
+
+    <div class="callout chip">
+      <b>MANT-specific architecture opportunity:</b> narrow operand/memory words plus a wider private accumulator may be much better than widening the whole tile.
+      Example: 6-bit memory and multiplier inputs, 10- or 12-bit A/B accumulation, then quantize on store.
+    </div>
+  </section>
+
+  <section id="hardware">
+    <h2>7. Hardware evaluation must be hierarchical</h2>
+    <p>
+      A standalone multiplier comparison is useful, but insufficient. The same format can look cheap at multiplier level and expensive at tile level,
+      or vice versa.
+    </p>
+
+    <table>
+      <tr><th>Level</th><th>Includes</th><th>Why it matters</th></tr>
+      <tr>
+        <td><b>1. Arithmetic primitive</b></td>
+        <td>multiplier, adder, optional decode/normalize blocks</td>
+        <td>explains fundamental arithmetic cost</td>
+      </tr>
+      <tr>
+        <td><b>2. Complete MAC / FPU</b></td>
+        <td>decode, multiply, accumulate, normalize, round, scale handling, saturation</td>
+        <td>fair format-to-format compute comparison</td>
+      </tr>
+      <tr>
+        <td><b>3. Complete MANT tile</b></td>
+        <td>FPU + A/B + memory + control + bus + format logic</td>
+        <td>determines the actual replicated unit cost</td>
+      </tr>
+      <tr>
+        <td><b>4. Whole chip</b></td>
+        <td>tile count, workload mapping, communication, clock and area budget</td>
+        <td>identifies the real chip winner</td>
+      </tr>
+    </table>
+
+    <h3>Multiplier architecture exploration</h3>
+    <p>For integer and mantissa multiplication, synthesize several candidate structures and keep the Pareto-optimal implementation:</p>
+    <ul>
+      <li>array multiplier,</li>
+      <li>shift/add,</li>
+      <li>radix-4 Booth,</li>
+      <li>Booth + Wallace,</li>
+      <li>Booth + Dadda.</li>
+    </ul>
+    <p>
+      At tiny widths, additional encoding/reduction logic can outweigh the expected savings. Do not assume the textbook “best” multiplier is best at 4–8 bits.
+    </p>
+  </section>
+
+  <section id="rtl">
+    <h2>8. RTL and PPA methodology</h2>
+    <p>The numerical model and hardware must match exactly:</p>
+
+    <pre><code>PyTorch model
+    ↓
+quantized / custom numerical model
+    ↓
+bit-accurate software reference
+    ↓
+RTL arithmetic
+    ↓
+RTL MANT tile
+    ↓
+cycle-accurate MANT execution
+    ↓
+synthesis / P&R / power</code></pre>
+
+    <h3>Required validation</h3>
+    <ul>
+      <li>RTL must match the bit-accurate software model on unit tests and network traces.</li>
+      <li>Rounding, overflow, saturation, FTZ/subnormal behavior and scaling must be explicitly defined.</li>
+      <li>Final power estimates should use real switching activity from representative CNN traces.</li>
+    </ul>
+
+    <h3>Metrics per candidate</h3>
+    <div class="grid4">
+      <div class="mini"><span class="kpi">A</span><br/>area</div>
+      <div class="mini"><span class="kpi">f<sub>max</sub></span><br/>maximum frequency</div>
+      <div class="mini"><span class="kpi">P</span><br/>power</div>
+      <div class="mini"><span class="kpi">E/op</span><br/>energy per operation</div>
+    </div>
+
+    <h3>Whole-chip metrics</h3>
+    <ul>
+      <li>energy per inference,</li>
+      <li>images/s,</li>
+      <li>images/J,</li>
+      <li>images/s/mm²,</li>
+      <li>useful operations / transistor / cycle,</li>
+      <li>accuracy at equal area and equal energy budgets.</li>
+    </ul>
+  </section>
+
+  <section id="mant">
+    <h2>9. MANT-specific experiments</h2>
+
+    <h3>9.1 Signed vs unsigned activations</h3>
+    <p>
+      Because many post-ReLU tensors are non-negative, MANT can potentially reuse the sign bit as extra mantissa or exponent capacity.
+      Compare signed and unsigned versions of equal total width.
+    </p>
+
+    <h3>9.2 Same-format vs wider accumulation</h3>
+    <p>
+      This is likely one of the most important MANT decisions because widening the whole word also widens private memory and communication.
+      A narrow-storage / wide-accumulator architecture may be a strong design point.
+    </p>
+
+    <h3>9.3 Uniform precision first</h3>
+    <p>
+      The first chip should probably use one dominant format. This simplifies RTL, verification and physical design.
+      Mixed precision should come after the best uniform format has been established.
+    </p>
+
+    <h3>9.4 Heterogeneous tile classes</h3>
+    <p>
+      If mixed-format inference becomes attractive, physical specialization is likely better than making every tile support every format.
+    </p>
+    <pre><code>Example chip composition:
+  FP8 tiles
+  FP6 tiles
+  FP4 / MXFP4 tiles
+  optional higher-precision accumulation tiles</code></pre>
+
+    <h3>9.5 Conversion problem</h3>
+    <p>
+      Raw MANT memory words are untyped bit patterns. If different tiles use different representations, data exchange needs explicit conversion.
+      Possible future solutions include:
+    </p>
+    <ul>
+      <li>conversion on sender before the write bus,</li>
+      <li>conversion at the destination memory interface,</li>
+      <li>a dedicated conversion instruction or conversion tile.</li>
+    </ul>
+
+    <h3>9.6 Activation-function compatibility</h3>
+    <p>
+      ResNet and MobileNetV2 are relatively straightforward. MobileNetV3 hard-swish can be decomposed into simple arithmetic and clipping.
+      YOLO / EfficientNet variants using SiLU or Swish require a hardware-accurate approximation strategy, which must be included in end-to-end accuracy measurements.
+    </p>
+  </section>
+
+  <section id="metrics">
+    <h2>10. Pareto analysis and chip-selection rule</h2>
+    <p>
+      Every numerical configuration should be represented as a point in a multi-objective space:
+    </p>
+    <div class="eq">F → (ΔAccuracy, Area, Energy, Latency)</div>
+
+    <p>
+      The main paper should show Pareto frontiers rather than only one weighted score.
+      The final chip choice can then be made under explicit constraints.
+    </p>
+
+    <div class="card">
+      <h3>Example selection rule</h3>
+      <p>
+        Require:
+      </p>
+      <ul>
+        <li><code>ImageNet Top-1 loss ≤ 1%</code>,</li>
+        <li><code>COCO mAP loss ≤ 1 point</code>,</li>
+        <li>latency within the target edge budget.</li>
+      </ul>
+      <p>Then minimize <b>energy per inference</b> or maximize <b>throughput/mm²</b>.</p>
+    </div>
+
+    <h3>Iso-area comparison</h3>
+    <div class="callout">
+      A smaller tile means more tiles on the same die. Therefore the decisive comparison should include equal-silicon-budget experiments,
+      not just “one FP6 tile vs one FP8 tile.”
+    </div>
+  </section>
+
+  <section id="funnel">
+    <h2>11. Conservative search funnel</h2>
+
+    <p>
+      The funnel is intentionally broad in its early numerical stages.
+      The first 1k-image pass is used mainly to identify broken/catastrophic configurations;
+      statistically uncertain candidates are promoted rather than discarded.
+    </p>
+
+    <div class="roadmap">
+      <div class="step"><div class="num">1</div><div class="stepbox"><b>Broad datatype/configuration universe</b>Run numerical sanity checks, PTQ calibration and ≈1k-image screening. Eliminate only broken or clearly catastrophic configurations after diagnosis.</div></div>
+      <div class="step"><div class="num">2</div><div class="stepbox"><b>Broad promoted set</b>Run ≈5k–10k validation for promising, uncertain, family-representative, near-Pareto and potentially hardware-efficient candidates.</div></div>
+      <div class="step"><div class="num">3</div><div class="stepbox"><b>~20–40 full-dataset configurations</b>Run full ImageNet/COCO validation before making strong numerical elimination decisions.</div></div>
+      <div class="step"><div class="num">4</div><div class="stepbox"><b>~8–15 arithmetic RTL candidates</b>Synthesize real add/mul/MAC/FPU candidates after numerical evidence is strong.</div></div>
+      <div class="step"><div class="num">5</div><div class="stepbox"><b>~4–8 tile/MAC finalists</b>Include accumulation, scaling, memory/control overhead and representative workload traces.</div></div>
+      <div class="step"><div class="num">6</div><div class="stepbox"><b>~2–4 P&amp;R finalists</b>Detailed physical implementation and realistic switching-power analysis.</div></div>
+      <div class="step"><div class="num">7</div><div class="stepbox"><b>1 primary format + optional backup</b>Freeze the v1 chip numerical architecture only after full numerical and physical evidence.</div></div>
+    </div>
+
+    <div class="callout good">
+      <b>Early-pruning rule:</b> do not remove a datatype family because of one model, one accumulator choice, one scaling choice or a noisy 1k-image result.
+    </div>
+  </section>
+
+
+  
+  <section id="scaling">
+    <h2>Scaling semantics for FP, Posit, Log, BFP and MX</h2>
+    <p>Scaling is part of the numerical-format definition and must be controlled explicitly.</p>
+
+    <div class="eq">
+      Direct: Q<sub>F</sub>(x)<br>
+      General scaled: s · Q<sub>F</sub>(x/s)<br>
+      Power-of-two scaled: 2<sup>k</sup> · Q<sub>F</sub>(x/2<sup>k</sup>)
+    </div>
+
+    <h3>Experiment A baseline</h3>
+    <p>
+      Use an <b>MSE-optimized general scale</b> for every compatible ordinary datatype.
+      Each datatype receives its own optimal scale, while the optimization algorithm remains identical.
+    </p>
+
+    <table>
+      <tr><th>Family</th><th>Experiment A</th><th>Later ablations / Experiment B</th></tr>
+      <tr><td>INT / fixed-point</td><td>MSE-optimized scale</td><td>power-of-two scale, asymmetric activations</td></tr>
+      <tr><td>FP / minifloat</td><td>MSE-optimized scale</td><td>no scale, power-of-two scale, bias tuning</td></tr>
+      <tr><td>Posit</td><td>MSE-optimized scale</td><td>no scale, power-of-two scale</td></tr>
+      <tr><td>Log / power-of-two</td><td>MSE-optimized scale where meaningful</td><td>direct / power-of-two variants</td></tr>
+      <tr><td>Codebook</td><td>optimized scale where required</td><td>format-specific scale/codebook optimization</td></tr>
+    </table>
+
+    <h3>Power-of-two scaling ablation</h3>
+    <p>
+      Finalists should be evaluated using general scale, power-of-two scale, and no external scale where meaningful.
+      Power-of-two scaling may reduce scaling hardware to exponent adjustment or shifting.
+    </p>
+
+    <h3>MX / BFP baseline</h3>
+    <p>
+      Standardized MX formats must follow published semantics exactly.
+      Experimental MX/BFP candidates must define:
+    </p>
+    <div class="eq">(element format, shared-scale format, block size, block axis)</div>
+    <table>
+      <tr><th>Parameter</th><th>Initial baseline</th></tr>
+      <tr><td>Block axis</td><td>Reduction dimension K</td></tr>
+      <tr><td>Block size</td><td>32</td></tr>
+      <tr><td>Weight/activation scales</td><td>Independent</td></tr>
+      <tr><td>Incomplete final block</td><td>Scale valid values only; zero-pad the remaining positions conceptually</td></tr>
+      <tr><td>Later block-size sweep</td><td>16 / 32 / 64</td></tr>
+    </table>
+
+    <div class="eq">
+      x=s<sub>x</sub>q<sub>x</sub>, &nbsp;
+      w=s<sub>w</sub>q<sub>w</sub>, &nbsp;
+      xw=(s<sub>x</sub>s<sub>w</sub>)(q<sub>x</sub>q<sub>w</sub>)
+    </div>
+    <p>Scale storage, transport and application cost must be included in hardware comparisons.</p>
+  </section>
+
+  <section id="accum">
+    <h2>Precise multiplication and accumulation model</h2>
+    <p>
+      Every experiment must separately specify operand format, product precision, accumulator datatype,
+      rounding points, overflow/underflow behavior, accumulation order and requantization point.
+    </p>
+
+    <h3>Three MAC models</h3>
+
+    <h4>A. Native arithmetic</h4>
+    <div class="eq">
+      p<sub>i</sub>=Round<sub>F</sub>(x<sub>i</sub>w<sub>i</sub>)<br>
+      a<sub>i</sub>=Round<sub>F</sub>(a<sub>i−1</sub>+p<sub>i</sub>)
+    </div>
+    <p>Cheapest path: product and accumulator both use the operand datatype.</p>
+
+    <h4>B. Rounded product + wider accumulator</h4>
+    <div class="eq">
+      p<sub>i</sub>=Round<sub>F</sub>(x<sub>i</sub>w<sub>i</sub>)<br>
+      a<sub>i</sub>=Round<sub>A</sub>(a<sub>i−1</sub>+Convert<sub>A</sub>(p<sub>i</sub>))
+    </div>
+    <p>Multiplier output remains narrow while accumulation uses a wider format.</p>
+
+    <h4>C. Full-product / FMA-style accumulation</h4>
+    <div class="eq">
+      a<sub>i</sub>=Round<sub>A</sub>(a<sub>i−1</sub>+Exact(x<sub>i</sub>w<sub>i</sub>))
+    </div>
+    <p>
+      The product is not rounded back to operand precision before accumulation.
+      This is the preferred <b>clean numerical baseline</b>.
+    </p>
+
+    <div class="callout good">
+      <b>Primary methodology:</b> use Model C for controlled datatype comparison,
+      then compare A/B/C for finalists to expose hardware–accuracy trade-offs.
+    </div>
+
+    <h3>Accumulator families</h3>
+    <table>
+      <tr><th>Operand family</th><th>Accumulator candidates</th><th>Notes</th></tr>
+      <tr><td>INT / fixed-point</td><td>native, INT12, INT16, INT24, INT32</td><td>INT32 = high-precision reference</td></tr>
+      <tr><td>FP / minifloat</td><td>native, widened FP, medium custom FP, FP16</td><td>Exact E/M layouts not frozen yet</td></tr>
+      <tr><td>Posit</td><td>native, wider posit, quire</td><td>Quire must be evaluated</td></tr>
+      <tr><td>MX / BFP</td><td>wide partial sum + scaled block accumulation</td><td>Include scale cost</td></tr>
+      <tr><td>Logarithmic</td><td>LNS accumulation or log-multiply + linear accumulator</td><td>Hybrid accumulation may be more practical</td></tr>
+    </table>
+
+    <h3>Initial FP accumulator pilot</h3>
+    <div class="eq">
+      FP6(E3M2) → FP8(E4M3) → FP12(E5M6) → FP16(E5M10)
+    </div>
+    <p>
+      This progression is <b>not frozen</b>; a pilot should determine the most useful exponent/mantissa allocations.
+    </p>
+
+    <h3>Accumulation order</h3>
+    <p>
+      Use deterministic sequential reduction in the bit-exact engine:
+      <code>k = 0,1,2,…,K−1</code>.
+      Tree reduction is a later architecture-sensitive ablation.
+    </p>
+
+    <h3>Requantization</h3>
+    <p>
+      Accumulate in the selected accumulator datatype and requantize only when an operator result is stored in the output activation datatype.
+      The conversion and rounding rule must be explicit.
+    </p>
+  </section>
+
+  <section id="ops">
+    <h2>Quantized operator and layer policy</h2>
+
+    <table>
+      <tr><th>Regime</th><th>Purpose</th></tr>
+      <tr><td><b>Strict low-precision</b></td><td>Candidate precision throughout all reasonably quantizable operators</td></tr>
+      <tr><td><b>Practical low-precision</b></td><td>Allow a few fixed higher-precision exceptions and measure recovered accuracy + hardware overhead</td></tr>
+    </table>
+
+    <div class="callout good">
+      <b>Primary baseline:</b> strict low-precision inference. Practical exceptions are secondary ablations.
+    </div>
+
+    <h3>Operator policy</h3>
+    <table>
+      <tr><th>Operator / layer</th><th>Baseline treatment</th></tr>
+      <tr><td>Conv2D / 1×1 Conv</td><td>Candidate W/A precision + selected accumulator model</td></tr>
+      <tr><td>Depthwise Conv</td><td>Candidate precision</td></tr>
+      <tr><td>Linear / FC</td><td>Candidate precision</td></tr>
+      <tr><td>BatchNorm</td><td>Fold into preceding convolution before quantization</td></tr>
+      <tr><td>Bias</td><td>Accumulator precision</td></tr>
+      <tr><td>Residual add</td><td>Explicit scale alignment + quantized add</td></tr>
+      <tr><td>Elementwise multiply</td><td>Candidate precision + explicit output requantization</td></tr>
+      <tr><td>ReLU</td><td>Exact quantized clamp at zero</td></tr>
+      <tr><td>ReLU6</td><td>Exact quantized clamp to [0,6]</td></tr>
+      <tr><td>MaxPool</td><td>Exact comparison in datatype</td></tr>
+      <tr><td>AveragePool</td><td>Accumulator-precision sum, then divide/scale and requantize</td></tr>
+      <tr><td>Hard-swish</td><td>Bit-exact add + clamp + multiply + scale decomposition</td></tr>
+      <tr><td>SiLU / sigmoid / tanh</td><td>Datatype-specific LUT</td></tr>
+      <tr><td>Softmax</td><td>Skip for Top-1/Top-5 when logits are sufficient</td></tr>
+      <tr><td>YOLO NMS</td><td>High-precision postprocessing outside the datatype hardware study</td></tr>
+    </table>
+
+    <h3>BatchNorm folding</h3>
+    <div class="eq">
+      W' = γW / √(σ²+ε)<br>
+      b' = β + γ(b−μ) / √(σ²+ε)
+    </div>
+    <p>Quantize the folded deployment weights <code>W'</code>.</p>
+
+    <h3>Residual-scale alignment</h3>
+    <p>
+      Residual branches may have different scales. Convert both inputs to a chosen output domain,
+      perform the defined quantized addition, then round to the residual output datatype.
+      Scale-alignment hardware cost must be counted.
+    </p>
+
+    <h3>Complex nonlinear LUTs</h3>
+    <p>
+      With ≤8-bit inputs, nonlinear LUTs are compact: at most 256 input codes.
+      Define them as:
+    </p>
+    <div class="eq">
+      LUT<sub>F</sub>[code] = Q<sub>F</sub>(f(decode(code)))
+    </div>
+    <p>If later implemented in hardware, LUT area/energy is included in PPA.</p>
+
+    <h3>First and last layers</h3>
+    <p>
+      Strict baseline: candidate datatype in first, internal and last layers.
+      Practical ablation:
+    </p>
+    <div class="eq">
+      first = 8 bit, &nbsp; internal = candidate precision, &nbsp; last = 8 bit
+    </div>
+    <p>Report both accuracy recovery and hardware overhead.</p>
+  </section>
+
+
+  <section id="bn-bias">
+    <h2>BatchNorm folding and bias representation</h2>
+
+    <h3>Deployment graph must be frozen before PTQ</h3>
+    <p>
+      PTQ should operate on the graph that would actually be deployed, not on the unfused training graph.
+      The preprocessing order is:
+    </p>
+    <div class="eq">
+      FP32 checkpoint → eval mode → fold BatchNorm → freeze deployment graph → collect calibration statistics → PTQ
+    </div>
+
+    <p>
+      BatchNorm is folded into the preceding convolution before quantization. For:
+    </p>
+    <div class="eq">
+      y = Wx + b
+      <br>
+      BN(y) = γ(y−μ)/√(σ²+ε) + β
+    </div>
+    <p>define:</p>
+    <div class="eq">
+      α = γ/√(σ²+ε)
+      <br>
+      W' = αW
+      <br>
+      b' = α(b−μ)+β
+    </div>
+
+    <p>
+      Quantization is applied to <code>W'</code> and the folded bias <code>b'</code>.
+      Folding after weight quantization is not allowed because BatchNorm changes the deployed weight distribution and would invalidate the calibrated scale.
+    </p>
+
+    <div class="callout good">
+      <b>Frozen baseline:</b> BatchNorm is always folded before calibration and PTQ.
+    </div>
+
+    <h3>Bias precision</h3>
+    <p>
+      Bias should not normally be forced into the 4–8-bit operand datatype because there is only one bias value per output channel.
+      Its storage cost is small compared with model weights, while aggressive bias quantization can introduce avoidable error.
+    </p>
+
+    <div class="eq">
+      bias precision = accumulator precision
+    </div>
+
+    <table>
+      <tr><th>Operands</th><th>Accumulator example</th><th>Bias baseline</th></tr>
+      <tr><td>INT6 × INT6</td><td>INT32</td><td>INT32</td></tr>
+      <tr><td>FP6 × FP6</td><td>FP12</td><td>FP12</td></tr>
+      <tr><td>Posit6 × Posit6</td><td>wider Posit / quire path</td><td>same accumulation domain or explicitly converted equivalent</td></tr>
+      <tr><td>MX / BFP</td><td>wide scaled partial-sum domain</td><td>same final accumulation domain</td></tr>
+    </table>
+
+    <h3>Integer-bias scale</h3>
+    <p>
+      For integer quantization:
+    </p>
+    <div class="eq">
+      x = s<sub>x</sub>q<sub>x</sub>,
+      &nbsp;
+      w = s<sub>w</sub>q<sub>w</sub>
+    </div>
+    <p>therefore:</p>
+    <div class="eq">
+      xw = (s<sub>x</sub>s<sub>w</sub>)(q<sub>x</sub>q<sub>w</sub>)
+    </div>
+    <p>
+      Bias must be represented in the same product/accumulator domain:
+    </p>
+    <div class="eq">
+      q<sub>b</sub> ≈ b/(s<sub>x</sub>s<sub>w</sub>)
+    </div>
+    <p>
+      With per-output-channel weight scales <code>s_w[c]</code>, the effective bias scale is channel-specific:
+    </p>
+    <div class="eq">
+      s<sub>b</sub>[c] = s<sub>x</sub>s<sub>w</sub>[c]
+    </div>
+
+    <h3>Bias-addition point</h3>
+    <p>
+      The baseline adds bias once after the dot-product reduction and before activation/requantization:
+    </p>
+    <div class="eq">
+      a = Σ x<sub>i</sub>w<sub>i</sub>
+      <br>
+      y = Round<sub>A</sub>(a + b)
+      <br>
+      output = Q<sub>Fout</sub>(activation(y))
+    </div>
+
+    <p>
+      This avoids repeatedly exposing the bias to accumulation rounding and provides a simple, deterministic numerical definition.
+    </p>
+
+    <h3>Bias ablations for finalists</h3>
+    <p>
+      For only the strongest formats, optionally compare:
+    </p>
+    <ul>
+      <li>bias in operand precision,</li>
+      <li><b>bias in accumulator precision</b> — primary baseline,</li>
+      <li>FP32/high-precision bias — quality upper bound.</li>
+    </ul>
+  </section>
+
+  <section id="runtime">
+    <h2>Exact inference-engine implementation</h2>
+
+    <h3>Purpose</h3>
+    <p>
+      The engine is an architecture-independent numerical evaluator.
+      It must reproduce the specified datatype and accumulation semantics exactly without exposing or depending on MANT's private architecture.
+    </p>
+
+    <h3>Software stack</h3>
+    <div class="eq">
+      PyTorch model/data frontend
+      → quantized graph
+      → custom operator runtime
+      → C++ / CUDA datatype backend
+    </div>
+
+    <p>Use PyTorch for:</p>
+    <ul>
+      <li>loading pretrained checkpoints,</li>
+      <li>datasets and preprocessing,</li>
+      <li>model-graph inspection and conversion,</li>
+      <li>calibration orchestration,</li>
+      <li>accuracy / mAP metric computation.</li>
+    </ul>
+
+    <p>
+      Replace numerically important quantized operators with custom exact kernels such as:
+      <code>QuantConv2d</code>, <code>QuantDepthwiseConv</code>, <code>QuantLinear</code>,
+      <code>QuantAdd</code>, and custom nonlinear LUT operators.
+    </p>
+
+    <h3>Why use uint8 storage initially?</h3>
+    <p>
+      Candidate datatypes are ≤8 bits, but CPUs and GPUs do not provide convenient addressable native types such as <code>uint5</code>, <code>uint6</code> or <code>uint7</code>.
+      Therefore the first implementation stores each encoded value in an 8-bit container:
+    </p>
+
+    <pre><code>FP6 E3M2 stored in uint8:
+bit 7 6 5 4 3 2 1 0
+    0 0 S E E E M M</code></pre>
+
+    <div class="callout">
+      <b>Important:</b> <code>uint8</code> is only a host-side simulation container.
+      It does <b>not</b> mean FP6 is counted as 8 bits in the hardware analysis.
+      Hardware storage, SRAM/bandwidth cost and RTL all use the actual datatype width.
+    </div>
+
+    <p>
+      Initial storage policy:
+    </p>
+    <table>
+      <tr><th>Datatype width</th><th>Initial simulation storage</th><th>Later option</th></tr>
+      <tr><td>2–8 bits</td><td>one code per uint8</td><td>packed storage if profiling shows value</td></tr>
+      <tr><td>FP4 / INT4</td><td>uint8 initially</td><td>2 values per byte</td></tr>
+      <tr><td>INT2</td><td>uint8 initially</td><td>4 values per byte</td></tr>
+      <tr><td>FP5/FP6/FP7</td><td>uint8 initially</td><td>custom dense or word-aligned packing if useful</td></tr>
+    </table>
+
+    <p>
+      Packed storage is a later performance/memory experiment, not a requirement for numerical correctness.
+    </p>
+
+    <h3>Storage representation versus compute representation</h3>
+    <p>
+      Storage and arithmetic representation are intentionally separate.
+      An encoded FP6 value may be stored as <code>uint8</code>, decoded to a wider exact temporary representation for computation,
+      then explicitly rounded back according to the chosen FP6/accumulator semantics.
+    </p>
+
+    <p>
+      A fast backend may therefore use:
+    </p>
+    <div class="eq">
+      encoded low-precision code → exact decoded temporary → defined arithmetic → explicit low-precision rounding
+    </div>
+
+    <p>
+      This remains valid as long as the result is bit-for-bit identical to the exact datatype oracle.
+    </p>
+
+    <h3>Optional predecoded fast mode</h3>
+    <p>
+      Weights are heavily reused, so repeated decode cost may be avoided by predecoding weights into a wider compute representation.
+      This is allowed for simulation speed because host memory usage is not the hardware-cost metric.
+    </p>
+    <p>
+      Maintain two modes:
+    </p>
+    <ul>
+      <li><b>encoded reference mode</b> for correctness validation,</li>
+      <li><b>predecoded fast mode</b> for large experiment sweeps.</li>
+    </ul>
+    <p>Both modes must produce identical outputs.</p>
+
+    <h3>Convolution implementation path</h3>
+    <p>
+      Start with <b>im2col + custom GEMM</b> for normal convolution because it minimizes implementation effort and concentrates optimization in one kernel.
+      After numerical correctness is established, direct tiled convolution can replace im2col if memory traffic becomes a bottleneck.
+    </p>
+
+    <div class="eq">
+      Conv2D → im2col → exact custom GEMM
+    </div>
+
+    <h3>Dedicated depthwise convolution</h3>
+    <p>
+      MobileNet/EfficientNet rely heavily on depthwise convolution.
+      Mapping depthwise convolution to generic GEMM can be inefficient, so implement a dedicated exact depthwise kernel early.
+    </p>
+
+    <div class="callout good">
+      <b>Initial kernel priority:</b> custom GEMM + dedicated depthwise Conv.
+      These cover most computation in ResNet, MobileNetV2/V3 and EfficientNet-style models.
+    </div>
+
+    <h3>Tensor layout</h3>
+    <p>
+      Begin with <b>NCHW</b> for compatibility with PyTorch and to avoid extra transposes.
+      Consider NHWC only if profiling shows that channel-oriented vectorization or depthwise access patterns justify the conversion cost.
+    </p>
+
+    <h3>Deterministic reduction order</h3>
+    <p>
+      For the primary exact experiment, one logical accumulator owns each output element and processes the reduction dimension in deterministic order:
+    </p>
+    <div class="eq">
+      for k = 0…K−1:
+      &nbsp; acc = Add<sub>A</sub>(acc, Product(x[k],w[k]))
+    </div>
+
+    <p>
+      Parallelize across independent outputs rather than changing the accumulation tree.
+      Tree reduction is a separate later ablation because low-precision rounded addition is not associative.
+    </p>
+
+    <h3>CPU backend</h3>
+    <p>
+      Implement a C++17/20 backend using multithreading (OpenMP, TBB, or a worker pool) and SIMD where practical.
+      Parallelize over independent batch/output-channel/spatial outputs.
+    </p>
+
+    <h3>Verification hierarchy</h3>
+    <table>
+      <tr><th>Level</th><th>Verification</th></tr>
+      <tr><td>Primitive</td><td>exhaust all 2^n × 2^n input pairs for ADD/MUL where applicable</td></tr>
+      <tr><td>Dot product</td><td>random vectors at several K values such as 3, 9, 27, 64, 128, 256, 1024</td></tr>
+      <tr><td>Small convolution</td><td>tiny deterministic tensors against the reference backend</td></tr>
+      <tr><td>Full layer</td><td>C++ versus CUDA bit-for-bit</td></tr>
+      <tr><td>Network</td><td>compare layer outputs/logits on a small fixed image set before large sweeps</td></tr>
+    </table>
+  </section>
+
+  <section id="cuda">
+    <h2>CUDA optimization strategy</h2>
+
+    <p>
+      The objective is not to reproduce cuDNN/TensorRT performance.
+      The objective is to make thousands of exact-format experiments practical while preserving deterministic numerical semantics.
+    </p>
+
+    <h3>Stage 0 — benchmark before building the full runtime</h3>
+    <p>
+      Implement one representative standard convolution and one MobileNet depthwise convolution using FP6 E3M2.
+      Compare three arithmetic backends:
+    </p>
+    <ol>
+      <li>algorithmic decode/arithmetic/rounding,</li>
+      <li>LUT-based arithmetic,</li>
+      <li>predecoded values + explicit accumulator rounding.</li>
+    </ol>
+
+    <p>Measure:</p>
+    <ul>
+      <li>kernel latency,</li>
+      <li>effective MAC/s,</li>
+      <li>memory bandwidth,</li>
+      <li>GPU occupancy where available,</li>
+      <li>bit-for-bit output agreement.</li>
+    </ul>
+
+    <div class="callout good">
+      Do not decide globally between LUT and algorithmic arithmetic until this benchmark is complete.
+      The best method may differ by datatype width.
+    </div>
+
+    <h3>Stage 1 — correctness-first CUDA kernel</h3>
+    <p>
+      Begin with one CUDA thread, or one logical serial accumulator within a thread, per output element:
+    </p>
+
+    <pre><code>idx = output element
+acc = zero
+
+for k in deterministic order:
+    x = load_input(...)
+    w = load_weight(...)
+    p = product(x, w)
+    acc = add_acc(acc, p)
+
+acc = add_bias(acc)
+output[idx] = activate_and_requantize(acc)</code></pre>
+
+    <p>
+      This is simple, deterministic, and exposes substantial parallelism over batch, output channels and spatial outputs.
+    </p>
+
+    <h3>Stage 2 — tile output work</h3>
+    <p>
+      Let each CUDA block compute a tile of output elements and use shared memory where it provides real reuse of weights or input windows.
+      Preserve the defined reduction order within each output accumulator.
+    </p>
+
+    <h3>Stage 3 — vectorized memory transactions</h3>
+    <p>
+      Although values initially occupy one byte each, memory can be fetched in wider words such as <code>uint32</code> and unpacked into multiple codes.
+      Later packed FP4/INT4 modes may fetch even more values per transaction.
+    </p>
+
+    <h3>Stage 4 — branchless datatype operations</h3>
+    <p>
+      Minimize divergent branches inside the MAC loop.
+      Prefer bit masks, predication, integer arithmetic and compile-time constants for sign/exponent/mantissa extraction and special-case handling.
+    </p>
+
+    <h3>Stage 5 — compile specialized kernels</h3>
+    <p>
+      Avoid a single runtime kernel containing large datatype switch statements.
+      Use templates or generated specialized kernels so datatype behavior and accumulator behavior are compile-time constants.
+    </p>
+
+    <pre><code>template&lt;
+    typename InputFormat,
+    typename WeightFormat,
+    typename AccFormat,
+    MacMode Mode
+&gt;
+kernel(...)</code></pre>
+
+    <p>
+      This naturally supports:
+    </p>
+    <ul>
+      <li>FP6 E3M2 versus FP6 E2M3,</li>
+      <li>INT6, Posit6, Log6, etc.,</li>
+      <li>different weight and activation formats,</li>
+      <li>native versus widened accumulators,</li>
+      <li>MAC Models A/B/C.</li>
+    </ul>
+
+    <h3>Stage 6 — LUT versus algorithmic execution by width</h3>
+    <p>
+      Binary-operation LUT size grows quickly:
+    </p>
+    <table>
+      <tr><th>Width</th><th>Entries / operator</th><th>Approx. 1-byte-output LUT size</th></tr>
+      <tr><td>4</td><td>256</td><td>256 B</td></tr>
+      <tr><td>5</td><td>1,024</td><td>1 KB</td></tr>
+      <tr><td>6</td><td>4,096</td><td>4 KB</td></tr>
+      <tr><td>7</td><td>16,384</td><td>16 KB</td></tr>
+      <tr><td>8</td><td>65,536</td><td>64 KB</td></tr>
+    </table>
+
+    <p>
+      FP4/5/6 tables are small enough to be attractive for cache/constant-memory use.
+      FP7/8 may favor direct arithmetic because multiple dependent LUT accesses can become memory-bound.
+      Benchmark rather than assume.
+    </p>
+
+    <h3>Stage 7 — fuse cheap post-ops</h3>
+    <p>
+      Once the numerical engine is stable, fuse common chains such as:
+    </p>
+    <div class="eq">
+      Conv + Bias + ReLU/ReLU6 + Requantize
+    </div>
+    <p>
+      This reduces intermediate global-memory writes without changing numerical semantics.
+    </p>
+
+    <h3>Stage 8 — optimize only dominant operators</h3>
+    <p>
+      Profile representative networks first.
+      If Conv/DWConv/Linear dominate runtime, prioritize them and keep pooling, residual adds and simple activations as straightforward exact kernels.
+    </p>
+
+    <h3>Performance target</h3>
+    <p>
+      Set an engineering target for the screening stage:
+    </p>
+    <div class="eq">
+      approximately 1,000 ImageNet images in &lt; 1–2 minutes per ResNet18-sized configuration on a basic Colab NVIDIA GPU
+    </div>
+    <p>
+      This is a target, not a guaranteed result. If the exact arithmetic backend is slower, the staged candidate funnel and experiment-level parallelization remain the primary controls on total runtime.
+    </p>
+
+    <h3>GPU scheduling policy</h3>
+    <p>
+      On a weak single Colab GPU, prefer one well-batched experiment at a time.
+      Do not run many independent GPU processes unless profiling shows spare capacity.
+      Across multiple GPUs/machines, distribute whole independent experiment configurations.
+    </p>
+  </section>
+
+
+  <section id="schedule">
+    <h2>Experiment scheduling and reproducibility infrastructure</h2>
+
+    <p>
+      With thousands of PTQ/inference configurations, experiments must be configuration-driven, resumable and auditable.
+      A result should never exist without enough metadata to reproduce exactly how it was obtained.
+    </p>
+
+    <h3>One machine-readable configuration per experiment</h3>
+    <p>
+      Every inference job is fully specified by a YAML/JSON configuration. The configuration is the single source of truth for the run.
+    </p>
+
+    <pre><code>experiment_id: generated_from_config_hash
+
+model:
+  name: resnet18
+  checkpoint_hash: ...
+  graph_version: bn_folded_v1
+
+dataset:
+  calibration_list: imagenet_cal_2000_seed17.txt
+  evaluation_list: imagenet_screen_1000_seed91.txt
+
+formats:
+  weight: fp6_e3m2_finite
+  activation: fp6_e3m2_finite
+  accumulator: fp12_e5m6
+
+ptq:
+  method: mse
+  weight_granularity: per_output_channel
+  activation_granularity: per_tensor
+  rounding: rne
+
+arithmetic:
+  mac_model: full_product
+  reduction_order: sequential
+
+runtime:
+  backend: cuda
+  kernel_version: ...
+
+seeds:
+  calibration: 17
+  evaluation: 91</code></pre>
+
+    <div class="callout good">
+      <b>Reproducibility rule:</b> the canonical experiment configuration must completely determine the numerical result.
+    </div>
+
+    <h3>Content-based experiment identity</h3>
+    <p>
+      Serialize each canonical configuration deterministically and compute a cryptographic hash:
+    </p>
+    <div class="eq">
+      experiment ID = SHA-256(canonical configuration)
+    </div>
+    <p>
+      If exactly the same experiment is requested twice, the scheduler recognizes the existing completed result instead of re-running it.
+    </p>
+
+    <h3>Central results database</h3>
+    <p>
+      Use <b>SQLite</b> as the primary local results database because it requires no server, supports transactions and is easy to query from Python.
+      Export analysis-ready tables to Parquet/CSV when needed.
+    </p>
+
+    <table>
+      <tr><th>Information group</th><th>Stored metadata</th></tr>
+      <tr><td>Model</td><td>model name, checkpoint hash, folded graph hash</td></tr>
+      <tr><td>Dataset</td><td>calibration/evaluation subset names and hashes</td></tr>
+      <tr><td>Datatype</td><td>weight, activation, accumulator manifest hashes</td></tr>
+      <tr><td>PTQ</td><td>calibration method, scale granularity, clipping/search configuration</td></tr>
+      <tr><td>Arithmetic</td><td>MAC model, product precision, reduction order, rounding semantics</td></tr>
+      <tr><td>Runtime</td><td>backend, kernel version, CPU/GPU, CUDA/compiler versions</td></tr>
+      <tr><td>Software</td><td>Git commit and dirty/clean repository state</td></tr>
+      <tr><td>Output</td><td>Top-1, Top-5, mAP, runtime, status and error log</td></tr>
+    </table>
+
+    <h3>Separate database records from large artifacts</h3>
+    <p>
+      Large reusable files should live in a content-addressed artifact cache, while SQLite stores their path and hash.
+    </p>
+
+    <pre><code>artifacts/
+  checkpoints/
+  folded_graphs/
+  calibration_stats/
+  quantized_weights/
+  encoded_tensors/
+  datatype_truth_tables/
+  per_image_predictions/
+  traces/</code></pre>
+
+    <h3>Job lifecycle and recovery</h3>
+    <p>Each job has an explicit state:</p>
+    <div class="eq">
+      PENDING → RUNNING → COMPLETED
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↘ FAILED / INVALID
+    </div>
+
+    <p>
+      A run should write checkpoints/results atomically. If Colab disconnects or a workstation reboots, completed jobs remain completed and only unfinished jobs are rescheduled.
+      Failed jobs retain their exception/error log for diagnosis.
+    </p>
+
+    <h3>Scheduler behavior</h3>
+    <ul>
+      <li>CPU machines: execute multiple independent experiment jobs concurrently, subject to measured memory-bandwidth limits.</li>
+      <li>Single weak GPU: normally run one well-batched experiment at a time.</li>
+      <li>Multiple machines/GPUs: distribute whole experiment configurations because jobs are independent after calibration artifacts are cached.</li>
+      <li>Do not repeat PTQ calibration when only accumulator or execution semantics change and the cached calibration result is still valid.</li>
+    </ul>
+
+    <h3>Always store per-image outputs for evaluated candidates</h3>
+    <p>
+      In addition to aggregate accuracy, save enough per-image information to perform statistical analysis without another forward pass:
+    </p>
+
+    <pre><code>image_id
+ground_truth
+fp32_prediction
+quantized_prediction
+correct_fp32
+correct_quantized
+optional logits / confidence summaries</code></pre>
+
+    <p>
+      This enables paired confidence intervals, disagreement analysis, class-wise analysis and later pruning checks at almost zero additional inference cost.
+    </p>
+  </section>
+
+  <section id="statistics">
+    <h2>Statistical treatment of screening subsets</h2>
+
+    <p>
+      The 1,000-image and 5k–10k stages are approximations of full-dataset quality.
+      They must be used to estimate uncertainty, not treated as exact rankings.
+    </p>
+
+    <h3>Use identical evaluation images for every candidate</h3>
+    <p>
+      For a given workload and screening stage, every format/configuration sees exactly the same images in exactly the same predefined subset.
+    </p>
+
+    <div class="eq">
+      S<sub>1000</sub>, S<sub>10000</sub> are fixed across all compared candidates
+    </div>
+
+    <p>
+      This makes candidate comparisons paired and substantially reduces the noise caused by some images being inherently easier than others.
+    </p>
+
+    <h3>Compare degradation relative to the FP32 reference on the same images</h3>
+    <p>
+      For classification, define per-image correctness difference:
+    </p>
+
+    <div class="eq">
+      d<sub>i</sub> =
+      I[quantized prediction is correct]
+      −
+      I[FP32 prediction is correct]
+    </div>
+
+    <p>Then:</p>
+
+    <div class="eq">
+      ΔAccuracy = (1/N) Σ d<sub>i</sub>
+    </div>
+
+    <p>
+      Store the full paired outcome counts:
+    </p>
+    <ul>
+      <li>both FP32 and quantized correct,</li>
+      <li>FP32 correct / quantized wrong,</li>
+      <li>FP32 wrong / quantized correct,</li>
+      <li>both wrong.</li>
+    </ul>
+
+    <h3>Paired bootstrap confidence intervals</h3>
+    <p>
+      Use paired bootstrap resampling over image IDs to estimate uncertainty in <code>ΔTop-1</code>, <code>ΔTop-5</code> and other aggregate metrics where applicable.
+      A practical default is several thousand bootstrap resamples because this analysis is tiny compared with CNN inference.
+    </p>
+
+    <div class="eq">
+      example result:
+      ΔTop-1 = −0.8 percentage points,
+      95% CI = [−1.5, −0.2]
+    </div>
+
+    <p>
+      For detector metrics such as COCO mAP, use dataset-level bootstrap/resampling appropriate to the evaluation implementation rather than pretending mAP is a simple Bernoulli accuracy.
+    </p>
+
+    <h3>Interpretation of the 1k stage</h3>
+    <div class="callout warn">
+      <b>The 1,000-image stage is not a precise ranking stage.</b>
+      A difference of a few tenths of a percentage point is not sufficient evidence to eliminate one candidate in favor of another.
+    </div>
+
+    <p>
+      The 1k stage should answer:
+    </p>
+    <ul>
+      <li>Is the configuration numerically functional?</li>
+      <li>Is degradation obviously catastrophic?</li>
+      <li>Is the candidate clearly promising?</li>
+      <li>Is the result too uncertain to judge yet?</li>
+    </ul>
+
+    <h3>Calibration-subset robustness</h3>
+    <p>
+      The full search uses the frozen calibration subset for efficiency.
+      For a small finalist set, repeat calibration with several alternative fixed seeds and report whether ranking and degradation remain stable.
+    </p>
+  </section>
+
+  <section id="pruning">
+    <h2>Conservative candidate pruning and promotion</h2>
+
+    <div class="callout good">
+      <b>Core rule:</b> uncertainty causes promotion to a larger evaluation set, not elimination.
+      The early stages should remove broken configurations, not aggressively narrow the scientific search space.
+    </div>
+
+    <h3>Distinguish configuration, format and family</h3>
+    <p>Pruning operates at three different levels:</p>
+
+    <table>
+      <tr><th>Level</th><th>Example</th><th>Elimination policy</th></tr>
+      <tr><td>Configuration</td><td>FP6 E3M2 + W6A6 + native accumulator + one scale policy</td><td>Can be pruned relatively early if clearly poor.</td></tr>
+      <tr><td>Format</td><td>FP6 E3M2</td><td>Requires multiple reasonable configurations before removal.</td></tr>
+      <tr><td>Family</td><td>floating point, posit, logarithmic, MX</td><td>Very conservative; never remove from one configuration or one model.</td></tr>
+    </table>
+
+    <h3>Stage 0 — numerical and implementation sanity</h3>
+    <p>
+      Reject only objectively invalid/broken runs before dataset screening:
+    </p>
+    <ul>
+      <li>oracle/backend mismatch,</li>
+      <li>invalid arithmetic semantics,</li>
+      <li>NaN/invalid-value explosion when not supported by the format,</li>
+      <li>all-zero or constant outputs caused by implementation/configuration failure,</li>
+      <li>near-random prediction caused by obvious catastrophic numerical collapse.</li>
+    </ul>
+
+    <p>
+      A failed configuration does <b>not</b> automatically eliminate its datatype.
+    </p>
+
+    <h3>Stage 1 — 1,000-image screening</h3>
+    <p>
+      Run the broad candidate set on the same stratified ≈1,000-image subset.
+      Do not use this stage for fine ranking.
+    </p>
+
+    <p>Assign candidates to broad states:</p>
+    <div class="eq">
+      PROMISING &nbsp;&nbsp; | &nbsp;&nbsp; UNCERTAIN &nbsp;&nbsp; | &nbsp;&nbsp; CATASTROPHIC / BROKEN
+    </div>
+
+    <ul>
+      <li><b>Promising:</b> automatically promote.</li>
+      <li><b>Uncertain:</b> automatically promote; more data is required.</li>
+      <li><b>Catastrophic:</b> diagnose first. Remove the configuration only when failure is genuine rather than caused by an obviously unreasonable accumulator/scale choice.</li>
+    </ul>
+
+    <div class="callout warn">
+      There is intentionally <b>no hard “top-N survives” rule at 1k</b>.
+      Numeric thresholds, if used for diagnostics, are provisional and must not eliminate close or uncertain candidates.
+    </div>
+
+    <h3>Family-preservation rule</h3>
+    <p>
+      Before eliminating an entire major datatype family, evaluate at minimum:
+    </p>
+    <ul>
+      <li>at least one reasonable scaling configuration,</li>
+      <li>at least one reasonable widened-accumulator configuration,</li>
+      <li>at least two representative CNN workloads,</li>
+      <li>a second reasonable PTQ/calibration variant if the family appears unexpectedly poor under the baseline method.</li>
+    </ul>
+
+    <p>
+      This prevents conclusions such as “Posit is poor” when only “Posit6 + native accumulator + one scale policy on one network” was actually poor.
+    </p>
+
+    <h3>Stage 2 — 5k–10k validation</h3>
+    <p>
+      Promote a deliberately broad set:
+    </p>
+    <ul>
+      <li>all promising candidates,</li>
+      <li>all statistically uncertain candidates,</li>
+      <li>at least one strong representative of every surviving datatype family,</li>
+      <li>candidates with unusually attractive expected hardware efficiency,</li>
+      <li>candidates close to the current numerical/hardware Pareto envelope.</li>
+    </ul>
+
+    <p>
+      This is the first stage where meaningful comparative ranking begins, but overlapping confidence intervals still prevent aggressive elimination.
+    </p>
+
+    <h3>Hardware-aware preservation</h3>
+    <p>
+      Accuracy alone is not sufficient for pruning.
+      A candidate with modestly lower accuracy may still be valuable if it saves substantial area or energy.
+    </p>
+
+    <p>Candidate A is only safely dominated when another candidate B is convincingly no worse in quality and no worse in the relevant hardware metrics:</p>
+    <div class="eq">
+      Accuracy<sub>B</sub> ≥ Accuracy<sub>A</sub>,
+      &nbsp;
+      Area<sub>B</sub> ≤ Area<sub>A</sub>,
+      &nbsp;
+      Energy<sub>B</sub> ≤ Energy<sub>A</sub>,
+      &nbsp;
+      Throughput<sub>B</sub> ≥ Throughput<sub>A</sub>
+    </div>
+
+    <h3>Pareto uncertainty buffer</h3>
+    <p>
+      Keep candidates close to the apparent Pareto front rather than preserving only mathematically exact current Pareto points.
+      The buffer accounts for:
+    </p>
+    <ul>
+      <li>subset sampling error,</li>
+      <li>calibration variation,</li>
+      <li>later accumulator/scaling optimization,</li>
+      <li>uncertainty in early hardware estimates.</li>
+    </ul>
+
+    <p>
+      Exact numerical buffer thresholds should be chosen after pilot variance measurements rather than frozen before any data exists.
+    </p>
+
+    <h3>Cross-workload preservation</h3>
+    <p>
+      Evaluate both average and worst-case degradation across workloads.
+      Keep candidates that are consistently good, exceptionally strong on an important workload, or uniquely hardware-efficient.
+      Do not collapse all models into one mean score too early.
+    </p>
+
+    <h3>Weight/activation asymmetry preservation</h3>
+    <p>
+      Uniform W=A performance must not be the sole criterion for survival.
+      Every surviving major family should receive at least a small W/A-asymmetry exploration because some formats may be excellent for weights but less suitable for activations.
+    </p>
+
+    <h3>Stage 3 — full validation</h3>
+    <p>
+      Full ImageNet/COCO validation should still include a relatively broad finalist set—approximately <b>20–40 configurations</b> if computationally practical.
+      Strong elimination decisions should be made here, not after the 1k stage.
+    </p>
+
+    <h3>Stage 4 — increasingly expensive hardware pruning</h3>
+    <p>A reasonable conservative progression is:</p>
+
+    <table>
+      <tr><th>Stage</th><th>Approximate surviving set</th><th>Purpose</th></tr>
+      <tr><td>Full numerical validation</td><td>~20–40 configurations</td><td>high-confidence accuracy / mAP</td></tr>
+      <tr><td>Arithmetic RTL synthesis</td><td>~8–15</td><td>real arithmetic area/fmax/power</td></tr>
+      <tr><td>MAC/FPU/tile-level evaluation</td><td>~4–8</td><td>include non-arithmetic overhead</td></tr>
+      <tr><td>Detailed P&amp;R</td><td>~2–4</td><td>final physical comparison</td></tr>
+      <tr><td>Chip decision</td><td>1 primary + optional backup</td><td>freeze implementation</td></tr>
+    </table>
+
+    <h3>Promotion pseudocode</h3>
+    <pre><code>for candidate in broad_search:
+    result_1k = evaluate(candidate, S_1000)
+
+    if implementation_is_broken(result_1k):
+        diagnose(candidate)
+    else:
+        # both promising AND uncertain candidates continue
+        promote_to_10k(candidate)
+
+for candidate in promoted:
+    result_10k = evaluate(candidate, S_10000)
+
+    keep_if(
+        statistically_promising
+        OR statistically_uncertain
+        OR family_representative
+        OR near_pareto_front
+        OR unusually_hardware_efficient
+        OR important_cross_workload_specialist
+    )
+
+# aggressive pruning begins only after high-confidence
+# full-dataset results and increasingly realistic hardware data</code></pre>
+
+    <div class="callout good">
+      <b>Overall philosophy:</b> be aggressive about eliminating redundant/broken <i>configurations</i>,
+      but conservative about eliminating <i>formats</i> and especially entire <i>datatype families</i>.
+    </div>
+  </section>
+
+
+  <section id="synth-method">
+    <h2>Hardware synthesis methodology</h2>
+
+    <p>
+      The hardware study should not compare datatypes using one arbitrary RTL implementation.
+      Each datatype should be represented by a small Pareto set of implementations discovered under identical synthesis and physical-design methodology.
+    </p>
+
+    <h3>Primary and secondary PDK strategy</h3>
+    <table>
+      <tr><th>PDK / library</th><th>Role in the study</th></tr>
+      <tr><td><b>ICsprout55 / ICS55 (55 nm)</b></td><td><b>Primary process for serious synthesis/P&amp;R results.</b> Use the open standard-cell libraries as the main comparison target.</td></tr>
+      <tr><td>SKY130</td><td>Secondary cross-process validation using a mature open ecosystem.</td></tr>
+      <tr><td>GF180MCU</td><td>Optional second mature open-node cross-check.</td></tr>
+      <tr><td>IHP SG13G2</td><td>Optional open alternative for methodology validation where flows are suitable.</td></tr>
+      <tr><td>FreePDK45 / Nangate45</td><td>Academic/predictive comparison only; do not present as manufacturable-silicon evidence.</td></tr>
+      <tr><td>ASAP7</td><td>Optional technology-scaling study only; not a fabrication result.</td></tr>
+    </table>
+
+    <div class="callout warn">
+      <b>Primary-node policy:</b> ICS55 is the main target, but the methodology should not assume that every signoff-quality model, SRAM macro or extraction feature is equally mature.
+      If a required final-stage capability is unavailable, state the limitation explicitly and validate the flow on a more mature open PDK rather than pretending equivalent signoff fidelity.
+    </div>
+
+    <h3>Baseline VT choice</h3>
+    <p>
+      Use <b>RVT</b> cells as the baseline because they provide a neutral starting point between performance and leakage.
+      For finalists, repeat selected runs using HVT and LVT libraries where available to characterize the performance/leakage sensitivity.
+    </p>
+
+    <div class="eq">
+      Baseline = ICS55 + RVT
+      <br>
+      Finalist VT sensitivity = HVT / RVT / LVT
+    </div>
+
+    <h3>Frequency sweep instead of one arbitrary clock target</h3>
+    <p>
+      A single target clock can distort area comparisons because synthesis may aggressively upsize one design while another meets timing easily.
+      Each implementation should therefore be synthesized across several progressively tighter timing constraints.
+    </p>
+
+    <div class="eq">
+      implementation → {T<sub>1</sub>, T<sub>2</sub>, …, T<sub>n</sub>} → area / power / slack / F<sub>max</sub> curve
+    </div>
+
+    <p>
+      The exact frequencies should be selected after a pilot on ICS55 rather than guessed in advance.
+      Report both:
+    </p>
+    <ul>
+      <li><b>iso-frequency comparison</b> — all designs at one or more common clocks that they can meet,</li>
+      <li><b>architecture-optimized comparison</b> — each design at its own best Pareto operating point.</li>
+    </ul>
+
+    <h3>Pipeline depth is part of the search</h3>
+    <p>
+      For architectures where pipelining is meaningful, sweep a small set of pipeline depths, initially around 0–3 internal stages.
+      At these very small operand widths, very deep pipelines are unlikely to be efficient, but the tool should determine the Pareto outcome.
+    </p>
+
+    <p>Report:</p>
+    <ul>
+      <li>logic area,</li>
+      <li>pipeline-register area,</li>
+      <li>clock-related power for pipelined finalists,</li>
+      <li>latency in cycles,</li>
+      <li>initiation interval (II),</li>
+      <li>throughput = f / II.</li>
+    </ul>
+
+    <h3>Iterative and serial designs</h3>
+    <p>
+      Bit-serial, digit-serial and iterative multipliers must not be penalized or rewarded using frequency alone.
+      For each such design record:
+    </p>
+    <div class="eq">
+      latency, II, operations/s, energy/op, area
+    </div>
+
+    <p>
+      A 3-cycle fully pipelined unit with <code>II=1</code> is fundamentally different from a 3-cycle iterative unit with <code>II=3</code>.
+    </p>
+
+    <h3>Standard timing harness</h3>
+    <p>
+      Compare combinational arithmetic blocks inside a standardized register-to-register harness:
+    </p>
+    <div class="eq">
+      launch DFF → DUT → capture DFF
+    </div>
+
+    <p>
+      Wrapper registers exist only to define realistic launch/load conditions and are excluded from core arithmetic area for a purely combinational DUT.
+      Internal pipeline registers belonging to the architecture are included.
+    </p>
+
+    <h3>Physical-design depth by search stage</h3>
+    <table>
+      <tr><th>Candidate stage</th><th>Hardware flow</th><th>Purpose</th></tr>
+      <tr><td>Broad architecture sweep</td><td>logic synthesis</td><td>rapid area/timing pruning</td></tr>
+      <tr><td>~8–15 candidates</td><td>synthesis + placement / preliminary physical estimate</td><td>capture wiring and congestion effects</td></tr>
+      <tr><td>~2–4 finalists</td><td>full placement, CTS, routing, extraction and detailed power where supported</td><td>publication-quality physical comparison</td></tr>
+    </table>
+
+    <p>
+      For final P&amp;R candidates, use multiple placement seeds when practical and report median/representative results so one unusually favorable placement does not determine the conclusion.
+    </p>
+
+    <h3>Required hardware metrics</h3>
+    <p>Every synthesized implementation should record at least:</p>
+    <div class="eq">
+      Area, F<sub>max</sub>, latency, II, throughput, leakage, dynamic power, energy/op
+    </div>
+    <p>
+      Finalists should also include post-route timing, routed area, clock-tree contribution and switching-based power where the PDK/flow supports them.
+    </p>
+  </section>
+
+  <section id="arch-search">
+    <h2>Comprehensive arithmetic architecture search space</h2>
+
+    <p>
+      There is no finite list of literally every possible multiplier/FPU architecture because arbitrary hybrids can be invented.
+      The search should instead cover all major architecture families relevant to exact ≤8-bit neural arithmetic and allow systematic combinations of their building blocks.
+    </p>
+
+    <h3>Integer and significand-multiplier architecture universe</h3>
+    <table>
+      <tr><th>Design dimension</th><th>Architectures / options to cover</th></tr>
+      <tr><td>Basic multiplication</td><td>array/Braun, Baugh-Wooley, shift-add</td></tr>
+      <tr><td>Recoding</td><td>none, Booth radix-2, modified Booth radix-4, radix-8, optional radix-16</td></tr>
+      <tr><td>Partial-product reduction</td><td>array reduction, Wallace tree, Dadda tree, carry-save tree</td></tr>
+      <tr><td>Compressors</td><td>3:2 full-adder, 4:2 compressor, generalized counter/compressor variants where useful</td></tr>
+      <tr><td>Final adder</td><td>ripple-carry, carry-lookahead, carry-skip, carry-select, conditional-sum</td></tr>
+      <tr><td>Prefix adder</td><td>Kogge-Stone, Brent-Kung, Sklansky, Han-Carlson, Ladner-Fischer</td></tr>
+      <tr><td>Serial / iterative</td><td>bit-serial, digit-serial, iterative shift-add, iterative Booth</td></tr>
+      <tr><td>Recursive</td><td>Karatsuba, Toom-Cook variants</td></tr>
+      <tr><td>Table-based</td><td>full product LUT/ROM, segmented LUT</td></tr>
+      <tr><td>Niche exact structures</td><td>Vedic/Urdhva-style implementations and other clearly distinct exact structures</td></tr>
+      <tr><td>Approximate branch</td><td>truncated, broken-array, approximate compressors, Mitchell/log-style approximations — evaluated separately</td></tr>
+    </table>
+
+    <div class="callout">
+      At 2–8-bit widths, sophisticated algorithms such as high-radix Booth, Karatsuba or Toom-Cook may lose to simpler structures because their recoding/control overhead is no longer negligible.
+      The study should synthesize them rather than assume conventional large-width conclusions still hold.
+    </div>
+
+    <h3>Architecture composition</h3>
+    <p>
+      A multiplier should be represented as a composition:
+    </p>
+    <div class="eq">
+      recoding / partial-product generation
+      + reduction network
+      + final adder
+      + pipeline choice
+    </div>
+
+    <p>Examples to generate include:</p>
+    <ul>
+      <li>Booth4 + Wallace + Kogge-Stone,</li>
+      <li>Booth4 + Dadda + Brent-Kung,</li>
+      <li>Baugh-Wooley + Dadda + ripple-carry,</li>
+      <li>plain partial products + Wallace + CLA.</li>
+    </ul>
+
+    <h3>Floating-point / minifloat multiplier search</h3>
+    <p>
+      A floating-point multiplier includes more than its significand multiplier:
+    </p>
+    <div class="eq">
+      unpack → sign → exponent path → significand multiply → normalize → round → pack
+    </div>
+
+    <p>Search dimensions include:</p>
+    <ul>
+      <li>all sensible significand multiplier architectures from the integer search,</li>
+      <li>small ripple/CLA/prefix exponent adders,</li>
+      <li>normalization using staged shift, barrel/logarithmic shift, leading-zero/leading-one detection,</li>
+      <li>format-specific RNE implementation,</li>
+      <li>finite-only path versus subnormal/special-value support where the datatype requires it,</li>
+      <li>pipeline boundaries around decode / multiply / normalize-round-pack.</li>
+    </ul>
+
+    <h3>Floating-point adder search</h3>
+    <table>
+      <tr><th>Sub-block</th><th>Candidate architectures</th></tr>
+      <tr><td>Exponent compare</td><td>subtract/compare, dedicated comparator</td></tr>
+      <tr><td>Alignment</td><td>barrel shifter, logarithmic shifter, staged mux shift</td></tr>
+      <tr><td>Significand adder</td><td>RCA, CLA, carry-select, prefix families</td></tr>
+      <tr><td>Normalization</td><td>leading-zero detector, leading-zero anticipation</td></tr>
+      <tr><td>Datapath organization</td><td>single-path, dual-path / close-path + far-path</td></tr>
+      <tr><td>Internal representation</td><td>ordinary binary, carry-save/redundant where useful</td></tr>
+      <tr><td>Rounding</td><td>post-add RNE and simplified alternatives only as explicit ablations</td></tr>
+      <tr><td>Pipeline</td><td>unpipelinined and small staged variants</td></tr>
+    </table>
+
+    <h3>MAC / FMA architecture families</h3>
+    <p>Implement architectures corresponding to the numerical MAC models:</p>
+    <ul>
+      <li><b>separate multiply + add</b> with independent product rounding,</li>
+      <li><b>narrow product + wider accumulator</b>,</li>
+      <li><b>fused multiply-add</b> with one final normalization/rounding event,</li>
+      <li><b>carry-save / redundant accumulation</b> where useful,</li>
+      <li><b>Kulisch-style or exact fixed-point accumulation</b> followed by final rounding.</li>
+    </ul>
+
+    <div class="callout good">
+      <b>Kulisch / exact accumulation is a high-priority candidate.</b>
+      Low-bit floating-point products may map efficiently into a bounded exact/fixed aligned accumulator, potentially improving both quality and hardware efficiency compared with repeatedly normalized FP addition.
+    </div>
+
+    <h3>Posit architecture space</h3>
+    <p>Evaluate:</p>
+    <ul>
+      <li>ordinary Posit decode → significand multiply/add → normalize → encode,</li>
+      <li>wider Posit accumulation,</li>
+      <li><b>Posit + quire</b> dot-product architectures.</li>
+    </ul>
+
+    <h3>MX / BFP architecture space</h3>
+    <p>Search choices for:</p>
+    <ul>
+      <li>block exponent / scale detection,</li>
+      <li>shared-scale storage and distribution,</li>
+      <li>element arithmetic using INT, minifloat or small mantissa datapaths,</li>
+      <li>scale-early versus scale-late execution,</li>
+      <li>integer/fixed partial sums before applying block scales,</li>
+      <li>wide block accumulation and final requantization.</li>
+    </ul>
+
+    <h3>Logarithmic architecture space</h3>
+    <p>
+      Multiplication is cheap in the log domain:
+    </p>
+    <div class="eq">
+      log<sub>2</sub>(xy) = log<sub>2</sub>(x) + log<sub>2</sub>(y)
+    </div>
+
+    <p>For addition/accumulation compare:</p>
+    <ul>
+      <li>full LNS addition with correction LUT,</li>
+      <li>segmented LUT correction,</li>
+      <li>piecewise-linear correction,</li>
+      <li>shift-add approximation,</li>
+      <li><b>log-domain multiplication + linear accumulator</b>.</li>
+    </ul>
+
+    <h3>Codebook / non-uniform architecture space</h3>
+    <p>Compare:</p>
+    <ul>
+      <li>decode codebook value → conventional arithmetic,</li>
+      <li>direct 2D product LUT indexed by the two low-bit codes,</li>
+      <li>segmented/shared decode structures,</li>
+      <li>small LUT + wider accumulator combinations.</li>
+    </ul>
+
+    <h3>Binary and ternary extreme-efficiency points</h3>
+    <ul>
+      <li>binary XNOR + popcount / sign-select accumulation,</li>
+      <li>ternary −x / 0 / +x select-and-accumulate with zero gating,</li>
+      <li>2-bit multi-level shift/add or LUT implementations.</li>
+    </ul>
+
+    <h3>Approximate arithmetic policy</h3>
+    <p>
+      Approximate multipliers/adders belong to a <b>separate optional branch</b>.
+      The primary datatype study uses exact arithmetic so datatype quantization error is not confounded with circuit approximation error.
+      Approximate arithmetic can be explored later as an additional co-design dimension.
+    </p>
+
+    <h3>Automated architecture generation and pruning</h3>
+    <p>
+      For each operand width and datatype family, enumerate legal combinations of:
+    </p>
+    <div class="eq">
+      recoding, reduction, final adder, normalization, rounding, accumulator, pipeline, MAC type
+    </div>
+
+    <p>
+      Synthesize automatically and preserve all points on or near the:
+    </p>
+    <div class="eq">
+      Area – Delay – Energy – Throughput Pareto frontier
+    </div>
+
+    <div class="callout good">
+      <b>Fairness rule:</b> the final datatype comparison should use the best discovered Pareto implementations for each datatype,
+      not one hand-written architecture chosen in advance.
+    </div>
+  </section>
+
+  <section id="power-method">
+    <h2>Power and energy methodology</h2>
+
+    <h3>Two-stage power estimation</h3>
+    <table>
+      <tr><th>Stage</th><th>Method</th><th>Purpose</th></tr>
+      <tr><td>Broad architecture sweep</td><td>fixed vectorless/default switching assumptions under identical conditions</td><td>rough pruning only</td></tr>
+      <tr><td>Finalists</td><td>real workload-derived switching activity from quantized CNN traces</td><td>publication-quality energy comparison</td></tr>
+    </table>
+
+    <div class="callout warn">
+      Vectorless power is acceptable for broad pruning but should not be the headline energy result.
+    </div>
+
+    <h3>Workload-derived activity</h3>
+    <p>
+      Final power runs should use operand sequences extracted from the exact quantized inference engine.
+      Representative traces should include multiple operator styles, for example:
+    </p>
+    <ul>
+      <li>ResNet18 3×3 convolution,</li>
+      <li>MobileNet pointwise convolution,</li>
+      <li>MobileNet depthwise convolution,</li>
+      <li>optional YOLO/EfficientNet representative layers.</li>
+    </ul>
+
+    <p>
+      Each datatype receives traces generated by its own quantized network so encoding-dependent switching activity is naturally captured.
+    </p>
+
+    <h3>SAIF and VCD policy</h3>
+    <ul>
+      <li><b>SAIF</b> — primary average switching/power input for finalist comparisons.</li>
+      <li><b>VCD</b> — detailed waveform/peak/glitch analysis and debugging where practical.</li>
+      <li>If the final open-source flow supports delay-aware gate-level simulation, use post-route timing/SDF for a small finalist set to capture glitch activity.</li>
+    </ul>
+
+    <h3>Identical logical workload windows</h3>
+    <p>
+      Compare architectures using the same logical operation sequences for the same datatype/workload.
+      For pipelined designs, distinguish pipeline fill/drain from steady-state activity.
+      For iterative designs, include every cycle required for each operation.
+    </p>
+
+    <h3>Power components and derived metrics</h3>
+    <p>Report separately:</p>
+    <div class="eq">
+      P<sub>dynamic</sub>, P<sub>leakage</sub>, P<sub>clock</sub> where available, P<sub>total</sub>
+    </div>
+
+    <p>Then derive:</p>
+    <div class="eq">
+      Energy/op = P<sub>total</sub> / Throughput
+      <br>
+      EDP = Energy/op × operation latency
+    </div>
+
+    <p>
+      Area/energy/throughput Pareto plots are the primary presentation.
+      EDP can be reported as an auxiliary scalar metric.
+    </p>
+
+    <h3>Clock power must count</h3>
+    <p>
+      Pipeline-register and clock-tree power must be included for pipelined finalists.
+      A deeply pipelined design must not appear artificially efficient by counting only its combinational datapath.
+    </p>
+
+    <h3>Glitch-power policy</h3>
+    <p>
+      Zero-delay simulation can underestimate combinational dynamic power because hazards/glitches are absent.
+      For the final 2–4 candidates, perform delay-aware post-route switching analysis if the PDK and open flow support it reliably.
+    </p>
+
+    <div class="callout">
+      If ICS55 preview data does not support a reliable extracted-delay/glitch methodology, state that limitation explicitly and report activity-based non-glitch dynamic power for ICS55.
+      Optionally validate the delay-aware methodology using a more mature open PDK rather than inventing unsupported precision.
+    </div>
+
+    <h3>Trace-length convergence</h3>
+    <p>
+      Power estimation does not require the full ImageNet validation set.
+      Use a fixed representative image subset and check convergence as trace length grows, for example:
+    </p>
+    <div class="eq">
+      32 → 64 → 128 → 256 images
+    </div>
+
+    <p>
+      Stop when the chosen power metric changes by less than a predeclared tolerance such as ~1% between successive sufficiently large samples.
+      The exact tolerance can be frozen after pilot measurements.
+    </p>
+
+    <h3>Iso-frequency and best-operating-point comparisons</h3>
+    <p>Report both:</p>
+    <ul>
+      <li><b>iso-frequency power/energy</b> for all implementations that meet the same common clock,</li>
+      <li><b>best Pareto operating point</b> for each architecture under its own frequency/pipeline configuration.</li>
+    </ul>
+
+    <h3>Final hardware result package</h3>
+    <p>For every final physical candidate report:</p>
+    <ul>
+      <li>PDK/library/corner and VT class,</li>
+      <li>area, cell count and register count,</li>
+      <li>target clock and achieved timing,</li>
+      <li>latency and initiation interval,</li>
+      <li>throughput,</li>
+      <li>dynamic/leakage/clock/total power where available,</li>
+      <li>energy per operation,</li>
+      <li>accuracy/mAP associated with the exact same datatype/arithmetic configuration.</li>
+    </ul>
+  </section>
+
+
+  <section id="memory-cost">
+    <h2>Memory cost methodology for different numerical formats</h2>
+
+    <p>
+      Memory cost must be evaluated at several abstraction levels because a datatype's nominal bit width does not automatically translate into the same percentage of physical SRAM-area savings.
+      The study should therefore report both intrinsic information density and realizable physical-memory cost.
+    </p>
+
+    <h3>Memory-model options and what they mean</h3>
+    <table>
+      <tr><th>Method</th><th>Meaning</th><th>Use in this study</th></tr>
+      <tr><td><b>Ideal bit-level scaling</b></td><td>An N-value b-bit tensor costs exactly N×b bits.</td><td>Architecture-independent theoretical lower bound.</td></tr>
+      <tr><td><b>Packed logical memory</b></td><td>Values are densely packed into logical words/banks with explicit padding/alignment.</td><td>Models realizable storage and bandwidth utilization.</td></tr>
+      <tr><td>Flip-flop / register memory</td><td>Memory implemented entirely from standard cells.</td><td>Useful only for tiny memories or fallback studies; inefficient versus SRAM.</td></tr>
+      <tr><td>Synthesized register-file / latch array</td><td>Custom small local memory synthesized from cells/latches.</td><td>Possible model for very small per-tile memories when SRAM macros are unavailable.</td></tr>
+      <tr><td>Inferred SRAM</td><td>RTL memory is mapped by the implementation flow when technology support exists.</td><td>Convenient but quality depends on tool/PDK support.</td></tr>
+      <tr><td>OpenRAM-generated SRAM</td><td>Technology-specific SRAM macro generated for the requested organization.</td><td>Preferred physical option when available and validated for the PDK.</td></tr>
+      <tr><td><b>Real PDK SRAM macro/compiler</b></td><td>Characterized SRAM block from the actual process technology.</td><td>Best physical evidence when available.</td></tr>
+      <tr><td>CACTI / analytical memory model</td><td>Parameter-driven area/energy/timing estimate.</td><td>Fast exploratory sweep; not the sole source of final silicon claims.</td></tr>
+      <tr><td>Existing-macro packing</td><td>Low-bit values are mapped into fixed-width 8/16/32-bit or other available SRAM organizations.</td><td>Shows how much nominal low-bit saving survives real macro granularity.</td></tr>
+    </table>
+
+    <h3>Three reporting levels</h3>
+
+    <h4>Level A — ideal information-density scaling</h4>
+    <p>
+      For N values of width b:
+    </p>
+    <div class="eq">
+      C<sub>ideal</sub> = N × b
+    </div>
+    <p>Relative to an 8-bit representation:</p>
+    <div class="eq">
+      Saving(b) = 1 − b/8
+    </div>
+    <table>
+      <tr><th>Width</th><th>Ideal bit saving vs 8 bit</th></tr>
+      <tr><td>8</td><td>0%</td></tr>
+      <tr><td>7</td><td>12.5%</td></tr>
+      <tr><td>6</td><td>25%</td></tr>
+      <tr><td>5</td><td>37.5%</td></tr>
+      <tr><td>4</td><td>50%</td></tr>
+      <tr><td>3</td><td>62.5%</td></tr>
+      <tr><td>2</td><td>75%</td></tr>
+    </table>
+
+    <h4>Level B — realizable packed logical memory</h4>
+    <p>
+      Explicitly model word width, bank width, alignment, padding, number of ports and unused bits.
+      For example, four FP6 values require 24 logical bits, but if they occupy a 32-bit physical interface:
+    </p>
+    <div class="eq">
+      utilization = 24/32 = 75%
+    </div>
+    <p>
+      Report both nominal datatype width and effective physical bits/value after packing.
+    </p>
+
+    <h4>Level C — physical-memory implementation</h4>
+    <p>
+      For final chip-level comparisons, use the best technology-supported memory implementation in this preference order:
+    </p>
+    <ol>
+      <li>characterized PDK SRAM macro/compiler,</li>
+      <li>validated OpenRAM / technology-specific generated SRAM,</li>
+      <li>synthesized local-memory structure if no trustworthy SRAM option exists.</li>
+    </ol>
+
+    <div class="callout warn">
+      For ICS55, keep the memory methodology flexible until the final memory/macro support available in the chosen open flow is verified.
+      If a precise physical SRAM comparison cannot be made, separate the ideal/logical memory result from the physical estimate and state the limitation explicitly.
+    </div>
+
+    <h3>Memory metrics to report</h3>
+    <p>Do not report only storage capacity. For each datatype / memory organization, measure or estimate:</p>
+    <ul>
+      <li>usable capacity,</li>
+      <li>physical area,</li>
+      <li>read energy,</li>
+      <li>write energy,</li>
+      <li>read/write latency,</li>
+      <li>delivered bandwidth,</li>
+      <li>effective bits/value after padding and metadata.</li>
+    </ul>
+
+    <h3>Memory energy per inference</h3>
+    <div class="eq">
+      E<sub>memory,inf</sub> =
+      N<sub>read</sub>E<sub>read</sub>
+      +
+      N<sub>write</sub>E<sub>write</sub>
+    </div>
+    <p>
+      Count accesses separately for weights, activations, accumulators, scale metadata and other local structures where relevant.
+    </p>
+
+    <h3>Ideal versus physical scaling result</h3>
+    <p>
+      One explicit analysis should compare the theoretical bit saving against the physically realizable area/energy saving.
+      The difference itself may be an important result: a 5-bit format can have a 37.5% ideal storage advantage while a real macro organization preserves substantially less.
+    </p>
+
+    <h3>Memory sensitivity cases</h3>
+    <p>For finalists, compare at least:</p>
+    <ul>
+      <li>same number of stored values,</li>
+      <li>same physical memory area,</li>
+      <li>same memory bandwidth budget,</li>
+      <li>same model working set / cache-locality requirement.</li>
+    </ul>
+
+    <div class="callout good">
+      <b>Primary principle:</b> arithmetic savings and memory savings are evaluated separately first, then combined at the tile/chip level.
+      A datatype is not credited with ideal SRAM savings if the chosen physical memory organization cannot realize them.
+    </div>
+  </section>
+
+  <section id="scaling-cost">
+    <h2>Scaling hardware cost: analysis and presentation</h2>
+
+    <p>
+      Scaling overhead must be treated as real hardware rather than hidden inside the numerical model.
+      Divide scaling cost into four components:
+    </p>
+
+    <div class="eq">
+      scaling cost =
+      metadata storage
+      +
+      scale generation
+      +
+      scale application
+      +
+      scale movement
+    </div>
+
+    <h3>1. Scale metadata</h3>
+    <p>
+      For block-scaled formats, report metadata in both total bits and amortized bits/value.
+      If an 8-bit scale serves a block of B values:
+    </p>
+
+    <div class="eq">
+      metadata bits/value = 8/B
+    </div>
+
+    <table>
+      <tr><th>Block size B</th><th>8-bit scale overhead</th></tr>
+      <tr><td>16</td><td>0.5 bits/value</td></tr>
+      <tr><td>32</td><td>0.25 bits/value</td></tr>
+      <tr><td>64</td><td>0.125 bits/value</td></tr>
+    </table>
+
+    <p>
+      Metadata must also be included when computing effective memory density and scale-bandwidth traffic.
+    </p>
+
+    <h3>2. Scale generation</h3>
+    <table>
+      <tr><th>Scaling mode</th><th>Runtime generation cost</th></tr>
+      <tr><td>Static weight PTQ scale</td><td>Computed offline; hardware generation cost ≈0, only storage/read cost remains.</td></tr>
+      <tr><td>Static activation PTQ scale</td><td>Precomputed from calibration; no online search logic.</td></tr>
+      <tr><td>Dynamic MX/BFP scale</td><td>Requires runtime magnitude/exponent detection, max reduction and scale-generation logic.</td></tr>
+    </table>
+
+    <p>
+      Dynamic scale-generation RTL should explicitly count comparators, reduction trees, exponent/leading-zero logic, registers and control.
+    </p>
+
+    <h3>3. Scale application by datatype family</h3>
+
+    <h4>INT with arbitrary real-valued scale</h4>
+    <div class="eq">
+      q<sub>out</sub> =
+      Round(q<sub>acc</sub> × (s<sub>x</sub>s<sub>w</sub>/s<sub>out</sub>))
+    </div>
+    <p>
+      The practical hardware path may use an integer multiplier, fixed-point multiplier, shift, rounding and clamp.
+      Compare optimized requantization hardware rather than charging a generic full multiplier automatically.
+    </p>
+
+    <h4>INT with power-of-two scale</h4>
+    <p>
+      Scale application largely reduces to shifts plus rounding/saturation.
+      This is a key hardware-oriented ablation.
+    </p>
+
+    <h4>FP/minifloat with power-of-two scale</h4>
+    <p>
+      Scaling can often be implemented as exponent adjustment rather than a general multiply.
+    </p>
+
+    <h4>FP/minifloat with arbitrary scale</h4>
+    <p>
+      Explore optimized choices such as folding weight scales offline, combining output scaling with requantization,
+      reusing an existing multiplier, or encoding scale partly through exponent/bias manipulation where valid.
+    </p>
+
+    <h4>MX / BFP</h4>
+    <p>Compare two main architecture strategies:</p>
+    <ul>
+      <li><b>scale early</b> — apply element/block scales before or during each product,</li>
+      <li><b>scale late</b> — accumulate raw low-precision block products, then apply <code>s_x × s_w</code> to the block partial sum.</li>
+    </ul>
+    <p>
+      Scale-late execution may amortize scaling hardware over many MACs and should be an explicit architecture-search dimension.
+    </p>
+
+    <h4>Posit</h4>
+    <p>
+      General external scale may require an additional multiply, while power-of-two scaling may be implemented through magnitude/regime/exponent manipulation.
+      Synthesize both reasonable implementations rather than assigning a theoretical cost.
+    </p>
+
+    <h4>Logarithmic formats</h4>
+    <div class="eq">
+      log<sub>2</sub>(sx) = log<sub>2</sub>(x) + log<sub>2</sub>(s)
+    </div>
+    <p>
+      External scaling can therefore become a small addition in the log domain, which may be a hardware advantage.
+    </p>
+
+    <h3>4. Scale movement</h3>
+    <p>
+      Report scale reads, storage and movement separately.
+      For per-tensor scaling this can be nearly negligible; for block-16/32 scaling it may become meaningful.
+    </p>
+
+    <div class="eq">
+      B<sub>scale</sub> =
+      N<sub>scales</sub> × bits<sub>scale</sub>
+    </div>
+
+    <h3>Raw arithmetic versus all-in datapath cost</h3>
+    <p>
+      Every finalist should have two hardware numbers:
+    </p>
+
+    <div class="eq">
+      A<sub>raw</sub> = MAC/add/multiply core only
+    </div>
+
+    <div class="eq">
+      A<sub>all-in</sub> =
+      A<sub>raw</sub>
+      +
+      A<sub>scale-gen</sub>
+      +
+      A<sub>scale-apply</sub>
+      +
+      A<sub>conversion</sub>
+      +
+      A<sub>metadata/control</sub>
+    </div>
+
+    <p>Likewise for energy:</p>
+
+    <div class="eq">
+      E<sub>all-in</sub> =
+      E<sub>MAC</sub>
+      +
+      E<sub>scale-gen</sub>
+      +
+      E<sub>scale-apply</sub>
+      +
+      E<sub>scale-read</sub>
+      +
+      E<sub>conversion</sub>
+    </div>
+
+    <h3>Scaling-overhead metrics</h3>
+    <div class="eq">
+      Area overhead =
+      (A<sub>all-in</sub> − A<sub>raw</sub>) / A<sub>raw</sub> × 100%
+    </div>
+    <div class="eq">
+      Energy overhead =
+      (E<sub>all-in</sub> − E<sub>raw</sub>) / E<sub>raw</sub> × 100%
+    </div>
+
+    <h3>How to present scaling cost</h3>
+    <p>Use stacked breakdown plots rather than a single total bar.</p>
+
+    <pre><code>Area:
+INT6  | MAC | requantization | scale storage/read | conversion |
+FP6   | MAC | normalize/round | scaling           | conversion |
+MXFP6 | MAC | scale gen       | scale application | metadata   |
+Posit | MAC | decode/encode   | external scaling  | conversion |</code></pre>
+
+    <p>Create parallel plots for:</p>
+    <ul>
+      <li>area,</li>
+      <li>energy/op,</li>
+      <li>latency/critical path contribution,</li>
+      <li>metadata bits/value.</li>
+    </ul>
+
+    <h3>MX/BFP block-size presentation</h3>
+    <p>
+      For block sizes 16/32/64, jointly plot:
+    </p>
+    <ul>
+      <li>model quality,</li>
+      <li>metadata bits/value,</li>
+      <li>scale-generation area/energy,</li>
+      <li>scale-application amortization,</li>
+      <li>all-in energy/inference.</li>
+    </ul>
+
+    <div class="callout good">
+      <b>Primary principle:</b> the paper must show whether a datatype's raw arithmetic advantage survives the cost of the support logic required to use it correctly.
+    </div>
+  </section>
+
+  <section id="end2end">
+    <h2>End-to-end hardware metric definition and chip-level comparison</h2>
+
+    <p>
+      Arithmetic-unit PPA is not the final selection criterion.
+      The final question is:
+      <b>under the same silicon/power constraints and measured model quality, which numerical architecture produces the best complete accelerator?</b>
+    </p>
+    <div class="callout">
+      <b>Public-study boundary:</b> this section uses a <b>generic normalized accelerator cost model</b>, not the private MANT architecture.
+      The generic model contains only publishable components such as a parameterized PE/MAC, accumulator, scaling/conversion logic,
+      local memory, control overhead and bandwidth assumptions.
+      MANT-specific tile structure, ISA, memory organization, communication fabric and execution behavior are evaluated only later in the private stage.
+    </div>
+
+    <h3>Normalization options and what they mean</h3>
+    <table>
+      <tr><th>Comparison</th><th>Meaning</th></tr>
+      <tr><td>Iso-tile-count</td><td>Same number of processing tiles/PEs; isolates per-tile changes.</td></tr>
+      <tr><td><b>Iso-area</b></td><td>Same total silicon area; smaller formats may instantiate more compute/memory resources.</td></tr>
+      <tr><td>Iso-power</td><td>Same thermal/power envelope.</td></tr>
+      <tr><td>Iso-throughput</td><td>Same required inference performance; compare area/energy needed to achieve it.</td></tr>
+      <tr><td>Iso-energy</td><td>Same energy budget; compare delivered throughput/quality.</td></tr>
+      <tr><td>Iso-memory-capacity</td><td>Same number of model/activation values stored on chip.</td></tr>
+      <tr><td>Iso-accuracy</td><td>Compare hardware only among configurations meeting the same quality requirement.</td></tr>
+    </table>
+
+    <div class="callout good">
+      <b>Primary chip-level view:</b> accuracy-constrained <b>iso-area</b> comparison.
+      Additional iso-power, iso-throughput and iso-tile results are secondary views.
+    </div>
+
+    <h3>Complete tile-cost equation</h3>
+    <p>For datatype/configuration F:</p>
+
+    <div class="eq">
+      A<sub>tile</sub>(F) =
+      A<sub>compute</sub>
+      +
+      A<sub>accumulator</sub>
+      +
+      A<sub>scale/conversion</sub>
+      +
+      A<sub>local-memory</sub>
+      +
+      A<sub>control</sub>
+      +
+      A<sub>local-interconnect</sub>
+    </div>
+
+    <p>Shared chip resources are accounted for separately:</p>
+
+    <div class="eq">
+      A<sub>chip</sub> =
+      A<sub>shared</sub>
+      +
+      N<sub>F</sub>A<sub>tile</sub>(F)
+    </div>
+
+    <p>For a fixed area budget:</p>
+
+    <div class="eq">
+      N<sub>F</sub> =
+      floor((A<sub>budget</sub> − A<sub>shared</sub>) / A<sub>tile</sub>(F))
+    </div>
+
+    <h3>Peak and effective throughput</h3>
+    <p>If a tile sustains r useful operations/cycle:</p>
+
+    <div class="eq">
+      Throughput<sub>peak</sub> =
+      N<sub>F</sub> × r<sub>F</sub> × f<sub>F</sub>
+    </div>
+
+    <p>
+      Actual workload performance must include utilization:
+    </p>
+
+    <div class="eq">
+      Throughput<sub>effective</sub> =
+      Throughput<sub>peak</sub> × U<sub>F</sub>
+    </div>
+
+    <p>
+      Prefer direct workload metrics such as <b>images/s</b> from the mapped network rather than relying only on nominal TOPS.
+    </p>
+
+    <h3>Datatype-aware bandwidth roof</h3>
+    <p>Effective throughput is bounded by multiple resources:</p>
+
+    <div class="eq">
+      T =
+      min(
+        T<sub>compute</sub>,
+        T<sub>local-memory</sub>,
+        T<sub>interconnect</sub>,
+        T<sub>external-memory</sub>
+      )
+    </div>
+
+    <p>
+      Lower precision can simultaneously increase compute density and reduce memory/interconnect traffic, so both effects must be represented.
+      A datatype is not credited with additional compute units if another resource prevents those units from being utilized.
+    </p>
+
+    <h3>End-to-end energy per inference</h3>
+    <div class="eq">
+      E<sub>inf</sub> =
+      E<sub>compute</sub>
+      +
+      E<sub>local-memory</sub>
+      +
+      E<sub>scaling/conversion</sub>
+      +
+      E<sub>interconnect</sub>
+      +
+      E<sub>off-chip</sub>
+      +
+      E<sub>control</sub>
+      +
+      E<sub>leakage</sub>
+    </div>
+
+    <p>Leakage contribution is time dependent:</p>
+
+    <div class="eq">
+      E<sub>leakage</sub> =
+      P<sub>leakage</sub> × T<sub>inference</sub>
+    </div>
+
+    <p>
+      This prevents a tiny but slow iterative implementation from looking artificially attractive when only dynamic energy/op is considered.
+    </p>
+
+    <h3>Primary end-to-end metrics</h3>
+    <p>Report:</p>
+    <ul>
+      <li><b>images/s</b>,</li>
+      <li><b>images/s/mm²</b>,</li>
+      <li><b>images/J</b>,</li>
+      <li><b>energy/inference</b>,</li>
+      <li>TOPS/mm² and TOPS/W as conventional supporting metrics,</li>
+      <li>on-chip memory capacity and bandwidth,</li>
+      <li>measured Top-1/Top-5 or mAP associated with the same exact configuration.</li>
+    </ul>
+
+    <h3>Accuracy must remain attached to every hardware point</h3>
+    <p>
+      Every plotted hardware point corresponds to a complete numerical configuration:
+    </p>
+
+    <div class="eq">
+      (weight format, activation format, accumulator, scale policy, MAC model, workload)
+    </div>
+
+    <p>
+      Do not quote a high TOPS/W point without the accuracy/mAP achieved by that same configuration.
+    </p>
+
+    <h3>Recommended Pareto plots</h3>
+    <ul>
+      <li><b>Accuracy vs energy/inference</b> — ideal direction is up and left.</li>
+      <li><b>Accuracy vs images/s/mm²</b> — ideal direction is up and right.</li>
+      <li><b>Energy/inference vs area</b> with accuracy encoded as marker size or separate labels.</li>
+      <li><b>Images/J vs model quality</b>.</li>
+      <li><b>Memory energy vs compute energy</b> breakdown by datatype.</li>
+      <li><b>Raw arithmetic Pareto</b> versus <b>all-in tile/chip Pareto</b> to show how conclusions change after memory/scaling overhead.</li>
+    </ul>
+
+    <h3>Avoid one arbitrary composite score</h3>
+    <p>
+      Do not collapse accuracy, area, energy and throughput into a single multiplication/weighted score unless required for a very specific engineering decision.
+      The research presentation should use Pareto fronts.
+    </p>
+
+    <h3>Chip-selection rule</h3>
+    <p>
+      The final engineering choice can impose quality constraints, for example:
+    </p>
+
+    <div class="eq">
+      ΔTop-1 ≤ quality threshold
+      <br>
+      ΔmAP<sub>50:95</sub> ≤ detection-quality threshold
+    </div>
+
+    <p>
+      Then optimize a hardware objective such as:
+    </p>
+
+    <div class="eq">
+      minimize energy/inference
+      <br>
+      subject to throughput ≥ T<sub>minimum</sub>
+      and quality constraints
+    </div>
+
+    <p>
+      The exact quality-loss thresholds should be frozen only after the PTQ exploration reveals what is realistically achievable below 8 bits.
+    </p>
+
+    <h3>Area-budget sensitivity</h3>
+    <p>
+      Do not test only one hypothetical chip size.
+      Evaluate several area budgets, for example:
+    </p>
+
+    <div class="eq">
+      1 mm², 5 mm², 10 mm², 25 mm²
+    </div>
+
+    <p>
+      The exact budgets may be adjusted for the final architecture.
+      This reveals whether the preferred datatype changes when shared control, memory or interconnect overhead dominates at different scales.
+    </p>
+
+    <h3>Presentation of where the energy goes</h3>
+    <p>
+      For final configurations, use stacked energy/inference breakdowns:
+    </p>
+
+    <pre><code>compute
+local memory
+scaling/conversion
+interconnect
+off-chip traffic
+control
+leakage</code></pre>
+
+    <p>
+      A parallel area breakdown should show:
+    </p>
+
+    <pre><code>compute
+accumulators
+local memory
+scaling/conversion
+control
+interconnect/shared resources</code></pre>
+
+    <div class="callout good">
+      <b>Central research hypothesis to test:</b>
+      arithmetic-only comparisons may mispredict the best sub-8-bit datatype because memory density, scale overhead, accumulator width and communication costs can reorder the whole-chip Pareto frontier.
+    </div>
+  </section>
+
+
+  <section id="pareto-objective">
+    <h2>Pareto-based final objective and decision framework</h2>
+
+    <p>
+      The research should not force one universal “best datatype” through an arbitrary scalar score.
+      The primary result is a set of <b>accuracy–energy–area–throughput Pareto frontiers</b>.
+    </p>
+
+    <h3>Pareto dominance definition</h3>
+    <div class="eq">
+      Accuracy_B ≥ Accuracy_A<br>
+      Energy_B ≤ Energy_A<br>
+      Area_B ≤ Area_A<br>
+      Throughput_B ≥ Throughput_A
+    </div>
+    <p>
+      Configuration A is dominated only when another configuration is no worse in every relevant dimension and strictly better in at least one.
+      If FP6 is more accurate while INT5 is substantially smaller and more energy efficient, both remain valid Pareto points.
+    </p>
+
+    <h3>Primary Pareto plots</h3>
+    <table>
+      <tr><th>Plot</th><th>Question answered</th></tr>
+      <tr><td><b>Accuracy vs energy/inference</b></td><td>What model quality is achievable for a given energy budget?</td></tr>
+      <tr><td><b>Accuracy vs images/s/mm²</b></td><td>What quality is achievable for a given silicon-efficiency target?</td></tr>
+      <tr><td>Accuracy vs all-in MAC/FPU energy</td><td>Numerical quality versus arithmetic datapath cost.</td></tr>
+      <tr><td>Accuracy vs compute+memory energy</td><td>Does the arithmetic winner remain the system-level winner?</td></tr>
+      <tr><td>Area vs energy/op</td><td>Classic implementation Pareto frontier.</td></tr>
+      <tr><td>Accuracy vs effective bits/value</td><td>Numerical/storage efficiency.</td></tr>
+      <tr><td>Accuracy vs throughput</td><td>Quality–performance trade-off.</td></tr>
+      <tr><td><b>Raw arithmetic Pareto vs all-in Pareto</b></td><td>How support logic and memory reorder candidates.</td></tr>
+    </table>
+
+    <h3>Quality-budget frontier</h3>
+    <div class="eq">
+      E*(δ) = min_{c : ΔQuality(c) ≤ δ} E(c)
+    </div>
+    <p>
+      Define analogous frontiers for area and throughput and evaluate multiple quality-loss budgets, for example
+      0.25, 0.5, 1, 2, 3 and 5 percentage points. This avoids making one arbitrary loss threshold the entire objective.
+    </p>
+
+    <h3>Knee-point analysis</h3>
+    <p>
+      Identify points where a small additional quality gain begins to require disproportionately more energy or area.
+      Knee points are useful engineering candidates but are not presented as mathematically unique winners.
+    </p>
+
+    <h3>Per-workload Pareto fronts first</h3>
+    <p>
+      Build separate frontiers for each model before any aggregate analysis.
+      Then report mean quality loss and worst-case quality loss:
+    </p>
+    <div class="eq">
+      L_max(F) = max_m ΔQuality(F,m)
+    </div>
+
+    <h3>Confidence-aware Pareto analysis</h3>
+    <p>
+      Statistical uncertainty from paired confidence intervals carries into dominance decisions.
+      Classify configurations as confidently Pareto-optimal, potentially Pareto-optimal / uncertainty-overlapping, or confidently dominated.
+    </p>
+
+    <h3>Pareto fronts at increasing hardware realism</h3>
+    <table>
+      <tr><th>Level</th><th>Cost included</th></tr>
+      <tr><td>1</td><td>multiplier / primitive arithmetic only</td></tr>
+      <tr><td>2</td><td>MAC/FMA + accumulator</td></tr>
+      <tr><td>3</td><td>MAC/FMA + accumulator + scaling/conversion</td></tr>
+      <tr><td>4</td><td>compute + memory + generic control/communication</td></tr>
+    </table>
+
+    <div class="callout good">
+      <b>Primary objective:</b> discover and characterize the Pareto-optimal numerical architectures under different quality and hardware budgets.
+      A single MANT-specific chip choice is made only later in the private stage.
+    </div>
+  </section>
+
+  <section id="baselines">
+    <h2>Baselines, conformance and prior-work reproduction</h2>
+
+    <h3>Full-precision references</h3>
+    <ul>
+      <li><b>FP32</b> — primary quality reference.</li>
+      <li><b>FP16</b> — graph-transformation/runtime sanity check.</li>
+      <li><b>BF16</b> — optional additional high-precision reference.</li>
+    </ul>
+
+    <h3>Standard low-precision anchors</h3>
+    <table>
+      <tr><th>Family</th><th>Required anchors</th></tr>
+      <tr><td>Integer</td><td>INT8, INT6, INT4</td></tr>
+      <tr><td>FP8</td><td>E4M3 and E5M2 using published standard semantics</td></tr>
+      <tr><td>MX</td><td>standard MXFP8, MXFP6, MXFP4 and MXINT8 variants where relevant</td></tr>
+      <tr><td>Posit</td><td>ratified Posit-standard configuration plus explicitly labeled generalized/legacy variants if explored</td></tr>
+    </table>
+
+    <h3>Non-standard research formats</h3>
+    <p>
+      Custom FP7/FP6/FP5, LNS, codebook/NF-style, experimental MXINT6/5/4, binary/ternary and other custom formats require complete public datatype manifests.
+      Their semantics must never depend on hidden MANT behavior.
+    </p>
+
+    <h3>Standard-format conformance</h3>
+    <p>
+      For every externally specified format, implement primitive conversion/arithmetic conformance tests using published rules and test vectors where available.
+      Primitive conformance should be bit exact.
+    </p>
+
+    <h3>Framework/runtime cross-check</h3>
+    <p>
+      Where an existing runtime supports exactly matching semantics, especially INT8 and selected FP8 paths, run identical tensors through both systems and compare outputs and end-to-end quality.
+    </p>
+
+    <h3>Full-network sanity reproduction</h3>
+    <ol>
+      <li>reproduce expected FP32 checkpoint quality,</li>
+      <li>reproduce conventional INT8 PTQ behavior,</li>
+      <li>reproduce at least one standardized FP8/MX reference where practical,</li>
+      <li>then trust novel FP5/FP6/Posit/Log results.</li>
+    </ol>
+
+    <h3>Prior-paper reproduction set</h3>
+    <p>
+      Reproduce approximately 3–6 high-value external reference points rather than many weak comparisons.
+      Prefer public code, matching models/datasets, explicit numerical semantics and clear PTQ methodology.
+      Try to cover INT, FP8, MX, Posit and one logarithmic/non-uniform reference if reproducible.
+    </p>
+
+    <h3>Validation targets</h3>
+    <table>
+      <tr><th>Validation</th><th>Target</th></tr>
+      <tr><td>Primitive datatype conformance</td><td>bit exact</td></tr>
+      <tr><td>Same checkpoint + matching runtime semantics</td><td>ideally ≤~0.1 percentage-point quality difference</td></tr>
+      <tr><td>External-paper reproduction</td><td>document differences explicitly; ~0.5 pp may be acceptable when preprocessing/calibration cannot be identical</td></tr>
+    </table>
+
+    <h3>Generic RTL hardware baselines</h3>
+    <ul>
+      <li>simple array multiplier + ripple-carry adder baseline,</li>
+      <li>tool-inferred HDL multiplication using <code>*</code>,</li>
+      <li>best architecture discovered by the automated DSE.</li>
+    </ul>
+    <p>
+      For floating point, also include a straightforward unpack/multiply/normalize/round implementation so the value of the architecture search itself is measurable.
+    </p>
+  </section>
+
+  <section id="public-private">
+    <h2>Strict public research / private MANT boundary</h2>
+
+    <div class="callout good">
+      <b>Publication policy:</b> the research paper and all published experiments are <b>100% hardware-architecture independent with respect to MANT</b>.
+      MANT is not required to reproduce, justify or interpret any public result.
+    </div>
+
+    <h3>Public research question</h3>
+    <blockquote>
+      Which ≤8-bit numerical representations provide the best quality–hardware-efficiency trade-offs for edge CNN inference under PTQ?
+    </blockquote>
+
+    <h3>Public experimental pipeline</h3>
+    <pre><code>FP32 pretrained models
+        ↓
+PTQ methodology
+        ↓
+public datatype manifests
+        ↓
+architecture-independent exact inference
+        ↓
+ImageNet / COCO quality evaluation
+        ↓
+generic arithmetic RTL DSE
+        ↓
+generic scaling / memory / communication cost
+        ↓
+ICS55 synthesis / P&R
+        ↓
+hardware-independent Pareto frontiers</code></pre>
+
+    <h3>Public components that may be released</h3>
+    <ul>
+      <li>datatype manifests and conformance tests,</li>
+      <li>PTQ/calibration code,</li>
+      <li>architecture-independent arithmetic oracle,</li>
+      <li>C++/CUDA inference backend,</li>
+      <li>experiment scheduler and statistical-analysis scripts,</li>
+      <li>generic multiplier/adder/FMA/accumulator RTL,</li>
+      <li>generic scaling/conversion RTL,</li>
+      <li>generic memory-cost methodology,</li>
+      <li>ICS55 synthesis/P&amp;R scripts,</li>
+      <li>Pareto-analysis scripts and result tables.</li>
+    </ul>
+
+    <h3>MANT-specific information excluded from the paper</h3>
+    <ul>
+      <li>MANT ISA and instruction encoding,</li>
+      <li>tile/uFPU microarchitecture,</li>
+      <li>private memory organization,</li>
+      <li>interconnect/bus/topology,</li>
+      <li>MANT compiler/mapping strategy,</li>
+      <li>MANT simulator and golden-model implementation,</li>
+      <li>tile count, floorplan and proprietary chip details.</li>
+    </ul>
+
+    <h3>Public end-to-end model remains generic</h3>
+    <div class="eq">
+      generic PE/tile =
+      MAC/FMA + accumulator + scale/conversion +
+      parameterized local memory + generic control/interconnect overhead
+    </div>
+    <p>
+      Sweep generic memory size, bandwidth and area-budget assumptions. Do not insert MANT-specific constants into public cost equations.
+    </p>
+
+    <h3>Private Stage B — MANT evaluation after the public Pareto study</h3>
+    <p>
+      Do not move only one public winner into MANT. Select approximately <b>5–10 Pareto representatives</b>, including:
+    </p>
+    <ul>
+      <li>highest-quality point,</li>
+      <li>lowest-energy point,</li>
+      <li>lowest-area point,</li>
+      <li>highest images/J point,</li>
+      <li>highest images/s/mm² point,</li>
+      <li>2–3 knee points,</li>
+      <li>at least one interesting alternative datatype family.</li>
+    </ul>
+
+    <h3>Private MANT pipeline</h3>
+    <pre><code>public Pareto candidate package
+        ↓
+private MANT importer
+        ↓
+MANT bit-accurate numerical golden model
+        ↓
+MANT mapping/compiler
+        ↓
+MANT cycle simulator
+        ↓
+MANT RTL / physical implementation
+        ↓
+private MANT-specific chip choice</code></pre>
+
+    <h3>Generic-versus-MANT numerical delta</h3>
+    <div class="eq">
+      Δ_MANT(F) =
+      Quality_MANT(F) − Quality_generic(F)
+    </div>
+    <p>
+      This measures how much MANT-specific numerical behavior changes the architecture-independent result and whether the public Pareto ranking is reordered privately.
+    </p>
+
+    <h3>Repository/interface boundary</h3>
+    <pre><code>public/
+  formats/
+  quantization/
+  inference/
+  cuda/
+  generic_rtl/
+  experiments/
+  pdk_flow/
+  analysis/
+
+private_mant/
+  golden_model/
+  isa/
+  mapping/
+  compiler/
+  tile/
+  interconnect/
+  rtl/
+  chip/</code></pre>
+
+    <p>
+      The public-to-private interface should be a stable export such as:
+    </p>
+    <pre><code>QuantizedModelPackage:
+  model graph
+  encoded weights
+  tensor scales
+  datatype manifests
+  operator metadata</code></pre>
+
+    <h3>Final decision logic</h3>
+    <div class="eq">
+      Pareto_public
+    </div>
+    <p>is discovered publicly. The private stage then selects:</p>
+    <div class="eq">
+      F*_MANT = arg max_{F ∈ Pareto_public} Utility_MANT(F)
+    </div>
+
+    <div class="callout good">
+      <b>Scientific/IP separation:</b> the public paper answers which numerical architectures are generally Pareto-optimal.
+      The private follow-on asks which of those public Pareto points is specifically optimal for MANT.
+    </div>
+  </section>
+
+<section id="engine">
+    <h2>12. Architecture-independent exact inference engine</h2>
+    <p>
+      To keep the numerical-format paper independent of unpublished MANT details, quality evaluation should use a generic exact-arithmetic backend rather than the MANT simulator.
+      Each datatype should implement the same interface:
+    </p>
+
+    <pre><code>NumberFormat
+    encode(fp32)       → low-precision code
+    decode(code)       → high-precision reference value
+    add(a, b)          → rounded datatype result
+    mul(a, b)          → rounded datatype result
+    requantize(x)      → target storage format
+    convert(src, dst)  → explicit format conversion</code></pre>
+
+    <h3>Truth-table oracle</h3>
+    <p>
+      Since every candidate datatype is 8 bits or smaller, each binary operator can be exhaustively enumerated.
+      For an <i>n</i>-bit format, there are only <code>2^n × 2^n</code> input pairs.
+    </p>
+    <table>
+      <tr><th>Width</th><th>Codes</th><th>Pairs per binary operator</th></tr>
+      <tr><td>4 bit</td><td>16</td><td>256</td></tr>
+      <tr><td>5 bit</td><td>32</td><td>1,024</td></tr>
+      <tr><td>6 bit</td><td>64</td><td>4,096</td></tr>
+      <tr><td>7 bit</td><td>128</td><td>16,384</td></tr>
+      <tr><td>8 bit</td><td>256</td><td>65,536</td></tr>
+    </table>
+
+    <p>
+      A high-precision implementation generates exact ADD/MUL truth tables.
+      Every optimized C++ or CUDA implementation is then exhaustively checked against those tables before it is used for CNN inference.
+    </p>
+
+    <div class="callout good">
+      <b>Validation rule:</b> the fast backend is accepted only if every possible operand pair matches the reference arithmetic bit-for-bit.
+    </div>
+
+    <h3>Recommended backend hierarchy</h3>
+    <table>
+      <tr><th>Backend</th><th>Use</th><th>Role</th></tr>
+      <tr><td>Python / high precision</td><td>datatype definition and truth-table generation</td><td>oracle only</td></tr>
+      <tr><td>C++ multithreaded</td><td>portable exact inference</td><td>CPU development and fallback</td></tr>
+      <tr><td><b>Custom CUDA</b></td><td>exact Conv/GEMM/depthwise Conv</td><td><b>primary high-throughput backend</b></td></tr>
+      <tr><td>Native INT8 / FP8 libraries</td><td>cross-check common formats</td><td>validation, not the universal engine</td></tr>
+    </table>
+
+    <h3>LUTs versus direct arithmetic</h3>
+    <p>
+      Lookup tables are ideal as a correctness oracle. For actual CNN execution, direct CUDA integer/bitwise arithmetic with explicit rounding may be faster,
+      especially for 7–8-bit formats where dependent table lookups can become memory-bound. Benchmark both approaches for 4–6-bit candidates.
+    </p>
+  </section>
+
+  <section id="compute">
+    <h2>13. Compute strategy and parallelization</h2>
+    <p>
+      The study should exploit two forms of parallelism: <b>parallelism inside one inference run</b> and <b>parallelism across independent experiment runs</b>.
+    </p>
+
+    <h3>13.1 GPU: parallelize inside one experiment</h3>
+    <p>On a basic NVIDIA Colab GPU, one experiment should normally occupy the GPU at a time. Parallelize over:</p>
+    <ul>
+      <li>batch dimension,</li>
+      <li>output channels,</li>
+      <li>output pixels,</li>
+      <li>independent convolution/GEMM tiles.</li>
+    </ul>
+    <p>
+      The reduction inside one low-precision dot product remains ordered, but CNN layers provide a very large number of independent outputs.
+      Custom CUDA kernels should exploit this outer parallelism.
+    </p>
+    <div class="callout warn">
+      Do not run many independent experiment processes on one weak Colab GPU unless profiling proves it helps.
+      They will usually compete for memory and execution resources. Prefer one well-batched job per GPU.
+    </div>
+
+    <h3>13.2 CPU: parallelize across experiments</h3>
+    <p>
+      On an M1 or Core i9, different model/format/accumulator configurations are independent jobs.
+      A worker pool can execute multiple experiments simultaneously.
+    </p>
+    <pre><code>worker 0 → ResNet18 / FP6-E3M2 / native accumulator
+worker 1 → ResNet18 / INT6      / 12-bit accumulator
+worker 2 → MobileNetV2 / FP6-E2M3 / native accumulator
+worker 3 → MobileNetV3 / Posit6 / 12-bit accumulator</code></pre>
+    <p>
+      Benchmark both “few jobs with many threads each” and “many jobs with fewer threads each.”
+      On a high-core-count i9, experiment-level parallelism is likely useful until memory bandwidth becomes the bottleneck.
+      The M1 is well suited for development, exact validation and smaller runs; the GPU/i9 should carry the bulk of large sweeps.
+    </p>
+
+    <h3>13.3 Multi-machine scheduling</h3>
+    <p>
+      Store each experiment as an independent configuration/job so runs can be distributed across local machines, lab servers, multiple GPUs or future cloud resources.
+      No experiment should depend on another once calibration metadata and quantized weights are cached.
+    </p>
+
+    <h3>13.4 Cache all reusable artifacts</h3>
+    <ul>
+      <li>quantized weights,</li>
+      <li>activation calibration ranges,</li>
+      <li>scales and clipping thresholds,</li>
+      <li>encoded low-precision tensors,</li>
+      <li>truth tables and datatype metadata,</li>
+      <li>per-layer statistics,</li>
+      <li>completed experiment outputs.</li>
+    </ul>
+    <pre><code>cache/
+  resnet18/
+    fp6_e3m2/
+      mse_per_channel/
+        weights.bin
+        scales.json
+        clipping.json
+        add_table.bin
+        mul_table.bin</code></pre>
+
+    <h3>13.5 Staged dataset funnel</h3>
+    <p>
+      Do not run every configuration on the complete ImageNet validation set.
+      Use increasingly expensive stages:
+    </p>
+    <table>
+      <tr><th>Stage</th><th>Candidates</th><th>Dataset</th><th>Purpose</th></tr>
+      <tr><td>Fast screening</td><td>all</td><td>≈1,000 stratified images</td><td>remove clearly poor formats</td></tr>
+      <tr><td>Medium validation</td><td>≈100–200</td><td>≈5,000–10,000 images</td><td>stabilize ranking</td></tr>
+      <tr><td>Full validation</td><td>≈20–30</td><td>full ImageNet / COCO validation</td><td>publication-quality accuracy</td></tr>
+      <tr><td>Final ablations</td><td>≈5–10</td><td>full dataset where needed</td><td>robustness and sensitivity</td></tr>
+    </table>
+
+    <p>For a 900-configuration first-stage search:</p>
+    <div class="eq">
+      900×1,000 + 150×10,000 + 25×50,000 ≈ 3.65 million model-image evaluations
+    </div>
+    <p>
+      Evaluating all 900 configurations on all 50,000 ImageNet validation images would require 45 million model-image evaluations.
+      The funnel therefore reduces the main workload by roughly an order of magnitude.
+    </p>
+  </section>
+
+  <section id="counts">
+    <h2>14. Experiment-count estimate and scope control</h2>
+    <p>The current <b>provisional pilot</b> search space is approximately; the count will be recalculated after the exact datatype set is frozen:</p>
+    <table>
+      <tr><th>Dimension</th><th>Count</th></tr>
+      <tr><td>Numerical formats</td><td>≈25 in the current pilot estimate; final count TBD</td></tr>
+      <tr><td>Initial CNNs</td><td>3</td></tr>
+      <tr><td>Accumulator choices</td><td>4</td></tr>
+      <tr><td>PTQ configurations</td><td>3</td></tr>
+    </table>
+
+    <div class="eq">25 × 3 × 4 × 3 = <b>900 basic inference configurations</b></div>
+
+    <p>If EfficientNet and YOLO are included before pruning:</p>
+    <div class="eq">25 × 5 × 4 × 3 = <b>1,500 basic configurations</b></div>
+
+    <p>
+      Weight/activation asymmetry, signedness, MX block size, exponent bias and calibration-method ablations can easily expand a naive Cartesian product further.
+      For example, applying six W/A combinations to the 900-run matrix would create 5,400 configurations.
+    </p>
+
+    <div class="callout bad">
+      <b>Do not evaluate the full Cartesian product.</b>
+      Apply W/A asymmetry, signedness, block-size sweeps and calibration ablations only to candidates that survive earlier pruning.
+    </div>
+
+    <p>
+      A realistic goal is approximately <b>2,000–5,000 total useful inference jobs</b> over the whole study,
+      with only tens of configurations reaching full-dataset evaluation and only a handful reaching detailed RTL/P&R.
+    </p>
+  </section>
+
+
+  <section id="roadmap">
+    <h2>15. Step-by-step execution roadmap</h2>
+
+    <div class="roadmap">
+      <div class="step"><div class="num">1</div><div class="stepbox"><b>Freeze reference models</b>ResNet-18, MobileNetV2, MobileNetV3 and one edge detector; record FP32 accuracy.</div></div>
+      <div class="step"><div class="num">2</div><div class="stepbox"><b>Build a bit-exact number-format library</b>FP, INT, MX, Posit and Log backends with explicit rounding, saturation, underflow and scaling rules.</div></div>
+      <div class="step"><div class="num">3</div><div class="stepbox"><b>Profile tensors and layer sensitivity</b>Collect statistical distributions and one-layer-at-a-time degradation.</div></div>
+      <div class="step"><div class="num">4</div><div class="stepbox"><b>Run broad uniform-format PTQ sweeps</b>Use the config-driven scheduler, fixed screening subsets and conservative promotion rules; do not aggressively eliminate formats at the 1k stage.</div></div>
+      <div class="step"><div class="num">5</div><div class="stepbox"><b>Sweep weight/activation asymmetry</b>Explore W4A8, W5A6, W6A6, W6A8 and related combinations.</div></div>
+      <div class="step"><div class="num">6</div><div class="stepbox"><b>Sweep accumulator precision</b>Native / 8 / 10 / 12 / 16-bit accumulation.</div></div>
+      <div class="step"><div class="num">7</div><div class="stepbox"><b>Sweep scaling and signedness</b>Per-tensor, per-channel, block scaling; signed vs unsigned activations.</div></div>
+      <div class="step"><div class="num">8</div><div class="stepbox"><b>Full-dataset PTQ validation</b>Evaluate a broad ~20–40 configuration finalist set, including uncertain/near-Pareto/family-representative candidates, before strong numerical pruning.</div></div>
+      <div class="step"><div class="num">9</div><div class="stepbox"><b>Implement arithmetic RTL</b>Create optimized multiplier / adder / MAC / FPU implementations for finalists.</div></div>
+      <div class="step"><div class="num">10</div><div class="stepbox"><b>Synthesize and prune</b>Collect area, fmax and preliminary power; retain the Pareto front.</div></div>
+      <div class="step"><div class="num">11</div><div class="stepbox"><b>Integrate into MANT tile</b>Measure full tile cost, not just arithmetic.</div></div>
+      <div class="step"><div class="num">12</div><div class="stepbox"><b>Run end-to-end MANT simulations</b>Measure cycles, stalls, interconnect traffic, tile utilization and full-network latency.</div></div>
+      <div class="step"><div class="num">13</div><div class="stepbox"><b>Iso-area whole-chip comparison</b>Compare formats under the same die/transistor budget.</div></div>
+      <div class="step"><div class="num">14</div><div class="stepbox"><b>Detailed P&R for finalists</b>Use realistic switching activity and physical implementation for top candidates.</div></div>
+      <div class="step"><div class="num">15</div><div class="stepbox"><b>Freeze MANT v1 numerical format</b>Select the dominant implementation under accuracy and energy constraints.</div></div>
+      <div class="step"><div class="num">16</div><div class="stepbox"><b>Optional second phase: mixed precision / heterogeneous tiles</b>Only after the uniform baseline is strong and well understood.</div></div>
+    </div>
+  </section>
+
+  <section id="integration">
+    <h2>16. Research and chip development can be done together</h2>
+
+    <table>
+      <tr><th>Stage</th><th>Research activity</th><th>Chip-development output</th></tr>
+      <tr><td>Model baselines</td><td>Reference accuracy and layer statistics</td><td>Operator-support requirements</td></tr>
+      <tr><td>Format sweep</td><td>Accuracy vs width / family</td><td>Likely word-width range</td></tr>
+      <tr><td>Accumulator sweep</td><td>Error sensitivity to accumulation</td><td>Accumulator architecture</td></tr>
+      <tr><td>RTL arithmetic</td><td>Real hardware cost per format</td><td>Candidate FPU designs</td></tr>
+      <tr><td>Tile synthesis</td><td>Whole-tile Pareto analysis</td><td>MANT tile sizing</td></tr>
+      <tr><td>Whole-network simulation</td><td>End-to-end energy/performance</td><td>Final chip mapping strategy</td></tr>
+      <tr><td>P&R</td><td>Publication-quality physical validation</td><td>Final physical design parameters</td></tr>
+    </table>
+
+    <div class="callout good">
+      The same experimental infrastructure is useful for both goals. The paper's evidence becomes the engineering justification for the final chip,
+      and the chip provides a real architecture on which the paper can demonstrate whole-system consequences.
+    </div>
+  </section>
+
+  <section id="paper">
+    <h2>17. Publication strategy</h2>
+
+    <h3>Option A — two papers</h3>
+    <div class="grid2">
+      <div class="card">
+        <h3>Paper 1: numerical-format study</h3>
+        <p><b>Possible title:</b> Hardware-Cost-Aware Exploration of Sub-8-Bit Numerical Formats for Edge CNN Inference</p>
+        <ul>
+          <li>INT / FP / MX / Posit / Log</li>
+          <li>ImageNet + COCO</li>
+          <li>accuracy + MAC/FPU RTL PPA</li>
+          <li>accumulator precision</li>
+          <li>format sensitivity and Pareto analysis</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Paper 2: MANT architecture</h3>
+        <p><b>Possible title:</b> MANT: A Massively Spatial Micro-FPU Fabric for Edge AI</p>
+        <ul>
+          <li>tile architecture</li>
+          <li>memory organization</li>
+          <li>AGU / instruction stream</li>
+          <li>communication fabric</li>
+          <li>CNN mapping</li>
+          <li>chip-level throughput and PPA</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Option B — one stronger combined paper</h3>
+    <p>
+      If the experiments reveal a strong architecture–format interaction—e.g. the format that wins at MAC level differs from the format that wins at whole-chip level—
+      combine the work into a co-design paper.
+    </p>
+
+    <h3>What makes it publishable</h3>
+    <ul>
+      <li>systematic 4–8-bit exploration across multiple representation families,</li>
+      <li>bit-accurate numerical evaluation,</li>
+      <li>real RTL rather than proxy multiplier cost,</li>
+      <li>full tile and whole-chip analysis,</li>
+      <li>ImageNet + detection workload,</li>
+      <li>clear Pareto-front findings,</li>
+      <li>at least one genuinely new insight or derived numerical/architectural design rule.</li>
+    </ul>
+
+    <h3>What would strengthen a top-tier architecture/EDA submission</h3>
+    <ul>
+      <li>hardware-aware search or optimization rather than only manual enumeration,</li>
+      <li>a newly derived format or accumulation scheme,</li>
+      <li>heterogeneous spatial numerical formats,</li>
+      <li>post-layout validation of the top candidates,</li>
+      <li>whole-system advantage over strong INT8/FP8/MX baselines.</li>
+    </ul>
+  </section>
+
+  <section id="risks">
+    <h2>18. Main risks and how to control them</h2>
+
+    <table>
+      <tr><th>Risk</th><th>Why it matters</th><th>Mitigation</th></tr>
+      <tr>
+        <td>Search space becomes too large</td>
+        <td>Thousands of network × format × quantizer combinations</td>
+        <td>Use staged pruning; synthesize only finalists.</td>
+      </tr>
+      <tr>
+        <td>Quantizer quality dominates datatype comparison</td>
+        <td>Can produce unfair conclusions</td>
+        <td>Separate controlled and best-achievable experiments.</td>
+      </tr>
+      <tr>
+        <td>Multiplier-only cost is misleading</td>
+        <td>Memory/scaling/accumulators may dominate</td>
+        <td>Report multiplier, MAC/FPU, tile and whole chip.</td>
+      </tr>
+      <tr>
+        <td>MANT FP-only assumption biases the study</td>
+        <td>Cannot fairly claim the best ≤8-bit datatype</td>
+        <td>Temporarily parameterize the number-system backend.</td>
+      </tr>
+      <tr>
+        <td>Activation approximations differ from PyTorch</td>
+        <td>End-to-end accuracy no longer reflects silicon</td>
+        <td>Use hardware-accurate activation models.</td>
+      </tr>
+      <tr>
+        <td>Full P&R for too many formats is expensive</td>
+        <td>Tool and runtime cost</td>
+        <td>P&R only 2–4 finalists after synthesis pruning.</td>
+      </tr>
+      <tr>
+        <td>Exact low-precision inference becomes too slow</td>
+        <td>Thousands of experiment runs may become impractical</td>
+        <td>Use custom CUDA for inner-kernel parallelism, CPU job-level parallelism, caching, and the 1k→10k→full-dataset funnel.</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>19. Recommended first concrete experiment</h2>
+    <div class="card">
+      <h3>Models</h3>
+      <p><code>ResNet-18</code>, <code>MobileNetV2</code>, <code>MobileNetV3-Large</code></p>
+
+      <h3>Formats</h3>
+      <p class="muted">
+        This is only a preliminary pilot subset. The exact research datatype set has not yet been selected;
+        the broader candidate universe is defined in Section 4.
+      </p>
+      <pre><code>INT8 INT6 INT5 INT4
+
+FP8 E4M3
+FP8 E5M2
+FP7 candidates
+FP6 E3M2
+FP6 E2M3
+FP5 candidates
+FP4 E2M1
+
+MXFP8
+MXFP6 E3M2
+MXFP6 E2M3
+MXFP4
+MXINT8
+
+Posit8
+Posit6
+Posit5
+
+Log8
+Log6
+Log5</code></pre>
+
+      <h3>Accumulator precisions</h3>
+      <p><code>native</code>, <code>8-bit</code>, <code>12-bit</code>, <code>16-bit</code></p>
+
+      <h3>Quantization settings</h3>
+      <p><code>per-tensor</code>, <code>per-channel weights</code>, <code>block-32</code></p>
+      <h3>Execution policy</h3>
+      <p>
+        Run the complete first-stage matrix on a ≈1,000-image stratified subset with the exact-arithmetic backend.
+        Promote only the strongest candidates to 5k–10k images, then evaluate approximately 20–30 finalists on the complete validation set.
+      </p>
+    </div>
+
+    <div class="callout good">
+      This first phase is already large enough to expose the most important trends.
+      Add YOLO and more exotic formats only after the initial Pareto landscape is clear.
+    </div>
+  </section>
+
+  <section>
+    <h2>20. Final recommendation</h2>
+    <p>
+      The strongest version of the project is not “find the best datatype below 8 bits.”
+      It is:
+    </p>
+    <div class="eq">
+      Find the best numerical architecture for sub-8-bit edge CNN inference under real silicon constraints.
+    </div>
+
+    <p>Jointly select:</p>
+    <ul>
+      <li>weight format,</li>
+      <li>activation format,</li>
+      <li>accumulator format,</li>
+      <li>scaling granularity,</li>
+      <li>signedness,</li>
+      <li>tile implementation.</li>
+    </ul>
+
+    <p>
+      For MANT, the most promising early comparisons are:
+      <b>FP6 vs INT6 vs MXFP6</b>,
+      <b>same-format vs wider accumulation</b>,
+      <b>signed vs unsigned activations</b>,
+      and <b>uniform vs heterogeneous tile specialization</b>.
+      All accuracy experiments in the current plan use PTQ only.
+    </p>
+
+    <div class="callout chip">
+      If the exploration is executed in this order, the research and chip work reinforce each other:
+      the experiments determine what chip should be built, and the chip gives the paper a credible end-to-end hardware platform.
+    </div>
+  </section>
+
+  <div class="footer">
+    Prepared as a reviewed research-and-development plan for the MANT edge AI accelerator numerical-format exploration.
+  </div>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MANT Precision Exploration — Comprehensive Execution Roadmap</title>
+<style>
+:root{
+  --bg:#08101d;
+  --panel:#101a2b;
+  --panel2:#152238;
+  --panel3:#0d1626;
+  --text:#edf4ff;
+  --muted:#9fb0c8;
+  --line:#2b3b56;
+  --blue:#7dd3fc;
+  --green:#86efac;
+  --amber:#fde68a;
+  --red:#fca5a5;
+  --purple:#c4b5fd;
+  --cyan:#67e8f9;
+  --shadow:0 12px 32px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--text);
+  background:linear-gradient(180deg,#07101d,#0a1220 35%,#0d1728);
+  font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}
+aside{
+  position:sticky;top:0;height:100vh;overflow:auto;
+  padding:22px 16px;background:rgba(7,15,28,.97);
+  border-right:1px solid var(--line);
+}
+aside .brand{font-weight:850;font-size:17px;margin-bottom:3px}
+aside .sub{font-size:11px;color:var(--muted);margin-bottom:16px}
+aside .group{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#71839e;margin:17px 8px 5px}
+aside a{display:block;color:#d8e4f4;padding:6px 8px;border-radius:7px;font-size:12.5px}
+aside a:hover{background:#142038;text-decoration:none}
+main{max-width:1450px;padding:36px 42px 90px}
+.hero{
+  background:
+    radial-gradient(circle at 90% 10%,rgba(125,211,252,.13),transparent 28%),
+    radial-gradient(circle at 12% 88%,rgba(134,239,172,.08),transparent 25%),
+    var(--panel);
+  border:1px solid var(--line);border-radius:22px;padding:30px 32px;box-shadow:var(--shadow)
+}
+.eyebrow{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:38px;line-height:1.12;margin:7px 0 12px;letter-spacing:-.03em}
+h2{font-size:26px;margin:44px 0 14px;letter-spacing:-.02em}
+h3{font-size:19px;margin:26px 0 10px}
+h4{font-size:15px;margin:18px 0 7px}
+p,li{max-width:96ch}
+.lead{font-size:17px;color:#c8d5e8;max-width:92ch}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:#0b1526;color:#d7e3f3;font-size:11px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0
+}
+.grid2,.grid3,.grid4{display:grid;gap:12px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px}
+.mini strong{display:block;margin-bottom:5px}
+.callout{border-left:4px solid var(--blue);background:#10243b;border-radius:0 10px 10px 0;padding:12px 15px;margin:13px 0}
+.callout.good{border-color:var(--green);background:#0f2a22}
+.callout.warn{border-color:var(--amber);background:#2b2715}
+.callout.bad{border-color:var(--red);background:#311b20}
+.callout.private{border-color:var(--purple);background:#211b34}
+code{background:#0b1627;border:1px solid #243754;padding:1px 5px;border-radius:5px;color:#e7f2ff;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:#07111f;border:1px solid var(--line);padding:14px;border-radius:10px;overflow:auto}
+table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13px}
+th,td{border:1px solid var(--line);padding:8px 9px;vertical-align:top;text-align:left}
+th{background:#17243a;color:#eef5ff}
+tr:nth-child(even) td{background:rgba(255,255,255,.012)}
+.small{font-size:11px;color:var(--muted)}
+.badge{
+ display:inline-block;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:800;letter-spacing:.02em;white-space:nowrap
+}
+.b-frozen{background:#123522;color:#9cf2b5;border:1px solid #2a6842}
+.b-open{background:#3a3114;color:#ffe8a0;border:1px solid #6e5b1e}
+.b-decision{background:#25204a;color:#d8ccff;border:1px solid #55469a}
+.b-par{background:#123246;color:#9ee9ff;border:1px solid #2b667e}
+.b-critical{background:#3a1b22;color:#ffc0ca;border:1px solid #753241}
+.b-public{background:#102f43;color:#a7e8ff;border:1px solid #27627c}
+.b-private{background:#2a203f;color:#d8c6ff;border:1px solid #5a477c}
+.b-output{background:#133327;color:#a9f1c1;border:1px solid #2c6946}
+.phase{
+  margin:18px 0 28px;background:var(--panel3);border:1px solid var(--line);border-radius:16px;overflow:hidden
+}
+.phasehead{
+  display:flex;gap:12px;align-items:flex-start;padding:16px 18px;background:#111d30;border-bottom:1px solid var(--line)
+}
+.phasenum{
+  flex:0 0 38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#16314c;border:1px solid #315b79;color:var(--blue);font-weight:900
+}
+.phasehead h3{margin:0 0 3px}
+.phasebody{padding:15px 18px}
+.lanes{
+  display:grid;grid-template-columns:1.15fr 1.15fr 1.15fr 1.15fr;gap:10px
+}
+.lane{
+  min-width:0;border:1px solid var(--line);border-radius:10px;background:#101a2b;overflow:hidden
+}
+.lane .lh{padding:8px 10px;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--line)}
+.lane .lc{padding:10px}
+.lane ul{margin:5px 0;padding-left:18px}
+.lane li{margin:4px 0}
+.num .lh{color:var(--blue)}
+.infra .lh{color:var(--green)}
+.hw .lh{color:var(--amber)}
+.mant .lh{color:var(--purple)}
+.decisionbox{
+  margin:13px 0;border:1px solid #5a4b8a;background:#211b34;border-radius:12px;padding:12px 14px
+}
+.decisionbox .dtitle{font-weight:850;color:#ded4ff;margin-bottom:5px}
+.impact{
+  display:grid;grid-template-columns:180px 1fr 1fr;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:9px;font-size:12px
+}
+.impact>div{padding:8px;border-right:1px solid var(--line);border-top:1px solid var(--line)}
+.impact>div:nth-child(-n+3){border-top:none;background:#172238;font-weight:800}
+.impact>div:nth-child(3n){border-right:none}
+.flow{
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:12px 0
+}
+.node{border:1px solid var(--line);background:#132036;padding:7px 10px;border-radius:9px;font-size:12px}
+.node.gate{background:#251f43;border-color:#554a86;color:#ded4ff;font-weight:800}
+.node.end{background:#103124;border-color:#2f6e49;color:#aff3c6}
+.arrow{color:#7488a7;font-weight:900}
+.criticalpath{
+  display:grid;grid-template-columns:repeat(11,minmax(95px,1fr));gap:5px;overflow-x:auto;padding-bottom:8px
+}
+.cp{
+  border:1px solid var(--line);background:#101b2e;border-radius:9px;padding:9px;font-size:11px;min-height:84px
+}
+.cp strong{display:block;color:#eef5ff;margin-bottom:4px}
+.cp.gate{border-color:#5d4c96;background:#211b35}
+.cp.final{border-color:#377653;background:#102b21}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.dep{color:#aebdd1}
+.taskid{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#8edcf7;font-size:11px}
+.done{color:#a7f3d0}
+.openq{color:#ffe49a}
+.footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);color:#7f91aa;font-size:11px}
+@media(max-width:1150px){
+ .lanes{grid-template-columns:1fr 1fr}
+ .grid4{grid-template-columns:1fr 1fr}
+ .criticalpath{grid-template-columns:repeat(11,150px)}
+}
+@media(max-width:820px){
+ .layout{grid-template-columns:1fr}
+ aside{position:static;height:auto}
+ main{padding:24px 14px 60px}
+ .lanes,.grid2,.grid3,.grid4{grid-template-columns:1fr}
+ .impact{grid-template-columns:1fr}
+ .impact>div{border-right:none}
+ h1{font-size:31px}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="brand">MANT Precision Roadmap</div>
+  <div class="sub">Execution sequence · parallel work · decision gates · dependencies</div>
+
+  <div class="group">Read first</div>
+  <a href="#principles">Roadmap principles</a>
+  <a href="#frozen">Frozen starting decisions</a>
+  <a href="#critical">Critical path</a>
+
+  <div class="group">Execution phases</div>
+  <a href="#p0">0 · Freeze contracts</a>
+  <a href="#p1">1 · Foundation in parallel</a>
+  <a href="#p2">2 · Exact engine + pilot</a>
+  <a href="#p3">3 · Broad Experiment A</a>
+  <a href="#p4">4 · Structured follow-up sweeps</a>
+  <a href="#p5">5 · Full numerical validation</a>
+  <a href="#p6">6 · Generic hardware DSE</a>
+  <a href="#p7">7 · Public end-to-end Pareto</a>
+  <a href="#p8">8 · Private MANT evaluation</a>
+  <a href="#p9">9 · MANT architecture convergence</a>
+  <a href="#p10">10 · Final physical validation</a>
+  <a href="#p11">11 · Freeze + publication</a>
+
+  <div class="group">Management views</div>
+  <a href="#decisions">Decision register</a>
+  <a href="#tasks">Task registry</a>
+  <a href="#parallel">Parallelization summary</a>
+  <a href="#outputs">Final outputs</a>
+</aside>
+
+<main>
+<div class="hero">
+  <div class="eyebrow">Comprehensive execution roadmap · v1</div>
+  <h1>Sub-8-Bit Precision Exploration for MANT</h1>
+  <p class="lead">
+    A dependency-aware roadmap for the full numerical-format study, generic hardware evaluation, and private MANT co-development.
+    The sequence is intentionally evidence-driven: decisions that should be learned from experiments are left open, while only the
+    contracts required for reproducible work are frozen up front.
+  </p>
+  <div class="meta">
+    <span class="pill">≤8-bit weights & activations</span>
+    <span class="pill">Architecture-independent public study first</span>
+    <span class="pill">Model C controlled MAC baseline</span>
+    <span class="pill">Conservative pruning</span>
+    <span class="pill">Generic RTL → public Pareto → MANT</span>
+    <span class="pill">Sequence, not calendar</span>
+  </div>
+</div>
+
+<section id="principles">
+<h2>1. How to read this roadmap</h2>
+<div class="grid4">
+  <div class="mini"><strong><span class="badge b-critical">CRITICAL PATH</span></strong>Tasks that must complete before the next scientific stage can begin.</div>
+  <div class="mini"><strong><span class="badge b-par">PARALLEL</span></strong>Workstreams that can proceed simultaneously once their shared interface is stable.</div>
+  <div class="mini"><strong><span class="badge b-decision">DECISION GATE</span></strong>A point where measured evidence selects the next branch or search scope.</div>
+  <div class="mini"><strong><span class="badge b-frozen">FROZEN</span></strong>A methodological decision already made and not treated as a search variable in the controlled baseline.</div>
+</div>
+<div class="callout good">
+  <b>Core rule:</b> do not freeze research outcomes early. Freeze only the contracts needed to make experiments comparable and software reusable.
+  Candidate formats, accumulator widths, scale optimizations, multiplier architectures, MANT ISA changes and heterogeneous tiles remain evidence-driven.
+</div>
+<div class="callout">
+  The roadmap separates <b>public Stage A</b> from <b>private Stage B</b>. Public Stage A asks which numerical architectures are generally Pareto-efficient.
+  Private Stage B asks which of those candidates—and selected guard candidates—fit MANT best.
+</div>
+</section>
+
+<section id="frozen">
+<h2>2. Frozen starting decisions</h2>
+<table>
+<tr><th>ID</th><th>Decision now frozen</th><th>Reason</th><th>What remains open</th></tr>
+<tr>
+  <td><b>F1</b></td>
+  <td><b>Experiment A canonical MAC = Model C</b>: full/exact product enters a sufficiently wide accumulator; accumulator rounding follows its own defined format.</td>
+  <td>Prevents the first format comparison from being dominated by premature product rounding.</td>
+  <td>Models A/B/C are still compared later for finalists and for MANT.</td>
+</tr>
+<tr>
+  <td><b>F2</b></td>
+  <td>Use a <b>sufficiently wide, family-appropriate accumulator</b> in the controlled Experiment A baseline.</td>
+  <td>Measures representation quality before intentionally squeezing accumulation precision.</td>
+  <td>Native, 8/10/12/16-bit, INT32, FP variants, quire/Kulisch-style options are later search dimensions.</td>
+</tr>
+<tr>
+  <td><b>F3</b></td>
+  <td><b>Weight and activation formats are independently configurable</b> in the software architecture.</td>
+  <td>Prevents a rewrite when W≠A mixed precision is explored.</td>
+  <td>Experiment A may begin with uniform W=A screening; W/A asymmetry is a later sweep.</td>
+</tr>
+<tr>
+  <td><b>F4</b></td>
+  <td><b>Accumulator format is independently configurable</b> from W and A.</td>
+  <td>Keeps the numerical architecture explicit: W format + A format + accumulator + MAC model.</td>
+  <td>Which accumulator wins is not decided now.</td>
+</tr>
+<tr>
+  <td><b>F5</b></td>
+  <td>Static PTQ; no retraining; BN folded before calibration; fixed calibration/evaluation subsets; MSE-based calibration where scale selection is required; symmetric zero-point-0 signed INT baseline; no bias correction/reconstruction in A.</td>
+  <td>Creates a reproducible controlled baseline.</td>
+  <td>Format-specific PTQ improvements move to Experiment B.</td>
+</tr>
+<tr>
+  <td><b>F6</b></td>
+  <td><b>No optional external scaling in Experiment A.</b> Use only scaling intrinsic/necessary to the family: conventional INT/fixed-point mapping scales; native MX/BFP shared scales; direct FP/minifloat/Posit unless the format definition itself requires otherwise.</td>
+  <td>Reduces optimizer bias and avoids hiding intrinsic dynamic-range behavior.</td>
+  <td>General external scale, power-of-two scale, bias/range tuning, block-size and scale-granularity sweeps belong to Experiment B.</td>
+</tr>
+<tr>
+  <td><b>F7</b></td>
+  <td><b>Public Stage A is architecture-independent with respect to MANT.</b></td>
+  <td>Prevents current MANT FP-only and same-word assumptions from constraining the scientific search.</td>
+  <td>MANT may later be modified—or may keep its current structure—based on evidence.</td>
+</tr>
+<tr>
+  <td><b>F8</b></td>
+  <td>Private MANT evaluation receives the <b>public Pareto set plus a conservative guard set</b>, not only one winner.</td>
+  <td>Protects against a candidate being generically near-Pareto but unusually efficient on MANT.</td>
+  <td>Exact guard-set composition is decided after the public study.</td>
+</tr>
+</table>
+</section>
+
+<section id="critical">
+<h2>3. Master critical path</h2>
+<p class="small">Parallel tasks appear inside phases below. This strip shows only the dependencies that can block the overall project.</p>
+<div class="criticalpath">
+  <div class="cp"><strong>0 · Contracts</strong>Manifests, arithmetic semantics, PTQ A, public/private boundary</div>
+  <div class="cp"><strong>1 · Foundation</strong>Reference models + oracle + experiment infrastructure</div>
+  <div class="cp gate"><strong>Gate D1</strong>Initial format set and semantics accepted</div>
+  <div class="cp"><strong>2 · Exact engine</strong>Conv/GEMM/DWConv + validation + pilot speed</div>
+  <div class="cp"><strong>3 · Experiment A</strong>Broad uniform-format screening</div>
+  <div class="cp gate"><strong>Gate D4</strong>Promotion to deeper sweeps</div>
+  <div class="cp"><strong>4–5 · Numerical depth</strong>W/A, accumulator, Experiment B, full validation</div>
+  <div class="cp"><strong>6–7 · Public HW</strong>RTL DSE + memory/scaling/power + public Pareto</div>
+  <div class="cp gate"><strong>Gate D11</strong>Pareto + guard set → MANT</div>
+  <div class="cp"><strong>8–10 · MANT</strong>Import, mapping, tile/chip DSE, P&R</div>
+  <div class="cp final"><strong>11 · Freeze</strong>MANT v1 numerical architecture + publication package</div>
+</div>
+</section>
+
+<section id="p0" class="phase">
+<div class="phasehead">
+  <div class="phasenum">0</div>
+  <div><h3>Freeze the experiment contracts</h3><div class="small"><span class="badge b-critical">CRITICAL PATH</span> Do this before large-scale implementation.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane num"><div class="lh">Numerical / Research</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N0.1</span> Write the canonical arithmetic contract for Model C.</li>
+      <li><span class="taskid">N0.2</span> Define accumulator-format interface and conversion/rounding points.</li>
+      <li><span class="taskid">N0.3</span> Rewrite Experiment A scaling rules: intrinsic/necessary scaling only.</li>
+      <li><span class="taskid">N0.4</span> Freeze deployment-graph rules: eval mode → BN folding → calibration → PTQ.</li>
+      <li><span class="taskid">N0.5</span> Define operator semantics and strict/practical low-precision modes.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Software / Reproducibility</div><div class="lc">
+    <ul>
+      <li><span class="taskid">I0.1</span> Define canonical experiment config schema.</li>
+      <li><span class="taskid">I0.2</span> Define datatype manifest schema.</li>
+      <li><span class="taskid">I0.3</span> Define content-hash identity rules for runs/artifacts.</li>
+      <li><span class="taskid">I0.4</span> Define public package exported to private MANT.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Generic Hardware</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H0.1</span> Freeze comparison metrics: area, fmax, II, latency, throughput, leakage, dynamic power, energy/op.</li>
+      <li><span class="taskid">H0.2</span> Freeze hierarchy: primitive → MAC/FPU → generic PE/tile → system.</li>
+      <li><span class="taskid">H0.3</span> Define standard register-to-register timing harness.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Private MANT</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M0.1</span> Freeze what stays private: ISA, tile, interconnect, mapping/compiler, golden model.</li>
+      <li><span class="taskid">M0.2</span> Define the importer boundary; do <b>not</b> redesign MANT yet.</li>
+    </ul>
+  </div></div>
+</div>
+<div class="callout good"><b>Exit criterion:</b> one experiment configuration uniquely determines the expected numerical result, and no public code needs MANT-specific knowledge.</div>
+</div>
+</section>
+
+<section id="p1" class="phase">
+<div class="phasehead">
+  <div class="phasenum">1</div>
+  <div><h3>Build the foundation in parallel</h3><div class="small"><span class="badge b-par">HIGH PARALLELISM</span> Three teams/threads of work can proceed independently after Phase 0.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane num"><div class="lh">Numerical / Workloads</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N1.1</span> Freeze checkpoints for ResNet-18, MobileNetV2, MobileNetV3 and one tiny detector.</li>
+      <li><span class="taskid">N1.2</span> Optionally stage EfficientNet-B0/Lite0 for later inclusion.</li>
+      <li><span class="taskid">N1.3</span> Reproduce FP32 Top-1/Top-5 and COCO mAP.</li>
+      <li><span class="taskid">N1.4</span> Freeze preprocessing and dataset versions.</li>
+      <li><span class="taskid">N1.5</span> Create ImageNet 2k calibration list and 1k/10k/full evaluation lists; keep them disjoint.</li>
+      <li><span class="taskid">N1.6</span> Create fixed COCO calibration/screening lists.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Exact Arithmetic + Infrastructure</div><div class="lc">
+    <ul>
+      <li><span class="taskid">I1.1</span> Implement high-precision datatype oracle.</li>
+      <li><span class="taskid">I1.2</span> Implement manifest parser/validator.</li>
+      <li><span class="taskid">I1.3</span> Generate exhaustive ADD/MUL/convert truth tables where feasible.</li>
+      <li><span class="taskid">I1.4</span> Build scheduler, SQLite schema, artifact cache and job lifecycle.</li>
+      <li><span class="taskid">I1.5</span> Implement deterministic config hashing and metadata capture.</li>
+      <li><span class="taskid">I1.6</span> Implement per-image result storage for paired statistics.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Generic Hardware Flow</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H1.1</span> Bring up ICS55 synthesis/P&R scripts using simple representative arithmetic blocks.</li>
+      <li><span class="taskid">H1.2</span> Validate timing harness, corners and RVT baseline.</li>
+      <li><span class="taskid">H1.3</span> Prepare secondary cross-check flow (e.g. SKY130) if useful.</li>
+      <li><span class="taskid">H1.4</span> Investigate ICS55 SRAM/memory support early; record what is actually available.</li>
+      <li><span class="taskid">H1.5</span> Build standardized synthesis result parser/database interface.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Private MANT — Low-risk prep only</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M1.1</span> Ensure current simulator/golden model regression tests pass.</li>
+      <li><span class="taskid">M1.2</span> Document current numerical assumptions as a compatibility baseline.</li>
+      <li><span class="taskid">M1.3</span> Do not implement new ISA support yet.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D1 — Initial candidate manifest set</div>
+  <p>Select the first broad but implementable set from INT/fixed-point, minifloat, BFP/MX, Posit, log/power-of-two, codebook/NF, binary/ternary and selected custom variants. Preserve all major families; remove only redundant or ill-defined variants.</p>
+  <div class="impact">
+    <div>Decision outcome</div><div>Downstream effect</div><div>Why</div>
+    <div>More candidates</div><div>More truth tables, kernels and screening jobs</div><div>Higher coverage, higher engineering/compute cost</div>
+    <div>Fewer candidates</div><div>Faster engine and sweep</div><div>Risk of missing a family-level result; use only after redundancy analysis</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="p2" class="phase">
+<div class="phasehead">
+  <div class="phasenum">2</div>
+  <div><h3>Build and validate the exact inference engine; run implementation pilots</h3><div class="small"><span class="badge b-critical">CRITICAL PATH</span> Accuracy sweeps cannot start until the exact engine is trusted.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane num"><div class="lh">Numerical Engine Semantics</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N2.1</span> Implement quantized Conv2D, 1×1 Conv, Linear, residual add and depthwise Conv.</li>
+      <li><span class="taskid">N2.2</span> Implement bias in accumulator domain.</li>
+      <li><span class="taskid">N2.3</span> Implement ReLU/ReLU6, pooling, hard-swish and LUT nonlinear semantics needed by chosen models.</li>
+      <li><span class="taskid">N2.4</span> Implement strict low-precision baseline graph.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">CPU / CUDA Backends</div><div class="lc">
+    <ul>
+      <li><span class="taskid">I2.1</span> Correctness-first C++ backend.</li>
+      <li><span class="taskid">I2.2</span> CUDA GEMM/Conv and dedicated depthwise kernel.</li>
+      <li><span class="taskid">I2.3</span> Benchmark algorithmic vs LUT vs predecoded execution on representative FP6 and another family.</li>
+      <li><span class="taskid">I2.4</span> Validate C++ vs CUDA bit-for-bit.</li>
+      <li><span class="taskid">I2.5</span> Network-level logits/output checks on fixed image set.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Generic HW Pilot</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H2.1</span> Synthesize a few representative INT/FP/Posit/log primitives to validate flow behavior.</li>
+      <li><span class="taskid">H2.2</span> Pilot clock-constraint sweep and 0–3 pipeline stages.</li>
+      <li><span class="taskid">H2.3</span> Pilot vectorless power workflow.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Private MANT</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M2.1</span> No candidate-driven redesign yet.</li>
+      <li><span class="taskid">M2.2</span> Prepare logging for future quality delta, cycles, stalls, traffic and utilization.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D2 — Fast backend strategy by datatype/width</div>
+  <p>From the microbenchmarks, choose algorithmic, LUT, predecoded, or mixed execution for each width/family.</p>
+  <div class="impact">
+    <div>What it affects</div><div>How</div><div>Scientific risk</div>
+    <div>Runtime only</div><div>Changes screening throughput and compute cost</div><div><b>None</b> if all modes are exhaustively verified against the same oracle</div>
+    <div>Packing policy</div><div>May improve host throughput/memory usage</div><div>None; hardware cost continues to use true datatype width</div>
+  </div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D3 — Final workload breadth for the main study</div>
+  <p>After measuring engine speed and compute budget, decide whether EfficientNet is part of the main full suite or remains an optional validation workload. ResNet-18, MobileNetV2, MobileNetV3 and one detector remain the core target.</p>
+  <div class="impact">
+    <div>Choice</div><div>Downstream effect</div><div>Why</div>
+    <div>Add EfficientNet early</div><div>More calibration/screening/full jobs and operator coverage</div><div>Stronger generality across depthwise/SE designs</div>
+    <div>Keep optional</div><div>Lower compute cost</div><div>Core study still spans classification + detection</div>
+  </div>
+</div>
+<div class="callout good"><b>Exit criterion:</b> every tested primitive and full-layer result is bit-identical between oracle/reference and optimized backend; FP32 baselines are reproduced; scheduler can resume and deduplicate runs.</div>
+</div>
+</section>
+
+<section id="p3" class="phase">
+<div class="phasehead">
+  <div class="phasenum">3</div>
+  <div><h3>Run broad Experiment A: minimal/canonical deployment semantics</h3><div class="small"><span class="badge b-public">PUBLIC STAGE A</span> Broad search; conservative pruning.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane num"><div class="lh">Numerical Screening</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N3.1</span> Start primarily with uniform W=A configurations to control search size.</li>
+      <li><span class="taskid">N3.2</span> Use Model C + sufficiently wide family-appropriate accumulator.</li>
+      <li><span class="taskid">N3.3</span> Use no optional external scale for self-scaling formats.</li>
+      <li><span class="taskid">N3.4</span> INT/fixed-point use required canonical mapping scale; MX/BFP use intrinsic shared scales.</li>
+      <li><span class="taskid">N3.5</span> Run 1k paired screening on all valid candidates.</li>
+      <li><span class="taskid">N3.6</span> Collect layer statistics, SQNR, MSE, zero/outlier fraction, overflow/underflow/sign clipping.</li>
+      <li><span class="taskid">N3.7</span> Run selected one-layer-at-a-time sensitivity studies.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Statistics / Scheduling</div><div class="lc">
+    <ul>
+      <li><span class="taskid">I3.1</span> Store per-image paired outcomes.</li>
+      <li><span class="taskid">I3.2</span> Paired bootstrap confidence intervals for ΔTop-1/ΔTop-5.</li>
+      <li><span class="taskid">I3.3</span> Detector-appropriate resampling for mAP.</li>
+      <li><span class="taskid">I3.4</span> Classify PROMISING / UNCERTAIN / CATASTROPHIC-BROKEN.</li>
+      <li><span class="taskid">I3.5</span> Diagnose catastrophic candidates before dropping configurations.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Early Generic HW Estimates</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H3.1</span> Build rough analytical/logic-synthesis priors for major families.</li>
+      <li><span class="taskid">H3.2</span> Estimate nominal storage bits and metadata overhead.</li>
+      <li><span class="taskid">H3.3</span> Use estimates only as a preservation signal—not as final hardware claims.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Private MANT</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M3.1</span> Continue current MANT development independently.</li>
+      <li><span class="taskid">M3.2</span> Do not use MANT fit to prune public format families.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D4 — Promotion from 1k → 5k/10k</div>
+  <p><b>Rule:</b> promote promising <i>and uncertain</i> candidates. Also preserve family representatives, near-Pareto candidates, unusual expected hardware winners and cross-workload specialists. Do not use a hard top-N cutoff.</p>
+  <div class="impact">
+    <div>If promoted</div><div>Next tasks</div><div>Reason</div>
+    <div>Promising</div><div>5k/10k validation</div><div>Likely strong numerical candidate</div>
+    <div>Uncertain</div><div>5k/10k validation</div><div>More data is needed; uncertainty is not evidence of inferiority</div>
+    <div>Catastrophic after diagnosis</div><div>Prune configuration; preserve family unless broader evidence exists</div><div>A bad configuration does not prove a bad datatype family</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="p4" class="phase">
+<div class="phasehead">
+  <div class="phasenum">4</div>
+  <div><h3>Deepen the numerical search on promoted candidates</h3><div class="small"><span class="badge b-par">PARALLEL SWEEPS</span> These branches share the same engine and can run concurrently across machines/GPUs.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane num"><div class="lh">Branch A — W/A Asymmetry</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N4A.1</span> Test W4A8, W5A6, W6A6, W6A8, W8A6, W8A8 and selected family-specific combinations.</li>
+      <li><span class="taskid">N4A.2</span> Signed vs unsigned activations where semantically appropriate.</li>
+      <li><span class="taskid">N4A.3</span> Preserve candidate families that specialize in weights or activations.</li>
+    </ul>
+  </div></div>
+  <div class="lane num"><div class="lh">Branch B — Accumulation</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N4B.1</span> Sweep native and widened accumulator precisions.</li>
+      <li><span class="taskid">N4B.2</span> Compare MAC Models A/B/C on finalists/promoted formats.</li>
+      <li><span class="taskid">N4B.3</span> Include Posit quire / Kulisch or exact fixed accumulation where relevant.</li>
+      <li><span class="taskid">N4B.4</span> Keep deterministic sequential reduction as main numerical baseline; tree reduction is an ablation.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Branch C — Experiment B PTQ</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N4C.1</span> Add general external scale where meaningful.</li>
+      <li><span class="taskid">N4C.2</span> Power-of-two scaling ablation.</li>
+      <li><span class="taskid">N4C.3</span> Per-tensor / per-channel / block granularity.</li>
+      <li><span class="taskid">N4C.4</span> FP bias/range tuning; MX/BFP block-size 16/32/64; format-specific PTQ.</li>
+      <li><span class="taskid">N4C.5</span> Practical first/last-layer exceptions as secondary ablation.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Branch D — Cost Proxies</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H4.1</span> Model scale metadata bits/value.</li>
+      <li><span class="taskid">H4.2</span> Estimate scale-generation and application complexity by family.</li>
+      <li><span class="taskid">H4.3</span> Track ideal vs packed logical memory cost.</li>
+      <li><span class="taskid">H4.4</span> Use early cost to keep potentially hardware-efficient candidates even if accuracy is slightly lower.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D5 — Which promoted configurations deserve the full expensive ablation set?</div>
+  <p>Do not apply every W/A × accumulator × scale × block-size combination to every candidate. Use evidence from 1k/10k, family preservation, layer sensitivity and rough hardware cost to select meaningful combinations.</p>
+  <div class="impact">
+    <div>Selection criterion</div><div>Downstream effect</div><div>Why</div>
+    <div>Strong quality / near Pareto</div><div>Broader optimization sweep</div><div>Likely final contender</div>
+    <div>Unique family behavior</div><div>At least one reasonable optimized configuration</div><div>Prevents unfair family elimination</div>
+    <div>Clearly redundant configuration</div><div>Do not Cartesian-expand</div><div>Controls total jobs</div>
+  </div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D6 — Final Experiment B optimization policy per family</div>
+  <p>After pilot evidence, freeze which optional scale/quantizer improvements are considered “reasonable best-achievable PTQ” for each family.</p>
+  <div class="impact">
+    <div>What changes</div><div>Tasks affected</div><div>Why</div>
+    <div>Scale type/granularity</div><div>PTQ, inference metadata, generic scaling RTL, memory traffic</div><div>Optimization benefit must be paired with its hardware cost</div>
+    <div>Block size</div><div>MX/BFP quality, metadata, dynamic scale logic, memory layout</div><div>Block size couples numerical behavior and hardware overhead</div>
+    <div>Format-specific calibration</div><div>Final optimized accuracy</div><div>Answers “best achievable PTQ” rather than controlled intrinsic behavior</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="p5" class="phase">
+<div class="phasehead">
+  <div class="phasenum">5</div>
+  <div><h3>Full numerical validation and high-confidence pruning</h3><div class="small"><span class="badge b-critical">CRITICAL GATE</span> Strong format conclusions start here, not at 1k.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane num"><div class="lh">Full Accuracy / Robustness</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N5.1</span> Select roughly 20–40 configurations for full ImageNet/COCO evaluation where practical.</li>
+      <li><span class="taskid">N5.2</span> Report absolute metrics and Δ from FP32.</li>
+      <li><span class="taskid">N5.3</span> Repeat calibration seeds for ~5–10 finalists to test ranking stability.</li>
+      <li><span class="taskid">N5.4</span> Analyze average and worst-case degradation across workloads.</li>
+      <li><span class="taskid">N5.5</span> Freeze exact candidate packages for hardware evaluation.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Statistical Analysis</div><div class="lc">
+    <ul>
+      <li><span class="taskid">I5.1</span> Final confidence intervals and paired disagreement analysis.</li>
+      <li><span class="taskid">I5.2</span> Layer/class sensitivity summaries.</li>
+      <li><span class="taskid">I5.3</span> Detect calibration instability or model-specific failures.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Hardware Candidate Preparation</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H5.1</span> Translate ~8–15 strongest hardware-relevant configurations into exact RTL requirements.</li>
+      <li><span class="taskid">H5.2</span> Include format decode/encode, scale logic, accumulation and requantization—not just multipliers.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Private MANT</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M5.1</span> Prepare importer tests with synthetic public packages.</li>
+      <li><span class="taskid">M5.2</span> Still avoid format-specific architectural commitment until public hardware evidence exists.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D7 — Full-validation → generic RTL finalist set</div>
+  <p>Select roughly 8–15 numerical configurations using accuracy confidence, family representation, near-Pareto status and hardware plausibility.</p>
+  <div class="impact">
+    <div>Selection changes</div><div>Tasks affected</div><div>Why</div>
+    <div>More RTL candidates</div><div>More architecture DSE/synthesis</div><div>Better chance of preserving a non-obvious hardware winner</div>
+    <div>Fewer RTL candidates</div><div>Lower engineering cost</div><div>Accept only if dominance evidence is strong</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="p6" class="phase">
+<div class="phasehead">
+  <div class="phasenum">6</div>
+  <div><h3>Generic hardware design-space exploration</h3><div class="small"><span class="badge b-public">PUBLIC STAGE A</span> <span class="badge b-par">PARALLEL BY FAMILY / BLOCK</span></div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane hw"><div class="lh">Arithmetic RTL DSE</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H6.1</span> Integer/significand multiplication: array/Braun, Baugh-Wooley, shift-add, Booth, Wallace, Dadda, selected serial/LUT variants.</li>
+      <li><span class="taskid">H6.2</span> Final adders: ripple, CLA, carry-select, selected prefix families.</li>
+      <li><span class="taskid">H6.3</span> Minifloat unpack/exponent/significand/normalize/round/pack DSE.</li>
+      <li><span class="taskid">H6.4</span> FP adders and FMA / separate MAC / narrow-product-wide-accumulator architectures.</li>
+      <li><span class="taskid">H6.5</span> Posit + quire, MX/BFP, log-domain paths where shortlisted.</li>
+      <li><span class="taskid">H6.6</span> Sweep 0–3 internal pipeline stages and frequency constraints.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Scaling / Conversion RTL</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H6.7</span> INT requantization with arbitrary and power-of-two scales.</li>
+      <li><span class="taskid">H6.8</span> FP exponent-adjustment scale path where applicable.</li>
+      <li><span class="taskid">H6.9</span> Dynamic MX/BFP scale generation and metadata handling.</li>
+      <li><span class="taskid">H6.10</span> Conversion/requantization blocks between accumulator/output domains.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Memory Methodology</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H6.11</span> Level A ideal bits/value.</li>
+      <li><span class="taskid">H6.12</span> Level B packed logical memory and alignment/padding.</li>
+      <li><span class="taskid">H6.13</span> Level C physical implementation using the best verified ICS55-supported option.</li>
+      <li><span class="taskid">H6.14</span> Measure/estimate area, read/write energy, bandwidth and effective bits/value.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Power & Trace Infrastructure</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H6.15</span> Use vectorless/default switching for broad pruning only.</li>
+      <li><span class="taskid">I6.1</span> Export representative quantized operand traces from exact inference.</li>
+      <li><span class="taskid">I6.2</span> Prepare SAIF primary flow and VCD detailed flow.</li>
+      <li><span class="taskid">I6.3</span> Include pipeline fill/drain and all iterative cycles.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D8 — Pareto architecture(s) representing each numerical configuration</div>
+  <p>Each datatype/configuration should be represented by a small Pareto set—not one arbitrary RTL. Select implementations across area / fmax / II / energy trade-offs.</p>
+  <div class="impact">
+    <div>Selected architecture</div><div>Downstream effect</div><div>Why</div>
+    <div>Combinational / simple</div><div>Lower registers/clock power; possibly lower fmax</div><div>Tiny widths may favor simplicity</div>
+    <div>Pipelined</div><div>More throughput, register/clock cost</div><div>Must count II and clock-tree power</div>
+    <div>Iterative/serial</div><div>Small area, larger latency/leakage-time contribution</div><div>Cannot compare by fmax alone</div>
+  </div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D9 — Physical memory evidence level</div>
+  <p>Based on actual ICS55 tooling support, choose characterized macro/compiler, validated generated SRAM, synthesized local memory, or a clearly separated analytical/packed model.</p>
+  <div class="impact">
+    <div>Choice</div><div>Tasks affected</div><div>Why</div>
+    <div>Real/validated SRAM</div><div>Physical tile area/energy claims become stronger</div><div>Best process-specific evidence</div>
+    <div>No trustworthy macro</div><div>Keep ideal/logical and physical estimates separate; cross-check elsewhere if useful</div><div>Avoid false signoff precision</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="p7" class="phase">
+<div class="phasehead">
+  <div class="phasenum">7</div>
+  <div><h3>Build the public end-to-end hardware Pareto front</h3><div class="small"><span class="badge b-public">PUBLIC STAGE A</span> This is the paper-facing hardware-independent conclusion.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane hw"><div class="lh">Generic PE / Tile Model</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H7.1</span> Combine MAC/FMA + accumulator + scaling/conversion + parameterized local memory + generic control/interconnect overhead.</li>
+      <li><span class="taskid">H7.2</span> Sweep generic memory size, bandwidth and area budgets.</li>
+      <li><span class="taskid">H7.3</span> Iso-frequency and architecture-optimized comparisons.</li>
+      <li><span class="taskid">H7.4</span> Iso-area comparisons: more smaller PEs vs fewer larger PEs.</li>
+    </ul>
+  </div></div>
+  <div class="lane num"><div class="lh">Attach Quality to Every Point</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N7.1</span> Keep exact tuple attached: W format, A format, accumulator, scale policy, MAC model, workload.</li>
+      <li><span class="taskid">N7.2</span> Never report TOPS/W without corresponding measured quality.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Pareto Analysis</div><div class="lc">
+    <ul>
+      <li><span class="taskid">I7.1</span> Accuracy vs energy/inference.</li>
+      <li><span class="taskid">I7.2</span> Accuracy vs images/s/mm².</li>
+      <li><span class="taskid">I7.3</span> Energy/inference vs area.</li>
+      <li><span class="taskid">I7.4</span> Raw arithmetic Pareto vs all-in generic-system Pareto.</li>
+      <li><span class="taskid">I7.5</span> Memory-vs-compute energy breakdown.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Private MANT Selection Prep</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M7.1</span> Define guard-set selection features: family diversity, MANT-friendly scaling, simple conversion, width, arithmetic structure.</li>
+      <li><span class="taskid">M7.2</span> Prepare public package export for selected points.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D10 — Final power methodology for 2–4 public physical finalists</div>
+  <p>After pilot trace convergence and flow capability checks, freeze trace length, convergence tolerance, SAIF/VCD usage and whether reliable delay-aware/glitch analysis is possible.</p>
+  <div class="impact">
+    <div>Flow capability</div><div>Downstream effect</div><div>Why</div>
+    <div>Reliable delay-aware flow</div><div>Post-route activity/glitch-aware power for finalists</div><div>Best final dynamic-power evidence</div>
+    <div>Not reliable in ICS55</div><div>Report activity-based limitation explicitly; optionally validate methodology in mature PDK</div><div>Do not invent precision</div>
+  </div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D11 — Public Pareto + guard set → private MANT</div>
+  <p>Select approximately 5–10 MANT candidates: public Pareto representatives plus guard candidates. Include highest quality, lowest energy, lowest area, highest images/J, highest images/s/mm², knee points, family alternatives and any near-Pareto format with unusually favorable MANT compatibility.</p>
+  <div class="impact">
+    <div>Candidate category</div><div>Why it continues</div><div>Downstream MANT effect</div>
+    <div>Public Pareto point</div><div>Strong generic evidence</div><div>Tests whether MANT preserves the public ranking</div>
+    <div>Guard candidate</div><div>Near-Pareto or MANT-specialized potential</div><div>Protects against architecture interaction changing the winner</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="p8" class="phase">
+<div class="phasehead">
+  <div class="phasenum">8</div>
+  <div><h3>Private Stage B: evaluate selected numerical architectures on MANT</h3><div class="small"><span class="badge b-private">PRIVATE MANT</span> Do not retroactively alter public results.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane mant"><div class="lh">Import & Golden Model</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M8.1</span> Import quantized model packages.</li>
+      <li><span class="taskid">M8.2</span> Extend/parameterize MANT numerical golden model only as needed for selected candidates.</li>
+      <li><span class="taskid">M8.3</span> Measure <code>Δ_MANT(F) = Quality_MANT(F) − Quality_generic(F)</code>.</li>
+      <li><span class="taskid">M8.4</span> Identify whether current MANT arithmetic changes ranking.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Mapping / Compiler</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M8.5</span> Map representative CNN operators and full graphs.</li>
+      <li><span class="taskid">M8.6</span> Track tile memory, instruction memory, traffic and synchronization needs.</li>
+      <li><span class="taskid">M8.7</span> Identify unsupported operations and conversion/requantization pressure.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Cycle Simulation</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M8.8</span> Measure cycles, stalls, bus traffic, tile utilization and full-network latency.</li>
+      <li><span class="taskid">M8.9</span> Compare current one-format/current-word assumptions against candidate needs.</li>
+    </ul>
+  </div></div>
+  <div class="lane num"><div class="lh">Interpretation</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N8.1</span> Separate generic numerical advantage from MANT-specific implementation advantage.</li>
+      <li><span class="taskid">N8.2</span> Record which features cause ranking changes: accumulator, scale path, memory width, conversion, communication, operation support.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D12 — MANT compatibility strategy per surviving candidate</div>
+  <p>For each strong candidate, choose one of three routes based on evidence.</p>
+  <div class="impact">
+    <div>Route</div><div>Downstream tasks affected</div><div>Why</div>
+    <div><b>A · Current MANT-compatible</b></div><div>Minimal RTL/golden-model changes; proceed to tile/chip DSE</div><div>Candidate already fits current numerical contract sufficiently well</div>
+    <div><b>B · Small MANT extension</b></div><div>Add separate accumulator width, requantization/conversion, format parameters or small operator support</div><div>Limited changes unlock strong numerical/hardware point</div>
+    <div><b>C · Major redesign required</b></div><div>Evaluate benefit vs architecture cost before proceeding</div><div>Do not redesign the fabric for a marginal generic advantage</div>
+  </div>
+</div>
+<div class="callout private"><b>Important:</b> this is the correct point to decide whether current MANT assumptions should change. Earlier changes would bias the public exploration.</div>
+</div>
+</section>
+
+<section id="p9" class="phase">
+<div class="phasehead">
+  <div class="phasenum">9</div>
+  <div><h3>Converge the MANT tile architecture around evidence</h3><div class="small"><span class="badge b-private">PRIVATE MANT</span> Co-design numerical format, storage, accumulator and communication.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane mant"><div class="lh">Tile Variants</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M9.1</span> Implement 4–8 tile-level candidates, not just arithmetic primitives.</li>
+      <li><span class="taskid">M9.2</span> Evaluate separate storage width vs accumulator width if evidence supports it.</li>
+      <li><span class="taskid">M9.3</span> Evaluate W/A format asymmetry implementation.</li>
+      <li><span class="taskid">M9.4</span> Implement required conversion/requantization/scale path.</li>
+      <li><span class="taskid">M9.5</span> Evaluate operator-support additions only where workload evidence requires them.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">MANT Tile PPA</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M9.6</span> Synthesize complete tile variants.</li>
+      <li><span class="taskid">M9.7</span> Include memory, A/B, control, bus, scale/conversion and instruction effects.</li>
+      <li><span class="taskid">M9.8</span> Measure tile area, fmax, power and energy.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Whole-chip DSE</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M9.9</span> Iso-area / iso-transistor comparison.</li>
+      <li><span class="taskid">M9.10</span> Tile count, local-memory capacity and communication bandwidth.</li>
+      <li><span class="taskid">M9.11</span> Full-network throughput and energy/inference.</li>
+      <li><span class="taskid">M9.12</span> Compare uniform precision first.</li>
+    </ul>
+  </div></div>
+  <div class="lane num"><div class="lh">Quality Constraint</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N9.1</span> Attach full measured accuracy/mAP to every MANT hardware point.</li>
+      <li><span class="taskid">N9.2</span> Confirm private numerical behavior on full/representative datasets where necessary.</li>
+    </ul>
+  </div></div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D13 — Final engineering objective and quality constraints</div>
+  <p>Before selecting the final MANT winner, freeze acceptable quality loss and the primary hardware objective (for example minimum energy/inference or maximum images/s/mm² under the quality constraint).</p>
+  <div class="impact">
+    <div>Constraint/objective</div><div>What can change</div><div>Why</div>
+    <div>Tighter quality threshold</div><div>May favor wider/more expensive formats</div><div>Removes low-energy points with excessive accuracy loss</div>
+    <div>Energy-first</div><div>May favor lower precision / iterative or narrower storage</div><div>Objective selects among Pareto points</div>
+    <div>Throughput/mm²-first</div><div>May favor different pipeline/tile count trade-offs</div><div>Highest-energy-efficiency point need not have highest area throughput</div>
+  </div>
+</div>
+
+<div class="decisionbox">
+  <div class="dtitle">Decision D14 — Is mixed precision / heterogeneous tiling justified?</div>
+  <p>Only evaluate this as a second phase if the uniform-precision results show strong layer/family specialization or a meaningful Pareto gap.</p>
+  <div class="impact">
+    <div>If NO</div><div>Proceed with one dominant uniform architecture</div><div>Simpler verification, physical design and compiler</div>
+    <div>If YES</div><div>Add tile classes, conversion policy, mapping search and mixed-precision compiler work</div><div>Only worthwhile if measured gain exceeds conversion/control complexity</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="p10" class="phase">
+<div class="phasehead">
+  <div class="phasenum">10</div>
+  <div><h3>Detailed physical validation of the final 2–4 candidates</h3><div class="small"><span class="badge b-critical">FINAL EVIDENCE</span> Publication-quality / engineering-quality physical comparison.</div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane hw"><div class="lh">Physical Design</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H10.1</span> Full placement, CTS, routing and extraction where supported.</li>
+      <li><span class="taskid">H10.2</span> Multiple placement seeds where practical.</li>
+      <li><span class="taskid">H10.3</span> RVT baseline; HVT/LVT sensitivity on finalists if available.</li>
+      <li><span class="taskid">H10.4</span> Report routed area, timing, registers and clock-tree contribution.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Real Switching Power</div><div class="lc">
+    <ul>
+      <li><span class="taskid">H10.5</span> Generate datatype-specific representative CNN traces.</li>
+      <li><span class="taskid">H10.6</span> Check 32→64→128→256-image trace convergence or equivalent.</li>
+      <li><span class="taskid">H10.7</span> SAIF average activity; VCD/detail where useful.</li>
+      <li><span class="taskid">H10.8</span> Delay-aware/glitch power if reliable; otherwise disclose limitation.</li>
+    </ul>
+  </div></div>
+  <div class="lane mant"><div class="lh">Whole-chip Final Metrics</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M10.1</span> images/s, images/s/mm², images/J, energy/inference.</li>
+      <li><span class="taskid">M10.2</span> Memory capacity/bandwidth and interconnect/control energy.</li>
+      <li><span class="taskid">M10.3</span> Leakage energy = leakage power × inference time.</li>
+      <li><span class="taskid">M10.4</span> Accuracy attached to the exact physical configuration.</li>
+    </ul>
+  </div></div>
+  <div class="lane num"><div class="lh">Robustness / Reproducibility</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N10.1</span> Re-run essential numerical tests against final arithmetic semantics.</li>
+      <li><span class="taskid">I10.1</span> Freeze manifests, configs, RTL hashes, tool versions and physical-flow settings.</li>
+    </ul>
+  </div></div>
+</div>
+<div class="callout good"><b>Exit criterion:</b> every final point has a complete evidence chain from checkpoint → PTQ → exact inference → RTL semantics → physical implementation → end-to-end quality/energy/throughput.</div>
+</div>
+</section>
+
+<section id="p11" class="phase">
+<div class="phasehead">
+  <div class="phasenum">11</div>
+  <div><h3>Freeze the MANT v1 numerical architecture and package the research</h3><div class="small"><span class="badge b-output">FINAL OUTPUT</span></div></div>
+</div>
+<div class="phasebody">
+<div class="lanes">
+  <div class="lane mant"><div class="lh">Engineering Freeze</div><div class="lc">
+    <ul>
+      <li><span class="taskid">M11.1</span> Select primary numerical architecture + optional backup.</li>
+      <li><span class="taskid">M11.2</span> Freeze storage width, W/A formats, accumulator, MAC semantics, scaling/requantization and required ISA/tile changes.</li>
+      <li><span class="taskid">M11.3</span> Update MANT manual to match the chosen architecture.</li>
+      <li><span class="taskid">M11.4</span> Freeze compiler/mapping assumptions for v1.</li>
+    </ul>
+  </div></div>
+  <div class="lane num"><div class="lh">Research Synthesis</div><div class="lc">
+    <ul>
+      <li><span class="taskid">N11.1</span> Final Pareto figures and design rules.</li>
+      <li><span class="taskid">N11.2</span> Explain controlled Experiment A vs optimized Experiment B.</li>
+      <li><span class="taskid">N11.3</span> Report where generic and MANT rankings agree/diverge.</li>
+      <li><span class="taskid">N11.4</span> Derive any new format/accumulation insight supported by data.</li>
+    </ul>
+  </div></div>
+  <div class="lane infra"><div class="lh">Release / Reproduction</div><div class="lc">
+    <ul>
+      <li><span class="taskid">I11.1</span> Public manifests and conformance tests.</li>
+      <li><span class="taskid">I11.2</span> PTQ/calibration and architecture-independent inference code.</li>
+      <li><span class="taskid">I11.3</span> Generic RTL/PPA scripts and result tables where releasable.</li>
+      <li><span class="taskid">I11.4</span> Keep private MANT source boundary intact.</li>
+    </ul>
+  </div></div>
+  <div class="lane hw"><div class="lh">Publication Choice</div><div class="lc">
+    <ul>
+      <li><span class="taskid">P11.1</span> Numerical-format paper + separate MANT paper by default.</li>
+      <li><span class="taskid">P11.2</span> Consider combined co-design paper only if architecture-format interaction is a central result.</li>
+    </ul>
+  </div></div>
+</div>
+</div>
+</section>
+
+<section id="decisions">
+<h2>4. Decision register: when each open question is allowed to become fixed</h2>
+<table>
+<tr><th>Gate</th><th>Decision</th><th>Evidence required first</th><th>Downstream tasks affected</th><th>Does it change scientific conclusions?</th></tr>
+<tr><td>D1</td><td>Initial candidate set</td><td>Definitions, relevance, implementability, redundancy review</td><td>Oracle, kernels, screening count</td><td>Potentially yes; preserve families conservatively</td></tr>
+<tr><td>D2</td><td>CUDA execution method</td><td>Microbench + exhaustive correctness</td><td>Runtime only</td><td>No, if bit-exact</td></tr>
+<tr><td>D3</td><td>Include EfficientNet in main suite?</td><td>Engine speed/compute budget</td><td>Job count, operator breadth</td><td>Can affect generality, not per-model semantics</td></tr>
+<tr><td>D4</td><td>1k → 10k promotion</td><td>Paired statistics + diagnosis</td><td>Deeper numerical evaluation</td><td>Yes; therefore uncertainty promotes</td></tr>
+<tr><td>D5</td><td>Which ablations to Cartesian-expand</td><td>1k/10k quality, sensitivity, rough cost</td><td>W/A, accumulator, scaling jobs</td><td>Yes; preserve representative configurations</td></tr>
+<tr><td>D6</td><td>Experiment B optimization policy</td><td>Pilot benefit/cost by family</td><td>Final optimized PTQ and scale RTL</td><td>Yes; defines “best achievable” comparison</td></tr>
+<tr><td>D7</td><td>8–15 generic RTL finalists</td><td>Full-dataset quality + hardware plausibility</td><td>RTL/PPA effort</td><td>Yes</td></tr>
+<tr><td>D8</td><td>Representative RTL architectures</td><td>Synthesis Pareto sweep</td><td>Generic PE/system modeling</td><td>Hardware conclusion yes; numerical conclusion no</td></tr>
+<tr><td>D9</td><td>Memory physical model</td><td>Verified ICS55 support</td><td>Physical memory area/energy and claims</td><td>Can reorder hardware Pareto points</td></tr>
+<tr><td>D10</td><td>Final power methodology</td><td>Trace convergence + flow capability</td><td>Energy result fidelity</td><td>Can reorder close hardware points</td></tr>
+<tr><td>D11</td><td>MANT Pareto + guard set</td><td>Public end-to-end Pareto</td><td>Private candidate count</td><td>Does not alter public conclusion; affects MANT winner search</td></tr>
+<tr><td>D12</td><td>How much MANT changes per candidate</td><td>Generic→MANT quality delta, mapping, cycle cost</td><td>ISA/tile/golden-model/RTL work</td><td>Private MANT conclusion yes</td></tr>
+<tr><td>D13</td><td>Final quality threshold + hardware objective</td><td>Complete MANT Pareto</td><td>Final winner</td><td>Selects among Pareto points; should not change measurements</td></tr>
+<tr><td>D14</td><td>Mixed/heterogeneous second phase?</td><td>Uniform-precision results + layer specialization</td><td>Compiler, conversion, tile classes, more PPA</td><td>Can improve final architecture but is optional</td></tr>
+</table>
+</section>
+
+<section id="tasks">
+<h2>5. Compact task registry and dependencies</h2>
+<table>
+<tr><th>Work package</th><th>Main tasks</th><th>Starts after</th><th>Can run in parallel with</th><th>Blocks</th></tr>
+<tr><td>WP0 Contracts</td><td>Arithmetic, PTQ A, manifests, config schema, public/private boundary</td><td>Now</td><td>—</td><td>Everything</td></tr>
+<tr><td>WP1A Workloads</td><td>Checkpoints, datasets, baselines, subsets</td><td>WP0</td><td>WP1B, WP1C, MANT regression</td><td>Experiment A</td></tr>
+<tr><td>WP1B Oracle & infra</td><td>Truth tables, scheduler, DB, artifacts, statistics</td><td>WP0</td><td>WP1A, WP1C</td><td>Exact engine</td></tr>
+<tr><td>WP1C Generic PDK flow</td><td>ICS55 bring-up, memory support investigation, synthesis harness</td><td>WP0</td><td>WP1A, WP1B, engine</td><td>Later hardware DSE, not Experiment A</td></tr>
+<tr><td>WP2 Exact engine</td><td>C++/CUDA operators and bit-exact validation</td><td>WP1B + operator contract</td><td>Generic flow pilots</td><td>All quality sweeps</td></tr>
+<tr><td>WP3 Experiment A</td><td>Broad uniform 1k → 10k screening</td><td>WP1A + WP2</td><td>Rough hardware estimates</td><td>Deep sweeps</td></tr>
+<tr><td>WP4 Numerical depth</td><td>W/A, accumulator, MAC A/B/C, Experiment B scaling/PTQ</td><td>D4</td><td>Branches A/B/C/D</td><td>Full validation</td></tr>
+<tr><td>WP5 Full numerical</td><td>20–40 configs; seed robustness</td><td>WP4</td><td>RTL requirement preparation</td><td>Final RTL set</td></tr>
+<tr><td>WP6 Generic RTL/PPA</td><td>Arithmetic, scaling, memory, pipeline/frequency DSE</td><td>D7</td><td>By family and block</td><td>Public hardware Pareto</td></tr>
+<tr><td>WP7 Public end-to-end</td><td>Generic PE/system, power, iso-area, Pareto</td><td>WP6 + memory/power methodology</td><td>Private importer prep</td><td>D11</td></tr>
+<tr><td>WP8 Private MANT evaluation</td><td>Importer, golden model, mapping, cycle sim, ΔMANT</td><td>D11</td><td>Candidate packages in parallel</td><td>D12</td></tr>
+<tr><td>WP9 MANT co-design</td><td>Tile variants, complete tile PPA, whole-chip DSE</td><td>D12</td><td>Several candidates in parallel</td><td>Finalists</td></tr>
+<tr><td>WP10 Final P&R</td><td>2–4 candidates, switching power, placement seeds</td><td>D13 / final candidate shortlist</td><td>Physical candidates in parallel where resources allow</td><td>MANT v1 freeze</td></tr>
+<tr><td>WP11 Freeze & publish</td><td>Manual, v1 spec, reproducibility, papers</td><td>WP10</td><td>Research writing can start earlier as results stabilize</td><td>Final deliverables</td></tr>
+</table>
+</section>
+
+<section id="parallel">
+<h2>6. Where parallel work is most valuable</h2>
+<div class="grid3">
+  <div class="card">
+    <h3>Parallel cluster A — immediately after contracts</h3>
+    <ul>
+      <li>Workload/checkpoint preparation</li>
+      <li>Datatype oracle + manifests</li>
+      <li>Scheduler/database</li>
+      <li>ICS55 flow bring-up</li>
+      <li>MANT regression/measurement hooks</li>
+    </ul>
+    <p class="small">These share interfaces but not day-to-day implementation.</p>
+  </div>
+  <div class="card">
+    <h3>Parallel cluster B — promoted numerical search</h3>
+    <ul>
+      <li>W/A asymmetry</li>
+      <li>Accumulator/MAC-model sweep</li>
+      <li>Experiment B scaling/PTQ</li>
+      <li>Signedness/block-size studies</li>
+      <li>Rough hardware-cost modeling</li>
+    </ul>
+    <p class="small">Distribute complete experiment configurations across machines/GPUs.</p>
+  </div>
+  <div class="card">
+    <h3>Parallel cluster C — hardware DSE</h3>
+    <ul>
+      <li>INT/significand multiplier architectures</li>
+      <li>FP add/mul/FMA</li>
+      <li>Posit/MX/log-specific blocks</li>
+      <li>Scale/requantization RTL</li>
+      <li>Memory organization studies</li>
+      <li>Power-trace tooling</li>
+    </ul>
+    <p class="small">All use the same synthesis result schema and constraints.</p>
+  </div>
+</div>
+<div class="callout warn">
+  <b>Do not parallelize by creating inconsistent semantics.</b> All numerical backends and RTL generators must consume the same manifest/config definitions.
+  Parallel work should share one source of truth rather than copying format definitions into separate codebases.
+</div>
+</section>
+
+<section id="outputs">
+<h2>7. Expected outputs by milestone</h2>
+<div class="flow">
+  <span class="node">Contracts + schemas</span><span class="arrow">→</span>
+  <span class="node">Reproducible FP32 baselines</span><span class="arrow">→</span>
+  <span class="node">Bit-exact format library</span><span class="arrow">→</span>
+  <span class="node">Exact CPU/CUDA inference</span><span class="arrow">→</span>
+  <span class="node">Experiment A dataset</span><span class="arrow">→</span>
+  <span class="node">Experiment B + accumulation dataset</span><span class="arrow">→</span>
+  <span class="node">Full numerical finalists</span><span class="arrow">→</span>
+  <span class="node">Generic RTL/PPA database</span><span class="arrow">→</span>
+  <span class="node gate">Public Pareto frontier</span><span class="arrow">→</span>
+  <span class="node">MANT Pareto + guard evaluation</span><span class="arrow">→</span>
+  <span class="node">Tile/whole-chip Pareto</span><span class="arrow">→</span>
+  <span class="node end">MANT v1 numerical architecture</span>
+</div>
+
+<h3>Final public research package</h3>
+<ul>
+  <li>Datatype manifests and conformance tests.</li>
+  <li>Controlled Experiment A results under minimal/canonical family semantics.</li>
+  <li>Optimized Experiment B results with optional scaling/PTQ explicitly separated.</li>
+  <li>Accumulator and MAC-model sensitivity.</li>
+  <li>ImageNet + detector quality data with statistical uncertainty.</li>
+  <li>Generic arithmetic/scaling/memory RTL/PPA and public Pareto frontiers.</li>
+  <li>Clear separation of ideal bit savings from physically realizable memory savings.</li>
+</ul>
+
+<h3>Final private MANT package</h3>
+<ul>
+  <li>Public-candidate importer and MANT numerical delta analysis.</li>
+  <li>Updated golden model and selected ISA/tile changes only where justified.</li>
+  <li>Full tile and whole-chip comparisons under equal area/transistor budgets.</li>
+  <li>Final format/storage/accumulator/scaling/requantization architecture.</li>
+  <li>Updated MANT architecture manual consistent with the implementation.</li>
+</ul>
+
+<div class="callout good">
+  <b>Most important sequencing principle:</b> the numerical engine should be general enough to express candidate architectures before MANT is changed;
+  generic hardware evidence should exist before selecting what MANT must support; and detailed P&R should happen only after both numerical and tile-level evidence have narrowed the field.
+</div>
+</section>
+
+<div class="footer">
+Basis: the uploaded MANT architecture manual and precision-exploration plan, updated with the methodological decisions frozen in the current discussion.
+This document intentionally uses phase ordering rather than calendar durations.
+</div>
+</main>
+</div>
+</body>
+</html>

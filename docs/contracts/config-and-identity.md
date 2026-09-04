@@ -1,6 +1,8 @@
 # Configuration and identity contract
 
-Status in supplied roadmap: **required by I0.1–I0.3; project review not yet recorded**
+Version: **1.0.0**
+Status: **accepted for Phase 0**
+Accepted with the Phase 0 baseline: **2026-09-04**
 
 ## Reproducibility rule
 
@@ -78,6 +80,62 @@ The actual schema may add fields but must not omit semantic identity.
 
 Host performance metadata such as GPU model may be stored without changing numerical identity unless it can change the result. Hardware runs receive their own identity including RTL, constraints, PDK/library/corner, tool versions, pipeline, and target clock.
 
+## Canonical serialization
+
+Version 1.0.0 uses the following exact rules:
+
+1. Validate the object against its versioned schema before hashing.
+2. Remove the derived identity field (`experiment_id` or `package_id`) from the hash preimage.
+3. Represent the value as JSON encoded in UTF-8 without a byte-order mark.
+4. Sort every object's keys lexicographically; preserve array order.
+5. Use compact JSON with no insignificant whitespace.
+6. Encode strings with JSON escaping, booleans as lowercase `true`/`false`, and null as `null`.
+7. Permit only finite JSON numbers; configuration quantities whose exact textual identity matters use integers or strings with units rather than ambiguous host floats.
+8. End the serialized file with exactly one LF byte.
+9. Compute lowercase hexadecimal SHA-256 over those exact bytes.
+
+Project paths in canonical configs use repository-relative POSIX form. Absolute paths, `.`/`..` segments, environment variables, and host-specific dataset roots do not enter canonical experiment identity. Dataset/checkpoint/artifact content hashes carry input identity.
+
+The Phase 0 golden vector is:
+
+```text
+tests/conformance/fixtures/canonical/experiment_a_fp6_e3m2.canonical.json
+SHA-256 = d7b6f2a3f8c4edfaaba7a2375f677d00f837cddef6f8213dd7c81dac3c597d2a
+```
+
+Phase 1's canonicalizer is accepted only if it reproduces the byte stream and hash.
+
+## Identity types
+
+| Identity | Preimage |
+|---|---|
+| Datatype manifest | Canonical validated manifest without any derived ID |
+| Experiment | Canonical validated experiment config without `experiment_id` |
+| Artifact | Raw artifact bytes; metadata separately records producer/dependencies |
+| Dataset list | Exact normalized list bytes plus recorded dataset version |
+| Folded graph | Serialized graph bytes plus graph-preparation semantic version |
+| Hardware run | Numerical experiment ID, RTL hash, harness version, pipeline, constraints, PDK/library/corner/VT, tools, trace hash |
+| Candidate package | Canonical package metadata without `package_id`; referenced payload hashes remain in the preimage |
+
+## Invalidation and reuse matrix
+
+| Changed input | Calibration stats | Quantized weights | Predictions/quality | Traces | Generic hardware result | Candidate package |
+|---|---|---|---|---|---|---|
+| Checkpoint or folded graph | Invalidate | Invalidate | Invalidate | Invalidate | Invalidate attached quality | Invalidate |
+| Preprocessing or dataset version | Invalidate | Invalidate if calibration changes | Invalidate | Invalidate | Invalidate attached workload result | Invalidate |
+| Calibration list/seed | Invalidate | Invalidate | Invalidate | Invalidate | Invalidate attached quality | Invalidate |
+| Evaluation list/seed only | Reuse | Reuse | Invalidate | Invalidate | Invalidate attached quality | Invalidate |
+| Weight format/scale/PTQ | Invalidate affected stats | Invalidate | Invalidate | Invalidate | Invalidate relevant RTL/system point | Invalidate |
+| Activation format/scale/PTQ | Invalidate | Reuse weight artifact if independent | Invalidate | Invalidate | Invalidate relevant RTL/system point | Invalidate |
+| Accumulator, MAC model, reduction order | Reuse | Reuse | Invalidate | Invalidate | Invalidate compute/system point | Invalidate |
+| Operator semantics, bias, requantization | Invalidate affected stats | Invalidate if encoding changes | Invalidate | Invalidate | Invalidate support/system point | Invalidate |
+| Runtime implementation only | Reuse | Reuse | Recompute execution artifact; expected numerical identity unchanged only after conformance | Recompute if encoding/order changes | Reuse only if trace/semantics unchanged | Rebuild evidence references if artifact hashes change |
+| RTL architecture/pipeline/clock | Reuse | Reuse | Reuse | Reuse logical trace | Invalidate | Invalidate hardware evidence |
+| PDK/library/corner/VT/tool/constraints | Reuse | Reuse | Reuse | Reuse | Invalidate | Invalidate hardware evidence |
+| Statistical method/bootstrap seed | Reuse | Reuse | Recompute statistical summary only | Reuse | Reevaluate confidence-aware classification | Invalidate affected summary |
+
+Reuse is allowed only when every dependency required by the producing artifact is identical by content/version.
+
 ## Results database
 
 SQLite is the primary local store. It records:
@@ -118,3 +176,23 @@ PENDING -> RUNNING -> COMPLETED
 ## Per-image output
 
 Store image ID, ground truth, FP32 prediction, quantized prediction, FP32 correctness, quantized correctness, and optional logits/confidence summaries so paired statistics do not require another inference pass.
+
+## Phase 0 schema artifacts
+
+- `public/formats/manifests/datatype-manifest.schema.json`
+- `public/experiments/configs/experiment.schema.json`
+- `public/package/schema/quantized-model-package.schema.json`
+- `tests/conformance/fixtures/` valid, invalid, and canonical identity witnesses
+
+## Phase 1 cross-reference checks required by this contract
+
+The parser/validator must supplement JSON Schema with content-aware checks:
+
+- Resolve every manifest name/hash pair and verify the bytes match the declared hash.
+- Enforce ≤8-bit width for weight, activation, and output roles while allowing declared wider accumulators.
+- Resolve `family_appropriate_wide` to the concrete accumulator manifest before generating the executable experiment ID.
+- Verify calibration and evaluation lists are actually disjoint, not merely labeled disjoint.
+- Verify Experiment A's manifest scale modes are only `none`, `required_mapping`, or `intrinsic_shared` as appropriate to the family.
+- Verify Model C uses exact product to accumulator and that operator/bias/requantization versions match the contracts.
+- Verify referenced checkpoint, graph, dataset lists, artifacts, and package payloads exist and match their hashes.
+- Reject absolute/host-specific paths in canonical tracked configuration.

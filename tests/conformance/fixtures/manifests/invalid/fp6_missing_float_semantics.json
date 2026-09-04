@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "name": "fp6_missing_float_semantics",
+  "family": "float",
+  "bits": 6,
+  "signed": true,
+  "encoding": "sign_exp3_mantissa2_finite",
+  "rounding": "rne",
+  "overflow": "saturate",
+  "underflow": "flush_zero",
+  "scaling": {
+    "mode": "none",
+    "granularity": "none"
+  }
+}

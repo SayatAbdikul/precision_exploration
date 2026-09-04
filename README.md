@@ -62,4 +62,4 @@ Phases 0–7 are the core public study and are implemented here. Public research
 
 ## Current status
 
-The repository contains the fully populated planning, methodology, contract, decision, and phase documentation. Implementation and experimental evidence have not yet been produced.
+Phase 0 completed on 2026-09-04: F1–F8 are accepted, six contracts and three JSON Schemas are versioned, canonical identity and invalid fixtures are recorded, and the generic timing-harness/accounting boundary is frozen. Phase 1 is next; implementation and measured experimental evidence have not yet been produced.

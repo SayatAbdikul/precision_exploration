@@ -1,0 +1,390 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:precision-exploration:experiment:1.0.0",
+  "title": "Precision Exploration Experiment Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "model",
+    "dataset",
+    "formats",
+    "ptq",
+    "arithmetic",
+    "operators",
+    "runtime",
+    "seeds"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "experiment_id": {
+      "$ref": "#/$defs/sha256",
+      "readOnly": true,
+      "description": "Derived from the canonical configuration after this field is removed."
+    },
+    "model": {
+      "$ref": "#/$defs/model"
+    },
+    "dataset": {
+      "$ref": "#/$defs/dataset"
+    },
+    "formats": {
+      "$ref": "#/$defs/formats"
+    },
+    "ptq": {
+      "$ref": "#/$defs/ptq"
+    },
+    "arithmetic": {
+      "$ref": "#/$defs/arithmetic"
+    },
+    "operators": {
+      "$ref": "#/$defs/operators"
+    },
+    "runtime": {
+      "$ref": "#/$defs/runtime"
+    },
+    "seeds": {
+      "$ref": "#/$defs/seeds"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ptq": {
+            "properties": {
+              "experiment": {
+                "const": "A"
+              }
+            },
+            "required": ["experiment"]
+          }
+        },
+        "required": ["ptq"]
+      },
+      "then": {
+        "properties": {
+          "ptq": {
+            "properties": {
+              "method": {
+                "const": "mse"
+              },
+              "scaling_policy": {
+                "const": "intrinsic_or_required_only"
+              },
+              "retraining": {
+                "const": false
+              },
+              "bias_correction": {
+                "const": false
+              },
+              "reconstruction": {
+                "const": false
+              }
+            }
+          },
+          "arithmetic": {
+            "properties": {
+              "mac_model": {
+                "const": "full_product"
+              },
+              "product_precision": {
+                "const": "exact_to_accumulator"
+              },
+              "accumulator_policy": {
+                "const": "family_appropriate_wide"
+              },
+              "reduction_order": {
+                "const": "sequential"
+              },
+              "bias_domain": {
+                "const": "accumulator"
+              }
+            }
+          },
+          "operators": {
+            "properties": {
+              "policy": {
+                "const": "strict"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "manifestRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "sha256"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "listRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "path", "sha256", "split"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "split": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "checkpoint_sha256",
+        "graph_version",
+        "graph_sha256",
+        "preprocessing_version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checkpoint_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "graph_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "graph_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "preprocessing_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "calibration", "evaluation", "sets_disjoint"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "calibration": {
+          "$ref": "#/$defs/listRef"
+        },
+        "evaluation": {
+          "$ref": "#/$defs/listRef"
+        },
+        "sets_disjoint": {
+          "const": true
+        }
+      }
+    },
+    "formats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["weight", "activation", "accumulator", "output"],
+      "properties": {
+        "weight": {
+          "$ref": "#/$defs/manifestRef"
+        },
+        "activation": {
+          "$ref": "#/$defs/manifestRef"
+        },
+        "accumulator": {
+          "$ref": "#/$defs/manifestRef"
+        },
+        "output": {
+          "$ref": "#/$defs/manifestRef"
+        }
+      }
+    },
+    "ptq": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "experiment",
+        "method",
+        "weight_granularity",
+        "activation_granularity",
+        "rounding",
+        "scaling_policy",
+        "retraining",
+        "bias_correction",
+        "reconstruction"
+      ],
+      "properties": {
+        "experiment": {
+          "enum": ["A", "B"]
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "weight_granularity": {
+          "enum": ["per_tensor", "per_output_channel", "per_channel", "block"]
+        },
+        "activation_granularity": {
+          "enum": ["per_tensor", "per_channel", "block"]
+        },
+        "rounding": {
+          "enum": ["rne", "nearest", "truncate"]
+        },
+        "scaling_policy": {
+          "enum": [
+            "intrinsic_or_required_only",
+            "general_external",
+            "power_of_two_external"
+          ]
+        },
+        "retraining": {
+          "const": false
+        },
+        "bias_correction": {
+          "type": "boolean"
+        },
+        "reconstruction": {
+          "type": "boolean"
+        },
+        "block_size": {
+          "enum": [16, 32, 64]
+        },
+        "scale_search": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["coarse_candidates", "fine_candidates"],
+          "properties": {
+            "coarse_candidates": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "fine_candidates": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      }
+    },
+    "arithmetic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mac_model",
+        "product_precision",
+        "accumulator_policy",
+        "reduction_order",
+        "bias_domain",
+        "requantization_point"
+      ],
+      "properties": {
+        "mac_model": {
+          "enum": ["native", "rounded_product_wide_accumulator", "full_product"]
+        },
+        "product_precision": {
+          "enum": ["rounded_to_operand", "exact_to_accumulator"]
+        },
+        "accumulator_policy": {
+          "enum": ["native", "explicit_manifest", "family_appropriate_wide"]
+        },
+        "reduction_order": {
+          "enum": ["sequential", "tree"]
+        },
+        "bias_domain": {
+          "enum": ["operand", "accumulator", "high_precision"]
+        },
+        "requantization_point": {
+          "const": "operator_output_store"
+        }
+      }
+    },
+    "operators": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "semantics_version", "batchnorm_folded"],
+      "properties": {
+        "policy": {
+          "enum": ["strict", "practical"]
+        },
+        "semantics_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "batchnorm_folded": {
+          "const": true
+        },
+        "higher_precision_exceptions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["backend", "semantic_version", "kernel_version"],
+      "properties": {
+        "backend": {
+          "enum": ["reference", "cpp", "cuda"]
+        },
+        "semantic_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kernel_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "seeds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["calibration", "evaluation"],
+      "properties": {
+        "calibration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "evaluation": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

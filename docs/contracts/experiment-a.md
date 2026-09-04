@@ -1,6 +1,8 @@
 # Experiment A contract
 
-Status in supplied roadmap: **F5–F6 source-stated as frozen; project review not yet recorded**
+Version: **1.0.0**
+Status: **accepted for Phase 0**
+F5–F6 accepted by project owner: **2026-09-04**
 
 ## Purpose
 
@@ -61,6 +63,19 @@ The following move to Experiment B:
 - format-specific calibration improvements;
 - practical first/last-layer exceptions;
 - bias correction/reconstruction if later admitted by an explicit policy.
+
+### Per-family Experiment A scaling table
+
+| Family | Experiment A | Experiment B/later only |
+|---|---|---|
+| INT/fixed point | Conventional required mapping scale; MSE selection; signed symmetric zero point 0 | Power-of-two constraint, asymmetric activations, other granularities |
+| FP/minifloat | Direct format; no optional external scale | General external scale, power-of-two scale, bias/range tuning |
+| Posit | Direct standard/manifest semantics | General or power-of-two external scale |
+| Log/power-of-two | Direct manifest semantics; only definition-required scale | General/power-of-two variants where meaningful |
+| Codebook/non-uniform | Direct codebook; scale only when required by the format definition | Format-specific scale/codebook optimization |
+| MX/BFP | Native shared scale; initial block axis K and block size 32 where defined by the selected manifest | Block sizes 16/32/64 and alternative scale/granularity policy |
+
+The experiment config and datatype manifest jointly determine whether a scale is intrinsic/required; the backend may not infer an optional scale from observed tensor data.
 
 ## Scale search where the baseline requires one
 

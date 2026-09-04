@@ -1,0 +1,377 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:precision-exploration:datatype-manifest:1.0.0",
+  "title": "Precision Exploration Datatype Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "name",
+    "family",
+    "bits",
+    "signed",
+    "encoding",
+    "rounding",
+    "overflow",
+    "underflow",
+    "scaling"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "family": {
+      "enum": [
+        "integer",
+        "fixed_point",
+        "float",
+        "bfp",
+        "mx_float",
+        "mx_integer",
+        "posit",
+        "logarithmic",
+        "power_of_two",
+        "codebook",
+        "binary",
+        "ternary",
+        "custom"
+      ]
+    },
+    "bits": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 64,
+      "description": "Weights/activations/output candidates are at most 8 bits; wider values are permitted for accumulator manifests."
+    },
+    "signed": {
+      "type": "boolean"
+    },
+    "encoding": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rounding": {
+      "enum": ["rne", "nearest", "truncate"]
+    },
+    "overflow": {
+      "enum": ["saturate", "infinity"]
+    },
+    "underflow": {
+      "enum": ["flush_zero", "subnormal", "not_applicable"]
+    },
+    "zero": {
+      "type": "string"
+    },
+    "numeric": {
+      "$ref": "#/$defs/numericParameters"
+    },
+    "float": {
+      "$ref": "#/$defs/floatParameters"
+    },
+    "block": {
+      "$ref": "#/$defs/blockParameters"
+    },
+    "posit": {
+      "$ref": "#/$defs/positParameters"
+    },
+    "logarithmic": {
+      "$ref": "#/$defs/logarithmicParameters"
+    },
+    "codebook": {
+      "$ref": "#/$defs/codebookParameters"
+    },
+    "scaling": {
+      "$ref": "#/$defs/scalingParameters"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "enum": ["integer", "fixed_point", "mx_integer"]
+          }
+        },
+        "required": ["family"]
+      },
+      "then": {
+        "required": ["numeric"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "enum": ["float", "mx_float"]
+          }
+        },
+        "required": ["family"]
+      },
+      "then": {
+        "required": ["float"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "enum": ["bfp", "mx_float", "mx_integer"]
+          }
+        },
+        "required": ["family"]
+      },
+      "then": {
+        "required": ["block"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "posit"
+          }
+        },
+        "required": ["family"]
+      },
+      "then": {
+        "required": ["posit"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "enum": ["logarithmic", "power_of_two"]
+          }
+        },
+        "required": ["family"]
+      },
+      "then": {
+        "required": ["logarithmic"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "family": {
+            "const": "codebook"
+          }
+        },
+        "required": ["family"]
+      },
+      "then": {
+        "required": ["codebook"]
+      }
+    }
+  ],
+  "$defs": {
+    "numericParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "integer_bits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "fractional_bits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 63
+        },
+        "zero_point": {
+          "type": "integer"
+        }
+      }
+    },
+    "floatParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exp_bits",
+        "mantissa_bits",
+        "bias",
+        "subnormals",
+        "nan",
+        "infinity"
+      ],
+      "properties": {
+        "exp_bits": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 15
+        },
+        "mantissa_bits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 52
+        },
+        "bias": {
+          "type": "integer"
+        },
+        "subnormals": {
+          "type": "boolean"
+        },
+        "nan": {
+          "type": "boolean"
+        },
+        "infinity": {
+          "type": "boolean"
+        }
+      }
+    },
+    "blockParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shared_scale_format",
+        "block_size",
+        "block_axis",
+        "incomplete_block_policy"
+      ],
+      "properties": {
+        "shared_scale_format": {
+          "type": "string",
+          "minLength": 1
+        },
+        "block_size": {
+          "enum": [16, 32, 64]
+        },
+        "block_axis": {
+          "const": "reduction_k"
+        },
+        "incomplete_block_policy": {
+          "const": "scale_valid_values_zero_pad"
+        }
+      }
+    },
+    "positParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["es"],
+      "properties": {
+        "es": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        },
+        "quire_bits": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4096
+        }
+      }
+    },
+    "logarithmicParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["integer_bits", "fractional_bits"],
+      "properties": {
+        "integer_bits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 63
+        },
+        "fractional_bits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 63
+        },
+        "linear_near_zero": {
+          "type": "boolean"
+        }
+      }
+    },
+    "codebookParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["values"],
+      "properties": {
+        "values": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "scalingParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "granularity"],
+      "properties": {
+        "mode": {
+          "enum": [
+            "none",
+            "required_mapping",
+            "intrinsic_shared",
+            "general_external",
+            "power_of_two_external"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "none",
+            "per_tensor",
+            "per_output_channel",
+            "per_channel",
+            "block"
+          ]
+        },
+        "scale_format": {
+          "type": "string"
+        },
+        "scale_bits": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "none"
+              }
+            },
+            "required": ["mode"]
+          },
+          "then": {
+            "properties": {
+              "granularity": {
+                "const": "none"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "intrinsic_shared"
+              }
+            },
+            "required": ["mode"]
+          },
+          "then": {
+            "properties": {
+              "granularity": {
+                "const": "block"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

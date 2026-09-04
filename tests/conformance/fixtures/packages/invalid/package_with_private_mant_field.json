@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "candidate_name": "invalid_private_field",
+  "selection_categories": ["guard"],
+  "experiment_sha256": "7777777777777777777777777777777777777777777777777777777777777777",
+  "model_graph": {
+    "path": "graph.bin",
+    "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "bytes": 1
+  },
+  "encoded_weights": [
+    {
+      "path": "weights.bin",
+      "sha256": "8888888888888888888888888888888888888888888888888888888888888888",
+      "bytes": 1
+    }
+  ],
+  "tensor_scales": [],
+  "datatype_manifests": {
+    "weight": {
+      "name": "fp6_e3m2_finite",
+      "path": "fp6.json",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+    },
+    "activation": {
+      "name": "fp6_e3m2_finite",
+      "path": "fp6.json",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+    },
+    "accumulator": {
+      "name": "fp16_e5m10",
+      "path": "fp16.json",
+      "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+    },
+    "output": {
+      "name": "fp6_e3m2_finite",
+      "path": "fp6.json",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+    }
+  },
+  "operator_metadata": {
+    "semantics_version": "1.0.0",
+    "policy": "strict",
+    "batchnorm_folded": true,
+    "bias_domain": "accumulator"
+  },
+  "arithmetic": {
+    "mac_model": "full_product",
+    "product_precision": "exact_to_accumulator",
+    "reduction_order": "sequential",
+    "requantization_point": "operator_output_store"
+  },
+  "public_quality": [
+    {
+      "workload": "resnet18",
+      "evaluation_manifest_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+      "fp32_metrics": {"top1_percent": 69.75},
+      "quantized_metrics": {"top1_percent": 68.95},
+      "delta_metrics": {"top1_percentage_points": -0.8},
+      "confidence_intervals": {}
+    }
+  ],
+  "generic_hardware": {
+    "configuration_sha256": "9999999999999999999999999999999999999999999999999999999999999999",
+    "pdk": "ics55",
+    "library": "rvt",
+    "corner": "illustrative",
+    "vt": "rvt",
+    "metrics": {"area_mm2": 0.01},
+    "quality_attached": true,
+    "evidence_level": "generic_system"
+  },
+  "provenance": {
+    "checkpoint_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "graph_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "calibration_manifest_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "evaluation_manifest_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+    "software_commit": "illustrative",
+    "repository_state": "clean"
+  },
+  "mant_tile_count": 128
+}

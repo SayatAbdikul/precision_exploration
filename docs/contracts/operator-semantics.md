@@ -1,6 +1,8 @@
 # Operator-semantics contract
 
-Status in supplied roadmap: **required by N0.4–N0.5; project review not yet recorded**
+Version: **1.0.0**
+Status: **accepted for Phase 0**
+Accepted with the Phase 0 baseline: **2026-09-04**
 
 ## Execution regimes
 
@@ -77,6 +79,30 @@ first = 8 bit, internal = candidate precision, last = 8 bit
 ```
 
 Both quality recovery and complete generic hardware overhead must be reported.
+
+## Worked deployment-graph witness
+
+For a one-output-channel Conv with original `W=1`, `b=0`, followed by BatchNorm parameters `gamma=2`, `mean=1`, `variance=3`, `epsilon=1`, `beta=0`:
+
+```text
+alpha = gamma / sqrt(variance + epsilon)
+      = 2 / sqrt(3 + 1)
+      = 1
+
+W' = alpha * W = 1
+b' = alpha * (b - mean) + beta = -1
+```
+
+For input `x=2`, the frozen deployment path is:
+
+```text
+dot product in configured Model C/accumulator domain = 2
+bias add once in accumulator domain                 = 1
+ReLU                                                 = 1
+requantize at operator output store                  = Q_Fout(1)
+```
+
+Calibration observes the folded weight `W'=1` and folded bias `b'=-1`; it never calibrates the unfused training graph. The graph serialization/hash identifies the fold and operator-semantics version.
 
 ## Determinism and storage
 

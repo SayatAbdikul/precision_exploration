@@ -1,21 +1,29 @@
 # Decision register
 
-This register distinguishes the supplied documents' statements from decisions accepted by this project. “Source-frozen” means the roadmap labels the decision frozen; it does not substitute for a repository review record.
+This register distinguishes the supplied documents' statements from decisions accepted by this project. F1–F8 were explicitly accepted without changes by the project owner on 2026-09-04.
 
-Repository status values are **source-frozen/unratified**, **open/in-repo**, **open/external**, **accepted**, and **superseded**.
+Repository status values are **open/in-repo**, **open/external**, **accepted**, and **superseded**.
 
 ## F1–F8 source-stated starting decisions
 
 | ID | Source-stated decision | Reason in roadmap | Still open | Repository status |
 |---|---|---|---|---|
-| F1 | Experiment A canonical MAC is Model C: full/exact product enters a sufficiently wide accumulator; the accumulator rounds in its own format | Prevent premature product rounding from dominating the first datatype comparison | Models A/B/C remain finalist comparisons | Source-frozen/unratified |
-| F2 | Experiment A uses a sufficiently wide, family-appropriate accumulator | Measure representation quality before deliberately squeezing accumulation | Native, 8/10/12/16, INT32, FP, quire/Kulisch choices remain later dimensions | Source-frozen/unratified |
-| F3 | Weight and activation formats are independently configurable | Avoid a rewrite for W≠A | Broad A may begin mainly with W=A; asymmetry is later | Source-frozen/unratified |
-| F4 | Accumulator is independently configurable from W and A | Keep numerical architecture explicit | The winning accumulator remains open | Source-frozen/unratified |
-| F5 | Static PTQ; no retraining; eval/folded BN; fixed calibration/evaluation subsets; MSE where scale selection applies; signed symmetric INT zero point 0; no bias correction/reconstruction in A | Reproducible controlled baseline | Family-specific PTQ improvements belong to B | Source-frozen/unratified |
-| F6 | Experiment A has no optional external scale; only intrinsic/necessary family scaling | Reduce optimizer bias and expose intrinsic range behavior | General/power-of-two scale, bias/range, block size, and granularity move to B | Source-frozen/unratified |
-| F7 | Public Stage A is architecture-independent with respect to MANT | Prevent current MANT assumptions from constraining the scientific search | Downstream MANT may retain or change its structure in another repository | Source-frozen/unratified; reinforced by user scope |
-| F8 | Export the public Pareto set plus a conservative guard set, not one winner | Protect against architecture interaction changing a near-Pareto ranking | Exact guard composition follows the public study | Source-frozen/unratified |
+| F1 | Experiment A canonical MAC is Model C: full/exact product enters a sufficiently wide accumulator; the accumulator rounds in its own format | Prevent premature product rounding from dominating the first datatype comparison | Models A/B/C remain finalist comparisons | Accepted 2026-09-04 |
+| F2 | Experiment A uses a sufficiently wide, family-appropriate accumulator | Measure representation quality before deliberately squeezing accumulation | Native, 8/10/12/16, INT32, FP, quire/Kulisch choices remain later dimensions | Accepted 2026-09-04 |
+| F3 | Weight and activation formats are independently configurable | Avoid a rewrite for W≠A | Broad A may begin mainly with W=A; asymmetry is later | Accepted 2026-09-04 |
+| F4 | Accumulator is independently configurable from W and A | Keep numerical architecture explicit | The winning accumulator remains open | Accepted 2026-09-04 |
+| F5 | Static PTQ; no retraining; eval/folded BN; fixed calibration/evaluation subsets; MSE where scale selection applies; signed symmetric INT zero point 0; no bias correction/reconstruction in A | Reproducible controlled baseline | Family-specific PTQ improvements belong to B | Accepted 2026-09-04 |
+| F6 | Experiment A has no optional external scale; only intrinsic/necessary family scaling | Reduce optimizer bias and expose intrinsic range behavior | General/power-of-two scale, bias/range, block size, and granularity move to B | Accepted 2026-09-04 |
+| F7 | Public Stage A is architecture-independent with respect to MANT | Prevent current MANT assumptions from constraining the scientific search | Downstream MANT may retain or change its structure in another repository | Accepted 2026-09-04 |
+| F8 | Export the public Pareto set plus a conservative guard set, not one winner | Protect against architecture interaction changing a near-Pareto ranking | Exact guard composition follows the public study | Accepted 2026-09-04 |
+
+### F1–F8 acceptance record
+
+- Decision: accept all eight roadmap defaults unchanged.
+- Approved by: project owner.
+- Date: 2026-09-04.
+- Affected contracts: all files in `docs/contracts/` and the three Phase 0 schemas.
+- Later gates remain open as listed below.
 
 ## D1–D11 in-repository gates
 

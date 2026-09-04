@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "name": "fp6_missing_rounding",
+  "family": "float",
+  "bits": 6,
+  "signed": true,
+  "encoding": "sign_exp3_mantissa2_finite",
+  "overflow": "saturate",
+  "underflow": "flush_zero",
+  "float": {
+    "exp_bits": 3,
+    "mantissa_bits": 2,
+    "bias": 3,
+    "subnormals": false,
+    "nan": false,
+    "infinity": false
+  },
+  "scaling": {
+    "mode": "none",
+    "granularity": "none"
+  }
+}

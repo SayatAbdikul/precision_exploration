@@ -1,6 +1,8 @@
 # Arithmetic contract
 
-Status in supplied roadmap: **F1–F4 source-stated as frozen; project review not yet recorded**
+Version: **1.0.0**
+Status: **accepted for Phase 0**
+F1–F4 accepted by project owner: **2026-09-04**
 
 ## Required format interface
 
@@ -17,6 +19,20 @@ NumberFormat
 ```
 
 The manifest defines bit width/encoding, signedness, family parameters, bias, zero/subnormal/NaN/infinity behavior, overflow, underflow, rounding, external/intrinsic scale, block size/axis, and codebook values where applicable.
+
+### Manifest semantic validation
+
+JSON Schema validates structure; the Phase 1 manifest validator must additionally enforce these cross-field rules:
+
+- Weight, activation, and output-storage manifests use at most 8 bits; accumulator manifests may be wider.
+- A conventional signed float layout satisfies `bits = 1 + exp_bits + mantissa_bits`; an unsigned layout omits the sign bit.
+- Fixed-point integer/fraction allocation plus any sign bit fits the declared width.
+- A complete codebook contains exactly `2^bits` unique entries in code order.
+- A `none` scale has `none` granularity; native MX/BFP shared scale has block granularity and all required block metadata.
+- `exp_bits`, `mantissa_bits`, bias, special values, overflow, and underflow form one internally consistent encoding.
+- Standard FP8/MX/Posit labels match their published semantics; a differing encoding receives a distinct custom name.
+- Binary/ternary and logarithmic encodings enumerate all code meanings, including zero and invalid/reserved codes.
+- An accumulator policy alias is resolved to a concrete manifest before execution.
 
 ## Independent format dimensions
 
@@ -108,6 +124,46 @@ output = Q_Fout(activation(y))
 ```
 
 Operator results remain in the accumulator domain until they are stored in the output activation datatype. The convert/requantize rule is explicit.
+
+## Worked Model C witness
+
+This illustrative dot product uses the plan's FP6 E3M2 format for W/A/output and an explicit FP16 accumulator manifest. The selected values are exactly representable so the witness exposes domains and round points without depending on a later D1 candidate decision.
+
+```text
+x = [ 1.5, -0.5 ]          activation domain FP6
+w = [ 0.5,  2.0 ]          weight domain FP6
+b = 0.5                     accumulator domain FP16
+
+acc_0 = FP16(0)
+
+exact_product_0 = Exact(1.5 * 0.5) = 0.75
+acc_1 = Round_FP16(acc_0 + exact_product_0) = 0.75
+
+exact_product_1 = Exact(-0.5 * 2.0) = -1.0
+acc_2 = Round_FP16(acc_1 + exact_product_1) = -0.25
+
+biased = Round_FP16(acc_2 + Convert_FP16(b)) = 0.25
+activated = ReLU(biased) = 0.25
+output = Requantize_FP6(activated) = 0.25
+```
+
+The product is never rounded to FP6 before accumulation. Bias is added once after reduction. The only output-domain round occurs at operator storage. A conformance implementation must additionally record/check the encoded codes produced by the accepted manifest oracle.
+
+## Resolving “family-appropriate wide”
+
+`family_appropriate_wide` is a Phase 0 policy, not an implicit runtime datatype. Before any job executes, configuration expansion must resolve it to a concrete accumulator manifest and include that manifest hash in the executable configuration. The plan's high-quality reference anchors are:
+
+- INT/fixed point: INT32;
+- FP/minifloat: FP16 or an explicitly justified sufficiently wide custom FP;
+- Posit: quire or explicitly widened Posit;
+- MX/BFP: wide scaled partial-sum domain;
+- logarithmic: defined LNS accumulator or log-product plus linear accumulator.
+
+Phase 1 pilot work may refine the efficient sweep, but it cannot run an unresolved accumulator alias.
+
+## Deliberately open numerical dimensions
+
+Phase 0 does not choose the D1 format set, the winning accumulator, FP accumulator E/M layouts, Models A/B/C finalist trade-off, tree-reduction architecture, Experiment B scale policy, W/A combinations, signedness, block size, bias ablation, first/last-layer exception, or approximate-arithmetic branch.
 
 ## Exact oracle
 

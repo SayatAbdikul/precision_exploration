@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "name": "zero_bit_integer",
+  "family": "integer",
+  "bits": 0,
+  "signed": true,
+  "encoding": "twos_complement",
+  "rounding": "nearest",
+  "overflow": "saturate",
+  "underflow": "not_applicable",
+  "numeric": {
+    "integer_bits": 0,
+    "fractional_bits": 0,
+    "zero_point": 0
+  },
+  "scaling": {
+    "mode": "required_mapping",
+    "granularity": "per_tensor"
+  }
+}

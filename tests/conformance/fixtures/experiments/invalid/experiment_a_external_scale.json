@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "model": {
+    "name": "resnet18",
+    "checkpoint_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "graph_version": "bn_folded_v1",
+    "graph_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "preprocessing_version": "imagenet_eval_v1"
+  },
+  "dataset": {
+    "name": "imagenet_1k",
+    "version": "frozen_v1",
+    "calibration": {
+      "name": "imagenet_cal_2000_seed17",
+      "path": "data/manifests/calibration/imagenet_cal_2000_seed17.txt",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "split": "train"
+    },
+    "evaluation": {
+      "name": "imagenet_screen_1000_seed91",
+      "path": "data/manifests/evaluation/imagenet_screen_1000_seed91.txt",
+      "sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+      "split": "validation"
+    },
+    "sets_disjoint": true
+  },
+  "formats": {
+    "weight": {
+      "name": "fp6_e3m2_finite",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+    },
+    "activation": {
+      "name": "fp6_e3m2_finite",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+    },
+    "accumulator": {
+      "name": "fp16_e5m10",
+      "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+    },
+    "output": {
+      "name": "fp6_e3m2_finite",
+      "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+    }
+  },
+  "ptq": {
+    "experiment": "A",
+    "method": "mse",
+    "weight_granularity": "per_output_channel",
+    "activation_granularity": "per_tensor",
+    "rounding": "rne",
+    "scaling_policy": "general_external",
+    "retraining": false,
+    "bias_correction": false,
+    "reconstruction": false
+  },
+  "arithmetic": {
+    "mac_model": "full_product",
+    "product_precision": "exact_to_accumulator",
+    "accumulator_policy": "family_appropriate_wide",
+    "reduction_order": "sequential",
+    "bias_domain": "accumulator",
+    "requantization_point": "operator_output_store"
+  },
+  "operators": {
+    "policy": "strict",
+    "semantics_version": "1.0.0",
+    "batchnorm_folded": true,
+    "higher_precision_exceptions": []
+  },
+  "runtime": {
+    "backend": "cuda",
+    "semantic_version": "1.0.0",
+    "kernel_version": "illustrative"
+  },
+  "seeds": {
+    "calibration": 17,
+    "evaluation": 91
+  }
+}

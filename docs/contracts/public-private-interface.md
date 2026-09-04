@@ -1,7 +1,9 @@
 # External candidate-package interface contract
 
-Status in supplied roadmap: **required in Phase 0; schema finalized before the D11 handoff**  
-Repository scope: **export only**
+Version: **1.0.0**
+Status: **accepted for Phase 0**
+F7–F8 accepted by project owner: **2026-09-04**
+Repository scope: **export only; package population remains D11**
 
 ## Boundary
 

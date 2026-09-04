@@ -1,6 +1,9 @@
 # Hardware-metrics contract
 
-Status in supplied roadmap: **required by H0.1–H0.3; exact pilot-dependent values remain open**
+Version: **1.0.0**
+Status: **accepted for Phase 0**
+Accepted with the Phase 0 baseline: **2026-09-04**
+Pilot-dependent values remain assigned to later gates.
 
 ## Public comparison hierarchy
 
@@ -56,6 +59,49 @@ Do not compare architectures on frequency alone.
 - PDK/library/corner/VT, tool versions, RTL/config hashes.
 
 Final physical candidates add routed area, cell/register counts, post-route timing, clock-tree contribution, placement seed, extraction/delay mode, trace identity, and switching-based power.
+
+### Metric dictionary
+
+| Metric | Unit | Definition |
+|---|---|---|
+| Core logic area | µm² and mm² | DUT cells excluding neutral launch/capture wrapper; includes architecture-owned registers |
+| Wrapper area | µm² | Neutral launch/capture/adapter cells reported separately |
+| All-in datapath area | µm² and mm² | Core plus required scale generation/application, conversion, metadata/control |
+| Target period | ns | Constraint applied to the standard timing harness |
+| Achieved fmax | MHz | Reciprocal of the minimum supported clock period under the recorded flow |
+| Slack | ns | Reported setup slack at the target clock/corner |
+| Latency | cycles and ns | Input acceptance to corresponding valid result |
+| Initiation interval | cycles/operation | Minimum steady-state cycles between accepted independent operations |
+| Throughput | operations/s | `frequency * operations_per_issue / II` with operation definition recorded |
+| Dynamic power | mW | Switching/internal power under the declared activity method |
+| Clock power | mW | Clock network and sequential clock contribution where reported |
+| Leakage power | mW | Static power at recorded library/corner/temperature assumptions |
+| Total power | mW | Declared sum of included power components; components remain separately visible |
+| Energy/op | pJ/operation | `total_power / sustained_throughput` for the declared operation window |
+| EDP | pJ·ns | `energy/op * operation latency` as auxiliary scalar only |
+| Effective bits/value | bits/value | Physical/logical bits including padding and amortized metadata divided by useful values |
+| Read/write energy | pJ/access | Energy for the declared memory organization, port, word width, and condition |
+| Delivered bandwidth | GB/s and useful values/s | Sustained useful payload after padding/metadata effects |
+| Images/s | images/s | Mapped generic workload throughput including utilization/resource roofs |
+| Images/s/mm² | images/s/mm² | Images/s divided by complete generic system area |
+| Images/J | images/J | Images/s divided by total system power in watts |
+| Energy/inference | µJ or mJ/inference | Sum of compute, memory, scaling/conversion, communication, control, off-chip, and leakage energy |
+
+Every metric record states whether it is analytical, synthesis, preliminary physical, routed/extracted, vectorless, trace-driven, or delay-aware.
+
+## Accounting hierarchy
+
+Assign cost exactly once:
+
+```text
+primitive core
+  -> complete MAC/FPU + accumulator
+  -> all-in datapath + scale/conversion/metadata
+  -> generic PE/tile + local memory/control/interconnect
+  -> normalized generic system + shared resources/bandwidth roofs
+```
+
+Decode/encode, rounding, saturation, scale, conversion, required LUTs, internal registers, and control are never hidden in a neutral wrapper. Shared generic resources are reported separately from replicated PE/tile cost.
 
 ## Power rules
 

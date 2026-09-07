@@ -1,0 +1,24 @@
+{
+  "bits": 5,
+  "encoding": "sign_e2m2",
+  "family": "float",
+  "float": {
+    "bias": 1,
+    "exp_bits": 2,
+    "infinity": false,
+    "mantissa_bits": 2,
+    "nan": true,
+    "subnormals": true
+  },
+  "name": "fp5_e2m2",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "subnormal",
+  "zero": "signed_zero"
+}

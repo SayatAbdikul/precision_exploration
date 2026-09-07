@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "classification_rerun": {
+    "dataset_list": "data/manifests/evaluation/imagenet1k_val_1k.tsv",
+    "result": "all three per-image outputs reproduced byte-for-byte from pinned local checkpoints",
+    "runs": [
+      {
+        "checkpoint_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+        "model": "resnet18",
+        "prediction_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
+        "top1_percent": 70.1,
+        "top5_percent": 89.5
+      },
+      {
+        "checkpoint_sha256": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f",
+        "model": "mobilenet_v2",
+        "prediction_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
+        "top1_percent": 72.1,
+        "top5_percent": 91.1
+      },
+      {
+        "checkpoint_sha256": "5c1a416349c4cf298f2a6a5e2600ed0ee55e604713578f5e74e6bc8bcaef7997",
+        "model": "mobilenet_v3_large",
+        "prediction_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
+        "top1_percent": 75.0,
+        "top5_percent": 92.1
+      }
+    ]
+  },
+  "detector_metric_rerun": {
+    "dataset_list": "data/manifests/evaluation/coco2017_val_5k.tsv",
+    "evaluator": "pycocotools 2.0.11 COCOeval bbox",
+    "map50": 0.5256168716683333,
+    "map50_95": 0.3735112134743026,
+    "model": "yolov8n",
+    "prediction_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
+    "result": "official category remapping and COCO metric aggregation reproduced byte-for-byte from the frozen per-detection output"
+  }
+}

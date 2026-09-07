@@ -29,7 +29,7 @@ Repository status values are **open/in-repo**, **open/external**, **accepted**, 
 
 | Gate | Decision | Evidence required before decision | Main effect | Status |
 |---|---|---|---|---|
-| D1 | Initial candidate manifest set | Explicit definitions, relevance, implementability, redundancy review | Oracle tables, kernels, screening job count; preserve all major families | Open/in-repo |
+| D1 | Initial candidate manifest set | Explicit definitions, relevance, implementability, redundancy review | Oracle tables, kernels, screening job count; preserve all major families | Accepted 2026-09-06; set SHA-256 `c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87` |
 | D2 | Fast backend strategy per family/width | Algorithmic/LUT/predecoded microbenchmarks plus exhaustive correctness | Runtime/packing only; scientific result must remain unchanged | Open/in-repo |
 | D3 | Include EfficientNet in the main full suite | Measured exact-engine speed and compute budget | Workload breadth and job count | Open/in-repo |
 | D4 | Promotion from 1k to 5k/10k | Paired statistics, confidence, failure diagnosis, family/hardware context | Numerical survival; uncertainty promotes | Open/in-repo |
@@ -70,3 +70,11 @@ Supersedes / superseded by:
 ```
 
 No gate is closed merely because a provisional value appears in the source plan.
+
+## D1 acceptance record
+
+- Decision: accept the 25 candidates enumerated in `docs/decisions/d1-initial-candidate-set.md`.
+- Approved by: project owner (the owner approved the proposed datatype list without changes).
+- Date: 2026-09-06.
+- Evidence: complete manifests under `public/formats/manifests/accepted/`, aggregate SHA-256 `c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87`, and the exhaustive table index under `public/formats/conformance/`.
+- Scope: initial public candidate set only. D2–D11 remain open.

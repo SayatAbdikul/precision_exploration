@@ -1,0 +1,34 @@
+{
+  "checkpoint_identifier": "ultralytics-assets/v8.3.0/yolov8n.pt",
+  "checkpoint_path": "artifacts/checkpoints/yolov8n.pt",
+  "checkpoint_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "checkpoint_size_bytes": 6549796,
+  "checkpoint_source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8n.pt",
+  "dataset": "COCO 2017",
+  "deployment_graph_sha256": "568c000c9f9b3250f61daef6783d2d91c26b5b0f512133b75d6c24be2cf5eef4",
+  "deployment_graph_version": "ultralytics-8.3.0-eval",
+  "evaluation_mode": true,
+  "evaluator": "ultralytics.YOLO.val:8.3.0",
+  "framework": "ultralytics",
+  "framework_version": "8.3.0",
+  "input_shape": [
+    1,
+    3,
+    640,
+    640
+  ],
+  "license": "AGPL-3.0; checkpoint provenance Ultralytics assets",
+  "load_procedure": "ultralytics.YOLO(checkpoint); model.val()",
+  "metrics": [
+    "map50_95",
+    "map50"
+  ],
+  "name": "yolov8n",
+  "output": "COCO 80-category detections",
+  "schema_version": "1.0.0",
+  "upstream_reference": {
+    "map50_95": 0.373,
+    "population": "COCO val2017 5k",
+    "source": "Ultralytics YOLOv8 model performance table"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "bits": 6,
+  "block": {
+    "block_axis": "reduction_k",
+    "block_size": 32,
+    "incomplete_block_policy": "scale_valid_values_zero_pad",
+    "shared_scale_format": "e8m0"
+  },
+  "encoding": "signed_fixed_mantissa",
+  "family": "bfp",
+  "name": "bfp6",
+  "numeric": {
+    "fractional_bits": 5,
+    "integer_bits": 0,
+    "zero_point": 0
+  },
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "block",
+    "mode": "intrinsic_shared",
+    "scale_bits": 8,
+    "scale_format": "e8m0"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "not_applicable",
+  "zero": "code_000000"
+}

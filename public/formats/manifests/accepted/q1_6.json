@@ -1,0 +1,21 @@
+{
+  "bits": 8,
+  "encoding": "twos_complement_fixed",
+  "family": "fixed_point",
+  "name": "q1_6",
+  "numeric": {
+    "fractional_bits": 6,
+    "integer_bits": 1,
+    "zero_point": 0
+  },
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "not_applicable",
+  "zero": "code_0"
+}

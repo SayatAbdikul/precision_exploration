@@ -1,0 +1,16 @@
+{
+  "bits": 2,
+  "encoding": "ternary_zero_pos_neg_reserved",
+  "family": "ternary",
+  "name": "ternary",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "per_tensor",
+    "mode": "required_mapping"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "not_applicable",
+  "zero": "code_00; code_11_reserved"
+}

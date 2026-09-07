@@ -1,0 +1,19 @@
+{
+  "device": "cpu",
+  "elapsed_seconds": 64.79178037494421,
+  "metrics": {
+    "count": 1000,
+    "top1_percent": 75.0,
+    "top5_percent": 92.1
+  },
+  "model": "mobilenet_v3_large",
+  "predictions": {
+    "count": 1000,
+    "path": "artifacts/per_image_predictions/mobilenet_v3_large_imagenet1k_screen.jsonl",
+    "sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007"
+  },
+  "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[232]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+  "seed": 0,
+  "weights": "MobileNet_V3_Large_Weights.IMAGENET1K_V2",
+  "workers": 0
+}

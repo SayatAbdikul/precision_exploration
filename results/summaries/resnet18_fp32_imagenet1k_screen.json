@@ -1,0 +1,19 @@
+{
+  "device": "cpu",
+  "elapsed_seconds": 31.829148292075843,
+  "metrics": {
+    "count": 1000,
+    "top1_percent": 70.1,
+    "top5_percent": 89.5
+  },
+  "model": "resnet18",
+  "predictions": {
+    "count": 1000,
+    "path": "artifacts/per_image_predictions/resnet18_imagenet1k_screen.jsonl",
+    "sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe"
+  },
+  "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[256]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+  "seed": 0,
+  "weights": "ResNet18_Weights.IMAGENET1K_V1",
+  "workers": 0
+}

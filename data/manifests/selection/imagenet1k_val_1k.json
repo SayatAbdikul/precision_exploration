@@ -1,0 +1,11 @@
+{
+  "class_count": 1000,
+  "dataset": "ILSVRC/imagenet-1k",
+  "image_count": 1000,
+  "per_class": 1,
+  "revision": "49e2ee26f3810fb5a7536bbf732a7b07389a47b5",
+  "seed": 20250904,
+  "selection": "streaming shuffle followed by first per-class quota",
+  "shuffle_buffer": 2048,
+  "split": "validation"
+}

@@ -1,0 +1,21 @@
+{
+  "bits": 4,
+  "encoding": "twos_complement",
+  "family": "integer",
+  "name": "int4",
+  "numeric": {
+    "fractional_bits": 0,
+    "integer_bits": 3,
+    "zero_point": 0
+  },
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "per_tensor",
+    "mode": "required_mapping"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "not_applicable",
+  "zero": "code_0"
+}

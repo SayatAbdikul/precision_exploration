@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "precision-exploration"
+version = "0.1.0"
+description = "Architecture-independent low-precision numerical and generic hardware exploration"
+requires-python = ">=3.10"
+dependencies = [
+  "jsonschema>=4.18",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+workloads = [
+  "numpy>=1.26",
+  "torch>=2.3",
+  "torchvision>=0.18",
+  "Pillow>=10.3",
+  "pycocotools>=2.0.7",
+  "ultralytics==8.3.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["public*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"

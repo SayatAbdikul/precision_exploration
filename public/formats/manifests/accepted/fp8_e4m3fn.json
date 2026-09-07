@@ -1,0 +1,24 @@
+{
+  "bits": 8,
+  "encoding": "sign_e4m3",
+  "family": "float",
+  "float": {
+    "bias": 7,
+    "exp_bits": 4,
+    "infinity": false,
+    "mantissa_bits": 3,
+    "nan": true,
+    "subnormals": true
+  },
+  "name": "fp8_e4m3fn",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "subnormal",
+  "zero": "signed_zero"
+}

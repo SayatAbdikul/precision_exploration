@@ -1,0 +1,24 @@
+{
+  "bits": 4,
+  "encoding": "sign_e2m1",
+  "family": "float",
+  "float": {
+    "bias": 1,
+    "exp_bits": 2,
+    "infinity": false,
+    "mantissa_bits": 1,
+    "nan": true,
+    "subnormals": true
+  },
+  "name": "fp4_e2m1",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "subnormal",
+  "zero": "signed_zero"
+}

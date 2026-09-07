@@ -1,0 +1,24 @@
+{
+  "bits": 6,
+  "encoding": "sign_e3m2",
+  "family": "float",
+  "float": {
+    "bias": 3,
+    "exp_bits": 3,
+    "infinity": false,
+    "mantissa_bits": 2,
+    "nan": true,
+    "subnormals": true
+  },
+  "name": "fp6_e3m2",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "subnormal",
+  "zero": "signed_zero"
+}

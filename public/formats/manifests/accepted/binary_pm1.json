@@ -1,0 +1,16 @@
+{
+  "bits": 1,
+  "encoding": "binary_pm1",
+  "family": "binary",
+  "name": "binary_pm1",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "per_tensor",
+    "mode": "required_mapping"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "not_applicable",
+  "zero": "not_representable"
+}

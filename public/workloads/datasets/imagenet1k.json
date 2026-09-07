@@ -1,0 +1,21 @@
+{
+  "dataset": "ILSVRC/imagenet-1k",
+  "license": "ImageNet terms; payload remains untracked",
+  "preprocessing_manifests": [
+    "public/workloads/datasets/imagenet_resnet18_preprocessing.json",
+    "public/workloads/datasets/imagenet_mobilenet_preprocessing.json"
+  ],
+  "release": "ILSVRC2012",
+  "repository_revision": "49e2ee26f3810fb5a7536bbf732a7b07389a47b5",
+  "schema_version": "1.0.0",
+  "subsets": [
+    "data/manifests/calibration/imagenet1k_train_2k.tsv",
+    "data/manifests/evaluation/imagenet1k_val_1k.tsv",
+    "data/manifests/evaluation/imagenet1k_val_10k.tsv"
+  ],
+  "full_validation_50k": {
+    "payload": "not_downloaded",
+    "status": "deferred_to_phase_5_by_project_owner"
+  },
+  "target_mapping": "zero-based ILSVRC synset order used by torchvision weights"
+}

@@ -1,0 +1,4 @@
+Representative timing path omitted from compact parser fixture.
+worst slack max 2.963997
+tns max 0.000000
+clk period_min = 2.04 fmax = 491.16

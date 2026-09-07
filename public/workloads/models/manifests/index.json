@@ -1,0 +1,31 @@
+{
+  "efficientnet_b0": {
+    "decision_D3": "open",
+    "status": "intentionally_skipped"
+  },
+  "mandatory": [
+    "resnet18",
+    "mobilenet_v2",
+    "mobilenet_v3_large",
+    "yolov8n"
+  ],
+  "manifests": [
+    {
+      "name": "resnet18",
+      "path": "public/workloads/models/manifests/resnet18.json"
+    },
+    {
+      "name": "mobilenet_v2",
+      "path": "public/workloads/models/manifests/mobilenet_v2.json"
+    },
+    {
+      "name": "mobilenet_v3_large",
+      "path": "public/workloads/models/manifests/mobilenet_v3_large.json"
+    },
+    {
+      "name": "yolov8n",
+      "path": "public/workloads/models/manifests/yolov8n.json"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

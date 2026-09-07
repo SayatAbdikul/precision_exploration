@@ -1,0 +1,21 @@
+{
+  "bits": 4,
+  "encoding": "zero_then_signed_log2",
+  "family": "logarithmic",
+  "logarithmic": {
+    "fractional_bits": 1,
+    "integer_bits": 1,
+    "linear_near_zero": false
+  },
+  "name": "log4",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "not_applicable",
+  "zero": "code_zero"
+}

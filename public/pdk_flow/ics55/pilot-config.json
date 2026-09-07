@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "pdk": "ics55",
+  "library": "rvt",
+  "corner": "typ_tt_1p2_25_nldm",
+  "vt": "rvt",
+  "rtl": "public/generic_rtl/arithmetic/smoke_arithmetic.sv",
+  "top": "registered_smoke_arithmetic",
+  "harness_version": "1.0.0",
+  "pipeline_stages": 2,
+  "target_clock": "10ns"
+}

@@ -1,0 +1,32 @@
+{
+  "bits": 4,
+  "block": {
+    "block_axis": "reduction_k",
+    "block_size": 32,
+    "incomplete_block_policy": "scale_valid_values_zero_pad",
+    "shared_scale_format": "e8m0"
+  },
+  "encoding": "sign_e2m1",
+  "family": "mx_float",
+  "float": {
+    "bias": 1,
+    "exp_bits": 2,
+    "infinity": false,
+    "mantissa_bits": 1,
+    "nan": true,
+    "subnormals": true
+  },
+  "name": "mxfp4_e2m1",
+  "overflow": "saturate",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "block",
+    "mode": "intrinsic_shared",
+    "scale_bits": 8,
+    "scale_format": "e8m0"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "subnormal",
+  "zero": "signed_zero"
+}

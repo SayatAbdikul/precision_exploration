@@ -1,0 +1,376 @@
+{
+  "availability": {
+    "ecc_packaged_installer": "Linux x86_64 only; not used on this macOS arm64 host",
+    "ecc_repository": "https://github.com/openecos-projects/ecc",
+    "ecos_studio_repository": "https://github.com/openecos-projects/ecos-studio",
+    "host_strategy": "native Yosys plus OpenSTA in Linux container",
+    "pdk_repository": "https://github.com/openecos-projects/icsprout55-pdk",
+    "sky130_fallback": "not_exercised_because_ics55_public_rvt_collateral_was_usable",
+    "status": "public_preview_usable"
+  },
+  "flow_stage_status": {
+    "elaboration": "completed",
+    "mapped_logic_synthesis": "completed",
+    "parasitic_extraction": "unavailable_in_public_preview_collateral",
+    "placement": "unavailable_in_validated_host_setup",
+    "post_synthesis_sta": "completed_without_interconnect_parasitics",
+    "power": "unavailable_in_public_preview_collateral",
+    "routing": "unavailable_in_validated_host_setup"
+  },
+  "memory_evidence": {
+    "decision_D9": "open",
+    "level_1_characterized_sram": "unavailable",
+    "level_2_validated_generated_memory": "unavailable",
+    "level_3_synthesized_register_memory": "available through RVT standard cells",
+    "level_4_analytical": "available but weaker and not used as physical SRAM evidence",
+    "strongest_level": 3
+  },
+  "pdk": {
+    "corner": "typ_tt_1p2_25_nldm",
+    "liberty_archive_sha256": "ef33eec4cd5f617d3dd0073122e556df06560dd65eebf805648640038dedc2b7",
+    "repository_commit": "68d89edb47847671e18f9e65d66c0cd883995e05",
+    "typical_rvt_liberty_sha256": "15af0dceceeeb02e174174e7123c7d551551369bf5ad1e8417d3ce8dcbc24fcd",
+    "version": "v1.10.102",
+    "vt": "rvt"
+  },
+  "raw_evidence": {
+    "opensta_script_sha256": "cb97514283f6ba8e8b6e79cf601f2a30dddb1ea8ecfde47b3cb302b8ee37a853",
+    "repeat_run_manifest": "artifacts/ppa/ics55-pilot-repeat/run-manifest.json",
+    "run_manifest": "artifacts/ppa/ics55-pilot/run-manifest.json"
+  },
+  "repeatability": {
+    "run_count": 2,
+    "runtime_logs": "retained but excluded from byte-stability claims",
+    "stable_outputs": {
+      "netlist.v": {
+        "identical": true,
+        "primary_sha256": "31c545699cf6f93ce0d9834b89f2d68942349e59f8b22c2a2bf867c9c881c3a2",
+        "repeat_sha256": "31c545699cf6f93ce0d9834b89f2d68942349e59f8b22c2a2bf867c9c881c3a2"
+      },
+      "yosys-stat.json": {
+        "identical": true,
+        "primary_sha256": "235085350f3c358451595b59df02bfdc19203c97bbb9aa9dec9e7e23c7195598",
+        "repeat_sha256": "235085350f3c358451595b59df02bfdc19203c97bbb9aa9dec9e7e23c7195598"
+      }
+    }
+  },
+  "schema_version": "1.0.0",
+  "scope": "generic Phase 1 smoke flow; no candidate format or private MANT implementation",
+  "synthesis": {
+    "cell_types": {
+      "$paramod\\smoke_arithmetic\\WIDTH=s32'00000000000000000000000000001000": 1,
+      "AOI21X0P5H7R": 15,
+      "DFFQX1H7R": 35,
+      "NAND2BX0P5H7R": 15,
+      "NAND2X0P5H7R": 15,
+      "NOR2BX1H7R": 20,
+      "NOR2X0P5H7R": 1,
+      "NOR3X0P5H7R": 1
+    },
+    "evidence_level": "logic_synthesis",
+    "hardware_run_id": "dd269ffd95f61ba0460d4c635303a98bd10f4e5538e00c6c4b78d31174950f79",
+    "identity": {
+      "accounting_boundary": "all-in registered wrapper and combinational DUT; core-only metrics also reported",
+      "core_module": "$paramod\\smoke_arithmetic\\WIDTH=s32'00000000000000000000000000001000",
+      "corner": "typ_tt_1p2_25_nldm",
+      "harness": {
+        "capture": "registered result",
+        "clock_network": "ideal",
+        "clock_uncertainty_ns": 0.1,
+        "input_delay_ns": 0.2,
+        "launch": "registered inputs",
+        "output_delay_ns": 0.2,
+        "output_load_pf": 0.01
+      },
+      "harness_version": "1.0.0",
+      "initiation_interval_cycles": 1,
+      "latency_cycles": 2,
+      "liberty_sha256": "15af0dceceeeb02e174174e7123c7d551551369bf5ad1e8417d3ce8dcbc24fcd",
+      "library": "ics55_LLSC_H7CR",
+      "pdk": "ics55",
+      "pdk_repository_commit": "68d89edb47847671e18f9e65d66c0cd883995e05",
+      "pdk_version": "v1.10.102",
+      "pipeline_stages": 2,
+      "rtl_sha256": "36b91456236cc5a785f7b8b1b1d2f605be382d19f3a0c14152a7da5908915e3d",
+      "target_clock": "10ns",
+      "tool": "Yosys",
+      "tool_version": "0.65 (git sha1 aec814bdf3071f7e0fd0fbe43f7f711e99d01e24, clang++ 21.0.0 -fPIC -O3)",
+      "vt": "rvt"
+    },
+    "metrics": {
+      "cell_area": {
+        "unit": "library_area_units",
+        "value": 981.12
+      },
+      "cell_count": {
+        "unit": "count",
+        "value": 102
+      },
+      "core_cell_area": {
+        "unit": "library_area_units",
+        "value": 676.2
+      },
+      "core_cell_count": {
+        "unit": "count",
+        "value": 338
+      },
+      "design_cell_count": {
+        "unit": "count",
+        "value": 440
+      },
+      "leaf_cell_count": {
+        "unit": "count",
+        "value": 440
+      },
+      "public_wire_bits": {
+        "unit": "bits",
+        "value": 71
+      },
+      "register_count": {
+        "unit": "count",
+        "value": 35
+      },
+      "wire_bits": {
+        "unit": "bits",
+        "value": 138
+      },
+      "wire_count": {
+        "unit": "count",
+        "value": 80
+      },
+      "wrapper_cell_area": {
+        "unit": "library_area_units",
+        "value": 304.92
+      },
+      "wrapper_leaf_cell_count": {
+        "unit": "count",
+        "value": 102
+      }
+    },
+    "parser_version": "1.1.0",
+    "schema_version": "1.0.0",
+    "source_report_sha256": "235085350f3c358451595b59df02bfdc19203c97bbb9aa9dec9e7e23c7195598",
+    "warnings": []
+  },
+  "timing_sweep": [
+    {
+      "evidence_level": "post_synthesis_sta_no_interconnect",
+      "hardware_run_id": "72d01c3670e78d9be0b41b51c76a5654b3bc25ab38c0d70d0b4636db1cd947a3",
+      "identity": {
+        "accounting_boundary": "all-in registered wrapper and combinational DUT; core-only metrics also reported",
+        "corner": "typ_tt_1p2_25_nldm",
+        "harness": {
+          "capture": "registered result",
+          "clock_network": "ideal",
+          "clock_uncertainty_ns": 0.1,
+          "input_delay_ns": 0.2,
+          "launch": "registered inputs",
+          "output_delay_ns": 0.2,
+          "output_load_pf": 0.01
+        },
+        "harness_version": "1.0.0",
+        "initiation_interval_cycles": 1,
+        "latency_cycles": 2,
+        "liberty_sha256": "15af0dceceeeb02e174174e7123c7d551551369bf5ad1e8417d3ce8dcbc24fcd",
+        "library": "ics55_LLSC_H7CR",
+        "netlist_sha256": "31c545699cf6f93ce0d9834b89f2d68942349e59f8b22c2a2bf867c9c881c3a2",
+        "pdk": "ics55",
+        "pdk_repository_commit": "68d89edb47847671e18f9e65d66c0cd883995e05",
+        "pdk_version": "v1.10.102",
+        "pipeline_stages": 2,
+        "rtl_sha256": "36b91456236cc5a785f7b8b1b1d2f605be382d19f3a0c14152a7da5908915e3d",
+        "target_clock": "10ns",
+        "time_unit": "ns",
+        "tool": "OpenSTA",
+        "tool_version": "3.1.0 2996e37a3a",
+        "vt": "rvt"
+      },
+      "metrics": {
+        "fmax": {
+          "unit": "MHz",
+          "value": 491.16
+        },
+        "minimum_clock_period": {
+          "unit": "ns",
+          "value": 2.04
+        },
+        "target_period": {
+          "unit": "ns",
+          "value": 10.0
+        },
+        "timing_met": {
+          "unit": "boolean",
+          "value": 1
+        },
+        "total_negative_slack": {
+          "unit": "ns",
+          "value": 0.0
+        },
+        "worst_slack": {
+          "unit": "ns",
+          "value": 7.963998
+        }
+      },
+      "missing_metrics": [
+        "routed_area",
+        "wire_delay",
+        "leakage_power",
+        "dynamic_power",
+        "energy_per_operation"
+      ],
+      "parser_version": "1.1.0",
+      "schema_version": "1.0.0",
+      "source_report_sha256": "534632377855f0bb2a23b7057db3e45a83ae8465b869ee91e755389ac10e6b64",
+      "warnings": [
+        "post-synthesis STA uses ideal clocks and Liberty cell delay only",
+        "no placement, routing, extracted parasitics, or power evidence is claimed"
+      ]
+    },
+    {
+      "evidence_level": "post_synthesis_sta_no_interconnect",
+      "hardware_run_id": "780aea90e6f4be946b5542f035d10e800852efcae73b47f35d285a2c8c38332d",
+      "identity": {
+        "accounting_boundary": "all-in registered wrapper and combinational DUT; core-only metrics also reported",
+        "corner": "typ_tt_1p2_25_nldm",
+        "harness": {
+          "capture": "registered result",
+          "clock_network": "ideal",
+          "clock_uncertainty_ns": 0.1,
+          "input_delay_ns": 0.2,
+          "launch": "registered inputs",
+          "output_delay_ns": 0.2,
+          "output_load_pf": 0.01
+        },
+        "harness_version": "1.0.0",
+        "initiation_interval_cycles": 1,
+        "latency_cycles": 2,
+        "liberty_sha256": "15af0dceceeeb02e174174e7123c7d551551369bf5ad1e8417d3ce8dcbc24fcd",
+        "library": "ics55_LLSC_H7CR",
+        "netlist_sha256": "31c545699cf6f93ce0d9834b89f2d68942349e59f8b22c2a2bf867c9c881c3a2",
+        "pdk": "ics55",
+        "pdk_repository_commit": "68d89edb47847671e18f9e65d66c0cd883995e05",
+        "pdk_version": "v1.10.102",
+        "pipeline_stages": 2,
+        "rtl_sha256": "36b91456236cc5a785f7b8b1b1d2f605be382d19f3a0c14152a7da5908915e3d",
+        "target_clock": "5ns",
+        "time_unit": "ns",
+        "tool": "OpenSTA",
+        "tool_version": "3.1.0 2996e37a3a",
+        "vt": "rvt"
+      },
+      "metrics": {
+        "fmax": {
+          "unit": "MHz",
+          "value": 491.16
+        },
+        "minimum_clock_period": {
+          "unit": "ns",
+          "value": 2.04
+        },
+        "target_period": {
+          "unit": "ns",
+          "value": 5.0
+        },
+        "timing_met": {
+          "unit": "boolean",
+          "value": 1
+        },
+        "total_negative_slack": {
+          "unit": "ns",
+          "value": 0.0
+        },
+        "worst_slack": {
+          "unit": "ns",
+          "value": 2.963997
+        }
+      },
+      "missing_metrics": [
+        "routed_area",
+        "wire_delay",
+        "leakage_power",
+        "dynamic_power",
+        "energy_per_operation"
+      ],
+      "parser_version": "1.1.0",
+      "schema_version": "1.0.0",
+      "source_report_sha256": "32296e53a60b883c19ad1ed984412952705342e9f69da9719991d519539eb3f7",
+      "warnings": [
+        "post-synthesis STA uses ideal clocks and Liberty cell delay only",
+        "no placement, routing, extracted parasitics, or power evidence is claimed"
+      ]
+    },
+    {
+      "evidence_level": "post_synthesis_sta_no_interconnect",
+      "hardware_run_id": "bab39bc211c20db7b6d8895879e1b44ca3a86d3bd657d221c690bfd98c4938e5",
+      "identity": {
+        "accounting_boundary": "all-in registered wrapper and combinational DUT; core-only metrics also reported",
+        "corner": "typ_tt_1p2_25_nldm",
+        "harness": {
+          "capture": "registered result",
+          "clock_network": "ideal",
+          "clock_uncertainty_ns": 0.1,
+          "input_delay_ns": 0.2,
+          "launch": "registered inputs",
+          "output_delay_ns": 0.2,
+          "output_load_pf": 0.01
+        },
+        "harness_version": "1.0.0",
+        "initiation_interval_cycles": 1,
+        "latency_cycles": 2,
+        "liberty_sha256": "15af0dceceeeb02e174174e7123c7d551551369bf5ad1e8417d3ce8dcbc24fcd",
+        "library": "ics55_LLSC_H7CR",
+        "netlist_sha256": "31c545699cf6f93ce0d9834b89f2d68942349e59f8b22c2a2bf867c9c881c3a2",
+        "pdk": "ics55",
+        "pdk_repository_commit": "68d89edb47847671e18f9e65d66c0cd883995e05",
+        "pdk_version": "v1.10.102",
+        "pipeline_stages": 2,
+        "rtl_sha256": "36b91456236cc5a785f7b8b1b1d2f605be382d19f3a0c14152a7da5908915e3d",
+        "target_clock": "2ns",
+        "time_unit": "ns",
+        "tool": "OpenSTA",
+        "tool_version": "3.1.0 2996e37a3a",
+        "vt": "rvt"
+      },
+      "metrics": {
+        "fmax": {
+          "unit": "MHz",
+          "value": 491.16
+        },
+        "minimum_clock_period": {
+          "unit": "ns",
+          "value": 2.04
+        },
+        "target_period": {
+          "unit": "ns",
+          "value": 2.0
+        },
+        "timing_met": {
+          "unit": "boolean",
+          "value": 0
+        },
+        "total_negative_slack": {
+          "unit": "ns",
+          "value": -0.048578
+        },
+        "worst_slack": {
+          "unit": "ns",
+          "value": -0.036003
+        }
+      },
+      "missing_metrics": [
+        "routed_area",
+        "wire_delay",
+        "leakage_power",
+        "dynamic_power",
+        "energy_per_operation"
+      ],
+      "parser_version": "1.1.0",
+      "schema_version": "1.0.0",
+      "source_report_sha256": "fadd915942d5a23d44abe2ed96949d807e67c9731a3c25cc03d541dcefa4303a",
+      "warnings": [
+        "post-synthesis STA uses ideal clocks and Liberty cell delay only",
+        "no placement, routing, extracted parasitics, or power evidence is claimed"
+      ]
+    }
+  ]
+}

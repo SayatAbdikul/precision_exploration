@@ -10,7 +10,7 @@ The supplied roadmap is phase-ordered rather than calendar-based. Code remains i
 
 The public study includes detailed P&R of 2–4 **generic public finalists** within Phases 6–7/D10. Roadmap Phase 10 is downstream MANT physical validation and remains external.
 
-Current milestone: **Phase 0 complete on 2026-09-04; Phase 1 next.**
+Current milestone: **Phase 1 complete on 2026-09-07; Phase 2 next.**
 
 ## Master critical path
 

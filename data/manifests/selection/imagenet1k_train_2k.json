@@ -1,0 +1,15 @@
+{
+  "class_count": 1000,
+  "dataset": "ILSVRC/imagenet-1k",
+  "excluded_manifest": "data/raw/imagenet1k/val_evaluation_10k/manifest.tsv",
+  "excluded_sha256_count": 9999,
+  "image_count": 2000,
+  "per_class": 2,
+  "range_size_mib": 4,
+  "read_batch": 128,
+  "revision": "49e2ee26f3810fb5a7536bbf732a7b07389a47b5",
+  "seed": 20250904,
+  "selection": "streaming shuffle followed by first per-class quota",
+  "shuffle_buffer": 128,
+  "split": "train"
+}

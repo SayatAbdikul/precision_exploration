@@ -1,0 +1,35 @@
+{
+  "checkpoint_identifier": "MobileNet_V3_Large_Weights.IMAGENET1K_V2",
+  "checkpoint_path": "artifacts/checkpoints/mobilenet_v3_large-5c1a4163.pth",
+  "checkpoint_sha256": "5c1a416349c4cf298f2a6a5e2600ed0ee55e604713578f5e74e6bc8bcaef7997",
+  "checkpoint_size_bytes": 22132113,
+  "checkpoint_source": "https://download.pytorch.org/models/mobilenet_v3_large-5c1a4163.pth",
+  "dataset": "ILSVRC2012",
+  "deployment_graph_sha256": "9d1a8fee2edcdc876484cb6ad82e88ecd793aee64aecceec415ee666acd46612",
+  "deployment_graph_version": "eval-bn-fold-contract-1.0.0",
+  "evaluation_mode": true,
+  "evaluator": "public.workloads.models.torchvision_eval:1.0.0",
+  "framework": "torchvision",
+  "framework_version": "0.18.0",
+  "input_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "license": "BSD-3-Clause (torchvision code); ImageNet weights terms follow source dataset",
+  "load_procedure": "constructor(weights=None); load_state_dict(weights_only=True); eval()",
+  "metrics": [
+    "top1_percent",
+    "top5_percent"
+  ],
+  "name": "mobilenet_v3_large",
+  "output": "1000 ImageNet-1K class logits",
+  "schema_version": "1.0.0",
+  "upstream_reference": {
+    "population": "ImageNet-1K full validation set",
+    "source": "torchvision weight metadata",
+    "top1_percent": 75.274,
+    "top5_percent": 92.566
+  }
+}

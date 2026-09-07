@@ -1,0 +1,21 @@
+{
+  "dataset_policy": {
+    "classification": "frozen class-balanced ImageNet validation screen, 1 image per class",
+    "detection": "complete COCO 2017 validation set"
+  },
+  "upstream_comparison": {
+    "classification": "Published torchvision metrics use the full 50k ImageNet validation set and are provenance references, not pass/fail comparators for the owner-approved class-balanced 1k screen.",
+    "detector": {
+      "measured_map50_95": 0.3735112134743026,
+      "published_map50_95": 0.373,
+      "status": "reproduced within 0.00052 absolute mAP"
+    }
+  },
+  "runs": [
+    {"model": "resnet18", "sample_count": 1000, "top1_percent": 70.1, "top5_percent": 89.5, "prediction_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe"},
+    {"model": "mobilenet_v2", "sample_count": 1000, "top1_percent": 72.1, "top5_percent": 91.1, "prediction_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f"},
+    {"model": "mobilenet_v3_large", "sample_count": 1000, "top1_percent": 75.0, "top5_percent": 92.1, "prediction_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007"},
+    {"model": "yolov8n", "sample_count": 5000, "map50_95": 0.3735112134743026, "map50": 0.5256168716683333, "prediction_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb"}
+  ],
+  "schema_version": "1.0.0"
+}

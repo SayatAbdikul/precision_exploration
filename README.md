@@ -62,4 +62,4 @@ Phases 0–7 are the core public study and are implemented here. Public research
 
 ## Current status
 
-Phase 0 completed on 2026-09-04: F1–F8 are accepted, six contracts and three JSON Schemas are versioned, canonical identity and invalid fixtures are recorded, and the generic timing-harness/accounting boundary is frozen. Phase 1 is next; implementation and measured experimental evidence have not yet been produced.
+Phase 0 completed on 2026-09-04. Phase 1 completed on 2026-09-07 with frozen workloads and datasets, 25 accepted datatype manifests, an exact oracle and exhaustive conformance tables, a tested experiment registry, reproducible FP32 baselines, and a public ICsprout55 RVT synthesis/STA pilot. Phase 2 is next. See `docs/roadmap/phases/phase-01-foundation.md` for the completion record and evidence limits.

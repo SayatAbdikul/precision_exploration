@@ -1,0 +1,13 @@
+{
+  "antialias": true,
+  "batching": "ordered, no sample dropping",
+  "color": "Pillow RGB",
+  "crop": {"algorithm": "center", "height": 224, "width": 224},
+  "decode": "Pillow 10.3.0",
+  "implementation": "torchvision.models.ResNet18_Weights.IMAGENET1K_V1.transforms",
+  "interpolation": "bilinear",
+  "layout": "NCHW",
+  "normalization": {"mean": [0.485, 0.456, 0.406], "std": [0.229, 0.224, 0.225]},
+  "resize_shorter_side": 256,
+  "schema_version": "1.0.0"
+}

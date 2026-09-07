@@ -1,0 +1,19 @@
+{
+  "bits": 6,
+  "encoding": "posit_standard",
+  "family": "posit",
+  "name": "posit6_es1",
+  "overflow": "saturate",
+  "posit": {
+    "es": 1
+  },
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "not_applicable",
+  "zero": "zero_and_nar"
+}

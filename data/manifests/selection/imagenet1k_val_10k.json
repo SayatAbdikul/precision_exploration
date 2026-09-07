@@ -1,0 +1,25 @@
+{
+  "class_count": 1000,
+  "content_deduplication": {
+    "policy": "keep first manifest occurrence; replace later occurrence from pinned stream",
+    "replacements": [
+      {
+        "label": 77,
+        "new_relative_path": "0077/680b4dfe2ad9387eecc6.JPEG",
+        "new_sha256": "680b4dfe2ad9387eecc6473b756c7d246c2d3caf05e0b184ac079078845ffb71",
+        "old_relative_path": "0077/4a4ce1942e4c44d8361b.JPEG",
+        "old_sha256": "4a4ce1942e4c44d8361b8b0938d442ba1833bdb4dd41858b487a2fd902ac1778"
+      }
+    ]
+  },
+  "dataset": "ILSVRC/imagenet-1k",
+  "image_count": 10000,
+  "per_class": 10,
+  "range_size_mib": 4,
+  "read_batch": 128,
+  "revision": "49e2ee26f3810fb5a7536bbf732a7b07389a47b5",
+  "seed": 20250904,
+  "selection": "streaming shuffle followed by first per-class quota",
+  "shuffle_buffer": 2048,
+  "split": "validation"
+}

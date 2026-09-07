@@ -1,0 +1,23 @@
+{
+  "creator": "fixture",
+  "modules": {
+    "\\registered_smoke_arithmetic": {
+      "num_wires": 18,
+      "num_wire_bits": 73,
+      "num_pub_wires": 7,
+      "num_pub_wire_bits": 45,
+      "num_cells": 12,
+      "num_cells_by_type": {
+        "$_AND_": 4,
+        "$_DFF_P_": 8
+      }
+    }
+  },
+  "design": {
+    "num_wires": 18,
+    "num_wire_bits": 73,
+    "num_pub_wires": 7,
+    "num_pub_wire_bits": 45,
+    "num_cells": 12
+  }
+}

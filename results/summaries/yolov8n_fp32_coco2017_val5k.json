@@ -1,0 +1,17 @@
+{
+  "category_mapping": "Ultralytics COCO80 index to official sorted COCO category ID",
+  "dataset": "COCO 2017 val2017",
+  "evaluator": "pycocotools.COCOeval",
+  "image_count": 5000,
+  "metrics": {
+    "map50": 0.5256168716683333,
+    "map50_95": 0.3735112134743026
+  },
+  "model": "yolov8n",
+  "predictions": {
+    "path": "artifacts/per_image_predictions/yolov8n_coco2017_val5k_coco_predictions.json",
+    "sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
+    "size_bytes": 77199718
+  },
+  "schema_version": "1.0.0"
+}

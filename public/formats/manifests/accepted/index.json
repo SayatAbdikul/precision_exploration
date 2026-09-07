@@ -1,0 +1,184 @@
+{
+  "accepted_count": 25,
+  "aggregate_sha256": "c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87",
+  "decision": "D1",
+  "manifests": [
+    {
+      "bits": 8,
+      "family": "integer",
+      "name": "int8",
+      "path": "public/formats/manifests/accepted/int8.json",
+      "sha256": "0f1f87673b5aaed33f99c77b5e5cd5f38a34aa70a0f53a4b34064a76226f5547"
+    },
+    {
+      "bits": 6,
+      "family": "integer",
+      "name": "int6",
+      "path": "public/formats/manifests/accepted/int6.json",
+      "sha256": "496f025e37270f323ed9871d4b34f799c3c1527ec995960d3692956d61347860"
+    },
+    {
+      "bits": 5,
+      "family": "integer",
+      "name": "int5",
+      "path": "public/formats/manifests/accepted/int5.json",
+      "sha256": "acda033677e1bd0771cde6cc45385a42863795c4f2ba1911a352ed55048f5395"
+    },
+    {
+      "bits": 4,
+      "family": "integer",
+      "name": "int4",
+      "path": "public/formats/manifests/accepted/int4.json",
+      "sha256": "b00fa7d1b030cdac2923b6de4a81fbcdc0e4dc63d98df8d4bd705ebe45e99629"
+    },
+    {
+      "bits": 8,
+      "family": "fixed_point",
+      "name": "q1_6",
+      "path": "public/formats/manifests/accepted/q1_6.json",
+      "sha256": "65fb4cca037f485cd05c0cf508709e9bd24cbaa82d47b7f4c02599fb0527f2fe"
+    },
+    {
+      "bits": 8,
+      "family": "float",
+      "name": "fp8_e4m3fn",
+      "path": "public/formats/manifests/accepted/fp8_e4m3fn.json",
+      "sha256": "738c2016750f132c297eee891a85bdba29191bc1ebe6de2bf16572d8c66131a3"
+    },
+    {
+      "bits": 8,
+      "family": "float",
+      "name": "fp8_e5m2",
+      "path": "public/formats/manifests/accepted/fp8_e5m2.json",
+      "sha256": "da2feaa4b3d3b4a6b23c44157c3c22a723786cc985f68a302dd02485d9d03c6e"
+    },
+    {
+      "bits": 7,
+      "family": "float",
+      "name": "fp7_e3m3",
+      "path": "public/formats/manifests/accepted/fp7_e3m3.json",
+      "sha256": "e6b2f9492fad23ef14779f05202c85b5914ed53f59d2bb67811a5fd399caf394"
+    },
+    {
+      "bits": 6,
+      "family": "float",
+      "name": "fp6_e3m2",
+      "path": "public/formats/manifests/accepted/fp6_e3m2.json",
+      "sha256": "9b87d286ac41cc027bc91c427887769bf05cefadb53b85206853e5cde680ad4f"
+    },
+    {
+      "bits": 6,
+      "family": "float",
+      "name": "fp6_e2m3",
+      "path": "public/formats/manifests/accepted/fp6_e2m3.json",
+      "sha256": "c7722921719efa1d241826496f0324479646126f7ee53ad6b002f0e3ed50e667"
+    },
+    {
+      "bits": 5,
+      "family": "float",
+      "name": "fp5_e2m2",
+      "path": "public/formats/manifests/accepted/fp5_e2m2.json",
+      "sha256": "1ffee968627929bae58ff8b2fb036f7fcdc5e3dd2310258811718c8593b08326"
+    },
+    {
+      "bits": 4,
+      "family": "float",
+      "name": "fp4_e2m1",
+      "path": "public/formats/manifests/accepted/fp4_e2m1.json",
+      "sha256": "a821b79eb48b538b5d038e204a627ac534b5d47c48b67d1f39c1e32148480f69"
+    },
+    {
+      "bits": 6,
+      "family": "bfp",
+      "name": "bfp6",
+      "path": "public/formats/manifests/accepted/bfp6.json",
+      "sha256": "9d36aa9e46e8eeb54339d51220ec1828da52c352a36e357130e804e5805f82d0"
+    },
+    {
+      "bits": 8,
+      "family": "mx_float",
+      "name": "mxfp8_e4m3",
+      "path": "public/formats/manifests/accepted/mxfp8_e4m3.json",
+      "sha256": "e28c9b203fe974fc7c7f5e012073b0050b96ae85ebed554ea4d6a7d19c63d796"
+    },
+    {
+      "bits": 6,
+      "family": "mx_float",
+      "name": "mxfp6_e3m2",
+      "path": "public/formats/manifests/accepted/mxfp6_e3m2.json",
+      "sha256": "196ebc36387e81a6a7f6adac58435d6047eccea95a3b553b990d4d622482633a"
+    },
+    {
+      "bits": 4,
+      "family": "mx_float",
+      "name": "mxfp4_e2m1",
+      "path": "public/formats/manifests/accepted/mxfp4_e2m1.json",
+      "sha256": "634993d9945a4928d1b2123ccbad25c6dee9dc5a7e5f385789298e53ce6dd792"
+    },
+    {
+      "bits": 8,
+      "family": "posit",
+      "name": "posit8_es1",
+      "path": "public/formats/manifests/accepted/posit8_es1.json",
+      "sha256": "09fec8a8476309122965dd1206235d5e9b8875d4259d652c31d50a23e8484d95"
+    },
+    {
+      "bits": 6,
+      "family": "posit",
+      "name": "posit6_es1",
+      "path": "public/formats/manifests/accepted/posit6_es1.json",
+      "sha256": "21f25d641c307e262f3a92d7f57557467709520607096de7b76c82e188ae89db"
+    },
+    {
+      "bits": 4,
+      "family": "posit",
+      "name": "posit4_es0",
+      "path": "public/formats/manifests/accepted/posit4_es0.json",
+      "sha256": "53424f5e81c3bbd65b9506ac094538f7f500203a5f95f66b8fa15dbbc922f068"
+    },
+    {
+      "bits": 8,
+      "family": "logarithmic",
+      "name": "log8",
+      "path": "public/formats/manifests/accepted/log8.json",
+      "sha256": "461964e37e198399442c70c90fea9c55fbf8e2ecf29e700f3551fb2a1ad20939"
+    },
+    {
+      "bits": 6,
+      "family": "logarithmic",
+      "name": "log6",
+      "path": "public/formats/manifests/accepted/log6.json",
+      "sha256": "85bbd7d505f8a7c7eb8a296c04a0c051cecdb806b0b9a40f5207b7d887e4ad00"
+    },
+    {
+      "bits": 4,
+      "family": "logarithmic",
+      "name": "log4",
+      "path": "public/formats/manifests/accepted/log4.json",
+      "sha256": "c1bbeccde29eaaab5740dc32c12abae76de0e75a965211abff4eaad21e02b6ad"
+    },
+    {
+      "bits": 4,
+      "family": "codebook",
+      "name": "nf4",
+      "path": "public/formats/manifests/accepted/nf4.json",
+      "sha256": "2260f7867dda7b764e3461f0eec9d614c7cdabfdaebc2a13ca9c223e62cb503f"
+    },
+    {
+      "bits": 1,
+      "family": "binary",
+      "name": "binary_pm1",
+      "path": "public/formats/manifests/accepted/binary_pm1.json",
+      "sha256": "e9ffd8f532ab9d1709173891e4942d0f0135260f1944c625b6300e6e2c64b8f4"
+    },
+    {
+      "bits": 2,
+      "family": "ternary",
+      "name": "ternary",
+      "path": "public/formats/manifests/accepted/ternary.json",
+      "sha256": "96b8188781cac167833e679b081489de72495f86d25509b6d24aa2126254219f"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "status": "accepted"
+}

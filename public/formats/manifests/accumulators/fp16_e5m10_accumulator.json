@@ -1,0 +1,24 @@
+{
+  "bits": 16,
+  "encoding": "sign_e5m10",
+  "family": "float",
+  "float": {
+    "bias": 15,
+    "exp_bits": 5,
+    "infinity": true,
+    "mantissa_bits": 10,
+    "nan": true,
+    "subnormals": true
+  },
+  "name": "fp16_e5m10_accumulator",
+  "overflow": "infinity",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "subnormal",
+  "zero": "signed_zero"
+}

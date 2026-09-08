@@ -6,6 +6,9 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import tempfile
+import shutil
+import os
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
@@ -237,6 +240,7 @@ def register_baselines(registry: ExperimentRegistry) -> dict[str, str]:
                 run_id,
                 {key: (float(value), "count" if key == "count" else ("percent" if "percent" in key else "ratio"))
                  for key, value in metrics.items()},
+                lease_token=claimed["lease_token"],
             )
             rows = classifier_rows(prediction_path) if model != "yolov8n" else detector_rows()
             registry.store_per_image(experiment_id, rows)
@@ -246,7 +250,7 @@ def register_baselines(registry: ExperimentRegistry) -> dict[str, str]:
                 "prediction_path": prediction_path,
                 "per_sample_schema": "1.0.0",
             })
-            registry.finish(run_id, "COMPLETED")
+            registry.finish(run_id, "COMPLETED", lease_token=claimed["lease_token"])
         elif status != "COMPLETED":
             raise RuntimeError(f"baseline {model} has unexpected registry status {status}")
 
@@ -266,7 +270,11 @@ def register_baselines(registry: ExperimentRegistry) -> dict[str, str]:
 
 def main() -> None:
     hardware = hardware_evidence()
-    with ExperimentRegistry(DATABASE) as registry:
+    DATABASE.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, staged_name = tempfile.mkstemp(prefix="phase1-rebuild-", suffix=".sqlite", dir=DATABASE.parent)
+    os.close(descriptor)
+    staged = Path(staged_name)
+    with ExperimentRegistry(staged) as registry:
         baseline_ids = register_baselines(registry)
         accepted_manifest = record("public/formats/manifests/accepted/fp8_e4m3fn.json", "datatype_manifest")
         truth_index = record("public/formats/conformance/truth-table-index.json", "truth_table_index")
@@ -302,6 +310,11 @@ def main() -> None:
                 parser_version=item["parser_version"],
             )
         snapshot = registry.export_snapshot()
+    if DATABASE.exists():
+        archive = DATABASE.with_name("phase1-before-corrections.sqlite")
+        if not archive.exists():
+            shutil.copyfile(DATABASE, archive)
+    staged.replace(DATABASE)
     dump("results/summaries/phase1-registry-export.json", {
         "schema_version": "1.0.0",
         "authoritative_database": "results/databases/phase1.sqlite",

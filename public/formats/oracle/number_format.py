@@ -2,10 +2,24 @@
 
 from __future__ import annotations
 
-from decimal import Decimal, InvalidOperation, localcontext
+from decimal import Decimal, InvalidOperation, localcontext, Context
+from functools import wraps, lru_cache
+from bisect import bisect_left
 from typing import Any, Mapping
 
 from .manifest import validate_manifest
+
+
+ORACLE_VERSION = "1.1.0"
+
+
+def precise(function):
+    """Isolate arithmetic from the caller's Decimal precision and rounding."""
+    @wraps(function)
+    def wrapped(*args, **kwargs):
+        with localcontext(Context(prec=200)):
+            return function(*args, **kwargs)
+    return wrapped
 
 
 class OracleError(ValueError):
@@ -22,8 +36,15 @@ def _decimal(value: Any) -> Decimal:
     return Decimal(value)
 
 
+@lru_cache(maxsize=512)
 def _pow2(exponent: int) -> Decimal:
     return Decimal(2) ** exponent
+
+
+@lru_cache(maxsize=1)
+def _e8m0_scales():
+    with localcontext(Context(prec=200)):
+        return frozenset(_pow2(exponent) for exponent in range(-127, 128))
 
 
 class NumberFormat:
@@ -36,6 +57,7 @@ class NumberFormat:
     arithmetic for the accepted widths and is deterministic.
     """
 
+    @precise
     def __init__(self, manifest: Mapping[str, Any]):
         self.manifest = validate_manifest(manifest)
         self.name = self.manifest["name"]
@@ -43,6 +65,17 @@ class NumberFormat:
         self.family = self.manifest["family"]
         self.code_count = 1 << self.bits
         self._values = tuple(self._decode_code(code) for code in range(self.code_count))
+        self._finite = sorted((value, code) for code, value in enumerate(self._values) if value.is_finite())
+        self._magnitudes = [value for value, _ in self._finite]
+
+    def _scale(self, value: Any) -> Decimal:
+        scale = _decimal(value)
+        if not scale.is_finite() or scale <= 0:
+            raise OracleError("scale must be finite and positive")
+        if self.manifest.get("block", {}).get("shared_scale_format") == "e8m0":
+            if scale not in _e8m0_scales():
+                raise OracleError("e8m0 scale must be a power of two in [2^-127, 2^127]")
+        return scale
 
     def _decode_code(self, code: int) -> Decimal:
         family = self.family
@@ -165,12 +198,14 @@ class NumberFormat:
             magnitude = Decimal(2) ** exponent
         return -magnitude if negative else magnitude
 
+    @precise
     def decode(self, code: int, *, scale: Any = 1) -> Decimal:
-        if not isinstance(code, int) or not 0 <= code < self.code_count:
+        if type(code) is not int or not 0 <= code < self.code_count:
             raise OracleError(f"code {code!r} is outside {self.bits}-bit range")
+        scale_value = self._scale(scale)
         value = self._values[code]
         if value.is_finite():
-            return value * _decimal(scale)
+            return value * scale_value
         return value
 
     def _nan_code(self) -> int | None:
@@ -185,19 +220,10 @@ class NumberFormat:
                 return code
         return None
 
-    def _finite_candidates(self, *, scale: Decimal) -> list[tuple[int, Decimal]]:
-        return [
-            (code, value * scale)
-            for code, value in enumerate(self._values)
-            if value.is_finite()
-        ]
-
+    @precise
     def encode(self, value: Any, *, scale: Any = 1) -> int:
         target = _decimal(value)
-        scale_value = _decimal(scale)
-        if scale_value == 0 or not scale_value.is_finite():
-            raise OracleError("scale must be finite and non-zero")
-
+        scale_value = self._scale(scale)
         if target.is_nan():
             code = self._nan_code()
             if code is None:
@@ -207,54 +233,43 @@ class NumberFormat:
             code = self._infinity_code(target.is_signed())
             if code is not None:
                 return code
-
-        candidates = self._finite_candidates(scale=scale_value)
-        if not candidates:
-            raise OracleError(f"{self.name} has no finite encodings")
-
-        if target.is_infinite():
-            return min(candidates, key=lambda item: item[1])[0] if target.is_signed() else max(
-                candidates, key=lambda item: item[1]
-            )[0]
-
-        minimum_code, minimum_value = min(candidates, key=lambda item: item[1])
-        maximum_code, maximum_value = max(candidates, key=lambda item: item[1])
-        if target < minimum_value:
-            if self.manifest["overflow"] == "infinity":
-                infinity = self._infinity_code(True)
-                if infinity is not None:
-                    return infinity
-            return minimum_code
-        if target > maximum_value:
-            if self.manifest["overflow"] == "infinity":
-                infinity = self._infinity_code(False)
-                if infinity is not None:
-                    return infinity
-            return maximum_code
-
+            return self._finite[0 if target.is_signed() else -1][1]
+        target = target / scale_value
+        minimum, minimum_code = self._finite[0]
+        maximum, maximum_code = self._finite[-1]
         rounding = self.manifest["rounding"]
+        if target < minimum or target > maximum:
+            negative = target < minimum
+            boundary = minimum if negative else maximum
+            code = minimum_code if negative else maximum_code
+            if self.manifest["overflow"] == "infinity":
+                # Overflow is tested AFTER rounding to the destination's
+                # significand precision, including the final half-ULP interval.
+                distinct = sorted(set(self._magnitudes))
+                step = distinct[1] - minimum if negative else maximum - distinct[-2]
+                threshold = abs(boundary) + step * (1 if rounding == "truncate" else Decimal("0.5"))
+                if abs(target) >= threshold:
+                    infinity = self._infinity_code(negative)
+                    if infinity is not None:
+                        return infinity
+            return code
+        index = bisect_left(self._magnitudes, target)
+        nearby = self._finite[max(0, index - 1):min(len(self._finite), index + 2)]
         if rounding == "truncate":
-            if target >= 0:
-                eligible = [item for item in candidates if Decimal(0) <= item[1] <= target]
-                return max(eligible or candidates, key=lambda item: item[1])[0]
-            eligible = [item for item in candidates if target <= item[1] <= Decimal(0)]
-            return min(eligible or candidates, key=lambda item: item[1])[0]
+            eligible = [(v, c) for v, c in nearby if (target <= v <= 0 if target.is_signed() else 0 <= v <= target)]
+            chosen = min(eligible, key=lambda item: abs(item[0] - target))
+        else:
+            distance = min(abs(v - target) for v, _ in nearby)
+            tied = [(v, c) for v, c in nearby if abs(v - target) == distance]
+            if rounding == "rne":
+                chosen = min(tied, key=lambda item: (item[1] & 1, item[1]))
+            else:
+                chosen = max(tied, key=lambda item: abs(item[0]))
+        if chosen[0].is_zero() and self.manifest["zero"] == "signed_zero":
+            return (1 << (self.bits - 1)) if target.is_signed() else 0
+        return chosen[1]
 
-        distances = [(abs(candidate - target), code, candidate) for code, candidate in candidates]
-        minimum = min(item[0] for item in distances)
-        tied = [item for item in distances if item[0] == minimum]
-        if len(tied) == 1:
-            return tied[0][1]
-        if rounding == "rne":
-            even = [item for item in tied if item[1] & 1 == 0]
-            if even:
-                return min(even, key=lambda item: item[1])[1]
-        # "nearest" resolves an exact tie away from zero; RNE falls back to
-        # stable code order only for duplicate encodings such as flushed zeros.
-        if rounding == "nearest":
-            return max(tied, key=lambda item: abs(item[2]))[1]
-        return min(tied, key=lambda item: item[1])[1]
-
+    @precise
     def add(self, left_code: int, right_code: int, *, scale: Any = 1) -> int:
         left = self.decode(left_code, scale=scale)
         right = self.decode(right_code, scale=scale)
@@ -264,6 +279,7 @@ class NumberFormat:
             result = Decimal("NaN")
         return self.encode(result, scale=scale)
 
+    @precise
     def mul(self, left_code: int, right_code: int, *, scale: Any = 1) -> int:
         left = self.decode(left_code, scale=scale)
         right = self.decode(right_code, scale=scale)
@@ -276,5 +292,6 @@ class NumberFormat:
     def requantize(self, value: Any, *, scale: Any = 1) -> int:
         return self.encode(value, scale=scale)
 
+    @precise
     def convert(self, source_code: int, destination: "NumberFormat", *, source_scale: Any = 1, destination_scale: Any = 1) -> int:
         return destination.encode(self.decode(source_code, scale=source_scale), scale=destination_scale)

@@ -218,7 +218,7 @@ def validate_manifest(manifest: Mapping[str, Any], *, role: str | None = None) -
             if (
                 family != "mx_float" or bits != width
                 or value.get("float") != {"exp_bits": exponent, "mantissa_bits": mantissa, "bias": bias,
-                                             "subnormals": True, "nan": True, "infinity": False}
+                                             "subnormals": True, "nan": width == 8, "infinity": False}
                 or value.get("block") != {"shared_scale_format": "e8m0", "block_size": 32,
                                            "block_axis": "reduction_k",
                                            "incomplete_block_policy": "scale_valid_values_zero_pad"}

@@ -5,10 +5,23 @@
   "checkpoint_size_bytes": 46830571,
   "checkpoint_source": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
   "dataset": "ILSVRC2012",
-  "deployment_graph_sha256": "b76d62382687bdc14b48f141861b2f38796ccb90887eff13f282043c59594bbf",
-  "deployment_graph_version": "eval-bn-fold-contract-1.0.0",
+  "deployment_graph_path": "artifacts/folded_graphs/resnet18-b92936dfe0439eae4d3795c802bae269d6b8a3a8bf423c3b8b8839420759c098.json",
+  "deployment_graph_sha256": "b92936dfe0439eae4d3795c802bae269d6b8a3a8bf423c3b8b8839420759c098",
+  "deployment_graph_version": "folded-aten-fixed-input-1.1.0",
   "evaluation_mode": true,
   "evaluator": "public.workloads.models.torchvision_eval:1.0.0",
+  "fold_verification": {
+    "atol": 0.0001,
+    "graph_repeat_identical": true,
+    "max_absolute_error": 1.3113021850585938e-05,
+    "probes": [
+      "zeros",
+      "linear_ramp_minus1_plus1"
+    ],
+    "remaining_batchnorm": 0,
+    "rtol": 0.0001,
+    "status": "passed"
+  },
   "framework": "torchvision",
   "framework_version": "0.18.0",
   "input_shape": [
@@ -25,6 +38,9 @@
   ],
   "name": "resnet18",
   "output": "1000 ImageNet-1K class logits",
+  "preprocessing_path": "public/workloads/datasets/imagenet_resnet18_preprocessing.json",
+  "preprocessing_sha256": "0de9a80677023c0ffbbe7173286504b2a5c92d857d4a6ead860af0613b693295",
+  "preprocessing_version": "imagenet_resnet18_v1",
   "schema_version": "1.0.0",
   "upstream_reference": {
     "population": "ImageNet-1K full validation set",

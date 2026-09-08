@@ -5,10 +5,23 @@
   "checkpoint_size_bytes": 14258573,
   "checkpoint_source": "https://download.pytorch.org/models/mobilenet_v2-7ebf99e0.pth",
   "dataset": "ILSVRC2012",
-  "deployment_graph_sha256": "06b980dd1e2b887f842b42bc65bc915f4385011723aef50c6bf2cca9e2d2eaca",
-  "deployment_graph_version": "eval-bn-fold-contract-1.0.0",
+  "deployment_graph_path": "artifacts/folded_graphs/mobilenet_v2-9be67052a626cefa0fae5cd4a030d556cfb443727aa8f5647158fcc0465bd795.json",
+  "deployment_graph_sha256": "9be67052a626cefa0fae5cd4a030d556cfb443727aa8f5647158fcc0465bd795",
+  "deployment_graph_version": "folded-aten-fixed-input-1.1.0",
   "evaluation_mode": true,
   "evaluator": "public.workloads.models.torchvision_eval:1.0.0",
+  "fold_verification": {
+    "atol": 0.0001,
+    "graph_repeat_identical": true,
+    "max_absolute_error": 3.0040740966796875e-05,
+    "probes": [
+      "zeros",
+      "linear_ramp_minus1_plus1"
+    ],
+    "remaining_batchnorm": 0,
+    "rtol": 0.0001,
+    "status": "passed"
+  },
   "framework": "torchvision",
   "framework_version": "0.18.0",
   "input_shape": [
@@ -25,6 +38,9 @@
   ],
   "name": "mobilenet_v2",
   "output": "1000 ImageNet-1K class logits",
+  "preprocessing_path": "public/workloads/datasets/imagenet_mobilenet_preprocessing.json",
+  "preprocessing_sha256": "faa3a80f47a8cd3e2a1fb41fad024d264ecc64e0957a5eeb322a8d5235901a1d",
+  "preprocessing_version": "imagenet_mobilenet_v1",
   "schema_version": "1.0.0",
   "upstream_reference": {
     "population": "ImageNet-1K full validation set",

@@ -73,7 +73,7 @@
   },
   "datatypes": {
     "accepted_count": 25,
-    "aggregate_sha256": "c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87",
+    "aggregate_sha256": "986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b",
     "decision": "D1",
     "manifests": [
       {
@@ -179,14 +179,14 @@
         "family": "mx_float",
         "name": "mxfp6_e3m2",
         "path": "public/formats/manifests/accepted/mxfp6_e3m2.json",
-        "sha256": "196ebc36387e81a6a7f6adac58435d6047eccea95a3b553b990d4d622482633a"
+        "sha256": "6688697568ab1bebc62f3265904960265933e27d42e43a24b8bfb2e3741e9195"
       },
       {
         "bits": 4,
         "family": "mx_float",
         "name": "mxfp4_e2m1",
         "path": "public/formats/manifests/accepted/mxfp4_e2m1.json",
-        "sha256": "634993d9945a4928d1b2123ccbad25c6dee9dc5a7e5f385789298e53ce6dd792"
+        "sha256": "7f87d5deb0a8d93f16878edce466d392995160329d57ef2061a1830dbde813ff"
       },
       {
         "bits": 8,

@@ -12,7 +12,7 @@ from typing import Any, Mapping
 from public.experiments.registry.identity import canonical_json_bytes
 
 
-PARSER_VERSION = "1.1.0"
+PARSER_VERSION = "1.2.0"
 
 
 class HardwareParseError(ValueError):
@@ -83,6 +83,13 @@ def parse_yosys_stat(
     design_cell_types = design.get("num_cells_by_type", cell_types)
     if not isinstance(design_cell_types, Mapping):
         raise HardwareParseError("design.num_cells_by_type must be an object")
+    for counts in (cell_types, design_cell_types):
+        for cell in counts:
+            _integer(counts, cell)
+    if sum(cell_types.values()) != _integer(module, "num_cells") + _integer({"num_submodules": module.get("num_submodules", 0)}, "num_submodules"):
+        raise HardwareParseError("module cell counts do not sum to num_cells")
+    if sum(design_cell_types.values()) != _integer(design, "num_cells") + _integer({"num_submodules": design.get("num_submodules", 0)}, "num_submodules"):
+        raise HardwareParseError("design cell counts do not sum to num_cells")
     metrics: dict[str, dict[str, int | float | str]] = {
         "cell_count": {"value": _integer(module, "num_cells"), "unit": "count"},
         "design_cell_count": {"value": _integer(design, "num_cells"), "unit": "count"},
@@ -96,7 +103,7 @@ def parse_yosys_stat(
     }
     area = module.get("area", design.get("area"))
     if area is not None:
-        if isinstance(area, bool) or not isinstance(area, (int, float)) or area < 0:
+        if isinstance(area, bool) or not isinstance(area, (int, float)) or not math.isfinite(area) or area < 0:
             raise HardwareParseError("area must be a non-negative number")
         metrics["cell_area"] = {"value": float(area), "unit": "library_area_units"}
     register_count = sum(
@@ -116,10 +123,12 @@ def parse_yosys_stat(
             "unit": "count",
         }
         core_area = core.get("area")
-        if not isinstance(core_area, (int, float)) or isinstance(core_area, bool) or core_area < 0:
+        if not isinstance(core_area, (int, float)) or isinstance(core_area, bool) or not math.isfinite(core_area) or core_area < 0:
             raise HardwareParseError("core area is missing or invalid")
         metrics["core_cell_area"] = {"value": float(core_area), "unit": "library_area_units"}
         if area is not None:
+            if core_area > area:
+                raise HardwareParseError("core area exceeds all-in area")
             metrics["wrapper_cell_area"] = {
                 "value": round(float(area) - float(core_area), 12),
                 "unit": "library_area_units",

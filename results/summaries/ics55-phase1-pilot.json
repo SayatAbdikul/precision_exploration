@@ -147,7 +147,7 @@
         "value": 102
       }
     },
-    "parser_version": "1.1.0",
+    "parser_version": "1.2.0",
     "schema_version": "1.0.0",
     "source_report_sha256": "235085350f3c358451595b59df02bfdc19203c97bbb9aa9dec9e7e23c7195598",
     "warnings": []
@@ -218,7 +218,7 @@
         "dynamic_power",
         "energy_per_operation"
       ],
-      "parser_version": "1.1.0",
+      "parser_version": "1.2.0",
       "schema_version": "1.0.0",
       "source_report_sha256": "534632377855f0bb2a23b7057db3e45a83ae8465b869ee91e755389ac10e6b64",
       "warnings": [
@@ -291,7 +291,7 @@
         "dynamic_power",
         "energy_per_operation"
       ],
-      "parser_version": "1.1.0",
+      "parser_version": "1.2.0",
       "schema_version": "1.0.0",
       "source_report_sha256": "32296e53a60b883c19ad1ed984412952705342e9f69da9719991d519539eb3f7",
       "warnings": [
@@ -364,7 +364,7 @@
         "dynamic_power",
         "energy_per_operation"
       ],
-      "parser_version": "1.1.0",
+      "parser_version": "1.2.0",
       "schema_version": "1.0.0",
       "source_report_sha256": "fadd915942d5a23d44abe2ed96949d807e67c9731a3c25cc03d541dcefa4303a",
       "warnings": [

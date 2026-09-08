@@ -75,8 +75,15 @@ def classification_metrics(rows: Iterable[Mapping[str, Any]]) -> dict[str, float
 
 def verify_model_manifest(manifest_path: str | Path, *, repository_root: str | Path) -> dict[str, Any]:
     manifest = json.loads(Path(manifest_path).read_text(encoding="utf-8"))
-    root = Path(repository_root)
-    checkpoint = root / manifest["checkpoint_path"]
+    root = Path(repository_root).resolve()
+    def payload_path(raw):
+        if not isinstance(raw, str) or "\\" in raw or any(part in {"", ".", ".."} for part in raw.split("/")):
+            raise ModelIdentityError("model payload path is not portable")
+        path = root / raw
+        if Path(raw).is_absolute() or not path.resolve().is_relative_to(root):
+            raise ModelIdentityError("model payload path escapes repository")
+        return path
+    checkpoint = payload_path(manifest["checkpoint_path"])
     if not checkpoint.is_file():
         raise ModelIdentityError(f"checkpoint is missing: {manifest['checkpoint_path']}")
     if checkpoint.stat().st_size != manifest["checkpoint_size_bytes"]:
@@ -84,8 +91,9 @@ def verify_model_manifest(manifest_path: str | Path, *, repository_root: str | P
     actual = checkpoint_sha256(checkpoint)
     if actual != manifest["checkpoint_sha256"]:
         raise ModelIdentityError(f"checkpoint hash mismatch: {manifest['name']}")
-    matches = list((root / "artifacts/folded_graphs").glob(f"{manifest['name']}-{manifest['deployment_graph_sha256']}.json"))
-    if len(matches) != 1:
+    graph_path = payload_path(manifest["deployment_graph_path"])
+    matches = [graph_path]
+    if not graph_path.is_file():
         raise ModelIdentityError(f"deployment graph is missing or ambiguous: {manifest['name']}")
     graph = json.loads(matches[0].read_text(encoding="utf-8"))
     actual_graph = graph_identity(
@@ -93,6 +101,20 @@ def verify_model_manifest(manifest_path: str | Path, *, repository_root: str | P
         graph_version=graph["graph_version"],
         nodes=graph["nodes"],
     )
-    if actual_graph != manifest["deployment_graph_sha256"]:
+    if actual_graph != manifest["deployment_graph_sha256"] or checkpoint_sha256(graph_path) != actual_graph:
         raise ModelIdentityError(f"deployment graph hash mismatch: {manifest['name']}")
+    if manifest.get("deployment_graph_version") != "folded-aten-fixed-input-1.1.0":
+        raise ModelIdentityError("unsupported deployment graph version")
+    if graph["graph_version"] != manifest["deployment_graph_version"] or graph["architecture"] != manifest["name"]:
+        raise ModelIdentityError("deployment graph metadata mismatch")
+    if matches[0].read_bytes() != (json.dumps(graph, sort_keys=True, separators=(",", ":")) + "\n").encode():
+        raise ModelIdentityError("deployment graph must use canonical serialized bytes")
+    prep = payload_path(manifest["preprocessing_path"])
+    if checkpoint_sha256(prep) != manifest["preprocessing_sha256"]:
+        raise ModelIdentityError("preprocessing hash mismatch")
+    preprocessing = json.loads(prep.read_text())
+    for annotation, expected in preprocessing.get("annotation_sha256", {}).items():
+        path = payload_path(f"data/raw/coco2017/annotations/{annotation}.json")
+        if checkpoint_sha256(path) != expected:
+            raise ModelIdentityError(f"annotation hash mismatch: {annotation}")
     return manifest

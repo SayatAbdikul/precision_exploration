@@ -13,7 +13,7 @@
     "exp_bits": 2,
     "infinity": false,
     "mantissa_bits": 1,
-    "nan": true,
+    "nan": false,
     "subnormals": true
   },
   "name": "mxfp4_e2m1",

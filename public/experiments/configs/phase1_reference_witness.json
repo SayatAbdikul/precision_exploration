@@ -1,0 +1,78 @@
+{
+  "arithmetic": {
+    "accumulator_policy": "family_appropriate_wide",
+    "bias_domain": "accumulator",
+    "mac_model": "full_product",
+    "product_precision": "exact_to_accumulator",
+    "reduction_order": "sequential",
+    "requantization_point": "operator_output_store"
+  },
+  "dataset": {
+    "calibration": {
+      "name": "imagenet_calibration_2k",
+      "path": "data/manifests/calibration/imagenet1k_train_2k.tsv",
+      "sha256": "3e0417ef0c4d5badd8fb396e156955ff760d306311d4a6496ed9a305b67d7381",
+      "split": "train"
+    },
+    "evaluation": {
+      "name": "imagenet_screen_1k",
+      "path": "data/manifests/evaluation/imagenet1k_val_1k.tsv",
+      "sha256": "066cde9664454a7866bb006d5adb7148a2122e282ff505617b0caa09039ab702",
+      "split": "validation"
+    },
+    "name": "imagenet_1k",
+    "sets_disjoint": true,
+    "version": "frozen_phase1"
+  },
+  "formats": {
+    "accumulator": {
+      "name": "fp16_e5m10_accumulator",
+      "sha256": "eff52b52f466fd6defc4961289ad3e2c29f578ac77c5311348416183ba3a9c78"
+    },
+    "activation": {
+      "name": "fp8_e4m3fn",
+      "sha256": "738c2016750f132c297eee891a85bdba29191bc1ebe6de2bf16572d8c66131a3"
+    },
+    "output": {
+      "name": "fp8_e4m3fn",
+      "sha256": "738c2016750f132c297eee891a85bdba29191bc1ebe6de2bf16572d8c66131a3"
+    },
+    "weight": {
+      "name": "fp8_e4m3fn",
+      "sha256": "738c2016750f132c297eee891a85bdba29191bc1ebe6de2bf16572d8c66131a3"
+    }
+  },
+  "model": {
+    "checkpoint_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "graph_sha256": "b92936dfe0439eae4d3795c802bae269d6b8a3a8bf423c3b8b8839420759c098",
+    "graph_version": "folded-aten-fixed-input-1.1.0",
+    "name": "resnet18",
+    "preprocessing_version": "imagenet_resnet18_v1"
+  },
+  "operators": {
+    "batchnorm_folded": true,
+    "policy": "strict",
+    "semantics_version": "1.0.0"
+  },
+  "ptq": {
+    "activation_granularity": "per_tensor",
+    "bias_correction": false,
+    "experiment": "A",
+    "method": "mse",
+    "reconstruction": false,
+    "retraining": false,
+    "rounding": "rne",
+    "scaling_policy": "intrinsic_or_required_only",
+    "weight_granularity": "per_output_channel"
+  },
+  "runtime": {
+    "backend": "reference",
+    "kernel_version": "oracle-1.1.0",
+    "semantic_version": "1.1.0"
+  },
+  "schema_version": "1.0.0",
+  "seeds": {
+    "calibration": 20250904,
+    "evaluation": 20250904
+  }
+}

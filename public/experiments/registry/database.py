@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import json
 import sqlite3
+import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any, Iterable, Mapping, Callable
 
 from .artifacts import ArtifactRecord
-from .identity import canonical_json_bytes, experiment_sha256
+from .identity import canonical_json_bytes, experiment_sha256, validate_submission, IdentityError, content_sha256
 
 
 VALID_STATUSES = frozenset({"PENDING", "RUNNING", "COMPLETED", "FAILED", "INVALID"})
@@ -25,7 +26,8 @@ def _now() -> str:
 
 
 class ExperimentRegistry:
-    def __init__(self, path: str | Path):
+    def __init__(self, path: str | Path, *, validator: Callable = validate_submission):
+        self.validator = validator
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.connection = sqlite3.connect(self.path, timeout=30, isolation_level=None)
@@ -57,6 +59,7 @@ class ExperimentRegistry:
                 attempt INTEGER NOT NULL,
                 status TEXT NOT NULL CHECK(status IN ('PENDING','RUNNING','COMPLETED','FAILED','INVALID')),
                 worker_id TEXT,
+                lease_token TEXT,
                 created_at TEXT NOT NULL,
                 started_at TEXT,
                 heartbeat_at TEXT,
@@ -131,7 +134,15 @@ class ExperimentRegistry:
             """
         )
 
+        columns = {row["name"] for row in self.connection.execute("PRAGMA table_info(runs)")}
+        if "lease_token" not in columns:
+            self.connection.execute("ALTER TABLE runs ADD COLUMN lease_token TEXT")
+
     def submit(self, configuration: Mapping[str, Any], *, invalid_error: str | None = None) -> tuple[int, str]:
+        try:
+            configuration = self.validator(configuration)
+        except (ValueError, OSError, KeyError, TypeError) as exc:
+            invalid_error = str(exc)
         experiment_id = experiment_sha256(configuration)
         canonical = canonical_json_bytes(configuration, derived_field="experiment_id")
         now = _now()
@@ -150,14 +161,14 @@ class ExperimentRegistry:
                 "SELECT run_id FROM runs WHERE experiment_id = ? AND status = 'COMPLETED' ORDER BY attempt LIMIT 1",
                 (experiment_id,),
             ).fetchone()
-            if completed is not None:
+            if completed is not None and invalid_error is None:
                 self.connection.execute("COMMIT")
                 return int(completed["run_id"]), "COMPLETED"
             active = self.connection.execute(
                 "SELECT run_id, status FROM runs WHERE experiment_id = ? AND status IN ('PENDING','RUNNING') ORDER BY attempt DESC LIMIT 1",
                 (experiment_id,),
             ).fetchone()
-            if active is not None:
+            if active is not None and invalid_error is None:
                 self.connection.execute("COMMIT")
                 return int(active["run_id"]), str(active["status"])
             next_attempt = self.connection.execute(
@@ -179,6 +190,7 @@ class ExperimentRegistry:
 
     def claim_next(self, worker_id: str) -> sqlite3.Row | None:
         now = _now()
+        lease_token = uuid.uuid4().hex
         self.connection.execute("BEGIN IMMEDIATE")
         try:
             row = self.connection.execute(
@@ -189,9 +201,9 @@ class ExperimentRegistry:
                 return None
             run_id = int(row["run_id"])
             changed = self.connection.execute(
-                """UPDATE runs SET status='RUNNING', worker_id=?, started_at=?, heartbeat_at=?
+                """UPDATE runs SET status='RUNNING', worker_id=?, started_at=?, heartbeat_at=?, lease_token=?
                    WHERE run_id=? AND status='PENDING'""",
-                (worker_id, now, now, run_id),
+                (worker_id, now, now, lease_token, run_id),
             ).rowcount
             if changed != 1:
                 raise RegistryError(f"could not atomically claim run {run_id}")
@@ -206,38 +218,79 @@ class ExperimentRegistry:
             self.connection.execute("ROLLBACK")
             raise
 
-    def heartbeat(self, run_id: int, worker_id: str) -> None:
+    def heartbeat(self, run_id: int, worker_id: str, *, lease_token: str) -> None:
         changed = self.connection.execute(
-            "UPDATE runs SET heartbeat_at=? WHERE run_id=? AND status='RUNNING' AND worker_id=?",
-            (_now(), run_id, worker_id),
+            "UPDATE runs SET heartbeat_at=? WHERE run_id=? AND status='RUNNING' AND worker_id=? AND lease_token=?",
+            (_now(), run_id, worker_id, lease_token),
         ).rowcount
         if changed != 1:
-            raise RegistryError(f"run {run_id} is not owned by {worker_id}")
+            raise RegistryError(f"run {run_id} lease is no longer owned by {worker_id}")
 
-    def finish(self, run_id: int, status: str, *, error: str | None = None) -> None:
+    def _owned(self, run_id: int, lease_token: str) -> None:
+        row = self.connection.execute(
+            "SELECT 1 FROM runs WHERE run_id=? AND status='RUNNING' AND lease_token=?", (run_id, lease_token)
+        ).fetchone()
+        if row is None:
+            raise RegistryError(f"run {run_id} is not RUNNING with this lease")
+
+    def finish(self, run_id: int, status: str, *, lease_token: str, error: str | None = None,
+               metrics: Mapping[str, tuple[float, str]] | None = None) -> None:
         if status not in TERMINAL_STATUSES:
             raise RegistryError(f"finish requires a terminal status, got {status}")
-        changed = self.connection.execute(
-            """UPDATE runs SET status=?, finished_at=?, heartbeat_at=?, error=?
-               WHERE run_id=? AND status='RUNNING'""",
-            (status, _now(), _now(), error, run_id),
-        ).rowcount
-        if changed != 1:
-            raise RegistryError(f"run {run_id} is not RUNNING")
+        self.connection.execute("BEGIN IMMEDIATE")
+        try:
+            self._owned(run_id, lease_token)
+            if metrics is not None:
+                self._write_metrics(run_id, metrics)
+            self.connection.execute(
+                "UPDATE runs SET status=?, finished_at=?, heartbeat_at=?, error=? WHERE run_id=?",
+                (status, _now(), _now(), error, run_id),
+            )
+            self.connection.execute("COMMIT")
+        except Exception:
+            self.connection.execute("ROLLBACK")
+            raise
 
     def recover_stale(self, *, older_than_seconds: int) -> int:
+        if older_than_seconds <= 0:
+            raise RegistryError("stale timeout must be positive")
         cutoff = (datetime.now(timezone.utc) - timedelta(seconds=older_than_seconds)).isoformat()
-        return self.connection.execute(
-            """UPDATE runs SET status='PENDING', worker_id=NULL, started_at=NULL, heartbeat_at=NULL
-               WHERE status='RUNNING' AND heartbeat_at < ?""",
-            (cutoff,),
-        ).rowcount
+        self.connection.execute("BEGIN IMMEDIATE")
+        try:
+            stale = list(self.connection.execute(
+                "SELECT * FROM runs WHERE status='RUNNING' AND heartbeat_at < ?", (cutoff,)))
+            for row in stale:
+                self.connection.execute(
+                    "UPDATE runs SET status='FAILED',finished_at=?,error='worker lease expired' WHERE run_id=?",
+                    (_now(), row["run_id"]))
+                self.connection.execute(
+                    "INSERT INTO runs(experiment_id,attempt,status,created_at) VALUES(?,?,'PENDING',?)",
+                    (row["experiment_id"], self.connection.execute(
+                        "SELECT MAX(attempt)+1 FROM runs WHERE experiment_id=?", (row["experiment_id"],)).fetchone()[0], _now()))
+            self.connection.execute("COMMIT")
+            return len(stale)
+        except Exception:
+            self.connection.execute("ROLLBACK")
+            raise
 
-    def add_metrics(self, run_id: int, metrics: Mapping[str, tuple[float, str]]) -> None:
+    def _write_metrics(self, run_id: int, metrics: Mapping[str, tuple[float, str]]) -> None:
+        import math
+        if any(not math.isfinite(float(value)) for value, _ in metrics.values()):
+            raise RegistryError("metrics must be finite")
         self.connection.executemany(
             "INSERT OR REPLACE INTO metrics(run_id,name,value,unit) VALUES(?,?,?,?)",
             ((run_id, name, float(value), unit) for name, (value, unit) in metrics.items()),
         )
+
+    def add_metrics(self, run_id: int, metrics: Mapping[str, tuple[float, str]], *, lease_token: str) -> None:
+        self.connection.execute("BEGIN IMMEDIATE")
+        try:
+            self._owned(run_id, lease_token)
+            self._write_metrics(run_id, metrics)
+            self.connection.execute("COMMIT")
+        except Exception:
+            self.connection.execute("ROLLBACK")
+            raise
 
     def add_run_metadata(self, run_id: int, metadata: Mapping[str, Any]) -> None:
         self.connection.executemany(
@@ -255,7 +308,10 @@ class ExperimentRegistry:
         producer_experiment_id: str | None,
         metadata: Mapping[str, Any],
     ) -> None:
-        encoded = json.dumps(dict(metadata), sort_keys=True, separators=(",", ":"))
+        path = Path(record.path)
+        if not path.is_file() or path.stat().st_size != record.size_bytes or content_sha256(path) != record.sha256:
+            raise RegistryError("artifact publication requires verified bytes and size")
+        encoded = json.dumps(dict(metadata), sort_keys=True, separators=(",", ":"), allow_nan=False)
         self.connection.execute(
             """INSERT INTO artifacts(
                 sha256,path,size_bytes,semantic_type,producer_experiment_id,metadata_json,created_at
@@ -314,13 +370,38 @@ class ExperimentRegistry:
                     json.dumps(row.get("summary", {}), sort_keys=True, separators=(",", ":")),
                 )
             )
-        self.connection.executemany(
-            """INSERT INTO per_image_results(
-                experiment_id,sample_id,ordinal,ground_truth,fp32_prediction,candidate_prediction,
-                fp32_correct,candidate_correct,summary_json
-            ) VALUES(?,?,?,?,?,?,?,?,?)""",
-            encoded_rows,
-        )
+        self.connection.execute("SAVEPOINT per_image_batch")
+        try:
+            for values in encoded_rows:
+                existing = self.connection.execute(
+                    "SELECT * FROM per_image_results WHERE experiment_id=? AND sample_id=?", values[:2]).fetchone()
+                if existing is not None:
+                    if tuple(existing) != values:
+                        raise sqlite3.IntegrityError("conflicting per-image result")
+                    continue
+                self.connection.execute(
+                    "INSERT INTO per_image_results VALUES(?,?,?,?,?,?,?,?,?)", values)
+            self.connection.execute("RELEASE per_image_batch")
+        except Exception:
+            self.connection.execute("ROLLBACK TO per_image_batch")
+            self.connection.execute("RELEASE per_image_batch")
+            raise
+
+    def reuse_artifact(self, sha256: str, *, dependencies: Mapping[str, str]) -> ArtifactRecord:
+        """Reuse only an exact dependency set, verifying the payload and inputs."""
+        rows = list(self.connection.execute(
+            "SELECT dependency_role,dependency_sha256 FROM artifact_dependencies WHERE artifact_sha256=?", (sha256,)))
+        expected = {(role, digest) for role, digest in dependencies.items()}
+        if not expected or {(r[0], r[1]) for r in rows} != expected:
+            raise RegistryError("artifact dependencies differ; recomputation required")
+        records = []
+        for digest in [sha256, *dependencies.values()]:
+            row = self.connection.execute("SELECT * FROM artifacts WHERE sha256=?", (digest,)).fetchone()
+            if row is None or content_sha256(row["path"]) != digest:
+                raise RegistryError("artifact or dependency payload missing/corrupt")
+            records.append(row)
+        row = records[0]
+        return ArtifactRecord(row["sha256"], row["path"], row["size_bytes"], row["semantic_type"])
 
     def per_image(self, experiment_id: str) -> list[sqlite3.Row]:
         return list(
@@ -340,13 +421,15 @@ class ExperimentRegistry:
         parser_version: str,
     ) -> None:
         identity_json = json.dumps(dict(identity), sort_keys=True, separators=(",", ":"))
-        metrics_json = json.dumps(dict(metrics), sort_keys=True, separators=(",", ":"))
+        metrics_json = json.dumps(dict(metrics), sort_keys=True, separators=(",", ":"), allow_nan=False)
         existing = self.connection.execute(
-            "SELECT identity_json,metrics_json FROM hardware_runs WHERE hardware_run_id=?",
+            "SELECT identity_json,metrics_json,experiment_id,evidence_level,parser_version FROM hardware_runs WHERE hardware_run_id=?",
             (hardware_run_id,),
         ).fetchone()
         if existing is not None and (
             existing["identity_json"] != identity_json or existing["metrics_json"] != metrics_json
+            or existing["experiment_id"] != experiment_id or existing["evidence_level"] != evidence_level
+            or existing["parser_version"] != parser_version
         ):
             raise RegistryError(f"hardware run identity collision: {hardware_run_id}")
         self.connection.execute(

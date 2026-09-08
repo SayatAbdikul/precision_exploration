@@ -9,10 +9,10 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from .manifest import manifest_sha256
-from .number_format import NumberFormat, OracleError
+from .number_format import NumberFormat, OracleError, ORACLE_VERSION
 
 
-TABLE_SCHEMA_VERSION = "1.0.0"
+TABLE_SCHEMA_VERSION = "1.1.0"
 
 
 def decode_rows(number_format: NumberFormat) -> Iterable[dict[str, Any]]:
@@ -24,6 +24,12 @@ def decode_rows(number_format: NumberFormat) -> Iterable[dict[str, Any]]:
 def encode_boundary_rows(number_format: NumberFormat) -> Iterable[dict[str, Any]]:
     """Enumerate every finite value and every adjacent rounding boundary."""
 
+    from decimal import Context, localcontext
+    with localcontext(Context(prec=200)):
+        yield from _encode_boundary_rows(number_format)
+
+
+def _encode_boundary_rows(number_format):
     values = sorted({number_format.decode(code) for code in range(number_format.code_count)
                      if number_format.decode(code).is_finite()})
     probes: list[tuple[str, Decimal]] = [("representable", value) for value in values]
@@ -86,6 +92,7 @@ def write_jsonl_table(
     metadata = {
         "schema_version": TABLE_SCHEMA_VERSION,
         "kind": kind,
+        "oracle_version": ORACLE_VERSION,
         "source_manifest": source.name,
         "source_manifest_sha256": manifest_sha256(source.manifest),
         "destination_manifest": destination.name if destination else None,

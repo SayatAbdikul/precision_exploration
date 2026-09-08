@@ -13,7 +13,7 @@
     "exp_bits": 3,
     "infinity": false,
     "mantissa_bits": 2,
-    "nan": true,
+    "nan": false,
     "subnormals": true
   },
   "name": "mxfp6_e3m2",

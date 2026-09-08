@@ -41,9 +41,9 @@ def test_frozen_fp32_baseline_metrics_and_prediction_hashes() -> None:
 
 def test_truth_table_index_resolves_every_content_hash() -> None:
     index = json.loads((ROOT / "public/formats/conformance/truth-table-index.json").read_text())
-    assert index["accepted_manifest_set_sha256"] == "c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87"
+    assert index["accepted_manifest_set_sha256"] == "986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b"
     assert len(index["records"]) == 725
-    assert sum(record["row_count"] for record in index["records"]) == 1_085_846
+    assert sum(record["row_count"] for record in index["records"]) == 1_085_854
     for record in index["records"]:
         path = ROOT / record["artifact_path"]
         assert sha256(path) == record["sha256"]

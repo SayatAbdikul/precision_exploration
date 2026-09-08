@@ -1,0 +1,129 @@
+{
+  "classifiers": [
+    {
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 70.1,
+        "top5_percent": 89.5
+      },
+      "model": "resnet18",
+      "prediction_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
+      "result": "byte_identical",
+      "sample_count": 1000
+    },
+    {
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 72.1,
+        "top5_percent": 91.1
+      },
+      "model": "mobilenet_v2",
+      "prediction_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
+      "result": "byte_identical",
+      "sample_count": 1000
+    },
+    {
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 75.0,
+        "top5_percent": 92.1
+      },
+      "model": "mobilenet_v3_large",
+      "prediction_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
+      "result": "byte_identical",
+      "sample_count": 1000
+    }
+  ],
+  "graph_version": "folded-aten-fixed-input-1.1.0",
+  "graphs": [
+    {
+      "atol": 0.0001,
+      "class_score_atol": null,
+      "coordinate_atol_pixels": null,
+      "fold_parity": "passed",
+      "folded_output_sha256": "5d5f7287d26c54b5fa053d66ea20e2d9074ff1604964bed8886b5c850aeb2fd4",
+      "graph_sha256": "b92936dfe0439eae4d3795c802bae269d6b8a3a8bf423c3b8b8839420759c098",
+      "max_absolute_error": 3.0994415283203125e-05,
+      "model": "resnet18",
+      "repeat_inference": "byte_identical",
+      "rtol": 0.0001,
+      "sample_ids": [
+        "0000/02945dc23538a61252bf.JPEG",
+        "0001/cba1f0788aafefe7d3d9.JPEG",
+        "0002/c4f1ae901812c86e9179.JPEG",
+        "0003/8c6cda8e646f3d588af9.JPEG",
+        "0004/9c06b347a415b9e9fa3e.JPEG",
+        "0005/7fd9ca7b940941b0db6c.JPEG",
+        "0006/c2a02ffb74665a685aa8.JPEG",
+        "0007/cb2abd3aeb228c56d853.JPEG"
+      ]
+    },
+    {
+      "atol": 0.0001,
+      "class_score_atol": null,
+      "coordinate_atol_pixels": null,
+      "fold_parity": "passed",
+      "folded_output_sha256": "64a683a7f3fcec15206795570bcc5cebd1390056907ed0be67c66ca4e81304b4",
+      "graph_sha256": "9be67052a626cefa0fae5cd4a030d556cfb443727aa8f5647158fcc0465bd795",
+      "max_absolute_error": 1.3113021850585938e-05,
+      "model": "mobilenet_v2",
+      "repeat_inference": "byte_identical",
+      "rtol": 0.0001,
+      "sample_ids": [
+        "0000/02945dc23538a61252bf.JPEG",
+        "0001/cba1f0788aafefe7d3d9.JPEG",
+        "0002/c4f1ae901812c86e9179.JPEG",
+        "0003/8c6cda8e646f3d588af9.JPEG",
+        "0004/9c06b347a415b9e9fa3e.JPEG",
+        "0005/7fd9ca7b940941b0db6c.JPEG",
+        "0006/c2a02ffb74665a685aa8.JPEG",
+        "0007/cb2abd3aeb228c56d853.JPEG"
+      ]
+    },
+    {
+      "atol": 0.0001,
+      "class_score_atol": null,
+      "coordinate_atol_pixels": null,
+      "fold_parity": "passed",
+      "folded_output_sha256": "bbb161e025edabfbbf6771b609f23b6793dfc13f2f13b3fc0aeb84520536f46e",
+      "graph_sha256": "d3dea5a9571995cc33d3c0093823ba71e719fe9cb59dc8715adeb25d45bb394e",
+      "max_absolute_error": 1.5616416931152344e-05,
+      "model": "mobilenet_v3_large",
+      "repeat_inference": "byte_identical",
+      "rtol": 0.0001,
+      "sample_ids": [
+        "0000/02945dc23538a61252bf.JPEG",
+        "0001/cba1f0788aafefe7d3d9.JPEG",
+        "0002/c4f1ae901812c86e9179.JPEG",
+        "0003/8c6cda8e646f3d588af9.JPEG",
+        "0004/9c06b347a415b9e9fa3e.JPEG",
+        "0005/7fd9ca7b940941b0db6c.JPEG",
+        "0006/c2a02ffb74665a685aa8.JPEG",
+        "0007/cb2abd3aeb228c56d853.JPEG"
+      ]
+    },
+    {
+      "atol": 0.0001,
+      "class_score_atol": 1e-05,
+      "coordinate_atol_pixels": 0.01,
+      "fold_parity": "passed",
+      "folded_output_sha256": "8ff0710aadbf7eb7990ef6d0d7cb925b9c90248c170c971b1d62f7c070db9d31",
+      "graph_sha256": "fbcf91794d32e9d9e3ce1e5e57352baffdac822e0771d4d6923b710ed117ff31",
+      "max_absolute_error": 0.009185791015625,
+      "model": "yolov8n",
+      "repeat_inference": "byte_identical",
+      "rtol": 0.0001,
+      "sample_ids": [
+        "57244",
+        "405691",
+        "70229",
+        "390826",
+        "407614",
+        "453584",
+        "443969",
+        "215259"
+      ]
+    }
+  ],
+  "schema_version": "1.0.0"
+}

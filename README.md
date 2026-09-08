@@ -62,4 +62,4 @@ Phases 0–7 are the core public study and are implemented here. Public research
 
 ## Current status
 
-Phase 0 completed on 2026-09-04. Phase 1 completed on 2026-09-07 with frozen workloads and datasets, 25 accepted datatype manifests, an exact oracle and exhaustive conformance tables, a tested experiment registry, reproducible FP32 baselines, and a public ICsprout55 RVT synthesis/STA pilot. Phase 2 is next. See `docs/roadmap/phases/phase-01-foundation.md` for the completion record and evidence limits.
+Phase 0 completed on 2026-09-04. Phase 1 completed and was reverified on 2026-09-08 after correcting the audit findings, with frozen workloads and datasets, 25 accepted datatype manifests, a validated oracle and regenerated exhaustive conformance tables, a tested experiment registry, reproducible FP32 baselines, and a public ICsprout55 RVT synthesis/STA pilot. Phase 2 is next. See `docs/roadmap/phases/phase-01-foundation.md` for the completion record and evidence limits.

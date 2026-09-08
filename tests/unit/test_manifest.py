@@ -71,3 +71,11 @@ def test_codebook_values_must_be_unique() -> None:
     manifest["codebook"]["values"][1] = manifest["codebook"]["values"][0]
     with pytest.raises(ManifestError, match="unique"):
         validate_manifest(manifest)
+
+
+@pytest.mark.parametrize("name", ["mxfp4_e2m1", "mxfp6_e3m2"])
+def test_ocp_mx_names_reject_element_nan(name):
+    manifest = json.loads((ROOT / f"public/formats/manifests/accepted/{name}.json").read_text())
+    manifest["float"]["nan"] = True
+    with pytest.raises(ManifestError, match="OCP MX"):
+        validate_manifest(manifest)

@@ -5,10 +5,23 @@
   "checkpoint_size_bytes": 6549796,
   "checkpoint_source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8n.pt",
   "dataset": "COCO 2017",
-  "deployment_graph_sha256": "568c000c9f9b3250f61daef6783d2d91c26b5b0f512133b75d6c24be2cf5eef4",
-  "deployment_graph_version": "ultralytics-8.3.0-eval",
+  "deployment_graph_path": "artifacts/folded_graphs/yolov8n-fbcf91794d32e9d9e3ce1e5e57352baffdac822e0771d4d6923b710ed117ff31.json",
+  "deployment_graph_sha256": "fbcf91794d32e9d9e3ce1e5e57352baffdac822e0771d4d6923b710ed117ff31",
+  "deployment_graph_version": "folded-aten-fixed-input-1.1.0",
   "evaluation_mode": true,
   "evaluator": "ultralytics.YOLO.val:8.3.0",
+  "fold_verification": {
+    "atol": 0.0001,
+    "graph_repeat_identical": true,
+    "max_absolute_error": 0.00384521484375,
+    "probes": [
+      "zeros",
+      "linear_ramp_minus1_plus1"
+    ],
+    "remaining_batchnorm": 0,
+    "rtol": 0.0001,
+    "status": "passed"
+  },
   "framework": "ultralytics",
   "framework_version": "8.3.0",
   "input_shape": [
@@ -25,6 +38,9 @@
   ],
   "name": "yolov8n",
   "output": "COCO 80-category detections",
+  "preprocessing_path": "public/workloads/datasets/coco2017.json",
+  "preprocessing_sha256": "76a521f62c691d9ab47cad371c07e5315bd8ee9b713b8a313f90981328a365f1",
+  "preprocessing_version": "coco2017_ultralytics_v1",
   "schema_version": "1.0.0",
   "upstream_reference": {
     "map50_95": 0.373,

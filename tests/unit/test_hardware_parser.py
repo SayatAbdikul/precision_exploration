@@ -74,3 +74,19 @@ def test_opensta_missing_or_ambiguous_summary_is_rejected(tmp_path: Path) -> Non
             ROOT / "tests" / "conformance" / "fixtures" / "hardware" / "opensta-smoke.txt",
             identity={**identity, "time_unit": "ps"},
         )
+
+
+@pytest.mark.parametrize("area", [float("nan"), float("inf"), -1, True])
+def test_nonfinite_or_negative_area_is_rejected(area):
+    fixture = json.loads((ROOT / "tests/conformance/fixtures/hardware/yosys-stat-smoke.json").read_text())
+    fixture["modules"]["\\registered_smoke_arithmetic"]["area"] = area
+    with pytest.raises(HardwareParseError):
+        parse_yosys_stat(fixture, top="registered_smoke_arithmetic", identity=IDENTITY)
+
+
+@pytest.mark.parametrize("count", [-1, 1.8, True, "2"])
+def test_malformed_per_cell_count_is_rejected(count):
+    fixture = json.loads((ROOT / "tests/conformance/fixtures/hardware/yosys-stat-smoke.json").read_text())
+    fixture["design"]["num_cells_by_type"] = {"DFF": count}
+    with pytest.raises(HardwareParseError):
+        parse_yosys_stat(fixture, top="registered_smoke_arithmetic", identity=IDENTITY)

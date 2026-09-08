@@ -4,7 +4,7 @@ Status: **accepted**
 
 Owner approval: **2026-09-06**
 
-Frozen manifest-set SHA-256: `c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87`
+Frozen manifest-set SHA-256: `986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b`
 
 ## Decision
 
@@ -36,7 +36,7 @@ No major roadmap family was removed. Custom variants are named by their complete
 
 ## Redundancy and feasibility review
 
-All 25 candidates have distinct width, scalar codebook, or scaling/block semantics. MX element encodings intentionally share scalar values with their corresponding minifloats at scale one, but they are not redundant experiments: an MX value is interpreted with an intrinsic E8M0 block scale and has different metadata, calibration, and hardware costs. BFP6 likewise remains distinct from fixed point because its exponent is shared per block. Binary and ternary require mapping scales and do not duplicate low-bit integer zero/code behavior.
+All 25 candidates have distinct width, scalar codebook, or scaling/block semantics. MXFP8 shares scalar encodings with its standard FP8 anchor; MXFP4/MXFP6 use all-finite OCP elements, unlike the custom scalar minifloats that reserve NaN. None are redundant experiments: an MX value is interpreted with an intrinsic E8M0 block scale and has different metadata, calibration, and hardware costs. BFP6 likewise remains distinct from fixed point because its exponent is shared per block. Binary and ternary require mapping scales and do not duplicate low-bit integer zero/code behavior.
 
 The manifest parser and high-precision oracle load every accepted manifest. Exhaustive decode, every representable encode value, every adjacent-value rounding midpoint, ADD, MUL, and all ordered source-to-destination conversions are generated at scale one. Block families record the required 32-value context; block-scale selection is network/calibration work and is not mislabeled as a scalar truth-table property.
 
@@ -48,7 +48,15 @@ The frozen build produces 25 exhaustive decode tables, 25 exhaustive encode-boun
 
 - Included: the 25 candidates above.
 - Deferred: alternate biases, additional widths, unsigned variants, MXINT, other BFP block sizes, generalized NF codebooks, external-scale minifloats, and all accumulator sweeps. These remain valid later-phase dimensions.
-- Merged: no approved candidate was merged; scalar-equal MX/minifloat pairs remain separate because their scaling semantics differ.
+- Merged: no approved candidate was merged; MX/minifloat candidates remain separate because their encoding and/or scaling semantics differ.
 - Rejected: no additional unnamed or incompletely specified custom encoding may enter a sweep.
 
 This decision establishes a broad starting set. It does not rank candidates or close D2–D11.
+
+## Semantic correction — 2026-09-08
+
+The owner requested completion of Phase 1 after the audit. The 25-candidate scope remains accepted. MXFP4 E2M1 and MXFP6 E3M2 now use the finite element encodings required by OCP MX v1.0 §§5.3.2–5.3.3 (no element NaNs; maxima 6 and 28). This corrects the implementation of the accepted standard names, without adding or pruning candidates.
+
+The prior manifest-set hash `c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87` is superseded by `986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b`. Oracle 1.1.0 also fixes overflow-after-rounding and signed zero, isolates Decimal precision, and validates E8M0 scale contexts. Every affected table is regenerated and versioned. The prior table hashes must not be used as conformance targets. The scalar standalone custom FP4/FP6 minifloats retain their separately declared finite-with-NaN semantics.
+
+Reference: [OCP MX v1.0](https://www.opencompute.org/documents/ocp-microscaling-formats-mx-v1-0-spec-final-pdf).

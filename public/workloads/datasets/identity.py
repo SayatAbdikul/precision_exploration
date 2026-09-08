@@ -88,3 +88,19 @@ def verify_phase1_subsets(root: str | Path) -> dict[str, Any]:
     return {"status": "verified", "counts": {name: len(rows) for name, rows in loaded.items()},
             "imagenet_nested": True, "imagenet_content_disjoint": True,
             "coco_nested": True, "coco_split_disjoint": True}
+
+
+def verify_payload_record(root: str | Path, record: dict[str, Any]) -> int:
+    """Verify every listed image, including nested lists, against frozen bytes."""
+    root = Path(root).resolve()
+    rows = load_tsv(root / record["path"])
+    if sha256(root / record["path"]) != record["sha256"] or len(rows) != record["count"]:
+        raise DatasetManifestError("list identity/count mismatch")
+    payload_root = root / "data/raw" / record["logical_payload_root"]
+    for row in rows:
+        path = payload_root / row.get("relative_path", row.get("file_name", ""))
+        if not path.resolve().is_relative_to(payload_root.resolve()):
+            raise DatasetManifestError("image path escapes payload root")
+        if sha256(path) != row["sha256"]:
+            raise DatasetManifestError(f"image payload mismatch: {path}")
+    return len(rows)

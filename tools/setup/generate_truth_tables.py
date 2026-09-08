@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from public.formats.oracle import NumberFormat, load_manifest
+from public.formats.oracle.number_format import ORACLE_VERSION
 from public.formats.oracle.truth_tables import conversion_rows, decode_rows, encode_boundary_rows, operation_rows, write_jsonl_table
 
 
@@ -42,7 +43,7 @@ def main() -> None:
                                          source=source, destination=destination,
                                          context={"source_scale": "1", "destination_scale": "1"})
             records.append({"format": source.name, "artifact_path": path.relative_to(ROOT).as_posix(), **metadata})
-    index = {"schema_version": "1.0.0", "oracle": "public.formats.oracle.NumberFormat",
+    index = {"schema_version": "1.0.0", "oracle": "public.formats.oracle.NumberFormat", "oracle_version": ORACLE_VERSION,
              "generator": "tools/setup/generate_truth_tables.py", "accepted_manifest_set_sha256": accepted["aggregate_sha256"],
              "coverage": "exhaustive decode, representable-value and adjacent-midpoint encoding boundaries, ADD, MUL, and every ordered accepted-format conversion; scale=1 scalar context",
              "records": records}

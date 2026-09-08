@@ -12,6 +12,7 @@ from typing import Any
 
 from public.formats.oracle.manifest import manifest_sha256, validate_manifest
 from public.workloads.models.identity import checkpoint_sha256, graph_identity
+from public.workloads.models.deployment import prepare_deployment, GRAPH_VERSION
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,7 +57,9 @@ def minifloat(name: str, bits: int, exp: int, mantissa: int, bias: int, *, infin
 
 
 def block(name: str, family: str, bits: int, element: dict[str, Any]) -> dict[str, Any]:
-    value = dict(element)
+    value = {**element, "float": dict(element["float"])}
+    if name in {"mxfp6_e3m2", "mxfp4_e2m1"}:
+        value["float"]["nan"] = False
     value.update({
         "name": name, "family": family, "bits": bits,
         "scaling": {"mode": "intrinsic_shared", "granularity": "block", "scale_format": "e8m0", "scale_bits": 8},
@@ -180,17 +183,13 @@ def freeze_datasets() -> dict[str, Any]:
     return index
 
 
-def named_graph(model: Any) -> list[dict[str, str]]:
-    return [{"name": name or "<root>", "type": module.__class__.__module__ + "." + module.__class__.__qualname__}
-            for name, module in model.named_modules()]
-
-
 def freeze_models() -> dict[str, Any]:
     import torch
     import torchvision
     from torchvision import models
     from ultralytics import YOLO
 
+    torch.set_num_threads(4)
     model_specs = [
         ("resnet18", models.resnet18, models.ResNet18_Weights.IMAGENET1K_V1, "resnet18-f37072fd.pth", 224),
         ("mobilenet_v2", models.mobilenet_v2, models.MobileNet_V2_Weights.IMAGENET1K_V2, "mobilenet_v2-7ebf99e0.pth", 224),
@@ -203,39 +202,50 @@ def freeze_models() -> dict[str, Any]:
         checkpoint = ROOT / "artifacts/checkpoints" / filename
         model = constructor(weights=None).eval()
         model.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True))
-        nodes = named_graph(model)
-        graph_hash = graph_identity(architecture=name, graph_version="eval-bn-fold-contract-1.0.0", nodes=nodes)
+        _, nodes, fold_evidence = prepare_deployment(model, [1, 3, shape, shape])
+        graph_hash = graph_identity(architecture=name, graph_version=GRAPH_VERSION, nodes=nodes)
         graph_path = graph_root / f"{name}-{graph_hash}.json"
-        dump(graph_path, {"architecture": name, "graph_version": "eval-bn-fold-contract-1.0.0", "nodes": nodes})
+        graph_path.write_text(json.dumps({"architecture": name, "graph_version": GRAPH_VERSION, "nodes": nodes}, sort_keys=True, separators=(",", ":")) + "\n")
         upstream = weights.meta["_metrics"]["ImageNet-1K"]
         manifest = {"schema_version": "1.0.0", "name": name, "framework": "torchvision", "framework_version": torchvision.__version__,
             "checkpoint_identifier": f"{weights.__class__.__name__}.{weights.name}", "checkpoint_source": weights.url,
             "checkpoint_path": f"artifacts/checkpoints/{filename}", "checkpoint_size_bytes": checkpoint.stat().st_size,
             "checkpoint_sha256": checkpoint_sha256(checkpoint), "license": "BSD-3-Clause (torchvision code); ImageNet weights terms follow source dataset",
             "load_procedure": "constructor(weights=None); load_state_dict(weights_only=True); eval()", "evaluation_mode": True,
-            "deployment_graph_version": "eval-bn-fold-contract-1.0.0", "deployment_graph_sha256": graph_hash,
+            "deployment_graph_version": GRAPH_VERSION, "deployment_graph_sha256": graph_hash,
             "input_shape": [1, 3, shape, shape], "output": "1000 ImageNet-1K class logits", "dataset": "ILSVRC2012",
             "evaluator": "public.workloads.models.torchvision_eval:1.0.0", "metrics": ["top1_percent", "top5_percent"],
             "upstream_reference": {"population": "ImageNet-1K full validation set", "top1_percent": upstream["acc@1"],
                                    "top5_percent": upstream["acc@5"], "source": "torchvision weight metadata"}}
+        prep = "imagenet_resnet18" if name == "resnet18" else "imagenet_mobilenet"
+        prep_path = f"public/workloads/datasets/{prep}_preprocessing.json"
+        manifest.update({"preprocessing_version": prep + "_v1", "preprocessing_path": prep_path,
+                         "preprocessing_sha256": checkpoint_sha256(ROOT / prep_path),
+                         "deployment_graph_path": graph_path.relative_to(ROOT).as_posix(),
+                         "fold_verification": fold_evidence})
         dump(ROOT / f"public/workloads/models/manifests/{name}.json", manifest)
         manifests.append(manifest)
 
     checkpoint = ROOT / "artifacts/checkpoints/yolov8n.pt"
     yolo = YOLO(checkpoint)
-    nodes = named_graph(yolo.model)
-    graph_hash = graph_identity(architecture="yolov8n", graph_version="ultralytics-8.3.0-eval", nodes=nodes)
-    dump(graph_root / f"yolov8n-{graph_hash}.json", {"architecture": "yolov8n", "graph_version": "ultralytics-8.3.0-eval", "nodes": nodes})
+    _, nodes, fold_evidence = prepare_deployment(yolo.model.eval(), [1, 3, 640, 640])
+    graph_hash = graph_identity(architecture="yolov8n", graph_version=GRAPH_VERSION, nodes=nodes)
+    (graph_root / f"yolov8n-{graph_hash}.json").write_text(json.dumps({"architecture": "yolov8n", "graph_version": GRAPH_VERSION, "nodes": nodes}, sort_keys=True, separators=(",", ":")) + "\n")
     manifest = {"schema_version": "1.0.0", "name": "yolov8n", "framework": "ultralytics", "framework_version": "8.3.0",
         "checkpoint_identifier": "ultralytics-assets/v8.3.0/yolov8n.pt", "checkpoint_source": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov8n.pt",
         "checkpoint_path": "artifacts/checkpoints/yolov8n.pt", "checkpoint_size_bytes": checkpoint.stat().st_size,
         "checkpoint_sha256": checkpoint_sha256(checkpoint), "license": "AGPL-3.0; checkpoint provenance Ultralytics assets",
         "load_procedure": "ultralytics.YOLO(checkpoint); model.val()", "evaluation_mode": True,
-        "deployment_graph_version": "ultralytics-8.3.0-eval", "deployment_graph_sha256": graph_hash,
+        "deployment_graph_version": GRAPH_VERSION, "deployment_graph_sha256": graph_hash,
         "input_shape": [1, 3, 640, 640], "output": "COCO 80-category detections", "dataset": "COCO 2017",
         "evaluator": "ultralytics.YOLO.val:8.3.0", "metrics": ["map50_95", "map50"],
         "upstream_reference": {"population": "COCO val2017 5k", "map50_95": 0.373,
                                "source": "Ultralytics YOLOv8 model performance table"}}
+    prep_path = "public/workloads/datasets/coco2017.json"
+    manifest.update({"preprocessing_version": "coco2017_ultralytics_v1", "preprocessing_path": prep_path,
+                     "preprocessing_sha256": checkpoint_sha256(ROOT / prep_path),
+                     "deployment_graph_path": f"artifacts/folded_graphs/yolov8n-{graph_hash}.json",
+                     "fold_verification": fold_evidence})
     dump(ROOT / "public/workloads/models/manifests/yolov8n.json", manifest)
     manifests.append(manifest)
     index = {"schema_version": "1.0.0", "mandatory": [item["name"] for item in manifests],

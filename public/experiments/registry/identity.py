@@ -84,7 +84,7 @@ def _portable_relative_path(raw: str) -> PurePosixPath:
     if not raw or "\\" in raw or "$" in raw or "~" in raw:
         raise IdentityError(f"canonical path is not portable: {raw!r}")
     path = PurePosixPath(raw)
-    if path.is_absolute() or any(part in {"", ".", ".."} for part in path.parts):
+    if path.is_absolute() or any(part in {"", ".", ".."} for part in raw.split("/")):
         raise IdentityError(f"canonical path must be portable normalized repository-relative POSIX: {raw!r}")
     return path
 
@@ -122,6 +122,58 @@ def _verify_list(reference: Mapping[str, Any], repository_root: Path) -> tuple[s
     return entries
 
 
+def resolve_model(name: str, repository_root: Path) -> dict[str, Any]:
+    from public.workloads.models.identity import verify_model_manifest
+    index = json.loads((repository_root / "public/workloads/models/manifests/index.json").read_text())
+    matches = [row for row in index["manifests"] if row["name"] == name]
+    if len(matches) != 1:
+        raise IdentityError(f"unresolved model: {name}")
+    relative = _portable_relative_path(matches[0]["path"])
+    try:
+        return verify_model_manifest(repository_root / relative, repository_root=repository_root)
+    except (ValueError, OSError, KeyError) as exc:
+        raise IdentityError(f"model reference verification failed: {exc}") from exc
+
+
+def validate_baseline(configuration: Mapping[str, Any], *, repository_root: Path) -> dict[str, Any]:
+    """The explicitly supported FP32 evidence schema, separate from PTQ jobs."""
+    value = copy.deepcopy(dict(configuration))
+    if set(value) != {"schema_version", "model", "dataset", "preprocessing_sha256", "evaluator", "precision", "seed"}:
+        raise IdentityError("invalid FP32 baseline fields")
+    if value["precision"] != "fp32" or type(value["seed"]) is not int:
+        raise IdentityError("invalid FP32 precision or seed")
+    model = resolve_model(value["model"].get("name"), repository_root)
+    model_path = repository_root / f"public/workloads/models/manifests/{model['name']}.json"
+    expected_model = {"name": model["name"], "manifest_sha256": content_sha256(model_path),
+                      "checkpoint_sha256": model["checkpoint_sha256"],
+                      "deployment_graph_sha256": model["deployment_graph_sha256"]}
+    if value["model"] != expected_model:
+        raise IdentityError("baseline model identity mismatch")
+    if value["preprocessing_sha256"] != model["preprocessing_sha256"] or value["evaluator"] != model["evaluator"]:
+        raise IdentityError("baseline preprocessing/evaluator mismatch")
+    records = json.loads((repository_root / "data/manifests/index.json").read_text())["records"]
+    reference = value["dataset"]
+    record = records.get(reference.get("name"))
+    if record is None or reference != {"name": reference["name"], "list_sha256": record["sha256"], "count": record["count"]}:
+        raise IdentityError("baseline dataset identity mismatch")
+    _verify_list(record, repository_root)
+    from public.workloads.datasets.identity import verify_payload_record
+    verify_payload_record(repository_root, record)
+    _check_finite(value)
+    return value
+
+
+def validate_submission(configuration: Mapping[str, Any], *, repository_root: str | Path = REPO_ROOT,
+                        manifests: Mapping[str, Mapping[str, Any]] | None = None) -> dict[str, Any]:
+    root = Path(repository_root)
+    try:
+        if configuration.get("schema_version") == "phase1-fp32-baseline-1.0.0":
+            return validate_baseline(configuration, repository_root=root)
+        return validate_experiment(configuration, manifests=manifests, repository_root=root)
+    except (OSError, KeyError, TypeError, ValueError) as exc:
+        raise IdentityError(str(exc)) from exc
+
+
 def validate_experiment(
     configuration: Mapping[str, Any],
     *,
@@ -145,6 +197,24 @@ def validate_experiment(
     for list_ref in (value["dataset"]["calibration"], value["dataset"]["evaluation"]):
         _portable_relative_path(list_ref["path"])
 
+    root = Path(repository_root) if repository_root is not None else REPO_ROOT
+    model = resolve_model(value["model"]["name"], root)
+    for field, frozen in (("checkpoint_sha256", "checkpoint_sha256"), ("graph_sha256", "deployment_graph_sha256"),
+                          ("graph_version", "deployment_graph_version"), ("preprocessing_version", "preprocessing_version")):
+        if value["model"][field] != model[frozen]:
+            raise IdentityError(f"model {field} mismatch")
+    if value["operators"]["semantics_version"] != "1.0.0" or value["runtime"]["semantic_version"] != "1.1.0":
+        raise IdentityError("unsupported operator/runtime semantic version")
+    if value["runtime"]["backend"] != "reference" or value["runtime"]["kernel_version"] != "oracle-1.1.0":
+        raise IdentityError("unsupported Phase 1 backend/kernel version")
+    if value["operators"]["policy"] == "strict" and value["operators"].get("higher_precision_exceptions"):
+        raise IdentityError("strict operator policy forbids higher precision exceptions")
+    if value["ptq"]["experiment"] == "A" and value["ptq"]["rounding"] != "rne":
+        raise IdentityError("Experiment A requires rne")
+    if manifests is None:
+        paths = list((root / "public/formats/manifests/accepted").glob("*.json"))
+        paths += list((root / "public/formats/manifests/accumulators").glob("*.json"))
+        manifests = {item["name"]: item for path in paths if (item := json.loads(path.read_text())).get("name")}
     if manifests is not None:
         resolved: dict[str, dict[str, Any]] = {}
         for role, reference in value["formats"].items():
@@ -168,12 +238,17 @@ def validate_experiment(
         if value["arithmetic"]["accumulator_policy"] == "family_appropriate_wide":
             accumulator = resolved["accumulator"]
             if accumulator["bits"] <= max(resolved["weight"]["bits"], resolved["activation"]["bits"]):
-                family = resolved["weight"]["family"]
-                if family not in {"posit", "bfp", "mx_float", "mx_integer", "logarithmic"}:
-                    raise IdentityError("family_appropriate_wide did not resolve to a wider accumulator manifest")
+                raise IdentityError("family_appropriate_wide did not resolve to a wider accumulator manifest")
 
     if verify_lists:
         root = Path(repository_root) if repository_root is not None else REPO_ROOT
+        from public.workloads.datasets.identity import verify_payload_record
+        records = json.loads((root / "data/manifests/index.json").read_text())["records"]
+        for reference in (value["dataset"]["calibration"], value["dataset"]["evaluation"]):
+            record = records.get(reference["name"])
+            if record is None or any(reference[key] != record[key] for key in ("path", "sha256")):
+                raise IdentityError("list hash mismatch or unresolved frozen list")
+            verify_payload_record(root, record)
         calibration = set(_verify_list(value["dataset"]["calibration"], root))
         evaluation = set(_verify_list(value["dataset"]["evaluation"], root))
         overlap = calibration & evaluation

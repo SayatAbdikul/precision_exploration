@@ -3,7 +3,7 @@
 Scope: **public precision-exploration repository only**
 Starts after: **Phase 0 contracts — complete 2026-09-04**
 Parallelism: **high across WP1A, WP1B, and WP1C**
-Status: **complete — 2026-09-07**
+Status: **complete — reverified 2026-09-08**
 
 ## Goal
 
@@ -21,15 +21,15 @@ No private architecture, simulator, compiler, mapping, ISA, tile, interconnect, 
 
 ## Completion record
 
-Phase 1 passed all revised exit gates on 2026-09-07. The revision is limited to the owner's explicit decisions: the 50,000-image ImageNet validation payload is deferred to Phase 5, EfficientNet is intentionally skipped with D3 open, and SKY130 is a fallback only if the public ICsprout55 route is unavailable. ICsprout55 was usable, so SKY130 was not exercised.
+The 2026-09-07 completion claim was audited and corrected. Phase 1 passed the revised exit gates on 2026-09-08 after the fixes and verification recorded in `docs/analysis/phase1-completion-review.md`. The scope limits remain the owner's explicit decisions: the 50,000-image ImageNet validation payload is deferred to Phase 5, EfficientNet is intentionally skipped with D3 open, and SKY130 is a fallback only if the public ICsprout55 route is unavailable. ICsprout55 was usable, so SKY130 was not exercised.
 
 | Gate | Result | Canonical evidence |
 |---|---|---|
-| P1-A workloads | Four pinned checkpoints/models, six frozen dataset lists, five selection records, three reproducible classifier screens, and one complete COCO validation baseline | `public/workloads/models/manifests/index.json`, `data/manifests/index.json`, `results/summaries/phase1-fp32-baselines.json`, `results/summaries/phase1-fp32-reproduction.json` |
-| P1-B semantics | D1 accepted with 25 formats; 725 exhaustive tables and 1,085,846 rows cover decode, encode boundaries, ADD, MUL, and all 625 ordered conversions | manifest-set SHA-256 `c859204f7e1ec3f1aa4a5b7381d811add705bf2ca6cb89dc1ee7bdadfd922e87`; `public/formats/conformance/truth-table-index.json` |
-| P1-C infrastructure | Canonical identities, lifecycle/retry/recovery, concurrent atomic claims, artifacts/dependencies, 8,000 per-sample rows, and idempotent hardware ingestion pass | `results/databases/phase1.sqlite`, `results/summaries/phase1-registry-export.json` |
-| P1-D generic hardware | ICsprout55 v1.10.102 RVT synthesis repeated byte-identically; 10/5/2 ns post-synthesis STA sweep normalized; strongest memory evidence level 3 | `results/summaries/ics55-phase1-pilot.json`, `docs/analysis/icsprout55-availability.md` |
-| P1-E integration | Real checkpoint/graph/list/manifest references resolve; altered hashes and private package fields fail; all tests pass | 45 tests passing under Python 3.10 |
+| P1-A workloads | Four pinned checkpoints/models with actual folded graph identities, six frozen dataset lists, five selection records, three byte-identical classifier reruns, and one complete COCO validation baseline | `public/workloads/models/manifests/index.json`, `data/manifests/index.json`, `results/summaries/phase1-fp32-baselines.json`, `results/summaries/phase1-fp32-reproduction.json`, `results/summaries/phase1-workload-verification.json` |
+| P1-B semantics | D1 accepted with 25 formats; OCP MX semantics corrected and oracle 1.1.0 verified independently; 725 exhaustive tables and 1,085,854 rows cover decode, encode boundaries, ADD, MUL, and all 625 ordered conversions | manifest-set SHA-256 `986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b`; `public/formats/conformance/truth-table-index.json` |
+| P1-C infrastructure | Validated identities, renewable leases, fenced completion, lifecycle/retry/recovery, concurrent atomic claims, artifact dependency verification, atomic per-image batches, 8,000 per-sample rows, and idempotent hardware ingestion pass | `results/databases/phase1.sqlite`, `results/summaries/phase1-registry-export.json` |
+| P1-D generic hardware | ICsprout55 v1.10.102 RVT synthesis repeated byte-identically; 10/5/2 ns post-synthesis STA sweep normalized; strongest memory evidence level 3; strict parser 1.2.0 | `results/summaries/ics55-phase1-pilot.json`, `docs/analysis/icsprout55-availability.md` |
+| P1-E integration | Real checkpoint/graph/list/manifest references resolve; altered hashes and private package fields fail; all tests pass | 69 tests passing under Python 3.10; `results/summaries/phase1-completion-verification.json` |
 
 Known evidence limits are explicit and do not block this phase: classifier metrics are the frozen 1k class-balanced screening references, the 10k ImageNet list is staged for Experiment A, the full 50k list is deferred, and ICsprout55 timing is post-synthesis cell-delay evidence without placement, routing, extraction, power, or SRAM characterization. D3 and D9 remain open.
 

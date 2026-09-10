@@ -1,0 +1,210 @@
+{
+  "dataset": {
+    "name": "imagenet_screen_1k",
+    "path": "data/manifests/evaluation/imagenet1k_val_1k.tsv",
+    "sha256": "066cde9664454a7866bb006d5adb7148a2122e282ff505617b0caa09039ab702",
+    "verified_images": 1000
+  },
+  "frozen_baselines": {
+    "path": "results/summaries/phase1-fp32-baselines.json",
+    "sha256": "7a4edc08909117d4c765310c712e478647552bdea7281275cd39a2637377d8ea"
+  },
+  "runs": [
+    {
+      "attempts": [
+        {
+          "checkpoint": {
+            "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/resnet18-f37072fd.pth",
+            "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+          },
+          "device": "cpu",
+          "elapsed_seconds": 15.734390066000742,
+          "metrics": {
+            "count": 1000,
+            "top1_percent": 70.1,
+            "top5_percent": 89.5
+          },
+          "mkldnn_enabled": true,
+          "model": "resnet18",
+          "predictions": {
+            "count": 1000,
+            "path": "artifacts/per_image_predictions/phase2-resnet18-fp32-imagenet1k-screen.jsonl",
+            "sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe"
+          },
+          "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[256]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+          "seed": 0,
+          "weights": "ResNet18_Weights.IMAGENET1K_V1",
+          "workers": 0
+        }
+      ],
+      "byte_identical": true,
+      "checkpoint": {
+        "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/resnet18-f37072fd.pth",
+        "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+      },
+      "device": "cpu",
+      "elapsed_seconds": 15.734390066000742,
+      "frozen_prediction_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 70.1,
+        "top5_percent": 89.5
+      },
+      "metrics_identical": true,
+      "mkldnn_enabled": true,
+      "model": "resnet18",
+      "predictions": {
+        "count": 1000,
+        "path": "artifacts/per_image_predictions/phase2-resnet18-fp32-imagenet1k-screen.jsonl",
+        "sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe"
+      },
+      "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[256]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+      "restored_path": "artifacts/per_image_predictions/resnet18_imagenet1k_screen.jsonl",
+      "seed": 0,
+      "weights": "ResNet18_Weights.IMAGENET1K_V1",
+      "workers": 0
+    },
+    {
+      "attempts": [
+        {
+          "checkpoint": {
+            "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/mobilenet_v2-7ebf99e0.pth",
+            "sha256": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f"
+          },
+          "device": "cpu",
+          "elapsed_seconds": 18.892865322000034,
+          "metrics": {
+            "count": 1000,
+            "top1_percent": 72.1,
+            "top5_percent": 91.1
+          },
+          "mkldnn_enabled": true,
+          "model": "mobilenet_v2",
+          "predictions": {
+            "count": 1000,
+            "path": "artifacts/per_image_predictions/phase2-mobilenet_v2-fp32-imagenet1k-screen.jsonl",
+            "sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f"
+          },
+          "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[232]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+          "seed": 0,
+          "weights": "MobileNet_V2_Weights.IMAGENET1K_V2",
+          "workers": 0
+        }
+      ],
+      "byte_identical": true,
+      "checkpoint": {
+        "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/mobilenet_v2-7ebf99e0.pth",
+        "sha256": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f"
+      },
+      "device": "cpu",
+      "elapsed_seconds": 18.892865322000034,
+      "frozen_prediction_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 72.1,
+        "top5_percent": 91.1
+      },
+      "metrics_identical": true,
+      "mkldnn_enabled": true,
+      "model": "mobilenet_v2",
+      "predictions": {
+        "count": 1000,
+        "path": "artifacts/per_image_predictions/phase2-mobilenet_v2-fp32-imagenet1k-screen.jsonl",
+        "sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f"
+      },
+      "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[232]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+      "restored_path": "artifacts/per_image_predictions/mobilenet_v2_imagenet1k_screen.jsonl",
+      "seed": 0,
+      "weights": "MobileNet_V2_Weights.IMAGENET1K_V2",
+      "workers": 0
+    },
+    {
+      "attempts": [
+        {
+          "checkpoint": {
+            "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/mobilenet_v3_large-5c1a4163.pth",
+            "sha256": "5c1a416349c4cf298f2a6a5e2600ed0ee55e604713578f5e74e6bc8bcaef7997"
+          },
+          "device": "cpu",
+          "elapsed_seconds": 9.40166150099958,
+          "metrics": {
+            "count": 1000,
+            "top1_percent": 75.0,
+            "top5_percent": 92.1
+          },
+          "mkldnn_enabled": true,
+          "model": "mobilenet_v3_large",
+          "predictions": {
+            "count": 1000,
+            "path": "artifacts/per_image_predictions/phase2-mobilenet_v3_large-fp32-imagenet1k-screen.jsonl",
+            "sha256": "660a3d32f894ac0e178b4fa8f20cb94381c8f6cf6e09dd9a148a27151f83d3e4"
+          },
+          "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[232]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+          "seed": 0,
+          "weights": "MobileNet_V3_Large_Weights.IMAGENET1K_V2",
+          "workers": 0
+        },
+        {
+          "checkpoint": {
+            "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/mobilenet_v3_large-5c1a4163.pth",
+            "sha256": "5c1a416349c4cf298f2a6a5e2600ed0ee55e604713578f5e74e6bc8bcaef7997"
+          },
+          "device": "cpu",
+          "elapsed_seconds": 26.93456012200022,
+          "metrics": {
+            "count": 1000,
+            "top1_percent": 75.0,
+            "top5_percent": 92.1
+          },
+          "mkldnn_enabled": false,
+          "model": "mobilenet_v3_large",
+          "predictions": {
+            "count": 1000,
+            "path": "artifacts/per_image_predictions/phase2-mobilenet_v3_large-fp32-native-imagenet1k-screen.jsonl",
+            "sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007"
+          },
+          "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[232]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+          "seed": 0,
+          "weights": "MobileNet_V3_Large_Weights.IMAGENET1K_V2",
+          "workers": 0
+        }
+      ],
+      "byte_identical": true,
+      "checkpoint": {
+        "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/mobilenet_v3_large-5c1a4163.pth",
+        "sha256": "5c1a416349c4cf298f2a6a5e2600ed0ee55e604713578f5e74e6bc8bcaef7997"
+      },
+      "device": "cpu",
+      "elapsed_seconds": 26.93456012200022,
+      "frozen_prediction_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 75.0,
+        "top5_percent": 92.1
+      },
+      "metrics_identical": true,
+      "mkldnn_enabled": false,
+      "model": "mobilenet_v3_large",
+      "predictions": {
+        "count": 1000,
+        "path": "artifacts/per_image_predictions/phase2-mobilenet_v3_large-fp32-native-imagenet1k-screen.jsonl",
+        "sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007"
+      },
+      "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[232]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+      "restored_path": "artifacts/per_image_predictions/mobilenet_v3_large_imagenet1k_screen.jsonl",
+      "seed": 0,
+      "weights": "MobileNet_V3_Large_Weights.IMAGENET1K_V2",
+      "workers": 0
+    }
+  ],
+  "runtime": {
+    "batch_size": 32,
+    "device": "cpu",
+    "mkldnn_initially_enabled": true,
+    "threads": 4,
+    "torch": "2.3.0+cpu",
+    "torchvision": "0.18.0+cpu"
+  },
+  "schema_version": "phase2-classifier-fp32-reproduction-1.0.0",
+  "status": "restored_byte_identical"
+}

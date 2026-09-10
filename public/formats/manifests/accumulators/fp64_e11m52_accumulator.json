@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0", "name": "fp64_e11m52_accumulator", "family": "float",
+  "bits": 64, "signed": true, "encoding": "sign_e11m52", "rounding": "rne",
+  "overflow": "infinity", "underflow": "subnormal", "zero": "signed_zero",
+  "float": {"exp_bits": 11, "mantissa_bits": 52, "bias": 1023, "subnormals": true, "nan": true, "infinity": true},
+  "scaling": {"mode": "none", "granularity": "none"}
+}

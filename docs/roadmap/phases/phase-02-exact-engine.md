@@ -3,7 +3,31 @@
 Scope: **in repository**  
 Criticality: **critical path for all quality sweeps**  
 Starts after: **WP1B plus accepted operator/arithmetic contracts; workloads available for network checks**  
-Status: **planned**
+Status: **in progress — exact engine implemented; native classifier checks and D2/data evidence being completed**
+
+## Implementation record
+
+See `docs/architecture/exact-engine.md` and
+`results/summaries/phase2-final-verification.json` for the implemented
+interfaces and source-frozen evidence. The reference engine, C++/CUDA
+rational and binary kernels, detector/DFL lowering, shared-scale convolution,
+full calibration artifacts, resumable workload execution, all-format matrix,
+and generic primitive pilots are implemented.
+
+As of 2026-09-10, classifier synthetic checks match all 49/100/140 layers,
+the detector matches all 176 layers on eight native-resolution images, and
+the 25-format C++/CUDA matrix matches the rational oracle. COCO payloads and
+FP32 mAP reproduction are complete. The complete frozen ImageNet 10k evaluation
+and 1k screening payloads are restored; training calibration recovery remains
+incomplete. The detector's zero-mAP FP6 result is diagnosed as a strict-format
+range failure, with independent FP32 lowering parity verified. D3 retains
+EfficientNet as optional. GPU counter restrictions prevent achieved-occupancy
+and DRAM-bandwidth profiling for D2, so the exit criterion remains open.
+
+The focused Phase 2 test suites currently pass 215 CPU tests and 93 CUDA
+tests. The final verification report validates recovered image hashes, saved
+native execution records and source identities, and lists remaining failures
+explicitly. Frozen dataset and prediction expectations remain unchanged.
 
 ## Numerical-engine tasks
 
@@ -44,6 +68,12 @@ Choose algorithmic, LUT, predecoded, or mixed execution from measured latency/MA
 ## Decision D3 — Main workload breadth
 
 After measuring engine speed and compute budget, decide whether EfficientNet joins the main suite or remains optional. ResNet-18, MobileNetV2, MobileNetV3, and one tiny detector remain the core target stated by the roadmap.
+
+Accepted 2026-09-09: retain EfficientNet as optional. Measured native detector
+execution projects to 29.81 CUDA hours for one 1k configuration, before other
+pipeline costs; no additional mandatory workload budget has been allocated.
+See `docs/decisions/d2-d3-phase2-runtime-and-breadth.md` for the decision and
+the limits of that projection.
 
 ## Validation ladder
 

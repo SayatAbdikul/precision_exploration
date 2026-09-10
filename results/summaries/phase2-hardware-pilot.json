@@ -1,0 +1,1370 @@
+{
+  "schema_version": "2.0.0",
+  "scope": "primitive ROM baseline flow pilots; not arithmetic architecture ranking",
+  "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f",
+  "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+  "runs": [
+    {
+      "format": "int4",
+      "operation": "mul",
+      "internal_stages": 0,
+      "latency_cycles": 2,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/int4-mul-p0/testbench.sv:773: $finish called at 5146 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/int4-mul-p0/run-manifest.json",
+      "run_manifest_sha256": "b48a1a380149062785b06365c3cde0734ec598bde1a07192eeb2388f26fa2011",
+      "rtl_sha256": "84995a2d57d15bff16061eabb42e133b7f4042625779fde5298f09017586fcdf",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "e8cf385b6b7b0e4791f1efc847fbb79842f1aae2052b17975dc6d11c7eb3a052",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 0,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 2,
+          "rtl": "artifacts/ppa/phase2/int4-mul-p0/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "84995a2d57d15bff16061eabb42e133b7f4042625779fde5298f09017586fcdf",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 104,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 104,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 28,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 80,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 66,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 230.44,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 14,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 105.84,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 124.6,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 14,
+          "NOR2BX1H7R": 14,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "c6779d33e53ddd9d6525a661fc15c1681e6e80b994f03218f616f94610c86e51",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "int4",
+      "operation": "mul",
+      "internal_stages": 1,
+      "latency_cycles": 3,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/int4-mul-p1/testbench.sv:773: $finish called at 7706 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/int4-mul-p1/run-manifest.json",
+      "run_manifest_sha256": "fec705a23ee9cbae2dbf8371b200abd474ef6d8b75b9d40b1c9986ae2e51817e",
+      "rtl_sha256": "4e0fcb2b4dcbc2d1b0eaeaa003e4cf8fabc4a1cc2b5d0d39a83821f96a15f471",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "577125d730a52f2e901d54a21e3439cc5dc5efcbb5a9944cb05b090668fc86cf",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 1,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 3,
+          "rtl": "artifacts/ppa/phase2/int4-mul-p1/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "4e0fcb2b4dcbc2d1b0eaeaa003e4cf8fabc4a1cc2b5d0d39a83821f96a15f471",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 39,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 114,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 114,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 34,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 90,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 71,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 268.24,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 19,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 143.64,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 124.6,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 19,
+          "NOR2BX1H7R": 19,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "e70fc11bfc75d53550c84f25f09a890894a0fa0fde1ead0c1bb80942a4430a0f",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "int4",
+      "operation": "mul",
+      "internal_stages": 2,
+      "latency_cycles": 4,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/int4-mul-p2/testbench.sv:773: $finish called at 10266 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/int4-mul-p2/run-manifest.json",
+      "run_manifest_sha256": "dc4c9d89f2a30cbe72d6e4531d3cdc684ed776b06d698fdfbeaf0cd2e3409b91",
+      "rtl_sha256": "ce7ccbe9f5c3fc7ecbe44fd59de5c37833bdcacf48ea1a225ff6fcd22fd2d657",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "67a37c2ad2cf3ed1dcb546741219e4403ed04fca0c7432fad93c98a2dfcb14eb",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 2,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 4,
+          "rtl": "artifacts/ppa/phase2/int4-mul-p2/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "ce7ccbe9f5c3fc7ecbe44fd59de5c37833bdcacf48ea1a225ff6fcd22fd2d657",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 49,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 124,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 124,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 40,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 100,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 76,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 306.04,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 24,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 181.44,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 124.6,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 24,
+          "NOR2BX1H7R": 24,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "7fd7095d070530cab3ca74126b0b386f13c7cf76e06a9ec634ff7f7f5171eb68",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "int4",
+      "operation": "mul",
+      "internal_stages": 3,
+      "latency_cycles": 5,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/int4-mul-p3/testbench.sv:773: $finish called at 12826 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/int4-mul-p3/run-manifest.json",
+      "run_manifest_sha256": "875a848601aa2fa274be93fc2a4a8f1990cf0766c269f781da4ef2946006d8ce",
+      "rtl_sha256": "e00dcf15814b3af85f57d52d3a92234072c51b2f83fcc375dee8e5e97c673ec0",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "2e8745c3b5a0e4a7d1e6d7a0ae0af70b0812c4b301ce3dc6ad02c888530f5b03",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 3,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 5,
+          "rtl": "artifacts/ppa/phase2/int4-mul-p3/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "e00dcf15814b3af85f57d52d3a92234072c51b2f83fcc375dee8e5e97c673ec0",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 59,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 134,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 134,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 46,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 110,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 81,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 343.84,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 219.24,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 124.6,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 29,
+          "NOR2BX1H7R": 29,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "b01581547120a01faf410ec3de76ce1b062aae3a204011b7579838835b0b83c8",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "operation": "mul",
+      "internal_stages": 0,
+      "latency_cycles": 2,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/fp4_e2m1-mul-p0/testbench.sv:773: $finish called at 5146 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/fp4_e2m1-mul-p0/run-manifest.json",
+      "run_manifest_sha256": "4fab19d34a7e6190bf2399479939c050d007a8179c54fb40ae27afb0209ac859",
+      "rtl_sha256": "199fc0ca40e4f97ef2453c38686227ad1fea0b3f074a693c9f9bdd6e692371a2",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "eadde4bf2d907f9a5a94f387abe1589b84ecc72c374fc21c039bed860416e3c2",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 0,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 2,
+          "rtl": "artifacts/ppa/phase2/fp4_e2m1-mul-p0/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "199fc0ca40e4f97ef2453c38686227ad1fea0b3f074a693c9f9bdd6e692371a2",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 66,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 66,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 28,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 80,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 66,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 170.8,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 14,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 105.84,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 64.96,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 14,
+          "NOR2BX1H7R": 14,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "87e47a785ade9c52be9299312a78bfea7707e2f33c0a0403bb6290027ec40614",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "operation": "mul",
+      "internal_stages": 1,
+      "latency_cycles": 3,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/fp4_e2m1-mul-p1/testbench.sv:773: $finish called at 7706 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/fp4_e2m1-mul-p1/run-manifest.json",
+      "run_manifest_sha256": "be1a9d482a36c4686cc14b9cefe0208f4b8afccbcf38bdf189b766c8ee0f8092",
+      "rtl_sha256": "ebeecc8db535c2f41877168443de5cf31c2793c390a6bcf31d23a52e5f26c408",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "a03c1038fc033def9a5fb342f060a05155d74a730254a6981b72425c8c925cbf",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 1,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 3,
+          "rtl": "artifacts/ppa/phase2/fp4_e2m1-mul-p1/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "ebeecc8db535c2f41877168443de5cf31c2793c390a6bcf31d23a52e5f26c408",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 39,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 75,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 75,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 34,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 90,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 71,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 204.96,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 19,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 143.64,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 61.32,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 19,
+          "NOR2BX1H7R": 19,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "850a3c66423e13ae4e0fa72891e1f9bfbc4df60767161ace404cf4f95600c1c8",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "operation": "mul",
+      "internal_stages": 2,
+      "latency_cycles": 4,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/fp4_e2m1-mul-p2/testbench.sv:773: $finish called at 10266 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/fp4_e2m1-mul-p2/run-manifest.json",
+      "run_manifest_sha256": "e581f64d97a23a9dc72351035d18650f9aecfa44ddb7b2360203e6a088228caf",
+      "rtl_sha256": "1e907df73b917f6832bb05be30ebd3c94aff16cb79d8f4a09bc48bfd02befbc4",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "b748de4ca86803475d380577d3b9e27cb229a84b3a5cefa67f837c5dc6c88d98",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 2,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 4,
+          "rtl": "artifacts/ppa/phase2/fp4_e2m1-mul-p2/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "1e907df73b917f6832bb05be30ebd3c94aff16cb79d8f4a09bc48bfd02befbc4",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 49,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 85,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 85,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 40,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 100,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 76,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 242.76,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 24,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 181.44,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 61.32,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 24,
+          "NOR2BX1H7R": 24,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "db6eb17ed64708a10ad238f6a504d61598615deeed3c2fcb594694b5c1ec008e",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "operation": "mul",
+      "internal_stages": 3,
+      "latency_cycles": 5,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/fp4_e2m1-mul-p3/testbench.sv:773: $finish called at 12826 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/fp4_e2m1-mul-p3/run-manifest.json",
+      "run_manifest_sha256": "c13b060ddf262167b8aa3d5d0211f234e4c48a5221e01dafdb0fe85c57b477b5",
+      "rtl_sha256": "4aaaa02a25d3298b923de0d6587a47e709abae9f64b7f65af697e57ceb4a7665",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "efbaef832202f791004eaea23715c4dccd2a9584c33d882f9fc25417ba45b002",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 3,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 5,
+          "rtl": "artifacts/ppa/phase2/fp4_e2m1-mul-p3/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "4aaaa02a25d3298b923de0d6587a47e709abae9f64b7f65af697e57ceb4a7665",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 59,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 95,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 95,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 46,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 110,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 81,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 280.56,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 219.24,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 61.32,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 29,
+          "NOR2BX1H7R": 29,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "b32a0028619fdc93ca97d0375f75408dcc76677656e8a6d1acbf6507d891f2ab",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "operation": "mul",
+      "internal_stages": 0,
+      "latency_cycles": 2,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/posit4_es0-mul-p0/testbench.sv:773: $finish called at 5146 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/posit4_es0-mul-p0/run-manifest.json",
+      "run_manifest_sha256": "580e350adc016789173ca43284401fe0af7cc4c7b2eaf66d0b440cc298848b19",
+      "rtl_sha256": "70a4d2a487cee394367d0ace73ca85fd2e10fa97a2ee90facb6b32266d7d7436",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "303426fdf2e6967c3303c0750682b0932a746789f6ead0379a4946199126a0bb",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 0,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 2,
+          "rtl": "artifacts/ppa/phase2/posit4_es0-mul-p0/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "70a4d2a487cee394367d0ace73ca85fd2e10fa97a2ee90facb6b32266d7d7436",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 156,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 156,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 28,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 80,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 66,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 317.8,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 14,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 105.84,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 211.96,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 14,
+          "NOR2BX1H7R": 14,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "9d8864c2606f5df7a88d7c8ca7093b611e173c21f97f998a81d9ee482a5974f1",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "operation": "mul",
+      "internal_stages": 1,
+      "latency_cycles": 3,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/posit4_es0-mul-p1/testbench.sv:773: $finish called at 7706 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/posit4_es0-mul-p1/run-manifest.json",
+      "run_manifest_sha256": "9a1b7f56ab08327bf2eecb169bab1b4a090fd87157e52fe0050eac339a709d75",
+      "rtl_sha256": "c69a827442eacb2eb238d571f0b3a62dea2b37077ba63741e4da24c9c40b2de5",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "f2399e0df235b1531b8355e0e9f81514cb813dc44c99dede20c75e69e06501a1",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 1,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 3,
+          "rtl": "artifacts/ppa/phase2/posit4_es0-mul-p1/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "c69a827442eacb2eb238d571f0b3a62dea2b37077ba63741e4da24c9c40b2de5",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 39,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 166,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 166,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 34,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 90,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 71,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 355.6,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 19,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 143.64,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 211.96,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 19,
+          "NOR2BX1H7R": 19,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "cdfd3e3e29f04b6f3d24bafc31c97d2f53490b359ba2e1a6a195d6b1d67f1c77",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "operation": "mul",
+      "internal_stages": 2,
+      "latency_cycles": 4,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/posit4_es0-mul-p2/testbench.sv:773: $finish called at 10266 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/posit4_es0-mul-p2/run-manifest.json",
+      "run_manifest_sha256": "0c2d81694847eb3c396f36974d70473de9bd878169240215d7461404b100118b",
+      "rtl_sha256": "282018c63fbd56f72d744cbd32e9d3fa79cef51da2f3d1a06657a83e9327ed43",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "79d51f3e137686a54b0133bd47877b322e2d785400d55f46d4fd2bc7090aca7b",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 2,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 4,
+          "rtl": "artifacts/ppa/phase2/posit4_es0-mul-p2/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "282018c63fbd56f72d744cbd32e9d3fa79cef51da2f3d1a06657a83e9327ed43",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 49,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 176,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 176,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 40,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 100,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 76,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 393.4,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 24,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 181.44,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 211.96,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 24,
+          "NOR2BX1H7R": 24,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "79e483c5ae9343129373ddc33f23f47113c4773943c3aaf36fbb407b61a55114",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "operation": "mul",
+      "internal_stages": 3,
+      "latency_cycles": 5,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/posit4_es0-mul-p3/testbench.sv:773: $finish called at 12826 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/posit4_es0-mul-p3/run-manifest.json",
+      "run_manifest_sha256": "24508e4ae894494583ae630ff5978cdf26df10a320e834903d79062a5441060f",
+      "rtl_sha256": "ed95beff20ff92def4988795c4de30804d82696840f33da4ed06eee0798e4d4a",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "75a4864651ca8dce1c353a396af82c27e35050e4934b761fc3db83059aa00fac",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 3,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 5,
+          "rtl": "artifacts/ppa/phase2/posit4_es0-mul-p3/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "ed95beff20ff92def4988795c4de30804d82696840f33da4ed06eee0798e4d4a",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 59,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 186,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 186,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 46,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 110,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 81,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 431.2,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 219.24,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 211.96,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 29,
+          "NOR2BX1H7R": 29,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "0d6b0a3821bdb49603584c036931af6ddb6040463b53831a8047b4fba128e614",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "log4",
+      "operation": "mul",
+      "internal_stages": 0,
+      "latency_cycles": 2,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/log4-mul-p0/testbench.sv:773: $finish called at 5146 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/log4-mul-p0/run-manifest.json",
+      "run_manifest_sha256": "30cf195e7d566f7deeb1fa5cc594f96d7c2582800aa1b54daa0f1db356bcaa85",
+      "rtl_sha256": "e52a4352963b681de311b7c2d3b4679bf5ceb7e580366b85220ce88cb715ff10",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "d791f0d8cd2912cc6e4d39250369fcc83ec5c7a0506fab47717be0c7ad35bbfc",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 0,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 2,
+          "rtl": "artifacts/ppa/phase2/log4-mul-p0/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "e52a4352963b681de311b7c2d3b4679bf5ceb7e580366b85220ce88cb715ff10",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 81,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 81,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 28,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 80,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 66,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 188.16,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 14,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 105.84,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 82.32,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 14,
+          "NOR2BX1H7R": 14,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "c2ab7d63e420b33a42d3b3b1753f7d914fd1231c003a4f977de6a66a7ddad633",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "log4",
+      "operation": "mul",
+      "internal_stages": 1,
+      "latency_cycles": 3,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/log4-mul-p1/testbench.sv:773: $finish called at 7706 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/log4-mul-p1/run-manifest.json",
+      "run_manifest_sha256": "83477721d6abe00a8aaf0686dc9bc1408ecc3c938c99174cf920133a2613f019",
+      "rtl_sha256": "1adf6bb5410bb75ab8ff473e12d2fe7cd8ed5f9d3a582fe909ca6bcdbf52e3b3",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "eaa100bea8327873e4d03b4503f45a3dbdb3e0aaac161b9c93e4a7467839c0da",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 1,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 3,
+          "rtl": "artifacts/ppa/phase2/log4-mul-p1/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "1adf6bb5410bb75ab8ff473e12d2fe7cd8ed5f9d3a582fe909ca6bcdbf52e3b3",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 39,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 91,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 91,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 34,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 90,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 71,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 225.96,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 19,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 143.64,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 82.32,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 19,
+          "NOR2BX1H7R": 19,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "e60b2925cc831c576e807438600958d4c4847c4fd0c1af187982e0390d356f11",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "log4",
+      "operation": "mul",
+      "internal_stages": 2,
+      "latency_cycles": 4,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/log4-mul-p2/testbench.sv:773: $finish called at 10266 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/log4-mul-p2/run-manifest.json",
+      "run_manifest_sha256": "2a5327c06b03882f98d4d3f2ea6127c54a4627698d1f3b2d1f20678d0f286097",
+      "rtl_sha256": "6935fa6fe120896fb1980fff3e5024e7f68ba021f24e9ef24b05fba7fb8c7483",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "4734f29ae57b0e45b0a8b0b8ff56871c1139d88ce5310b4547450d7d83fc9c1e",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 2,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 4,
+          "rtl": "artifacts/ppa/phase2/log4-mul-p2/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "6935fa6fe120896fb1980fff3e5024e7f68ba021f24e9ef24b05fba7fb8c7483",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 49,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 104,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 104,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 40,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 100,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 76,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 270.48,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 24,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 181.44,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 89.04,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 24,
+          "NOR2BX1H7R": 24,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "5b3541335b32809960a61e67ce3ed735ecd43d1f0033fbb6acf745d555b4ad78",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    },
+    {
+      "format": "log4",
+      "operation": "mul",
+      "internal_stages": 3,
+      "latency_cycles": 5,
+      "initiation_interval_cycles": 1,
+      "exhaustive_pairs": 256,
+      "simulation": "PASS 256 pairs\n/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/ppa/phase2/log4-mul-p3/testbench.sv:773: $finish called at 12826 (1s)",
+      "run_manifest": "artifacts/ppa/phase2/log4-mul-p3/run-manifest.json",
+      "run_manifest_sha256": "16a9e6da30a0bbd8db4aa52987d0c2d24254bef155dde5f1df39869a6f587d3f",
+      "rtl_sha256": "270d81f30fd239dfbe96542dbe18d4cc6a893be1b681d8bf523c9acf8c0c3f94",
+      "synthesis": {
+        "schema_version": "1.0.0",
+        "hardware_run_id": "c973679938fb69f082daa16908b5843b236caedcfc51b1ffdac1a4796ad5a683",
+        "identity": {
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "2.0.0",
+          "internal_pipeline_stages": 3,
+          "library": "rvt",
+          "pdk": "ics55",
+          "pipeline_stages": 5,
+          "rtl": "artifacts/ppa/phase2/log4-mul-p3/primitive.sv",
+          "schema_version": "1.0.0",
+          "target_clock": "10ns",
+          "top": "precision_pilot",
+          "vt": "rvt",
+          "rtl_sha256": "270d81f30fd239dfbe96542dbe18d4cc6a893be1b681d8bf523c9acf8c0c3f94",
+          "tool": "yosys",
+          "tool_version": "Yosys 0.26+1 (git sha1 b1a011138, clang 10.0.0-4ubuntu1 -fPIC -Os)",
+          "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f"
+        },
+        "metrics": {
+          "cell_count": {
+            "value": 59,
+            "unit": "count"
+          },
+          "design_cell_count": {
+            "value": 114,
+            "unit": "count"
+          },
+          "leaf_cell_count": {
+            "value": 114,
+            "unit": "count"
+          },
+          "wire_count": {
+            "value": 46,
+            "unit": "count"
+          },
+          "wire_bits": {
+            "value": 110,
+            "unit": "bits"
+          },
+          "public_wire_bits": {
+            "value": 81,
+            "unit": "bits"
+          },
+          "cell_area": {
+            "value": 308.28,
+            "unit": "library_area_units"
+          },
+          "register_count": {
+            "value": 29,
+            "unit": "count"
+          },
+          "wrapper_cell_area": {
+            "value": 219.24,
+            "unit": "library_area_units"
+          },
+          "core_cell_area": {
+            "value": 89.04,
+            "unit": "library_area_units"
+          }
+        },
+        "cell_types": {
+          "DFFQX1H7R": 29,
+          "NOR2BX1H7R": 29,
+          "precision_primitive": 1
+        },
+        "evidence_level": "logic_synthesis",
+        "parser_version": "1.2.0",
+        "warnings": [],
+        "source_report_sha256": "f16b4fa459db52842d4253d32205b522699331794916425243c0ef6b9418175b",
+        "area_accounting": "design total = primitive core + registered wrapper"
+      }
+    }
+  ],
+  "timing": "separate evidence: phase2-sta-power-pilot.json, when available",
+  "power": "separate evidence: phase2-sta-power-pilot.json, when available"
+}

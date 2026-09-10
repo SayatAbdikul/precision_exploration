@@ -1,0 +1,1 @@
+"""Manifest-conformant parameter encoding."""

@@ -167,6 +167,12 @@ def validate_submission(configuration: Mapping[str, Any], *, repository_root: st
                         manifests: Mapping[str, Mapping[str, Any]] | None = None) -> dict[str, Any]:
     root = Path(repository_root)
     try:
+        if configuration.get("schema_version") == "phase2-workload-2.0.0":
+            from public.inference.workload_job import validate_job
+            return validate_job(configuration,repository_root=root)
+        if configuration.get("schema_version") == "phase2-conformance-2.0.0":
+            from public.inference.conformance_job import validate_job
+            return validate_job(configuration)
         if configuration.get("schema_version") == "phase1-fp32-baseline-1.0.0":
             return validate_baseline(configuration, repository_root=root)
         return validate_experiment(configuration, manifests=manifests, repository_root=root)

@@ -1,0 +1,56 @@
+{
+  "schema_version": "2.0.0",
+  "verified_coco_payload_lists": {
+    "coco_calibration_2k": 2000,
+    "coco_evaluation_5k": 5000,
+    "coco_screen_1k": 1000
+  },
+  "calibrations": [
+    {
+      "path": "artifacts/calibration/yolov8n-fp6_e3m2-18c3daa4f2ec06fdf66986addfacb913cd43d47821f45875f646049abff02702.json",
+      "sha256": "18c3daa4f2ec06fdf66986addfacb913cd43d47821f45875f646049abff02702",
+      "format": "fp6_e3m2",
+      "images": 2000,
+      "nodes": 177,
+      "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1"
+    },
+    {
+      "path": "artifacts/calibration/yolov8n-int8-d614572fa2be79d1711bd7a6a949ecc78bd22e40a7199aad116a0a4806632a85.json",
+      "sha256": "d614572fa2be79d1711bd7a6a949ecc78bd22e40a7199aad116a0a4806632a85",
+      "format": "int8",
+      "images": 2000,
+      "nodes": 177,
+      "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1"
+    }
+  ],
+  "fp32_coco": {
+    "reference": {
+      "model": "yolov8n",
+      "sample_count": 5000,
+      "map50_95": 0.3735112134743026,
+      "map50": 0.5256168716683333,
+      "prediction_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb"
+    },
+    "reproduction": {
+      "category_mapping": "official COCO category IDs preserved",
+      "dataset": "COCO 2017 val2017",
+      "evaluator": "pycocotools.COCOeval",
+      "image_count": 5000,
+      "metrics": {
+        "map50": 0.5257086849010338,
+        "map50_95": 0.3735605237098979
+      },
+      "model": "yolov8n",
+      "predictions": {
+        "path": "artifacts/per_image_predictions/phase2-yolov8n-coco-official.json",
+        "sha256": "582121994cc7527095eeefd699082cd41aee12c81b4291f27cc50b6ee46a4471",
+        "size_bytes": 77192811
+      },
+      "schema_version": "1.0.0"
+    },
+    "delta_map50_95": 4.931023559529013e-05,
+    "delta_map50": 9.181323270057717e-05,
+    "prediction_bytes_match": false,
+    "scope": "full COCO val5k metric reproduction; original FP32 prediction bytes are still unavailable"
+  }
+}

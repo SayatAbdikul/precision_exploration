@@ -1,0 +1,2939 @@
+{
+  "schema_version": "2.0.0",
+  "tool": "iEDA iSTA/iPA",
+  "tool_binary_sha256": "99bdaf0e96a3a2f3fbb8014e0cd2c13f8973a4e26c92bd45f587bb444f1ca9e3",
+  "liberty_sha256": "de66760a8e9c37fe8d7186ac1df9b80b061917c09589f9e1f9b5b6a4326cf57f",
+  "script_sha256": "bc56416bacd0b6d5a86d8bad6c4c47e55498e57203d0aa2f7992648c0954bc3e",
+  "scope": "post-synthesis cell-delay timing; vectorless power with toggle=0.1; no extracted parasitics or workload activity",
+  "runs": [
+    {
+      "format": "int4",
+      "internal_stages": 0,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "f645b1a359209cd192376046fcb3fc6a94479348ecc153534ae83a66f30a3842",
+      "netlist_sha256": "806993e29ab5415a276b4c351fc94d56ad6e4f6e4f54dbb33f60e02bbaad09a9",
+      "netlist_adapter_sha256": "086e2fa5cdb214f8fd18df3ffadc229eed309291ed9368567bcba9aa63cf1fbc",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p0/ista-10ns/precision_pilot_instance.pwr": "0ca5233c38f166b3447c8b7bd7e38fc803faf5edbba0ab27b400cb1547cfeaf3",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-10ns/precision_pilot.rpt": "82b4bff0efd0c20afefb2d0cc8aa06239b5702f863ea81551d55bba94d0ab4e4",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-10ns/tool.log": "c537f3aefe7f2b0b1a7ef84ecd0041cb4f80faa67956a8b9a8edfb338ef1297d",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-10ns/precision_pilot.pwr": "34fcd154e96a01e46d1d7947a3c3c05e59ca3ad77e9beb873c10fc272bccb1f7",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-10ns/glog_dump.log": "a10bf22f7d54a3e9ebfa88e7415c0c4a9d7e68dfaa17599d77fda6d0833fcb45"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001673,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.207e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001674,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 0,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "f645b1a359209cd192376046fcb3fc6a94479348ecc153534ae83a66f30a3842",
+      "netlist_sha256": "806993e29ab5415a276b4c351fc94d56ad6e4f6e4f54dbb33f60e02bbaad09a9",
+      "netlist_adapter_sha256": "086e2fa5cdb214f8fd18df3ffadc229eed309291ed9368567bcba9aa63cf1fbc",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p0/ista-5ns/precision_pilot_instance.pwr": "e4b205604d5f212fe9432f16b0d9bcefee048cb3299e2c1d1455d41896d9dda4",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-5ns/precision_pilot.rpt": "99005e82a76d9d5d533b271229f2379aed5a26f959f2e0a4d8865b4f290e687c",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-5ns/tool.log": "9e5b241d4f62bb813cf56bd5d61c131518f90618ac982ff8f579c799965fa45e",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-5ns/precision_pilot.pwr": "25e72c0c69cdc3c94361a98e47a8e3bb6006319ad565a96fe28a70391af05419",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001704,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.207e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001705,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 0,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "f645b1a359209cd192376046fcb3fc6a94479348ecc153534ae83a66f30a3842",
+      "netlist_sha256": "806993e29ab5415a276b4c351fc94d56ad6e4f6e4f54dbb33f60e02bbaad09a9",
+      "netlist_adapter_sha256": "086e2fa5cdb214f8fd18df3ffadc229eed309291ed9368567bcba9aa63cf1fbc",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p0/ista-2ns/precision_pilot_instance.pwr": "e6c84c57477cd01566126b539f6bc04867e09c2288bb4c1070b2b8e5e2bd8748",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-2ns/precision_pilot.rpt": "ecfc8624c602dc6d9671ebf36da224a01baac98c083c43acc69bbccac55d83e9",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-2ns/tool.log": "1266702103be762b7031292ebb037118c26c05f47be49f2f48d1f3555a3aca12",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-2ns/precision_pilot.pwr": "7776416cb8e7619052620977b27081a8469068e0794ad58c807bd48de6bdb337",
+        "artifacts/ppa/phase2/int4-mul-p0/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001775,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.207e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001775,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 1,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "3f7835e9d1d5ae8d740aece8e51ce4b003adee3c4cc147aeed2a5ee2fa5cbfe0",
+      "netlist_sha256": "e6ce0a64b5ea969b6c4d3fe2e00c6a76d7596ec06a9427924761df81155b5a6d",
+      "netlist_adapter_sha256": "a0a6968bfaeaa7825d571a1bfcca4cfa491d576d02a0efc03db5151d3a67e06f",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p1/ista-10ns/precision_pilot_instance.pwr": "320ec7ee1e63db3c7c4c324ae3f190cf257e8e62b4ebbe59b88737461209e0b4",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-10ns/precision_pilot.rpt": "1e9b33e176569e9dcbe8eb2049bd8ada4023addfa4b0c58f073e6d87a37efd64",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-10ns/tool.log": "d526732819d56390e5fb7028c39ea9fc7461397ff0c2f84d9df4a9d35bd5d980",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-10ns/precision_pilot.pwr": "9e508decc3855427bb75413b206c5a98b19fa4b72cf44c73a2b2bec3ae69eae1",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001705,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.707e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001706,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 1,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "3f7835e9d1d5ae8d740aece8e51ce4b003adee3c4cc147aeed2a5ee2fa5cbfe0",
+      "netlist_sha256": "e6ce0a64b5ea969b6c4d3fe2e00c6a76d7596ec06a9427924761df81155b5a6d",
+      "netlist_adapter_sha256": "a0a6968bfaeaa7825d571a1bfcca4cfa491d576d02a0efc03db5151d3a67e06f",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p1/ista-5ns/precision_pilot_instance.pwr": "2261dd41009664bbec73f69dde4f641a59da7bbfeb1734186dcd27dd00555d47",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-5ns/precision_pilot.rpt": "c50af1ba3f41bed96ca52f840d34c606e096dc19b0ed65edac234f2e7e1fb830",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-5ns/tool.log": "531d56b08075d64a7676760767c1816971eb618c028e850c9b1b8491b4098f89",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-5ns/precision_pilot.pwr": "79bcd8631b1a7b412cc5f4140dc0d3ae13a9ab3c81bb77db8d425f5861717d05",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001756,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.707e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001757,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 1,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "3f7835e9d1d5ae8d740aece8e51ce4b003adee3c4cc147aeed2a5ee2fa5cbfe0",
+      "netlist_sha256": "e6ce0a64b5ea969b6c4d3fe2e00c6a76d7596ec06a9427924761df81155b5a6d",
+      "netlist_adapter_sha256": "a0a6968bfaeaa7825d571a1bfcca4cfa491d576d02a0efc03db5151d3a67e06f",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p1/ista-2ns/precision_pilot_instance.pwr": "5af3c1d185a10f77e49e7a6b016fd9cef29138b2e875632f8619c151e0451896",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-2ns/precision_pilot.rpt": "e4c032e0f7d32e33039e9ebf906068cf678f2cd39cb572feb41aa0172e40f89c",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-2ns/tool.log": "40318470ef2720e9f62be8ba2840e4183627821a8b6052b4b82cf10d0efa27db",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-2ns/precision_pilot.pwr": "469b1253f1fba22b147f90f41d48b06f481a97a212a493f6bffa410c65497285",
+        "artifacts/ppa/phase2/int4-mul-p1/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001872,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.707e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001872,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 2,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "ac09f19ecbc5e3ba36b1c25ac5b06438624efcc305d5b246273f434d287ad2e6",
+      "netlist_sha256": "9b5b411c4787c574698133c90ac1610dcbc7f8661d0ff5edaca8a5b9d9de9198",
+      "netlist_adapter_sha256": "b00af7192ad3636ab5005db4601b2261dcf2a3e6c813a1f527ff2e16a2db4d20",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p2/ista-10ns/precision_pilot_instance.pwr": "0a6846c5f0bd6ddaeeb7b9b462097a90ecb43bff6d0cf740138fb1d388e945de",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-10ns/precision_pilot.rpt": "5916a1c0f504febba768418eeb9ca5f689b88739907872bdd08201a5c49f1d57",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-10ns/tool.log": "861fc2781ea200339ac51de3391c68b82df82011e40af9f6c2d52fbe2710f6e1",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-10ns/precision_pilot.pwr": "9eb01c97c8411e16aa14bd3bc0f6ecb8527a76dd5dd24b8c0b7827285c9fd4a4",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001726,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.206e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001726,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 2,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "ac09f19ecbc5e3ba36b1c25ac5b06438624efcc305d5b246273f434d287ad2e6",
+      "netlist_sha256": "9b5b411c4787c574698133c90ac1610dcbc7f8661d0ff5edaca8a5b9d9de9198",
+      "netlist_adapter_sha256": "b00af7192ad3636ab5005db4601b2261dcf2a3e6c813a1f527ff2e16a2db4d20",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p2/ista-5ns/precision_pilot_instance.pwr": "f518469101fa9a82c3f0e86f108effb988e913673830aa381327c163e0d7d836",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-5ns/precision_pilot.rpt": "28fd94512123bde11be1807bb25499bcad9ded04c9a65c85c5c3f03de86e6240",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-5ns/tool.log": "c8dc742fc8d2f4b8027b1686c5142e9b16ff833cc3a59003c5a2b0af4dbaadc4",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-5ns/precision_pilot.pwr": "7b352aa6c4c857d3e355ad3ce95efe512842702cb0266b04dc4c3d45d1346635",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001786,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.206e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001787,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 2,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "ac09f19ecbc5e3ba36b1c25ac5b06438624efcc305d5b246273f434d287ad2e6",
+      "netlist_sha256": "9b5b411c4787c574698133c90ac1610dcbc7f8661d0ff5edaca8a5b9d9de9198",
+      "netlist_adapter_sha256": "b00af7192ad3636ab5005db4601b2261dcf2a3e6c813a1f527ff2e16a2db4d20",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p2/ista-2ns/precision_pilot_instance.pwr": "7f63671feeea1bf99a9dd5aaecf4346222de021f27102392917b1321d5c95db6",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-2ns/precision_pilot.rpt": "8b8b0773b5ae3f6e2dcd6b5e4a5f18a092a9696cb89b61ea0f4c46d22bb59584",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-2ns/tool.log": "54eedc34ffe47c8cd8740c602a063252e99df0e5e6e1616dea8064c57402e3f1",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-2ns/precision_pilot.pwr": "dc8637f8b37168f3f4f882863c971cfa57d0eee4c72136467a6251cdc4231fef",
+        "artifacts/ppa/phase2/int4-mul-p2/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001925,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.206e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001925,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 3,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "182627aca149d3ec79f88a31e1c70f944a3340d8dddd598c618a7ba1e8c31ff7",
+      "netlist_sha256": "1b5a93ee821db9312ed705caa397e379cf61b75de963de9488345be3adaac90f",
+      "netlist_adapter_sha256": "5a42941c5780dc8a26cc05fdfc4e8710ef895fe17ef36d4151a5663627bcfe2a",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p3/ista-10ns/precision_pilot_instance.pwr": "4ba63968f97ca783a4f89f744eaffacef55c8a9aae46cff366eac1728c578895",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-10ns/precision_pilot.rpt": "3e43114fa84b3dc34b766367f5a78a12edde79e7f78030b24d1bbd5fd1424441",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-10ns/tool.log": "680e8768e46a9034665d24166c93c355180055932a7a7821b75477e108e1e81b",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-10ns/precision_pilot.pwr": "ee4301eb1015102fdb3586a536bcaaf47c58a812622761b738b8dad30942b42a",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001738,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.705e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001738,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 3,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "182627aca149d3ec79f88a31e1c70f944a3340d8dddd598c618a7ba1e8c31ff7",
+      "netlist_sha256": "1b5a93ee821db9312ed705caa397e379cf61b75de963de9488345be3adaac90f",
+      "netlist_adapter_sha256": "5a42941c5780dc8a26cc05fdfc4e8710ef895fe17ef36d4151a5663627bcfe2a",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p3/ista-5ns/precision_pilot_instance.pwr": "33ae3dc14ae5bfc18ec996e520ef483c36b9fda5d3b33fe4cd9442e42a7286f8",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-5ns/precision_pilot.rpt": "8bc752c8c92e5aa91f067fa65266092195a087986f9da4bb6b8d79d758c7cbdd",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-5ns/tool.log": "01a30bb3129462f975ba3024b7dddfe2487d94d82e25b29e9b15400876f605b9",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-5ns/precision_pilot.pwr": "00618ac522785165df625b1525ca2633b6fac8b4f8c5c6cd58d4f729308a2250",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001804,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.705e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001804,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "int4",
+      "internal_stages": 3,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "182627aca149d3ec79f88a31e1c70f944a3340d8dddd598c618a7ba1e8c31ff7",
+      "netlist_sha256": "1b5a93ee821db9312ed705caa397e379cf61b75de963de9488345be3adaac90f",
+      "netlist_adapter_sha256": "5a42941c5780dc8a26cc05fdfc4e8710ef895fe17ef36d4151a5663627bcfe2a",
+      "reports": {
+        "artifacts/ppa/phase2/int4-mul-p3/ista-2ns/precision_pilot_instance.pwr": "2d87dae84bb24cbede36d93700fd5026c2376d1d77961a27d37beffb58393cf3",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-2ns/precision_pilot.rpt": "03d92e29368dc75d5ca1bf61dfe8d1ba02cebfb9ab5bf2779ae3946ab7271a08",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-2ns/tool.log": "c196b9a1732ba718c9d62ac2ea1603255bc0105cbd83300e1849c88213ebe2e3",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-2ns/precision_pilot.pwr": "da79df40b74613768f1157f1cfa5b62cb090e84d92fe3658c65f8b00bc20b814",
+        "artifacts/ppa/phase2/int4-mul-p3/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.264,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001953,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.705e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001953,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 0,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "5b9c7ad5c169758bc1857608979e3dadd6a251d412460ccfde1ab5fde408b1ec",
+      "netlist_sha256": "c1f4b92607c949b6770e4298dde2c7dd55496661f7d8cd0697fe5eeb700f185f",
+      "netlist_adapter_sha256": "45be91f52f8d50eeaf657b4550ddc01bad72de3dfce5202abd0754ef817f713a",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-10ns/precision_pilot_instance.pwr": "6084616ea619e751bb5a9108bdf8027e6dedc39a86e50ba1520d90bc9a3eef4f",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-10ns/precision_pilot.rpt": "198e5798fdca615e0557d32a675cc0815ec0ec827f9e7b58deb53129b17773d1",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-10ns/tool.log": "f39a31bb98c606f8107ee868f8d1cbe2fa65c3d6d345be15a16a3058a5520f50",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-10ns/precision_pilot.pwr": "c50f20a86f3bd50b47ce344223ac114a5a897343b7b9152463fd78166ed16f88",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.4,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.081e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 1.894e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.083e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 0,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "5b9c7ad5c169758bc1857608979e3dadd6a251d412460ccfde1ab5fde408b1ec",
+      "netlist_sha256": "c1f4b92607c949b6770e4298dde2c7dd55496661f7d8cd0697fe5eeb700f185f",
+      "netlist_adapter_sha256": "45be91f52f8d50eeaf657b4550ddc01bad72de3dfce5202abd0754ef817f713a",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-5ns/precision_pilot_instance.pwr": "8cdab5c1a5fb8bb724090a2cbf9ae3fef741061c0b0726f401f00e3f1300fd28",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-5ns/precision_pilot.rpt": "6c83b80fe79a326ea23758f4a87e461c41e84fcfd7d4d25d3869362b7b30e1c4",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-5ns/tool.log": "2425acbe1d2debc8eac52ae5635b6bba59af82e7a3767aa0ac021cfcb0daee26",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-5ns/precision_pilot.pwr": "2feb12bb8ea71728ba7fdcb962fc2875fb3dcb20977e1b9f275b94b031a320b3",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.4,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.391e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 1.894e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.393e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 0,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "5b9c7ad5c169758bc1857608979e3dadd6a251d412460ccfde1ab5fde408b1ec",
+      "netlist_sha256": "c1f4b92607c949b6770e4298dde2c7dd55496661f7d8cd0697fe5eeb700f185f",
+      "netlist_adapter_sha256": "45be91f52f8d50eeaf657b4550ddc01bad72de3dfce5202abd0754ef817f713a",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-2ns/precision_pilot_instance.pwr": "1cb0905c5d8949bbac26671d9b2b4d814680eb8a480bebad914821a7e0fe2322",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-2ns/precision_pilot.rpt": "ce14b55590cd6900ae179097db94157d4432aa3afaccfafddf4f5111f2ccf90e",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-2ns/tool.log": "da7c2db03887345826d25da57a32c15368b4e00fa8df4f5aa86895c9ac193607",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-2ns/precision_pilot.pwr": "a2a602e1d9a43f5d0bf135246f71f05fa0270f47c109172c939d24806c604af6",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p0/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.4,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001032,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 1.894e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001032,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 1,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "527ab1266a050f32442c87328e95c1935932fc9153f390e0a107e9ed41aef054",
+      "netlist_sha256": "d3b6f1024c98243512165bddba9787b0cc7859bbf01308dcd98da91f9b68d74d",
+      "netlist_adapter_sha256": "c91b9e1d8661095679c8ec485746756152cbc88fbf4a9e30a5be8eebc26b7dd0",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-10ns/precision_pilot_instance.pwr": "b28b18e968eb4d207d5bd48ddc068e8e1fa5c60f4c879258c63b6d38a0bbcb90",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-10ns/precision_pilot.rpt": "e87a4c1a018a0a90b6165280adb58e8c97ca25b231abccf602b1362d8098e222",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-10ns/tool.log": "3199b0d55eb7a8479186c85b41d01fda15831c50c7d5460ab1a95a7b1233caea",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-10ns/precision_pilot.pwr": "28d658a86dbfd73bd3c9b957beb2eb2af18f9725ca009b5703060c2b5288c449",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 7.606e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.367e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 7.608e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 1,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "527ab1266a050f32442c87328e95c1935932fc9153f390e0a107e9ed41aef054",
+      "netlist_sha256": "d3b6f1024c98243512165bddba9787b0cc7859bbf01308dcd98da91f9b68d74d",
+      "netlist_adapter_sha256": "c91b9e1d8661095679c8ec485746756152cbc88fbf4a9e30a5be8eebc26b7dd0",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-5ns/precision_pilot_instance.pwr": "e957cac2b9fc4b6674b2f1b3ef4cd3c132914426940e81be50e9f95846a0bdd9",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-5ns/precision_pilot.rpt": "c7f3397b615777cb5a2c2249cd16af4d465ef4e1245fe3c8cfc6aef21fc30881",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-5ns/tool.log": "ef34bb7aa6190e4b591dc04697163346a6eb01bdfd245b79db411c1c8c94ba17",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-5ns/precision_pilot.pwr": "0325ee0b748058cb407ef29607af81c164faaf6696013b27fb08a11827e8ebde",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 8.048e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.367e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 8.051e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 1,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "527ab1266a050f32442c87328e95c1935932fc9153f390e0a107e9ed41aef054",
+      "netlist_sha256": "d3b6f1024c98243512165bddba9787b0cc7859bbf01308dcd98da91f9b68d74d",
+      "netlist_adapter_sha256": "c91b9e1d8661095679c8ec485746756152cbc88fbf4a9e30a5be8eebc26b7dd0",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-2ns/precision_pilot_instance.pwr": "df1f3ee4d163989297829b0bdd0fe1f1414b09c3132f3596703e2e43a30daabb",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-2ns/precision_pilot.rpt": "1587ad4e1d282e4cf3617000aae883f83ee6ef48d384907a112710b336d8374c",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-2ns/tool.log": "9001dd059ac3bf1e933a50083e52079fabb6aa6f11ac0d3159b99f077a32be3f",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-2ns/precision_pilot.pwr": "fd250baab8e5960b26565bbe6de0ace28f0b97bbf93e995788a0f3a30f34588a",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p1/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.012e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.367e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.014e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 2,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "549f3371a1221433b7ed0c0134872bb7b77148a81a7b7bfb0a255307b4160cfe",
+      "netlist_sha256": "6ae0b6d783567e0be66c814f5fe9b6c7a145cde080e3c71c42ebaa155d388c67",
+      "netlist_adapter_sha256": "79f76ad568233aa74423969be15cfc71bd629953a6cbf61e02ecea9d41d6ffb4",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-10ns/precision_pilot_instance.pwr": "5069cc0ab54e52fb9ac7bd62347181cd4c88c1e455f5e7c5c497a070e1050b89",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-10ns/precision_pilot.rpt": "a56c7312cda89e303474c09e5f14be1a933420f1447569fe008d7c8d3e3baf9e",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-10ns/tool.log": "a4bd27d1d4d2533737f604317a2abc15c8be1723772172bd38b5105579ad17f3",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-10ns/precision_pilot.pwr": "8c680307ae967567df979cebdc7c39bcb30f961449de723196386f6cb3e8f6d5",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 7.815e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.866e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 7.818e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 2,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "549f3371a1221433b7ed0c0134872bb7b77148a81a7b7bfb0a255307b4160cfe",
+      "netlist_sha256": "6ae0b6d783567e0be66c814f5fe9b6c7a145cde080e3c71c42ebaa155d388c67",
+      "netlist_adapter_sha256": "79f76ad568233aa74423969be15cfc71bd629953a6cbf61e02ecea9d41d6ffb4",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-5ns/precision_pilot_instance.pwr": "e416c32671847cafa582334d7220c04079d9d0f48ca749606adb963c2ea3deda",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-5ns/precision_pilot.rpt": "0f312f81a4732a25988d7275879de2173c19aac215f1bd99747cb022691b4e63",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-5ns/tool.log": "7da23e3f2ac358c99187c940e7cb76927c91bfeec1be7a50db526d0c39da7f59",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-5ns/precision_pilot.pwr": "0bd3399ffb5a93a8dfbfb196337ab0ce93123bf63362642f0e31e3c84912bada",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 8.344e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.866e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 8.347e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 2,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "549f3371a1221433b7ed0c0134872bb7b77148a81a7b7bfb0a255307b4160cfe",
+      "netlist_sha256": "6ae0b6d783567e0be66c814f5fe9b6c7a145cde080e3c71c42ebaa155d388c67",
+      "netlist_adapter_sha256": "79f76ad568233aa74423969be15cfc71bd629953a6cbf61e02ecea9d41d6ffb4",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-2ns/precision_pilot_instance.pwr": "631113f6bb4fc7905e9caf4a908f8dfd96769499acafe6826f4edb0c61d66abc",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-2ns/precision_pilot.rpt": "18dbaa0d3f12cb10f72fb00cae00e108c71021ce681e08d5c72ce1f4a5a509ed",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-2ns/tool.log": "a2cecfff5c5e444f2997de13eb26cc94b1dab21efe0da3a48b053d5367507caa",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-2ns/precision_pilot.pwr": "bcfa57c139b403556f9cc043e3b033faad10b595ff2fccd1059be54350f57491",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p2/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.496e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.866e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.499e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 3,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "dcce38d7275600087d15a32162379ef800c4230cfb7f20280c671e333c70a480",
+      "netlist_sha256": "51513849fd80cbcde7bcb9e8f4e3578bb4c3b397b58ab814f56e84fb1871b942",
+      "netlist_adapter_sha256": "fc057bb527848c7a2f02cedce05c67f20967aa1949f564db6050a01d38558466",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-10ns/precision_pilot_instance.pwr": "34768607a67ba84d0457bc3554c98ada64e63a5558cda8552300df6919d14f1d",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-10ns/precision_pilot.rpt": "495dc869189bd24966835c77c8cc5c354276d0d53fbd255ec49e8d9cedc8a566",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-10ns/tool.log": "9ee0861b04c66d4b5493dd10dfd37a1b8b4d816777906553d8b2db53dcf53b5d",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-10ns/precision_pilot.pwr": "8188830163209ac249b43e3bd1491e9a45ea9a9455ac59be1d6fd117620998f1",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 7.943e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.366e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 7.946e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 3,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "dcce38d7275600087d15a32162379ef800c4230cfb7f20280c671e333c70a480",
+      "netlist_sha256": "51513849fd80cbcde7bcb9e8f4e3578bb4c3b397b58ab814f56e84fb1871b942",
+      "netlist_adapter_sha256": "fc057bb527848c7a2f02cedce05c67f20967aa1949f564db6050a01d38558466",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-5ns/precision_pilot_instance.pwr": "a9550fe1a86630b7428d126a43027ab5cc4397bb93d81d157550edfc792058f9",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-5ns/precision_pilot.rpt": "a45317be790e79472bbacf1880f6e27152ffc84ace9687670ac50f768b7a6c32",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-5ns/tool.log": "1c2d05dc676a51ed1639e9529c42448a7fa5d967d238584894a65f22469a60f4",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-5ns/precision_pilot.pwr": "4774b22467a067d77a2d32674688e93b69ea606401610d1bbe56c897712b0cef",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 8.515e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.366e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 8.518e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "fp4_e2m1",
+      "internal_stages": 3,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "dcce38d7275600087d15a32162379ef800c4230cfb7f20280c671e333c70a480",
+      "netlist_sha256": "51513849fd80cbcde7bcb9e8f4e3578bb4c3b397b58ab814f56e84fb1871b942",
+      "netlist_adapter_sha256": "fc057bb527848c7a2f02cedce05c67f20967aa1949f564db6050a01d38558466",
+      "reports": {
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-2ns/precision_pilot_instance.pwr": "b4fe410a3ab46311a2e9e100a39c65eb8c8e68bcdfe32bce9a1f2090d93928e4",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-2ns/precision_pilot.rpt": "e7957f420c050eb68e09f9a14ca5f047cb618cd2513a83b55426112dab410208",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-2ns/tool.log": "3eb0d4db1295660f4a03e714e5e50d225b2d6f975298e14b34f999e70b0344e3",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-2ns/precision_pilot.pwr": "4cc3e5291eac18f1a40010704e6a0bda6cdfa77b622de67bf6da39d52cf4e1ff",
+        "artifacts/ppa/phase2/fp4_e2m1-mul-p3/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.402,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.761e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.366e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.764e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 0,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "7afe8e455f0881b3d6238784c9172305621a2fa128d4e9e2d40759f88bce49c5",
+      "netlist_sha256": "2e640c99d18e8f117e6686f7656468ea7e1d9740c3b619b4ffc2b01edc21407a",
+      "netlist_adapter_sha256": "a6a3969cdb28c08fb533a109d0b3d455eed2215ec2e06b46b3bd4843ceac6b0d",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-10ns/precision_pilot_instance.pwr": "977833263d400d75e0f1c4917546dbed5c2ec9a828ddc22e67cd1a8c92f16ae8",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-10ns/precision_pilot.rpt": "e306451bf3a7e1d2122dcec5df72a3a6e5beb8496d9ffa26eddfbc86da223bb2",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-10ns/tool.log": "71159739487832c59df9a207dafb4ed347b5f54f905bbb8d27961d1c8d125b1e",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-10ns/precision_pilot.pwr": "b8b474c2f1329a4f0a863763b8d4958f32e38767eeada7b064964a06b97ca0e9",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003719,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.782e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.000372,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 0,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "7afe8e455f0881b3d6238784c9172305621a2fa128d4e9e2d40759f88bce49c5",
+      "netlist_sha256": "2e640c99d18e8f117e6686f7656468ea7e1d9740c3b619b4ffc2b01edc21407a",
+      "netlist_adapter_sha256": "a6a3969cdb28c08fb533a109d0b3d455eed2215ec2e06b46b3bd4843ceac6b0d",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-5ns/precision_pilot_instance.pwr": "251a9ea10b6591cbebd3e9ccbb4f2e351939710fc619b372792d6b32af9ff2d4",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-5ns/precision_pilot.rpt": "6824f98ab678ddd185b99db9740fed46ddd492e6eba73b84208653e55b99a2d1",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-5ns/tool.log": "2325d64a4c22e8ee3269ea65df8897cac336b010bb8449b5498d16e21a454b72",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-5ns/precision_pilot.pwr": "3d61f804b30e9483ce17e0b7d2421327d992d2700f6ade82504675dff78545ca",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.000375,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.782e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003751,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 0,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "7afe8e455f0881b3d6238784c9172305621a2fa128d4e9e2d40759f88bce49c5",
+      "netlist_sha256": "2e640c99d18e8f117e6686f7656468ea7e1d9740c3b619b4ffc2b01edc21407a",
+      "netlist_adapter_sha256": "a6a3969cdb28c08fb533a109d0b3d455eed2215ec2e06b46b3bd4843ceac6b0d",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-2ns/precision_pilot_instance.pwr": "0826d3d31c5021a8df8fd613dca66d6675fc8c49c94ab948bf418254a62ce289",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-2ns/precision_pilot.rpt": "89e81f3360cb28ce2f7b68a540a75c64f718aedbebda4401b611628486d916fd",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-2ns/tool.log": "86fd07412812e0252b8684ccb3e059e3fd4ff003c176fd886967eefe15776267",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-2ns/precision_pilot.pwr": "21e739d6cdf0b03cb2f548419dbcb2226aea686494848fbb9dd8f35c922e5d4d",
+        "artifacts/ppa/phase2/posit4_es0-mul-p0/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003843,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.782e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003844,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 1,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "93a5e9eef46f3c72287e5d5bc82673211afee2bf6e0531e1a0e2c6e5b67919ee",
+      "netlist_sha256": "b623affb7f527ec0189127164a41961f0744b943cc374062f7440d289e5818be",
+      "netlist_adapter_sha256": "8e4a7c918c94f33eb5ccf28b64d35c73d3100f6454dc04bc54e192ee7d4a45f7",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-10ns/precision_pilot_instance.pwr": "dc1456ede1975dd064f3822dbe55cdb7eb6cf2bcaa9678fafc6ffc06156d7cfc",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-10ns/precision_pilot.rpt": "1d5588161e2c6c9db79601ad4a9f4df58e693f2e9720be89f19bc457ce521548",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-10ns/tool.log": "1a99da558e918cdd5a11e466b19f14b3fc4876331c0ef1943e5f35b31dddf5d8",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-10ns/precision_pilot.pwr": "fe31dfb78b2fd5d79b625a8c23993c034e26776eb28302ca071ee7d1f07182c2",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003752,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.282e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003753,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 1,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "93a5e9eef46f3c72287e5d5bc82673211afee2bf6e0531e1a0e2c6e5b67919ee",
+      "netlist_sha256": "b623affb7f527ec0189127164a41961f0744b943cc374062f7440d289e5818be",
+      "netlist_adapter_sha256": "8e4a7c918c94f33eb5ccf28b64d35c73d3100f6454dc04bc54e192ee7d4a45f7",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-5ns/precision_pilot_instance.pwr": "f0853743df537a91990d04f301ce044d00092932bad2cee0325a17e070b70ac9",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-5ns/precision_pilot.rpt": "36be0665bc0c561f5814a5fbd11fc47a318ed26ce294bae7979550a5d62c250a",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-5ns/tool.log": "28e2de21f982f6dfcedf9db056013423abe44edf4d34bc9727f542e2fa2335b9",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-5ns/precision_pilot.pwr": "1454c86473600b1faecc41b38d8a63b983fcf67832de455fc3bf9cb493f197c1",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003803,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.282e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003804,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 1,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "93a5e9eef46f3c72287e5d5bc82673211afee2bf6e0531e1a0e2c6e5b67919ee",
+      "netlist_sha256": "b623affb7f527ec0189127164a41961f0744b943cc374062f7440d289e5818be",
+      "netlist_adapter_sha256": "8e4a7c918c94f33eb5ccf28b64d35c73d3100f6454dc04bc54e192ee7d4a45f7",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-2ns/precision_pilot_instance.pwr": "7aa28f12d566d382e2591c3bc3edcb1d45c3716262fcea704a59eaff2c8fc101",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-2ns/precision_pilot.rpt": "5815ff03bce1044030a827c99409d324e4d7de5bcd98c712139b643edd7b6d6f",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-2ns/tool.log": "962cd49714cf9007d20dfa50f7e6e01b1db17b380d3b4e0cac80477b28bc472f",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-2ns/precision_pilot.pwr": "a391e79ba3e48c1cf9eca75554e60169c2beb5cfd32440b3b12583fd2e62892a",
+        "artifacts/ppa/phase2/posit4_es0-mul-p1/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003956,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.282e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003956,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 2,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "65f5774b947f712f72f41f7d5f0b29bba436513d98b3d33239635c29f6214008",
+      "netlist_sha256": "021f9e190dac03a92089e93d85033038f6632c9f35c947d7a08259969c84e071",
+      "netlist_adapter_sha256": "f055f0d0082c95daad9053259670d4d6057f5ce72d4c347905b4d0131bd44dc5",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-10ns/precision_pilot_instance.pwr": "24f9b96ac4d7144d8caecb6bbf83e74776ac4a68a25a364555ee573090cc2c71",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-10ns/precision_pilot.rpt": "1186d87f6d0d36da649ff1e9958b03458b5aa17aac2706dea1d3169ec116de9f",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-10ns/tool.log": "73d29eb18f180d2004223837e2597d49823caad3becafaf2f56fdab717fd3bfc",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-10ns/precision_pilot.pwr": "0500b3783cb24ddbd943f4d766d48a9543b8cb9e67c648ac0bd48f241e49b644",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003774,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.781e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003774,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 2,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "65f5774b947f712f72f41f7d5f0b29bba436513d98b3d33239635c29f6214008",
+      "netlist_sha256": "021f9e190dac03a92089e93d85033038f6632c9f35c947d7a08259969c84e071",
+      "netlist_adapter_sha256": "f055f0d0082c95daad9053259670d4d6057f5ce72d4c347905b4d0131bd44dc5",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-5ns/precision_pilot_instance.pwr": "71714f5503f4a6d737fbea5f883118abdec2899d018b089c32085e383b483a9c",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-5ns/precision_pilot.rpt": "282e522662ea5ddee9af9654a8ddc9fab8aa34962b437ba5e4525af3153dc028",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-5ns/tool.log": "57c3309567b6f66ec4289d46bbe28c37ee8dcb95cbdf3a7f11852d293ddccea7",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-5ns/precision_pilot.pwr": "41501315981be3cf8c9ad61bac4ef8adb6ca62a91587fc4976d1b0555b4527a1",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003834,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.781e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003835,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 2,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "65f5774b947f712f72f41f7d5f0b29bba436513d98b3d33239635c29f6214008",
+      "netlist_sha256": "021f9e190dac03a92089e93d85033038f6632c9f35c947d7a08259969c84e071",
+      "netlist_adapter_sha256": "f055f0d0082c95daad9053259670d4d6057f5ce72d4c347905b4d0131bd44dc5",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-2ns/precision_pilot_instance.pwr": "92a5696c4e318d6a086b1f3e9658304992c8e376a158cd2f944a0fafa38bef9c",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-2ns/precision_pilot.rpt": "0deb85dc139ca0a2fa77dde0639012879dbdaee9a1ea9073ebf6bfc0624ccb72",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-2ns/tool.log": "a456be6872a74c5fd01176f11ecc429ac81da1b798fcae75a80f69b570adcc63",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-2ns/precision_pilot.pwr": "fc2af77ae81f6f632c16865eee6c27bebfc641894caa38c47da42894ab583256",
+        "artifacts/ppa/phase2/posit4_es0-mul-p2/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0004017,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.781e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0004017,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 3,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "e9e066ca7dd02212fecc1d39a7f317baba9ecfa8aae49368f415ab96d133078c",
+      "netlist_sha256": "74725405a0e791abc8809794af0a6a77865be4783ddc78630483810cf7928ad4",
+      "netlist_adapter_sha256": "835c687849b4549d9246db4768e33e503ad71ed33bee81f5049ee9218025ca99",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-10ns/precision_pilot_instance.pwr": "efd3b20437ad58c395f5dfe961b024dd463858da0a0e6579a97afad66c477c11",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-10ns/precision_pilot.rpt": "2bb439d334343ff431f7695c4140804ec3dc767de28cbded1210d3eb402aee05",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-10ns/tool.log": "b9aa7f2f85b5e9ba06e1ee9cc02ab0b1f889a38c2d6d0244b992754b0a80b07b",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-10ns/precision_pilot.pwr": "2595f3bde1e08383616de3427447be09f32bd629b0fabd386280f32f99531082",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003787,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 4.28e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003787,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 3,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "e9e066ca7dd02212fecc1d39a7f317baba9ecfa8aae49368f415ab96d133078c",
+      "netlist_sha256": "74725405a0e791abc8809794af0a6a77865be4783ddc78630483810cf7928ad4",
+      "netlist_adapter_sha256": "835c687849b4549d9246db4768e33e503ad71ed33bee81f5049ee9218025ca99",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-5ns/precision_pilot_instance.pwr": "09160f907faf8b7d07404e0914aef013b23cd0c383b96c081e542887f4e5a3f6",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-5ns/precision_pilot.rpt": "c25e11c71b136d2c3fc4018d2bc3edffe1ea13ecb47949319b90935c90b2542d",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-5ns/tool.log": "fcea658aa18e97859ec8300e81e021570ca5ecd48837ad1035064baf9da61121",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-5ns/precision_pilot.pwr": "d896d256b7ef8b3167a4d938047a97e313ba34425747876b9303700205badf2d",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0003852,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 4.28e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0003853,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "posit4_es0",
+      "internal_stages": 3,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "e9e066ca7dd02212fecc1d39a7f317baba9ecfa8aae49368f415ab96d133078c",
+      "netlist_sha256": "74725405a0e791abc8809794af0a6a77865be4783ddc78630483810cf7928ad4",
+      "netlist_adapter_sha256": "835c687849b4549d9246db4768e33e503ad71ed33bee81f5049ee9218025ca99",
+      "reports": {
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-2ns/precision_pilot_instance.pwr": "60d684e3f8556943ecad776ecc977b986d28c38ea6f3ccda19e62ae9e0f6532d",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-2ns/precision_pilot.rpt": "9b8908098a68c26f84fd921cb36ddf18f9eb2623f28d590c998d20b491d30c6b",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-2ns/tool.log": "678e93d34bf138e1658f55245eead37ce75cae0aee4c94e6a1f7fa767b549303",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-2ns/precision_pilot.pwr": "489ded3384b4f45c86e9dd264a4da7fd38ca84cd68f94c1a904437e2e4e4cd34",
+        "artifacts/ppa/phase2/posit4_es0-mul-p3/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.127,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0004049,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 4.28e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.000405,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 0,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "8e992cf792c966f676f39982f9dee015d50fe472d2e6cfce1cc7f3c7889dd1ac",
+      "netlist_sha256": "938beebc8fd7cb7d35a6b94cb8cf42109bee2e3890547df85060c9972273894a",
+      "netlist_adapter_sha256": "f1016cd6878c3553bfa51f9c5a0dc557fe472f4394981048dc471a09068efc4d",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p0/ista-10ns/precision_pilot_instance.pwr": "295e195053e43fe1c9bf2f758b3f47c29768207f2a02e8a60229b81c12f3a990",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-10ns/precision_pilot.rpt": "c687db623c6558805e4d2901efcdbd92768fcf248af5ad067ad26c9876746e1f",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-10ns/tool.log": "f9947c41ce3dbab6735a4018b8225ad670c1e369b5adc21d0d2c2bd0a43879f4",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-10ns/precision_pilot.pwr": "e29f96eeda8274a4666196c996870743eee027d84b846696e9e24d6622cf7b5b",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.359,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.402e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 1.96e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.404e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 0,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "8e992cf792c966f676f39982f9dee015d50fe472d2e6cfce1cc7f3c7889dd1ac",
+      "netlist_sha256": "938beebc8fd7cb7d35a6b94cb8cf42109bee2e3890547df85060c9972273894a",
+      "netlist_adapter_sha256": "f1016cd6878c3553bfa51f9c5a0dc557fe472f4394981048dc471a09068efc4d",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p0/ista-5ns/precision_pilot_instance.pwr": "7e7b3149cb79cb1bca30a51ea3af50d869b70f7cd092e7f9beead775821e1d92",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-5ns/precision_pilot.rpt": "c66db6d8675d5420de604671b53f5d0794e662ef089a57212ed81a60120cd045",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-5ns/tool.log": "e47116152dfa96921d242278438f39f364dfbf34b75b20e8521b9c44a5177f2b",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-5ns/precision_pilot.pwr": "78deaab2a0f06645716deda17031da5117dcdc8171809f2659065c59dc077577",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.359,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.712e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 1.96e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.714e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 0,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "8e992cf792c966f676f39982f9dee015d50fe472d2e6cfce1cc7f3c7889dd1ac",
+      "netlist_sha256": "938beebc8fd7cb7d35a6b94cb8cf42109bee2e3890547df85060c9972273894a",
+      "netlist_adapter_sha256": "f1016cd6878c3553bfa51f9c5a0dc557fe472f4394981048dc471a09068efc4d",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p0/ista-2ns/precision_pilot_instance.pwr": "9c01a4849433b7412d73f12de193929e41aa12cea11416faa655f806a6a1b548",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-2ns/precision_pilot.rpt": "fed359570df9ff6f7d031d1e33297ce4aa61267fc7e0ff0aa59d3d028df34c16",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-2ns/tool.log": "a91edc60a6175ae121adb7f4fb204cc7ea9ecc9fb32f469f06a2f71ef010c747",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-2ns/precision_pilot.pwr": "74e058198d17f9f179a74a2b55b8077c9dac875acffc477613aef024cf6522c3",
+        "artifacts/ppa/phase2/log4-mul-p0/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.359,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001038,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 1.96e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001038,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 1,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "55d2d0f7f2169bdc7c9c824ed6fde5fbbc1371599d8fadf8aa4f4701e9b0329e",
+      "netlist_sha256": "0d7078ded51b9f9d37367a655c6b2d39a0549f746ac55c881573b42572d42650",
+      "netlist_adapter_sha256": "95a70fd4857d2048b96183e559e2969687487f2ccd12d887fa935fd9c280ce11",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p1/ista-10ns/precision_pilot_instance.pwr": "803394fc877d9945b2aca8480760e12c6095027d48016cd54b7ec4bbef6e6ec9",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-10ns/precision_pilot.rpt": "fdcb1ecb4c7fd46f8bb4d0ff4ab329e30cca6b7c56b8225265d016f34b1dd60e",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-10ns/tool.log": "b851732f9afc00724583e962e8acfa01d717f5ef304972e1eea845f0c9939554",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-10ns/precision_pilot.pwr": "ada0458390f222a179af0db3de09f1b247fd3b8983a7493e5c3af92f97920e36",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.359,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 9.732e-05,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.459e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 9.735e-05,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 1,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "55d2d0f7f2169bdc7c9c824ed6fde5fbbc1371599d8fadf8aa4f4701e9b0329e",
+      "netlist_sha256": "0d7078ded51b9f9d37367a655c6b2d39a0549f746ac55c881573b42572d42650",
+      "netlist_adapter_sha256": "95a70fd4857d2048b96183e559e2969687487f2ccd12d887fa935fd9c280ce11",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p1/ista-5ns/precision_pilot_instance.pwr": "e3f0da9fce086c28199282f9dfac67db77b26a9f52fb40ba49d9d7262a68230e",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-5ns/precision_pilot.rpt": "5238aa70643dc13090d2999a07e5c1445c522af693371522f5b9afee2687be19",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-5ns/tool.log": "1ee6cb9efbea427324a3cdd2cbcb46a96a4c6c8eb82a0bd468ea1b4f9240228a",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-5ns/precision_pilot.pwr": "7947b67b80c6c870bd14e12cec691b32b96f4fdfe3fdd9253614c8a7493c1add",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.359,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001024,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.459e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001024,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 1,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "55d2d0f7f2169bdc7c9c824ed6fde5fbbc1371599d8fadf8aa4f4701e9b0329e",
+      "netlist_sha256": "0d7078ded51b9f9d37367a655c6b2d39a0549f746ac55c881573b42572d42650",
+      "netlist_adapter_sha256": "95a70fd4857d2048b96183e559e2969687487f2ccd12d887fa935fd9c280ce11",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p1/ista-2ns/precision_pilot_instance.pwr": "6513628a9054d564eef419b69aea09cb2a19cea758d48087e0349a8b0bd7b34f",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-2ns/precision_pilot.rpt": "255fd5e84e15affb0eca4db8a955437ec9e3256e20cdeee08673752aa04e88af",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-2ns/tool.log": "e769c5242ad263083910a79f7dcffade15ec9a7e956a99247755e603f763f901",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-2ns/precision_pilot.pwr": "054163b746edea0fe8969e18510c886c527d7e825ca0bd06a79d1ad76671d258",
+        "artifacts/ppa/phase2/log4-mul-p1/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.359,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001134,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.459e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001134,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 2,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "3ed987f6db783801fb7ef7d5bcd062c27c4eca26f3869910587dad688b11e457",
+      "netlist_sha256": "3d40bf326133e6cdd5b0101ba63c3c9c975db6ed95e1fdf3ca07b419397d6f1d",
+      "netlist_adapter_sha256": "34981149551e8f14cae812b3a9a8bc46ba4d760a47a34a1311189a795483a5f6",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p2/ista-10ns/precision_pilot_instance.pwr": "a01303f009b1bcdcff53d6180785a1c66e235e71f06ac952fc1cd1840269fd0d",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-10ns/precision_pilot.rpt": "1021332a0bea779d0e98a53aeedd62c00cf2db4632332a8906177043ccb630dc",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-10ns/tool.log": "093325dedeb279c7d4dceca258dc7a1c8f76e0517ff85061875a1e396db11c61",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-10ns/precision_pilot.pwr": "8f1cc24d38177be0e3574caa4c084b3b50e0d67ec2400a3fe092a2cd6435f165",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.341,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001476,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.991e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001476,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 2,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "3ed987f6db783801fb7ef7d5bcd062c27c4eca26f3869910587dad688b11e457",
+      "netlist_sha256": "3d40bf326133e6cdd5b0101ba63c3c9c975db6ed95e1fdf3ca07b419397d6f1d",
+      "netlist_adapter_sha256": "34981149551e8f14cae812b3a9a8bc46ba4d760a47a34a1311189a795483a5f6",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p2/ista-5ns/precision_pilot_instance.pwr": "19af850da73c00dfbccb0f6738e9cca9a5a02addc8f7d89d427454d54cbe2b08",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-5ns/precision_pilot.rpt": "fac668428740711127a3cf5b1926a0acc80ee94494a7e5edee0c53459eb86667",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-5ns/tool.log": "45d60283d8744e732fdf2e549081184b10f6f66f92c16951d31fc493163a647f",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-5ns/precision_pilot.pwr": "ede34a029181c0e72e2c0af4a2b2ea883a2865172b288559e08b5881dc5f56d5",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.341,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001537,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.991e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001537,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 2,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "3ed987f6db783801fb7ef7d5bcd062c27c4eca26f3869910587dad688b11e457",
+      "netlist_sha256": "3d40bf326133e6cdd5b0101ba63c3c9c975db6ed95e1fdf3ca07b419397d6f1d",
+      "netlist_adapter_sha256": "34981149551e8f14cae812b3a9a8bc46ba4d760a47a34a1311189a795483a5f6",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p2/ista-2ns/precision_pilot_instance.pwr": "a1324914ea0c4d16452d7d09ffe6984bef91b86c6d40ced3bc5e6cb818d78feb",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-2ns/precision_pilot.rpt": "8a138bdcfc6b64ed4721262f2807ccf01d452e9fe9974e78c3ea3597619642e2",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-2ns/tool.log": "488741909675d079dd006b21a623ab1ee6e36bdc5c81f35bbd3c7810401e5131",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-2ns/precision_pilot.pwr": "1039692019a12722ce91546a043c0620537f8dc07f37c13c3922b85827a0551f",
+        "artifacts/ppa/phase2/log4-mul-p2/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.341,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001719,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 2.991e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001719,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 3,
+      "period_ns": 10,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "1c963088915f9366163ee22601d20cd588004b910a696568295e84015236f8d9",
+      "netlist_sha256": "b1af119b76fc14c33e7fde0217e25fad9e06a77aa65b4e8e7bbdcc82bcc40eee",
+      "netlist_adapter_sha256": "5d4b1489a89708384c0c2c8c1f45e275a78961ed7b11cfde7c6f0ac3cfc66ace",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p3/ista-10ns/precision_pilot_instance.pwr": "08afb9242c456c0398a704149b840ebfb95bc65e0db7a40f8760e4b115c619b8",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-10ns/precision_pilot.rpt": "ecc044c01f10c6fb7a5e0925b24f592d98aa188824b7bbbcab61715c8cd0bf5c",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-10ns/tool.log": "36ec9df01f90a36532ce612699e4991d390a8f14a4762e77aea6d9a3477e9b96",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-10ns/precision_pilot.pwr": "86349c77d4f04975ec8382107674921b824db2c146f788e958332f3bc9fe3080",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-10ns/constraints.sdc": "05b62d5062189eb2f5b7aebca9b20fb025935dbefc94992113c07f164e29a5ce"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 9.341,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.000149,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.49e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001491,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 3,
+      "period_ns": 5,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "1c963088915f9366163ee22601d20cd588004b910a696568295e84015236f8d9",
+      "netlist_sha256": "b1af119b76fc14c33e7fde0217e25fad9e06a77aa65b4e8e7bbdcc82bcc40eee",
+      "netlist_adapter_sha256": "5d4b1489a89708384c0c2c8c1f45e275a78961ed7b11cfde7c6f0ac3cfc66ace",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p3/ista-5ns/precision_pilot_instance.pwr": "eccab0b5e474bdfe204281e1cc4e65630be1e72949e3f1df6e07f4546e6a28e4",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-5ns/precision_pilot.rpt": "2e361c6f630d499f68008c53b74f62429d1134d4f1e3f4756ad5cec99ca095ef",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-5ns/tool.log": "bde0b2229f2dc30d33fee7785670b02398a3454026609facec6a2688e9c9f54c",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-5ns/precision_pilot.pwr": "8b24116b08f2779a9209cd14c49797c2af7fecb5c59f564d9b53f19dcb8da023",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-5ns/constraints.sdc": "e3ed1a7d642ce3cfc9d57c0d194452f85f0163abff6e5f2179aee9e883e148a4"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 4.341,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001556,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.49e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001556,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    },
+    {
+      "format": "log4",
+      "internal_stages": 3,
+      "period_ns": 2,
+      "returncode": 0,
+      "status": "measured",
+      "mapped_netlist_sha256": "1c963088915f9366163ee22601d20cd588004b910a696568295e84015236f8d9",
+      "netlist_sha256": "b1af119b76fc14c33e7fde0217e25fad9e06a77aa65b4e8e7bbdcc82bcc40eee",
+      "netlist_adapter_sha256": "5d4b1489a89708384c0c2c8c1f45e275a78961ed7b11cfde7c6f0ac3cfc66ace",
+      "reports": {
+        "artifacts/ppa/phase2/log4-mul-p3/ista-2ns/precision_pilot_instance.pwr": "d918dd6b765451b1f24bcbbc1fa0719157bdc2ba7fdc9ba609bb55fc5a8a3e50",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-2ns/precision_pilot.rpt": "905b6f99939f1cc0ef6ce3005e1de885d195cc45ed4f3c70a26124f33a0cb174",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-2ns/tool.log": "63fe56d260fa13741b9397b311703d157502b6a96cfa8716a7fc9d9eeba8f3f2",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-2ns/precision_pilot.pwr": "4c5643ed1772c41d2da17daeadfd158db7db4f60e1aaa40f1263621027186480",
+        "artifacts/ppa/phase2/log4-mul-p3/ista-2ns/constraints.sdc": "c2218c09fd88ff32535e00ae26bef8a8e87c4d0992e7c91482e4aab2495050f5"
+      },
+      "normalized": {
+        "metrics": {
+          "setup_worst_slack": {
+            "value": 1.341,
+            "unit": "ns"
+          },
+          "setup_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "hold_worst_slack": {
+            "value": 0.012,
+            "unit": "ns"
+          },
+          "hold_tns": {
+            "value": 0.0,
+            "unit": "ns"
+          },
+          "net_switch_power": {
+            "value": 0.0,
+            "unit": "W"
+          },
+          "cell_internal_power": {
+            "value": 0.0001753,
+            "unit": "W"
+          },
+          "cell_leakage_power": {
+            "value": 3.49e-08,
+            "unit": "W"
+          },
+          "total_power": {
+            "value": 0.0001754,
+            "unit": "W"
+          }
+        },
+        "report_git_version": "aa25008b3778a76ae1975c839d4cc459f7f7b3b7",
+        "parser_version": "2.0.0",
+        "timing_met": true,
+        "limitations": [
+          "ideal clock, no placement/routing or extracted parasitics",
+          "vectorless activity, not workload power or energy",
+          "net switching power may be absent in this tool build"
+        ]
+      }
+    }
+  ]
+}

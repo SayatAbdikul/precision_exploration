@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0", "name": "fp32_e8m23_accumulator", "family": "float",
+  "bits": 32, "signed": true, "encoding": "sign_e8m23", "rounding": "rne",
+  "overflow": "infinity", "underflow": "subnormal", "zero": "signed_zero",
+  "float": {"exp_bits": 8, "mantissa_bits": 23, "bias": 127, "subnormals": true, "nan": true, "infinity": true},
+  "scaling": {"mode": "none", "granularity": "none"}
+}

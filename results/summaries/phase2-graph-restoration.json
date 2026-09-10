@@ -1,0 +1,82 @@
+{
+  "schema_version": "2.0.0",
+  "torch": "2.3.0+cpu",
+  "records": [
+    {
+      "model": "resnet18",
+      "status": "frozen_hash_reproduced",
+      "expected_sha256": "b92936dfe0439eae4d3795c802bae269d6b8a3a8bf423c3b8b8839420759c098",
+      "actual_sha256": "b92936dfe0439eae4d3795c802bae269d6b8a3a8bf423c3b8b8839420759c098",
+      "artifact": "artifacts/folded_graphs/resnet18-b92936dfe0439eae4d3795c802bae269d6b8a3a8bf423c3b8b8839420759c098.json",
+      "fold_verification": {
+        "status": "passed",
+        "probes": [
+          "zeros",
+          "linear_ramp_minus1_plus1"
+        ],
+        "rtol": 0.0001,
+        "atol": 0.0001,
+        "max_absolute_error": 8.106231689453125e-06,
+        "graph_repeat_identical": true,
+        "remaining_batchnorm": 0
+      }
+    },
+    {
+      "model": "mobilenet_v2",
+      "status": "frozen_hash_reproduced",
+      "expected_sha256": "9be67052a626cefa0fae5cd4a030d556cfb443727aa8f5647158fcc0465bd795",
+      "actual_sha256": "9be67052a626cefa0fae5cd4a030d556cfb443727aa8f5647158fcc0465bd795",
+      "artifact": "artifacts/folded_graphs/mobilenet_v2-9be67052a626cefa0fae5cd4a030d556cfb443727aa8f5647158fcc0465bd795.json",
+      "fold_verification": {
+        "status": "passed",
+        "probes": [
+          "zeros",
+          "linear_ramp_minus1_plus1"
+        ],
+        "rtol": 0.0001,
+        "atol": 0.0001,
+        "max_absolute_error": 1.5735626220703125e-05,
+        "graph_repeat_identical": true,
+        "remaining_batchnorm": 0
+      }
+    },
+    {
+      "model": "mobilenet_v3_large",
+      "status": "frozen_hash_reproduced",
+      "expected_sha256": "d3dea5a9571995cc33d3c0093823ba71e719fe9cb59dc8715adeb25d45bb394e",
+      "actual_sha256": "d3dea5a9571995cc33d3c0093823ba71e719fe9cb59dc8715adeb25d45bb394e",
+      "artifact": "artifacts/folded_graphs/mobilenet_v3_large-d3dea5a9571995cc33d3c0093823ba71e719fe9cb59dc8715adeb25d45bb394e.json",
+      "fold_verification": {
+        "status": "passed",
+        "probes": [
+          "zeros",
+          "linear_ramp_minus1_plus1"
+        ],
+        "rtol": 0.0001,
+        "atol": 0.0001,
+        "max_absolute_error": 0.00016117095947265625,
+        "graph_repeat_identical": true,
+        "remaining_batchnorm": 0
+      }
+    },
+    {
+      "model": "yolov8n",
+      "status": "frozen_hash_reproduced",
+      "expected_sha256": "fbcf91794d32e9d9e3ce1e5e57352baffdac822e0771d4d6923b710ed117ff31",
+      "actual_sha256": "fbcf91794d32e9d9e3ce1e5e57352baffdac822e0771d4d6923b710ed117ff31",
+      "artifact": "artifacts/folded_graphs/yolov8n-fbcf91794d32e9d9e3ce1e5e57352baffdac822e0771d4d6923b710ed117ff31.json",
+      "fold_verification": {
+        "status": "passed",
+        "probes": [
+          "zeros",
+          "linear_ramp_minus1_plus1"
+        ],
+        "rtol": 0.0001,
+        "atol": 0.0001,
+        "max_absolute_error": 0.001312255859375,
+        "graph_repeat_identical": true,
+        "remaining_batchnorm": 0
+      }
+    }
+  ]
+}

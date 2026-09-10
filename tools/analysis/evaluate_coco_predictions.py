@@ -15,6 +15,7 @@ def main() -> None:
     parser.add_argument("--predictions", type=Path, required=True)
     parser.add_argument("--normalized", type=Path, required=True)
     parser.add_argument("--summary", type=Path, required=True)
+    parser.add_argument("--category-mapping",choices=("coco80_index","official"),default="coco80_index")
     args = parser.parse_args()
 
     annotations = json.loads(args.annotations.read_text(encoding="utf-8"))
@@ -22,9 +23,12 @@ def main() -> None:
     predictions = json.loads(args.predictions.read_text(encoding="utf-8"))
     for prediction in predictions:
         index = int(prediction["category_id"])
-        if not 0 <= index < len(category_ids):
-            raise ValueError(f"zero-based category outside COCO80 range: {index}")
-        prediction["category_id"] = category_ids[index]
+        if args.category_mapping == "coco80_index":
+            if not 0 <= index < len(category_ids):
+                raise ValueError(f"zero-based category outside COCO80 range: {index}")
+            prediction["category_id"] = category_ids[index]
+        elif index not in category_ids:
+            raise ValueError(f"unknown official COCO category: {index}")
     args.normalized.parent.mkdir(parents=True, exist_ok=True)
     args.normalized.write_text(json.dumps(predictions, separators=(",", ":")) + "\n", encoding="utf-8")
 
@@ -39,7 +43,7 @@ def main() -> None:
     summary = {
         "schema_version": "1.0.0", "model": "yolov8n", "dataset": "COCO 2017 val2017",
         "image_count": len(annotations["images"]), "evaluator": "pycocotools.COCOeval",
-        "category_mapping": "Ultralytics COCO80 index to official sorted COCO category ID",
+        "category_mapping": "Ultralytics COCO80 index to official sorted COCO category ID" if args.category_mapping == "coco80_index" else "official COCO category IDs preserved",
         "metrics": {"map50_95": float(evaluator.stats[0]), "map50": float(evaluator.stats[1])},
         "predictions": {"path": str(args.normalized), "sha256": hashlib.sha256(args.normalized.read_bytes()).hexdigest(),
                         "size_bytes": args.normalized.stat().st_size},

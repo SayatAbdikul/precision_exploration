@@ -1,0 +1,16 @@
+{
+  "schema_version": "2.0.0",
+  "job_sha256": "02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6",
+  "run_id": 1,
+  "status": "COMPLETED",
+  "error": null,
+  "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+  "model": "yolov8n",
+  "evaluation": {
+    "name": "coco_screen_1k",
+    "sha256": "e0fa725cad767b7937250e1459038381d059d96b64fb33e275fbc29c85a834d8",
+    "selection": "first_eight_by_sha256_v1"
+  },
+  "artifacts": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6",
+  "database": "results/databases/phase2-workload-02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6.sqlite"
+}

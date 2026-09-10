@@ -31,7 +31,7 @@ Repository status values are **open/in-repo**, **open/external**, **accepted**, 
 |---|---|---|---|---|
 | D1 | Initial candidate manifest set | Explicit definitions, relevance, implementability, redundancy review | Oracle tables, kernels, screening job count; preserve all major families | Accepted 2026-09-06; standard-semantics correction 2026-09-08 (see D1 record); set SHA-256 `986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b` |
 | D2 | Fast backend strategy per family/width | Algorithmic/LUT/predecoded microbenchmarks plus exhaustive correctness | Runtime/packing only; scientific result must remain unchanged | Open/in-repo |
-| D3 | Include EfficientNet in the main full suite | Measured exact-engine speed and compute budget | Workload breadth and job count | Open/in-repo |
+| D3 | Include EfficientNet in the main full suite | Measured exact-engine speed and compute budget | Workload breadth and job count | Accepted 2026-09-09: retain as optional; four core workloads remain mandatory (see D3 record) |
 | D4 | Promotion from 1k to 5k/10k | Paired statistics, confidence, failure diagnosis, family/hardware context | Numerical survival; uncertainty promotes | Open/in-repo |
 | D5 | Which promoted configs receive full ablations | 1k/10k quality, layer sensitivity, family role, rough hardware cost | Controls W/A × accumulator × scale expansion | Open/in-repo |
 | D6 | Reasonable Experiment B policy per family | Pilot benefit and support-hardware cost | Final optimized PTQ, scale RTL, metadata, memory | Open/in-repo |
@@ -78,3 +78,13 @@ No gate is closed merely because a provisional value appears in the source plan.
 - Date: 2026-09-06.
 - Evidence: complete manifests under `public/formats/manifests/accepted/`, aggregate SHA-256 `986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b`, and the exhaustive table index under `public/formats/conformance/`.
 - Scope: initial public candidate set only. D2–D11 remain open.
+
+## D3 acceptance record
+
+- Decision: retain EfficientNet as optional; keep ResNet-18, MobileNetV2, MobileNetV3 Large and YOLOv8n as the main suite.
+- Authority: implementation decision under the owner's instruction to finish Phase 2; preserves the existing core scope.
+- Date: 2026-09-09.
+- Evidence and rationale: `docs/decisions/d2-d3-phase2-runtime-and-breadth.md` and the reproducible `results/summaries/phase2-decision-evidence.json` with artifact hashes. Eight native-resolution YOLO images measure 107.32 seconds/image on CUDA; a 1k screen at that one configuration projects to 29.81 hours before other pipeline costs.
+- Budget policy: no additional mandatory workload is allocated while core execution is already expensive and no incremental compute allowance has been committed. The total available project budget remains unspecified; this decision does not invent one.
+- Reopen when: measured core-screening throughput and an explicit incremental budget justify staging and timing EfficientNet.
+- Scientific effect: no core workload or candidate family is removed; no claim is made about EfficientNet results. D2 remains open for its missing profiling evidence.

@@ -1,0 +1,63 @@
+{
+  "schema_version": "2.0.0",
+  "date": "2026-09-09",
+  "phase_status": "in_progress",
+  "source_sha256": "ea2304fa6721e695b61a858fd95a049f5005d111100fa5a84ec5d0fae036d029",
+  "checks": {
+    "current_source_reports": 8,
+    "benchmark_cross_backend_matches": 14,
+    "classifier_layer_matches": {
+      "resnet18": 49,
+      "mobilenet_v2": 100,
+      "mobilenet_v3_large": 140
+    },
+    "sta_power_reports_verified": 48,
+    "sta_setup_hold_passes": 48,
+    "frozen_models": {
+      "resnet18": "checkpoint, deployment graph and preprocessing references verified",
+      "mobilenet_v2": "checkpoint, deployment graph and preprocessing references verified",
+      "mobilenet_v3_large": "checkpoint, deployment graph and preprocessing references verified",
+      "yolov8n": "checkpoint, deployment graph and preprocessing references verified"
+    }
+  },
+  "pytest_cpu": {
+    "tests": 130,
+    "failures": 4,
+    "passed": 126,
+    "unavailable_fixture_tests": [
+      "tests.integration.test_phase1_inputs::test_resolved_phase1_configuration_verifies_real_references",
+      "tests.integration.test_phase1_inputs::test_real_configuration_lifecycle_and_execution_revalidation",
+      "tests.integration.test_phase1_inputs::test_default_production_submission_resolves_frozen_witness",
+      "tests.regression.test_phase1_regression::test_frozen_fp32_baseline_metrics_and_prediction_hashes"
+    ],
+    "junit_path": "artifacts/conformance/phase2/pytest-cpu.xml",
+    "junit_sha256": "48cccc30c2592627df4e49974f37ddd2ea0a1dba7da75b88896687b22d31ebde"
+  },
+  "pytest_cuda": {
+    "command": "PRECISION_TEST_BACKEND=cuda OMP_NUM_THREADS=4 .venv/bin/python -m pytest tests/conformance/test_native_engine.py -q",
+    "passed": 35,
+    "failures": 0
+  },
+  "remaining_gates": [
+    "frozen ImageNet/COCO image payloads and full FP32 baseline reproduction",
+    "native-resolution fixed-image checks",
+    "detector and MX/BFP convolution lowering",
+    "native non-dyadic formats and justified family-specific wide accumulators",
+    "frozen calibration integration and production workload execution",
+    "GPU counter metrics and D2/D3 decisions"
+  ],
+  "summary_hashes": {
+    "results/summaries/phase2-accumulator-bounds.json": "7d04aec7d297bce689e4a0f541a1e0f571bd6a1036caf33729c6e8706f49cbd4",
+    "results/summaries/phase2-benchmark-cpp.json": "b9ee7361669e87f11bbd5ae88dc51abb0c7a7e08f225f958d666af2697248f8a",
+    "results/summaries/phase2-benchmark-cuda.json": "9fa5b81c1df0d4d497832a5ec3a2c77efe6517d4d6c18c11d423f609436e0382",
+    "results/summaries/phase2-conformance-cpp.json": "40f2fb50494efbdf2079a842e46db46833344ab2c49a59e15db47819914dc5ac",
+    "results/summaries/phase2-conformance-cuda.json": "da93bf0e13ca41b2eb1b2e7f3f32f4f4871a70d434e0e316df1b7759b89a40a9",
+    "results/summaries/phase2-cuda-profile.json": "9cef7453ee308f8ca449f1972a44005e22432715e1579b5d911f34454f68067f",
+    "results/summaries/phase2-graph-restoration.json": "85a69c9a96561f07f7f70378dce7af3dbd94938a08af16ef0c2f897e95629ae4",
+    "results/summaries/phase2-hardware-pilot.json": "77857ab6a4d1974940abcc6bd49fd04469a7b8470d3ee11bf2a634899ffcad80",
+    "results/summaries/phase2-mobilenet_v2-synthetic-smoke.json": "1d23dbe2e4f961dcf9c87e873d170ac476259be0bbd26b0bc882e528e79f5253",
+    "results/summaries/phase2-mobilenet_v3_large-synthetic-smoke.json": "021e3f6c1725dae212dc86c76203e6540298bfe926626bea84cc8b19be3c09f3",
+    "results/summaries/phase2-resnet18-synthetic-smoke.json": "07abb69e65c876a4d0d12a387e750acd5e100915fc75344e5db631ffadc2069a",
+    "results/summaries/phase2-sta-power-pilot.json": "989cce79f7a71f1c06d6239ee611cd96f7ee27416f304d1b20e4d0425e79f4a0"
+  }
+}

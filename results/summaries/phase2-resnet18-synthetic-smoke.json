@@ -1,0 +1,3724 @@
+{
+  "schema_version": "2.0.0",
+  "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+  "model": "resnet18",
+  "input_shape": [
+    1,
+    3,
+    32,
+    32
+  ],
+  "input": "deterministic float32 linear ramp [-1,1], quantized to FP6",
+  "scope": "synthetic-input architecture integration; not ImageNet quality or frozen-image validation",
+  "graph_sha256": "5c6b3fa18c73dc94020f057a2dd0103f6fc8249e5be7f605583ff9f6ae513aae",
+  "graph_artifact": "artifacts/folded_graphs/resnet18-phase2-5c6b3fa18c73dc94020f057a2dd0103f6fc8249e5be7f605583ff9f6ae513aae.json",
+  "backend_equality_checked": true,
+  "records": [
+    {
+      "backend": "cpp",
+      "seconds": 21.254377769000712,
+      "layers": {
+        "conv1": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "067cb30618354f2057eeaff5c6e1602a287901e5226ca10d75911e5621ff2a8b"
+        },
+        "relu": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e75dd9bd8435f3c18475c98180adc65f38ea9a9079f5731a5814b6ca0a927454"
+        },
+        "maxpool": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "458e64dfc60e74c6d7ae8d554d997cd0b3797d5860c331fa367428f627713c8b"
+        },
+        "layer1_0_conv1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "de52fcbd757de28a476f5a66bdc1bf20209999a1cd2d3d0dbfe82ab5d32284b1"
+        },
+        "layer1_0_relu": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "157bd1aeceaef866cccfa1a23dc14d8a2761bd8ce16391801ade257c222bdb90"
+        },
+        "layer1_0_conv2": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "02807aa59c0239512c4478f91d5023de9d4340efe4521236c06b3bf9e281f6b4"
+        },
+        "add": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "76ea5ea558accdc85dd419a44ee9c80f0a770b3fd724fef8020591ac67091c05"
+        },
+        "layer1_0_relu_1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a01c8ab0fa5ea90293b2e0c5a7908fd4f51f41deb9ed482fcc64c39e80e10261"
+        },
+        "layer1_1_conv1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c0a8339f3d812f0fb74e43b48a710abd473e2ad8e0b0162691e80bedbf857415"
+        },
+        "layer1_1_relu": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b565f877d4132e47ea70cf42b3ba95d0c33a320f2a77776591d84369c4945793"
+        },
+        "layer1_1_conv2": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9ec5178df96b52f7fd90792c2848b15ae33b8648a9496dd45752003fbaf0f57f"
+        },
+        "add_1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7916f5a510c13e313d20ba09879e70104d9042e164431da4da7c128d44c730ab"
+        },
+        "layer1_1_relu_1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f1a25b8bd886391d658e938a4f43f82e704775d8e7c7882aced0271d1fe7c88c"
+        },
+        "layer2_0_conv1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "fc602ebc1745c672ccc0f69289703e5655c3dda9b3e864dba1d352baeeeb45bb"
+        },
+        "layer2_0_relu": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "36fad2fef5f432d23178c4d242a4c05a36b31045150f62fc0f90e69feb2c6c91"
+        },
+        "layer2_0_conv2": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "04323a673407a3b510c258608f91d96004ba79cbc4d5932adf3a76ebeea07256"
+        },
+        "layer2_0_downsample_0": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f85c2c39ede8d3b9a69c25697ba83df2fa98e6dae2315bd48044e9f18f42eede"
+        },
+        "add_2": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7aaf2623a9a810f9538abc56c55d499f7349dbae209082795fa7f39d2c471eef"
+        },
+        "layer2_0_relu_1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8d971c0ddbf53d2aeffa57e7cc2ecdc2c1739495bc91b00426bd83ba278c91d4"
+        },
+        "layer2_1_conv1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "31c722771b5dae2d5c5e8bf2c80fad24f363cf6518635bc0cb231c1c7856d6e5"
+        },
+        "layer2_1_relu": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bcb0ad6332d3e47245d1d8f5ce9e925d71467d6257463194be9e3282eec6a5f5"
+        },
+        "layer2_1_conv2": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9703ea927d35deb7bc4d81221f862855f7e11cf42f455bdf96fec2f9573dd8bd"
+        },
+        "add_3": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "63c3a814dc9480093387714c647d12f421a57e5456b6a45fc58a7a21ac2a8027"
+        },
+        "layer2_1_relu_1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f379a1143992d6f53cb448be18431128a201edff52f149edf37c765d706a2408"
+        },
+        "layer3_0_conv1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "784d727a15ed11df5e20fcdfa552bad0deaed85419cfe43a8bdb9058e3f58550"
+        },
+        "layer3_0_relu": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e299375a52aacece46db29087b7ff865c8ad1ad84948432c1106a10930669a95"
+        },
+        "layer3_0_conv2": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4b93b6dadd7f4b955a7a06107dbf87dc9d03629a7ce96507329f181fe91240de"
+        },
+        "layer3_0_downsample_0": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "11fc06f8334fad29a4d7a78dc46301402bb7c7247034939e82dc382e9491d6bc"
+        },
+        "add_4": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5500289ae04b9d4edadfad56d56cfe8a65e7bb3d36b4135f0e6efc3a205a2c7a"
+        },
+        "layer3_0_relu_1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "333f5e10d00538240f2e2558cbac7e1d49a2458b93820e651910d8017f675883"
+        },
+        "layer3_1_conv1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "907441a171a0c562803c8da5186cfb61bcc007ef92ac3e860c25aab55736a46d"
+        },
+        "layer3_1_relu": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "663db495f640ee273a25e83ccacf89cf78ea800a08ee4857006c48ec73e0cb60"
+        },
+        "layer3_1_conv2": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "57e330217aa008c98b54b3db402b195ff69e73083f3bfb971621a54811730b9f"
+        },
+        "add_5": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "80f0c8878948518528b4292b3411bf27e0e668e50e336ba270390a95a0b8e461"
+        },
+        "layer3_1_relu_1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8d9436f852406539c479cbf80bd363ead31a6fe8a81171e6a297f93d83b6c064"
+        },
+        "layer4_0_conv1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b6fd8bff6a97ff9465dc21cf4f66321edfcfd3d233899b1846255f2f13070056"
+        },
+        "layer4_0_relu": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d304283c9488417fe5b500f5cc7c48320d0be994185984d41ec6e55770ed1852"
+        },
+        "layer4_0_conv2": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "926900ea281d6858dcc19a03be77c4ea5e80c8134411e3e4f979bc32b8d4e48d"
+        },
+        "layer4_0_downsample_0": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7a31effc6feffbc7f02a533f521497ee60c9f826b0615e90688f04e22db995bd"
+        },
+        "add_6": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2bf399f7ff7ce2948965e24f28c5ef3318ccec32ff93e07bde9dd75fecbac866"
+        },
+        "layer4_0_relu_1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "eab249e1f8c01befdde57a7de64131324783e8e65053b5ec355c37be490853d5"
+        },
+        "layer4_1_conv1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6c2ffa2c762308783b3354dbccc4e3ad7a978966ae10c97e1e98bf8219064f0c"
+        },
+        "layer4_1_relu": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5a29faa7aa19566e4a7e2ad0a21294cb058392f19ea4d69813a20ad756fb361e"
+        },
+        "layer4_1_conv2": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f5ed5fcac594b80193e5ded7570b4a5bffa5cb7bcea4b6ac68aad214940e5f62"
+        },
+        "add_7": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8233bc4d89362cac429a36f527410eb477ea640e7812f9a84b4d5a2d16f94915"
+        },
+        "layer4_1_relu_1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "07845ac127985be9cf3308ecaac81a2b32aaf1a4cdc04dfdb2e33ea4d3b843fa"
+        },
+        "avgpool": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "07845ac127985be9cf3308ecaac81a2b32aaf1a4cdc04dfdb2e33ea4d3b843fa"
+        },
+        "flatten": {
+          "shape": [
+            1,
+            512
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bde1cfeab19a91a5ea7a9403fd8f303b155ce637373d492b5baee20078440e1f"
+        },
+        "fc": {
+          "shape": [
+            1,
+            1000
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4baaafaa4309b26abc8e2b6b3f9596c6f2a1fc2d43e39a27ea868cf36c7dae85"
+        }
+      },
+      "outputs": {
+        "fc": {
+          "shape": [
+            1,
+            1000
+          ],
+          "codes": [
+            44,
+            13,
+            17,
+            8,
+            4,
+            15,
+            34,
+            19,
+            18,
+            35,
+            1,
+            16,
+            17,
+            1,
+            19,
+            15,
+            18,
+            17,
+            17,
+            15,
+            41,
+            18,
+            13,
+            14,
+            37,
+            10,
+            42,
+            45,
+            14,
+            38,
+            6,
+            45,
+            40,
+            15,
+            16,
+            43,
+            9,
+            3,
+            37,
+            15,
+            37,
+            7,
+            33,
+            47,
+            0,
+            4,
+            42,
+            34,
+            51,
+            43,
+            44,
+            3,
+            34,
+            7,
+            42,
+            13,
+            13,
+            12,
+            14,
+            7,
+            2,
+            43,
+            46,
+            5,
+            17,
+            18,
+            6,
+            32,
+            14,
+            2,
+            1,
+            9,
+            12,
+            10,
+            3,
+            17,
+            44,
+            41,
+            10,
+            16,
+            17,
+            19,
+            16,
+            17,
+            10,
+            19,
+            16,
+            20,
+            19,
+            21,
+            18,
+            20,
+            19,
+            17,
+            18,
+            18,
+            13,
+            15,
+            41,
+            48,
+            33,
+            46,
+            16,
+            47,
+            51,
+            36,
+            43,
+            8,
+            14,
+            18,
+            15,
+            14,
+            21,
+            14,
+            17,
+            16,
+            43,
+            9,
+            17,
+            11,
+            9,
+            17,
+            16,
+            13,
+            11,
+            17,
+            13,
+            15,
+            44,
+            33,
+            49,
+            7,
+            34,
+            40,
+            13,
+            18,
+            7,
+            38,
+            5,
+            15,
+            17,
+            37,
+            14,
+            41,
+            3,
+            43,
+            13,
+            12,
+            8,
+            5,
+            12,
+            2,
+            49,
+            4,
+            48,
+            6,
+            47,
+            45,
+            49,
+            49,
+            48,
+            43,
+            46,
+            48,
+            12,
+            50,
+            48,
+            42,
+            40,
+            49,
+            32,
+            47,
+            44,
+            44,
+            46,
+            45,
+            46,
+            47,
+            45,
+            50,
+            49,
+            44,
+            8,
+            43,
+            44,
+            11,
+            8,
+            40,
+            1,
+            8,
+            41,
+            41,
+            34,
+            47,
+            9,
+            46,
+            48,
+            47,
+            47,
+            47,
+            46,
+            44,
+            17,
+            16,
+            45,
+            44,
+            47,
+            9,
+            13,
+            2,
+            10,
+            48,
+            9,
+            48,
+            45,
+            5,
+            44,
+            9,
+            37,
+            45,
+            51,
+            48,
+            16,
+            36,
+            49,
+            45,
+            1,
+            39,
+            33,
+            38,
+            41,
+            45,
+            43,
+            47,
+            49,
+            49,
+            48,
+            49,
+            43,
+            46,
+            49,
+            44,
+            49,
+            47,
+            46,
+            45,
+            45,
+            8,
+            44,
+            38,
+            40,
+            9,
+            51,
+            49,
+            43,
+            5,
+            44,
+            7,
+            41,
+            6,
+            50,
+            49,
+            52,
+            45,
+            47,
+            10,
+            11,
+            32,
+            44,
+            42,
+            9,
+            49,
+            43,
+            33,
+            52,
+            49,
+            41,
+            47,
+            0,
+            1,
+            2,
+            50,
+            49,
+            49,
+            35,
+            47,
+            50,
+            48,
+            37,
+            46,
+            48,
+            50,
+            51,
+            39,
+            37,
+            48,
+            11,
+            48,
+            49,
+            10,
+            13,
+            16,
+            0,
+            15,
+            9,
+            18,
+            15,
+            13,
+            17,
+            14,
+            11,
+            16,
+            10,
+            16,
+            38,
+            15,
+            17,
+            14,
+            16,
+            16,
+            10,
+            6,
+            48,
+            19,
+            45,
+            48,
+            7,
+            17,
+            17,
+            19,
+            47,
+            48,
+            41,
+            16,
+            17,
+            43,
+            34,
+            46,
+            45,
+            50,
+            48,
+            51,
+            51,
+            51,
+            45,
+            38,
+            49,
+            51,
+            7,
+            44,
+            47,
+            50,
+            53,
+            49,
+            47,
+            45,
+            42,
+            36,
+            1,
+            9,
+            46,
+            1,
+            39,
+            11,
+            36,
+            49,
+            49,
+            50,
+            43,
+            49,
+            43,
+            0,
+            43,
+            43,
+            45,
+            47,
+            12,
+            9,
+            41,
+            13,
+            41,
+            45,
+            1,
+            47,
+            45,
+            48,
+            39,
+            8,
+            7,
+            41,
+            13,
+            47,
+            12,
+            17,
+            36,
+            16,
+            16,
+            19,
+            19,
+            49,
+            52,
+            43,
+            41,
+            3,
+            9,
+            42,
+            49,
+            5,
+            2,
+            32,
+            10,
+            9,
+            14,
+            49,
+            48,
+            13,
+            41,
+            5,
+            1,
+            36,
+            34,
+            42,
+            51,
+            49,
+            4,
+            48,
+            45,
+            40,
+            12,
+            13,
+            4,
+            1,
+            43,
+            14,
+            37,
+            1,
+            41,
+            37,
+            15,
+            47,
+            16,
+            16,
+            36,
+            36,
+            38,
+            10,
+            46,
+            6,
+            12,
+            46,
+            16,
+            38,
+            35,
+            48,
+            42,
+            14,
+            44,
+            35,
+            4,
+            2,
+            36,
+            48,
+            34,
+            17,
+            39,
+            49,
+            50,
+            2,
+            5,
+            32,
+            16,
+            45,
+            38,
+            2,
+            47,
+            42,
+            9,
+            47,
+            6,
+            34,
+            42,
+            45,
+            42,
+            45,
+            10,
+            36,
+            51,
+            12,
+            12,
+            1,
+            46,
+            44,
+            45,
+            48,
+            0,
+            44,
+            42,
+            48,
+            45,
+            4,
+            6,
+            52,
+            15,
+            0,
+            14,
+            14,
+            10,
+            43,
+            10,
+            18,
+            16,
+            40,
+            47,
+            44,
+            42,
+            14,
+            44,
+            13,
+            2,
+            11,
+            32,
+            20,
+            3,
+            41,
+            48,
+            40,
+            0,
+            0,
+            45,
+            8,
+            3,
+            49,
+            45,
+            46,
+            17,
+            1,
+            38,
+            36,
+            44,
+            48,
+            17,
+            15,
+            13,
+            44,
+            12,
+            33,
+            2,
+            50,
+            13,
+            1,
+            46,
+            11,
+            1,
+            44,
+            38,
+            9,
+            46,
+            45,
+            33,
+            41,
+            10,
+            3,
+            40,
+            3,
+            51,
+            46,
+            46,
+            11,
+            47,
+            18,
+            48,
+            46,
+            16,
+            43,
+            17,
+            13,
+            42,
+            10,
+            43,
+            40,
+            13,
+            45,
+            18,
+            48,
+            12,
+            35,
+            47,
+            0,
+            15,
+            9,
+            14,
+            6,
+            10,
+            8,
+            2,
+            43,
+            40,
+            48,
+            37,
+            16,
+            10,
+            48,
+            50,
+            10,
+            45,
+            7,
+            43,
+            50,
+            49,
+            9,
+            43,
+            43,
+            49,
+            17,
+            41,
+            47,
+            17,
+            37,
+            15,
+            45,
+            16,
+            46,
+            14,
+            2,
+            45,
+            8,
+            48,
+            4,
+            9,
+            35,
+            46,
+            9,
+            12,
+            45,
+            46,
+            2,
+            46,
+            48,
+            6,
+            39,
+            48,
+            21,
+            34,
+            49,
+            16,
+            46,
+            6,
+            8,
+            44,
+            50,
+            12,
+            44,
+            38,
+            43,
+            12,
+            44,
+            0,
+            10,
+            44,
+            21,
+            45,
+            44,
+            3,
+            49,
+            15,
+            46,
+            19,
+            49,
+            46,
+            50,
+            43,
+            47,
+            48,
+            5,
+            47,
+            41,
+            45,
+            40,
+            42,
+            33,
+            11,
+            15,
+            42,
+            47,
+            10,
+            44,
+            10,
+            50,
+            17,
+            49,
+            33,
+            14,
+            15,
+            14,
+            32,
+            44,
+            17,
+            12,
+            45,
+            16,
+            11,
+            36,
+            49,
+            38,
+            45,
+            51,
+            15,
+            16,
+            49,
+            42,
+            12,
+            45,
+            35,
+            48,
+            41,
+            42,
+            41,
+            48,
+            12,
+            12,
+            8,
+            42,
+            9,
+            15,
+            18,
+            13,
+            37,
+            16,
+            7,
+            14,
+            49,
+            13,
+            14,
+            44,
+            5,
+            45,
+            3,
+            16,
+            17,
+            11,
+            3,
+            52,
+            46,
+            51,
+            14,
+            6,
+            13,
+            49,
+            43,
+            15,
+            45,
+            44,
+            14,
+            51,
+            13,
+            44,
+            2,
+            42,
+            16,
+            33,
+            32,
+            16,
+            17,
+            50,
+            47,
+            45,
+            47,
+            13,
+            45,
+            9,
+            12,
+            43,
+            47,
+            7,
+            36,
+            5,
+            5,
+            49,
+            8,
+            15,
+            16,
+            5,
+            13,
+            44,
+            13,
+            49,
+            47,
+            41,
+            40,
+            43,
+            17,
+            13,
+            45,
+            34,
+            4,
+            9,
+            50,
+            51,
+            43,
+            42,
+            36,
+            9,
+            36,
+            45,
+            46,
+            12,
+            45,
+            6,
+            18,
+            20,
+            33,
+            52,
+            16,
+            16,
+            10,
+            1,
+            38,
+            44,
+            48,
+            15,
+            50,
+            6,
+            18,
+            49,
+            45,
+            45,
+            49,
+            48,
+            19,
+            40,
+            45,
+            47,
+            33,
+            33,
+            45,
+            40,
+            10,
+            8,
+            16,
+            41,
+            10,
+            50,
+            14,
+            1,
+            11,
+            43,
+            37,
+            48,
+            46,
+            16,
+            17,
+            13,
+            16,
+            47,
+            51,
+            18,
+            46,
+            50,
+            0,
+            39,
+            4,
+            43,
+            42,
+            46,
+            45,
+            15,
+            47,
+            1,
+            18,
+            46,
+            0,
+            49,
+            37,
+            47,
+            45,
+            42,
+            12,
+            51,
+            48,
+            44,
+            48,
+            48,
+            48,
+            15,
+            52,
+            49,
+            14,
+            49,
+            49,
+            48,
+            6,
+            11,
+            33,
+            44,
+            50,
+            14,
+            35,
+            10,
+            11,
+            14,
+            48,
+            34,
+            46,
+            45,
+            46,
+            49,
+            47,
+            19,
+            2,
+            16,
+            17,
+            42,
+            8,
+            13,
+            10,
+            12,
+            11,
+            46,
+            12,
+            3,
+            1,
+            44,
+            9,
+            20,
+            19,
+            19,
+            17,
+            10,
+            20,
+            19,
+            15,
+            17,
+            16,
+            19,
+            20,
+            17,
+            13,
+            14,
+            16,
+            11,
+            7,
+            37,
+            32,
+            18,
+            15,
+            13,
+            15,
+            1,
+            18,
+            20,
+            18,
+            20,
+            20,
+            19,
+            20,
+            14,
+            16,
+            13,
+            1,
+            18,
+            17,
+            18,
+            17,
+            45,
+            16,
+            21,
+            18,
+            36,
+            17,
+            12,
+            9,
+            17,
+            17,
+            19,
+            46,
+            16,
+            8,
+            20,
+            17,
+            39,
+            46,
+            6,
+            11,
+            19,
+            33,
+            6,
+            49,
+            19,
+            20,
+            16,
+            15,
+            13,
+            13,
+            5,
+            4,
+            10,
+            13,
+            11,
+            20,
+            0
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          }
+        }
+      }
+    },
+    {
+      "backend": "cuda",
+      "seconds": 20.618394692995935,
+      "layers": {
+        "conv1": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "067cb30618354f2057eeaff5c6e1602a287901e5226ca10d75911e5621ff2a8b"
+        },
+        "relu": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e75dd9bd8435f3c18475c98180adc65f38ea9a9079f5731a5814b6ca0a927454"
+        },
+        "maxpool": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "458e64dfc60e74c6d7ae8d554d997cd0b3797d5860c331fa367428f627713c8b"
+        },
+        "layer1_0_conv1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "de52fcbd757de28a476f5a66bdc1bf20209999a1cd2d3d0dbfe82ab5d32284b1"
+        },
+        "layer1_0_relu": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "157bd1aeceaef866cccfa1a23dc14d8a2761bd8ce16391801ade257c222bdb90"
+        },
+        "layer1_0_conv2": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "02807aa59c0239512c4478f91d5023de9d4340efe4521236c06b3bf9e281f6b4"
+        },
+        "add": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "76ea5ea558accdc85dd419a44ee9c80f0a770b3fd724fef8020591ac67091c05"
+        },
+        "layer1_0_relu_1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a01c8ab0fa5ea90293b2e0c5a7908fd4f51f41deb9ed482fcc64c39e80e10261"
+        },
+        "layer1_1_conv1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c0a8339f3d812f0fb74e43b48a710abd473e2ad8e0b0162691e80bedbf857415"
+        },
+        "layer1_1_relu": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b565f877d4132e47ea70cf42b3ba95d0c33a320f2a77776591d84369c4945793"
+        },
+        "layer1_1_conv2": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9ec5178df96b52f7fd90792c2848b15ae33b8648a9496dd45752003fbaf0f57f"
+        },
+        "add_1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7916f5a510c13e313d20ba09879e70104d9042e164431da4da7c128d44c730ab"
+        },
+        "layer1_1_relu_1": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f1a25b8bd886391d658e938a4f43f82e704775d8e7c7882aced0271d1fe7c88c"
+        },
+        "layer2_0_conv1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "fc602ebc1745c672ccc0f69289703e5655c3dda9b3e864dba1d352baeeeb45bb"
+        },
+        "layer2_0_relu": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "36fad2fef5f432d23178c4d242a4c05a36b31045150f62fc0f90e69feb2c6c91"
+        },
+        "layer2_0_conv2": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "04323a673407a3b510c258608f91d96004ba79cbc4d5932adf3a76ebeea07256"
+        },
+        "layer2_0_downsample_0": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f85c2c39ede8d3b9a69c25697ba83df2fa98e6dae2315bd48044e9f18f42eede"
+        },
+        "add_2": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7aaf2623a9a810f9538abc56c55d499f7349dbae209082795fa7f39d2c471eef"
+        },
+        "layer2_0_relu_1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8d971c0ddbf53d2aeffa57e7cc2ecdc2c1739495bc91b00426bd83ba278c91d4"
+        },
+        "layer2_1_conv1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "31c722771b5dae2d5c5e8bf2c80fad24f363cf6518635bc0cb231c1c7856d6e5"
+        },
+        "layer2_1_relu": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bcb0ad6332d3e47245d1d8f5ce9e925d71467d6257463194be9e3282eec6a5f5"
+        },
+        "layer2_1_conv2": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9703ea927d35deb7bc4d81221f862855f7e11cf42f455bdf96fec2f9573dd8bd"
+        },
+        "add_3": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "63c3a814dc9480093387714c647d12f421a57e5456b6a45fc58a7a21ac2a8027"
+        },
+        "layer2_1_relu_1": {
+          "shape": [
+            1,
+            128,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f379a1143992d6f53cb448be18431128a201edff52f149edf37c765d706a2408"
+        },
+        "layer3_0_conv1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "784d727a15ed11df5e20fcdfa552bad0deaed85419cfe43a8bdb9058e3f58550"
+        },
+        "layer3_0_relu": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e299375a52aacece46db29087b7ff865c8ad1ad84948432c1106a10930669a95"
+        },
+        "layer3_0_conv2": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4b93b6dadd7f4b955a7a06107dbf87dc9d03629a7ce96507329f181fe91240de"
+        },
+        "layer3_0_downsample_0": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "11fc06f8334fad29a4d7a78dc46301402bb7c7247034939e82dc382e9491d6bc"
+        },
+        "add_4": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5500289ae04b9d4edadfad56d56cfe8a65e7bb3d36b4135f0e6efc3a205a2c7a"
+        },
+        "layer3_0_relu_1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "333f5e10d00538240f2e2558cbac7e1d49a2458b93820e651910d8017f675883"
+        },
+        "layer3_1_conv1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "907441a171a0c562803c8da5186cfb61bcc007ef92ac3e860c25aab55736a46d"
+        },
+        "layer3_1_relu": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "663db495f640ee273a25e83ccacf89cf78ea800a08ee4857006c48ec73e0cb60"
+        },
+        "layer3_1_conv2": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "57e330217aa008c98b54b3db402b195ff69e73083f3bfb971621a54811730b9f"
+        },
+        "add_5": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "80f0c8878948518528b4292b3411bf27e0e668e50e336ba270390a95a0b8e461"
+        },
+        "layer3_1_relu_1": {
+          "shape": [
+            1,
+            256,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8d9436f852406539c479cbf80bd363ead31a6fe8a81171e6a297f93d83b6c064"
+        },
+        "layer4_0_conv1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b6fd8bff6a97ff9465dc21cf4f66321edfcfd3d233899b1846255f2f13070056"
+        },
+        "layer4_0_relu": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d304283c9488417fe5b500f5cc7c48320d0be994185984d41ec6e55770ed1852"
+        },
+        "layer4_0_conv2": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "926900ea281d6858dcc19a03be77c4ea5e80c8134411e3e4f979bc32b8d4e48d"
+        },
+        "layer4_0_downsample_0": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7a31effc6feffbc7f02a533f521497ee60c9f826b0615e90688f04e22db995bd"
+        },
+        "add_6": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2bf399f7ff7ce2948965e24f28c5ef3318ccec32ff93e07bde9dd75fecbac866"
+        },
+        "layer4_0_relu_1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "eab249e1f8c01befdde57a7de64131324783e8e65053b5ec355c37be490853d5"
+        },
+        "layer4_1_conv1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6c2ffa2c762308783b3354dbccc4e3ad7a978966ae10c97e1e98bf8219064f0c"
+        },
+        "layer4_1_relu": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5a29faa7aa19566e4a7e2ad0a21294cb058392f19ea4d69813a20ad756fb361e"
+        },
+        "layer4_1_conv2": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f5ed5fcac594b80193e5ded7570b4a5bffa5cb7bcea4b6ac68aad214940e5f62"
+        },
+        "add_7": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8233bc4d89362cac429a36f527410eb477ea640e7812f9a84b4d5a2d16f94915"
+        },
+        "layer4_1_relu_1": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "07845ac127985be9cf3308ecaac81a2b32aaf1a4cdc04dfdb2e33ea4d3b843fa"
+        },
+        "avgpool": {
+          "shape": [
+            1,
+            512,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "07845ac127985be9cf3308ecaac81a2b32aaf1a4cdc04dfdb2e33ea4d3b843fa"
+        },
+        "flatten": {
+          "shape": [
+            1,
+            512
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bde1cfeab19a91a5ea7a9403fd8f303b155ce637373d492b5baee20078440e1f"
+        },
+        "fc": {
+          "shape": [
+            1,
+            1000
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4baaafaa4309b26abc8e2b6b3f9596c6f2a1fc2d43e39a27ea868cf36c7dae85"
+        }
+      },
+      "outputs": {
+        "fc": {
+          "shape": [
+            1,
+            1000
+          ],
+          "codes": [
+            44,
+            13,
+            17,
+            8,
+            4,
+            15,
+            34,
+            19,
+            18,
+            35,
+            1,
+            16,
+            17,
+            1,
+            19,
+            15,
+            18,
+            17,
+            17,
+            15,
+            41,
+            18,
+            13,
+            14,
+            37,
+            10,
+            42,
+            45,
+            14,
+            38,
+            6,
+            45,
+            40,
+            15,
+            16,
+            43,
+            9,
+            3,
+            37,
+            15,
+            37,
+            7,
+            33,
+            47,
+            0,
+            4,
+            42,
+            34,
+            51,
+            43,
+            44,
+            3,
+            34,
+            7,
+            42,
+            13,
+            13,
+            12,
+            14,
+            7,
+            2,
+            43,
+            46,
+            5,
+            17,
+            18,
+            6,
+            32,
+            14,
+            2,
+            1,
+            9,
+            12,
+            10,
+            3,
+            17,
+            44,
+            41,
+            10,
+            16,
+            17,
+            19,
+            16,
+            17,
+            10,
+            19,
+            16,
+            20,
+            19,
+            21,
+            18,
+            20,
+            19,
+            17,
+            18,
+            18,
+            13,
+            15,
+            41,
+            48,
+            33,
+            46,
+            16,
+            47,
+            51,
+            36,
+            43,
+            8,
+            14,
+            18,
+            15,
+            14,
+            21,
+            14,
+            17,
+            16,
+            43,
+            9,
+            17,
+            11,
+            9,
+            17,
+            16,
+            13,
+            11,
+            17,
+            13,
+            15,
+            44,
+            33,
+            49,
+            7,
+            34,
+            40,
+            13,
+            18,
+            7,
+            38,
+            5,
+            15,
+            17,
+            37,
+            14,
+            41,
+            3,
+            43,
+            13,
+            12,
+            8,
+            5,
+            12,
+            2,
+            49,
+            4,
+            48,
+            6,
+            47,
+            45,
+            49,
+            49,
+            48,
+            43,
+            46,
+            48,
+            12,
+            50,
+            48,
+            42,
+            40,
+            49,
+            32,
+            47,
+            44,
+            44,
+            46,
+            45,
+            46,
+            47,
+            45,
+            50,
+            49,
+            44,
+            8,
+            43,
+            44,
+            11,
+            8,
+            40,
+            1,
+            8,
+            41,
+            41,
+            34,
+            47,
+            9,
+            46,
+            48,
+            47,
+            47,
+            47,
+            46,
+            44,
+            17,
+            16,
+            45,
+            44,
+            47,
+            9,
+            13,
+            2,
+            10,
+            48,
+            9,
+            48,
+            45,
+            5,
+            44,
+            9,
+            37,
+            45,
+            51,
+            48,
+            16,
+            36,
+            49,
+            45,
+            1,
+            39,
+            33,
+            38,
+            41,
+            45,
+            43,
+            47,
+            49,
+            49,
+            48,
+            49,
+            43,
+            46,
+            49,
+            44,
+            49,
+            47,
+            46,
+            45,
+            45,
+            8,
+            44,
+            38,
+            40,
+            9,
+            51,
+            49,
+            43,
+            5,
+            44,
+            7,
+            41,
+            6,
+            50,
+            49,
+            52,
+            45,
+            47,
+            10,
+            11,
+            32,
+            44,
+            42,
+            9,
+            49,
+            43,
+            33,
+            52,
+            49,
+            41,
+            47,
+            0,
+            1,
+            2,
+            50,
+            49,
+            49,
+            35,
+            47,
+            50,
+            48,
+            37,
+            46,
+            48,
+            50,
+            51,
+            39,
+            37,
+            48,
+            11,
+            48,
+            49,
+            10,
+            13,
+            16,
+            0,
+            15,
+            9,
+            18,
+            15,
+            13,
+            17,
+            14,
+            11,
+            16,
+            10,
+            16,
+            38,
+            15,
+            17,
+            14,
+            16,
+            16,
+            10,
+            6,
+            48,
+            19,
+            45,
+            48,
+            7,
+            17,
+            17,
+            19,
+            47,
+            48,
+            41,
+            16,
+            17,
+            43,
+            34,
+            46,
+            45,
+            50,
+            48,
+            51,
+            51,
+            51,
+            45,
+            38,
+            49,
+            51,
+            7,
+            44,
+            47,
+            50,
+            53,
+            49,
+            47,
+            45,
+            42,
+            36,
+            1,
+            9,
+            46,
+            1,
+            39,
+            11,
+            36,
+            49,
+            49,
+            50,
+            43,
+            49,
+            43,
+            0,
+            43,
+            43,
+            45,
+            47,
+            12,
+            9,
+            41,
+            13,
+            41,
+            45,
+            1,
+            47,
+            45,
+            48,
+            39,
+            8,
+            7,
+            41,
+            13,
+            47,
+            12,
+            17,
+            36,
+            16,
+            16,
+            19,
+            19,
+            49,
+            52,
+            43,
+            41,
+            3,
+            9,
+            42,
+            49,
+            5,
+            2,
+            32,
+            10,
+            9,
+            14,
+            49,
+            48,
+            13,
+            41,
+            5,
+            1,
+            36,
+            34,
+            42,
+            51,
+            49,
+            4,
+            48,
+            45,
+            40,
+            12,
+            13,
+            4,
+            1,
+            43,
+            14,
+            37,
+            1,
+            41,
+            37,
+            15,
+            47,
+            16,
+            16,
+            36,
+            36,
+            38,
+            10,
+            46,
+            6,
+            12,
+            46,
+            16,
+            38,
+            35,
+            48,
+            42,
+            14,
+            44,
+            35,
+            4,
+            2,
+            36,
+            48,
+            34,
+            17,
+            39,
+            49,
+            50,
+            2,
+            5,
+            32,
+            16,
+            45,
+            38,
+            2,
+            47,
+            42,
+            9,
+            47,
+            6,
+            34,
+            42,
+            45,
+            42,
+            45,
+            10,
+            36,
+            51,
+            12,
+            12,
+            1,
+            46,
+            44,
+            45,
+            48,
+            0,
+            44,
+            42,
+            48,
+            45,
+            4,
+            6,
+            52,
+            15,
+            0,
+            14,
+            14,
+            10,
+            43,
+            10,
+            18,
+            16,
+            40,
+            47,
+            44,
+            42,
+            14,
+            44,
+            13,
+            2,
+            11,
+            32,
+            20,
+            3,
+            41,
+            48,
+            40,
+            0,
+            0,
+            45,
+            8,
+            3,
+            49,
+            45,
+            46,
+            17,
+            1,
+            38,
+            36,
+            44,
+            48,
+            17,
+            15,
+            13,
+            44,
+            12,
+            33,
+            2,
+            50,
+            13,
+            1,
+            46,
+            11,
+            1,
+            44,
+            38,
+            9,
+            46,
+            45,
+            33,
+            41,
+            10,
+            3,
+            40,
+            3,
+            51,
+            46,
+            46,
+            11,
+            47,
+            18,
+            48,
+            46,
+            16,
+            43,
+            17,
+            13,
+            42,
+            10,
+            43,
+            40,
+            13,
+            45,
+            18,
+            48,
+            12,
+            35,
+            47,
+            0,
+            15,
+            9,
+            14,
+            6,
+            10,
+            8,
+            2,
+            43,
+            40,
+            48,
+            37,
+            16,
+            10,
+            48,
+            50,
+            10,
+            45,
+            7,
+            43,
+            50,
+            49,
+            9,
+            43,
+            43,
+            49,
+            17,
+            41,
+            47,
+            17,
+            37,
+            15,
+            45,
+            16,
+            46,
+            14,
+            2,
+            45,
+            8,
+            48,
+            4,
+            9,
+            35,
+            46,
+            9,
+            12,
+            45,
+            46,
+            2,
+            46,
+            48,
+            6,
+            39,
+            48,
+            21,
+            34,
+            49,
+            16,
+            46,
+            6,
+            8,
+            44,
+            50,
+            12,
+            44,
+            38,
+            43,
+            12,
+            44,
+            0,
+            10,
+            44,
+            21,
+            45,
+            44,
+            3,
+            49,
+            15,
+            46,
+            19,
+            49,
+            46,
+            50,
+            43,
+            47,
+            48,
+            5,
+            47,
+            41,
+            45,
+            40,
+            42,
+            33,
+            11,
+            15,
+            42,
+            47,
+            10,
+            44,
+            10,
+            50,
+            17,
+            49,
+            33,
+            14,
+            15,
+            14,
+            32,
+            44,
+            17,
+            12,
+            45,
+            16,
+            11,
+            36,
+            49,
+            38,
+            45,
+            51,
+            15,
+            16,
+            49,
+            42,
+            12,
+            45,
+            35,
+            48,
+            41,
+            42,
+            41,
+            48,
+            12,
+            12,
+            8,
+            42,
+            9,
+            15,
+            18,
+            13,
+            37,
+            16,
+            7,
+            14,
+            49,
+            13,
+            14,
+            44,
+            5,
+            45,
+            3,
+            16,
+            17,
+            11,
+            3,
+            52,
+            46,
+            51,
+            14,
+            6,
+            13,
+            49,
+            43,
+            15,
+            45,
+            44,
+            14,
+            51,
+            13,
+            44,
+            2,
+            42,
+            16,
+            33,
+            32,
+            16,
+            17,
+            50,
+            47,
+            45,
+            47,
+            13,
+            45,
+            9,
+            12,
+            43,
+            47,
+            7,
+            36,
+            5,
+            5,
+            49,
+            8,
+            15,
+            16,
+            5,
+            13,
+            44,
+            13,
+            49,
+            47,
+            41,
+            40,
+            43,
+            17,
+            13,
+            45,
+            34,
+            4,
+            9,
+            50,
+            51,
+            43,
+            42,
+            36,
+            9,
+            36,
+            45,
+            46,
+            12,
+            45,
+            6,
+            18,
+            20,
+            33,
+            52,
+            16,
+            16,
+            10,
+            1,
+            38,
+            44,
+            48,
+            15,
+            50,
+            6,
+            18,
+            49,
+            45,
+            45,
+            49,
+            48,
+            19,
+            40,
+            45,
+            47,
+            33,
+            33,
+            45,
+            40,
+            10,
+            8,
+            16,
+            41,
+            10,
+            50,
+            14,
+            1,
+            11,
+            43,
+            37,
+            48,
+            46,
+            16,
+            17,
+            13,
+            16,
+            47,
+            51,
+            18,
+            46,
+            50,
+            0,
+            39,
+            4,
+            43,
+            42,
+            46,
+            45,
+            15,
+            47,
+            1,
+            18,
+            46,
+            0,
+            49,
+            37,
+            47,
+            45,
+            42,
+            12,
+            51,
+            48,
+            44,
+            48,
+            48,
+            48,
+            15,
+            52,
+            49,
+            14,
+            49,
+            49,
+            48,
+            6,
+            11,
+            33,
+            44,
+            50,
+            14,
+            35,
+            10,
+            11,
+            14,
+            48,
+            34,
+            46,
+            45,
+            46,
+            49,
+            47,
+            19,
+            2,
+            16,
+            17,
+            42,
+            8,
+            13,
+            10,
+            12,
+            11,
+            46,
+            12,
+            3,
+            1,
+            44,
+            9,
+            20,
+            19,
+            19,
+            17,
+            10,
+            20,
+            19,
+            15,
+            17,
+            16,
+            19,
+            20,
+            17,
+            13,
+            14,
+            16,
+            11,
+            7,
+            37,
+            32,
+            18,
+            15,
+            13,
+            15,
+            1,
+            18,
+            20,
+            18,
+            20,
+            20,
+            19,
+            20,
+            14,
+            16,
+            13,
+            1,
+            18,
+            17,
+            18,
+            17,
+            45,
+            16,
+            21,
+            18,
+            36,
+            17,
+            12,
+            9,
+            17,
+            17,
+            19,
+            46,
+            16,
+            8,
+            20,
+            17,
+            39,
+            46,
+            6,
+            11,
+            19,
+            33,
+            6,
+            49,
+            19,
+            20,
+            16,
+            15,
+            13,
+            13,
+            5,
+            4,
+            10,
+            13,
+            11,
+            20,
+            0
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          }
+        }
+      }
+    }
+  ]
+}

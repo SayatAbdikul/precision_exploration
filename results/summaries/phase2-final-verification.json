@@ -1,0 +1,280 @@
+{
+  "all_format_matrix": {
+    "backends": [
+      "cpp",
+      "cuda"
+    ],
+    "formats": 25,
+    "path": "results/summaries/phase2-family-matrix.json",
+    "sha256": "4754b963fbad2be4347071c77157cb6b040aa6126cc0eb6ca9eea722c1f28d0c",
+    "status": "current"
+  },
+  "calibration": {
+    "artifacts": [
+      {
+        "format": "fp6_e3m2",
+        "images": 2000,
+        "nodes": 177,
+        "path": "artifacts/calibration/yolov8n-fp6_e3m2-18c3daa4f2ec06fdf66986addfacb913cd43d47821f45875f646049abff02702.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "18c3daa4f2ec06fdf66986addfacb913cd43d47821f45875f646049abff02702"
+      },
+      {
+        "format": "int8",
+        "images": 2000,
+        "nodes": 177,
+        "path": "artifacts/calibration/yolov8n-int8-d614572fa2be79d1711bd7a6a949ecc78bd22e40a7199aad116a0a4806632a85.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "d614572fa2be79d1711bd7a6a949ecc78bd22e40a7199aad116a0a4806632a85"
+      }
+    ],
+    "policy": "mse_numpy_f64_100coarse_50fine_v1"
+  },
+  "classifier_native_resolution": {
+    "mobilenet_v2": {
+      "status": "missing"
+    },
+    "mobilenet_v3_large": {
+      "status": "missing"
+    },
+    "resnet18": {
+      "status": "missing"
+    }
+  },
+  "coco": {
+    "coco_calibration_2k": {
+      "count": 2000,
+      "list_sha256": "4db5f7c8c41ea43607c70704bd12d3de86e94f873d9eabc51408a58965a01e32"
+    },
+    "coco_evaluation_5k": {
+      "count": 5000,
+      "list_sha256": "2f62e52d88d0106d8b58fb252aa7f9e0d2fd4698e037d6bf0a86f22097598da8"
+    },
+    "coco_screen_1k": {
+      "count": 1000,
+      "list_sha256": "e0fa725cad767b7937250e1459038381d059d96b64fb33e275fbc29c85a834d8"
+    }
+  },
+  "decisions": {
+    "D2": "open",
+    "D3": "accepted",
+    "path": "results/summaries/phase2-decision-evidence.json",
+    "sha256": "04d313d9806f6919248c2bb6485815907f598a1cdc9742b1d7945973b057c7a4"
+  },
+  "detector_native_resolution": {
+    "backend_equality": true,
+    "images": 8,
+    "layers": 176,
+    "metrics": {
+      "bit_exact": [
+        1,
+        "boolean"
+      ],
+      "image_count": [
+        8,
+        "count"
+      ],
+      "map50": [
+        0.0,
+        "fraction"
+      ],
+      "map50_95": [
+        0.0,
+        "fraction"
+      ]
+    },
+    "report": "results/summaries/phase2-yolov8n-workload-02870391c93c.json",
+    "report_sha256": "3f93cf1f2d852e64b1d243ec8100455f31175a0e65035e7a70c01fc0a6541f27",
+    "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+    "status": "completed",
+    "summary_sha256": "912d814ce0f4c6d5d197207ae4f331c407d68db125b3859e4ec181269042cd9a"
+  },
+  "detector_quality_diagnosis": {
+    "conclusion": "The accepted unscaled FP6 format cannot store native pixel coordinates above 24. Candidate coordinate stores saturate before NMS; letterbox unpadding can then clip boxes to zero area. Class probabilities below 0.03125 also round to zero. The two native backends agree on all layers, and an independent FP32 observation of the same lowering matches the frozen model. This is an expected catastrophic outcome of this format under the strict policy, not evidence of an engine mismatch.",
+    "path": "results/summaries/phase2-detector-diagnosis.json",
+    "sha256": "2f5a94db4fca916b6f028dc10929980be3a841e73992ae0a5c1ed13ea1b637a8",
+    "status": "diagnosed_candidate_range_failure"
+  },
+  "evidence_sources": {
+    "results/summaries/phase2-benchmark-cpp-final.json": {
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    },
+    "results/summaries/phase2-benchmark-cuda-final.json": {
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    },
+    "results/summaries/phase2-conformance-cpp-final.json": {
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    },
+    "results/summaries/phase2-conformance-cuda-final.json": {
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    }
+  },
+  "final_report_hashes": {
+    "results/summaries/phase2-benchmark-cpp-final.json": "40d2576fdb7d1a2678dc3940c2253e4fb3c488f2a0f0913bee3182b9a82e80c0",
+    "results/summaries/phase2-benchmark-cuda-final.json": "b07d8a2db0484c8a00ef7cfdce1575ea7abf84c6a3e81ae9aa6dc23b264b647d",
+    "results/summaries/phase2-conformance-cpp-final.json": "2674d757f74fb46d22175aed81f0acbb68815b2889e1b88e31d053e1bcb44344",
+    "results/summaries/phase2-conformance-cuda-final.json": "c95f76885619418e3c49de2aa923de36126208d0060bc1e8246b3b5f23d7188f"
+  },
+  "frozen_baseline_predictions": {
+    "mobilenet_v2": {
+      "actual_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
+      "expected_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
+      "status": "verified"
+    },
+    "mobilenet_v3_large": {
+      "actual_sha256": null,
+      "expected_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
+      "status": "missing_or_changed"
+    },
+    "resnet18": {
+      "actual_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
+      "expected_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
+      "status": "verified"
+    },
+    "yolov8n": {
+      "actual_sha256": null,
+      "expected_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
+      "status": "missing_or_changed"
+    }
+  },
+  "imagenet": {
+    "payloads": {
+      "imagenet_calibration_2k": {
+        "expected": 2000,
+        "invalid": [],
+        "missing": 1998,
+        "status": "incomplete",
+        "verified_present": 2
+      },
+      "imagenet_evaluation_10k": {
+        "expected": 10000,
+        "invalid": [],
+        "missing": 0,
+        "status": "verified",
+        "verified_present": 10000
+      },
+      "imagenet_screen_1k": {
+        "expected": 1000,
+        "invalid": [],
+        "missing": 0,
+        "status": "verified",
+        "verified_present": 1000
+      }
+    },
+    "status": "incomplete"
+  },
+  "profiling": {
+    "missing_metrics": [
+      "achieved_occupancy",
+      "kernel_DRAM_bytes",
+      "kernel_DRAM_bandwidth"
+    ],
+    "path": "results/summaries/phase2-cuda-profile.json",
+    "sha256": "3ad4c991916ccb45b1cf5712142c2daadf41791c6878cc84f1b75e5369e58e16",
+    "source_current": true,
+    "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+    "status": "unavailable: Nsight Compute ERR_NVGPUCTRPERM; no GPU counter settings changed"
+  },
+  "remaining_gates": [
+    {
+      "gate": "imagenet_calibration_2k",
+      "reason": "1998 missing and 0 invalid frozen payloads"
+    },
+    {
+      "gate": "resnet18_native_resolution",
+      "reason": "missing"
+    },
+    {
+      "gate": "mobilenet_v2_native_resolution",
+      "reason": "missing"
+    },
+    {
+      "gate": "mobilenet_v3_large_native_resolution",
+      "reason": "missing"
+    },
+    {
+      "gate": "mobilenet_v3_large_frozen_predictions",
+      "reason": "missing_or_changed"
+    },
+    {
+      "gate": "yolov8n_frozen_predictions",
+      "reason": "missing_or_changed"
+    },
+    {
+      "gate": "D2",
+      "reason": "achieved occupancy and kernel DRAM counter evidence unavailable"
+    },
+    {
+      "gate": "full_cpu",
+      "reason": "test failures/errors or no executed tests"
+    }
+  ],
+  "schema_version": "2.0.0",
+  "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+  "status": "in_progress_gates_open",
+  "synthetic_networks": {
+    "mobilenet_v2": {
+      "backend_equality_checked": true,
+      "layers": 100,
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    },
+    "mobilenet_v3_large": {
+      "backend_equality_checked": true,
+      "layers": 140,
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    },
+    "resnet18": {
+      "backend_equality_checked": true,
+      "layers": 49,
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    },
+    "yolov8n": {
+      "backend_equality_checked": true,
+      "layers": 176,
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "current"
+    }
+  },
+  "tests": {
+    "cpu_known_external_failures": [
+      "ImageNet payload verification",
+      "frozen Phase 1 prediction artifacts"
+    ],
+    "cuda": {
+      "errors": 0,
+      "failures": 0,
+      "path": "artifacts/conformance/phase2/pytest-cuda-final.xml",
+      "sha256": "aa9aff1b29116c245f6e4747e479ad5ddc34e701093936eaee3f67c814083f27",
+      "skipped": 0,
+      "tests": 93
+    },
+    "full_cpu": {
+      "errors": 0,
+      "failures": 4,
+      "path": "artifacts/conformance/phase2/pytest-cpu-final.xml",
+      "sha256": "89f0a17724164e912372dfe0fb92211afcbfcee1c417b10223e563928a63606a",
+      "skipped": 0,
+      "tests": 220
+    },
+    "phase2_cpu": {
+      "errors": 0,
+      "failures": 0,
+      "path": "artifacts/conformance/phase2/pytest-phase2-final.xml",
+      "sha256": "e948c19edbdfd2a9875b032e8e54d35620beba8f4e24c805d558dda4f6aaf273",
+      "skipped": 0,
+      "tests": 198
+    }
+  },
+  "wide_policy": {
+    "path": "results/summaries/phase2-wide-policy-candidates.json",
+    "sha256": "294f9e4433e156ccd2b85a6442e63d0810ad274d28096d53e4be3b160063eb60",
+    "status": "candidate policies; per-graph Experiment A acceptance required before Phase 3 sweeps"
+  }
+}

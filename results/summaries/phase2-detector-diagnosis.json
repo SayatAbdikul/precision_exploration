@@ -1,0 +1,228 @@
+{
+  "schema_version": "phase2-detector-diagnosis-1.0.0",
+  "status": "diagnosed_candidate_range_failure",
+  "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+  "job_sha256": "02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6",
+  "graph_sha256": "225807be9e72ce1c6353ee4718f90add32315120dadefb259d981165512c8baa",
+  "evidence": [
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/00133484c9a25d2d28ccc356f65b6c521ca82e0625743a64595479da4d36c19f.json",
+      "sha256": "9335fc16082b7137b4f7ff9368c4947ae6b2af981e692068848d64998800a981"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/002bafda6137a294ee0f922d012a45cafee4377b175696cb4e4c09d0d046907b.json",
+      "sha256": "d49c7a995a94746b6c7fc39da00bef12d9177bbcdb484350569da56a47b657ba"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/003280b50c99124750084f25939f305f3fefbd9e3caf5002a456249242b154c0.json",
+      "sha256": "56eaa667857d548cd3547004d172aa0ef477fcc0f7380f5540e400a0e1c3dbd9"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/0048f03ce376c1c3de6143ea8462c609cf0ff15847e20a20d042f0c4d968eeb8.json",
+      "sha256": "a637cab01549fd5490d777dc301556a49a2b48fe642ea355ea5a867b71c20c7f"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/00b60aa56c8552f04a59da5ec1a6ba555991fa22cd8ff932f31d72a159595e8b.json",
+      "sha256": "8d7fdabbc52b812cb9eace67e1f4280fa4d7ecb4ca060aa0480cec1c377d9a42"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/00ee42593a1724464c9d98eba485f659666e4d3d8ebb4f0edc468390712c5442.json",
+      "sha256": "52a0484517fb664f336331cc4381f7ed6066eae979a9b0cd086a517fff113e09"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/01627a2e4b79593b0debcffcdcf9b6c795d0d9e71aa2a3e9e22a9db05a70bc85.json",
+      "sha256": "8b29d6cfbf21c9fb0af23def718e56f344d705926405fc8be1f3a13f67cb2efc"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/01691e2b44fc35cbaf9f7aace00aba77f7324edf5de3d06d633b3fe239bd73df.json",
+      "sha256": "0891f0d849e099c459b10f782f77dcd82950c53d7bf7d5028e1256045c9198d8"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/configuration.json",
+      "sha256": "02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/graph.json",
+      "sha256": "225807be9e72ce1c6353ee4718f90add32315120dadefb259d981165512c8baa"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/summary.json",
+      "sha256": "912d814ce0f4c6d5d197207ae4f331c407d68db125b3859e4ec181269042cd9a"
+    },
+    {
+      "path": "artifacts/workload_runs/02870391c93c230373e2094674c081ce4fa94ad86bca1adb70ba2cb1cd8757d6/predictions.json",
+      "sha256": "b04e6f94ab3160a2a2199c0fdcfbdff87f0d95f96f727c92d61b7341821c4dfc"
+    },
+    {
+      "path": "public/workloads/models/manifests/yolov8n.json",
+      "sha256": "1db201cbd309ced2fdc6ddca9ef2ddfdfb756e254035e99ca23bfd7ca03bd055"
+    }
+  ],
+  "format": {
+    "name": "fp6_e3m2",
+    "max_finite": 24.0,
+    "min_positive": 0.0625,
+    "scaling": "none",
+    "overflow": "saturate"
+  },
+  "native_resolution": [
+    640,
+    640
+  ],
+  "coordinate_store_nodes": [
+    "model_22_level_0_boxes",
+    "model_22_level_1_boxes",
+    "model_22_level_2_boxes"
+  ],
+  "metrics": {
+    "bit_exact": [
+      1,
+      "boolean"
+    ],
+    "image_count": [
+      8,
+      "count"
+    ],
+    "map50": [
+      0.0,
+      "fraction"
+    ],
+    "map50_95": [
+      0.0,
+      "fraction"
+    ]
+  },
+  "images": [
+    {
+      "image_id": 559513,
+      "sample_sha256": "00133484c9a25d2d28ccc356f65b6c521ca82e0625743a64595479da4d36c19f",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.002838134765625,
+      "fp32_max_probability_error": 1.6689300537109375e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 31934,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671803,
+      "strict_prediction_count": 0,
+      "strict_degenerate_prediction_count": 0,
+      "ideal_fp32_final_store_probe_prediction_count": 14,
+      "ideal_fp32_final_store_probe_degenerate_count": 14
+    },
+    {
+      "image_id": 65485,
+      "sample_sha256": "002bafda6137a294ee0f922d012a45cafee4377b175696cb4e4c09d0d046907b",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.003753662109375,
+      "fp32_max_probability_error": 5.811452865600586e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 31557,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671987,
+      "strict_prediction_count": 1,
+      "strict_degenerate_prediction_count": 1,
+      "ideal_fp32_final_store_probe_prediction_count": 2,
+      "ideal_fp32_final_store_probe_degenerate_count": 2
+    },
+    {
+      "image_id": 57597,
+      "sample_sha256": "003280b50c99124750084f25939f305f3fefbd9e3caf5002a456249242b154c0",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.001678466796875,
+      "fp32_max_probability_error": 2.5331974029541016e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 29666,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671589,
+      "strict_prediction_count": 1,
+      "strict_degenerate_prediction_count": 1,
+      "ideal_fp32_final_store_probe_prediction_count": 18,
+      "ideal_fp32_final_store_probe_degenerate_count": 18
+    },
+    {
+      "image_id": 45070,
+      "sample_sha256": "0048f03ce376c1c3de6143ea8462c609cf0ff15847e20a20d042f0c4d968eeb8",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.0028076171875,
+      "fp32_max_probability_error": 1.7881393432617188e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 31150,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671959,
+      "strict_prediction_count": 1,
+      "strict_degenerate_prediction_count": 0,
+      "ideal_fp32_final_store_probe_prediction_count": 6,
+      "ideal_fp32_final_store_probe_degenerate_count": 0
+    },
+    {
+      "image_id": 250137,
+      "sample_sha256": "00b60aa56c8552f04a59da5ec1a6ba555991fa22cd8ff932f31d72a159595e8b",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.004150390625,
+      "fp32_max_probability_error": 3.203749656677246e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 31684,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671683,
+      "strict_prediction_count": 1,
+      "strict_degenerate_prediction_count": 1,
+      "ideal_fp32_final_store_probe_prediction_count": 13,
+      "ideal_fp32_final_store_probe_degenerate_count": 13
+    },
+    {
+      "image_id": 422998,
+      "sample_sha256": "00ee42593a1724464c9d98eba485f659666e4d3d8ebb4f0edc468390712c5442",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.00299072265625,
+      "fp32_max_probability_error": 4.351139068603516e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 32160,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671814,
+      "strict_prediction_count": 0,
+      "strict_degenerate_prediction_count": 0,
+      "ideal_fp32_final_store_probe_prediction_count": 16,
+      "ideal_fp32_final_store_probe_degenerate_count": 16
+    },
+    {
+      "image_id": 22705,
+      "sample_sha256": "01627a2e4b79593b0debcffcdcf9b6c795d0d9e71aa2a3e9e22a9db05a70bc85",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.0018310546875,
+      "fp32_max_probability_error": 1.1622905731201172e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 30500,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671901,
+      "strict_prediction_count": 1,
+      "strict_degenerate_prediction_count": 1,
+      "ideal_fp32_final_store_probe_prediction_count": 8,
+      "ideal_fp32_final_store_probe_degenerate_count": 8
+    },
+    {
+      "image_id": 169076,
+      "sample_sha256": "01691e2b44fc35cbaf9f7aace00aba77f7324edf5de3d06d633b3fe239bd73df",
+      "matching_native_layers": 176,
+      "fp32_observation_parity": true,
+      "fp32_max_coordinate_error": 0.002349853515625,
+      "fp32_max_probability_error": 5.558133125305176e-06,
+      "fp32_coordinate_elements": 33600,
+      "fp32_coordinates_above_candidate_max": 30724,
+      "fp32_probability_elements": 672000,
+      "fp32_probabilities_below_half_candidate_min": 671871,
+      "strict_prediction_count": 1,
+      "strict_degenerate_prediction_count": 0,
+      "ideal_fp32_final_store_probe_prediction_count": 10,
+      "ideal_fp32_final_store_probe_degenerate_count": 0
+    }
+  ],
+  "conclusion": "The accepted unscaled FP6 format cannot store native pixel coordinates above 24. Candidate coordinate stores saturate before NMS; letterbox unpadding can then clip boxes to zero area. Class probabilities below 0.03125 also round to zero. The two native backends agree on all layers, and an independent FP32 observation of the same lowering matches the frozen model. This is an expected catastrophic outcome of this format under the strict policy, not evidence of an engine mismatch.",
+  "scope": "Eight frozen screening images; neither a family-wide quality claim nor an accepted accumulator policy. The ideal FP32 final-store probe isolates a storage limit and is not a production inference regime.",
+  "policy": "Optional scaling or higher precision detector output exceptions belong to a separately identified Experiment B/practical ablation; the strict Experiment A runtime remains unchanged."
+}

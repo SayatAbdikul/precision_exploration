@@ -1,0 +1,6810 @@
+{
+  "schema_version": "2.0.0",
+  "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+  "model": "mobilenet_v3_large",
+  "input_shape": [
+    1,
+    3,
+    32,
+    32
+  ],
+  "input": "deterministic float32 linear ramp [-1,1], quantized to FP6",
+  "scope": "synthetic-input architecture integration; not ImageNet quality or frozen-image validation",
+  "graph_sha256": "b6743d583f81999d190ec34a143c62fefa7baf4ab292fbf36fc84b62babc0421",
+  "graph_artifact": "artifacts/folded_graphs/mobilenet_v3_large-phase2-b6743d583f81999d190ec34a143c62fefa7baf4ab292fbf36fc84b62babc0421.json",
+  "backend_equality_checked": true,
+  "records": [
+    {
+      "backend": "cpp",
+      "seconds": 10.257331644999795,
+      "layers": {
+        "features_0_0": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a5cc0178d06e8cc5eddddd66b5c9d45b57f2720dd4acfedaa703c165698342a0"
+        },
+        "features_0_2": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "10d4d61e101c16e23abe851d457bb7e944d1c6c86375e4406cdcc5d9c1af7dbf"
+        },
+        "features_1_block_0_0": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6b5a4751584d90529bf6a40d7f894b99e889212df5ea2b4000553f5c7cb78ec0"
+        },
+        "features_1_block_0_2": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "835a04f3ab80f231d2ae94b673bec8b758b84d5d3ba2fcf7bc8685fe5e2249bc"
+        },
+        "features_1_block_1_0": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "510c2d552e4be5e46387ff1c7620620aff410867d5a783347f01b68f025554fa"
+        },
+        "add": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8d7dcab0a5e87187b207d786f306763e44fef117f1088663db149fbe71cc38ee"
+        },
+        "features_2_block_0_0": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0d97273268e85b9f03adb8508670e613ac65ec48c93226493f708f5279ff5cd5"
+        },
+        "features_2_block_0_2": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c86600511cd5ddb08c9bc501a042857b8492dd96ddd2c5bc064fc3174a23d7b3"
+        },
+        "features_2_block_1_0": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d595c21f14136d3a3f9f7ecde26eb4485ab4d0dc0c30503635d4912304b6873d"
+        },
+        "features_2_block_1_2": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ff4a1d2e6fdf472b7a8977485de879e63b903ad6a3b54481e79caa34207f2f43"
+        },
+        "features_2_block_2_0": {
+          "shape": [
+            1,
+            24,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9d5b91e6c50f2ca50007e715c189a72550db918d64c3f864b2fc83d7813beccb"
+        },
+        "features_3_block_0_0": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cfc04bd6d6527d9cc944542032be9c455d8ca1241ae18af55ffabb8889c2dffd"
+        },
+        "features_3_block_0_2": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9096da4e46476e2e1052b39857ea3a1372da319eb296055c960493b247bd1947"
+        },
+        "features_3_block_1_0": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "246867919a53ab510e0c7645881377ccd0c52a219e8a51d52513891370247e73"
+        },
+        "features_3_block_1_2": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8b53ce3924c59c5f960312b39b5d29f4f30395a33a02761435495009a4c3b4a2"
+        },
+        "features_3_block_2_0": {
+          "shape": [
+            1,
+            24,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1d40bdd41181d8bacffe8b8d48ed396c25a23cfa61285927ff5fb4634eff318b"
+        },
+        "add_1": {
+          "shape": [
+            1,
+            24,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "22194ad0a6479ea030c558fd460ed8ca79890811d9947910f4ca06eb76035287"
+        },
+        "features_4_block_0_0": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e0be84afb973f3beeffd5282ecacb0ad06c28b13ea6b2c0ad62645eb3198a14d"
+        },
+        "features_4_block_0_2": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "dc3e1e96ae18b19a03546daa86e108aab71267a60f813aa1a01f2416d3ac6b31"
+        },
+        "features_4_block_1_0": {
+          "shape": [
+            1,
+            72,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8e00bbe9db050782c2b7f80e11ba7db6866937c6463e363433e64c9777acb2ea"
+        },
+        "features_4_block_1_2": {
+          "shape": [
+            1,
+            72,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "00905d5c1a33964fcd7329827b694be057b169a342fc87402eb927c9cb09d196"
+        },
+        "features_4_block_2_avgpool": {
+          "shape": [
+            1,
+            72,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "508b177ea5b7041609c56a09edff8d3e0bb3c61aebfdaaf396a7071d0735e43b"
+        },
+        "features_4_block_2_fc1": {
+          "shape": [
+            1,
+            24,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c8946315a063d150e7bb5724aabeaf420a2a75924c1fcabca4413798d2c80418"
+        },
+        "features_4_block_2_activation": {
+          "shape": [
+            1,
+            24,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2f5f6f40730694ec52d9071f0f2b74722e71722cca3c64c4a13ff3f91830e96c"
+        },
+        "features_4_block_2_fc2": {
+          "shape": [
+            1,
+            72,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "de62299201b5439ca482b6af86a67f4797a47996a66387417bd585ec5e80492f"
+        },
+        "features_4_block_2_scale_activation": {
+          "shape": [
+            1,
+            72,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0cab7241f8439e272a3f97442bf9bc782b1362a0cb226f7dc519ef128acda31e"
+        },
+        "mul": {
+          "shape": [
+            1,
+            72,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "69082b1c5ba271846eb56301c9bff8e9a6b4ac05300d7e43b579e0ad82781240"
+        },
+        "features_4_block_3_0": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7d52002956abda26d678f93ca29aaf9f1dc7ed2581eba09391f73751e5fce5c1"
+        },
+        "features_5_block_0_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "558fb6cd2e6075311aa9f4ad420da0d26a8b4b3809c5950428fbb339ce59f3d7"
+        },
+        "features_5_block_0_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c43c967c2ac035ac793217df7de1592a5f5596e1ab552e671d700d63e8debac1"
+        },
+        "features_5_block_1_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "decdbe49cc8bafd0a71217ae613446416f07c71526c992d582c0107025773a65"
+        },
+        "features_5_block_1_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "845fc0a000fdf2c16a177f4d2caa13e7ef7077fcb998d0546c19b10d9daca132"
+        },
+        "features_5_block_2_avgpool": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ce5d327a32208c30bf00116e896fac3ad95710205621804102d0ea6790cd5861"
+        },
+        "features_5_block_2_fc1": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ba35c0544c458b3c6d9b93df12816630933f1da97c042f2cec9a5177496ad362"
+        },
+        "features_5_block_2_activation": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "03bb1ca75e2fdccc65a7c6acc80caabf82e88494992429f49b5373f00c530a8c"
+        },
+        "features_5_block_2_fc2": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "be4bc88b1798489ed04cdf0b5e56dcb5a35fbc74a7b358d0d04e752f57446f8f"
+        },
+        "features_5_block_2_scale_activation": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a00643f5996eab0b905d76baf47b2ece2f601655c444d0f64c816d9f799fe0a5"
+        },
+        "mul_1": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1abcfbdf7141f367c9f4b5da13b30b1a2e1101a9b021d8c1848a77d5593c817d"
+        },
+        "features_5_block_3_0": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "179e5eebef6e277d07a811b03f1e9e5123f0b7072fe23fa028a28de99ba2e264"
+        },
+        "add_2": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "34e1609823a87cd9042fcc7f0c0df0b3a3c82a136bb1420d90dd5f8a5d5ead28"
+        },
+        "features_6_block_0_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ea1a5cd15967729dcb5a80ef1ae2a539d6eb5bf9711359aaefa921ec18ac870a"
+        },
+        "features_6_block_0_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3c11e188dc8cc2009be40c462ca312a5d3fd35fe4ffeb99003ba4b4fd18e3af1"
+        },
+        "features_6_block_1_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b6d8648e3291616688abb346561384e0f4d634b127a194fc63cf1131cc9a97ea"
+        },
+        "features_6_block_1_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "90477c28821601ebb83b03b00793c284b9e8665c829b017cb96423ba214bc117"
+        },
+        "features_6_block_2_avgpool": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "02ba53cc69671abd33083e3dbe1d64a9638d06867a9598d7fa8ba6c9e6dfe1ff"
+        },
+        "features_6_block_2_fc1": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0b4e0bc169536daa21cf23db947c1c4938ee63fdacd0ac05543c2041585c230b"
+        },
+        "features_6_block_2_activation": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "fade6afa47eeb75c0e38e79c6a78fd9c78c6d0d82fc3ced393365748b77d3f50"
+        },
+        "features_6_block_2_fc2": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cefe278355c502f67b448bfe1dc0c113ce8235156469de3c5d57fc341252c708"
+        },
+        "features_6_block_2_scale_activation": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5f16243a330e6a302432ffbe17f4357720676c180e60396366668e503400ae08"
+        },
+        "mul_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8f4ced41baf87ffd5a532f13d321f6762212f25d90ebd51dfb272cb4fd01fb88"
+        },
+        "features_6_block_3_0": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1260c7f03718f2b999309a77e5a6584fd30a89274a1bc772e557a784c32d0955"
+        },
+        "add_3": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7e11a36805c059a32126ef98d61807b44a084d5e0cd6de0763c1f935274b2a55"
+        },
+        "features_7_block_0_0": {
+          "shape": [
+            1,
+            240,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2ff78e7521d661ccc8708ccbdcc8bea791a8141fc60dc74ae89c9eebc4b797bf"
+        },
+        "features_7_block_0_2": {
+          "shape": [
+            1,
+            240,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "45c9e5d5b09d91cdff37d3afae2ea19418f04e061b642499b40cc2de465d07b8"
+        },
+        "features_7_block_1_0": {
+          "shape": [
+            1,
+            240,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3ceb11c6c2dd001bb2e60468ad0ab96c8a6c55a3f7b52d5efc229ca49aa74ed6"
+        },
+        "features_7_block_1_2": {
+          "shape": [
+            1,
+            240,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3d2d245c1258192dc50d8fad420c0d550b45aa977c5b00ba58e67e58051806f2"
+        },
+        "features_7_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ce9f22045befd292687ef02a9fdf2836c93a08cef7582daef80e87b86a8016ae"
+        },
+        "features_8_block_0_0": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "68370d941f618b3a57879ffe930d210c3acb95e435504d85234823c4903603ec"
+        },
+        "features_8_block_0_2": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "eac5d88581eedaee8479c0459a62cf3770146dc409c2a22a9a5ac4393613e52a"
+        },
+        "features_8_block_1_0": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d49d8c3c510e736ccbfbf777cc3be9e63778ae08013e64f1813dbe9a47978b06"
+        },
+        "features_8_block_1_2": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "66a686217e6b75d3d7ff622a362be603c05b62b5ad001ee75a1338f2c49a5969"
+        },
+        "features_8_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b30511bfb3333335389b828c21ef0d2954259fe9907266d55c76fad11593c85f"
+        },
+        "add_4": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7e223d4c052e335bb9842ceb89456c3502556faacc1892487b22f9fb018db048"
+        },
+        "features_9_block_0_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "17a284227148177fb532894d83e089e2fedb85ec968a6be8b4d03bf7898078e5"
+        },
+        "features_9_block_0_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4353c942624dfcc0a5f9030d088cdcc0b9acc152e7da90a81142caad8c107d98"
+        },
+        "features_9_block_1_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5879e89316f21c9b9f4a0a5b87e9bc9f957e37825a6eaf4a986670c60f92898b"
+        },
+        "features_9_block_1_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "166d4e8b45255c1e11c83a6bcb04f8d036d3f4a5a2885b9961effe58072b073c"
+        },
+        "features_9_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cdacfd583490648fe530488adeaa3de7f99dd378d093ede9823a37b5cd3a1a04"
+        },
+        "add_5": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "aa0f39f765ee20aaf19d8e7f38891e9c7ca6406df311387ef4fe9ece9f1caa91"
+        },
+        "features_10_block_0_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f8415010b6997b40ba19a76f844b5d08a502739fa7d7d0dd68ae97d99041afcc"
+        },
+        "features_10_block_0_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e0a87bf4b31128a06cddddc54da64e2e8283ddb64a91c0f573f82ce364185279"
+        },
+        "features_10_block_1_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cbef7d7daf61108a2f098245d60c336022dfd1a7d9b254b6138b981c932f3fac"
+        },
+        "features_10_block_1_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "80875c36d343dea04b820b35570bf2f614d9e3be776da8a9dfe3a7de75355bf7"
+        },
+        "features_10_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c2c23b300b54d0035ce6c167482e18486c8547a1106baefd8c1bab99e85e974d"
+        },
+        "add_6": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "136cf7d0d261ed4d850e144f7248f9d665f5569398e3841ea8fe29d8c073dfdc"
+        },
+        "features_11_block_0_0": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0697ae0795e0b271af3d4ae746b93abcd3c3487a193c3fb93ac3ea5015c43151"
+        },
+        "features_11_block_0_2": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a0559f20bfbde6648959c7338e404cc64f04d61d9bab800a9f04f7fdf284dd6f"
+        },
+        "features_11_block_1_0": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "10a8214885a4a7d99328d909df0c94f23757e6f46997df140dabaf40bc1877f5"
+        },
+        "features_11_block_1_2": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c743f5bb6832fae9c2f9896dec15ba09bb538df90a317e36a542296461937612"
+        },
+        "features_11_block_2_avgpool": {
+          "shape": [
+            1,
+            480,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1a8ef25fdf86ef6a60858ffc6cf52bbd52cf0aae98696eb451a7340e3237e0df"
+        },
+        "features_11_block_2_fc1": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d4b552723b232126d60c8f076b5a200a5b1d678777e3d25484f8c08df2323fbd"
+        },
+        "features_11_block_2_activation": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "71c23bb10d092b415ee6b850b7a698b6ec239fbd2beedcd41bd5ded20eedad93"
+        },
+        "features_11_block_2_fc2": {
+          "shape": [
+            1,
+            480,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5a0d9d473f24f51e21650288cbf29fdad1633306bcc7234c829dbb6811e33914"
+        },
+        "features_11_block_2_scale_activation": {
+          "shape": [
+            1,
+            480,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "947537f00c6edae0f2b53b39f3d4589ef501d3b646203f7a616a4976d923b511"
+        },
+        "mul_3": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6beced261e0e8ecba3e8b31cd7e2f60e903d3524808f18c0a314f14cf1b24655"
+        },
+        "features_11_block_3_0": {
+          "shape": [
+            1,
+            112,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ed00c1395d234e0a4423cad9787e483655415940dab79ad46c13afcea5e88140"
+        },
+        "features_12_block_0_0": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b1f734784620830ee8cedd54604b63184bf9bffbdab09a9a3641f0954b696de2"
+        },
+        "features_12_block_0_2": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e3a8d8f528e9f5d154d7bfe2096d895c52a857691eca898d87bb04906a0f87a8"
+        },
+        "features_12_block_1_0": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bff8ee8a382600e7042663ae21c0c1ca19186463204968860a06f8aed1cd1b77"
+        },
+        "features_12_block_1_2": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9ded2772722a77d15592e357551e844a37515a9aad94be0ad69882a74c9cc1ee"
+        },
+        "features_12_block_2_avgpool": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9d2923b4221f11c2754e8814f7faebbbeef2b288fe3ea5459e779a260285773d"
+        },
+        "features_12_block_2_fc1": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "34379a9520ba461b726f321faef8faa32a20e5e0d2165c19d9c1291d710a0c55"
+        },
+        "features_12_block_2_activation": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6178647401745773daee1b135ce71a01cff77fcd71949c4ef3e8509009dd8058"
+        },
+        "features_12_block_2_fc2": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8a757664409cbd915c3822d2253ee41c92c540ab22d737667f3d2a1ed11f9a04"
+        },
+        "features_12_block_2_scale_activation": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a07429ce62a85b8241ef1c17e37f2050c0ce7c33739441086343b3c84edfba57"
+        },
+        "mul_4": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "35612293a9a82d1fab77e8efa4351ec5c1a6413df94bdd39ce495520dbd294ae"
+        },
+        "features_12_block_3_0": {
+          "shape": [
+            1,
+            112,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4227dcabb6d690b10706173bde26b2e24d70a887556c79614e1abfcd92bf9bbe"
+        },
+        "add_7": {
+          "shape": [
+            1,
+            112,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b3c4935f9b67c6aab8174d8101809602c8d78ce168b56c74f6d55e2f38150fc3"
+        },
+        "features_13_block_0_0": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "fe5a9dd51efec665c8c92aea5c1a67b2e38ed5580b82f726eabd3fb2eed76667"
+        },
+        "features_13_block_0_2": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2b0df467e3192c8e6ab6f5213b44303808c662538502c2f50634a6f454d0531e"
+        },
+        "features_13_block_1_0": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "693d48892e6ebc0ce1702f25580b5439bc95ecce1f8309cddf13ca9aae812f97"
+        },
+        "features_13_block_1_2": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ce056ff770e9e4419a86a01bf12fa554d19968b90f88601df0e8ec7b5c216345"
+        },
+        "features_13_block_2_avgpool": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9634bc59169ac10594ef3fcf05039ade8a14ca2c594747baacd048a5a8ae613b"
+        },
+        "features_13_block_2_fc1": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4224081fe65c7519dfde69ce90714addd3ec7dfe3a8545461e570f21e7a4b9de"
+        },
+        "features_13_block_2_activation": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3fd95a444fa0f3b02f61cbd260b9688cd7cd4549bbb95696e25c6638166bbf3d"
+        },
+        "features_13_block_2_fc2": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "38d77805b09d8e48630f6cad90a2fe6a5ed60115c0c7257bc3614df4c229ce2d"
+        },
+        "features_13_block_2_scale_activation": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "150d967adf8731651b236581e109bc7ecb3fccae2ae030c1e7aef08bec3288e3"
+        },
+        "mul_5": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bf33669081bb97715b89cb7628d884eb0920959f9093981cca3c8d47d1774e47"
+        },
+        "features_13_block_3_0": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "52508d7d9177eef8a146dac76ceb780c3b88d2a77cb460fe88aa25a7571b68f4"
+        },
+        "features_14_block_0_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "caa08c424d2fb19d21341ba7902345d6820b9e219b34caea470c693adc98c682"
+        },
+        "features_14_block_0_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "556f96f6557af73b47f19834ec15c387e5fde7e85bafb959c8bb1c085fc213a8"
+        },
+        "features_14_block_1_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5c1c2f3c72b8f3403a0d28976fc56e9a458e993d8dfab42bfad2b8f6194ed2c8"
+        },
+        "features_14_block_1_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1708b237698d16511c55d181361087aec529fab339b929700bb87f217581c738"
+        },
+        "features_14_block_2_avgpool": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2d7ea0d3f57302941296e87dd332fc3df9a0bdb98214982d2232b2b1fd69400b"
+        },
+        "features_14_block_2_fc1": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e8d7e509eb869135496d4e9ec5436f916fc54a1570312b45e401033048fd1988"
+        },
+        "features_14_block_2_activation": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4f2400ab29e3d09d0c238543a408d8b5548582f86ef0ec10dbcea3151747a4e5"
+        },
+        "features_14_block_2_fc2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8f3f43f577a749eed096df62ac4d4c2d1b062202182d648974dde286fb61c78f"
+        },
+        "features_14_block_2_scale_activation": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2437916eaae5f91f02a6ed533554fdb56cba1a568a8de364b3ee0a7eff947252"
+        },
+        "mul_6": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "26759d9b3ddd79cc132c7d13709fd5f7f6bbcef8ac9e99619ac79936a3989845"
+        },
+        "features_14_block_3_0": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "30cc177d0085cc2facbee5290be574ca92d0ed25a2835de2852e9be2ace78257"
+        },
+        "add_8": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "34b9eb9aa260c5ea7e3d874361f7609effb26cb97fab5ee01b157e4c9e13f78b"
+        },
+        "features_15_block_0_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bd63f6892832ce0403d0f6f445a8cd39cb795f53b2f58b2ef639c69de437b819"
+        },
+        "features_15_block_0_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f6fbe0155e2f7fd000aaa22693e60e090772684feb2c8624d7b6aecf90b015a6"
+        },
+        "features_15_block_1_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6df82121e5ac6abd8393cb0911270c618c05c0d4b003d18c6b53e8011b504a07"
+        },
+        "features_15_block_1_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "31874583fb65d1f73847643fe016868a15e053bb1f96540b4cfa582d40f992c5"
+        },
+        "features_15_block_2_avgpool": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "88f1958e96a2861f71d6d50f2a146f28a649d6e6151779361ece6f13c19ea1c7"
+        },
+        "features_15_block_2_fc1": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e3cfcf97c0a1b27facbc8dae140871d4f9ce4c09919775cfd30dc93639c78589"
+        },
+        "features_15_block_2_activation": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f0d30a45abdf808e33d583c19c4a3abe4791adc46587d193ec729374ccf0eb6b"
+        },
+        "features_15_block_2_fc2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ed388b3c4f29d2f64afd83e8ba3d86061be0a89a3868ff5a3e2a0d11eca9d9f0"
+        },
+        "features_15_block_2_scale_activation": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "204ba1e61ba4db9268f29dd3d4a4a336f832aa0bbf313c1140b0d4ddead6c138"
+        },
+        "mul_7": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "794d288589e77dc99477ee40505cbc16db96a286a8e9d035834ed381e11fb0e8"
+        },
+        "features_15_block_3_0": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "91b39b708e6887e5cf871e1f7f6583b05626e8144c1c1b797b729be6872624ef"
+        },
+        "add_9": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d06c580253e97b268d4f0acef2732bf34b1d6ac47a937957ef96b4f3f1fe25b1"
+        },
+        "features_16_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e9bee26036b07438db80522b1f8fc53a179fa10e9a1c6896be45363b03a43e2c"
+        },
+        "features_16_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3935cc45119fba41b1a51c70b99cee15127aee77c48fc6d455b09b77d861233c"
+        },
+        "avgpool": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "492145c9b62e29d309d4f975bd0c5384838f16e651f9222332d02dea29e2beef"
+        },
+        "flatten": {
+          "shape": [
+            1,
+            960
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "99b4e47579a0a6310b21e7e9d6318c97796a969e4544ff13ac4a84c332da6aca"
+        },
+        "classifier_0": {
+          "shape": [
+            1,
+            1280
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5963325b71e32246e90300396d9066c03a8eba50d0e264c0ffa2b9e0ab303c46"
+        },
+        "classifier_1": {
+          "shape": [
+            1,
+            1280
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "237f60cb462799981b4a38e210970f72365675ff73d7516b4634654e810f4f00"
+        },
+        "classifier_3": {
+          "shape": [
+            1,
+            1000
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2770c109353a708ea730eb469d5cb5c710caf18a9ee8159bf9044c7363d01892"
+        }
+      },
+      "outputs": {
+        "classifier_3": {
+          "shape": [
+            1,
+            1000
+          ],
+          "codes": [
+            39,
+            41,
+            9,
+            34,
+            36,
+            35,
+            36,
+            5,
+            39,
+            10,
+            14,
+            32,
+            48,
+            35,
+            11,
+            5,
+            16,
+            2,
+            7,
+            10,
+            2,
+            2,
+            33,
+            8,
+            36,
+            17,
+            18,
+            18,
+            15,
+            3,
+            32,
+            1,
+            37,
+            10,
+            14,
+            2,
+            37,
+            12,
+            13,
+            37,
+            36,
+            33,
+            1,
+            12,
+            10,
+            1,
+            3,
+            9,
+            6,
+            3,
+            48,
+            34,
+            40,
+            14,
+            0,
+            3,
+            0,
+            13,
+            12,
+            41,
+            42,
+            12,
+            33,
+            4,
+            43,
+            15,
+            2,
+            42,
+            35,
+            9,
+            34,
+            8,
+            9,
+            44,
+            2,
+            33,
+            14,
+            2,
+            11,
+            11,
+            9,
+            2,
+            39,
+            38,
+            46,
+            45,
+            37,
+            5,
+            12,
+            6,
+            39,
+            9,
+            12,
+            9,
+            37,
+            14,
+            35,
+            13,
+            13,
+            37,
+            13,
+            40,
+            9,
+            15,
+            45,
+            15,
+            32,
+            11,
+            42,
+            48,
+            41,
+            14,
+            45,
+            12,
+            37,
+            49,
+            4,
+            12,
+            9,
+            4,
+            9,
+            11,
+            36,
+            33,
+            6,
+            6,
+            32,
+            45,
+            40,
+            3,
+            36,
+            11,
+            45,
+            1,
+            40,
+            3,
+            0,
+            1,
+            5,
+            2,
+            12,
+            43,
+            32,
+            34,
+            32,
+            14,
+            1,
+            13,
+            33,
+            42,
+            1,
+            9,
+            1,
+            10,
+            42,
+            14,
+            46,
+            7,
+            13,
+            33,
+            42,
+            11,
+            17,
+            5,
+            16,
+            7,
+            16,
+            9,
+            8,
+            39,
+            7,
+            41,
+            44,
+            4,
+            41,
+            8,
+            6,
+            42,
+            6,
+            37,
+            36,
+            33,
+            10,
+            33,
+            38,
+            14,
+            15,
+            11,
+            10,
+            14,
+            34,
+            40,
+            14,
+            34,
+            12,
+            11,
+            42,
+            1,
+            3,
+            8,
+            7,
+            15,
+            42,
+            16,
+            7,
+            32,
+            5,
+            5,
+            7,
+            35,
+            18,
+            34,
+            16,
+            44,
+            32,
+            17,
+            13,
+            11,
+            15,
+            4,
+            10,
+            13,
+            3,
+            15,
+            12,
+            41,
+            4,
+            13,
+            44,
+            39,
+            10,
+            17,
+            13,
+            11,
+            37,
+            7,
+            13,
+            11,
+            12,
+            5,
+            14,
+            14,
+            11,
+            40,
+            2,
+            39,
+            46,
+            11,
+            11,
+            43,
+            2,
+            7,
+            36,
+            13,
+            8,
+            45,
+            6,
+            2,
+            35,
+            6,
+            13,
+            40,
+            38,
+            8,
+            12,
+            11,
+            13,
+            11,
+            44,
+            39,
+            4,
+            2,
+            2,
+            10,
+            3,
+            32,
+            34,
+            10,
+            9,
+            41,
+            14,
+            42,
+            33,
+            2,
+            43,
+            4,
+            44,
+            8,
+            38,
+            35,
+            1,
+            9,
+            10,
+            1,
+            2,
+            4,
+            35,
+            9,
+            12,
+            43,
+            40,
+            12,
+            14,
+            4,
+            16,
+            14,
+            13,
+            9,
+            5,
+            2,
+            1,
+            9,
+            11,
+            41,
+            8,
+            48,
+            18,
+            11,
+            5,
+            14,
+            3,
+            41,
+            8,
+            1,
+            42,
+            11,
+            41,
+            9,
+            49,
+            45,
+            10,
+            12,
+            35,
+            3,
+            12,
+            33,
+            33,
+            7,
+            3,
+            1,
+            11,
+            33,
+            1,
+            12,
+            45,
+            14,
+            33,
+            14,
+            41,
+            8,
+            11,
+            14,
+            8,
+            10,
+            41,
+            11,
+            11,
+            16,
+            16,
+            4,
+            10,
+            39,
+            35,
+            15,
+            39,
+            35,
+            12,
+            35,
+            15,
+            12,
+            14,
+            8,
+            39,
+            45,
+            34,
+            16,
+            39,
+            10,
+            11,
+            17,
+            3,
+            5,
+            41,
+            32,
+            8,
+            2,
+            1,
+            14,
+            9,
+            16,
+            48,
+            15,
+            41,
+            40,
+            42,
+            13,
+            35,
+            48,
+            46,
+            11,
+            44,
+            12,
+            8,
+            11,
+            42,
+            34,
+            47,
+            8,
+            11,
+            33,
+            43,
+            45,
+            48,
+            44,
+            12,
+            22,
+            43,
+            7,
+            38,
+            7,
+            36,
+            48,
+            47,
+            47,
+            44,
+            48,
+            50,
+            36,
+            44,
+            10,
+            46,
+            47,
+            45,
+            41,
+            42,
+            44,
+            6,
+            4,
+            44,
+            12,
+            47,
+            45,
+            45,
+            12,
+            9,
+            3,
+            49,
+            42,
+            47,
+            48,
+            5,
+            33,
+            36,
+            49,
+            40,
+            3,
+            40,
+            10,
+            45,
+            8,
+            40,
+            45,
+            44,
+            3,
+            2,
+            42,
+            3,
+            18,
+            3,
+            39,
+            43,
+            49,
+            16,
+            49,
+            13,
+            43,
+            35,
+            42,
+            38,
+            37,
+            42,
+            44,
+            7,
+            5,
+            9,
+            16,
+            10,
+            38,
+            45,
+            47,
+            5,
+            46,
+            2,
+            48,
+            34,
+            37,
+            43,
+            43,
+            49,
+            8,
+            9,
+            42,
+            19,
+            43,
+            45,
+            45,
+            45,
+            6,
+            9,
+            21,
+            39,
+            13,
+            11,
+            34,
+            11,
+            11,
+            34,
+            43,
+            33,
+            4,
+            11,
+            43,
+            45,
+            19,
+            7,
+            39,
+            34,
+            43,
+            6,
+            6,
+            9,
+            37,
+            12,
+            45,
+            49,
+            46,
+            42,
+            10,
+            51,
+            45,
+            2,
+            11,
+            35,
+            46,
+            8,
+            35,
+            16,
+            9,
+            49,
+            47,
+            48,
+            47,
+            40,
+            46,
+            43,
+            3,
+            46,
+            48,
+            41,
+            47,
+            45,
+            14,
+            38,
+            47,
+            36,
+            47,
+            12,
+            38,
+            47,
+            42,
+            44,
+            14,
+            7,
+            42,
+            3,
+            12,
+            18,
+            42,
+            44,
+            42,
+            7,
+            2,
+            20,
+            44,
+            42,
+            39,
+            10,
+            46,
+            17,
+            47,
+            44,
+            33,
+            7,
+            43,
+            40,
+            45,
+            13,
+            32,
+            42,
+            46,
+            36,
+            33,
+            34,
+            42,
+            42,
+            40,
+            48,
+            45,
+            12,
+            14,
+            7,
+            7,
+            40,
+            35,
+            32,
+            8,
+            40,
+            47,
+            3,
+            49,
+            32,
+            46,
+            11,
+            41,
+            50,
+            8,
+            43,
+            7,
+            12,
+            41,
+            10,
+            45,
+            46,
+            12,
+            32,
+            45,
+            1,
+            33,
+            41,
+            37,
+            46,
+            14,
+            49,
+            2,
+            48,
+            13,
+            10,
+            47,
+            47,
+            38,
+            4,
+            49,
+            18,
+            35,
+            42,
+            45,
+            5,
+            35,
+            12,
+            46,
+            43,
+            37,
+            36,
+            39,
+            15,
+            37,
+            41,
+            39,
+            11,
+            46,
+            44,
+            33,
+            45,
+            8,
+            43,
+            9,
+            8,
+            33,
+            5,
+            45,
+            46,
+            13,
+            42,
+            1,
+            44,
+            2,
+            41,
+            46,
+            10,
+            45,
+            8,
+            32,
+            35,
+            44,
+            38,
+            41,
+            14,
+            41,
+            5,
+            41,
+            45,
+            6,
+            38,
+            45,
+            49,
+            40,
+            45,
+            45,
+            49,
+            45,
+            36,
+            15,
+            7,
+            1,
+            17,
+            10,
+            13,
+            11,
+            42,
+            41,
+            35,
+            12,
+            15,
+            5,
+            49,
+            46,
+            38,
+            50,
+            40,
+            38,
+            47,
+            37,
+            48,
+            36,
+            32,
+            44,
+            45,
+            6,
+            40,
+            13,
+            48,
+            45,
+            1,
+            40,
+            47,
+            42,
+            4,
+            42,
+            43,
+            44,
+            22,
+            12,
+            9,
+            9,
+            14,
+            3,
+            47,
+            8,
+            35,
+            9,
+            8,
+            39,
+            40,
+            44,
+            35,
+            12,
+            8,
+            40,
+            10,
+            43,
+            13,
+            43,
+            36,
+            41,
+            12,
+            48,
+            5,
+            44,
+            44,
+            45,
+            44,
+            38,
+            15,
+            37,
+            1,
+            12,
+            41,
+            9,
+            21,
+            50,
+            16,
+            15,
+            0,
+            42,
+            44,
+            13,
+            14,
+            37,
+            41,
+            47,
+            41,
+            15,
+            9,
+            4,
+            44,
+            14,
+            13,
+            45,
+            3,
+            33,
+            43,
+            42,
+            41,
+            11,
+            10,
+            49,
+            35,
+            14,
+            4,
+            1,
+            40,
+            45,
+            40,
+            12,
+            14,
+            33,
+            4,
+            49,
+            43,
+            41,
+            40,
+            39,
+            42,
+            13,
+            44,
+            47,
+            42,
+            16,
+            3,
+            42,
+            49,
+            13,
+            46,
+            10,
+            13,
+            48,
+            49,
+            13,
+            13,
+            44,
+            17,
+            34,
+            14,
+            42,
+            51,
+            38,
+            47,
+            36,
+            50,
+            40,
+            2,
+            33,
+            44,
+            45,
+            10,
+            21,
+            2,
+            5,
+            9,
+            38,
+            33,
+            39,
+            45,
+            36,
+            37,
+            14,
+            46,
+            38,
+            37,
+            4,
+            33,
+            48,
+            48,
+            42,
+            42,
+            13,
+            45,
+            45,
+            47,
+            34,
+            9,
+            46,
+            47,
+            46,
+            49,
+            6,
+            46,
+            36,
+            3,
+            44,
+            47,
+            47,
+            34,
+            6,
+            44,
+            38,
+            49,
+            4,
+            46,
+            4,
+            13,
+            11,
+            10,
+            41,
+            3,
+            47,
+            43,
+            48,
+            2,
+            45,
+            44,
+            44,
+            44,
+            1,
+            1,
+            45,
+            16,
+            9,
+            35,
+            6,
+            17,
+            4,
+            15,
+            48,
+            50,
+            8,
+            14,
+            40,
+            17,
+            45,
+            40,
+            8,
+            9,
+            1,
+            15,
+            4,
+            2,
+            38,
+            42,
+            5,
+            44,
+            45,
+            8,
+            9,
+            13,
+            9,
+            14,
+            48,
+            45,
+            2,
+            35,
+            14,
+            13,
+            16,
+            15,
+            16,
+            9,
+            47,
+            15,
+            5,
+            12,
+            13,
+            36,
+            3,
+            33,
+            41,
+            41,
+            10,
+            43,
+            2,
+            47,
+            10,
+            11,
+            3,
+            39,
+            43,
+            40,
+            17,
+            9,
+            45,
+            13,
+            4,
+            40,
+            14,
+            5,
+            12,
+            13,
+            11,
+            13,
+            43
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          }
+        }
+      }
+    },
+    {
+      "backend": "cuda",
+      "seconds": 10.342614597990178,
+      "layers": {
+        "features_0_0": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a5cc0178d06e8cc5eddddd66b5c9d45b57f2720dd4acfedaa703c165698342a0"
+        },
+        "features_0_2": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "10d4d61e101c16e23abe851d457bb7e944d1c6c86375e4406cdcc5d9c1af7dbf"
+        },
+        "features_1_block_0_0": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6b5a4751584d90529bf6a40d7f894b99e889212df5ea2b4000553f5c7cb78ec0"
+        },
+        "features_1_block_0_2": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "835a04f3ab80f231d2ae94b673bec8b758b84d5d3ba2fcf7bc8685fe5e2249bc"
+        },
+        "features_1_block_1_0": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "510c2d552e4be5e46387ff1c7620620aff410867d5a783347f01b68f025554fa"
+        },
+        "add": {
+          "shape": [
+            1,
+            16,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8d7dcab0a5e87187b207d786f306763e44fef117f1088663db149fbe71cc38ee"
+        },
+        "features_2_block_0_0": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0d97273268e85b9f03adb8508670e613ac65ec48c93226493f708f5279ff5cd5"
+        },
+        "features_2_block_0_2": {
+          "shape": [
+            1,
+            64,
+            16,
+            16
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c86600511cd5ddb08c9bc501a042857b8492dd96ddd2c5bc064fc3174a23d7b3"
+        },
+        "features_2_block_1_0": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d595c21f14136d3a3f9f7ecde26eb4485ab4d0dc0c30503635d4912304b6873d"
+        },
+        "features_2_block_1_2": {
+          "shape": [
+            1,
+            64,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ff4a1d2e6fdf472b7a8977485de879e63b903ad6a3b54481e79caa34207f2f43"
+        },
+        "features_2_block_2_0": {
+          "shape": [
+            1,
+            24,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9d5b91e6c50f2ca50007e715c189a72550db918d64c3f864b2fc83d7813beccb"
+        },
+        "features_3_block_0_0": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cfc04bd6d6527d9cc944542032be9c455d8ca1241ae18af55ffabb8889c2dffd"
+        },
+        "features_3_block_0_2": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9096da4e46476e2e1052b39857ea3a1372da319eb296055c960493b247bd1947"
+        },
+        "features_3_block_1_0": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "246867919a53ab510e0c7645881377ccd0c52a219e8a51d52513891370247e73"
+        },
+        "features_3_block_1_2": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8b53ce3924c59c5f960312b39b5d29f4f30395a33a02761435495009a4c3b4a2"
+        },
+        "features_3_block_2_0": {
+          "shape": [
+            1,
+            24,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1d40bdd41181d8bacffe8b8d48ed396c25a23cfa61285927ff5fb4634eff318b"
+        },
+        "add_1": {
+          "shape": [
+            1,
+            24,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "22194ad0a6479ea030c558fd460ed8ca79890811d9947910f4ca06eb76035287"
+        },
+        "features_4_block_0_0": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e0be84afb973f3beeffd5282ecacb0ad06c28b13ea6b2c0ad62645eb3198a14d"
+        },
+        "features_4_block_0_2": {
+          "shape": [
+            1,
+            72,
+            8,
+            8
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "dc3e1e96ae18b19a03546daa86e108aab71267a60f813aa1a01f2416d3ac6b31"
+        },
+        "features_4_block_1_0": {
+          "shape": [
+            1,
+            72,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8e00bbe9db050782c2b7f80e11ba7db6866937c6463e363433e64c9777acb2ea"
+        },
+        "features_4_block_1_2": {
+          "shape": [
+            1,
+            72,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "00905d5c1a33964fcd7329827b694be057b169a342fc87402eb927c9cb09d196"
+        },
+        "features_4_block_2_avgpool": {
+          "shape": [
+            1,
+            72,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "508b177ea5b7041609c56a09edff8d3e0bb3c61aebfdaaf396a7071d0735e43b"
+        },
+        "features_4_block_2_fc1": {
+          "shape": [
+            1,
+            24,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c8946315a063d150e7bb5724aabeaf420a2a75924c1fcabca4413798d2c80418"
+        },
+        "features_4_block_2_activation": {
+          "shape": [
+            1,
+            24,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2f5f6f40730694ec52d9071f0f2b74722e71722cca3c64c4a13ff3f91830e96c"
+        },
+        "features_4_block_2_fc2": {
+          "shape": [
+            1,
+            72,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "de62299201b5439ca482b6af86a67f4797a47996a66387417bd585ec5e80492f"
+        },
+        "features_4_block_2_scale_activation": {
+          "shape": [
+            1,
+            72,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0cab7241f8439e272a3f97442bf9bc782b1362a0cb226f7dc519ef128acda31e"
+        },
+        "mul": {
+          "shape": [
+            1,
+            72,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "69082b1c5ba271846eb56301c9bff8e9a6b4ac05300d7e43b579e0ad82781240"
+        },
+        "features_4_block_3_0": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7d52002956abda26d678f93ca29aaf9f1dc7ed2581eba09391f73751e5fce5c1"
+        },
+        "features_5_block_0_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "558fb6cd2e6075311aa9f4ad420da0d26a8b4b3809c5950428fbb339ce59f3d7"
+        },
+        "features_5_block_0_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c43c967c2ac035ac793217df7de1592a5f5596e1ab552e671d700d63e8debac1"
+        },
+        "features_5_block_1_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "decdbe49cc8bafd0a71217ae613446416f07c71526c992d582c0107025773a65"
+        },
+        "features_5_block_1_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "845fc0a000fdf2c16a177f4d2caa13e7ef7077fcb998d0546c19b10d9daca132"
+        },
+        "features_5_block_2_avgpool": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ce5d327a32208c30bf00116e896fac3ad95710205621804102d0ea6790cd5861"
+        },
+        "features_5_block_2_fc1": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ba35c0544c458b3c6d9b93df12816630933f1da97c042f2cec9a5177496ad362"
+        },
+        "features_5_block_2_activation": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "03bb1ca75e2fdccc65a7c6acc80caabf82e88494992429f49b5373f00c530a8c"
+        },
+        "features_5_block_2_fc2": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "be4bc88b1798489ed04cdf0b5e56dcb5a35fbc74a7b358d0d04e752f57446f8f"
+        },
+        "features_5_block_2_scale_activation": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a00643f5996eab0b905d76baf47b2ece2f601655c444d0f64c816d9f799fe0a5"
+        },
+        "mul_1": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1abcfbdf7141f367c9f4b5da13b30b1a2e1101a9b021d8c1848a77d5593c817d"
+        },
+        "features_5_block_3_0": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "179e5eebef6e277d07a811b03f1e9e5123f0b7072fe23fa028a28de99ba2e264"
+        },
+        "add_2": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "34e1609823a87cd9042fcc7f0c0df0b3a3c82a136bb1420d90dd5f8a5d5ead28"
+        },
+        "features_6_block_0_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ea1a5cd15967729dcb5a80ef1ae2a539d6eb5bf9711359aaefa921ec18ac870a"
+        },
+        "features_6_block_0_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3c11e188dc8cc2009be40c462ca312a5d3fd35fe4ffeb99003ba4b4fd18e3af1"
+        },
+        "features_6_block_1_0": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b6d8648e3291616688abb346561384e0f4d634b127a194fc63cf1131cc9a97ea"
+        },
+        "features_6_block_1_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "90477c28821601ebb83b03b00793c284b9e8665c829b017cb96423ba214bc117"
+        },
+        "features_6_block_2_avgpool": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "02ba53cc69671abd33083e3dbe1d64a9638d06867a9598d7fa8ba6c9e6dfe1ff"
+        },
+        "features_6_block_2_fc1": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0b4e0bc169536daa21cf23db947c1c4938ee63fdacd0ac05543c2041585c230b"
+        },
+        "features_6_block_2_activation": {
+          "shape": [
+            1,
+            32,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "fade6afa47eeb75c0e38e79c6a78fd9c78c6d0d82fc3ced393365748b77d3f50"
+        },
+        "features_6_block_2_fc2": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cefe278355c502f67b448bfe1dc0c113ce8235156469de3c5d57fc341252c708"
+        },
+        "features_6_block_2_scale_activation": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5f16243a330e6a302432ffbe17f4357720676c180e60396366668e503400ae08"
+        },
+        "mul_2": {
+          "shape": [
+            1,
+            120,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8f4ced41baf87ffd5a532f13d321f6762212f25d90ebd51dfb272cb4fd01fb88"
+        },
+        "features_6_block_3_0": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1260c7f03718f2b999309a77e5a6584fd30a89274a1bc772e557a784c32d0955"
+        },
+        "add_3": {
+          "shape": [
+            1,
+            40,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7e11a36805c059a32126ef98d61807b44a084d5e0cd6de0763c1f935274b2a55"
+        },
+        "features_7_block_0_0": {
+          "shape": [
+            1,
+            240,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2ff78e7521d661ccc8708ccbdcc8bea791a8141fc60dc74ae89c9eebc4b797bf"
+        },
+        "features_7_block_0_2": {
+          "shape": [
+            1,
+            240,
+            4,
+            4
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "45c9e5d5b09d91cdff37d3afae2ea19418f04e061b642499b40cc2de465d07b8"
+        },
+        "features_7_block_1_0": {
+          "shape": [
+            1,
+            240,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3ceb11c6c2dd001bb2e60468ad0ab96c8a6c55a3f7b52d5efc229ca49aa74ed6"
+        },
+        "features_7_block_1_2": {
+          "shape": [
+            1,
+            240,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3d2d245c1258192dc50d8fad420c0d550b45aa977c5b00ba58e67e58051806f2"
+        },
+        "features_7_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ce9f22045befd292687ef02a9fdf2836c93a08cef7582daef80e87b86a8016ae"
+        },
+        "features_8_block_0_0": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "68370d941f618b3a57879ffe930d210c3acb95e435504d85234823c4903603ec"
+        },
+        "features_8_block_0_2": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "eac5d88581eedaee8479c0459a62cf3770146dc409c2a22a9a5ac4393613e52a"
+        },
+        "features_8_block_1_0": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d49d8c3c510e736ccbfbf777cc3be9e63778ae08013e64f1813dbe9a47978b06"
+        },
+        "features_8_block_1_2": {
+          "shape": [
+            1,
+            200,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "66a686217e6b75d3d7ff622a362be603c05b62b5ad001ee75a1338f2c49a5969"
+        },
+        "features_8_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b30511bfb3333335389b828c21ef0d2954259fe9907266d55c76fad11593c85f"
+        },
+        "add_4": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "7e223d4c052e335bb9842ceb89456c3502556faacc1892487b22f9fb018db048"
+        },
+        "features_9_block_0_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "17a284227148177fb532894d83e089e2fedb85ec968a6be8b4d03bf7898078e5"
+        },
+        "features_9_block_0_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4353c942624dfcc0a5f9030d088cdcc0b9acc152e7da90a81142caad8c107d98"
+        },
+        "features_9_block_1_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5879e89316f21c9b9f4a0a5b87e9bc9f957e37825a6eaf4a986670c60f92898b"
+        },
+        "features_9_block_1_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "166d4e8b45255c1e11c83a6bcb04f8d036d3f4a5a2885b9961effe58072b073c"
+        },
+        "features_9_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cdacfd583490648fe530488adeaa3de7f99dd378d093ede9823a37b5cd3a1a04"
+        },
+        "add_5": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "aa0f39f765ee20aaf19d8e7f38891e9c7ca6406df311387ef4fe9ece9f1caa91"
+        },
+        "features_10_block_0_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f8415010b6997b40ba19a76f844b5d08a502739fa7d7d0dd68ae97d99041afcc"
+        },
+        "features_10_block_0_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e0a87bf4b31128a06cddddc54da64e2e8283ddb64a91c0f573f82ce364185279"
+        },
+        "features_10_block_1_0": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "cbef7d7daf61108a2f098245d60c336022dfd1a7d9b254b6138b981c932f3fac"
+        },
+        "features_10_block_1_2": {
+          "shape": [
+            1,
+            184,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "80875c36d343dea04b820b35570bf2f614d9e3be776da8a9dfe3a7de75355bf7"
+        },
+        "features_10_block_2_0": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c2c23b300b54d0035ce6c167482e18486c8547a1106baefd8c1bab99e85e974d"
+        },
+        "add_6": {
+          "shape": [
+            1,
+            80,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "136cf7d0d261ed4d850e144f7248f9d665f5569398e3841ea8fe29d8c073dfdc"
+        },
+        "features_11_block_0_0": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "0697ae0795e0b271af3d4ae746b93abcd3c3487a193c3fb93ac3ea5015c43151"
+        },
+        "features_11_block_0_2": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a0559f20bfbde6648959c7338e404cc64f04d61d9bab800a9f04f7fdf284dd6f"
+        },
+        "features_11_block_1_0": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "10a8214885a4a7d99328d909df0c94f23757e6f46997df140dabaf40bc1877f5"
+        },
+        "features_11_block_1_2": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "c743f5bb6832fae9c2f9896dec15ba09bb538df90a317e36a542296461937612"
+        },
+        "features_11_block_2_avgpool": {
+          "shape": [
+            1,
+            480,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1a8ef25fdf86ef6a60858ffc6cf52bbd52cf0aae98696eb451a7340e3237e0df"
+        },
+        "features_11_block_2_fc1": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d4b552723b232126d60c8f076b5a200a5b1d678777e3d25484f8c08df2323fbd"
+        },
+        "features_11_block_2_activation": {
+          "shape": [
+            1,
+            120,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "71c23bb10d092b415ee6b850b7a698b6ec239fbd2beedcd41bd5ded20eedad93"
+        },
+        "features_11_block_2_fc2": {
+          "shape": [
+            1,
+            480,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5a0d9d473f24f51e21650288cbf29fdad1633306bcc7234c829dbb6811e33914"
+        },
+        "features_11_block_2_scale_activation": {
+          "shape": [
+            1,
+            480,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "947537f00c6edae0f2b53b39f3d4589ef501d3b646203f7a616a4976d923b511"
+        },
+        "mul_3": {
+          "shape": [
+            1,
+            480,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6beced261e0e8ecba3e8b31cd7e2f60e903d3524808f18c0a314f14cf1b24655"
+        },
+        "features_11_block_3_0": {
+          "shape": [
+            1,
+            112,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ed00c1395d234e0a4423cad9787e483655415940dab79ad46c13afcea5e88140"
+        },
+        "features_12_block_0_0": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b1f734784620830ee8cedd54604b63184bf9bffbdab09a9a3641f0954b696de2"
+        },
+        "features_12_block_0_2": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e3a8d8f528e9f5d154d7bfe2096d895c52a857691eca898d87bb04906a0f87a8"
+        },
+        "features_12_block_1_0": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bff8ee8a382600e7042663ae21c0c1ca19186463204968860a06f8aed1cd1b77"
+        },
+        "features_12_block_1_2": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9ded2772722a77d15592e357551e844a37515a9aad94be0ad69882a74c9cc1ee"
+        },
+        "features_12_block_2_avgpool": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9d2923b4221f11c2754e8814f7faebbbeef2b288fe3ea5459e779a260285773d"
+        },
+        "features_12_block_2_fc1": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "34379a9520ba461b726f321faef8faa32a20e5e0d2165c19d9c1291d710a0c55"
+        },
+        "features_12_block_2_activation": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6178647401745773daee1b135ce71a01cff77fcd71949c4ef3e8509009dd8058"
+        },
+        "features_12_block_2_fc2": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8a757664409cbd915c3822d2253ee41c92c540ab22d737667f3d2a1ed11f9a04"
+        },
+        "features_12_block_2_scale_activation": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "a07429ce62a85b8241ef1c17e37f2050c0ce7c33739441086343b3c84edfba57"
+        },
+        "mul_4": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "35612293a9a82d1fab77e8efa4351ec5c1a6413df94bdd39ce495520dbd294ae"
+        },
+        "features_12_block_3_0": {
+          "shape": [
+            1,
+            112,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4227dcabb6d690b10706173bde26b2e24d70a887556c79614e1abfcd92bf9bbe"
+        },
+        "add_7": {
+          "shape": [
+            1,
+            112,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "b3c4935f9b67c6aab8174d8101809602c8d78ce168b56c74f6d55e2f38150fc3"
+        },
+        "features_13_block_0_0": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "fe5a9dd51efec665c8c92aea5c1a67b2e38ed5580b82f726eabd3fb2eed76667"
+        },
+        "features_13_block_0_2": {
+          "shape": [
+            1,
+            672,
+            2,
+            2
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2b0df467e3192c8e6ab6f5213b44303808c662538502c2f50634a6f454d0531e"
+        },
+        "features_13_block_1_0": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "693d48892e6ebc0ce1702f25580b5439bc95ecce1f8309cddf13ca9aae812f97"
+        },
+        "features_13_block_1_2": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ce056ff770e9e4419a86a01bf12fa554d19968b90f88601df0e8ec7b5c216345"
+        },
+        "features_13_block_2_avgpool": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "9634bc59169ac10594ef3fcf05039ade8a14ca2c594747baacd048a5a8ae613b"
+        },
+        "features_13_block_2_fc1": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4224081fe65c7519dfde69ce90714addd3ec7dfe3a8545461e570f21e7a4b9de"
+        },
+        "features_13_block_2_activation": {
+          "shape": [
+            1,
+            168,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3fd95a444fa0f3b02f61cbd260b9688cd7cd4549bbb95696e25c6638166bbf3d"
+        },
+        "features_13_block_2_fc2": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "38d77805b09d8e48630f6cad90a2fe6a5ed60115c0c7257bc3614df4c229ce2d"
+        },
+        "features_13_block_2_scale_activation": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "150d967adf8731651b236581e109bc7ecb3fccae2ae030c1e7aef08bec3288e3"
+        },
+        "mul_5": {
+          "shape": [
+            1,
+            672,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bf33669081bb97715b89cb7628d884eb0920959f9093981cca3c8d47d1774e47"
+        },
+        "features_13_block_3_0": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "52508d7d9177eef8a146dac76ceb780c3b88d2a77cb460fe88aa25a7571b68f4"
+        },
+        "features_14_block_0_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "caa08c424d2fb19d21341ba7902345d6820b9e219b34caea470c693adc98c682"
+        },
+        "features_14_block_0_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "556f96f6557af73b47f19834ec15c387e5fde7e85bafb959c8bb1c085fc213a8"
+        },
+        "features_14_block_1_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5c1c2f3c72b8f3403a0d28976fc56e9a458e993d8dfab42bfad2b8f6194ed2c8"
+        },
+        "features_14_block_1_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "1708b237698d16511c55d181361087aec529fab339b929700bb87f217581c738"
+        },
+        "features_14_block_2_avgpool": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2d7ea0d3f57302941296e87dd332fc3df9a0bdb98214982d2232b2b1fd69400b"
+        },
+        "features_14_block_2_fc1": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e8d7e509eb869135496d4e9ec5436f916fc54a1570312b45e401033048fd1988"
+        },
+        "features_14_block_2_activation": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "4f2400ab29e3d09d0c238543a408d8b5548582f86ef0ec10dbcea3151747a4e5"
+        },
+        "features_14_block_2_fc2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "8f3f43f577a749eed096df62ac4d4c2d1b062202182d648974dde286fb61c78f"
+        },
+        "features_14_block_2_scale_activation": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2437916eaae5f91f02a6ed533554fdb56cba1a568a8de364b3ee0a7eff947252"
+        },
+        "mul_6": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "26759d9b3ddd79cc132c7d13709fd5f7f6bbcef8ac9e99619ac79936a3989845"
+        },
+        "features_14_block_3_0": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "30cc177d0085cc2facbee5290be574ca92d0ed25a2835de2852e9be2ace78257"
+        },
+        "add_8": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "34b9eb9aa260c5ea7e3d874361f7609effb26cb97fab5ee01b157e4c9e13f78b"
+        },
+        "features_15_block_0_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "bd63f6892832ce0403d0f6f445a8cd39cb795f53b2f58b2ef639c69de437b819"
+        },
+        "features_15_block_0_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f6fbe0155e2f7fd000aaa22693e60e090772684feb2c8624d7b6aecf90b015a6"
+        },
+        "features_15_block_1_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "6df82121e5ac6abd8393cb0911270c618c05c0d4b003d18c6b53e8011b504a07"
+        },
+        "features_15_block_1_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "31874583fb65d1f73847643fe016868a15e053bb1f96540b4cfa582d40f992c5"
+        },
+        "features_15_block_2_avgpool": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "88f1958e96a2861f71d6d50f2a146f28a649d6e6151779361ece6f13c19ea1c7"
+        },
+        "features_15_block_2_fc1": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e3cfcf97c0a1b27facbc8dae140871d4f9ce4c09919775cfd30dc93639c78589"
+        },
+        "features_15_block_2_activation": {
+          "shape": [
+            1,
+            240,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "f0d30a45abdf808e33d583c19c4a3abe4791adc46587d193ec729374ccf0eb6b"
+        },
+        "features_15_block_2_fc2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "ed388b3c4f29d2f64afd83e8ba3d86061be0a89a3868ff5a3e2a0d11eca9d9f0"
+        },
+        "features_15_block_2_scale_activation": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "204ba1e61ba4db9268f29dd3d4a4a336f832aa0bbf313c1140b0d4ddead6c138"
+        },
+        "mul_7": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "794d288589e77dc99477ee40505cbc16db96a286a8e9d035834ed381e11fb0e8"
+        },
+        "features_15_block_3_0": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "91b39b708e6887e5cf871e1f7f6583b05626e8144c1c1b797b729be6872624ef"
+        },
+        "add_9": {
+          "shape": [
+            1,
+            160,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "d06c580253e97b268d4f0acef2732bf34b1d6ac47a937957ef96b4f3f1fe25b1"
+        },
+        "features_16_0": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "e9bee26036b07438db80522b1f8fc53a179fa10e9a1c6896be45363b03a43e2c"
+        },
+        "features_16_2": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "3935cc45119fba41b1a51c70b99cee15127aee77c48fc6d455b09b77d861233c"
+        },
+        "avgpool": {
+          "shape": [
+            1,
+            960,
+            1,
+            1
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "492145c9b62e29d309d4f975bd0c5384838f16e651f9222332d02dea29e2beef"
+        },
+        "flatten": {
+          "shape": [
+            1,
+            960
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "99b4e47579a0a6310b21e7e9d6318c97796a969e4544ff13ac4a84c332da6aca"
+        },
+        "classifier_0": {
+          "shape": [
+            1,
+            1280
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "5963325b71e32246e90300396d9066c03a8eba50d0e264c0ffa2b9e0ab303c46"
+        },
+        "classifier_1": {
+          "shape": [
+            1,
+            1280
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "237f60cb462799981b4a38e210970f72365675ff73d7516b4634654e810f4f00"
+        },
+        "classifier_3": {
+          "shape": [
+            1,
+            1000
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          },
+          "sha256": "2770c109353a708ea730eb469d5cb5c710caf18a9ee8159bf9044c7363d01892"
+        }
+      },
+      "outputs": {
+        "classifier_3": {
+          "shape": [
+            1,
+            1000
+          ],
+          "codes": [
+            39,
+            41,
+            9,
+            34,
+            36,
+            35,
+            36,
+            5,
+            39,
+            10,
+            14,
+            32,
+            48,
+            35,
+            11,
+            5,
+            16,
+            2,
+            7,
+            10,
+            2,
+            2,
+            33,
+            8,
+            36,
+            17,
+            18,
+            18,
+            15,
+            3,
+            32,
+            1,
+            37,
+            10,
+            14,
+            2,
+            37,
+            12,
+            13,
+            37,
+            36,
+            33,
+            1,
+            12,
+            10,
+            1,
+            3,
+            9,
+            6,
+            3,
+            48,
+            34,
+            40,
+            14,
+            0,
+            3,
+            0,
+            13,
+            12,
+            41,
+            42,
+            12,
+            33,
+            4,
+            43,
+            15,
+            2,
+            42,
+            35,
+            9,
+            34,
+            8,
+            9,
+            44,
+            2,
+            33,
+            14,
+            2,
+            11,
+            11,
+            9,
+            2,
+            39,
+            38,
+            46,
+            45,
+            37,
+            5,
+            12,
+            6,
+            39,
+            9,
+            12,
+            9,
+            37,
+            14,
+            35,
+            13,
+            13,
+            37,
+            13,
+            40,
+            9,
+            15,
+            45,
+            15,
+            32,
+            11,
+            42,
+            48,
+            41,
+            14,
+            45,
+            12,
+            37,
+            49,
+            4,
+            12,
+            9,
+            4,
+            9,
+            11,
+            36,
+            33,
+            6,
+            6,
+            32,
+            45,
+            40,
+            3,
+            36,
+            11,
+            45,
+            1,
+            40,
+            3,
+            0,
+            1,
+            5,
+            2,
+            12,
+            43,
+            32,
+            34,
+            32,
+            14,
+            1,
+            13,
+            33,
+            42,
+            1,
+            9,
+            1,
+            10,
+            42,
+            14,
+            46,
+            7,
+            13,
+            33,
+            42,
+            11,
+            17,
+            5,
+            16,
+            7,
+            16,
+            9,
+            8,
+            39,
+            7,
+            41,
+            44,
+            4,
+            41,
+            8,
+            6,
+            42,
+            6,
+            37,
+            36,
+            33,
+            10,
+            33,
+            38,
+            14,
+            15,
+            11,
+            10,
+            14,
+            34,
+            40,
+            14,
+            34,
+            12,
+            11,
+            42,
+            1,
+            3,
+            8,
+            7,
+            15,
+            42,
+            16,
+            7,
+            32,
+            5,
+            5,
+            7,
+            35,
+            18,
+            34,
+            16,
+            44,
+            32,
+            17,
+            13,
+            11,
+            15,
+            4,
+            10,
+            13,
+            3,
+            15,
+            12,
+            41,
+            4,
+            13,
+            44,
+            39,
+            10,
+            17,
+            13,
+            11,
+            37,
+            7,
+            13,
+            11,
+            12,
+            5,
+            14,
+            14,
+            11,
+            40,
+            2,
+            39,
+            46,
+            11,
+            11,
+            43,
+            2,
+            7,
+            36,
+            13,
+            8,
+            45,
+            6,
+            2,
+            35,
+            6,
+            13,
+            40,
+            38,
+            8,
+            12,
+            11,
+            13,
+            11,
+            44,
+            39,
+            4,
+            2,
+            2,
+            10,
+            3,
+            32,
+            34,
+            10,
+            9,
+            41,
+            14,
+            42,
+            33,
+            2,
+            43,
+            4,
+            44,
+            8,
+            38,
+            35,
+            1,
+            9,
+            10,
+            1,
+            2,
+            4,
+            35,
+            9,
+            12,
+            43,
+            40,
+            12,
+            14,
+            4,
+            16,
+            14,
+            13,
+            9,
+            5,
+            2,
+            1,
+            9,
+            11,
+            41,
+            8,
+            48,
+            18,
+            11,
+            5,
+            14,
+            3,
+            41,
+            8,
+            1,
+            42,
+            11,
+            41,
+            9,
+            49,
+            45,
+            10,
+            12,
+            35,
+            3,
+            12,
+            33,
+            33,
+            7,
+            3,
+            1,
+            11,
+            33,
+            1,
+            12,
+            45,
+            14,
+            33,
+            14,
+            41,
+            8,
+            11,
+            14,
+            8,
+            10,
+            41,
+            11,
+            11,
+            16,
+            16,
+            4,
+            10,
+            39,
+            35,
+            15,
+            39,
+            35,
+            12,
+            35,
+            15,
+            12,
+            14,
+            8,
+            39,
+            45,
+            34,
+            16,
+            39,
+            10,
+            11,
+            17,
+            3,
+            5,
+            41,
+            32,
+            8,
+            2,
+            1,
+            14,
+            9,
+            16,
+            48,
+            15,
+            41,
+            40,
+            42,
+            13,
+            35,
+            48,
+            46,
+            11,
+            44,
+            12,
+            8,
+            11,
+            42,
+            34,
+            47,
+            8,
+            11,
+            33,
+            43,
+            45,
+            48,
+            44,
+            12,
+            22,
+            43,
+            7,
+            38,
+            7,
+            36,
+            48,
+            47,
+            47,
+            44,
+            48,
+            50,
+            36,
+            44,
+            10,
+            46,
+            47,
+            45,
+            41,
+            42,
+            44,
+            6,
+            4,
+            44,
+            12,
+            47,
+            45,
+            45,
+            12,
+            9,
+            3,
+            49,
+            42,
+            47,
+            48,
+            5,
+            33,
+            36,
+            49,
+            40,
+            3,
+            40,
+            10,
+            45,
+            8,
+            40,
+            45,
+            44,
+            3,
+            2,
+            42,
+            3,
+            18,
+            3,
+            39,
+            43,
+            49,
+            16,
+            49,
+            13,
+            43,
+            35,
+            42,
+            38,
+            37,
+            42,
+            44,
+            7,
+            5,
+            9,
+            16,
+            10,
+            38,
+            45,
+            47,
+            5,
+            46,
+            2,
+            48,
+            34,
+            37,
+            43,
+            43,
+            49,
+            8,
+            9,
+            42,
+            19,
+            43,
+            45,
+            45,
+            45,
+            6,
+            9,
+            21,
+            39,
+            13,
+            11,
+            34,
+            11,
+            11,
+            34,
+            43,
+            33,
+            4,
+            11,
+            43,
+            45,
+            19,
+            7,
+            39,
+            34,
+            43,
+            6,
+            6,
+            9,
+            37,
+            12,
+            45,
+            49,
+            46,
+            42,
+            10,
+            51,
+            45,
+            2,
+            11,
+            35,
+            46,
+            8,
+            35,
+            16,
+            9,
+            49,
+            47,
+            48,
+            47,
+            40,
+            46,
+            43,
+            3,
+            46,
+            48,
+            41,
+            47,
+            45,
+            14,
+            38,
+            47,
+            36,
+            47,
+            12,
+            38,
+            47,
+            42,
+            44,
+            14,
+            7,
+            42,
+            3,
+            12,
+            18,
+            42,
+            44,
+            42,
+            7,
+            2,
+            20,
+            44,
+            42,
+            39,
+            10,
+            46,
+            17,
+            47,
+            44,
+            33,
+            7,
+            43,
+            40,
+            45,
+            13,
+            32,
+            42,
+            46,
+            36,
+            33,
+            34,
+            42,
+            42,
+            40,
+            48,
+            45,
+            12,
+            14,
+            7,
+            7,
+            40,
+            35,
+            32,
+            8,
+            40,
+            47,
+            3,
+            49,
+            32,
+            46,
+            11,
+            41,
+            50,
+            8,
+            43,
+            7,
+            12,
+            41,
+            10,
+            45,
+            46,
+            12,
+            32,
+            45,
+            1,
+            33,
+            41,
+            37,
+            46,
+            14,
+            49,
+            2,
+            48,
+            13,
+            10,
+            47,
+            47,
+            38,
+            4,
+            49,
+            18,
+            35,
+            42,
+            45,
+            5,
+            35,
+            12,
+            46,
+            43,
+            37,
+            36,
+            39,
+            15,
+            37,
+            41,
+            39,
+            11,
+            46,
+            44,
+            33,
+            45,
+            8,
+            43,
+            9,
+            8,
+            33,
+            5,
+            45,
+            46,
+            13,
+            42,
+            1,
+            44,
+            2,
+            41,
+            46,
+            10,
+            45,
+            8,
+            32,
+            35,
+            44,
+            38,
+            41,
+            14,
+            41,
+            5,
+            41,
+            45,
+            6,
+            38,
+            45,
+            49,
+            40,
+            45,
+            45,
+            49,
+            45,
+            36,
+            15,
+            7,
+            1,
+            17,
+            10,
+            13,
+            11,
+            42,
+            41,
+            35,
+            12,
+            15,
+            5,
+            49,
+            46,
+            38,
+            50,
+            40,
+            38,
+            47,
+            37,
+            48,
+            36,
+            32,
+            44,
+            45,
+            6,
+            40,
+            13,
+            48,
+            45,
+            1,
+            40,
+            47,
+            42,
+            4,
+            42,
+            43,
+            44,
+            22,
+            12,
+            9,
+            9,
+            14,
+            3,
+            47,
+            8,
+            35,
+            9,
+            8,
+            39,
+            40,
+            44,
+            35,
+            12,
+            8,
+            40,
+            10,
+            43,
+            13,
+            43,
+            36,
+            41,
+            12,
+            48,
+            5,
+            44,
+            44,
+            45,
+            44,
+            38,
+            15,
+            37,
+            1,
+            12,
+            41,
+            9,
+            21,
+            50,
+            16,
+            15,
+            0,
+            42,
+            44,
+            13,
+            14,
+            37,
+            41,
+            47,
+            41,
+            15,
+            9,
+            4,
+            44,
+            14,
+            13,
+            45,
+            3,
+            33,
+            43,
+            42,
+            41,
+            11,
+            10,
+            49,
+            35,
+            14,
+            4,
+            1,
+            40,
+            45,
+            40,
+            12,
+            14,
+            33,
+            4,
+            49,
+            43,
+            41,
+            40,
+            39,
+            42,
+            13,
+            44,
+            47,
+            42,
+            16,
+            3,
+            42,
+            49,
+            13,
+            46,
+            10,
+            13,
+            48,
+            49,
+            13,
+            13,
+            44,
+            17,
+            34,
+            14,
+            42,
+            51,
+            38,
+            47,
+            36,
+            50,
+            40,
+            2,
+            33,
+            44,
+            45,
+            10,
+            21,
+            2,
+            5,
+            9,
+            38,
+            33,
+            39,
+            45,
+            36,
+            37,
+            14,
+            46,
+            38,
+            37,
+            4,
+            33,
+            48,
+            48,
+            42,
+            42,
+            13,
+            45,
+            45,
+            47,
+            34,
+            9,
+            46,
+            47,
+            46,
+            49,
+            6,
+            46,
+            36,
+            3,
+            44,
+            47,
+            47,
+            34,
+            6,
+            44,
+            38,
+            49,
+            4,
+            46,
+            4,
+            13,
+            11,
+            10,
+            41,
+            3,
+            47,
+            43,
+            48,
+            2,
+            45,
+            44,
+            44,
+            44,
+            1,
+            1,
+            45,
+            16,
+            9,
+            35,
+            6,
+            17,
+            4,
+            15,
+            48,
+            50,
+            8,
+            14,
+            40,
+            17,
+            45,
+            40,
+            8,
+            9,
+            1,
+            15,
+            4,
+            2,
+            38,
+            42,
+            5,
+            44,
+            45,
+            8,
+            9,
+            13,
+            9,
+            14,
+            48,
+            45,
+            2,
+            35,
+            14,
+            13,
+            16,
+            15,
+            16,
+            9,
+            47,
+            15,
+            5,
+            12,
+            13,
+            36,
+            3,
+            33,
+            41,
+            41,
+            10,
+            43,
+            2,
+            47,
+            10,
+            11,
+            3,
+            39,
+            43,
+            40,
+            17,
+            9,
+            45,
+            13,
+            4,
+            40,
+            14,
+            5,
+            12,
+            13,
+            11,
+            13,
+            43
+          ],
+          "encoding": {
+            "format": "fp6_e3m2",
+            "scales": [
+              "1"
+            ],
+            "axis": null,
+            "block_size": null
+          }
+        }
+      }
+    }
+  ]
+}

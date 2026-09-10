@@ -1,0 +1,291 @@
+{
+  "schema_version": "2.0.0",
+  "backend": "cuda",
+  "source_sha256": "ea2304fa6721e695b61a858fd95a049f5005d111100fa5a84ec5d0fae036d029",
+  "result": {
+    "scope": "synthetic layer-sized shapes; host binding/allocations/transfers included; predecoded tensors reused; no network runtime prediction",
+    "D2": "open; occupancy, bandwidth and network-scale profiling still required",
+    "records": [
+      {
+        "format": "fp6_e3m2",
+        "shape_role": "conv_gemm",
+        "batch": 196,
+        "channels": 64,
+        "k": 288,
+        "strategy": "algorithmic",
+        "median_seconds": 0.01796209200983867,
+        "mac_per_second": 201127574.56209287,
+        "samples_seconds": [
+          0.01796209200983867,
+          0.018092512007569894,
+          0.017932153001311235
+        ],
+        "accumulator": "fp32_e8m23_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "efc76f338502d003713002074036778014734abbc9ff22c9cc26e024ffe88000"
+      },
+      {
+        "format": "fp6_e3m2",
+        "shape_role": "conv_gemm",
+        "batch": 196,
+        "channels": 64,
+        "k": 288,
+        "strategy": "lookup",
+        "median_seconds": 0.0178556530008791,
+        "mac_per_second": 202326512.49563006,
+        "samples_seconds": [
+          0.017639953992329538,
+          0.0178556530008791,
+          0.017867733011371456
+        ],
+        "accumulator": "fp32_e8m23_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "efc76f338502d003713002074036778014734abbc9ff22c9cc26e024ffe88000"
+      },
+      {
+        "format": "fp6_e3m2",
+        "shape_role": "conv_gemm",
+        "batch": 196,
+        "channels": 64,
+        "k": 288,
+        "strategy": "predecoded",
+        "median_seconds": 0.009528949012747034,
+        "mac_per_second": 379125966.0606084,
+        "samples_seconds": [
+          0.010290666003129445,
+          0.009528949012747034,
+          0.009389519997057505
+        ],
+        "accumulator": "fp32_e8m23_accumulator",
+        "predecode_setup_seconds": 0.032284300003084354,
+        "output_sha256": "efc76f338502d003713002074036778014734abbc9ff22c9cc26e024ffe88000"
+      },
+      {
+        "format": "fp6_e3m2",
+        "shape_role": "pointwise_gemm",
+        "batch": 784,
+        "channels": 32,
+        "k": 32,
+        "strategy": "algorithmic",
+        "median_seconds": 0.00566095499380026,
+        "mac_per_second": 141816354.46302336,
+        "samples_seconds": [
+          0.0056581050012027845,
+          0.005797474994324148,
+          0.00566095499380026
+        ],
+        "accumulator": "fp32_e8m23_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "45f03159c3abf7b110ba279fc34504460a9d6347637c090a99779d8116852fed"
+      },
+      {
+        "format": "fp6_e3m2",
+        "shape_role": "pointwise_gemm",
+        "batch": 784,
+        "channels": 32,
+        "k": 32,
+        "strategy": "lookup",
+        "median_seconds": 0.005639434995828196,
+        "mac_per_second": 142357523.50969338,
+        "samples_seconds": [
+          0.005675516003975645,
+          0.005583625999861397,
+          0.005639434995828196
+        ],
+        "accumulator": "fp32_e8m23_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "45f03159c3abf7b110ba279fc34504460a9d6347637c090a99779d8116852fed"
+      },
+      {
+        "format": "fp6_e3m2",
+        "shape_role": "pointwise_gemm",
+        "batch": 784,
+        "channels": 32,
+        "k": 32,
+        "strategy": "predecoded",
+        "median_seconds": 0.002860218010027893,
+        "mac_per_second": 280683499.36450154,
+        "samples_seconds": [
+          0.0029056369967292994,
+          0.002860218010027893,
+          0.0028441280010156333
+        ],
+        "accumulator": "fp32_e8m23_accumulator",
+        "predecode_setup_seconds": 0.0018028219928964972,
+        "output_sha256": "45f03159c3abf7b110ba279fc34504460a9d6347637c090a99779d8116852fed"
+      },
+      {
+        "format": "fp6_e3m2",
+        "shape_role": "depthwise_conv",
+        "geometry": {
+          "n": 1,
+          "ci": 32,
+          "h": 28,
+          "w": 28,
+          "co": 32,
+          "kh": 3,
+          "kw": 3,
+          "oh": 28,
+          "ow": 28,
+          "sh": 1,
+          "sw": 1,
+          "ph": 1,
+          "pw": 1,
+          "dh": 1,
+          "dw": 1,
+          "groups": 32
+        },
+        "strategy": "predecoded",
+        "median_seconds": 0.0019065619999310002,
+        "mac_per_second": 118428878.79238734,
+        "samples_seconds": [
+          0.0020370910060591996,
+          0.0019065619999310002,
+          0.0018601519986987114
+        ],
+        "accumulator": "fp32_e8m23_accumulator",
+        "output_sha256": "b9090df6ed1e9a08d64049df350051256d9e887494d0305cea778579f438852c"
+      },
+      {
+        "format": "int8",
+        "shape_role": "conv_gemm",
+        "batch": 196,
+        "channels": 64,
+        "k": 288,
+        "strategy": "algorithmic",
+        "median_seconds": 0.020755299992742948,
+        "mac_per_second": 174060216.00570282,
+        "samples_seconds": [
+          0.020583481003995985,
+          0.020755299992742948,
+          0.020956848995410837
+        ],
+        "accumulator": "int32_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "b2b2abc5971000642cb43619fcff0196fba3c3cb8a486b6be17c1a9ef70f880a"
+      },
+      {
+        "format": "int8",
+        "shape_role": "conv_gemm",
+        "batch": 196,
+        "channels": 64,
+        "k": 288,
+        "strategy": "lookup",
+        "median_seconds": 0.020715930993901566,
+        "mac_per_second": 174391003.76727033,
+        "samples_seconds": [
+          0.020715930993901566,
+          0.020867169994744472,
+          0.02063130099850241
+        ],
+        "accumulator": "int32_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "b2b2abc5971000642cb43619fcff0196fba3c3cb8a486b6be17c1a9ef70f880a"
+      },
+      {
+        "format": "int8",
+        "shape_role": "conv_gemm",
+        "batch": 196,
+        "channels": 64,
+        "k": 288,
+        "strategy": "predecoded",
+        "median_seconds": 0.007396618006168865,
+        "mac_per_second": 488422140.63062197,
+        "samples_seconds": [
+          0.007413797997287475,
+          0.007383507996564731,
+          0.007396618006168865
+        ],
+        "accumulator": "int32_accumulator",
+        "predecode_setup_seconds": 0.006531691993586719,
+        "output_sha256": "b2b2abc5971000642cb43619fcff0196fba3c3cb8a486b6be17c1a9ef70f880a"
+      },
+      {
+        "format": "int8",
+        "shape_role": "pointwise_gemm",
+        "batch": 784,
+        "channels": 32,
+        "k": 32,
+        "strategy": "algorithmic",
+        "median_seconds": 0.007953716005431488,
+        "mac_per_second": 100935964.95672809,
+        "samples_seconds": [
+          0.007953716005431488,
+          0.008051245007663965,
+          0.007910136002465151
+        ],
+        "accumulator": "int32_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "4598e6d48084a5e4d62b642d369b4ab231bbb29eb55b5788ff2a5be0f23efd3c"
+      },
+      {
+        "format": "int8",
+        "shape_role": "pointwise_gemm",
+        "batch": 784,
+        "channels": 32,
+        "k": 32,
+        "strategy": "lookup",
+        "median_seconds": 0.007984436000697315,
+        "mac_per_second": 100547615.3769517,
+        "samples_seconds": [
+          0.007984436000697315,
+          0.007916456001112238,
+          0.00809080500039272
+        ],
+        "accumulator": "int32_accumulator",
+        "predecode_setup_seconds": null,
+        "output_sha256": "4598e6d48084a5e4d62b642d369b4ab231bbb29eb55b5788ff2a5be0f23efd3c"
+      },
+      {
+        "format": "int8",
+        "shape_role": "pointwise_gemm",
+        "batch": 784,
+        "channels": 32,
+        "k": 32,
+        "strategy": "predecoded",
+        "median_seconds": 0.002593028999399394,
+        "mac_per_second": 309605484.62279093,
+        "samples_seconds": [
+          0.002609458999359049,
+          0.0025494589935988188,
+          0.002593028999399394
+        ],
+        "accumulator": "int32_accumulator",
+        "predecode_setup_seconds": 0.0018382120033493266,
+        "output_sha256": "4598e6d48084a5e4d62b642d369b4ab231bbb29eb55b5788ff2a5be0f23efd3c"
+      },
+      {
+        "format": "int8",
+        "shape_role": "depthwise_conv",
+        "geometry": {
+          "n": 1,
+          "ci": 32,
+          "h": 28,
+          "w": 28,
+          "co": 32,
+          "kh": 3,
+          "kw": 3,
+          "oh": 28,
+          "ow": 28,
+          "sh": 1,
+          "sw": 1,
+          "ph": 1,
+          "pw": 1,
+          "dh": 1,
+          "dw": 1,
+          "groups": 32
+        },
+        "strategy": "predecoded",
+        "median_seconds": 0.0018715320038609207,
+        "mac_per_second": 120645545.75299653,
+        "samples_seconds": [
+          0.0018695320031838492,
+          0.0018802620033966377,
+          0.0018715320038609207
+        ],
+        "accumulator": "int32_accumulator",
+        "output_sha256": "53a986bfa60d97eaf37132105b5f1509c66f4f2584730f52f4e12bda761cde87"
+      }
+    ]
+  }
+}

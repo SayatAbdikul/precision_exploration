@@ -1,0 +1,64 @@
+{
+  "schema_version": "2.0.0",
+  "backend": "cpp",
+  "source_sha256": "ea2304fa6721e695b61a858fd95a049f5005d111100fa5a84ec5d0fae036d029",
+  "result": {
+    "experiment_id": "32b11482a867820b4aebc1c686f93adfe4953738816254efa1c5ca9582094e5e",
+    "run_id": 3,
+    "status": "COMPLETED",
+    "deduplicated": true,
+    "output_sha256": "8c48a63b9af279ec2fe1f68dbf9fda0e077ce5a17c22c2831ff947c1a6335dd2",
+    "output_path": "artifacts/encoded_tensors/phase2/8c/48a63b9af279ec2fe1f68dbf9fda0e077ce5a17c22c2831ff947c1a6335dd2",
+    "layers": {
+      "conv": {
+        "shape": [
+          1,
+          2,
+          2,
+          2
+        ],
+        "encoding": {
+          "format": "fp6_e3m2",
+          "scales": [
+            "1"
+          ],
+          "axis": null,
+          "block_size": null
+        },
+        "sha256": "8f50931dd46fde6e53b026f27caada027bf6e7b98d8d776a91b2a2074fad7dd3"
+      },
+      "pool": {
+        "shape": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "encoding": {
+          "format": "fp6_e3m2",
+          "scales": [
+            "1"
+          ],
+          "axis": null,
+          "block_size": null
+        },
+        "sha256": "1f04be9215a97ab47412b343fc6fb8a9d2d5f1eb122b25db3259720a19884aea"
+      },
+      "logits": {
+        "shape": [
+          1,
+          2
+        ],
+        "encoding": {
+          "format": "fp6_e3m2",
+          "scales": [
+            "1"
+          ],
+          "axis": null,
+          "block_size": null
+        },
+        "sha256": "b57f1df5f449124f24bd4b0cd87884c6598e85825ee995ad779bfa66182ab946"
+      }
+    }
+  }
+}

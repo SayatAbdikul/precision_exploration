@@ -1,0 +1,111 @@
+{
+  "schema_version": "2.0.0",
+  "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+  "records": [
+    {
+      "format": "fp6_e3m2",
+      "strategy": "predecoded",
+      "launch_index": 0,
+      "batch": 196,
+      "channels": 64,
+      "k": 288,
+      "accumulator": "fp32_e8m23_accumulator",
+      "output_sha256": "efc76f338502d003713002074036778014734abbc9ff22c9cc26e024ffe88000",
+      "kernel": "gemm_kernel(const pe::Value *, const pe::Value *, unsigned int *, int, int, int, pe::Format)",
+      "duration_ns": 10384167,
+      "mac_per_second": 347901954.9666333,
+      "registers_per_thread": 40,
+      "device": "NVIDIA GeForce RTX 3060 Ti (0)"
+    },
+    {
+      "format": "fp6_e3m2",
+      "strategy": "algorithmic",
+      "launch_index": 1,
+      "batch": 196,
+      "channels": 64,
+      "k": 288,
+      "accumulator": "fp32_e8m23_accumulator",
+      "output_sha256": "efc76f338502d003713002074036778014734abbc9ff22c9cc26e024ffe88000",
+      "kernel": "encoded_kernel(const unsigned char *, const unsigned char *, const pe::Value *, const pe::Value *, unsigned int *, int, int, int, pe::Operand, pe::Operand, pe::Format, int)",
+      "duration_ns": 10548840,
+      "mac_per_second": 342471020.510312,
+      "registers_per_thread": 40,
+      "device": "NVIDIA GeForce RTX 3060 Ti (0)"
+    },
+    {
+      "format": "fp6_e3m2",
+      "strategy": "lookup",
+      "launch_index": 2,
+      "batch": 196,
+      "channels": 64,
+      "k": 288,
+      "accumulator": "fp32_e8m23_accumulator",
+      "output_sha256": "efc76f338502d003713002074036778014734abbc9ff22c9cc26e024ffe88000",
+      "kernel": "encoded_kernel(const unsigned char *, const unsigned char *, const pe::Value *, const pe::Value *, unsigned int *, int, int, int, pe::Operand, pe::Operand, pe::Format, int)",
+      "duration_ns": 10020294,
+      "mac_per_second": 360535529.19704753,
+      "registers_per_thread": 40,
+      "device": "NVIDIA GeForce RTX 3060 Ti (0)"
+    },
+    {
+      "format": "int8",
+      "strategy": "predecoded",
+      "launch_index": 3,
+      "batch": 196,
+      "channels": 64,
+      "k": 288,
+      "accumulator": "int32_accumulator",
+      "output_sha256": "3d6fa6eff1fe49b09e9ed53f45096ce4264e3f15492fb0c61dfcba389bd2b498",
+      "kernel": "gemm_kernel(const pe::Value *, const pe::Value *, unsigned int *, int, int, int, pe::Format)",
+      "duration_ns": 8260159,
+      "mac_per_second": 437361072.5895228,
+      "registers_per_thread": 40,
+      "device": "NVIDIA GeForce RTX 3060 Ti (0)"
+    },
+    {
+      "format": "int8",
+      "strategy": "algorithmic",
+      "launch_index": 4,
+      "batch": 196,
+      "channels": 64,
+      "k": 288,
+      "accumulator": "int32_accumulator",
+      "output_sha256": "3d6fa6eff1fe49b09e9ed53f45096ce4264e3f15492fb0c61dfcba389bd2b498",
+      "kernel": "encoded_kernel(const unsigned char *, const unsigned char *, const pe::Value *, const pe::Value *, unsigned int *, int, int, int, pe::Operand, pe::Operand, pe::Format, int)",
+      "duration_ns": 8377696,
+      "mac_per_second": 431225005.0610574,
+      "registers_per_thread": 40,
+      "device": "NVIDIA GeForce RTX 3060 Ti (0)"
+    },
+    {
+      "format": "int8",
+      "strategy": "lookup",
+      "launch_index": 5,
+      "batch": 196,
+      "channels": 64,
+      "k": 288,
+      "accumulator": "int32_accumulator",
+      "output_sha256": "3d6fa6eff1fe49b09e9ed53f45096ce4264e3f15492fb0c61dfcba389bd2b498",
+      "kernel": "encoded_kernel(const unsigned char *, const unsigned char *, const pe::Value *, const pe::Value *, unsigned int *, int, int, int, pe::Operand, pe::Operand, pe::Format, int)",
+      "duration_ns": 8370527,
+      "mac_per_second": 431594330.91847146,
+      "registers_per_thread": 40,
+      "device": "NVIDIA GeForce RTX 3060 Ti (0)"
+    }
+  ],
+  "tool": "NVIDIA Nsight Systems version 2025.5.2.266-255236693005v0",
+  "scope": "one traced kernel launch per strategy/family, no statistical latency ranking",
+  "counter_status": "unavailable: Nsight Compute ERR_NVGPUCTRPERM; no GPU counter settings changed",
+  "missing_metrics": [
+    "achieved_occupancy",
+    "kernel_DRAM_bytes",
+    "kernel_DRAM_bandwidth"
+  ],
+  "artifacts": {
+    "artifacts/benchmarks/phase2/profile-inputs.json": "c7243337427890328851c86529f7f864a2403dc42923562f8c65b49aac6c6f2c",
+    "artifacts/benchmarks/phase2/cuda-profile.nsys-rep": "dd6494baa2d27b39337bfbc4b0403fdfc3ee528c8d7ea44ed133904d5dcf678f",
+    "artifacts/benchmarks/phase2/stats_cuda_gpu_trace.csv": "6a74344efae2febb94c117db4b71051357e61b4f1574b0bb46b1d6612f5778df",
+    "artifacts/benchmarks/phase2/stats_cuda_gpu_mem_time_sum.csv": "b8edfe6d125faffddbe268c1f0039a47b5932b7d29791e4390aea6c3e7c6932b",
+    "artifacts/benchmarks/phase2/ncu-attempt.log": "9216d52012d71a612867e36c9a3f78aa768a50fe0440466b16f1333fbfc5b149"
+  }
+}

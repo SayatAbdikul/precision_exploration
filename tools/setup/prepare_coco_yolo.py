@@ -19,9 +19,9 @@ def prepare(annotation_path: Path, dataset_root: Path) -> dict[str, int]:
         if not annotation.get("iscrowd", 0):
             grouped[int(annotation["image_id"])].append(annotation)
 
-    # Ultralytics resolves the image symlink to the payload directory before
-    # deriving label paths, so labels live beside the ignored image payloads.
-    label_root = dataset_root / "val2017"
+    # The dataset list uses images/val2017; img2label_paths replaces that
+    # component with labels before opening payloads through the symlink.
+    label_root = dataset_root / "labels" / "val2017"
     label_root.mkdir(parents=True, exist_ok=True)
     image_link = dataset_root / "images" / "val2017"
     image_link.parent.mkdir(parents=True, exist_ok=True)
@@ -48,7 +48,7 @@ def prepare(annotation_path: Path, dataset_root: Path) -> dict[str, int]:
     list_path.write_text(
         "".join(f"./images/val2017/{images[key]['file_name']}\n" for key in sorted(images)), encoding="utf-8"
     )
-    cache = dataset_root / "val2017.cache"
+    cache = dataset_root / "labels" / "val2017.cache"
     if cache.exists():
         cache.unlink()
     yaml_path = dataset_root / "coco2017-local.yaml"

@@ -1,0 +1,24 @@
+{
+  "checkpoint": {
+    "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/mobilenet_v3_large-5c1a4163.pth",
+    "sha256": "5c1a416349c4cf298f2a6a5e2600ed0ee55e604713578f5e74e6bc8bcaef7997"
+  },
+  "device": "cpu",
+  "elapsed_seconds": 24.17828427599943,
+  "metrics": {
+    "count": 1000,
+    "top1_percent": 75.0,
+    "top5_percent": 92.1
+  },
+  "mkldnn_enabled": false,
+  "model": "mobilenet_v3_large",
+  "predictions": {
+    "count": 1000,
+    "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/per_image_predictions/phase2-mobilenet_v3_large-fp32-native-imagenet1k-screen.jsonl",
+    "sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007"
+  },
+  "preprocessing": "ImageClassification(\n    crop_size=[224]\n    resize_size=[232]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+  "seed": 0,
+  "weights": "MobileNet_V3_Large_Weights.IMAGENET1K_V2",
+  "workers": 0
+}

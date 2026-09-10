@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0", "name": "int32_accumulator", "family": "integer",
+  "bits": 32, "signed": true, "encoding": "twos_complement", "rounding": "rne",
+  "overflow": "saturate", "underflow": "not_applicable", "zero": "code_0",
+  "numeric": {"integer_bits": 31, "fractional_bits": 0, "zero_point": 0},
+  "scaling": {"mode": "none", "granularity": "none"}
+}

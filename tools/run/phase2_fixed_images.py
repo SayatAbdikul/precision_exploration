@@ -56,6 +56,47 @@ def verify_images(samples, payload_root):
     return verified
 
 
+def save_checkpoint(path, record):
+    payload = {**record, "record_sha256": hashlib.sha256(canonical_json_bytes(record)).hexdigest()}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(".partial")
+    temporary.write_bytes(canonical_json_bytes(payload))
+    temporary.replace(path)
+
+
+def load_checkpoint(path, context):
+    if not path.exists():
+        return {**context, "backends": {}}
+    record = json.loads(path.read_text())
+    digest = record.pop("record_sha256")
+    if hashlib.sha256(canonical_json_bytes(record)).hexdigest() != digest:
+        raise ValueError("fixed-image checkpoint hash mismatch")
+    if {key: value for key, value in record.items() if key != "backends"} != context:
+        raise ValueError("fixed-image checkpoint identity mismatch")
+    if not set(record["backends"]).issubset({"cpp", "cuda"}):
+        raise ValueError("fixed-image checkpoint contains an unsupported backend")
+    return record
+
+
+def compare_backends(graph, inputs, record, path, *, runner=execute):
+    """Keep each finished backend through interruption, and recheck on resume."""
+    expected = None
+    for backend in ("cpp", "cuda"):
+        if backend not in record["backends"]:
+            print(f"{record['sample']['relative_path']} {backend}: executing", flush=True)
+            started = time.perf_counter()
+            result = runner(graph, inputs, backend=backend)
+            record["backends"][backend] = {"seconds": time.perf_counter()-started, "layers": result["layers"],
+                "outputs": {name: value.document() for name, value in result["outputs"].items()}}
+            save_checkpoint(path, record)
+        actual = record["backends"][backend]
+        if expected is not None and (actual["layers"] != expected["layers"] or actual["outputs"] != expected["outputs"]):
+            raise ValueError(f"network backend mismatch on image {record['sample']['relative_path']}")
+        expected = actual
+        print(f"{record['sample']['relative_path']} {backend}: all {len(actual['layers'])} layer hashes verified", flush=True)
+    return record
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", required=True, choices=("resnet18", "mobilenet_v2", "mobilenet_v3_large"))
@@ -99,6 +140,10 @@ def main():
     artifact = ROOT / "artifacts/folded_graphs" / f"{args.model}-phase2-{identity}.json"
     artifact.parent.mkdir(parents=True, exist_ok=True)
     artifact.write_bytes(canonical_json_bytes(graph))
+    job = {"model": args.model, "source_sha256": execution_source, "graph_sha256": identity,
+           "model_manifest_sha256": sha256(manifest_path), "selection": selection}
+    job_sha256 = hashlib.sha256(canonical_json_bytes(job)).hexdigest()
+    work = ROOT / "artifacts/fixed_image_runs" / job_sha256
     records = []
     for row, path in zip(selection["samples"], paths):
         with Image.open(path) as image:
@@ -110,27 +155,23 @@ def main():
             fp32_logits = model(inputs_fp32).cpu().numpy()
         if not np.isfinite(fp32_logits).all():
             raise ValueError("FP32 reference produced nonfinite logits")
-        backends = {}
-        expected = None
-        for backend in ("cpp", "cuda"):
-            started = time.perf_counter()
-            result = execute(graph, inputs, backend=backend)
-            if expected is not None and (result["layers"] != expected["layers"] or result["outputs"] != expected["outputs"]):
-                raise ValueError(f"network backend mismatch on image {row['relative_path']}")
-            expected = result
-            backends[backend] = {"seconds": time.perf_counter()-started, "layers": result["layers"],
-                                 "outputs": {name: value.document() for name, value in result["outputs"].items()}}
-            print(f"{args.model} {row['relative_path']} {backend}: all {len(result['layers'])} layer hashes recorded", flush=True)
-        records.append({"sample": row, "encoded_input_sha256": hashlib.sha256(canonical_json_bytes(next(iter(inputs.values())).document())).hexdigest(),
-                        "fp32_logits": fp32_logits.flatten().tolist(), "backends": backends})
+        context = {"job_sha256": job_sha256, "sample": row,
+                   "encoded_input_sha256": hashlib.sha256(canonical_json_bytes(next(iter(inputs.values())).document())).hexdigest(),
+                   "fp32_logits": fp32_logits.flatten().tolist()}
+        checkpoint = work / f"{row['sha256']}.json"
+        record = load_checkpoint(checkpoint, context)
+        records.append(compare_backends(graph, inputs, record, checkpoint))
     if source_identity() != execution_source:
         raise RuntimeError("engine sources changed during execution; rerun before publishing evidence")
     report = {"schema_version": "2.0.0", "source_sha256": execution_source, "model": args.model,
+              "job_sha256": job_sha256, "checkpoints": str(work.relative_to(ROOT)),
               "model_manifest_sha256": sha256(manifest_path), "selection": selection,
               "graph_sha256": identity, "graph_artifact": str(artifact.relative_to(ROOT)), "records": records,
               "scope": "eight frozen images, native resolution, layerwise CPP/CUDA equality; FP32 logits recorded, not full quality reproduction"}
     output = ROOT / "results/summaries" / f"phase2-{args.model}-fixed-images.json"
-    output.write_text(json.dumps(report, indent=2) + "\n")
+    temporary = output.with_suffix(".partial")
+    temporary.write_text(json.dumps(report, indent=2) + "\n")
+    temporary.replace(output)
 
 
 if __name__ == "__main__":

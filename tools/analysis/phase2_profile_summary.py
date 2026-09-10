@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 
 from public.inference.conformance_job import source_identity
+from tools.analysis.phase2_counter_evidence import counter_evidence, MISSING_METRICS
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -31,15 +32,22 @@ def main():
         records.append({**launch, "kernel": row["Name"], "duration_ns": duration,
                         "mac_per_second": launch["batch"]*launch["channels"]*launch["k"]*1e9/duration,
                         "registers_per_thread": int(row["Reg/Trd"]), "device": row["Device"]})
-    report = {"schema_version": "2.0.0", "source_sha256": inputs["source_sha256"], "records": records,
+    counters = counter_evidence(ROOT, inputs)
+    report = {"schema_version": "2.1.0", "source_sha256": inputs["source_sha256"], "records": records,
               "tool": subprocess.check_output(["nsys", "--version"], text=True).strip(),
               "scope": "one traced kernel launch per strategy/family, no statistical latency ranking",
-              "counter_status": "unavailable: Nsight Compute ERR_NVGPUCTRPERM; no GPU counter settings changed",
-              "missing_metrics": ["achieved_occupancy", "kernel_DRAM_bytes", "kernel_DRAM_bandwidth"],
+              "counter_status": counters["status"], "counter_records": counters["records"],
+              "counter_tool": counters.get("tool"),
+              "counter_scope": "one NCU-profiled launch per strategy/family; bandwidth uses paired NCU duration and DRAM counters",
+              "missing_metrics": [] if counters["status"] == "measured" else MISSING_METRICS,
               "artifacts": {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                             for path in (work/"profile-inputs.json", work/"cuda-profile.nsys-rep",
                                          work/"stats_cuda_gpu_trace.csv", work/"stats_cuda_gpu_mem_time_sum.csv", work/"ncu-attempt.log")}}
-    (ROOT / "results/summaries/phase2-cuda-profile.json").write_text(json.dumps(report, indent=2)+"\n")
+    report["artifacts"].update(counters["artifacts"])
+    output = ROOT / "results/summaries/phase2-cuda-profile.json"
+    temporary = output.with_suffix(".partial")
+    temporary.write_text(json.dumps(report, indent=2)+"\n")
+    temporary.replace(output)
 
 
 if __name__ == "__main__":

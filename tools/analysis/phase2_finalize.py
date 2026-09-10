@@ -11,6 +11,7 @@ from public.experiments.registry.identity import canonical_json_bytes, experimen
 from public.quantization.graph.executable import graph_sha256
 from public.workloads.datasets.identity import load_tsv, verify_payload_record
 from public.quantization.calibration.artifact import validate as validate_calibration
+from tools.analysis.phase2_counter_evidence import profile_errors
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -66,6 +67,7 @@ def detector_evidence(root: Path, report_path: Path, current_source: str) -> dic
         raise ValueError("workload source identity mismatch")
     graph = json.loads((work / "graph.json").read_text())
     graph_identity = graph_sha256(graph)
+    expected_layers = {node["name"] for node in graph["nodes"]}
     summary = json.loads((work / "summary.json").read_text())
     if summary["job_sha256"] != identity or summary["graph_sha256"] != graph_identity:
         raise ValueError("workload summary identity mismatch")
@@ -94,6 +96,8 @@ def detector_evidence(root: Path, report_path: Path, current_source: str) -> dic
         backends = document["backends"]
         if not {"cpp", "cuda"}.issubset(backends) or backends["cpp"]["layers"] != backends["cuda"]["layers"]:
             raise ValueError("workload backend layer evidence mismatch")
+        if set(backends["cpp"]["layers"]) != expected_layers:
+            raise ValueError("workload layer evidence is incomplete")
         layers.add(len(backends["cpp"]["layers"]))
     if len(layers) != 1 or not rows:
         raise ValueError("inconsistent workload layer counts")
@@ -121,7 +125,8 @@ def fixed_image_evidence(root: Path, model: str, current_source: str) -> dict:
     artifact = (root / document["graph_artifact"]).resolve()
     if not artifact.is_relative_to(root.resolve()):
         raise ValueError("fixed-image graph escapes repository")
-    if graph_sha256(json.loads(artifact.read_text())) != document["graph_sha256"]:
+    graph = json.loads(artifact.read_text())
+    if graph_sha256(graph) != document["graph_sha256"]:
         raise ValueError("fixed-image graph identity mismatch")
     records = document["records"]
     if [row["sample"] for row in records] != selection["samples"]:
@@ -131,6 +136,8 @@ def fixed_image_evidence(root: Path, model: str, current_source: str) -> dict:
         cpp, cuda = row["backends"]["cpp"], row["backends"]["cuda"]
         if cpp["layers"] != cuda["layers"] or cpp["outputs"] != cuda["outputs"]:
             raise ValueError("fixed-image backend evidence mismatch")
+        if set(cpp["layers"]) != {node["name"] for node in graph["nodes"]} or set(cpp["outputs"]) != set(graph["outputs"]):
+            raise ValueError("fixed-image layer/output evidence is incomplete")
         layer_counts.add(len(cpp["layers"]))
     if len(layer_counts) != 1:
         raise ValueError("fixed-image layer count mismatch")
@@ -153,6 +160,42 @@ def baseline_evidence(root: Path) -> dict:
     return records
 
 
+def reproduction_evidence(root: Path) -> dict:
+    """Keep numerical reproduction separate from restoration of original bytes."""
+    records = {}
+    classifier_path = root / "results/summaries/phase2-classifier-fp32-reproduction.json"
+    if classifier_path.exists():
+        document = json.loads(classifier_path.read_text())
+        for run in document["runs"]:
+            prediction = root / run["predictions"]["path"]
+            if file_hash(prediction) != run["predictions"]["sha256"]:
+                raise ValueError("classifier reproduction artifact hash mismatch")
+            records[run["model"]] = {"metrics": run["metrics"], "metrics_identical": run["metrics_identical"],
+                                      "byte_identical": run["byte_identical"],
+                                      "path": str(classifier_path.relative_to(root)), "sha256": file_hash(classifier_path)}
+    detector_path = root / "results/summaries/phase2-detector-fp32-native-reproduction.json"
+    if detector_path.exists():
+        document = json.loads(detector_path.read_text())
+        for reference in document["evidence"]:
+            path = (root / reference["path"]).resolve()
+            if not path.is_relative_to(root.resolve()) or file_hash(path) != reference["sha256"]:
+                raise ValueError("detector FP32 reproduction artifact hash mismatch")
+        records["yolov8n"] = {"metrics": document["metrics"], "metric_deltas": document["metric_deltas"],
+                              "byte_identical": document["byte_identical"],
+                              "path": str(detector_path.relative_to(root)), "sha256": file_hash(detector_path)}
+    return records
+
+
+def calibration_coverage(artifacts: list[dict]) -> dict:
+    """Require both representative formats for every core model."""
+    completed = {(item["model"], item["format"]) for item in artifacts}
+    missing = [{"model": model, "format": format_name}
+               for model in ("resnet18", "mobilenet_v2", "mobilenet_v3_large", "yolov8n")
+               for format_name in ("fp6_e3m2", "int8")
+               if (model, format_name) not in completed]
+    return {"status": "incomplete" if missing else "completed", "missing": missing}
+
+
 def main() -> None:
     current_source = source_identity()
     index = json.loads((ROOT / "data/manifests/index.json").read_text())["records"]
@@ -160,11 +203,14 @@ def main() -> None:
     for name in ("coco_calibration_2k", "coco_screen_1k", "coco_evaluation_5k"):
         coco[name] = {"count": verify_payload_record(ROOT, index[name]), "list_sha256": index[name]["sha256"]}
     calibrations = []
-    for path in sorted((ROOT / "artifacts/calibration").glob("yolov8n-*.json")):
+    calibration_paths = [path for model in ("resnet18", "mobilenet_v2", "mobilenet_v3_large", "yolov8n")
+                         for path in sorted((ROOT / "artifacts/calibration").glob(f"{model}-*.json"))]
+    for path in calibration_paths:
         if "observations" in path.name:
             continue
         document = validate_calibration(json.loads(path.read_text()), ROOT)
         calibrations.append({"path": str(path.relative_to(ROOT)), "sha256": file_hash(path),
+                             "model": document["context"]["model"],
                              "format": document["format"], "images": document["observations"]["image_count"],
                              "nodes": len(document["encodings"]), "sampling": document["observations"]["sampling"]})
     image_counts = {name: payload_status(ROOT, index[name]) for name in
@@ -174,6 +220,11 @@ def main() -> None:
         path = ROOT / "results/summaries" / f"phase2-{name}-synthetic-smoke.json"
         if path.exists():
             document = json.loads(path.read_text())
+            backends = {row["backend"]: row for row in document["records"]}
+            if (not {"cpp", "cuda"}.issubset(backends) or not document["backend_equality_checked"]
+                    or backends["cpp"]["layers"] != backends["cuda"]["layers"]
+                    or backends["cpp"]["outputs"] != backends["cuda"]["outputs"]):
+                raise ValueError(f"synthetic network backend evidence mismatch: {name}")
             smoke[name] = {"source_sha256": document.get("source_sha256"),
                            "layers": len(document.get("records", [{}])[0].get("layers", {})),
                            "backend_equality_checked": document.get("backend_equality_checked"),
@@ -210,6 +261,14 @@ def main() -> None:
         raise ValueError("family matrix coverage is incomplete")
     profile_path = ROOT / "results/summaries/phase2-cuda-profile.json"
     profile = json.loads(profile_path.read_text())
+    profiling_errors = profile_errors(ROOT, profile, current_source)
+    decision_errors = []
+    if decisions["audit_source_sha256"] != current_source:
+        decision_errors.append("decision evidence uses a different engine source")
+    for relative, expected in decisions["artifacts"].items():
+        path = (ROOT / relative).resolve()
+        if not path.is_relative_to(ROOT.resolve()) or not path.is_file() or file_hash(path) != expected:
+            decision_errors.append(f"decision artifact missing or changed: {relative}")
     baselines = baseline_evidence(ROOT)
     report = {
         "schema_version": "2.0.0",
@@ -220,11 +279,13 @@ def main() -> None:
                   "cuda": test_counts(ROOT / "artifacts/conformance/phase2/pytest-cuda-final.xml"),
                   "cpu_known_external_failures": ["ImageNet payload verification", "frozen Phase 1 prediction artifacts"]},
         "coco": coco,
-        "calibration": {"artifacts": calibrations, "policy": "mse_numpy_f64_100coarse_50fine_v1"},
+        "calibration": {"artifacts": calibrations, "policy": "mse_numpy_f64_100coarse_50fine_v1",
+                        **calibration_coverage(calibrations)},
         "imagenet": {"payloads": image_counts, "status": "verified" if all(item["status"] == "verified" for item in image_counts.values()) else "incomplete"},
         "synthetic_networks": smoke,
         "classifier_native_resolution": classifiers,
         "frozen_baseline_predictions": baselines,
+        "fp32_reproduction": reproduction_evidence(ROOT),
         "detector_native_resolution": detector,
         "detector_quality_diagnosis": {"status": diagnosis["status"], "path": str(diagnosis_path.relative_to(ROOT)),
                                        "sha256": file_hash(diagnosis_path), "conclusion": diagnosis["conclusion"]},
@@ -236,14 +297,19 @@ def main() -> None:
                          "sha256": file_hash(ROOT / "results/summaries/phase2-wide-policy-candidates.json"),
                          "status": "candidate policies; per-graph Experiment A acceptance required before Phase 3 sweeps"},
         "profiling": {"status": profile["counter_status"], "missing_metrics": profile["missing_metrics"],
+                      "artifact_errors": profiling_errors,
                       "source_sha256": profile["source_sha256"], "source_current": profile["source_sha256"] == current_source,
                       "path": str(profile_path.relative_to(ROOT)), "sha256": file_hash(profile_path)},
         "decisions": {"D2": decisions["D2"]["status"], "D3": decisions["D3"]["status"],
+                      "artifact_errors": decision_errors,
                       "path": str(decisions_path.relative_to(ROOT)), "sha256": file_hash(decisions_path)},
         "final_report_hashes": final_reports,
         "evidence_sources": evidence_sources,
     }
     remaining = []
+    for item in report["calibration"]["missing"]:
+        remaining.append({"gate": f"{item['model']}_{item['format']}_calibration",
+                          "reason": "verified frozen-population calibration artifact missing"})
     for name, value in image_counts.items():
         if value["status"] != "verified":
             remaining.append({"gate": name, "reason": f"{value['missing']} missing and {len(value['invalid'])} invalid frozen payloads"})
@@ -254,7 +320,11 @@ def main() -> None:
         if value["status"] != "verified":
             remaining.append({"gate": f"{name}_frozen_predictions", "reason": value["status"]})
     if decisions["D2"]["status"] != "accepted":
-        remaining.append({"gate": "D2", "reason": "achieved occupancy and kernel DRAM counter evidence unavailable"})
+        remaining.append({"gate": "D2", "reason": "current benchmark and validated GPU counter evidence required"})
+    if decision_errors:
+        remaining.append({"gate": "decision_evidence", "reason": "; ".join(decision_errors)})
+    if profiling_errors or profile["missing_metrics"]:
+        remaining.append({"gate": "profiling", "reason": "current-source profiling with all required metrics unavailable"})
     if decisions["D3"]["status"] != "accepted":
         remaining.append({"gate": "D3", "reason": decisions["D3"]["status"]})
     for name in ("phase2_cpu", "full_cpu", "cuda"):
@@ -269,7 +339,9 @@ def main() -> None:
     report["remaining_gates"] = remaining
     report["status"] = "in_progress_gates_open" if remaining else "complete"
     output = ROOT / "results/summaries/phase2-final-verification.json"
-    output.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    temporary = output.with_suffix(".partial")
+    temporary.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    temporary.replace(output)
     print(json.dumps({"path": str(output.relative_to(ROOT)), "sha256": file_hash(output), "source_sha256": report["source_sha256"]}, indent=2))
 
 

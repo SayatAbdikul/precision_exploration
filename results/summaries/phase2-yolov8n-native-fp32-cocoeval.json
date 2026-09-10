@@ -1,0 +1,17 @@
+{
+  "category_mapping": "official COCO category IDs preserved",
+  "dataset": "COCO 2017 val2017",
+  "evaluator": "pycocotools.COCOeval",
+  "image_count": 5000,
+  "metrics": {
+    "map50": 0.5257086066233393,
+    "map50_95": 0.373560675559483
+  },
+  "model": "yolov8n",
+  "predictions": {
+    "path": "artifacts/per_image_predictions/phase2-yolov8n-native/predictions-official.json",
+    "sha256": "b2044657af9d0c16d3472f794491f497a738fae4c86f62d1f63f05553b0082c4",
+    "size_bytes": 77192951
+  },
+  "schema_version": "1.0.0"
+}

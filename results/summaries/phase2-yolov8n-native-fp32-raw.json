@@ -1,0 +1,24 @@
+{
+  "batch_size": 8,
+  "checkpoint": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/checkpoints/yolov8n.pt",
+  "checkpoint_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "dataset": "COCO 2017 val2017",
+  "device": "cpu",
+  "elapsed_seconds": 314.4090332530004,
+  "evaluator": "ultralytics-8.3.0",
+  "image_count": 5000,
+  "input_size": 640,
+  "metrics": {
+    "map50": 0.5208765606676006,
+    "map50_95": 0.37096022168088916
+  },
+  "model": "yolov8n",
+  "predictions": {
+    "path": "/home/graff145/Desktop/Uni/Capstone/precision_exploration/artifacts/per_image_predictions/phase2-yolov8n-native/predictions-raw.json",
+    "sha256": "f625513ec8c914d6878133f2b0e210f086cd784dc87efa7f83a2d0cd5b6d1610",
+    "size_bytes": 86554840
+  },
+  "schema_version": "1.0.0",
+  "seed": 0,
+  "workers": 0
+}

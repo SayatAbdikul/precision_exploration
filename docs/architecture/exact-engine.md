@@ -112,7 +112,9 @@ weights. Mapping-format activation encodings must be supplied from frozen
 calibration data by node name. It never learns scales from evaluation input.
 
 The integration runs use real frozen checkpoints. C++/CUDA layer equality was
-checked on 32x32 classifier inputs and on eight native 640x640 detector images.
+checked on eight images at each core model's native resolution: 49 ResNet18,
+100 MobileNetV2, 140 MobileNetV3 Large, and 176 YOLO layers per image, for
+3,720 matching layer comparisons. Classifier output tensors also match.
 COCO's 2,000-image calibration and 5,000-image evaluation payloads are
 restored and hash-verified. The complete frozen ImageNet evaluation (10,000)
 and screening (1,000) payloads were restored on 2026-09-10. ImageNet training
@@ -122,19 +124,27 @@ calibration recovery remains incomplete.
 at each model's frozen native resolution. It selects the first eight images
 by SHA256 from the frozen ImageNet screen list, verifies every payload,
 checkpoint, source graph and preprocessing hash, then records FP32 logits
-and compares all C++/CUDA layer hashes and outputs. All eight frozen images
-now pass preflight. A dataset root may be supplied explicitly; recovery uses
-the original image identities.
+and compares all C++/CUDA layer hashes and outputs. All three classifier runs
+completed and their reports were verified on 2026-09-10. Each completed image/backend is saved with a content hash
+and a job identity under `artifacts/fixed_image_runs/`; rerunning the same command
+verifies and reuses those checkpoints. The final report is published only after
+all eight images match. A dataset root may be supplied explicitly; recovery
+uses the original image identities.
 The small conformance set does not reproduce the full Phase 1 quality baseline.
 
 Remaining implementation/validation work includes:
 
-1. Finish native-resolution classifier conformance and reproduce the frozen
-   FP32 artifacts; the final verification record tracks each model separately.
-2. Restore the frozen ImageNet training calibration population.
+1. Restore the original frozen YOLO FP32 prediction artifact. All three
+   classifier prediction artifacts now match their original hashes.
+2. Restore the frozen ImageNet training calibration population and generate
+   verified FP6 E3M2/INT8 calibration artifacts for all three classifiers.
 3. Collect kernel bandwidth and achieved occupancy for D2. Nsight Systems
    traces were refreshed against the current source; Nsight Compute counters
    remain unavailable under the host GPU permission policy.
+
+The [remaining-work checklist](../roadmap/phases/phase-02-remaining-work.md)
+records time estimates and the active data recovery continuation. The final
+verification report explicitly checks calibration coverage for all four models.
 
 The zero-mAP FP6 detector probe is now diagnosed in
 `results/summaries/phase2-detector-diagnosis.json`. Its unscaled format cannot
@@ -219,6 +229,48 @@ available. `tools.setup.restore_phase1_classifier_predictions` replays frozen
 FP32 classifiers and publishes original artifacts only when their byte hashes
 match; attempts that differ remain separate reproduction evidence.
 
+All three classifier prediction files now reproduce their frozen byte hashes.
+MobileNetV3 requires the native CPU convolution path for the original top-five
+ordering. A second full COCO replay with native CPU kernels still differs
+from the original prediction artifact, with an absolute mAP50–95 delta of
+about 0.0000495; the original frozen hash is preserved.
+
+The one-shot `tools.run.phase2_data_gate` continuation resumes official
+ImageNet training recovery, verifies all frozen payloads, generates the three
+classifier calibration artifacts, reruns CPU tests and refreshes verification.
+Its current status is saved in `artifacts/dataset_indexes/phase2-data-gate.json`;
+the background run writes `artifacts/dataset_indexes/phase2-data-gate.log`.
+It leaves failing tests and remaining Phase 2 gates explicit in the report.
+
+GPU counter collection uses `.venv/bin/python -m tools.run.phase2_profile_counters`
+(also available through `tools/run/phase2_profile_counters.sh`). Each attempt
+retains separate CSV, process logs and launch inputs under
+`artifacts/benchmarks/phase2/counter-attempt-*`; `counter-capture.json` records
+the latest attempt, return code, tool version and artifact hashes. It preserves
+the existing Nsight Systems inputs. The 2026-09-10 attempt still returned
+`ERR_NVGPUCTRPERM`; a process-only sudo attempt required interactive
+authentication. Neither attempt changed driver policy.
+
+An administrator can collect counters from their own terminal using:
+
+```sh
+sudo -v
+.venv/bin/python -m tools.run.phase2_profile_counters --sudo
+.venv/bin/python -m tools.analysis.phase2_profile_summary
+.venv/bin/python -m tools.analysis.phase2_decision_evidence
+.venv/bin/python -m tools.analysis.phase2_finalize
+```
+
+The importer validates all six launches, source/input/output identities,
+kernel order, explicit units and all four requested metrics. It derives DRAM
+bandwidth from the paired Nsight Compute duration and read/write counters.
+Raw and details CSV layouts are supported; the raw layout was checked against
+an installed Nsight Compute 2025.4.1 sample export. This format check does not
+constitute measurement of the Phase 2 kernels. D2 can close for its measured
+FP6/INT8 GEMM scope only when current benchmark and validated counter evidence
+are present. Final verification rechecks the raw profiling and decision
+artifact hashes, so changing a summary's missing-metric list cannot close it.
+
 Hardware pilots are driven by `tools.run.phase2_hardware_pilot`. Their four
 primitive families use exhaustive ROM baselines and 0–3 extra output stages
 inside a two-register wrapper. They validate encoding, pipelining and flow
@@ -235,6 +287,8 @@ are under `artifacts/ppa/phase2`; normalized summaries are tracked under
 
 The source-frozen gate record is
 `results/summaries/phase2-final-verification.json`.
-The focused Phase 2 CPU suite is 215/215 passing and the CUDA native suite is
-93/93 passing against source identity
+The focused Phase 2 CPU suite is 246/246 passing. The full CPU suite has
+264 passing tests and four failures caused by missing training payloads and
+the original YOLO prediction artifact. Retained CUDA native evidence is
+93/93 passing against unchanged source identity
 `e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb`.

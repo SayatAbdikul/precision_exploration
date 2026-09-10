@@ -3,7 +3,7 @@
 Scope: **in repository**  
 Criticality: **critical path for all quality sweeps**  
 Starts after: **WP1B plus accepted operator/arithmetic contracts; workloads available for network checks**  
-Status: **in progress — exact engine implemented; native classifier checks and D2/data evidence being completed**
+Status: **in progress — native conformance complete; calibration/data, frozen YOLO artifact, and D2 evidence remain open**
 
 ## Implementation record
 
@@ -14,8 +14,9 @@ rational and binary kernels, detector/DFL lowering, shared-scale convolution,
 full calibration artifacts, resumable workload execution, all-format matrix,
 and generic primitive pilots are implemented.
 
-As of 2026-09-10, classifier synthetic checks match all 49/100/140 layers,
-the detector matches all 176 layers on eight native-resolution images, and
+As of 2026-09-10, all three classifiers match all 49/100/140 layers on eight
+native-resolution images each, the detector matches all 176 layers on eight
+native-resolution images (3,720 layer comparisons across the four models), and
 the 25-format C++/CUDA matrix matches the rational oracle. COCO payloads and
 FP32 mAP reproduction are complete. The complete frozen ImageNet 10k evaluation
 and 1k screening payloads are restored; training calibration recovery remains
@@ -24,10 +25,18 @@ range failure, with independent FP32 lowering parity verified. D3 retains
 EfficientNet as optional. GPU counter restrictions prevent achieved-occupancy
 and DRAM-bandwidth profiling for D2, so the exit criterion remains open.
 
-The focused Phase 2 test suites currently pass 215 CPU tests and 93 CUDA
-tests. The final verification report validates recovered image hashes, saved
+The focused Phase 2 suite currently passes 246 CPU tests; retained CUDA
+evidence passes 93 tests against the unchanged engine source. The full CPU
+suite has 264 passes and four failures tied to incomplete training payloads
+and the original YOLO prediction artifact. The final verification report validates recovered image hashes, saved
 native execution records and source identities, and lists remaining failures
 explicitly. Frozen dataset and prediction expectations remain unchanged.
+Counter collection now retains each attempt independently, and both the D2
+generator and final verifier check raw counter provenance and completeness.
+Current unprivileged profiling still returns `ERR_NVGPUCTRPERM`; process-only
+sudo requires interactive administrator authentication.
+See [remaining work and estimates](phase-02-remaining-work.md) for the current
+completion path and dependencies without a predictable deadline.
 
 ## Numerical-engine tasks
 

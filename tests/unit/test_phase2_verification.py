@@ -7,7 +7,7 @@ import pytest
 
 from public.experiments.registry.identity import canonical_json_bytes, experiment_sha256
 from public.quantization.graph.executable import graph_sha256
-from tools.analysis.phase2_finalize import detector_evidence, payload_status
+from tools.analysis.phase2_finalize import calibration_coverage, detector_evidence, payload_status
 from tools.run.phase2_engine import graph_witness
 
 
@@ -42,6 +42,16 @@ def test_partial_payload_verification_distinguishes_missing_and_corrupt_bytes(tm
     assert status["missing"] == 1 and not status["invalid"]
 
 
+def test_detector_calibration_alone_cannot_close_classifier_calibration_gate():
+    artifacts = [{"model": "yolov8n", "format": name} for name in ("fp6_e3m2", "int8")]
+    coverage = calibration_coverage(artifacts)
+    assert coverage["status"] == "incomplete"
+    assert len(coverage["missing"]) == 6
+    assert {item["model"] for item in coverage["missing"]} == {
+        "resnet18", "mobilenet_v2", "mobilenet_v3_large"}
+    assert calibration_coverage(artifacts + coverage["missing"])["status"] == "completed"
+
+
 @pytest.fixture
 def workload(tmp_path):
     row, record, _ = dataset(tmp_path)
@@ -56,7 +66,7 @@ def workload(tmp_path):
     write_json(work / "graph.json", graph)
     write_json(work / "summary.json", {"job_sha256": identity, "graph_sha256": graph_identity,
                "metrics": {"image_count": [1, "count"], "bit_exact": [1, "boolean"], "map50_95": [0, "fraction"]}})
-    layers = {"output": {"sha256": "same"}}
+    layers = {node["name"]: {"sha256": "same"} for node in graph["nodes"]}
     document = {"job_sha256": identity, "graph_sha256": graph_identity, "sample": row,
                 "backends": {"cpp": {"layers": layers}, "cuda": {"layers": copy.deepcopy(layers)}}}
     image_record = work / f"{row['sha256']}.json"
@@ -80,7 +90,7 @@ def test_detector_completion_requires_current_source_and_preserves_zero_quality(
 def test_detector_completion_rejects_corrupted_record(workload):
     root, report, _, image_record, _ = workload
     document = json.loads(image_record.read_text())
-    document["backends"]["cuda"]["layers"]["output"]["sha256"] = "changed"
+    document["backends"]["cuda"]["layers"]["conv"]["sha256"] = "changed"
     write_json(image_record, document)
     with pytest.raises(ValueError, match="record hash mismatch"):
         detector_evidence(root, report, "current")
@@ -88,7 +98,16 @@ def test_detector_completion_rejects_corrupted_record(workload):
 
 def test_detector_completion_rechecks_backend_equality_after_valid_record_rehash(workload):
     root, report, document, _, save = workload
-    document["backends"]["cuda"]["layers"]["output"]["sha256"] = "changed"
+    document["backends"]["cuda"]["layers"]["conv"]["sha256"] = "changed"
     save(document)
     with pytest.raises(ValueError, match="backend layer evidence mismatch"):
+        detector_evidence(root, report, "current")
+
+
+def test_matching_backends_do_not_hide_omitted_graph_layers(workload):
+    root, report, document, _, save = workload
+    for backend in document["backends"].values():
+        del backend["layers"]["pool"]
+    save(document)
+    with pytest.raises(ValueError, match="layer evidence is incomplete"):
         detector_evidence(root, report, "current")

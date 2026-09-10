@@ -1,0 +1,50 @@
+{
+  "byte_identical": false,
+  "dataset": {
+    "path": "data/manifests/evaluation/coco2017_val_5k.tsv",
+    "sha256": "2f62e52d88d0106d8b58fb252aa7f9e0d2fd4698e037d6bf0a86f22097598da8",
+    "verified_images": 5000
+  },
+  "evidence": [
+    {
+      "path": "artifacts/per_image_predictions/phase2-yolov8n-native/predictions-raw.json",
+      "sha256": "f625513ec8c914d6878133f2b0e210f086cd784dc87efa7f83a2d0cd5b6d1610"
+    },
+    {
+      "path": "artifacts/per_image_predictions/phase2-yolov8n-native/predictions-official.json",
+      "sha256": "b2044657af9d0c16d3472f794491f497a738fae4c86f62d1f63f05553b0082c4"
+    },
+    {
+      "path": "results/summaries/phase2-yolov8n-native-fp32-raw.json",
+      "sha256": "ca9519af264a82d7bb18d1e6f0168b44760d4c7e0fe966a076da468b8c872fc3"
+    },
+    {
+      "path": "results/summaries/phase2-yolov8n-native-fp32-cocoeval.json",
+      "sha256": "10b66195f28117b69d1fd4b79f69872fff2876116e03782e36d579e32c6251f8"
+    },
+    {
+      "path": "results/summaries/phase1-fp32-baselines.json",
+      "sha256": "7a4edc08909117d4c765310c712e478647552bdea7281275cd39a2637377d8ea"
+    }
+  ],
+  "frozen_prediction_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
+  "metric_deltas": {
+    "map50": 9.173495500602868e-05,
+    "map50_95": 4.946208518041839e-05
+  },
+  "metrics": {
+    "map50": 0.5257086066233393,
+    "map50_95": 0.373560675559483
+  },
+  "restored_path": null,
+  "runtime": {
+    "batch_size": 8,
+    "device": "cpu",
+    "mkldnn_enabled": false,
+    "threads": 4,
+    "torch": "2.3.0+cpu",
+    "ultralytics": "8.3.0"
+  },
+  "schema_version": "phase2-detector-fp32-native-reproduction-1.0.0",
+  "status": "replayed_with_differences"
+}

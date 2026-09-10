@@ -14,6 +14,7 @@ import statistics
 
 from public.experiments.registry.identity import canonical_json_bytes
 from public.inference.conformance_job import source_identity
+from tools.analysis.phase2_counter_evidence import profile_errors as validate_profile
 
 ROOT = Path(__file__).resolve().parents[2]
 WORKLOAD = "phase2-yolov8n-workload-02870391c93c.json"
@@ -86,7 +87,7 @@ def build_report(root=ROOT):
     benchmarks = [read(f"results/summaries/phase2-benchmark-{backend}-final.json")
                   for backend in ("cpp", "cuda")]
     profile = read("results/summaries/phase2-cuda-profile.json")
-    profile_errors = []
+    profile_errors = validate_profile(root, profile, current_source)
     for relative, expected in profile["artifacts"].items():
         try:
             verify(relative, expected)
@@ -126,15 +127,21 @@ def build_report(root=ROOT):
         raise ValueError("workload image count does not match retained records")
     candidate_count = len(read("public/formats/manifests/accepted/index.json")["manifests"])
     wide = read("results/summaries/phase2-wide-policy-candidates.json")
+    benchmarks_current = all(report["source_sha256"] == current_source for report in benchmarks)
+    profiling_complete = not profile_errors and not profile["missing_metrics"]
+    candidates = [row for report in benchmarks for row in strategy_candidates(report)]
     return {
         "schema_version": "2.0.0", "audit_source_sha256": current_source,
-        "D2": {"status": "open", "runtime_recommendation": "reuse predecoded operands for measured FP6/INT8 shapes",
-               "strategy_candidates": [row for report in benchmarks for row in strategy_candidates(report)],
-               "benchmark_sources_current": all(report["source_sha256"] == current_source for report in benchmarks),
+        "D2": {"status": "accepted" if benchmarks_current and profiling_complete else "open",
+               "scope": "measured FP6 E3M2 and INT8 GEMM shapes; other formats retain correctness-validated implementations pending strategy measurements",
+               "runtime_recommendation": "use each measured fastest strategy, accounting for operand preparation and reuse",
+               "strategy_candidates": candidates,
+               "benchmark_sources_current": benchmarks_current,
                "profiling_source_sha256": profile["source_sha256"],
                "profiling_source_current": profile["source_sha256"] == current_source,
                "profiling_artifact_errors": profile_errors,
                "missing_metrics": profile["missing_metrics"],
+               "counter_records": profile.get("counter_records", []),
                "limits": ["three latency samples per strategy, with predecoded inputs reused",
                           "amortization includes preparation of both operands; weights-only reuse differs",
                           "depthwise has no measured alternative strategy",
@@ -170,7 +177,9 @@ def build_report(root=ROOT):
 
 def main():
     output = ROOT / "results/summaries/phase2-decision-evidence.json"
-    output.write_text(json.dumps(build_report(), indent=2) + "\n")
+    temporary = output.with_suffix(".partial")
+    temporary.write_text(json.dumps(build_report(), indent=2) + "\n")
+    temporary.replace(output)
     print(output)
 
 

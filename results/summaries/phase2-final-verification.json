@@ -14,6 +14,7 @@
       {
         "format": "fp6_e3m2",
         "images": 2000,
+        "model": "yolov8n",
         "nodes": 177,
         "path": "artifacts/calibration/yolov8n-fp6_e3m2-18c3daa4f2ec06fdf66986addfacb913cd43d47821f45875f646049abff02702.json",
         "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
@@ -22,23 +23,69 @@
       {
         "format": "int8",
         "images": 2000,
+        "model": "yolov8n",
         "nodes": 177,
         "path": "artifacts/calibration/yolov8n-int8-d614572fa2be79d1711bd7a6a949ecc78bd22e40a7199aad116a0a4806632a85.json",
         "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
         "sha256": "d614572fa2be79d1711bd7a6a949ecc78bd22e40a7199aad116a0a4806632a85"
       }
     ],
-    "policy": "mse_numpy_f64_100coarse_50fine_v1"
+    "missing": [
+      {
+        "format": "fp6_e3m2",
+        "model": "resnet18"
+      },
+      {
+        "format": "int8",
+        "model": "resnet18"
+      },
+      {
+        "format": "fp6_e3m2",
+        "model": "mobilenet_v2"
+      },
+      {
+        "format": "int8",
+        "model": "mobilenet_v2"
+      },
+      {
+        "format": "fp6_e3m2",
+        "model": "mobilenet_v3_large"
+      },
+      {
+        "format": "int8",
+        "model": "mobilenet_v3_large"
+      }
+    ],
+    "policy": "mse_numpy_f64_100coarse_50fine_v1",
+    "status": "incomplete"
   },
   "classifier_native_resolution": {
     "mobilenet_v2": {
-      "status": "missing"
+      "backend_equality": true,
+      "images": 8,
+      "layers": 100,
+      "path": "results/summaries/phase2-mobilenet_v2-fixed-images.json",
+      "sha256": "9bc96e1b510ec6553da2dc1503d8599c32f1429e5ccd9872c15c376349ac1b64",
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "completed"
     },
     "mobilenet_v3_large": {
-      "status": "missing"
+      "backend_equality": true,
+      "images": 8,
+      "layers": 140,
+      "path": "results/summaries/phase2-mobilenet_v3_large-fixed-images.json",
+      "sha256": "21caba4537e957e1ca2e72a44dda7499d085116da8750fb325fd39cdb181a3b4",
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "completed"
     },
     "resnet18": {
-      "status": "missing"
+      "backend_equality": true,
+      "images": 8,
+      "layers": 49,
+      "path": "results/summaries/phase2-resnet18-fixed-images.json",
+      "sha256": "bd471c48cdba5068dc5ef08477612f2b7c38f9fec6502a828c028e9b5279ef16",
+      "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
+      "status": "completed"
     }
   },
   "coco": {
@@ -58,8 +105,9 @@
   "decisions": {
     "D2": "open",
     "D3": "accepted",
+    "artifact_errors": [],
     "path": "results/summaries/phase2-decision-evidence.json",
-    "sha256": "04d313d9806f6919248c2bb6485815907f598a1cdc9742b1d7945973b057c7a4"
+    "sha256": "cc4aca62306a1b8fd93c1d50ef5acfa34ebd33d25dfe1250ad959bd11282d533"
   },
   "detector_native_resolution": {
     "backend_equality": true,
@@ -119,6 +167,54 @@
     "results/summaries/phase2-conformance-cpp-final.json": "2674d757f74fb46d22175aed81f0acbb68815b2889e1b88e31d053e1bcb44344",
     "results/summaries/phase2-conformance-cuda-final.json": "c95f76885619418e3c49de2aa923de36126208d0060bc1e8246b3b5f23d7188f"
   },
+  "fp32_reproduction": {
+    "mobilenet_v2": {
+      "byte_identical": true,
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 72.1,
+        "top5_percent": 91.1
+      },
+      "metrics_identical": true,
+      "path": "results/summaries/phase2-classifier-fp32-reproduction.json",
+      "sha256": "28d08b8639ce26cd0d7a28bc8f1137ea1714774ac597ffa0516b835e6d402f90"
+    },
+    "mobilenet_v3_large": {
+      "byte_identical": true,
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 75.0,
+        "top5_percent": 92.1
+      },
+      "metrics_identical": true,
+      "path": "results/summaries/phase2-classifier-fp32-reproduction.json",
+      "sha256": "28d08b8639ce26cd0d7a28bc8f1137ea1714774ac597ffa0516b835e6d402f90"
+    },
+    "resnet18": {
+      "byte_identical": true,
+      "metrics": {
+        "count": 1000,
+        "top1_percent": 70.1,
+        "top5_percent": 89.5
+      },
+      "metrics_identical": true,
+      "path": "results/summaries/phase2-classifier-fp32-reproduction.json",
+      "sha256": "28d08b8639ce26cd0d7a28bc8f1137ea1714774ac597ffa0516b835e6d402f90"
+    },
+    "yolov8n": {
+      "byte_identical": false,
+      "metric_deltas": {
+        "map50": 9.173495500602868e-05,
+        "map50_95": 4.946208518041839e-05
+      },
+      "metrics": {
+        "map50": 0.5257086066233393,
+        "map50_95": 0.373560675559483
+      },
+      "path": "results/summaries/phase2-detector-fp32-native-reproduction.json",
+      "sha256": "704620b78b956f638e8777bc458cb1eb3733d29d382d4f96664243b2c78a5ec2"
+    }
+  },
   "frozen_baseline_predictions": {
     "mobilenet_v2": {
       "actual_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
@@ -126,9 +222,9 @@
       "status": "verified"
     },
     "mobilenet_v3_large": {
-      "actual_sha256": null,
+      "actual_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
       "expected_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
-      "status": "missing_or_changed"
+      "status": "verified"
     },
     "resnet18": {
       "actual_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
@@ -146,9 +242,9 @@
       "imagenet_calibration_2k": {
         "expected": 2000,
         "invalid": [],
-        "missing": 1998,
+        "missing": 910,
         "status": "incomplete",
-        "verified_present": 2
+        "verified_present": 1090
       },
       "imagenet_evaluation_10k": {
         "expected": 10000,
@@ -168,37 +264,46 @@
     "status": "incomplete"
   },
   "profiling": {
+    "artifact_errors": [],
     "missing_metrics": [
       "achieved_occupancy",
       "kernel_DRAM_bytes",
       "kernel_DRAM_bandwidth"
     ],
     "path": "results/summaries/phase2-cuda-profile.json",
-    "sha256": "3ad4c991916ccb45b1cf5712142c2daadf41791c6878cc84f1b75e5369e58e16",
+    "sha256": "19a04b09b141569163fd3ae7ad13f954bfd166cee45a18869abf05114ff77261",
     "source_current": true,
     "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
-    "status": "unavailable: Nsight Compute ERR_NVGPUCTRPERM; no GPU counter settings changed"
+    "status": "unavailable: process_failed"
   },
   "remaining_gates": [
     {
+      "gate": "resnet18_fp6_e3m2_calibration",
+      "reason": "verified frozen-population calibration artifact missing"
+    },
+    {
+      "gate": "resnet18_int8_calibration",
+      "reason": "verified frozen-population calibration artifact missing"
+    },
+    {
+      "gate": "mobilenet_v2_fp6_e3m2_calibration",
+      "reason": "verified frozen-population calibration artifact missing"
+    },
+    {
+      "gate": "mobilenet_v2_int8_calibration",
+      "reason": "verified frozen-population calibration artifact missing"
+    },
+    {
+      "gate": "mobilenet_v3_large_fp6_e3m2_calibration",
+      "reason": "verified frozen-population calibration artifact missing"
+    },
+    {
+      "gate": "mobilenet_v3_large_int8_calibration",
+      "reason": "verified frozen-population calibration artifact missing"
+    },
+    {
       "gate": "imagenet_calibration_2k",
-      "reason": "1998 missing and 0 invalid frozen payloads"
-    },
-    {
-      "gate": "resnet18_native_resolution",
-      "reason": "missing"
-    },
-    {
-      "gate": "mobilenet_v2_native_resolution",
-      "reason": "missing"
-    },
-    {
-      "gate": "mobilenet_v3_large_native_resolution",
-      "reason": "missing"
-    },
-    {
-      "gate": "mobilenet_v3_large_frozen_predictions",
-      "reason": "missing_or_changed"
+      "reason": "910 missing and 0 invalid frozen payloads"
     },
     {
       "gate": "yolov8n_frozen_predictions",
@@ -206,7 +311,11 @@
     },
     {
       "gate": "D2",
-      "reason": "achieved occupancy and kernel DRAM counter evidence unavailable"
+      "reason": "current benchmark and validated GPU counter evidence required"
+    },
+    {
+      "gate": "profiling",
+      "reason": "current-source profiling with all required metrics unavailable"
     },
     {
       "gate": "full_cpu",
@@ -259,17 +368,17 @@
       "errors": 0,
       "failures": 4,
       "path": "artifacts/conformance/phase2/pytest-cpu-final.xml",
-      "sha256": "89f0a17724164e912372dfe0fb92211afcbfcee1c417b10223e563928a63606a",
+      "sha256": "60a8dcaf6e0e2ec20dedd6eeabfb30572fa7d6a856b42df2916e86bb99b16acd",
       "skipped": 0,
-      "tests": 220
+      "tests": 268
     },
     "phase2_cpu": {
       "errors": 0,
       "failures": 0,
       "path": "artifacts/conformance/phase2/pytest-phase2-final.xml",
-      "sha256": "e948c19edbdfd2a9875b032e8e54d35620beba8f4e24c805d558dda4f6aaf273",
+      "sha256": "b3fe062e8b3ebdb0b9ecf318f0eddb9d26332995380591f276d254ef40019577",
       "skipped": 0,
-      "tests": 198
+      "tests": 246
     }
   },
   "wide_policy": {

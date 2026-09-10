@@ -95,7 +95,7 @@ def recover_stream(split,start,size,selected,root):
                         if not remaining:
                             return restored
                 raise ValueError(f"archive ended before frozen images were found: {sorted(remaining)[:3]}")
-        except (requests.RequestException,OSError,tarfile.ReadError) as error:
+        except (requests.RequestException,UrllibHTTPError,OSError,tarfile.ReadError) as error:
             if attempt == 3:
                 raise
             print(f"retrying {split} range {start}: {type(error).__name__}",flush=True)
@@ -125,6 +125,8 @@ def training_ranges():
             temporary = cache.with_suffix(".partial")
             temporary.write_text(json.dumps(records)+"\n")
             temporary.replace(cache)
+            if len(records)%25 == 0:
+                print(f"indexed {len(records)} official training class archives",flush=True)
             yield record
 
 

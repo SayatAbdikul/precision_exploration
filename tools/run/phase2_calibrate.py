@@ -6,7 +6,7 @@ from pathlib import Path
 
 from public.experiments.registry.identity import canonical_json_bytes
 from public.quantization.calibration.artifact import frozen_context,create,artifact_sha256
-from public.quantization.calibration.observer import Observer,classifier_interpreter,detector_observe
+from public.quantization.calibration.observer import Observer,detector_observe
 from public.workloads.datasets.identity import load_tsv
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -17,11 +17,14 @@ def main():
     parser.add_argument("--model",required=True,choices=("resnet18","mobilenet_v2","mobilenet_v3_large","yolov8n"))
     parser.add_argument("--formats",nargs="+",default=["fp6_e3m2","int8"])
     parser.add_argument("--observations",type=Path,help="Reuse a verified observations JSON and its adjacent NPZ")
+    parser.add_argument("--available-only",action="store_true",help="Cache classifier observations for present frozen images without publishing calibration artifacts")
     args = parser.parse_args()
+    if args.available_only and (args.observations or args.model == "yolov8n"):
+        parser.error("--available-only requires a classifier and cannot be combined with --observations")
     os.environ.setdefault("YOLO_CONFIG_DIR",str(ROOT/"cache/ultralytics"))
     os.environ.setdefault("MPLCONFIGDIR",str(ROOT/"cache/matplotlib"))
     import numpy as np
-    context = frozen_context(ROOT,args.model)
+    context = frozen_context(ROOT,args.model,verify_payloads=not args.available_only)
     destination = ROOT/"artifacts/calibration"
     destination.mkdir(parents=True,exist_ok=True)
     if args.observations:
@@ -60,26 +63,19 @@ def main():
                 image = letterbox(image=image)[:,:,::-1].transpose(2,0,1)
                 return torch.from_numpy(np.ascontiguousarray(image)).float().unsqueeze(0)/255
             run = lambda value:detector_observe(graph,constants,value,observer)
+            with torch.inference_mode():
+                for index,row in enumerate(rows,1):
+                    run(sample(payload/row.get("relative_path",row.get("file_name",""))))
+                    observer.finish_image()
+                    if index%100 == 0:
+                        print(f"observed {index}/{len(rows)} frozen training images",flush=True)
+            observations,arrays = observer.summary(),observer.arrays()
         else:
-            from torchvision import models
-            from PIL import Image
-            from public.workloads.models.torchvision_eval import MODEL_SPECS
-            _,weights_class,weights_name = MODEL_SPECS[args.model]
-            transform = getattr(getattr(models,weights_class),weights_name).transforms()
-            model = getattr(models,args.model)(weights=None)
-            model.load_state_dict(torch.load(ROOT/manifest["checkpoint_path"],map_location="cpu",weights_only=True))
-            interpreter = classifier_interpreter(model.eval(),observer)
-            def sample(path):
-                with Image.open(path) as image:
-                    return transform(image.convert("RGB")).unsqueeze(0)
-            run = interpreter.run
-        with torch.inference_mode():
-            for index,row in enumerate(rows,1):
-                run(sample(payload/row.get("relative_path",row.get("file_name",""))))
-                observer.finish_image()
-                if index%100 == 0:
-                    print(f"observed {index}/{len(rows)} frozen training images",flush=True)
-        observations,arrays = observer.summary(),observer.arrays()
+            from tools.run.phase2_calibration_cache import observe_classifier
+            result = observe_classifier(ROOT,context,rows,payload,available_only=args.available_only)
+            if args.available_only:
+                return
+            observations,arrays = result
         saved = {"context":context,"observations":observations}
         identity = artifact_sha256(saved)
         observation_path = destination/f"{args.model}-observations-{identity}.json"

@@ -30,7 +30,7 @@ Repository status values are **open/in-repo**, **open/external**, **accepted**, 
 | Gate | Decision | Evidence required before decision | Main effect | Status |
 |---|---|---|---|---|
 | D1 | Initial candidate manifest set | Explicit definitions, relevance, implementability, redundancy review | Oracle tables, kernels, screening job count; preserve all major families | Accepted 2026-09-06; standard-semantics correction 2026-09-08 (see D1 record); set SHA-256 `986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b` |
-| D2 | Fast backend strategy per family/width | Algorithmic/LUT/predecoded microbenchmarks plus exhaustive correctness | Runtime/packing only; scientific result must remain unchanged | Open/in-repo |
+| D2 | Fast backend strategy per family/width | Algorithmic/LUT/predecoded microbenchmarks plus exhaustive correctness and validated counters | Runtime/packing only; scientific result must remain unchanged | Accepted 2026-09-11 for measured FP6/INT8 GEMM scope |
 | D3 | Include EfficientNet in the main full suite | Measured exact-engine speed and compute budget | Workload breadth and job count | Accepted 2026-09-09: retain as optional; four core workloads remain mandatory (see D3 record) |
 | D4 | Promotion from 1k to 5k/10k | Paired statistics, confidence, failure diagnosis, family/hardware context | Numerical survival; uncertainty promotes | Open/in-repo |
 | D5 | Which promoted configs receive full ablations | 1k/10k quality, layer sensitivity, family role, rough hardware cost | Controls W/A × accumulator × scale expansion | Open/in-repo |
@@ -77,7 +77,7 @@ No gate is closed merely because a provisional value appears in the source plan.
 - Approved by: project owner (the owner approved the proposed datatype list without changes).
 - Date: 2026-09-06.
 - Evidence: complete manifests under `public/formats/manifests/accepted/`, aggregate SHA-256 `986344a9dc6ef5b4c7a8194e4675964e170345c43d50f95bbb3cee0dfcd82c0b`, and the exhaustive table index under `public/formats/conformance/`.
-- Scope: initial public candidate set only. D2–D11 remain open.
+- Scope: initial public candidate set only. D2–D11 were open at this acceptance date; later decisions are recorded separately below.
 
 ## D3 acceptance record
 
@@ -87,4 +87,13 @@ No gate is closed merely because a provisional value appears in the source plan.
 - Evidence and rationale: `docs/decisions/d2-d3-phase2-runtime-and-breadth.md` and the reproducible `results/summaries/phase2-decision-evidence.json` with artifact hashes. Eight native-resolution YOLO images measure 107.32 seconds/image on CUDA; a 1k screen at that one configuration projects to 29.81 hours before other pipeline costs.
 - Budget policy: no additional mandatory workload is allocated while core execution is already expensive and no incremental compute allowance has been committed. The total available project budget remains unspecified; this decision does not invent one.
 - Reopen when: measured core-screening throughput and an explicit incremental budget justify staging and timing EfficientNet.
-- Scientific effect: no core workload or candidate family is removed; no claim is made about EfficientNet results. D2 remains open for its missing profiling evidence.
+- Scientific effect: no core workload or candidate family is removed; no claim is made about EfficientNet results. D2 was still open at this acceptance date.
+
+## D2 acceptance record
+
+- Decision: use the existing predecoded strategy for the measured FP6 E3M2 and INT8 convolution/pointwise GEMM shapes on C++/CUDA, accounting for operand preparation and reuse.
+- Authority: implementation decision under the owner's instruction to finish Phase 2; the owner supplied the authenticated counter capture.
+- Date: 2026-09-11.
+- Evidence: current-source, identical-output strategy benchmarks plus six validated Nsight Compute launches measuring duration, DRAM bytes/bandwidth and achieved occupancy. See `results/summaries/phase2-cuda-profile.json`, `results/summaries/phase2-decision-evidence.json` and `docs/decisions/d2-d3-phase2-runtime-and-breadth.md`.
+- Scope limits: three unprofiled latency samples per strategy; profiled counters are single-launch measurements. No alternative depthwise strategy or fastest implementation for other families is established.
+- Scientific effect: runtime strategy only; numerical semantics and scientific outputs remain unchanged. Other families retain correctness-validated implementations until measured strategy comparisons are available.

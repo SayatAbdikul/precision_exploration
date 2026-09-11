@@ -1,0 +1,148 @@
+{
+  "checked_at": "2026-09-11T04:40:04.914590+00:00",
+  "conclusion": "Imported dataset export verified against frozen manifests; historical YOLO prediction artifact is not included.",
+  "file_extensions": {
+    "": 5,
+    ".jpeg": 13000,
+    ".jpg": 7000,
+    ".json": 13,
+    ".md": 1,
+    ".tsv": 12,
+    ".txt": 10001,
+    ".yaml": 1
+  },
+  "import_directory": "data/data",
+  "manifests": [
+    {
+      "actual_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "expected_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "matches": true,
+      "path": "data/data/manifests/calibration/.gitkeep"
+    },
+    {
+      "actual_sha256": "4db5f7c8c41ea43607c70704bd12d3de86e94f873d9eabc51408a58965a01e32",
+      "expected_sha256": "4db5f7c8c41ea43607c70704bd12d3de86e94f873d9eabc51408a58965a01e32",
+      "matches": true,
+      "path": "data/data/manifests/calibration/coco2017_train_2k.tsv"
+    },
+    {
+      "actual_sha256": "3e0417ef0c4d5badd8fb396e156955ff760d306311d4a6496ed9a305b67d7381",
+      "expected_sha256": "3e0417ef0c4d5badd8fb396e156955ff760d306311d4a6496ed9a305b67d7381",
+      "matches": true,
+      "path": "data/data/manifests/calibration/imagenet1k_train_2k.tsv"
+    },
+    {
+      "actual_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "expected_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "matches": true,
+      "path": "data/data/manifests/evaluation/.gitkeep"
+    },
+    {
+      "actual_sha256": "e0fa725cad767b7937250e1459038381d059d96b64fb33e275fbc29c85a834d8",
+      "expected_sha256": "e0fa725cad767b7937250e1459038381d059d96b64fb33e275fbc29c85a834d8",
+      "matches": true,
+      "path": "data/data/manifests/evaluation/coco2017_val_1k.tsv"
+    },
+    {
+      "actual_sha256": "2f62e52d88d0106d8b58fb252aa7f9e0d2fd4698e037d6bf0a86f22097598da8",
+      "expected_sha256": "2f62e52d88d0106d8b58fb252aa7f9e0d2fd4698e037d6bf0a86f22097598da8",
+      "matches": true,
+      "path": "data/data/manifests/evaluation/coco2017_val_5k.tsv"
+    },
+    {
+      "actual_sha256": "55cae63f4de5e13fe4f1bab66db8cef47989cfb1b751c89cf20439baaa253430",
+      "expected_sha256": "55cae63f4de5e13fe4f1bab66db8cef47989cfb1b751c89cf20439baaa253430",
+      "matches": true,
+      "path": "data/data/manifests/evaluation/imagenet1k_val_10k.tsv"
+    },
+    {
+      "actual_sha256": "066cde9664454a7866bb006d5adb7148a2122e282ff505617b0caa09039ab702",
+      "expected_sha256": "066cde9664454a7866bb006d5adb7148a2122e282ff505617b0caa09039ab702",
+      "matches": true,
+      "path": "data/data/manifests/evaluation/imagenet1k_val_1k.tsv"
+    },
+    {
+      "actual_sha256": "a3f5e5b78d1eda0ce171d50e7cf02bcf6689da56788b99a9c165aa0b1a540a9e",
+      "expected_sha256": "a3f5e5b78d1eda0ce171d50e7cf02bcf6689da56788b99a9c165aa0b1a540a9e",
+      "matches": true,
+      "path": "data/data/manifests/index.json"
+    },
+    {
+      "actual_sha256": "c8bf9c19b8ba9d0b505d081827f822afdbbbe2c08289ec649df37ad7460c8816",
+      "expected_sha256": "c8bf9c19b8ba9d0b505d081827f822afdbbbe2c08289ec649df37ad7460c8816",
+      "matches": true,
+      "path": "data/data/manifests/selection/coco2017_train_2k.json"
+    },
+    {
+      "actual_sha256": "7cfc994b07b9e290265bce2715a97d136773616f873d5fd7709f9e6608324d96",
+      "expected_sha256": "7cfc994b07b9e290265bce2715a97d136773616f873d5fd7709f9e6608324d96",
+      "matches": true,
+      "path": "data/data/manifests/selection/coco2017_val_5k.json"
+    },
+    {
+      "actual_sha256": "64d9f4754665f7a626eac1f327d4eaf968da6869b7adffcd3f408dccf663bd91",
+      "expected_sha256": "64d9f4754665f7a626eac1f327d4eaf968da6869b7adffcd3f408dccf663bd91",
+      "matches": true,
+      "path": "data/data/manifests/selection/imagenet1k_train_2k.json"
+    },
+    {
+      "actual_sha256": "65c23cef75137e32d207a2c0245f8e41eda08b794c92e0b6cd3ea0f4ace64616",
+      "expected_sha256": "65c23cef75137e32d207a2c0245f8e41eda08b794c92e0b6cd3ea0f4ace64616",
+      "matches": true,
+      "path": "data/data/manifests/selection/imagenet1k_val_10k.json"
+    },
+    {
+      "actual_sha256": "51077d62eefdb1d734d37b21e0e097e97cceecf3825160d4539b12cb88dc0aa1",
+      "expected_sha256": "51077d62eefdb1d734d37b21e0e097e97cceecf3825160d4539b12cb88dc0aa1",
+      "matches": true,
+      "path": "data/data/manifests/selection/imagenet1k_val_1k.json"
+    }
+  ],
+  "original_yolo_prediction_artifact_found": false,
+  "payloads": {
+    "coco_calibration_2k": {
+      "expected": 2000,
+      "invalid": [],
+      "missing": 0,
+      "status": "verified",
+      "verified_present": 2000
+    },
+    "coco_evaluation_5k": {
+      "expected": 5000,
+      "invalid": [],
+      "missing": 0,
+      "status": "verified",
+      "verified_present": 5000
+    },
+    "coco_screen_1k": {
+      "expected": 1000,
+      "invalid": [],
+      "missing": 0,
+      "status": "verified",
+      "verified_present": 1000
+    },
+    "imagenet_calibration_2k": {
+      "expected": 2000,
+      "invalid": [],
+      "missing": 0,
+      "status": "verified",
+      "verified_present": 2000
+    },
+    "imagenet_evaluation_10k": {
+      "expected": 10000,
+      "invalid": [],
+      "missing": 0,
+      "status": "verified",
+      "verified_present": 10000
+    },
+    "imagenet_screen_1k": {
+      "expected": 1000,
+      "invalid": [],
+      "missing": 0,
+      "status": "verified",
+      "verified_present": 1000
+    }
+  },
+  "schema_version": "phase2-phase1-import-audit-1.0.0",
+  "status": "verified_dataset_export"
+}

@@ -1,0 +1,53 @@
+{
+  "frozen_baseline_predictions": {
+    "mobilenet_v2": {
+      "actual_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
+      "expected_sha256": "da9c78e8a080f4f0ff511cf18c13bcd00f1a09c05d88741fbdd2c02c96245e5f",
+      "status": "verified"
+    },
+    "mobilenet_v3_large": {
+      "actual_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
+      "expected_sha256": "44161f306d2cbc409653e724688b0fc9aad5a014e80ccf1798c830d71e7e2007",
+      "status": "verified"
+    },
+    "resnet18": {
+      "actual_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
+      "expected_sha256": "30cac37513758447c4f1c7c4c0ca76ec82b3c945e408643bef6776094a005ebe",
+      "status": "verified"
+    },
+    "yolov8n": {
+      "actual_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
+      "expected_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
+      "status": "verified"
+    }
+  },
+  "restored_yolo": {
+    "evidence": [
+      {
+        "path": "results/summaries/phase1-fp32-baselines.json",
+        "sha256": "7a4edc08909117d4c765310c712e478647552bdea7281275cd39a2637377d8ea"
+      },
+      {
+        "path": "results/summaries/phase2-restored-yolov8n-fp32-cocoeval.json",
+        "sha256": "6a95b55402bda8c18d6f30a3ab4d706cd32b403dd006acc0f79e2e38d13af8b7"
+      },
+      {
+        "path": "artifacts/per_image_predictions/phase2-restored-yolov8n-coco-predictions.json",
+        "sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb"
+      }
+    ],
+    "metric_deltas": {
+      "map50": 0.0,
+      "map50_95": 0.0
+    },
+    "path": "artifacts/per_image_predictions/yolov8n_coco2017_val5k_coco_predictions.json",
+    "rescored_metrics": {
+      "map50": 0.5256168716683333,
+      "map50_95": 0.3735112134743026
+    },
+    "sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb"
+  },
+  "schema_version": "phase2-phase1-artifact-import-1.0.0",
+  "status": "verified",
+  "verified_at": "2026-09-11T04:46:37.019335+00:00"
+}

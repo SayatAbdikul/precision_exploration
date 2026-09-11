@@ -1,59 +1,59 @@
-# Phase 2 remaining work and time estimates
+# Phase 2 completion checklist
 
-Snapshot: 2026-09-10, 15:14 UTC. Phase 2 is still in progress. Estimates below are wall-clock time on the current machine, not guarantees; access and artifact acquisition have no reliable deadline.
+Status: **complete — 2026-09-11**. Remaining Phase 2 work: **none**. Estimated time remaining: **0**. The [final verification report](../../../results/summaries/phase2-final-verification.json) has `status: complete` and `remaining_gates: []`.
 
-| Remaining work | Current evidence and completion condition | Estimated time remaining |
-| --- | --- | --- |
-| Restore frozen ImageNet training/calibration images | 1,090 / 2,000 image hashes verified; 910 missing. The original archive recovery worker remains alive with eight streams. Completion requires every frozen payload hash to match. | **5–8 hours**, provisionally. About 1,000 images recovered in six hours; class sizes, network throughput, and retries vary. Allow longer if the server slows down. |
-| Generate and validate classifier calibration artifacts | After training recovery, calibrate ResNet18, MobileNetV2, and MobileNetV3 Large for FP6 E3M2 and INT8, then verify artifact identities. The continuation script runs these automatically. | **15–60 minutes**, a planning estimate, not yet measured for all three models. Depends on complete training data. |
-| Close D2 profiling evidence | The collector and validated CSV importer are implemented. A fresh attempt returned `ERR_NVGPUCTRPERM`; process-only sudo still requires interactive administrator authentication. Raw counter and decision artifact hashes are now checked again by final verification. | **15–45 minutes** for profiling, export, and review once counter access is available. **Access wait unknown.** |
-| Restore the original frozen YOLO FP32 prediction artifact | All three classifier artifacts now match their original hashes. YOLO replay reproduces mAP closely, but its JSON differs from the frozen SHA-256. Need the original artifact or a byte-identical reconstruction; do not replace the expected hash with new results. | **5–15 minutes** to verify and rerun the regression once the original artifact is available. **Artifact acquisition time unknown.** |
-| Refresh final verification and close documentation | All four models' native-image reports remain verified. Repeat relevant checks after data/calibration completion and retain open gates. Latest focused CPU suite: 246 passed. Full suite: 264 passed, four failures tied to missing training payloads and the YOLO artifact. | **10–20 minutes** of review/update work. CPU test execution itself was approximately 13–15 seconds per suite. |
+This file began as the requested remaining-work list with time estimates. The completed gates and their evidence are retained below.
 
-The compute/data path is approximately **5½–9½ hours from this snapshot**, assuming similar download throughput and no calibration failures. This is not an overall Phase 2 completion promise: administrator counter access and the historical YOLO artifact can extend the schedule indefinitely.
+| Gate | Final result |
+| --- | --- |
+| Frozen dataset recovery | All ImageNet training/calibration 2k, screen 1k and evaluation 10k payloads verified; all COCO selections verified. The supplied Phase 1 dataset export independently matches all six frozen selections. |
+| Calibration | All eight FP6 E3M2/INT8 artifacts validated across the four core models, each covering its frozen 2,000-image training population. |
+| Native network conformance | Eight images per core model, with **3,720 matching C++/CUDA layer comparisons**; classifier output tensors also match. |
+| Format conformance | All **25 accepted formats** match the rational oracle on C++/CUDA. |
+| Frozen FP32 baselines | All four original prediction artifacts match their hashes. Official COCOeval rescoring of the restored YOLO JSON reproduces both frozen mAP metrics exactly. |
+| Test evidence | **275 full CPU tests passed**, including the focused 253-test Phase 2 suite; retained **93 CUDA tests passed** against the unchanged engine source. |
+| D2 runtime strategy | Accepted for measured FP6 E3M2/INT8 GEMM shapes after all six Nsight Compute launches validated. Predecoded strategy retained with preparation/reuse limits documented. |
+| D3 workload breadth | Accepted: four core models retained; EfficientNet remains optional. |
+| Generic hardware pilots | 16 exhaustive simulation/synthesis runs and 48 cell-delay timing/vectorless-power runs verified for the H2 pilot scope. |
+| Final verification | Complete; no missing metrics, profiling/decision artifact errors, failing tests or remaining gates. |
 
-## Already completed
+## Final profiling evidence
 
-- ImageNet evaluation 10k and screen 1k payloads restored and hash verified; COCO payloads restored.
-- C++/CUDA conformance for all 25 accepted number formats; the existing CUDA suite passed 93 tests for the current engine source.
-- Eight native-resolution images per core model are complete and verified: 3,720 matching C++/CUDA layer comparisons across ResNet18, MobileNetV2, MobileNetV3 Large, and YOLO. All classifier output tensors also match.
-- All three original classifier FP32 prediction artifacts restored byte for byte.
-- YOLO's strict FP6 zero-mAP behavior diagnosed as candidate range/precision collapse; it is not an outstanding engine mismatch.
-- D3 accepted: retain the four core models, with EfficientNet optional.
+The owner authenticated process-only collection on 2026-09-11. Capture
+`artifacts/benchmarks/phase2/counter-attempt-zawqo23w/capture.json` completed at
+04:47:52 UTC. Raw CSV SHA-256:
+`6865230b1d209bb13c55e9c0495cb42c274d0c4206943631ed0cbaae5bb8df3e`.
+All launch, input/output, source and artifact identities validate.
 
-Wide-accumulator acceptance for Phase 3 Experiment A sweeps remains a later-phase prerequisite, rather than an additional Phase 2 completion claim.
+Across the six launches, achieved occupancy is **20.14–20.72%** and measured
+DRAM bandwidth is **41.00–57.68 GB/s**. These are single-launch counter
+measurements; the separate repeated benchmarks determine the runtime strategy.
+No GPU driver policy was changed.
 
-## Active continuation and evidence
+The earlier multi-hour recovery continuation completed on 2026-09-10 at
+20:37 UTC, approximately 11 hours 45 minutes after launch. Recovery and counter
+collection are finished; no background completion job is required.
 
-The one-shot continuation, `python -m tools.run.phase2_data_gate`, resumes verified training recovery, creates missing classifier calibrations, runs CPU checks, and refreshes the final report. Its persistent state and log are:
+## Scope retained for later phases
 
-- [Worker state](../../../artifacts/dataset_indexes/phase2-data-gate.json)
-- [Worker log](../../../artifacts/dataset_indexes/phase2-data-gate.log)
-- [Final verification report](../../../results/summaries/phase2-final-verification.json)
+D2 acceptance is limited to the measured FP6/INT8 GEMM shapes and operand reuse
+assumptions. It does not establish the fastest strategy for every accepted
+family or an alternative depthwise strategy. Phase 3 Experiment A still needs
+per-configuration sufficiently wide accumulator acceptance, including mapped
+bias headroom. H2 results are post-synthesis pilot evidence, not routed or
+workload power. These boundaries do not represent unfinished Phase 2 gates.
+
+The strict unscaled FP6 detector's zero-mAP result remains a diagnosed candidate
+range/precision failure; arithmetic semantics and frozen expectations were not
+changed to make it pass.
+
+## Evidence
+
+- [Final verification](../../../results/summaries/phase2-final-verification.json)
+- [GPU profiling](../../../results/summaries/phase2-cuda-profile.json)
+- [D2/D3 evidence](../../../results/summaries/phase2-decision-evidence.json)
+- [D2/D3 decision record](../../decisions/d2-d3-phase2-runtime-and-breadth.md)
+- [Phase 1 dataset import audit](../../../results/summaries/phase2-phase1-import-audit.json)
+- [Phase 1 artifact import and metric audit](../../../results/summaries/phase2-phase1-artifact-import-audit.json)
 - [Phase 2 roadmap](phase-02-exact-engine.md)
-- [D2/D3 evidence and decisions](../../decisions/d2-d3-phase2-runtime-and-breadth.md)
-
-Avoid launching a second recovery process while the existing worker is alive. A stopped or failed worker can be resumed; existing payload hashes and calibration artifacts are checked before reuse. The final report must retain open gates until their evidence actually passes.
-
-## Work completed after creating this checklist
-
-- Validated all three final classifier reports against their frozen samples, models, graphs, source identity, layers, and output tensors; native conformance is closed.
-- Added explicit final-report gates for missing classifier calibration artifacts and incomplete/current-source profiling. Publication of the final report is now atomic.
-- Latest verification after these changes: **218 focused CPU tests passed**; **236 full-suite tests passed, four failed** because training payloads and the original YOLO prediction artifact remain incomplete.
-
-## Continuation at 15:14 UTC
-
-- Kept the existing training worker (PID 69179, recovery child 69183) running;
-  no duplicate recovery was launched.
-- Implemented separate counter capture attempts and validation of raw/details
-  CSV, all six launch identities, metric units, duration, occupancy and DRAM
-  traffic. Tests cover incomplete, corrupt, stale and mismatched evidence,
-  plus failed and successful collector execution with simulated profiler output.
-- Checked the actual raw CSV layout using a bundled Nsight report. Fresh GPU
-  collection remains blocked by counter permissions and sudo authentication.
-- Refreshed profiling, D2/D3 and final verification reports. D2 remains open;
-  all retained profiling and decision artifact hashes validate.
-- **246 focused CPU tests passed; 264 full-suite tests passed, four failed.**
-  No numerical engine sources changed, so the retained 93-test CUDA evidence
-  remains current. Administrator collection commands are documented in
-  [the engine guide](../../architecture/exact-engine.md).
+- [Engine guide and reproduction commands](../../architecture/exact-engine.md)

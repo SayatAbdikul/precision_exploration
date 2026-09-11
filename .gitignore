@@ -29,6 +29,10 @@ venv/
 data/raw/**
 !data/raw/.gitkeep
 
+# Locally extracted Phase 1 dataset export and macOS archive metadata.
+/data/data/
+/data/__MACOSX/
+
 # Generated artifacts and caches.
 artifacts/**
 !artifacts/**/
@@ -61,4 +65,3 @@ results/databases/**
 *.def
 *.gds
 *.gdsii
-

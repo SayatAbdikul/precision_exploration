@@ -14,6 +14,60 @@
       {
         "format": "fp6_e3m2",
         "images": 2000,
+        "model": "resnet18",
+        "nodes": 70,
+        "path": "artifacts/calibration/resnet18-fp6_e3m2-65fb3ea31a9353237764c374e889764ecc21b03bcd5e669aac2ae1154a6e9257.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "65fb3ea31a9353237764c374e889764ecc21b03bcd5e669aac2ae1154a6e9257"
+      },
+      {
+        "format": "int8",
+        "images": 2000,
+        "model": "resnet18",
+        "nodes": 70,
+        "path": "artifacts/calibration/resnet18-int8-068846ecf2b9b2ea95c28cb7581bd18bbe0150ca6f1cde9262d65b34e998fc76.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "068846ecf2b9b2ea95c28cb7581bd18bbe0150ca6f1cde9262d65b34e998fc76"
+      },
+      {
+        "format": "fp6_e3m2",
+        "images": 2000,
+        "model": "mobilenet_v2",
+        "nodes": 154,
+        "path": "artifacts/calibration/mobilenet_v2-fp6_e3m2-e5d6134852233a8a70b12f514b5858c7a374a9f96681e797aaebc5d34afd3458.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "e5d6134852233a8a70b12f514b5858c7a374a9f96681e797aaebc5d34afd3458"
+      },
+      {
+        "format": "int8",
+        "images": 2000,
+        "model": "mobilenet_v2",
+        "nodes": 154,
+        "path": "artifacts/calibration/mobilenet_v2-int8-250f005deae565510af85be8b6f3e3a092272e25865b26e247c1e9c5a32b522a.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "250f005deae565510af85be8b6f3e3a092272e25865b26e247c1e9c5a32b522a"
+      },
+      {
+        "format": "fp6_e3m2",
+        "images": 2000,
+        "model": "mobilenet_v3_large",
+        "nodes": 188,
+        "path": "artifacts/calibration/mobilenet_v3_large-fp6_e3m2-396eb084de95ed525e3debb5e841c92baa42000f12fbeabe86f153635f89dd06.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "396eb084de95ed525e3debb5e841c92baa42000f12fbeabe86f153635f89dd06"
+      },
+      {
+        "format": "int8",
+        "images": 2000,
+        "model": "mobilenet_v3_large",
+        "nodes": 188,
+        "path": "artifacts/calibration/mobilenet_v3_large-int8-fdc9de7c0f12ff4e04b6cd53bb33c0de601996081e6ab277c7bc5a2d4da6cd19.json",
+        "sampling": "16_evenly_spaced_flat_positions_per_node_per_image_v1",
+        "sha256": "fdc9de7c0f12ff4e04b6cd53bb33c0de601996081e6ab277c7bc5a2d4da6cd19"
+      },
+      {
+        "format": "fp6_e3m2",
+        "images": 2000,
         "model": "yolov8n",
         "nodes": 177,
         "path": "artifacts/calibration/yolov8n-fp6_e3m2-18c3daa4f2ec06fdf66986addfacb913cd43d47821f45875f646049abff02702.json",
@@ -30,34 +84,9 @@
         "sha256": "d614572fa2be79d1711bd7a6a949ecc78bd22e40a7199aad116a0a4806632a85"
       }
     ],
-    "missing": [
-      {
-        "format": "fp6_e3m2",
-        "model": "resnet18"
-      },
-      {
-        "format": "int8",
-        "model": "resnet18"
-      },
-      {
-        "format": "fp6_e3m2",
-        "model": "mobilenet_v2"
-      },
-      {
-        "format": "int8",
-        "model": "mobilenet_v2"
-      },
-      {
-        "format": "fp6_e3m2",
-        "model": "mobilenet_v3_large"
-      },
-      {
-        "format": "int8",
-        "model": "mobilenet_v3_large"
-      }
-    ],
+    "missing": [],
     "policy": "mse_numpy_f64_100coarse_50fine_v1",
-    "status": "incomplete"
+    "status": "completed"
   },
   "classifier_native_resolution": {
     "mobilenet_v2": {
@@ -103,11 +132,11 @@
     }
   },
   "decisions": {
-    "D2": "open",
+    "D2": "accepted",
     "D3": "accepted",
     "artifact_errors": [],
     "path": "results/summaries/phase2-decision-evidence.json",
-    "sha256": "cc4aca62306a1b8fd93c1d50ef5acfa34ebd33d25dfe1250ad959bd11282d533"
+    "sha256": "e4ef58ea8819392c3357dfa11d60682ecedb1bb19791b032f64b31e842c474c6"
   },
   "detector_native_resolution": {
     "backend_equality": true,
@@ -232,9 +261,9 @@
       "status": "verified"
     },
     "yolov8n": {
-      "actual_sha256": null,
+      "actual_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
       "expected_sha256": "96e3b08873f4532579acd9f83e3ed02067c2cf5faf5d4717bae419620fe295fb",
-      "status": "missing_or_changed"
+      "status": "verified"
     }
   },
   "imagenet": {
@@ -242,9 +271,9 @@
       "imagenet_calibration_2k": {
         "expected": 2000,
         "invalid": [],
-        "missing": 910,
-        "status": "incomplete",
-        "verified_present": 1090
+        "missing": 0,
+        "status": "verified",
+        "verified_present": 2000
       },
       "imagenet_evaluation_10k": {
         "expected": 10000,
@@ -261,70 +290,21 @@
         "verified_present": 1000
       }
     },
-    "status": "incomplete"
+    "status": "verified"
   },
   "profiling": {
     "artifact_errors": [],
-    "missing_metrics": [
-      "achieved_occupancy",
-      "kernel_DRAM_bytes",
-      "kernel_DRAM_bandwidth"
-    ],
+    "missing_metrics": [],
     "path": "results/summaries/phase2-cuda-profile.json",
-    "sha256": "19a04b09b141569163fd3ae7ad13f954bfd166cee45a18869abf05114ff77261",
+    "sha256": "eb8f0c90567b57dab88ad1f6496b47e288b20e421a3b8a7094324f346eaa98dd",
     "source_current": true,
     "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
-    "status": "unavailable: process_failed"
+    "status": "measured"
   },
-  "remaining_gates": [
-    {
-      "gate": "resnet18_fp6_e3m2_calibration",
-      "reason": "verified frozen-population calibration artifact missing"
-    },
-    {
-      "gate": "resnet18_int8_calibration",
-      "reason": "verified frozen-population calibration artifact missing"
-    },
-    {
-      "gate": "mobilenet_v2_fp6_e3m2_calibration",
-      "reason": "verified frozen-population calibration artifact missing"
-    },
-    {
-      "gate": "mobilenet_v2_int8_calibration",
-      "reason": "verified frozen-population calibration artifact missing"
-    },
-    {
-      "gate": "mobilenet_v3_large_fp6_e3m2_calibration",
-      "reason": "verified frozen-population calibration artifact missing"
-    },
-    {
-      "gate": "mobilenet_v3_large_int8_calibration",
-      "reason": "verified frozen-population calibration artifact missing"
-    },
-    {
-      "gate": "imagenet_calibration_2k",
-      "reason": "910 missing and 0 invalid frozen payloads"
-    },
-    {
-      "gate": "yolov8n_frozen_predictions",
-      "reason": "missing_or_changed"
-    },
-    {
-      "gate": "D2",
-      "reason": "current benchmark and validated GPU counter evidence required"
-    },
-    {
-      "gate": "profiling",
-      "reason": "current-source profiling with all required metrics unavailable"
-    },
-    {
-      "gate": "full_cpu",
-      "reason": "test failures/errors or no executed tests"
-    }
-  ],
+  "remaining_gates": [],
   "schema_version": "2.0.0",
   "source_sha256": "e0a8c05b4a9dbfbb58af6a236e495e7a3d0fac34162db4dace3119308dedadeb",
-  "status": "in_progress_gates_open",
+  "status": "complete",
   "synthetic_networks": {
     "mobilenet_v2": {
       "backend_equality_checked": true,
@@ -352,10 +332,6 @@
     }
   },
   "tests": {
-    "cpu_known_external_failures": [
-      "ImageNet payload verification",
-      "frozen Phase 1 prediction artifacts"
-    ],
     "cuda": {
       "errors": 0,
       "failures": 0,
@@ -366,19 +342,19 @@
     },
     "full_cpu": {
       "errors": 0,
-      "failures": 4,
+      "failures": 0,
       "path": "artifacts/conformance/phase2/pytest-cpu-final.xml",
-      "sha256": "60a8dcaf6e0e2ec20dedd6eeabfb30572fa7d6a856b42df2916e86bb99b16acd",
+      "sha256": "29649c00071b2475828e94463950643d15f9b54e47b9933c35bd1d497cde3560",
       "skipped": 0,
-      "tests": 268
+      "tests": 275
     },
     "phase2_cpu": {
       "errors": 0,
       "failures": 0,
       "path": "artifacts/conformance/phase2/pytest-phase2-final.xml",
-      "sha256": "b3fe062e8b3ebdb0b9ecf318f0eddb9d26332995380591f276d254ef40019577",
+      "sha256": "fd68267f877ddcfbea025e36a27867dd99577c7cd7a81dea7b9e329f06a29800",
       "skipped": 0,
-      "tests": 246
+      "tests": 253
     }
   },
   "wide_policy": {

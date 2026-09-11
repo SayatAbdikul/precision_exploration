@@ -1,6 +1,6 @@
 # Phase 2 runtime strategy and workload breadth
 
-Date: 2026-09-09. Scope: in repository.
+Dates: D3 accepted 2026-09-09; D2 accepted 2026-09-11. Scope: in repository.
 
 This record implements the owner's instruction to finish Phase 2. It keeps
 the existing four core workloads and records an evidence-based optional-workload
@@ -33,7 +33,7 @@ preserves the established scope and gives the current implementation a
 concrete workload set. Reopen D3 when core screening throughput and an explicit
 incremental compute allowance support staging and timing EfficientNet.
 
-## D2 — Open: provisional predecoded strategy
+## D2 — Accepted: predecoded strategy for measured FP6/INT8 GEMM shapes
 
 For both measured FP6 E3M2 and INT8 GEMM shapes, predecoded execution has the
 lowest median latency on C++ and CUDA. The three strategies produce identical
@@ -46,20 +46,38 @@ shapes. They do not establish the fastest strategy for every family and width:
 there are only three samples per strategy, depthwise has no measured strategy
 alternative, and the remaining-family matrix is a correctness/latency pilot.
 
-The following profiling evidence is still required by Phase 2:
+The following required profiling evidence is now measured and validated:
 
 - achieved occupancy: `sm__warps_active.avg.pct_of_peak_sustained_active`;
 - DRAM read/write bytes: `dram__bytes_read.sum` and `dram__bytes_write.sum`;
 - kernel duration: `gpu__time_duration.sum`, paired with those counters to
   derive kernel DRAM bandwidth.
 
-Nsight Systems records registers per thread and transfer timings. Neither
-substitutes for those hardware counters. Nsight Compute returned
-`ERR_NVGPUCTRPERM`, and the attempted privileged process required an interactive
-password. No GPU counter policy was changed. The Systems trace was refreshed
-on 2026-09-10: all six launches use the current engine source, and all five
-retained artifact hashes verify. Collect the missing hardware counters against
-that source before closing D2.
+The owner authenticated process-only profiling on 2026-09-11. The saved
+`counter-attempt-zawqo23w` capture completed at 04:47:52 UTC. All six launches,
+input/output identities, engine source, raw CSV units and artifact hashes pass
+validation. No GPU counter policy was changed. Measured values are:
+
+| Format | Strategy | Achieved occupancy | DRAM bandwidth (GB/s) |
+| --- | --- | ---: | ---: |
+| FP6 E3M2 | Predecoded | 20.17% | 42.79 |
+| FP6 E3M2 | Algorithmic | 20.15% | 41.00 |
+| FP6 E3M2 | Lookup | 20.14% | 41.53 |
+| INT8 | Predecoded | 20.72% | 57.68 |
+| INT8 | Algorithmic | 20.69% | 55.98 |
+| INT8 | Lookup | 20.70% | 57.47 |
+
+Bandwidth is total DRAM read/write bytes divided by the paired Nsight Compute
+kernel duration, using decimal GB/s. These are one profiled launch per
+family/strategy at GEMM M=196, N=64, K=288. They close the counter evidence gate;
+the repeated unprofiled benchmarks determine the latency recommendation.
+They do not establish a statistical ranking from profiled duration alone.
+
+D2 accepts the existing predecoded path for the measured convolution/pointwise
+GEMM shapes, accounting for operand preparation and reuse. Other accepted
+families retain their correctness-validated implementations pending strategy
+measurements. Depthwise has only one measured implementation. This decision
+changes no arithmetic, datatype, accumulator or output semantics.
 
 ## Hardware and accumulator boundaries
 

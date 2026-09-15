@@ -188,14 +188,19 @@ class ExperimentRegistry:
             self.connection.execute("ROLLBACK")
             raise
 
-    def claim_next(self, worker_id: str) -> sqlite3.Row | None:
+    def claim_next(self, worker_id: str, *, run_id: int | None = None) -> sqlite3.Row | None:
+        if run_id is not None and (type(run_id) is not int or run_id <= 0):
+            raise ValueError("target run ID must be a positive integer")
         now = _now()
         lease_token = uuid.uuid4().hex
         self.connection.execute("BEGIN IMMEDIATE")
         try:
-            row = self.connection.execute(
-                "SELECT run_id FROM runs WHERE status = 'PENDING' ORDER BY run_id LIMIT 1"
-            ).fetchone()
+            query = "SELECT run_id FROM runs WHERE status = 'PENDING'"
+            parameters = ()
+            if run_id is not None:
+                query += " AND run_id = ?"
+                parameters = (run_id,)
+            row = self.connection.execute(query+" ORDER BY run_id LIMIT 1", parameters).fetchone()
             if row is None:
                 self.connection.execute("COMMIT")
                 return None
@@ -251,14 +256,18 @@ class ExperimentRegistry:
             self.connection.execute("ROLLBACK")
             raise
 
-    def recover_stale(self, *, older_than_seconds: int) -> int:
+    def recover_stale(self, *, older_than_seconds: int, experiment_id: str | None = None) -> int:
         if older_than_seconds <= 0:
             raise RegistryError("stale timeout must be positive")
         cutoff = (datetime.now(timezone.utc) - timedelta(seconds=older_than_seconds)).isoformat()
         self.connection.execute("BEGIN IMMEDIATE")
         try:
-            stale = list(self.connection.execute(
-                "SELECT * FROM runs WHERE status='RUNNING' AND heartbeat_at < ?", (cutoff,)))
+            query = "SELECT * FROM runs WHERE status='RUNNING' AND heartbeat_at < ?"
+            parameters = (cutoff,)
+            if experiment_id is not None:
+                query += " AND experiment_id = ?"
+                parameters += (experiment_id,)
+            stale = list(self.connection.execute(query, parameters))
             for row in stale:
                 self.connection.execute(
                     "UPDATE runs SET status='FAILED',finished_at=?,error='worker lease expired' WHERE run_id=?",

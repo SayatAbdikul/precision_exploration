@@ -155,6 +155,40 @@ def _native_values(values):
     return owner, owner, any(v.kind in {1,2,3} for v in entries)
 
 
+def int32_reduction_bound(inputs, weights, k):
+    """Prove all integer MAC prefixes fit INT32 before using a narrower kernel.
+
+    The stored bias is added later in the declared INT64 domain. This admits
+    only exact integer operands and bounds every prefix, including cancellation.
+    """
+    import numpy as np
+    def maximum(sequence):
+        if isinstance(sequence, NativeValues):
+            rows = sequence.array
+            if not len(rows):
+                return 0
+            if np.any(rows["kind"] != 0) or np.any(rows["exponent"] < 0):
+                return None
+            largest = max(abs(int(rows["mantissa"].min())), abs(int(rows["mantissa"].max())))
+            if largest.bit_length() + int(rows["exponent"].max()) > 62:
+                return None
+            decoded = np.left_shift(rows["mantissa"], rows["exponent"].astype(np.int64))
+            return max(abs(int(decoded.min())), abs(int(decoded.max())))
+        result = 0
+        for value in sequence:
+            value = real(value)
+            if not isinstance(value, Fraction) or value.denominator != 1:
+                return None
+            result = max(result, abs(value.numerator))
+        return result
+    left, right = maximum(inputs), maximum(weights)
+    return left is not None and right is not None and k*left*right <= (1 << 31)-1
+
+
+def widen_int32(states):
+    return tuple((code if code < 1 << 31 else code-(1 << 32)) & ((1 << 64)-1) for code in states)
+
+
 def build(backend="cpp", directory=None):
     if backend not in {"cpp", "cuda"}:
         raise ValueError("backend must be cpp or cuda")
@@ -239,6 +273,11 @@ class NativeBackend:
         return True
 
     def flex_gemm(self, inputs, weights, **kwargs):
+        if (kwargs["accumulator"] == "int64_accumulator" and int32_reduction_bound(inputs, weights, kwargs["k"])
+                and self.binary_admitted(inputs, weights, "int32_accumulator")):
+            result = self.gemm(inputs, weights, **{**kwargs, "accumulator": "int32_accumulator"})
+            self.last_strategy = "int64_proven_int32_reduction"
+            return widen_int32(result)
         if self.binary_admitted(inputs,weights,kwargs["accumulator"]):
             self.last_strategy = "binary_predecoded"
             return self.gemm(inputs,weights,**kwargs)
@@ -255,6 +294,11 @@ class NativeBackend:
             raise ValueError("native convolution output geometry mismatch")
         if len(inputs) != g.n*g.ci*g.h*g.w or len(weights) != g.co*(g.ci//g.groups)*g.kh*g.kw:
             raise ValueError("native convolution payload mismatch")
+        if (accumulator == "int64_accumulator" and int32_reduction_bound(inputs, weights, (g.ci//g.groups)*g.kh*g.kw)
+                and self.binary_admitted(inputs, weights, "int32_accumulator")):
+            result = self.conv2d(inputs, weights, geometry=geometry, accumulator="int32_accumulator")
+            self.last_strategy = "int64_proven_int32_reduction"
+            return widen_int32(result)
         if self.binary_admitted(inputs,weights,accumulator):
             self.last_strategy = "binary_predecoded"
             return self.conv2d(inputs,weights,geometry=geometry,accumulator=accumulator)

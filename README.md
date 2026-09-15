@@ -63,3 +63,14 @@ Phases 0–7 are the core public study and are implemented here. Public research
 ## Current status
 
 Phase 0 completed on 2026-09-04. Phase 1 completed and was reverified on 2026-09-08 after correcting the audit findings, with frozen workloads and datasets, 25 accepted datatype manifests, a validated oracle and regenerated exhaustive conformance tables, a tested experiment registry, reproducible FP32 baselines, and a public ICsprout55 RVT synthesis/STA pilot. Phase 2 completed on 2026-09-11: exact reference/C++/CUDA execution, all 25-format conformance, native-image checks across four models, all calibration artifacts and frozen baseline predictions, and generic hardware pilots are verified. D2 is accepted for the measured FP6/INT8 GEMM scope; D3 keeps EfficientNet optional. The source-frozen `results/summaries/phase2-final-verification.json` reports completion with no remaining gates. See `docs/roadmap/phases/phase-02-remaining-work.md` for the completion checklist and `docs/architecture/exact-engine.md` for execution commands and evidence limits.
+
+Phase 3 is in progress: the 100-configuration matrix is frozen, all format/model
+calibrations, all 100 encoded graphs and paired screen baselines are verified.
+Resumable execution, paired statistics and layer diagnostics are implemented.
+ResNet18 and MobileNetV2 INT8/INT64 passed their eight-image C++/CUDA acceptance
+gates; ResNet18 is screening. MobileNetV3 INT8 and revised posit8, plus ResNet18
+INT6/5/4, completed eight-image CPU pilots. Detector output-store and logarithmic
+residual studies retain diagnosed numerical issues separately. Full screening, remaining
+accumulator checks and D4 promotion are unfinished. See the
+[Phase 3 execution guide](docs/architecture/phase3-experiment-a.md) and
+[remaining-work checklist](docs/roadmap/phases/phase-03-remaining-work.md).

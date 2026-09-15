@@ -2,7 +2,24 @@
 
 Scope: **in repository; public Stage A**  
 Starts after: **WP1A workloads plus Phase 2 exact engine**  
-Status: **planned**
+Status: **in progress — D4 remains open**
+
+The frozen matrix contains 25 accepted formats across four models (100 initial
+configurations). All 100 calibration artifacts, all 100 encoded graphs and four
+paired FP32 screen baselines are verified. The runner, paired statistics and sampled layer
+diagnostics are implemented. ResNet18 INT8 exposed an INT32 stored-bias overflow;
+its versioned INT64 replacement and MobileNetV2 INT8/INT64 passed eight-image
+C++/CUDA acceptance. MobileNetV3 INT8/FP64 and revised posit8 completed eight
+CPU images, as did ResNet18 INT6/5/4. YOLO INT8's completed CPU pilot produced
+no detections; an eight-image final-store study isolates a calibration-coverage
+confound. Log residual rounding studies retain boundary cases and their
+downstream effects separately. Hardware/storage priors cover all 100 prepared graphs.
+Complete fixed-1k results, remaining accumulator acceptance, selected sensitivity
+studies and D4 promotion are still required.
+
+See [remaining work](phase-03-remaining-work.md), the
+[execution guide](../../architecture/phase3-experiment-a.md), and
+[machine-readable progress](../../../results/summaries/phase3-progress.json).
 
 ## Numerical screening tasks
 

@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0", "name": "int64_accumulator", "family": "integer",
+  "bits": 64, "signed": true, "encoding": "twos_complement", "rounding": "rne",
+  "overflow": "saturate", "underflow": "not_applicable", "zero": "code_0",
+  "numeric": {"integer_bits": 63, "fractional_bits": 0, "zero_point": 0},
+  "scaling": {"mode": "none", "granularity": "none"},
+  "notes": "Phase 3 candidate for integer graphs whose mapped stored bias exceeds INT32. Per-graph headroom and native acceptance remain required."
+}

@@ -5,8 +5,20 @@ from dataclasses import dataclass
 from fractions import Fraction
 from math import prod
 from itertools import product
+from contextvars import ContextVar
 
 from public.inference.reference.arithmetic import decode, encode, format_named, real, decimal
+
+# Observational only; the callback receives the original values and stored tensor.
+# Context-local scope prevents simultaneous jobs from sharing instrumentation.
+QUANTIZATION_OBSERVER = ContextVar("precision_quantization_observer", default=None)
+
+
+def observe_quantization(values, tensor):
+    observer = QUANTIZATION_OBSERVER.get()
+    if observer is not None:
+        observer(values, tensor)
+    return tensor
 
 
 @dataclass(frozen=True)
@@ -146,7 +158,7 @@ class Tensor:
             raise ValueError("input value count does not match shape")
         fmt = format_named(encoding.format)
         codes = [encode(fmt, value, encoding.scale_at(shape, idx)) for value, idx in zip(values, indices(shape))]
-        return cls(shape, tuple(codes), encoding)
+        return observe_quantization(values, cls(shape, tuple(codes), encoding))
 
     def value(self, index):
         return decode(format_named(self.encoding.format), self.codes[offset(self.shape, index)],

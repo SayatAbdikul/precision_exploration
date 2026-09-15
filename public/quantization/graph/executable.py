@@ -107,7 +107,7 @@ def graph_sha256(document):
     return hashlib.sha256(canonical_json_bytes(document)).hexdigest()
 
 
-def execute(document, inputs, *, backend="reference", library=None):
+def execute(document, inputs, *, backend="reference", library=None, observer=None):
     validate_graph(document)
     if set(inputs) != set(document["inputs"]):
         raise ValueError("graph input names mismatch")
@@ -121,6 +121,8 @@ def execute(document, inputs, *, backend="reference", library=None):
     operators = Operators(backend, library)
     traces, execution_modes = {}, {}
     for node in document["nodes"]:
+        if observer is not None and hasattr(observer, "begin_node"):
+            observer.begin_node(node)
         args = [values[name] for name in node["inputs"]]
         attrs = copy.deepcopy(node["attrs"])
         for key in ("output", "alignment", "input_encoding"):
@@ -150,5 +152,7 @@ def execute(document, inputs, *, backend="reference", library=None):
         values[node["name"]] = value
         traces[node["name"]] = {"shape": list(value.shape), "encoding": value.encoding.document(),
                                "sha256": hashlib.sha256(canonical_json_bytes(value.document())).hexdigest()}
+        if observer is not None:
+            observer(node, value)
     return {"outputs": {name: values[name] for name in document["outputs"]}, "layers": traces,
             "backend": backend, "execution_modes": execution_modes, "graph_sha256": graph_sha256(document)}

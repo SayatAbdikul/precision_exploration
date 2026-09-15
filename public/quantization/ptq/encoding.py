@@ -67,7 +67,8 @@ def float_tensor(array, encoding):
             result[tuple(index)] = scalar_float_codes(source[tuple(index)],Encoding(encoding.format,(scale,)))
     else:
         return Tensor.quantize(source.ravel().tolist(),tuple(source.shape),encoding)
-    return Tensor(tuple(source.shape),tuple(result.ravel().tolist()),encoding)
+    from public.inference.tensor import observe_quantization
+    return observe_quantization(source.ravel(), Tensor(tuple(source.shape),tuple(result.ravel().tolist()),encoding))
 
 
 @precise
@@ -102,4 +103,5 @@ def direct_float_tensor(array, encoding):
     result[np.isneginf(flat)] = fmt.encode("-Infinity")
     if np.isnan(flat).any():
         result[np.isnan(flat)] = fmt.encode("NaN")
-    return Tensor(tuple(values.shape), tuple(result.tolist()), encoding)
+    from public.inference.tensor import observe_quantization
+    return observe_quantization(values.ravel(), Tensor(tuple(values.shape), tuple(result.tolist()), encoding))

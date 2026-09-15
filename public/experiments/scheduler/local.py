@@ -18,8 +18,8 @@ class LocalScheduler:
         self.worker_id = worker_id
         self.heartbeat_seconds = heartbeat_seconds
 
-    def run_once(self, executor: Callable[[Mapping[str, Any]], Mapping[str, tuple[float, str]]]) -> bool:
-        claimed = self.registry.claim_next(self.worker_id)
+    def run_once(self, executor: Callable[[Mapping[str, Any]], Mapping[str, tuple[float, str]]], *, run_id: int | None = None) -> bool:
+        claimed = self.registry.claim_next(self.worker_id, run_id=run_id)
         if claimed is None:
             return False
         run_id, token = int(claimed["run_id"]), claimed["lease_token"]

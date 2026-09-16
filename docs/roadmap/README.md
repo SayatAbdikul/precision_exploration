@@ -10,7 +10,10 @@ The supplied roadmap is phase-ordered rather than calendar-based. Code remains i
 
 The public study includes detailed P&R of 2–4 **generic public finalists** within Phases 6–7/D10. Roadmap Phase 10 is downstream MANT physical validation and remains external.
 
-Current milestone: **Phase 2 completed on 2026-09-11; Phase 3 is in progress and D4 remains open.** See the [Phase 3 checklist](phases/phase-03-remaining-work.md).
+Current milestone, verified **2026-09-16**: **Phase 2 completed on 2026-09-11;
+Phase 3 has 100 prepared configurations, five accepted graphs and one completed
+1k screen (ResNet18 INT8).** MobileNetV2 INT8 is screening; D4 remains open.
+See the [Phase 3 completion snapshot and checklist](phases/phase-03-remaining-work.md).
 
 ## Master critical path
 

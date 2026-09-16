@@ -6,6 +6,29 @@ MobileNetV2, MobileNetV3 Large and YOLOv8n. Weight, activation and output format
 are uniform. Accumulator candidates require per-graph acceptance; the Phase 2
 candidate policy is not blanket approval for a workload graph.
 
+## Verified execution status — 2026-09-16
+
+All 100 current configurations have verified calibration and encoded graphs.
+Five passed native eight-image C++/CUDA acceptance: ResNet18 INT8 with INT64,
+ResNet18 INT6/5/4 with INT32, and MobileNetV2 INT8 with INT64.
+
+ResNet18 INT8 completed the first full 1,000-image CUDA screen. Its
+[paired analysis](../../results/summaries/phase3-analysis-d240b899d3f2.json)
+reports Top-1 **68.4% versus FP32 70.1%**, delta **-1.7 percentage points**,
+95% paired interval **[-3.0025, -0.4]**; Top-5 is **89.1% versus 89.5%**,
+delta **-0.4 points**, interval **[-1.2, +0.4]**. Predictions, per-image
+checkpoints and [layer diagnostics](../../results/summaries/phase3-diagnostics-d240b899d3f2.json)
+are retained. The frozen classification rule labels this result `UNCERTAIN`.
+This label retains the candidate for more evidence; D4 is still open.
+
+MobileNetV2 INT8 is running its full screen. The continuation controller next
+queues ResNet18 INT6, INT5 and INT4 full screens. MobileNetV2 INT6/5/4 and
+MobileNetV3 INT8/revised posit8 have completed eight-image CPU pilots but still
+need CUDA comparisons and graph acceptance. YOLO INT8 has one completed CPU
+image and a separate diagnosis. A separate accelerated BFP6 native diagnostic
+is described below. The [dated checklist](../roadmap/phases/phase-03-remaining-work.md)
+records the saved-image snapshot, completed studies and remaining conditions.
+
 ## Evidence and numerical boundaries
 
 Phase 2 sources and summaries are archived under
@@ -283,14 +306,16 @@ Six selected C++ accumulator states match the reference under the new manifest.
 The prepared configuration is
 `0d08915cb5e6812d39b0267c2271a4eb9d5a7c24687e2e2e8d1d5f04c91b7b91`.
 Evidence is in `phase3-posit-revision.json`; original graph and failure evidence
-remain immutable. The revision is a candidate, pending native images and
-whole-graph acceptance; it does not change the policy for other posit workloads.
+remain immutable. Its eight-image CPU pilot is now complete: Top-1 7/8 versus
+FP32 6/8 and Top-5 8/8 for both, with 1,120 matching layer shapes. CUDA
+comparisons and whole-graph acceptance remain pending; the revision does not
+change the policy for other posit workloads.
 
 The registered runner now admits one CPU-only pilot alongside the single CUDA
 worker. Resource-specific locks prevent duplicates, transactional targeted claims
 prevent a worker from taking another job, and stale recovery is scoped to the
-requested experiment. The MobileNetV3 INT8/FP64 one-image C++ pilot measures the
-new wide-accumulator path at native resolution. It does not satisfy the required
+requested experiment. The MobileNetV3 INT8/FP64 C++ pilot has now completed
+eight native-resolution images. CPU-only coverage does not satisfy the required
 eight-image C++/CUDA acceptance gate. Scheduler changes preserve the frozen
 numerical engine and screening pipeline identities.
 
@@ -346,6 +371,41 @@ retain reuse provenance, and conflicting existing results are rejected. Resource
 locks prevent edits to an executing target. The normal screening CLI then skips
 saved image/backend work. The MobileNetV3 eight-image C++ pilot uses this path;
 CUDA comparison and whole-graph acceptance remain pending.
+
+## Shared-scale inference prototypes and native diagnostic
+
+The isolated dyadic scale-search prototype extends exact integer-grid search
+to admitted values with up to 53 significand bits and magnitudes in
+[2^-80, 2^80], plus zero. The pruned prototype uses verified codebook nesting
+and a monotone clipping-error lower bound to exclude scales that cannot win.
+Equal-error candidates still select the smallest scale; values outside the
+proved domains fall back to the original search. These helpers do not modify
+the frozen production engine or an active screen.
+
+Both prototypes match the exhaustive oracle on a retained 172-case suite.
+The [pruned search benchmark](../../results/summaries/phase3-shared-pruned-benchmark.json)
+measured approximately 595–639× search-only speedup on that suite. Cases include
+blocks assembled from retained native values and synthetic edge cases; this
+is not a full native activation-block population. All 16 selected first-layer
+micro-operators also match the original reference and C++ paths, including
+full output encodings, scales and quantizer traces. Their measured 16.49–40.38×
+speedups apply only to those micro-operators, not complete images. See the
+[operator report](../../results/summaries/phase3-shared-operator-pruned-pilot.json).
+
+The separate [ResNet18 BFP6 native diagnostic](../../results/summaries/phase3-shared-native-resnet18-bfp6-1.json)
+completed one native-resolution C++ image with the pruned helper explicitly
+installed only in that process. It retains all 49 layer diagnostics, full
+output codes, scales and paired predictions. Inference with diagnostics took
+**3,981.53 seconds (66.36 minutes)**, with **740,944 scale searches and zero
+fallback calls**. Candidate and FP32 produced the same ordered Top-5 list;
+both missed Top-1 and included the correct label in Top-5.
+
+Its scope is `diagnostic_accelerated_native` and its label is `PILOT_ONLY`.
+One image does not estimate quality reliably; it does not provide a CUDA
+comparison, shared accumulator acceptance or a canonical 1k screen result.
+Layer progress files are progress records, not resumable inference checkpoints
+within an image. Remaining numerical gates are listed in the
+[finite accumulator evidence](phase3-finite-accumulator-evidence.md).
 
 ## Residual sensitivity studies
 

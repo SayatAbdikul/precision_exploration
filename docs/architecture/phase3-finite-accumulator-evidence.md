@@ -2,14 +2,49 @@
 
 Local evidence now covers all 4,221 ordinary MAC nodes in the current matrix.
 The remaining 804 MAC nodes use shared block scaling. This is numerical
-coverage, not 100-configuration acceptance: only ResNet18 INT8/INT64 and
-MobileNetV2 INT8/INT64 currently have verified eight-image C++/CUDA acceptance.
+coverage, not 100-configuration acceptance. As verified on **2026-09-16**, five
+configurations have eight-image C++/CUDA acceptance: ResNet18 INT8/INT64,
+ResNet18 INT6/5/4 with INT32, and MobileNetV2 INT8/INT64.
 
 `tools.analysis.phase3_gate_inventory` joins current graph identities and unions
 node coverage across the integer, fixed and FP64 audits. It does not count
-overlapping checks twice or issue acceptance. The snapshot covers 4,999 of
-6,600 non-MAC nodes. Remaining shared-scale, nonlinear, nonfinite-reachability
+overlapping checks twice or issue acceptance. The snapshot covers 5,871 of
+6,600 non-MAC nodes, leaving 729 uncovered. Remaining shared-scale, nonlinear, nonfinite-reachability
 and native gates stay explicit in `phase3-gate-inventory.json`.
+
+## Shared-format local evidence
+
+The [shared non-MAC audit](../../results/summaries/phase3-shared-nonmac.json)
+covers 872 of 1,056 nodes across the 16 shared-format configurations: 136
+residual nodes have exact finite aligned sums, and 736 nodes perform no
+accumulator rounding. The remaining 184 shared non-MAC nodes are pending.
+Residual exactness applies after both branches are requantized to the same
+per-block E8M0 scale, across all 255 finite scales. It does not establish
+exactness for pooling values with independent scales.
+
+The [selected shared MAC pilot](../../results/summaries/phase3-shared-mac-pilot.json)
+compares 96 selected C++/reference accumulator states across 32 first/longest-K
+layers in all 16 configurations; all match, including 16 layers with partial
+reduction blocks. The explicit encoded patches exercise several extreme and
+intermediate E8M0 exponents with the actual prepared weight scales. These
+selected states do not close the 804 shared MACs' all-input precision bounds.
+
+## Fixed-grid bias sensitivity
+
+The posit MAC proofs establish exact products, sequential partial sums and
+headroom **after the prescribed bias store**. The separate
+[bias-boundary audit](../../results/summaries/phase3-fixed-bias-sensitivity.json)
+now compares output codes using original frozen biases and their rounded
+fixed-grid stores at threshold-adjacent sums. Across all 603 MAC layers,
+**378 layers have local output-code equality evidence; 225 remain pending**.
+At channel level, 120,301 pass and 27,131 remain pending.
+
+This audit uses a conservative product-sum lattice that can contain sums no
+actual activation-code vector can produce. A pending lattice counterexample
+therefore identifies a sensitivity question, not a proven reachable network
+failure. It neither invalidates the exact stored-bias headroom proof nor
+automatically accepts the accumulator's precision. Reachability or targeted
+native sensitivity evidence is still needed for unresolved cases.
 
 ## Broad FP64 MAC bounds
 

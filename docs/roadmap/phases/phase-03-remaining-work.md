@@ -2,27 +2,69 @@
 
 Status: **in progress; no D4 decision and no complete 100-configuration screen.**
 
+## Verified completion snapshot — 2026-09-16
+
+The [refreshed progress inventory](../../../results/summaries/phase3-progress.json)
+verifies **100/100 calibrations, 100/100 current encoded graphs, five accepted
+configurations and one completed fixed-1k screen**. Preparation coverage is
+complete; numerical acceptance and screening are still partial. Phase 2's
+completed evidence remains archived without modification.
+
+| Completed work | Evidence and result |
+| --- | --- |
+| Frozen experiment and preparation | 25 formats × four models; calibration, encoded weights/graphs and four paired FP32 screen baselines verified |
+| Experiment infrastructure | Resumable paired predictions, retained failures, paired bootstrap statistics, sampled layer diagnostics and all-100 hardware/storage priors |
+| Native graph acceptance | ResNet18 INT8 with INT64, ResNet18 INT6/5/4 with INT32, and MobileNetV2 INT8 with INT64; each passed eight matching C++/CUDA images and its integer proof |
+| First complete screen | ResNet18 INT8: 1,000 CUDA images, retained predictions, analysis and diagnostics complete; `UNCERTAIN`, retained for more evidence |
+| Additional CPU pilots | Eight images each for MobileNetV2 INT6/5/4 and MobileNetV3 INT8/revised posit8; one YOLO INT8 image; CUDA/acceptance still pending |
+| Numerical and diagnostic studies | Local bounds for all 4,221 ordinary MACs; local coverage for 5,871/6,600 non-MAC nodes; eight classifier one-operation studies plus detector, log-residual and posit bias-boundary studies |
+| Shared-format execution prototype | Selected shared MAC/operator comparisons pass; a separately identified ResNet18 BFP6 native image completed with all 49 layer diagnostics; not screen acceptance |
+
+The [ResNet18 INT8 full-screen analysis](../../../results/summaries/phase3-analysis-d240b899d3f2.json)
+uses the same frozen 1,000 images for both predictors, 5,000 paired resamples,
+95% confidence and seed 310911:
+
+| Metric | Candidate | FP32 | Delta (percentage points) | 95% paired delta interval (percentage points) |
+| --- | ---: | ---: | ---: | --- |
+| Top-1 | 68.4% | 70.1% | -1.7 | [-3.0025, -0.4] |
+| Top-5 | 89.1% | 89.5% | -0.4 | [-1.2, +0.4] |
+
+`UNCERTAIN` is the frozen analysis rule's retention label, not a completed D4
+decision. The [D4 readiness report](../../../results/summaries/phase3-d4-readiness.json)
+has one completed screen analysis and 99 missing configurations.
+
+**Running at this snapshot:** MobileNetV2 INT8 had **406/1,000** images saved
+at the progress refresh (`2026-09-16T14:03:47Z`). The continuation controller and
+CUDA worker were verified live. The controller queues ResNet18 INT6, INT5 and
+INT4 full screens after MobileNetV2 INT8. These queued runs are not completed
+results. At the observed 162–165 seconds/image, the remaining MobileNetV2 work
+is approximately **27 hours**, excluding interruptions and final analysis.
+The snapshot count will become stale as the worker saves more images.
+
+## Roadmap completion conditions
+
 | Step | Verified progress | Remaining completion condition |
 | --- | --- | --- |
 | 1. Freeze definitions | `phase3-screen-v1.json`: 25 formats × four models, uniform W=A=output, strict Model C, fixed datasets and statistics | Keep accumulator revisions explicit and preserve original evidence |
 | 2. Calibration and encoded weights | All 100 calibrations and all 100 current encoded graphs verified; shared preparation completed | Coverage complete for the current definitions; preserve evidence across any revisions |
-| 3. Wide accumulators | ResNet18 and MobileNetV2 INT8/INT64 accepted; local finite bounds cover all 4,221 ordinary MACs, and current proofs cover 4,999 non-MAC nodes without double counting | Resolve 804 shared MACs and remaining non-MAC/precision gates; accept every remaining runnable graph with native evidence |
+| 3. Wide accumulators | Five integer graphs accepted; local finite bounds cover all 4,221 ordinary MACs, and current proofs cover 5,871 non-MAC nodes without double counting | Resolve 804 shared MACs and 729 uncovered non-MAC nodes, bias/rounding sensitivity and remaining native gates; accept every remaining runnable graph |
 | 4. Runner | Paired predictions, per-backend image checkpoints, registry retries, live-worker lock and explicit stale recovery implemented | Exercise remaining workload/family paths and retain complete results |
 | 5. Statistics | Paired classification bootstrap; FP32 detector rescored on screen1k; cached image matching reproduces direct COCO resampling on the frozen 1k benchmark | Compute statistics for complete screens with all frozen resamples |
 | 6. Diagnostics | Aligned FP32 samples, distributions, SQNR/MSE, zero/outlier fractions and sampled pre-store events implemented | Diagnose actual failures and verify coverage across all workload operators |
-| 7. Pilot | ResNet18 and MobileNetV2 INT8/INT64 completed eight matching C++/CUDA images; MobileNetV3 INT8 and revised posit8 plus ResNet18 INT6/5/4 completed eight CPU images; YOLO INT8 completed one CPU image; selected native MAC evidence retained | Remaining native image/family coverage, CUDA comparisons, runtime costs and complete native acceptance |
+| 7. Pilot | Five accepted graphs completed eight matching C++/CUDA images; MobileNetV3 INT8/revised posit8 and MobileNetV2 INT6/5/4 completed eight CPU images; YOLO INT8 completed one CPU image; separate BFP6 native diagnostic completed | Remaining native image/family coverage, CUDA comparisons, runtime costs and complete native acceptance |
 | 8. Hardware/storage | All 100 prepared graphs have storage, activation liveness, accumulator alternatives and logical arithmetic estimates; family support functions and archived Phase 2 primitives retained | Review assumptions for candidate preservation; no final PPA claims |
-| 9. Fixed 1k screen | The accepted ResNet18 INT8/INT64 CUDA screen has started and checkpoints each image | Every valid configuration needs all 1,000 images or an explicit diagnosed status |
-| 10. Sensitivity/diagnosis | ResNet18 INT32 bias failure identified; six classifier one-operation studies completed; an eight-image YOLO final-store-only study reproduces zero mAP and exposes frozen calibration sampling omissions | Resolve detector calibration coverage and MobileNetV3's strict pilot loss; separate representation limits from implementation/accumulator failures |
+| 9. Fixed 1k screen | ResNet18 INT8/INT64 complete with paired analysis and diagnostics; MobileNetV2 INT8/INT64 running | The other 99 configurations need all 1,000 images or an explicit diagnosed status |
+| 10. Sensitivity/diagnosis | ResNet18 INT32 bias failure identified; eight classifier one-operation studies completed; an eight-image YOLO final-store-only study reproduces zero mAP and exposes frozen calibration sampling omissions | Resolve detector calibration coverage and strict MobileNetV3/ResNet18 INT4 pilot losses; separate representation limits from implementation/accumulator failures |
 | 11. D4 | Conservative promotion rules implemented without top-N or automatic family elimination | Publish complete evidence, confidence intervals and promotion reasons after remaining gates close |
 
 ## Runtime and planning limits
 
-The corrected ResNet18 INT8/INT64 pilot took about **106 seconds per CUDA image**
-and **196 seconds per C++ image**, including sampled diagnostics. At that observed
-CUDA rate, its 1k screen is approximately **29–30 hours**, plus preparation and
-analysis. This is an extrapolation from eight images with some CPU preparation
-overlap, not a clean throughput benchmark or a timing estimate for other formats.
+The completed ResNet18 INT8/INT64 screen recorded **29.59 hours of summed CUDA
+inference with sampled diagnostics**, averaging **106.54 seconds/image**
+(range 104.20–135.44 seconds). This excludes preparation, analysis, downtime and
+other orchestration costs. The earlier C++ pilot took about 196 seconds/image.
+These are observed execution costs under possible contention, not a clean
+throughput benchmark or a timing estimate for other formats.
 
 The eight MobileNetV3 INT8/FP64 C++ images completed in **900–1,137 seconds each**
 including diagnostics, about **2.14 hours total**. The first image was reused
@@ -67,7 +109,8 @@ out-of-range and wide-bias cases are tested against the reference.
 The same audit found INT32 mapped-bias headroom failures for MobileNetV2 INT8,
 INT6, INT5 and INT4, and MobileNetV3 Large INT8 and INT6. Together with ResNet18
 INT8, all seven explicit INT64 candidates were prepared. ResNet18 INT8 and
-MobileNetV2 INT8 now have native and whole-graph acceptance. A static inventory using retained FP32 shapes
+MobileNetV2 INT8 now have native and whole-graph acceptance, as do ResNet18
+INT6/5/4 with their original INT32 accumulators. A static inventory using retained FP32 shapes
 passes the existing integer proof for all four ResNet18 and all four MobileNetV2
 integer configurations. YOLO INT4/5/6 retain unsupported operations. This
 inventory (`phase3-integer-readiness.json`) does not replace native pilot gates.
@@ -136,7 +179,8 @@ nodes: input code 1 became zero under the original 24-fractional-bit policy.
 A versioned 64-bit accumulator with 28 fractional bits fixes that counterexample
 and passes all 64 MAC/76 non-MAC local checks with preserved operands and
 calibration. Six selected C++ states also match the reference. Original failures
-remain archived; native image and whole-graph acceptance are pending. See
+remain archived; the revised eight-image CPU pilot is complete, while CUDA
+comparison and whole-graph acceptance are pending. See
 `phase3-fixed-nonmac.json` and `phase3-posit-revision.json`.
 
 Selected DFL checks now also cover all three posit domains: **2,823 unique
@@ -153,11 +197,16 @@ the verified first image. CUDA and graph acceptance remain pending, and the
 result remains `PILOT_ONLY`. MobileNetV2 INT8's accepted paired pilot preserves
 the FP32 correctness outcomes: **7/8 Top-1 and 7/8 Top-5**.
 
-ResNet18's CPU-only INT6/5/4 pilots are complete: Top-1 **4/8, 4/8, 1/8** and
-Top-5 **8/8, 5/8, 3/8**, respectively, versus FP32 **5/8 and 8/8**. Native CUDA
-comparisons remain required. The weak INT4 result motivates last-block studies;
-it is not yet a complete-screen catastrophic label or grounds for eliminating
-the integer family.
+ResNet18's paired C++/CUDA INT6/5/4 pilots and acceptance are complete:
+Top-1 **4/8, 4/8, 1/8** and
+Top-5 **8/8, 5/8, 3/8**, respectively, versus FP32 **5/8 and 8/8**. The weak INT4
+result is not a complete-screen catastrophic label or grounds for eliminating
+the integer family. Four separate eight-image one-operation INT4 studies are
+complete: `conv1` gives Top-1 4/8 and Top-5 8/8; `fc` gives 4/8 and 5/8;
+`layer4_1_conv2` and `add_7` each preserve FP32's 5/8 and 8/8. No selected
+operation alone reproduces the strict pilot's 1/8 and 3/8; cumulative effects
+and other layers remain unresolved. MobileNetV2 INT6/5/4 also completed eight
+CPU images each, but their CUDA comparisons and graph acceptance remain open.
 
 Broader finite FP64 bounds cover **3,133 MACs across 61 configurations**, with
 overflow excluded. Two ResNet18 FP8 E5M2 layers have loose conservative
@@ -188,15 +237,20 @@ cache hashes alone do not prove representative sampling. The experiment does
 not alter the strict campaign or eliminate INT8. Details, uncertainty and
 reproduction are in the [YOLO diagnosis](../../architecture/phase3-yolo-int8-diagnosis.md).
 
-The resource estimates use retained FP32 shapes for all four models. All
-784 ResNet18 and 1,120 MobileNetV3 native layer/image/backend shape comparisons
-agree with those observations. The other models still need native checks. Activation liveness
+The resource estimates use retained FP32 shapes for all four models. Native
+shape checks now include the five accepted paired pilots: 784 comparisons per
+ResNet18 format and 1,600 for MobileNetV2 INT8. The MobileNetV3 eight-image CPU
+pilots each have 1,120 matching comparisons, and the YOLO INT8 image has 176.
+These checks apply to the observed pilots; they do not validate every format.
+Activation liveness
 assumes copied views and last-consumer release; accumulator bank sizes are
 explicit alternatives, not actual memory or hardware measurements.
 
-The latest full test run passed **401 tests**; its log and XML are
-`artifacts/phase3/pytest-finite-fp64.*`; the subsequent propagation intervention
-test also passes. The CUDA suite passed **102 tests**,
+The latest retained full test run passed **402 tests**; its log and XML are
+`artifacts/phase3/pytest-continuation-final.*`. Subsequent focused runs passed
+six shared non-MAC, six dyadic-search, six pruned-search and three fixed-bias
+sensitivity tests. They have not been rerun together as a new full-suite total.
+The CUDA suite passed **102 tests**,
 followed by **10 final INT64 boundary tests** after tightening fast-path admission.
 These overlap and must not be added as unique tests. Logs/XML are under
 `artifacts/phase3/pytest-*`. Historical Phase 2 results remain archived and are

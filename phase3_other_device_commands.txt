@@ -1,0 +1,108 @@
+# Phase 3 device handoff — 2026-09-20.
+# Paste ONE numbered section at a time on the indicated device.
+# Replace placeholders. Do not execute this entire file as a script.
+# Details: docs/architecture/phase3-device-migration.md
+
+# 1. ORIGINAL PC: stop all experiment writers first, then record and copy.
+cd /home/graff145/Desktop/Uni/Capstone/precision_exploration
+git rev-parse HEAD
+# Record the printed commit for section 2.
+# Use an empty directory on an external drive, or USER@HOST:/absolute/directory/.
+PHASE3_TRANSFER_DEST='/replace/with/transfer-directory/'
+rsync -a --info=progress2 --relative \
+  artifacts/ data/raw/ results/databases/ results/raw/ build/phase2/ cache/ \
+  "$PHASE3_TRANSFER_DEST"
+# Dry-run checksum check: investigate any listed differences before proceeding.
+rsync -acni --relative \
+  artifacts/ data/raw/ results/databases/ results/raw/ build/phase2/ cache/ \
+  "$PHASE3_TRANSFER_DEST"
+
+# 2. NEW PC: prerequisites are Linux x86_64, Python 3.12, Git, rsync,
+# NVIDIA driver, CUDA toolkit and compatible C++ compiler (see guide).
+git clone https://github.com/SayatAbdikul/precision_exploration.git
+cd precision_exploration
+PHASE3_COMMIT='replace-with-commit-printed-on-original-PC'
+git checkout --detach "$PHASE3_COMMIT"
+PHASE3_TRANSFER_SOURCE='/replace/with/transfer-directory/'
+rsync -a --info=progress2 "$PHASE3_TRANSFER_SOURCE" ./
+rsync -acni "$PHASE3_TRANSFER_SOURCE" ./
+# Fix only the known COCO directory symlink after checking the copy.
+python3.12 - <<'PY'
+from pathlib import Path
+p = Path('data/raw/coco2017/images/val2017')
+if p.is_symlink():
+    assert (p.parent / '../val2017').is_dir(), 'COCO target directory missing'
+    p.unlink()
+    p.symlink_to('../val2017', target_is_directory=True)
+PY
+
+# 3. NEW PC: recreate the observed Python environment.
+python3.12 -m venv .venv
+.venv/bin/python -m pip install torch==2.3.0 torchvision==0.18.0 \
+  --index-url https://download.pytorch.org/whl/cpu
+.venv/bin/python -m pip install -r requirements-phase3-reproduction.txt
+.venv/bin/python -m pip install --no-deps -e .
+.venv/bin/python -m pip check
+export PATH="/usr/local/cuda/bin:$PATH"
+export CUDAHOSTCXX=g++-14
+export OMP_NUM_THREADS=4
+nvidia-smi
+nvcc --version
+g++-14 --version
+
+# 4. NEW PC: verify identities and the COPIED production libraries.
+# Stop on any error; do not overwrite old native builds to bypass this check.
+.venv/bin/python - <<'PY'
+import json
+import platform
+import subprocess
+from datetime import datetime, timezone
+from pathlib import Path
+from public.inference.conformance_job import source_identity
+from public.inference.native import NativeBackend
+from tools.phase3.screening import pipeline_identity
+from tools.phase3.common import read
+from tools.run.phase3_continue_integer import check_plan
+assert source_identity() == '5b8f0f4405f25d41a900aa3546d6f14833f5fd7fdc3dd02280a7f47572f47b99'
+assert pipeline_identity() == '003518f467d23112e1b298ebeb59850b8887c5dcb62e02fa1b9bb3f7b4019cd3'
+check_plan(read(Path('artifacts/phase3/integer-continuation-plan.json')))
+for backend in ('cpp', 'cuda'):
+    result = NativeBackend(backend).flex_gemm(
+        [1] * 64, [1] * 64, batch=1, channels=1, k=64,
+        accumulator='int64_accumulator')
+    assert tuple(result) == (64,), (backend, result)
+    print(backend, 'copied library smoke check PASS')
+stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+record = {'utc': stamp, 'host': platform.node(), 'platform': platform.platform(),
+          'commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+          'source_sha256': source_identity(), 'pipeline_sha256': pipeline_identity()}
+out = Path('artifacts/phase3/device-handoff') / stamp
+out.mkdir(parents=True)
+(out / 'device.json').write_text(json.dumps(record, indent=2) + '\n')
+progress = Path('results/summaries/phase3-progress.json')
+if progress.exists():
+    (out / 'progress-before-resume.json').write_bytes(progress.read_bytes())
+print('Handoff evidence:', out)
+PY
+unset PHASE3_RUN_EXPERIMENTS
+bash phase3_terminal_commands.txt
+
+# 5. NEW PC: actually execute new native images before the production queue.
+# This loop stops at the first failed comparison. Retain the benchmark artifacts.
+OMP_NUM_THREADS=4 .venv/bin/python -m tools.run.phase3_thread_benchmark \
+  --model mobilenet_v2 --format int8 --images 2 --threads 4
+# Continue only if the MobileNetV2 check succeeded.
+for PHASE3_FORMAT in int6 int5 int4; do
+  OMP_NUM_THREADS=4 .venv/bin/python -m tools.run.phase3_thread_benchmark \
+    --model resnet18 --format "$PHASE3_FORMAT" --images 2 --threads 4 || break
+done
+# Continue only when ALL four configurations pass, with matching outputs/traces.
+
+# 6. NEW PC: resume, after the old worker has stopped for at least five minutes.
+set -o pipefail
+OMP_NUM_THREADS=4 .venv/bin/python -m tools.run.phase3_continue_integer \
+  --plan artifacts/phase3/integer-continuation-plan.json \
+  2>&1 | tee -a artifacts/phase3/integer-continuation-controller.log
+
+# Optional: in a second terminal, from the new repository directory:
+# tail -f artifacts/phase3/integer-continuation/*/004.log

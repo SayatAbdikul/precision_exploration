@@ -64,15 +64,21 @@ Phases 0–7 are the core public study and are implemented here. Public research
 
 Phase 0 completed on 2026-09-04. Phase 1 completed and was reverified on 2026-09-08 after correcting the audit findings, with frozen workloads and datasets, 25 accepted datatype manifests, a validated oracle and regenerated exhaustive conformance tables, a tested experiment registry, reproducible FP32 baselines, and a public ICsprout55 RVT synthesis/STA pilot. Phase 2 completed on 2026-09-11: exact reference/C++/CUDA execution, all 25-format conformance, native-image checks across four models, all calibration artifacts and frozen baseline predictions, and generic hardware pilots are verified. D2 is accepted for the measured FP6/INT8 GEMM scope; D3 keeps EfficientNet optional. The source-frozen `results/summaries/phase2-final-verification.json` reports completion with no remaining gates. See `docs/roadmap/phases/phase-02-remaining-work.md` for the completion checklist and `docs/architecture/exact-engine.md` for execution commands and evidence limits.
 
-Phase 3 status verified on **2026-09-16**: all 100 configurations have calibration
+Phase 3 status verified on **2026-09-20**: all 100 configurations have calibration
 and encoded graphs; paired FP32 baselines, resumable execution, statistics,
 layer diagnostics and hardware/storage priors are implemented. **Five configurations
 passed eight-image C++/CUDA acceptance**: ResNet18 INT8/6/5/4 and MobileNetV2 INT8.
 **The first full 1k screen, ResNet18 INT8, is complete**: Top-1 is 68.4% versus
-FP32 70.1%, with an `UNCERTAIN` retention label. MobileNetV2 INT8 is screening.
+FP32 70.1%, with an `UNCERTAIN` retention label. MobileNetV2 INT8 has **487/1,000**
+saved images; its queue is paused for the device handoff.
 Additional CPU pilots, eight classifier one-operation studies, detector and
 logarithmic-residual diagnoses, and a separate native BFP6 diagnostic are retained.
 The other 99 full screens, remaining acceptance gates and D4 review are unfinished.
 See the
 [Phase 3 execution guide](docs/architecture/phase3-experiment-a.md) and
 [remaining-work checklist](docs/roadmap/phases/phase-03-remaining-work.md).
+For another PC, follow the [device migration guide](docs/architecture/phase3-device-migration.md)
+and [terminal commands](phase3_other_device_commands.txt); Git alone does not include
+the datasets or saved experiment state. The completed
+[thread benchmark](docs/architecture/phase3-thread-benchmark.md) compares CPU/CUDA
+execution with 4, 8 and 16 threads.

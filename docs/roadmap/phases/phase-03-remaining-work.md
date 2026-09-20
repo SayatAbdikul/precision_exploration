@@ -2,7 +2,7 @@
 
 Status: **in progress; no D4 decision and no complete 100-configuration screen.**
 
-## Verified completion snapshot — 2026-09-16
+## Verified completion snapshot — 2026-09-20
 
 The [refreshed progress inventory](../../../results/summaries/phase3-progress.json)
 verifies **100/100 calibrations, 100/100 current encoded graphs, five accepted
@@ -33,13 +33,32 @@ uses the same frozen 1,000 images for both predictors, 5,000 paired resamples,
 decision. The [D4 readiness report](../../../results/summaries/phase3-d4-readiness.json)
 has one completed screen analysis and 99 missing configurations.
 
-**Running at this snapshot:** MobileNetV2 INT8 had **406/1,000** images saved
-at the progress refresh (`2026-09-16T14:03:47Z`). The continuation controller and
-CUDA worker were verified live. The controller queues ResNet18 INT6, INT5 and
-INT4 full screens after MobileNetV2 INT8. These queued runs are not completed
-results. At the observed 162–165 seconds/image, the remaining MobileNetV2 work
-is approximately **27 hours**, excluding interruptions and final analysis.
-The snapshot count will become stale as the worker saves more images.
+**Paused at the 2026-09-20 snapshot:** MobileNetV2 INT8 has **487/1,000** images
+saved. The registry retains a stale RUNNING state; it is not evidence of a live
+worker. The controller queues ResNet18 INT6, INT5 and INT4 full screens after
+MobileNetV2 INT8. These queued runs are not completed results. At the observed
+162–165 seconds/image, the remaining 513 MobileNetV2 images need approximately
+**23–24 hours**, excluding interruptions and final analysis. Follow the
+[device handoff guide](../../architecture/phase3-device-migration.md) to preserve
+these checkpoints on another PC.
+
+The completed [thread benchmark](../../architecture/phase3-thread-benchmark.md)
+verified matching outputs and traces for 12 native image executions. CUDA with
+eight threads averaged 162.45 seconds/image; sixteen threads did not improve
+overall time. Output conversion and quantization dominate runtime. This
+diagnostic adds no campaign screening images or accumulator acceptance.
+
+The ResNet18 posit6_es1 CPU pilot now has eight completed images, analysis,
+diagnostics and 392 passing shape comparisons. Top-1 is 4/8 against FP32 5/8;
+Top-5 is 5/8 against 8/8. CUDA comparison and accumulator acceptance remain open.
+The MobileNetV2 INT6/5/4 CPU pilots also have retained analysis and diagnostics;
+their eight-image results do not establish full-screen quality or D4 decisions.
+
+The bounded ResNet18 posit8_es1 fixed-bias witness search found concrete local
+encoded MAC inputs in five of 21 layers where prescribed bias storage can
+change an output code. Reference/C++ Model C checks agree. These are local
+arithmetic witnesses, not proof of natural-image reachability or a graph-wide
+acceptance result; other layers remain unresolved by this bounded search.
 
 ## Roadmap completion conditions
 
@@ -246,15 +265,16 @@ Activation liveness
 assumes copied views and last-consumer release; accumulator bank sizes are
 explicit alternatives, not actual memory or hardware measurements.
 
-The latest retained full test run passed **402 tests**; its log and XML are
-`artifacts/phase3/pytest-continuation-final.*`. Subsequent focused runs passed
-six shared non-MAC, six dyadic-search, six pruned-search and three fixed-bias
-sensitivity tests. They have not been rerun together as a new full-suite total.
-The CUDA suite passed **102 tests**,
-followed by **10 final INT64 boundary tests** after tightening fast-path admission.
-These overlap and must not be added as unique tests. Logs/XML are under
-`artifacts/phase3/pytest-*`. Historical Phase 2 results remain archived and are
-not presented as verification of the changed Phase 3 Python engine.
+The latest retained full test run passed **435 tests** on 2026-09-20, including
+the fixed-bias witness and thread-benchmark tests. Its log and XML are
+`artifacts/phase3/pytest-device-handoff.*`. The user's earlier terminal checks
+passed **431 repository tests** and **103 CUDA conformance tests**, with no
+failures, errors or skips. Those logs/XML are under
+`artifacts/phase3/manual-checks/20260920T071642Z-31355/`. The thread experiment
+subsequently exercised six native backend/thread settings on two images each.
+These checks overlap and must not be added as unique tests. Historical Phase 2
+results remain archived and are not presented as verification of the changed
+Phase 3 Python engine.
 
 The continuation suite adds **25 passing focused tests**, including one-layer
 FP32 propagation, interruption recovery, independent preparation inventories,

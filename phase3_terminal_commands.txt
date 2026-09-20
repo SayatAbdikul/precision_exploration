@@ -1,0 +1,177 @@
+#!/usr/bin/env bash
+# Phase 3 terminal commands — prepared 2026-09-20.
+#
+# Paste these two lines into your terminal to run all required checks:
+#   cd /home/graff145/Desktop/Uni/Capstone/precision_exploration
+#   bash phase3_terminal_commands.txt
+#
+# Alternatively, paste the numbered sections in order into the same Bash shell.
+# Section 5 is optional and disabled by default. It runs long experiments,
+# not additional unit tests. See the instructions in that section.
+#
+# Logs, JUnit XML, source identities and report snapshots are saved together
+# under artifacts/phase3/manual-checks/<UTC timestamp>-<process id>/.
+# Tell me that directory when you want the results checked.
+# No sudo, package upgrades, production-library rebuild or Git push is needed.
+# Keep sources/configurations unchanged while existing experiments are running.
+
+# 1. Set up the existing environment and a new log directory.
+set -Eeuo pipefail
+cd -- "$(dirname -- "${BASH_SOURCE[0]:-phase3_terminal_commands.txt}")"
+export PATH="/usr/local/cuda/bin:$PATH"
+export OMP_NUM_THREADS=4
+export PYTHONUNBUFFERED=1
+export CUDAHOSTCXX="${CUDAHOSTCXX:-g++-14}"
+export PHASE3_CHECK_DIR="artifacts/phase3/manual-checks/$(date -u +%Y%m%dT%H%M%SZ)-$$"
+mkdir -p "$PHASE3_CHECK_DIR"
+printf 'Evidence directory: %s\n' "$PHASE3_CHECK_DIR"
+
+# Preserve the failing command's exit status even when output goes through tee.
+# A failure stops this script. Retain its log; do not treat skipped/failed checks
+# as a pass or change the frozen definitions merely to make a check succeed.
+run_check() {
+    local check_name="$1"
+    shift
+    printf '\nRunning %s\n' "$check_name"
+    if "$@" 2>&1 | tee "$PHASE3_CHECK_DIR/$check_name.log"; then
+        printf '%s PASS\n' "$check_name" >> "$PHASE3_CHECK_DIR/check-status.txt"
+    else
+        local check_status=$?
+        printf '%s FAIL exit=%s\n' "$check_name" "$check_status" >> "$PHASE3_CHECK_DIR/check-status.txt"
+        printf 'Stopped. Review %s/%s.log\n' "$PHASE3_CHECK_DIR" "$check_name" >&2
+        return "$check_status"
+    fi
+}
+
+run_check source-state .venv/bin/python - <<'PY'
+import importlib.metadata
+import json
+import os
+import subprocess
+from pathlib import Path
+import numpy, pytest, torch, torchvision, ultralytics, pycocotools.coco
+from public.inference.conformance_job import source_identity
+from tools.phase3.common import campaign, digest
+from tools.phase3.screening import pipeline_identity
+
+record = {
+    "git_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+    "git_status": subprocess.check_output(["git", "status", "--short"], text=True),
+    "source_sha256": source_identity(),
+    "pipeline_sha256": pipeline_identity(),
+    "campaign_sha256": digest(campaign()),
+    "versions": {name: importlib.metadata.version(name) for name in
+                 ("numpy", "pytest", "torch", "torchvision", "ultralytics", "pycocotools")},
+}
+destination = Path(os.environ["PHASE3_CHECK_DIR"]) / "source-state.json"
+destination.write_text(json.dumps(record, indent=2) + "\n")
+print(json.dumps(record, indent=2))
+PY
+
+run_check environment .venv/bin/python -m tools.setup.check_phase2_environment \
+    --output "$PHASE3_CHECK_DIR/environment.json"
+# The environment command is a readiness report, not a Phase 3 completion gate.
+# Optional hardware tools or the optional EfficientNet workload can be absent.
+
+# 2. Run ALL collected repository tests using the C++ native backend.
+# This includes unit, integration, regression and native/rational/INT64
+# conformance tests, including the new fixed-bias witness tests.
+# Test fixtures compile their native libraries into temporary test directories.
+run_check pytest-cpp env PRECISION_TEST_BACKEND=cpp \
+    .venv/bin/python -m pytest tests -q -ra \
+    --junitxml="$PHASE3_CHECK_DIR/pytest-cpp.xml"
+
+# 3. Repeat the backend-dependent conformance suites on the actual GPU.
+# The rational suite exercises every accepted operand format; the width suite
+# checks the Phase 3 INT64 path, saturation, ordering and wide stored biases.
+# These tests need nvcc, the CUDA-compatible host compiler and a visible GPU.
+# They can contend with an existing screen, so test-time timings are not
+# standalone inference benchmarks. They do not stop or replace that screen.
+run_check gpu nvidia-smi
+run_check nvcc "${NVCC:-nvcc}" --version
+run_check cuda-host-compiler "$CUDAHOSTCXX" --version
+run_check pytest-cuda env PRECISION_TEST_BACKEND=cuda \
+    .venv/bin/python -m pytest \
+    tests/conformance/test_native_engine.py \
+    tests/conformance/test_rational_engine.py \
+    tests/conformance/test_phase3_integer_width.py \
+    -q -ra --junitxml="$PHASE3_CHECK_DIR/pytest-cuda.xml"
+
+# 4. Refresh and retain current experiment-evidence reports.
+# These verify retained artifacts/identities and report pending gates. An
+# "in_progress" or "D4_OPEN" result is expected while Phase 3 is unfinished;
+# successful script execution is not proof that every experiment is accepted.
+run_check phase3-status .venv/bin/python -m tools.analysis.phase3_status
+run_check phase3-gates .venv/bin/python -m tools.analysis.phase3_gate_inventory
+run_check phase3-d4 .venv/bin/python -m tools.analysis.phase3_d4
+cp results/summaries/phase3-progress.json "$PHASE3_CHECK_DIR/"
+cp results/summaries/phase3-gate-inventory.json "$PHASE3_CHECK_DIR/"
+cp results/summaries/phase3-d4-readiness.json "$PHASE3_CHECK_DIR/"
+
+# 5. OPTIONAL: resume the existing long-running experiments after tests pass.
+# To include this section, use this invocation instead of the one at the top:
+#   PHASE3_RUN_EXPERIMENTS=1 bash phase3_terminal_commands.txt
+#
+# FIRST check whether the continuation controller / native workers already run:
+#   ps -eo pid,etimes,comm,args | awk '$3 == "pt_main_thread" || ($3 == "python" && $4 == ".venv/bin/python") {print}'
+# If the integer continuation controller is already running, let it continue
+# and use the default test-only invocation. Do not start a duplicate controller.
+# Existing live-writer locks will reject duplicates; do not delete lock files.
+#
+# The frozen controller resumes its eight tasks, reuses completed image work,
+# finishes MobileNetV2 INT8 and the three ResNet18 INT6/5/4 full screens, and
+# produces analysis/diagnostics. Several days may be required. It is only the
+# currently scheduled integer subset, NOT all 100 Phase 3 configurations.
+# It retains failed stages and may proceed with independent work: inspect the
+# per-task status JSON files as well as the command exit code.
+#
+# The posit6 CPU pilot is separate and remains PILOT_ONLY until its additional
+# native/accumulator gates are met. It reuses previously saved images.
+# If recovering an interrupted process, the lease must have been idle for at
+# least 300 seconds. A live writer must be allowed to finish.
+if [[ "${PHASE3_RUN_EXPERIMENTS:-0}" == "1" ]]; then
+    run_check integer-continuation .venv/bin/python -m tools.run.phase3_continue_integer \
+        --plan artifacts/phase3/integer-continuation-plan.json
+    run_check resnet18-posit6-cpp-pilot .venv/bin/python -m tools.run.phase3_screen \
+        --model resnet18 --format posit6_es1 --scope pilot --images 8 \
+        --backends cpp --recover-stale-seconds 300
+
+    # Analyze every completed current-engine canonical pilot/screen. Historical
+    # source identities and incomplete jobs are recorded as skipped, not reused.
+    run_check completed-run-analysis .venv/bin/python - <<'PY'
+import subprocess
+import sys
+from public.inference.conformance_job import source_identity
+from tools.phase3.common import ROOT, read
+from tools.phase3.evidence import verify_complete
+
+source = source_identity()
+for path in sorted((ROOT / "artifacts/phase3/runs").glob("*/summary.json")):
+    summary = read(path)
+    if summary.get("status") != "completed" or summary.get("source_sha256") != source:
+        print("SKIP non-current/incomplete summary:", path, flush=True)
+        continue
+    verify_complete(path, current_execution=True)
+    commands = [("tools.analysis.phase3_results", "--summary"),
+                ("tools.analysis.phase3_diagnostics", "--summary")]
+    if summary["scope"] == "pilot":
+        commands.append(("tools.analysis.phase3_shape_check", "--pilot"))
+    for module, flag in commands:
+        subprocess.run([sys.executable, "-m", module, flag, str(path)], check=True)
+PY
+    run_check phase3-status-after-runs .venv/bin/python -m tools.analysis.phase3_status
+    run_check phase3-gates-after-runs .venv/bin/python -m tools.analysis.phase3_gate_inventory
+    run_check phase3-d4-after-runs .venv/bin/python -m tools.analysis.phase3_d4
+    mkdir -p "$PHASE3_CHECK_DIR/after-runs"
+    cp results/summaries/phase3-progress.json "$PHASE3_CHECK_DIR/after-runs/"
+    cp results/summaries/phase3-gate-inventory.json "$PHASE3_CHECK_DIR/after-runs/"
+    cp results/summaries/phase3-d4-readiness.json "$PHASE3_CHECK_DIR/after-runs/"
+fi
+
+printf '\nRequested checks finished. Evidence: %s\n' "$PHASE3_CHECK_DIR"
+cat "$PHASE3_CHECK_DIR/check-status.txt"
+# Review pytest summaries for skipped tests as well as failures.
+# Preserve the logs/XML and the underlying artifacts/ and results/ directories.
+# Phase 3 still requires remaining graph acceptance, complete screens or
+# diagnosed statuses, sensitivity review and a D4 decision; tests alone cannot
+# close those gates. Ask for a review of this evidence directory when ready.

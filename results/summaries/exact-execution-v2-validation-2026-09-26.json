@@ -1,0 +1,105 @@
+{
+  "payload": {
+    "comparison_matrix": {
+      "path": "public/experiments/configs/breadth-study/comparison-matrix-v1.json",
+      "sha256": "64e97fb3d673a6bb2d4444c334a09f96382ddc269149419d45437a33675bb091"
+    },
+    "compatibility_images": 64,
+    "configurations": [
+      {
+        "format": "int4",
+        "model": "mobilenet_v2",
+        "peak_rss_bytes": 735686656,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 11.034811789249943
+      },
+      {
+        "format": "int5",
+        "model": "mobilenet_v2",
+        "peak_rss_bytes": 743694336,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 11.361654579624883
+      },
+      {
+        "format": "int6",
+        "model": "mobilenet_v2",
+        "peak_rss_bytes": 757243904,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 12.377391214002273
+      },
+      {
+        "format": "int8",
+        "model": "mobilenet_v2",
+        "peak_rss_bytes": 784072704,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 17.706989672129566
+      },
+      {
+        "format": "int4",
+        "model": "resnet18",
+        "peak_rss_bytes": 940400640,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 7.440808007246233
+      },
+      {
+        "format": "int5",
+        "model": "resnet18",
+        "peak_rss_bytes": 951296000,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 7.721308335887443
+      },
+      {
+        "format": "int6",
+        "model": "resnet18",
+        "peak_rss_bytes": 949719040,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 7.9687922248849645
+      },
+      {
+        "format": "int8",
+        "model": "resnet18",
+        "peak_rss_bytes": 971735040,
+        "prepared_images": 8,
+        "prepared_mean_seconds": 10.142241671623196
+      }
+    ],
+    "date": "2026-09-26",
+    "paired_resnet18_int4": {
+      "images_per_mode": 2,
+      "legacy_mean_seconds": 68.54044517452712,
+      "prepared_mean_seconds": 7.277373383520171,
+      "speedup": 9.418294426082218
+    },
+    "paired_timing_suite": {
+      "path": "artifacts/exact_execution_v2/suites/f625626878f494b2c21ce87753dee495f4c6e082c6410e6dc5b6d3e55456ffb4/bbc99b1fecace47dffc8f96cf122061f41282aaa0ba72c5854965b4ec57feff7.json",
+      "sha256": "a17825245047359952a65d3297fc386336bdfee1f320a18cba0f0f5a0c3b5769"
+    },
+    "readiness": {
+      "E0": "completed for eight accepted integer graphs; no-op resume verified",
+      "E1": "needs matched FP32-reduction control; ten of twelve cases additionally need native acceptance; prepared engine needs quality-run integration",
+      "E2": "needs versioned MSE clipping and adaptive-rounding implementations and validation of changed graphs",
+      "E3_B": "existing runners support 1000-image resume; exact 171-recipe enrollment needs a matrix-aware selection entry point",
+      "E4": "requires frozen methods, calibration manifests and confirmation exposure audit",
+      "E5": "complete-operation hardware cost study remains future work"
+    },
+    "resume_reused_identical_validation_references": true,
+    "scope": "compatibility_and_throughput_only; not new quality evidence or Phase 3 completion",
+    "suite": {
+      "path": "artifacts/exact_execution_v2/suites/8bb11a0e9e5611373790ac1ebac9b98a496b6d5a0ad93723af9dea9676bd852d/a6dda9ca07d6c305505bca1126556ce6a950fcb7ea6ef2baf733d5e260b291f9.json",
+      "sha256": "71c70c3c1b8d0a7d57f894498b8869e14efe7ef3019fa702d7dc1269b906d7ee"
+    },
+    "suite_images_per_hour": 904.7995196799989,
+    "suite_wall_seconds": 254.64204499300104,
+    "threads_per_worker": 4,
+    "unit_checks": {
+      "command": ".venv/bin/python -m pytest -q tests/unit/test_exact_execution_v2.py tests/unit/test_exact_mixed_store.py tests/unit/test_exact_execution_runner.py tests/unit/test_phase3_integer_store.py",
+      "last_observed_result": "58 passed in 3.07s; recorded from prior implementation turn, not rerun in this readiness audit"
+    },
+    "verified_no_op_resume_suite": {
+      "path": "artifacts/exact_execution_v2/suites/8bb11a0e9e5611373790ac1ebac9b98a496b6d5a0ad93723af9dea9676bd852d/9dd2c553a3355b4126a78f27201c77b326ebd79e60af84f98f685b0141aa48b9.json",
+      "sha256": "4c9ccca2247e4a30818eaa6a44fd9d20537c749cd08e873abe0741e1ac96f44d"
+    },
+    "workers": 4
+  },
+  "sha256": "c9695c10102584732ad817067af7180c48f86122750c5c70b73dda5af01685d7"
+}

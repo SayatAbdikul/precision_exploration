@@ -1,4 +1,6 @@
 """Publish conservative D4 readiness; missing experiments never become pruning."""
+import argparse
+from pathlib import Path
 from public.analysis.phase3.promotion import promote
 from public.analysis.phase3.statistics import paired_classification, screening_label
 from public.inference.reference.arithmetic import format_named
@@ -7,6 +9,9 @@ from tools.phase3.evidence import verify_complete
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--review", type=Path, help="explicit attributed review; cannot bypass missing fixed-1k screens")
+    args = parser.parse_args()
     plan = campaign()
     expected = [(model, name) for model in plan["models"] for name in plan["formats"]]
     records = []
@@ -59,6 +64,11 @@ def main():
     result["sensitivity_evidence"] = [reference(path) for path in sorted((ROOT / "results/summaries").glob("phase3-sensitivity-*.json"))]
     result.update(schema_version="phase3-d4-readiness-1.0.0", campaign_sha256=digest(plan),
                   completed_screen_analyses=len(records), decision="D4_OPEN")
+    if args.review:
+        from tools.analysis.phase3_review import apply_review
+        reviewed = apply_review(records, plan, read(args.review))
+        result.update(reviewed, review=reference(args.review))
+        write(ROOT / "artifacts/phase3/d4-decisions" / f"{digest(result)}.json", result)
     write(ROOT / "results/summaries/phase3-d4-readiness.json", result)
     print({"decision": result["decision"], "completed_screen_analyses": len(records), "missing_configurations": len(result["missing_configurations"])})
 

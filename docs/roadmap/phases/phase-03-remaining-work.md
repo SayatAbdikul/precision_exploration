@@ -2,6 +2,13 @@
 
 Status: **in progress; no D4 decision and no complete 100-configuration screen.**
 
+Update 2026-09-25: all eight accepted integer classifier configurations have
+completed their fixed-1k screens and analyses. The [eight-screen evidence review](../../architecture/phase3-eight-integer-review.md)
+records the paired quality results, four unresolved severe-loss diagnoses and
+the four interim D4 review dimensions. The [recomputed D4 readiness](../../../results/summaries/phase3-d4-readiness.json)
+remains `D4_OPEN` with 92 configurations missing. The detailed 2026-09-20
+snapshot below is retained as historical context.
+
 ## Verified completion snapshot — 2026-09-20
 
 The [refreshed progress inventory](../../../results/summaries/phase3-progress.json)

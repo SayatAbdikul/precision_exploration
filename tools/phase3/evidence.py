@@ -1,5 +1,7 @@
 """Verify retained numerical evidence independently of summary status labels."""
 from pathlib import Path
+import os
+import tempfile
 
 from public.inference.conformance_job import source_identity
 from public.quantization.graph.executable import graph_sha256
@@ -22,7 +24,15 @@ def archive_pipeline(root=ROOT):
         payload = path.read_bytes()
         if target.exists() and target.read_bytes() != payload:
             raise ValueError("pipeline archive is immutable")
-        target.write_bytes(payload)
+        if not target.exists():
+            descriptor, temporary = tempfile.mkstemp(dir=target.parent, suffix=".partial")
+            try:
+                with os.fdopen(descriptor, "wb") as stream:
+                    stream.write(payload)
+                os.replace(temporary, target)
+            finally:
+                if os.path.exists(temporary):
+                    os.unlink(temporary)
         files[str(relative)] = reference(target, root)
     record = {"pipeline_sha256": identity, "files": files}
     if digest({name: item["sha256"] for name, item in files.items()}) != identity:
@@ -46,6 +56,22 @@ def verify_pipeline(job, root=ROOT, *, current_execution=False):
             if file_hash(root / name) != item["sha256"]:
                 raise ValueError("pilot execution/diagnostic implementation has changed")
     return reference(path, root)
+
+
+def verify_execution_provenance(record, configuration_sha256, root=ROOT):
+    for backend, provenance in record.get("execution_provenance", {}).items():
+        if backend not in record["backends"] or provenance.get("extension") != "exact_integer_store_v1":
+            raise ValueError("invalid execution extension provenance")
+        certificate = read(checked(provenance["compatibility"], root))
+        if (certificate["configuration_sha256"] != configuration_sha256 or certificate["images"] != 8 or
+                any(certificate[k] != provenance[k] for k in ("guard_sha256", "controller_sha256"))):
+            raise ValueError("checkpoint compatibility certificate mismatch")
+        checked(certificate["plan"], root)
+        evidence = read(checked(certificate["compatibility"], root))
+        if (evidence["images"] != 8 or not evidence["matches_original_layer_codes_outputs_and_quantizer_events"] or
+                any(evidence[k] != provenance[k] for k in ("guard_sha256", "controller_sha256"))):
+            raise ValueError("invalid checkpoint compatibility evidence")
+        checked(evidence["native_evidence"], root)
 
 
 def read_records(job, image_refs=None, root=ROOT):
@@ -95,6 +121,7 @@ def read_records(job, image_refs=None, root=ROOT):
             raise ValueError("image evidence hash/provenance mismatch")
         if set(record["backends"]) != set(backends):
             raise ValueError("incomplete backend evidence")
+        verify_execution_provenance(record, prepared["configuration_sha256"], root)
         first = record["backends"][backends[0]]
         for result in record["backends"].values():
             if set(result["layers"]) != layers or set(result["diagnostics"]) != layers:

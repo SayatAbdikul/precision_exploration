@@ -2,6 +2,32 @@
 
 The supplied roadmap is phase-ordered rather than calendar-based. Code remains in stable component directories; the files under `phases/` preserve tasks, gates, exit criteria, parallelism, and scope.
 
+The [2026-09-25 research redesign proposal](../analysis/research-redesign-2026-09-25.md)
+reviews current evidence and proposes staged image budgets, earlier optimized
+PTQ, calibration fixes and overlapping hardware work. It is not an adopted
+replacement for the frozen campaign or decision gates below.
+
+The [breadth-first workstation proposal](../analysis/breadth-first-study-proposal-2026-09-25.md)
+retains all 25 datatypes and four models, targets 200–300 compatible PTQ
+configurations, and quantifies the faster execution needed for a five-week study.
+It supersedes the narrower study recommendation, not the accepted phase gates.
+
+On 2026-09-25 the owner authorized starting the
+[B-led exploration transition](../architecture/experiment-b-exploration.md).
+The original A queue is paused with retained evidence. New B results have
+separate execution semantics and cannot be used to declare original D4 complete.
+
+The [saved research checkpoint and next experiments](../analysis/research-checkpoint-and-next-experiments-2026-09-25.md)
+records the completed A/B evidence, preservation archive, exact-inference
+optimization work, matched comparisons, diagnosis, and selective confirmation
+sequence discussed with the owner. Successor execution gates remain explicit;
+historical incomplete A obligations are not relabelled as completed.
+
+The [saved-prediction study and frozen comparison matrix](../analysis/saved-prediction-study-v1.md)
+recompute the retained A/B predictions and define the next comparisons without
+changing historical acceptance. The [prepared exact execution extension](../architecture/exact-execution-v2.md)
+documents the opt-in accelerated engine and its resumable native validation.
+
 ## Scope interpretation
 
 - **Implemented here:** Phases 0–7 and the public research/release work in Phase 11.

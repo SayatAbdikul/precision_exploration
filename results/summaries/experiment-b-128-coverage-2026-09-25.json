@@ -1,0 +1,27 @@
+{
+  "payload": {
+    "audit_source_sha256": "9df8f5270f3b5cf295e135aeab954e4b94eb2ccb1663784ed1566e1c06d3ceb5",
+    "components": {
+      "extension": {
+        "completed": 74,
+        "source_sha256": "932f3a53c8e6320bce2900b495f86e694a8592c2c896f0b45673380732cbd6e5",
+        "status_sha256": "f3746ec543225b3e4ed3846e289635bf3ab1ad48e7d00b2ef9c1e1ffe03ba9de"
+      },
+      "original": {
+        "completed": 126,
+        "source_sha256": "cee0141c0ef0f17e9fb4902b9a051b5dbc3b95324dd162c4ba7cb3c164623a57",
+        "status_sha256": "935e833c4c640b1bae0480ada0e2f093a9eccdcf39f133efce1ded6f677600fa"
+      }
+    },
+    "configurations": 200,
+    "datatype_model_pairs": 100,
+    "datatypes": 25,
+    "image_inferences": 25600,
+    "interpretation": "development_panel_descriptive_only; no_1k_promotion_or_exact_native_acceptance",
+    "models": 4,
+    "recipes": 2,
+    "status": "completed_exploratory_128_image_matrix",
+    "version": "experiment-b-128-coverage-audit-1.0.0"
+  },
+  "sha256": "c7408266ac7986242cc2b5670f4bbe852bc9dba28371feb593a493ab8b9d6542"
+}

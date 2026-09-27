@@ -1,0 +1,35 @@
+{
+  "campaign_sha256": "de703d331c047b83b21a51532a54ac55d5d8356763411594d6ff8bad1821e473",
+  "libraries": {
+    "cpp": "067160962fa88cdd9d2ccb4880f5c2c2abec4a9eaa97784b4f27244bd254293a",
+    "cuda": "681e0e2c94cc988491fc6f05bdc0772dfb4ba8f883cb03878bece5837350b62f"
+  },
+  "packages": {
+    "Pillow": "12.3.0",
+    "numpy": "1.26.4",
+    "opencv-python": "4.11.0.86",
+    "pycocotools": "2.0.11",
+    "torch": "2.3.0+cpu",
+    "torchvision": "0.18.0+cpu",
+    "ultralytics": "8.3.0"
+  },
+  "pipeline_sha256": "003518f467d23112e1b298ebeb59850b8887c5dcb62e02fa1b9bb3f7b4019cd3",
+  "preprocessing_sources": {
+    "public/workloads/__init__.py": "e4d1e698cdfea2591666a0e92f0900e0f5e69cd9e3f4d6d108be9a0917c85313",
+    "public/workloads/datasets/__init__.py": "e103b8cab6db145fa63906b35e1c463dab3da47f76357f5ed15e0d828b1fe034",
+    "public/workloads/datasets/identity.py": "1734d5db52fbe0f4c691f1827e7e96c087039e106c6518dccde476c4ccf9b0c4",
+    "public/workloads/models/__init__.py": "2a99810bd794f39892afffcb5178e1c6a20bc01efa2d3655fca34c860007b2c5",
+    "public/workloads/models/deployment.py": "497abf05dd6483df3c5db30f824ec88d2c8896793437c65701031689ff9c37b8",
+    "public/workloads/models/identity.py": "b7bbc7652e30b116dd6848e47216b04aec9b88e8cdf8390c652a72e1fba236cf",
+    "public/workloads/models/torchvision_eval.py": "cb3e9996934b968a5b7efbee39677cf5c0fdf1a05453366fbd1b1f06dc7ac647",
+    "public/workloads/models/yolo_eval.py": "6dd3bfae735377a6b70118dba4ed19e3aa9952c4d091050bc395a9e2904c9ea7",
+    "public/workloads/subsets/__init__.py": "221ccb9957ba4db15a7cd2a16246dff64beb0732fce9cf471d96b198d71ac8ea",
+    "public/workloads/subsets/selection.py": "a6ce6ff20bee46a6d33bed42c39f1eea20fe2242d96445b7eff3155083c8ad95"
+  },
+  "python_major_minor": [
+    3,
+    12
+  ],
+  "schema_version": "phase3-execution-guard-1.0.0",
+  "source_sha256": "5b8f0f4405f25d41a900aa3546d6f14833f5fd7fdc3dd02280a7f47572f47b99"
+}

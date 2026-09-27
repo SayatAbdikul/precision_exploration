@@ -31,9 +31,17 @@ The central hypothesis is that the smallest multiplier will not necessarily prod
 - MANT golden model, mapping, compiler, and cycle simulator.
 - MANT tile/uFPU, memory organization, interconnect, RTL, floorplan, and whole-chip choice.
 - Retraining or quantization-aware training; the supplied plan uses PTQ only.
-- Approximate arithmetic in the primary study; it is only an optional later branch.
+- Hardware-equivalence claims based only on exploratory FP32 quantize/dequantize
+  results; exact arithmetic validation remains a separate evidence requirement.
 
 ## Start here
+
+- [Run or resume Experiment B exploration](docs/architecture/experiment-b-exploration.md)
+  — the current broad PTQ campaign, its supported subset and evidence boundaries.
+- [Resume the selected B / matched E1 / recipe E2 study](docs/analysis/breadth-study-launch-2026-09-26.md)
+  — completed 1k B extensions and the new gated exact comparisons.
+- [Resume original Phase 3 experiments](docs/architecture/phase3-controller.md)
+  — the paused exact-A campaign and its remaining scientific gates.
 
 - `docs/analysis/document-synthesis.md` — reconciled analysis of the two inputs.
 - `docs/architecture/repository-layout.md` — directory ownership and dependency rules.
@@ -61,6 +69,36 @@ The central hypothesis is that the smallest multiplier will not necessarily prod
 Phases 0–7 are the core public study and are implemented here. Public research synthesis and release tasks from Phase 11 also belong here. Roadmap Phases 8–10 and the MANT engineering tasks in Phase 11 are documented for handoff context only and must execute in a separate private MANT repository.
 
 ## Current status
+
+**2026-09-27:** all 171 selected B extensions reached 1,000 images. Four E1
+cases have completed 32-image matched controls with full layer/output agreement;
+FP6 is running. E2 fitting and exact comparisons run alongside the remaining E1
+work, and the newly proven ternary graph is queued for native validation afterward.
+The original Phase 3 acceptance registry remains unchanged. Resume the new queue
+and its ternary continuation with:
+
+```bash
+.venv/bin/python -m tools.run.study_next start
+```
+
+Use `status` instead of `start` to inspect saved image and fitting counts. See the
+[study protocol and current limitations](docs/analysis/breadth-study-launch-2026-09-26.md).
+
+**2026-09-25 transition:** the owner prioritized broad datatype/model/PTQ
+exploration. The old pilot queue is paused with five completed pilots and
+image checkpoints retained; eight earlier 1k integer screens are retained.
+The separately versioned B inventory contains 200 configurations. All 126
+scalar-classifier entries and all 74 detector/shared-block extension entries
+have completed their 128-image GPU exploration screens. The extension preserves
+the original runner's evidence identity and checkpoints. These development
+results do not close original Phase 3/D4 or establish exact-accumulator
+equivalence. See the [B execution guide](docs/architecture/experiment-b-exploration.md).
+
+```bash
+bash tools/run/experiment_b_all.sh
+```
+
+The earlier dated milestones below retain the original campaign history.
 
 Phase 0 completed on 2026-09-04. Phase 1 completed and was reverified on 2026-09-08 after correcting the audit findings, with frozen workloads and datasets, 25 accepted datatype manifests, a validated oracle and regenerated exhaustive conformance tables, a tested experiment registry, reproducible FP32 baselines, and a public ICsprout55 RVT synthesis/STA pilot. Phase 2 completed on 2026-09-11: exact reference/C++/CUDA execution, all 25-format conformance, native-image checks across four models, all calibration artifacts and frozen baseline predictions, and generic hardware pilots are verified. D2 is accepted for the measured FP6/INT8 GEMM scope; D3 keeps EfficientNet optional. The source-frozen `results/summaries/phase2-final-verification.json` reports completion with no remaining gates. See `docs/roadmap/phases/phase-02-remaining-work.md` for the completion checklist and `docs/architecture/exact-engine.md` for execution commands and evidence limits.
 

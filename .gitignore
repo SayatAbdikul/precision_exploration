@@ -8,6 +8,7 @@
 # Python / native build products
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -20,6 +21,7 @@ cmake-build-*/
 
 # Environments and local secrets
 .venv/
+.venv-b/
 venv/
 .env
 .env.*
@@ -34,6 +36,7 @@ data/raw/**
 /data/__MACOSX/
 
 # Generated artifacts and caches.
+backups/
 artifacts/**
 !artifacts/**/
 !artifacts/**/.gitkeep

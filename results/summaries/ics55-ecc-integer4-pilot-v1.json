@@ -1,0 +1,121 @@
+{
+  "all_stages_success": true,
+  "design": "integer_mac_harness",
+  "evidence_hashes": {
+    "drc_step": "43843c1e509d602af8779098b22dae13661fc2c5ae58acb564e5ae6d6c0b8b97",
+    "filler_gds": "bf58a3d58060373fda0ea3076876458a746df32e577140ca9bf0fd5e909e1c11",
+    "place_db_report": "f6422a8dc8c77fc03462fc609377444be187b9d3d7c1dece5e81a64a40a0a3a9",
+    "place_def_gz": "60353df4214866a20229916a66a407ff7f4f6bebc1baf41d96d470f7d3b793fc",
+    "post_synthesis_qor": "16d8ad9debc94ae8274bfc7b42493215679ad826b7b924c0d36d60e8fdfbd495",
+    "route_db_report": "f1709451739bc38901d6f531c81138f88e36e421a267b0478c4332b6c0c32b64",
+    "route_def_gz": "1255469e59d9e5ea74416ee333b135634094337deaf11d8484d3d64373d56d8f",
+    "route_gds": "756b90304a1c154caafcc671dc583d8a70f7f4c3fde286ac05369363e1fea557"
+  },
+  "evidence_level": "task_owned_ECC_physical_pilot_not_foundry_signoff",
+  "flow_sha256": "15ab8a35cd46d159eb3b083d8e7c9e852e19d46ea6f23a124f0e3ffb32bdab1d",
+  "frequency_target_mhz": 100,
+  "inputs": {
+    "ecc_toml_sha256": "614c36116ed10435e84d4284b8661aa8c9d8febacf4c8e92906839fc8bfe4e40",
+    "filelist_sha256": "5138419bfc78e12324e7916eb65e79f2ea246770a885eb8e13c134a5ad5b45ee",
+    "pdk_commit": "c0a4ee0123a4c04812571dd71c3922d9b17ed5c0",
+    "pdk_hashes": {
+      "cells_lef": "6e8a3b88db7427269f683f5a321bdf295c41092c36d8a770926751103be13a0c",
+      "liberty": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+      "tech_lef": "c33b8b7d4ce1d105735e461f31eaa80256c51cc29cc3fa2512ca514d125fe31f"
+    },
+    "project_generator_sha256": "5ec556c2435e3c97b84f5e8ccf20c3923b4360519cd9ea04f1bcb17546ba1401",
+    "rtl_source_hashes": {
+      "public/generic_rtl/mac/integer_mac.sv": "ac046ffdc7a88f073f04c9bcd9f981eab56e0284bd2274f3c4086d9567fdbe81",
+      "public/generic_rtl/mac/integer_mac_harness.sv": "36dc8fa59f55984987d740833872f1082f67a3623353e106c8ca479f1e896d05"
+    },
+    "sdc_sha256": "6a09beaf8196cfaa9c4b5e34b427a6a5dd5e10dc5ab3abb3618b436f83d1476b"
+  },
+  "limits": [
+    "ECC is a separate flow from the five unconstrained Yosys/ABC area points",
+    "route and DRC success are tool pilot results, not foundry signoff",
+    "no validated extracted RC or post-route STA",
+    "no workload power or characterized SRAM"
+  ],
+  "parameters": {
+    "ACC_BITS": 32,
+    "A_BITS": 4,
+    "W_BITS": 4
+  },
+  "physical_metrics": {
+    "drc_count_tool_reported": 0,
+    "drc_gate_status": "ready",
+    "placed_core_area_um2": 8685.6,
+    "placed_die_area_um2": 9605.568064,
+    "placed_instance_area_um2": 4045.72,
+    "routed_die_area_um2": 9605.568064,
+    "routed_instance_area_um2": 4066.44
+  },
+  "runtime": {
+    "dreamplace_source_commit": "488c2074f17c32e439b5413daca3d9fbd6b9791c",
+    "ecc_source_commit": "318673aa66db783f8f77eb7c93693430e98b0d13",
+    "editable_rebuild_disabled": true,
+    "placement": "DreamPlace",
+    "report_engine": "iEDA V23.03-OS-01",
+    "tool": "ECC",
+    "version": "0.1.0a5",
+    "wrapper_sha256": "a8251cb712311f9133077fbafacba130fdfed3b840805a3a9c91a9626ec448b3"
+  },
+  "schema_version": "ics55-ecc-integer-pilot-1.0.0",
+  "stages": [
+    {
+      "name": "Synthesis",
+      "runtime": "0:0:18",
+      "status": "Success"
+    },
+    {
+      "name": "Floorplan",
+      "runtime": "0:0:1",
+      "status": "Success"
+    },
+    {
+      "name": "fixFanout",
+      "runtime": "0:0:1",
+      "status": "Success"
+    },
+    {
+      "name": "place",
+      "runtime": "0:0:36",
+      "status": "Success"
+    },
+    {
+      "name": "CTS",
+      "runtime": "0:0:22",
+      "status": "Success"
+    },
+    {
+      "name": "legalization",
+      "runtime": "0:0:1",
+      "status": "Success"
+    },
+    {
+      "name": "route",
+      "runtime": "0:0:46",
+      "status": "Success"
+    },
+    {
+      "name": "drc",
+      "runtime": "0:0:2",
+      "status": "Success"
+    },
+    {
+      "name": "filler",
+      "runtime": "0:0:1",
+      "status": "Success"
+    }
+  ],
+  "summary_generator_sha256": "c766e42c19e04e1c6f554c09f0fe2b6e6dbda92bf370c001d9f239723ffe8947",
+  "timing": {
+    "ecc_estimated_frequency_mhz": 314,
+    "ecc_post_synthesis_qor_present": true,
+    "ecc_post_synthesis_setup_wns_ns": 6.818,
+    "ecc_target_period_ns": 10.0,
+    "opensta_matrix_completed": false,
+    "post_route_sta_completed": false,
+    "validated_fmax_mhz": null
+  }
+}

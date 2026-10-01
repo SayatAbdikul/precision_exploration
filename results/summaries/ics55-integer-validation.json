@@ -1,0 +1,718 @@
+{
+  "algorithm": {
+    "accepted_operand_pairs_per_cycle": 1,
+    "dot_product_K_product_cycles": "K accepted pair cycles for a K-product dot",
+    "dot_result_initiation_interval": "K cycles for back-to-back K-product dots",
+    "dot_throughput_at_frequency_f": "f/K for fixed K with back-to-back dots; no fmax measured here",
+    "external_dot_end_to_captured_result_edge_offset": 2,
+    "internal_arithmetic_pipeline_boundaries": 0
+  },
+  "clock_targets_ns": [
+    10,
+    5,
+    2
+  ],
+  "constraints": {
+    "clock_uncertainty_ns": 0.1,
+    "input_delay_ns": 0.2,
+    "mapping_clock_constraint": null,
+    "note": "Yosys/ABC mapping was unconstrained; listed 10/5/2 ns points require OpenSTA",
+    "output_delay_ns": 0.2,
+    "output_load_pf": 0.01,
+    "timing_tcl_sha256": "33b1e5c23020f0131bccd5c008d6160ae832a25749ffde98acbba08d84c7309f"
+  },
+  "evidence_level": "ics55_rvt_logic_synthesis; optional cell-delay-only STA/placement",
+  "flow_capabilities": {
+    "activity_power": {
+      "missing": "workload switching traces, complete timing/physical flow",
+      "status": "unvalidated"
+    },
+    "cts": {
+      "missing": "validated placement and compatible CTS/tool setup",
+      "status": "unvalidated"
+    },
+    "mapped_synthesis": {
+      "status": "completed",
+      "tool": "Yosys"
+    },
+    "parasitic_extraction": {
+      "missing": "validated ICS55 RC collateral and extractor",
+      "status": "unavailable_in_pdk_preview"
+    },
+    "physical_sram": {
+      "missing": "characterized SRAM macro or validated ICS55 compiler",
+      "status": "unavailable_in_pdk_preview"
+    },
+    "placement": {
+      "requested": false,
+      "scope": "INT4/ACC32 preliminary placement pilot",
+      "status": "not_requested"
+    },
+    "post_synthesis_sta": {
+      "requested": false,
+      "status": "not_requested"
+    },
+    "routing": {
+      "missing": "validated placement/CTS and compatible router",
+      "status": "unvalidated"
+    }
+  },
+  "flow_source_hashes": {
+    "public/pdk_flow/common/openroad_pilot.tcl": "359cb03410fef713c6284bf633adb5c468471fc4fc71c47bab8b20339326fe6a",
+    "public/pdk_flow/common/opensta_matrix.tcl": "33b1e5c23020f0131bccd5c008d6160ae832a25749ffde98acbba08d84c7309f",
+    "public/pdk_flow/common/run_flow.py": "9248c7891105609bfd23b22223e6e7e61cbe33163616745f77f9ec56e40b0b30",
+    "public/pdk_flow/ics55/validate_integer.py": "eec7823c722c5b6fff6975556887ecbbb0fbb5bc5537468c9ca8de06ef1f40d1"
+  },
+  "host_tool_inventory": {
+    "iEDA": null,
+    "openroad": null,
+    "sta": null,
+    "yosys": "/home/maveric/workspace/oss-cad-suite/bin/yosys"
+  },
+  "pdk_inputs": {
+    "corner": "typ_tt_1p2_25_nldm",
+    "hashes": {
+      "cells_lef": "6e8a3b88db7427269f683f5a321bdf295c41092c36d8a770926751103be13a0c",
+      "liberty": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+      "tech_lef": "c33b8b7d4ce1d105735e461f31eaa80256c51cc29cc3fa2512ca514d125fe31f"
+    },
+    "liberty_path": "/home/maveric/nursultan/texer.ai/ecc/chipcompiler/thirdparty/icsprout55-pdk/IP/STD_cell/ics55_LLSC_H7C_V1p10C100/ics55_LLSC_H7CR/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib",
+    "pdk_git_commit": "c0a4ee0123a4c04812571dd71c3922d9b17ed5c0",
+    "pdk_root": "/home/maveric/nursultan/texer.ai/ecc/chipcompiler/thirdparty/icsprout55-pdk",
+    "vt": "rvt"
+  },
+  "prior_pinned_comparison": {
+    "commit": "68d89edb47847671e18f9e65d66c0cd883995e05",
+    "liberty_sha256": "15af0dceceeeb02e174174e7123c7d551551369bf5ad1e8417d3ce8dcbc24fcd",
+    "release": "v1.10.102",
+    "status": "prior release payload unavailable on current host; not a same-library repeat"
+  },
+  "records": [
+    {
+      "accumulator_bits": 32,
+      "config_sha256": "2f9e63e74e771ec8c1587686a228c18f1e5c3b4971edc260012037d0b9eb9e1a",
+      "core_area_library_units": 2006.48,
+      "core_cells": 973,
+      "core_registers": 65,
+      "dot_initiation_interval_cycles": "K",
+      "dot_throughput_expression": "f/K for back-to-back K-product dots",
+      "dut_latency_cycles": 1,
+      "external_wrapper_latency_edges": 2,
+      "k_product_dot_cycles": "K",
+      "measured_dot_throughput_per_second": null,
+      "netlist_sha256": "cefcae0e29b4f2a01fb62988d2d39f969f2f3d202f95abd20ed27ad40f5eeca9",
+      "pair_initiation_interval_cycles": 1,
+      "placement_status": "not_requested",
+      "registers_total": 141,
+      "run_manifest_sha256": "191977b44a0a08ee726ae6ffd3ab0ff2152a88d6531e6c6886f8a927a9a5e925",
+      "synthesis": {
+        "cell_types": {
+          "$paramod$fcbcfeffd99cb96f6e1fd567d49bb07a041aff74\\integer_mac": 1,
+          "DFFQX1H7R": 76,
+          "NOR2BX1H7R": 76
+        },
+        "evidence_level": "logic_synthesis",
+        "hardware_run_id": "18320f7d5b827a2373f5f896ff7dcffeea4ea23cab7e5468444d21afb4ac4ac8",
+        "identity": {
+          "accounting_boundary": "DUT includes accumulator/control; wrapper includes neutral launch/capture registers",
+          "config_sha256": "2f9e63e74e771ec8c1587686a228c18f1e5c3b4971edc260012037d0b9eb9e1a",
+          "core_module": "$paramod$fcbcfeffd99cb96f6e1fd567d49bb07a041aff74\\integer_mac",
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "integer-mac-1.0.0",
+          "liberty_sha256": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+          "library": "ics55_LLSC_H7CR",
+          "pdk": "ics55",
+          "pipeline_stages": 0,
+          "rtl_sha256": "954a8986046b77a456df5fff7d5983030b1644b38f5bf6ade365807a0ac67368",
+          "target_clock": "unconstrained",
+          "tool": "Yosys",
+          "tool_version": "Yosys 0.53+67 (git sha1 4f968c669, clang++ 18.1.8 -fPIC -O3)",
+          "vt": "rvt"
+        },
+        "metrics": {
+          "cell_area": {
+            "unit": "library_area_units",
+            "value": 2581.04
+          },
+          "cell_count": {
+            "unit": "count",
+            "value": 153
+          },
+          "core_cell_area": {
+            "unit": "library_area_units",
+            "value": 2006.48
+          },
+          "core_cell_count": {
+            "unit": "count",
+            "value": 973
+          },
+          "design_cell_count": {
+            "unit": "count",
+            "value": 1125
+          },
+          "leaf_cell_count": {
+            "unit": "count",
+            "value": 1125
+          },
+          "public_wire_bits": {
+            "unit": "bits",
+            "value": 154
+          },
+          "register_count": {
+            "unit": "count",
+            "value": 141
+          },
+          "wire_bits": {
+            "unit": "bits",
+            "value": 230
+          },
+          "wire_count": {
+            "unit": "count",
+            "value": 94
+          },
+          "wrapper_cell_area": {
+            "unit": "library_area_units",
+            "value": 574.56
+          },
+          "wrapper_leaf_cell_count": {
+            "unit": "count",
+            "value": 152
+          }
+        },
+        "parser_version": "1.2.0",
+        "schema_version": "1.0.0",
+        "source_report_sha256": "f7bbb4854c13fe977762fdbc6a29d0452affa0188957827b90e9855aa30ce381",
+        "warnings": []
+      },
+      "synthesis_status": "completed",
+      "timing": [
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 10,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 5,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 2,
+          "worst_slack_ns": null
+        }
+      ],
+      "total_area_library_units": 2581.04,
+      "total_cells": 1125,
+      "width_bits": 4,
+      "wrapper_area_library_units": 574.56,
+      "wrapper_registers": 76
+    },
+    {
+      "accumulator_bits": 32,
+      "config_sha256": "d95eeb478bd2afbe2e885363901ddb1928be38f3ac28ead35ce637d93768a72c",
+      "core_area_library_units": 2274.72,
+      "core_cells": 1137,
+      "core_registers": 65,
+      "dot_initiation_interval_cycles": "K",
+      "dot_throughput_expression": "f/K for back-to-back K-product dots",
+      "dut_latency_cycles": 1,
+      "external_wrapper_latency_edges": 2,
+      "k_product_dot_cycles": "K",
+      "measured_dot_throughput_per_second": null,
+      "netlist_sha256": "bb311a4855cdc2af8fdcfd451855a03af645586d618216b3e00085f55b9a9a9b",
+      "pair_initiation_interval_cycles": 1,
+      "placement_status": "not_requested",
+      "registers_total": 143,
+      "run_manifest_sha256": "f48377b1ef9bfa8f50223a9816761a40a3d20fd62550e7ab4bc6c4c03df2d032",
+      "synthesis": {
+        "cell_types": {
+          "$paramod$b98cdf57baaec8c22672cfb8d3afa2255ca4b664\\integer_mac": 1,
+          "DFFQX1H7R": 78,
+          "NOR2BX1H7R": 78
+        },
+        "evidence_level": "logic_synthesis",
+        "hardware_run_id": "345a8d615e3169e4416906fba559be36c7659db2315ecfdb5293dbbef1187c33",
+        "identity": {
+          "accounting_boundary": "DUT includes accumulator/control; wrapper includes neutral launch/capture registers",
+          "config_sha256": "d95eeb478bd2afbe2e885363901ddb1928be38f3ac28ead35ce637d93768a72c",
+          "core_module": "$paramod$b98cdf57baaec8c22672cfb8d3afa2255ca4b664\\integer_mac",
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "integer-mac-1.0.0",
+          "liberty_sha256": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+          "library": "ics55_LLSC_H7CR",
+          "pdk": "ics55",
+          "pipeline_stages": 0,
+          "rtl_sha256": "954a8986046b77a456df5fff7d5983030b1644b38f5bf6ade365807a0ac67368",
+          "target_clock": "unconstrained",
+          "tool": "Yosys",
+          "tool_version": "Yosys 0.53+67 (git sha1 4f968c669, clang++ 18.1.8 -fPIC -O3)",
+          "vt": "rvt"
+        },
+        "metrics": {
+          "cell_area": {
+            "unit": "library_area_units",
+            "value": 2864.4
+          },
+          "cell_count": {
+            "unit": "count",
+            "value": 157
+          },
+          "core_cell_area": {
+            "unit": "library_area_units",
+            "value": 2274.72
+          },
+          "core_cell_count": {
+            "unit": "count",
+            "value": 1137
+          },
+          "design_cell_count": {
+            "unit": "count",
+            "value": 1293
+          },
+          "leaf_cell_count": {
+            "unit": "count",
+            "value": 1293
+          },
+          "public_wire_bits": {
+            "unit": "bits",
+            "value": 158
+          },
+          "register_count": {
+            "unit": "count",
+            "value": 143
+          },
+          "wire_bits": {
+            "unit": "bits",
+            "value": 236
+          },
+          "wire_count": {
+            "unit": "count",
+            "value": 96
+          },
+          "wrapper_cell_area": {
+            "unit": "library_area_units",
+            "value": 589.68
+          },
+          "wrapper_leaf_cell_count": {
+            "unit": "count",
+            "value": 156
+          }
+        },
+        "parser_version": "1.2.0",
+        "schema_version": "1.0.0",
+        "source_report_sha256": "9b74b63e2a04573c19ffa3b5be7b04b9f948753271cdae73cbf0e279b2eeced5",
+        "warnings": []
+      },
+      "synthesis_status": "completed",
+      "timing": [
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 10,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 5,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 2,
+          "worst_slack_ns": null
+        }
+      ],
+      "total_area_library_units": 2864.4,
+      "total_cells": 1293,
+      "width_bits": 5,
+      "wrapper_area_library_units": 589.68,
+      "wrapper_registers": 78
+    },
+    {
+      "accumulator_bits": 32,
+      "config_sha256": "1d65b307b86a494a6af2ed082cf28b15b5ea1430a9cffbc94726a6e5e589d31d",
+      "core_area_library_units": 2371.32,
+      "core_cells": 1177,
+      "core_registers": 65,
+      "dot_initiation_interval_cycles": "K",
+      "dot_throughput_expression": "f/K for back-to-back K-product dots",
+      "dut_latency_cycles": 1,
+      "external_wrapper_latency_edges": 2,
+      "k_product_dot_cycles": "K",
+      "measured_dot_throughput_per_second": null,
+      "netlist_sha256": "f3aa5b50264a024d16cc32c66b3f57011bc8a235109432b3e64e121eac6820ec",
+      "pair_initiation_interval_cycles": 1,
+      "placement_status": "not_requested",
+      "registers_total": 145,
+      "run_manifest_sha256": "bf34c13c44c23da4bc2752b48591017e0bc164be46af55246768fbd3c0164865",
+      "synthesis": {
+        "cell_types": {
+          "$paramod$692f20381f8cf2aafce246bc55e3d8cec77a0147\\integer_mac": 1,
+          "DFFQX1H7R": 80,
+          "NOR2BX1H7R": 80
+        },
+        "evidence_level": "logic_synthesis",
+        "hardware_run_id": "ad6291cfcc638e722f9e73277b4c35f3207e15f9847a823874a12b1d941da90c",
+        "identity": {
+          "accounting_boundary": "DUT includes accumulator/control; wrapper includes neutral launch/capture registers",
+          "config_sha256": "1d65b307b86a494a6af2ed082cf28b15b5ea1430a9cffbc94726a6e5e589d31d",
+          "core_module": "$paramod$692f20381f8cf2aafce246bc55e3d8cec77a0147\\integer_mac",
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "integer-mac-1.0.0",
+          "liberty_sha256": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+          "library": "ics55_LLSC_H7CR",
+          "pdk": "ics55",
+          "pipeline_stages": 0,
+          "rtl_sha256": "954a8986046b77a456df5fff7d5983030b1644b38f5bf6ade365807a0ac67368",
+          "target_clock": "unconstrained",
+          "tool": "Yosys",
+          "tool_version": "Yosys 0.53+67 (git sha1 4f968c669, clang++ 18.1.8 -fPIC -O3)",
+          "vt": "rvt"
+        },
+        "metrics": {
+          "cell_area": {
+            "unit": "library_area_units",
+            "value": 2976.12
+          },
+          "cell_count": {
+            "unit": "count",
+            "value": 161
+          },
+          "core_cell_area": {
+            "unit": "library_area_units",
+            "value": 2371.32
+          },
+          "core_cell_count": {
+            "unit": "count",
+            "value": 1177
+          },
+          "design_cell_count": {
+            "unit": "count",
+            "value": 1337
+          },
+          "leaf_cell_count": {
+            "unit": "count",
+            "value": 1337
+          },
+          "public_wire_bits": {
+            "unit": "bits",
+            "value": 162
+          },
+          "register_count": {
+            "unit": "count",
+            "value": 145
+          },
+          "wire_bits": {
+            "unit": "bits",
+            "value": 242
+          },
+          "wire_count": {
+            "unit": "count",
+            "value": 98
+          },
+          "wrapper_cell_area": {
+            "unit": "library_area_units",
+            "value": 604.8
+          },
+          "wrapper_leaf_cell_count": {
+            "unit": "count",
+            "value": 160
+          }
+        },
+        "parser_version": "1.2.0",
+        "schema_version": "1.0.0",
+        "source_report_sha256": "d2e2446ccc310ce1a430f27fe93182c86b81fda404397d3a63a9932873060d7d",
+        "warnings": []
+      },
+      "synthesis_status": "completed",
+      "timing": [
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 10,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 5,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 2,
+          "worst_slack_ns": null
+        }
+      ],
+      "total_area_library_units": 2976.12,
+      "total_cells": 1337,
+      "width_bits": 6,
+      "wrapper_area_library_units": 604.8,
+      "wrapper_registers": 80
+    },
+    {
+      "accumulator_bits": 32,
+      "config_sha256": "0756c5d42dbcb31603b98438e7809f2a686e25da7c97a6757cdb3015f3807631",
+      "core_area_library_units": 2782.08,
+      "core_cells": 1364,
+      "core_registers": 65,
+      "dot_initiation_interval_cycles": "K",
+      "dot_throughput_expression": "f/K for back-to-back K-product dots",
+      "dut_latency_cycles": 1,
+      "external_wrapper_latency_edges": 2,
+      "k_product_dot_cycles": "K",
+      "measured_dot_throughput_per_second": null,
+      "netlist_sha256": "def6cc11e8bb890f9ec00bfb5dbdc4deed89bd0873176e6ad1242579c57113c2",
+      "pair_initiation_interval_cycles": 1,
+      "placement_status": "not_requested",
+      "registers_total": 149,
+      "run_manifest_sha256": "06c8ec0f3103bc58f7297729983dc782fb9bc0fe6208b9762a8e9f75f9851e34",
+      "synthesis": {
+        "cell_types": {
+          "$paramod$776a754ea0cd20d938dff79651976f956e4c0669\\integer_mac": 1,
+          "DFFQX1H7R": 84,
+          "NOR2BX1H7R": 84
+        },
+        "evidence_level": "logic_synthesis",
+        "hardware_run_id": "f90ab5bb201e8644be3f697ed762b06e770609980a67db8dab8124ba281c643f",
+        "identity": {
+          "accounting_boundary": "DUT includes accumulator/control; wrapper includes neutral launch/capture registers",
+          "config_sha256": "0756c5d42dbcb31603b98438e7809f2a686e25da7c97a6757cdb3015f3807631",
+          "core_module": "$paramod$776a754ea0cd20d938dff79651976f956e4c0669\\integer_mac",
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "integer-mac-1.0.0",
+          "liberty_sha256": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+          "library": "ics55_LLSC_H7CR",
+          "pdk": "ics55",
+          "pipeline_stages": 0,
+          "rtl_sha256": "954a8986046b77a456df5fff7d5983030b1644b38f5bf6ade365807a0ac67368",
+          "target_clock": "unconstrained",
+          "tool": "Yosys",
+          "tool_version": "Yosys 0.53+67 (git sha1 4f968c669, clang++ 18.1.8 -fPIC -O3)",
+          "vt": "rvt"
+        },
+        "metrics": {
+          "cell_area": {
+            "unit": "library_area_units",
+            "value": 3417.12
+          },
+          "cell_count": {
+            "unit": "count",
+            "value": 169
+          },
+          "core_cell_area": {
+            "unit": "library_area_units",
+            "value": 2782.08
+          },
+          "core_cell_count": {
+            "unit": "count",
+            "value": 1364
+          },
+          "design_cell_count": {
+            "unit": "count",
+            "value": 1532
+          },
+          "leaf_cell_count": {
+            "unit": "count",
+            "value": 1532
+          },
+          "public_wire_bits": {
+            "unit": "bits",
+            "value": 170
+          },
+          "register_count": {
+            "unit": "count",
+            "value": 149
+          },
+          "wire_bits": {
+            "unit": "bits",
+            "value": 254
+          },
+          "wire_count": {
+            "unit": "count",
+            "value": 102
+          },
+          "wrapper_cell_area": {
+            "unit": "library_area_units",
+            "value": 635.04
+          },
+          "wrapper_leaf_cell_count": {
+            "unit": "count",
+            "value": 168
+          }
+        },
+        "parser_version": "1.2.0",
+        "schema_version": "1.0.0",
+        "source_report_sha256": "f8f66894b8e4439d5d12703127217c5c251d10e2b79419e408adc9a18d35c7c4",
+        "warnings": []
+      },
+      "synthesis_status": "completed",
+      "timing": [
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 10,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 5,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 2,
+          "worst_slack_ns": null
+        }
+      ],
+      "total_area_library_units": 3417.12,
+      "total_cells": 1532,
+      "width_bits": 8,
+      "wrapper_area_library_units": 635.04,
+      "wrapper_registers": 84
+    },
+    {
+      "accumulator_bits": 64,
+      "config_sha256": "3b6380c19c6f8a2cc247c1018073734ab263cc4cf913a9573cdac541c1136f86",
+      "core_area_library_units": 5249.16,
+      "core_cells": 2720,
+      "core_registers": 129,
+      "dot_initiation_interval_cycles": "K",
+      "dot_throughput_expression": "f/K for back-to-back K-product dots",
+      "dut_latency_cycles": 1,
+      "external_wrapper_latency_edges": 2,
+      "k_product_dot_cycles": "K",
+      "measured_dot_throughput_per_second": null,
+      "netlist_sha256": "13f17508acabeb2c479c74e010c9c227bee3635d220bf011b25341b64cd9d2ee",
+      "pair_initiation_interval_cycles": 1,
+      "placement_status": "not_requested",
+      "registers_total": 277,
+      "run_manifest_sha256": "058015b0a2dbd74b8dd13cb5b60dae3fa8e7d0e51c6b6d1a6ffcaec937459bd0",
+      "synthesis": {
+        "cell_types": {
+          "$paramod$d4d1ab2f34a306f2089c1595ce187cc358bfcdf7\\integer_mac": 1,
+          "DFFQX1H7R": 148,
+          "NOR2BX1H7R": 148
+        },
+        "evidence_level": "logic_synthesis",
+        "hardware_run_id": "4fae36160620e7caad2274c003f8925d789d80e26ac5a12bf9e0dbc9d7a440a2",
+        "identity": {
+          "accounting_boundary": "DUT includes accumulator/control; wrapper includes neutral launch/capture registers",
+          "config_sha256": "3b6380c19c6f8a2cc247c1018073734ab263cc4cf913a9573cdac541c1136f86",
+          "core_module": "$paramod$d4d1ab2f34a306f2089c1595ce187cc358bfcdf7\\integer_mac",
+          "corner": "typ_tt_1p2_25_nldm",
+          "harness_version": "integer-mac-1.0.0",
+          "liberty_sha256": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+          "library": "ics55_LLSC_H7CR",
+          "pdk": "ics55",
+          "pipeline_stages": 0,
+          "rtl_sha256": "954a8986046b77a456df5fff7d5983030b1644b38f5bf6ade365807a0ac67368",
+          "target_clock": "unconstrained",
+          "tool": "Yosys",
+          "tool_version": "Yosys 0.53+67 (git sha1 4f968c669, clang++ 18.1.8 -fPIC -O3)",
+          "vt": "rvt"
+        },
+        "metrics": {
+          "cell_area": {
+            "unit": "library_area_units",
+            "value": 6368.04
+          },
+          "cell_count": {
+            "unit": "count",
+            "value": 297
+          },
+          "core_cell_area": {
+            "unit": "library_area_units",
+            "value": 5249.16
+          },
+          "core_cell_count": {
+            "unit": "count",
+            "value": 2720
+          },
+          "design_cell_count": {
+            "unit": "count",
+            "value": 3016
+          },
+          "leaf_cell_count": {
+            "unit": "count",
+            "value": 3016
+          },
+          "public_wire_bits": {
+            "unit": "bits",
+            "value": 298
+          },
+          "register_count": {
+            "unit": "count",
+            "value": 277
+          },
+          "wire_bits": {
+            "unit": "bits",
+            "value": 446
+          },
+          "wire_count": {
+            "unit": "count",
+            "value": 166
+          },
+          "wrapper_cell_area": {
+            "unit": "library_area_units",
+            "value": 1118.88
+          },
+          "wrapper_leaf_cell_count": {
+            "unit": "count",
+            "value": 296
+          }
+        },
+        "parser_version": "1.2.0",
+        "schema_version": "1.0.0",
+        "source_report_sha256": "2b167e911b0c6695c62abcf1240c732d7ac8b46b85f747258580355d9a60c2b8",
+        "warnings": []
+      },
+      "synthesis_status": "completed",
+      "timing": [
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 10,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 5,
+          "worst_slack_ns": null
+        },
+        {
+          "fmax_mhz": null,
+          "status": "not_requested",
+          "target_period_ns": 2,
+          "worst_slack_ns": null
+        }
+      ],
+      "total_area_library_units": 6368.04,
+      "total_cells": 3016,
+      "width_bits": 8,
+      "wrapper_area_library_units": 1118.88,
+      "wrapper_registers": 148
+    }
+  ],
+  "schema_version": "1.0.0",
+  "scope": "integer MAC core and neutral wrapper; no scaling/conversion",
+  "source_hashes": {
+    "public/generic_rtl/mac/integer_mac.sv": "ac046ffdc7a88f073f04c9bcd9f981eab56e0284bd2274f3c4086d9567fdbe81",
+    "public/generic_rtl/mac/integer_mac_harness.sv": "36dc8fa59f55984987d740833872f1082f67a3623353e106c8ca479f1e896d05"
+  },
+  "tool_versions": {
+    "openroad": null,
+    "opensta": null,
+    "yosys": "Yosys 0.53+67 (git sha1 4f968c669, clang++ 18.1.8 -fPIC -O3)"
+  }
+}

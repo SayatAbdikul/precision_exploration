@@ -101,10 +101,19 @@ def parse_yosys_stat(
         "wire_bits": {"value": _integer(module, "num_wire_bits"), "unit": "bits"},
         "public_wire_bits": {"value": _integer(module, "num_pub_wire_bits"), "unit": "bits"},
     }
-    area = module.get("area", design.get("area"))
+    # Newer Yosys versions report a hierarchical top module's own area and
+    # the complete instantiated area separately.  Validate both, and use the
+    # design total for the all-in metric when it is present.
+    for area_label, candidate in (("module area", module.get("area")), ("design area", design.get("area"))):
+        if candidate is not None and (
+            isinstance(candidate, bool)
+            or not isinstance(candidate, (int, float))
+            or not math.isfinite(candidate)
+            or candidate < 0
+        ):
+            raise HardwareParseError(f"{area_label} must be a non-negative number")
+    area = design.get("area", module.get("area"))
     if area is not None:
-        if isinstance(area, bool) or not isinstance(area, (int, float)) or not math.isfinite(area) or area < 0:
-            raise HardwareParseError("area must be a non-negative number")
         metrics["cell_area"] = {"value": float(area), "unit": "library_area_units"}
     register_count = sum(
         int(count) for cell, count in design_cell_types.items()

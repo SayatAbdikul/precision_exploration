@@ -43,15 +43,34 @@ def run(
     config_file = Path(config_path).resolve()
     config = json.loads(config_file.read_text(encoding="utf-8"))
     repository_root = Path(__file__).resolve().parents[3]
-    rtl = (repository_root / config["rtl"]).resolve()
-    rtl.relative_to(repository_root)
+    rtl_entries = config["rtl"] if isinstance(config["rtl"], list) else [config["rtl"]]
+    if not rtl_entries or not all(isinstance(entry, str) for entry in rtl_entries):
+        raise ValueError("rtl must be a nonempty path or list of paths")
+    rtl_files = [(repository_root / entry).resolve() for entry in rtl_entries]
+    for rtl in rtl_files:
+        rtl.relative_to(repository_root)
     output = Path(work_dir).resolve()
     output.mkdir(parents=True, exist_ok=True)
     top = config["top"]
+    if not isinstance(top, str) or not top.isidentifier():
+        raise ValueError("top must be a Verilog identifier")
+    parameters = config.get("parameters", {})
+    if not isinstance(parameters, dict) or not all(
+        isinstance(name, str) and name.isidentifier() and type(value) is int
+        and -(1 << 31) <= value < (1 << 31)
+        for name, value in parameters.items()
+    ):
+        raise ValueError("parameters must map Verilog identifiers to signed 32-bit integers")
+
+    def yosys_parameter(value: int) -> str:
+        # chparam does not parse a bare negative decimal, but accepts a signed
+        # width-qualified bit pattern for Verilog integer parameters.
+        return f"32'sh{value & 0xffffffff:08x}" if value < 0 else str(value)
 
     yosys_script = output / "synthesis.ys"
     commands = [
-        f"read_verilog -sv {rtl}",
+        *(f"read_verilog -sv {rtl}" for rtl in rtl_files),
+        *(f"chparam -set {name} {yosys_parameter(value)} {top}" for name, value in sorted(parameters.items())),
         f"hierarchy -check -top {top}",
         "proc",
         "opt",
@@ -105,11 +124,17 @@ def run(
     expected_outputs = {"synthesis.ys", "netlist.v", "yosys-stat.json", "yosys.log"}
     if openroad is not None:
         expected_outputs.update({"placed.def", "openroad.log"})
+    rtl_source_hashes = {str(rtl.relative_to(repository_root)): _sha256(rtl) for rtl in rtl_files}
+    rtl_sha256 = (
+        _sha256(rtl_files[0]) if len(rtl_files) == 1
+        else hashlib.sha256(json.dumps(rtl_source_hashes, sort_keys=True).encode()).hexdigest()
+    )
     manifest = {
         "schema_version": "1.0.0",
         "config": config,
         "config_sha256": _sha256(config_file),
-        "rtl_sha256": _sha256(rtl),
+        "rtl_sha256": rtl_sha256,
+        "rtl_source_hashes": rtl_source_hashes,
         "external_resource_hashes": external_hashes,
         "outputs": {
             path.name: {"sha256": _sha256(path), "size_bytes": path.stat().st_size}

@@ -1,0 +1,51 @@
+{
+  "payload": {
+    "analysis_source": {
+      "path": "tools/analysis/b_stage_deeper_comparisons.py",
+      "sha256": "1fddf5d82e3357afddd7d769ca02f0614d01272f600b348a26a8599f3047586e"
+    },
+    "labels": "fp32 and candidate metric keys denote left and right arms, both are B QDQ configurations",
+    "left": [
+      "yolov8n",
+      "fp8_e4m3fn",
+      "maxabs"
+    ],
+    "left_configuration": "0554854da8b362e031a3da6b12d1eaf2922bc12c3e7c1b8f98a0764ab8d9eef5",
+    "right": [
+      "yolov8n",
+      "fp7_e3m3",
+      "maxabs"
+    ],
+    "right_configuration": "0a92590dff93e158e2e32f9c6501c6de22b5801094ce34c83f73ff1e129f6eae",
+    "scope": "selected exploratory pointwise paired image bootstrap; no final ranking",
+    "statistics": {
+      "confidence": 0.95,
+      "images": 1000,
+      "method": "paired_coco_image_clone_percentile_bootstrap_v1",
+      "metrics": {
+        "map50": {
+          "candidate": 0.30869051955748034,
+          "delta": -0.0009932499653906302,
+          "delta_interval": [
+            -0.004528986186326354,
+            0.005376896238080236
+          ],
+          "fp32": 0.30968376952287097
+        },
+        "map50_95": {
+          "candidate": 0.1570462439947743,
+          "delta": -0.0027065671008892345,
+          "delta_interval": [
+            -0.004425003675510432,
+            0.0007000875648012983
+          ],
+          "fp32": 0.15975281109566353
+        }
+      },
+      "resamples": 500,
+      "seed": 20260927,
+      "units": "fraction"
+    }
+  },
+  "sha256": "f49fc7c889b6e2e9a9ed7a8f3a88bf605239020f78343b08068efc99689322e5"
+}

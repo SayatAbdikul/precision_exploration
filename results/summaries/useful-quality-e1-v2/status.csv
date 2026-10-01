@@ -1,0 +1,6 @@
+case,status,images,exact_cuda_records,control_cuda_records,strict_top1_percent,control_top1_percent,FP32_top1_percent,B_top1_percent_different_configuration,all_layer_agreement_images,output_agreement_images
+resnet18/int8,completed_128,128,128,128,69.53125,69.53125,71.875,69.53125,128,128
+mobilenet_v2/int8,completed_32_extension_budget_limited,32,32,32,71.875,71.875,71.875,68.75,32,32
+resnet18/fp6_e2m3,completed_32,32,32,32,0.0,0.0,68.75,71.875,32,32
+resnet18/fp6_e3m2,completed_32,32,32,32,0.0,0.0,68.75,59.375,32,32
+resnet18/fp7_e3m3,native_gate_budget_limited,0,0,1,,,,,,

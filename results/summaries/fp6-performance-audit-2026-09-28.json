@@ -1,0 +1,153 @@
+{
+  "captured_at": "2026-09-28T04:32:19.268974+00:00",
+  "scope": "read-only audit of existing checkpoints and code; no new inference or performance benchmark",
+  "cases": [
+    {
+      "case": "resnet18/fp7_e3m3",
+      "plan": "artifacts/breadth_study/useful_quality_e1_v1/jobs/4f3bdc31784ffef9be9ffb676fb43c6e189db584d298c9aa866acdcce7b6527b/plan.json",
+      "plan_sha256": "43e99910a86e58e5b347f2d72a3ccc58c1c4f6e181e8a236c36fd10026afed30",
+      "graph": {
+        "path": "artifacts/phase3/configurations/78f57e0d6ff82fdf4bb7cc326262864e5bcdefef0ccf3f023249b04e9067700b/graph.json",
+        "sha256": "765adddcbb54031e6cc988f48a331347876b80058eb47c0329f5a4365bea645d"
+      },
+      "timings": []
+    },
+    {
+      "case": "resnet18/fp6_e3m2",
+      "plan": "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/plan.json",
+      "plan_sha256": "5a89f5bebb98a766392932a93f037df81c449ba751a5f23247915bda8ae9b192",
+      "graph": {
+        "path": "artifacts/phase3/configurations/2f553a7d3a9ff0bf4365d19789696425711375a56a7b1ed1d4188b982ba28f89/graph.json",
+        "sha256": "fbaeb10ee7599c69537fec7ececcbb0c20ab25c12604030cb25bfd11b1f81c04"
+      },
+      "timings": [
+        {
+          "mode": "exact",
+          "backend": "cpp",
+          "images": 7,
+          "median_execution_seconds": 3989.0682160779834,
+          "median_input_preparation_seconds": 0.028519580024294555,
+          "execution_modes": {
+            "rational_grid_4096": 147
+          },
+          "record_files": [
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/0000-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/0001-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/0002-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/0003-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/0004-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/0005-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/98519c0f041ea01f0c8ed0b4206ad5b6b8ed517773ef79d8fa239c208ec65b86/0006-exact-cpp.json"
+          ]
+        }
+      ],
+      "legacy_compatibility": {
+        "graph": {
+          "path": "artifacts/phase3/configurations/2f553a7d3a9ff0bf4365d19789696425711375a56a7b1ed1d4188b982ba28f89/graph.json",
+          "sha256": "fbaeb10ee7599c69537fec7ececcbb0c20ab25c12604030cb25bfd11b1f81c04"
+        },
+        "matches": true,
+        "sample": {
+          "label": "972",
+          "relative_path": "0972/00565073e4981505f7ae.JPEG",
+          "sha256": "00565073e4981505f7ae588e0ab33451721cdf24e486685825aa89a03fece965",
+          "source_name": "ILSVRC2012_val_00008965_n09246464.JPEG",
+          "stream_position": "848"
+        },
+        "seconds": 4011.618481960031
+      }
+    },
+    {
+      "case": "resnet18/fp6_e2m3",
+      "plan": "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/plan.json",
+      "plan_sha256": "a528f0cef9402211214033b636421436a7faf810d1835fd3df006c7af70d1b34",
+      "graph": {
+        "path": "artifacts/phase3/configurations/a715f60e9ed2eac4c5eec6356f6c7bd445ba95f2247ba9963b07e1adf6cdf607/graph.json",
+        "sha256": "c6b632bb01f2f3d90455523265e09dd46d2e7897d70e1fde44f821b2b2d20d52"
+      },
+      "timings": [
+        {
+          "mode": "exact",
+          "backend": "cpp",
+          "images": 8,
+          "median_execution_seconds": 3227.0527418359998,
+          "median_input_preparation_seconds": 0.028301106940489262,
+          "execution_modes": {
+            "rational_grid_4096": 168
+          },
+          "record_files": [
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0000-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0001-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0002-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0003-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0004-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0005-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0006-exact-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0007-exact-cpp.json"
+          ]
+        },
+        {
+          "mode": "exact",
+          "backend": "cuda",
+          "images": 8,
+          "median_execution_seconds": 724.4009539724793,
+          "median_input_preparation_seconds": 0.03358647401910275,
+          "execution_modes": {
+            "rational_grid_4096": 168
+          },
+          "record_files": [
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0000-exact-cuda.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0001-exact-cuda.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0002-exact-cuda.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0003-exact-cuda.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0004-exact-cuda.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0005-exact-cuda.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0006-exact-cuda.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0007-exact-cuda.json"
+          ]
+        },
+        {
+          "mode": "control",
+          "backend": "cpp",
+          "images": 6,
+          "median_execution_seconds": 180.06969059846597,
+          "median_input_preparation_seconds": 0.028222241497132927,
+          "execution_modes": {
+            "matched_fp32_sequential_binary_predecoded": 126
+          },
+          "record_files": [
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0000-control-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0001-control-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0002-control-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0003-control-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0004-control-cpp.json",
+            "artifacts/breadth_study/useful_quality_e1_v1/jobs/9a02ed827ccf34060bdeee48dc43989a8d74af1b98e465e97c740cac805714d7/0005-control-cpp.json"
+          ]
+        }
+      ],
+      "legacy_compatibility": {
+        "graph": {
+          "path": "artifacts/phase3/configurations/a715f60e9ed2eac4c5eec6356f6c7bd445ba95f2247ba9963b07e1adf6cdf607/graph.json",
+          "sha256": "c6b632bb01f2f3d90455523265e09dd46d2e7897d70e1fde44f821b2b2d20d52"
+        },
+        "matches": true,
+        "sample": {
+          "label": "972",
+          "relative_path": "0972/00565073e4981505f7ae.JPEG",
+          "sha256": "00565073e4981505f7ae588e0ab33451721cdf24e486685825aa89a03fece965",
+          "source_name": "ILSVRC2012_val_00008965_n09246464.JPEG",
+          "stream_position": "848"
+        },
+        "seconds": 3261.8103473859373
+      }
+    }
+  ],
+  "source_sha256": {
+    "public/inference/native.py": "417f952348672887d84537744c4bf5b7f7b494a1c01bd51e191bee7f0ebeb322",
+    "public/inference/rational.py": "e6a6fdfa56beecd9fe630024d31fde47b5eb72ae7bdaaa8da0543b2d58d9f24c",
+    "public/inference/cpp/rational_binary.h": "0357216482e79b7c59c770b54e5b6f6619972873d9ec73d08302ec58e6e3ef87",
+    "public/cuda/kernels/exact_gemm.cu": "6adaf29f5a61e01a3d9e2d0225d48ccfd34ffebb5cdfdc81d60129d80e47f406",
+    "public/inference/operators/dispatch.py": "caae44a709aac8d19d13b1ed2ab1e10b5ae8457e1122934e7eb20caa95c205b9",
+    "tools/breadth_study/useful_quality.py": "40d070df1b422ed6bc0a90ce385903e809fa3d6ebdfe71ed1b478fda541c9f1b"
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "payload": {
+    "additional_unchanged_configuration_images": 6104,
+    "balance_extensions": [
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/85769dae6183f0f28666906306768123776e774d6f3e606ade01d7ff8cd214ac.json",
+          "sha256": "4b356ece38895c0e043d966085a19e7af32159a035ba9cea71005fc02d4ff22d"
+        },
+        "configuration_sha256": "85769dae6183f0f28666906306768123776e774d6f3e606ade01d7ff8cd214ac",
+        "format": "fp7_e3m3",
+        "model": "resnet18",
+        "paired_maxabs_summary": {
+          "path": "artifacts/experiment_b/summaries/9596fea007161b62d84e42d599051a672e679490f5521f4536cebc60f1399a48-1000.json",
+          "sha256": "29563d076b2d721eea9cde59021278bd7f44635701ec6cb0fad287cc08a81ce2"
+        },
+        "reason": [
+          "complete useful paired maxabs versus percentile comparison"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "retained_summary": {
+          "path": "artifacts/experiment_b/summaries/85769dae6183f0f28666906306768123776e774d6f3e606ade01d7ff8cd214ac-128.json",
+          "sha256": "cb16637d892a0037c56a4a4aaf680af409b86945ede50bcd42a4274078305fee"
+        },
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/99dc77f56c9ead52414ae22e0a1ed83093ed5736ae76f905a65d8e92ba856fbc.json",
+          "sha256": "7e4e95516010644e7c5014871b05d4a2429aab8796f5d6d6ecd3a7391731444d"
+        },
+        "configuration_sha256": "99dc77f56c9ead52414ae22e0a1ed83093ed5736ae76f905a65d8e92ba856fbc",
+        "format": "fp8_e4m3fn",
+        "model": "resnet18",
+        "paired_maxabs_summary": {
+          "path": "artifacts/experiment_b/summaries/84b7f6fe4734308b1491eccbdd871e769d0275aac2780474d49e7d65fd366c83-1000.json",
+          "sha256": "d101405487bf40f3c3d0b0496d3994fc7177f206ec656105a1d77b6129686ab7"
+        },
+        "reason": [
+          "complete useful paired maxabs versus percentile comparison"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "retained_summary": {
+          "path": "artifacts/experiment_b/summaries/99dc77f56c9ead52414ae22e0a1ed83093ed5736ae76f905a65d8e92ba856fbc-128.json",
+          "sha256": "2c089d33391542330499c35ebea82a32453a80f4b663137cbf7528b5e4e04de7"
+        },
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/bbd6db6347ea6614884aca54a6ca99c1eab494863e979644a903bf2cfdbac6b1.json",
+          "sha256": "3cbbc326760c3bf7c3654257ead708b7d94c71a249772e8dddd4193fe8c16020"
+        },
+        "configuration_sha256": "bbd6db6347ea6614884aca54a6ca99c1eab494863e979644a903bf2cfdbac6b1",
+        "format": "log8",
+        "model": "resnet18",
+        "paired_maxabs_summary": {
+          "path": "artifacts/experiment_b/summaries/af349a0615d60b91525e6781092975be66b0a9e68afac745f1cb899d426203c7-1000.json",
+          "sha256": "84dcc231c667e6fb18ab73ecc46a719fda9eb3a5f88618b0f41aa0a42fecf046"
+        },
+        "reason": [
+          "complete useful paired maxabs versus percentile comparison"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "retained_summary": {
+          "path": "artifacts/experiment_b/summaries/bbd6db6347ea6614884aca54a6ca99c1eab494863e979644a903bf2cfdbac6b1-128.json",
+          "sha256": "94824a7ae46d62df6a9b0de611e0ac1f3e2d8b535ea838b35934ad8690c6dfa4"
+        },
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/c4bf9ffb02878e62497013c3a8b0882e4b04b0102dd6655658641b10a055e48e.json",
+          "sha256": "0f368ec331deb9b0235b6b687e1bc79848e8c09ccb47fb694376580e2d305c0a"
+        },
+        "configuration_sha256": "c4bf9ffb02878e62497013c3a8b0882e4b04b0102dd6655658641b10a055e48e",
+        "format": "fp8_e4m3fn",
+        "model": "mobilenet_v3_large",
+        "paired_maxabs_summary": {
+          "path": "artifacts/experiment_b/summaries/110521a07488b46d82a41e3bd61fa14a83e79b1cdce87ccc2b570b3c462f3140-1000.json",
+          "sha256": "8a192e41b2b2abfb749395962d8e4785daf0df4afe72bcf1a032a9b7712c102e"
+        },
+        "reason": [
+          "complete useful paired maxabs versus percentile comparison"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "retained_summary": {
+          "path": "artifacts/experiment_b/summaries/c4bf9ffb02878e62497013c3a8b0882e4b04b0102dd6655658641b10a055e48e-128.json",
+          "sha256": "f8306c514dfea1bf3addc9d96935ad6306f31fb078afb2615f7b0617e087a300"
+        },
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/eb19006c4a0892eb54d5ffb47984a9cdfe349248551f8a29a31311d9690d8f10.json",
+          "sha256": "d5e4d8aacf2222952065a914c6f90cf925550616a5997be69d766d3510616c9b"
+        },
+        "configuration_sha256": "eb19006c4a0892eb54d5ffb47984a9cdfe349248551f8a29a31311d9690d8f10",
+        "format": "log8",
+        "model": "mobilenet_v3_large",
+        "paired_maxabs_summary": {
+          "path": "artifacts/experiment_b/summaries/c98d05e3575a2cdc648c11e8ea96b64a91955a0dc4a2190183138407b8c29be3-1000.json",
+          "sha256": "a113b8bb8f8b7f710ba1a9e87775ee4801a78a9a1e4179e024ebcd04a2beea2f"
+        },
+        "reason": [
+          "complete useful paired maxabs versus percentile comparison"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "retained_summary": {
+          "path": "artifacts/experiment_b/summaries/eb19006c4a0892eb54d5ffb47984a9cdfe349248551f8a29a31311d9690d8f10-128.json",
+          "sha256": "5b36514d932065b84839b40b7327076b38d1d80b64edb09aa1a5ec89bd8eec49"
+        },
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b_ext",
+        "configuration": {
+          "path": "artifacts/experiment_b_ext/configurations/e2a098827a4bdcbb6ae2a190e45705658d0f08f10379f2f8384f79940915d96b.json",
+          "sha256": "97e8c7ecf8f986ab37dc92ac28533540aafb6cdf3c1b521ed92251c15c68f402"
+        },
+        "configuration_sha256": "e2a098827a4bdcbb6ae2a190e45705658d0f08f10379f2f8384f79940915d96b",
+        "format": "mxfp8_e4m3",
+        "model": "resnet18",
+        "paired_maxabs_summary": {
+          "path": "artifacts/experiment_b_ext/summaries/5d9019d36a9e18eb91a79df3fd8d204cbe9fa59f8839cfa1124b83483b9ec4e7-1000.json",
+          "sha256": "f25aecf29be99c9313c187251fcc415137b3c3f77bb8a21e3064cf89d9806f4c"
+        },
+        "reason": [
+          "complete useful paired maxabs versus percentile comparison"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "retained_summary": {
+          "path": "artifacts/experiment_b_ext/summaries/e2a098827a4bdcbb6ae2a190e45705658d0f08f10379f2f8384f79940915d96b-128.json",
+          "sha256": "1fd7fea324046e30cf12511833d0988b416cd06abb6f7b0f73ae94baac4b6b01"
+        },
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b_ext",
+        "configuration": {
+          "path": "artifacts/experiment_b_ext/configurations/2fb0c91cb142a722e8605535560ad27da6a59e1e8ce8829d5405fee0915d4651.json",
+          "sha256": "9894efce85184dba2f190754d22e3aff9a7a3a1a163d7f519b41424bd079ebb0"
+        },
+        "configuration_sha256": "2fb0c91cb142a722e8605535560ad27da6a59e1e8ce8829d5405fee0915d4651",
+        "format": "mxfp8_e4m3",
+        "model": "mobilenet_v2",
+        "paired_maxabs_summary": {
+          "path": "artifacts/experiment_b_ext/summaries/bff36c8c75341612e74553ced0ac56ee26f283acb1ec5eaac132ac54fa199458-1000.json",
+          "sha256": "66ac8f431014c21c7d444e63b0a7cd6c15c067577adc55019f92ed7ef62b6ac3"
+        },
+        "reason": [
+          "complete useful paired maxabs versus percentile comparison"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "retained_summary": {
+          "path": "artifacts/experiment_b_ext/summaries/2fb0c91cb142a722e8605535560ad27da6a59e1e8ce8829d5405fee0915d4651-128.json",
+          "sha256": "dae8c5f822d2074425dcd17cf1821b04c5528fa5782abd194fcd76a5777d0bcb"
+        },
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      }
+    ],
+    "execution": {
+      "allowed_changes": "new scheduling/evidence only; preserve calibration, numerical sources, runtime identity, precision, TF32 policy, batch size and original predictions",
+      "device": "cuda",
+      "gpu_utilization_goal_percent": [
+        50,
+        65
+      ],
+      "inference_batch_size": 8,
+      "max_run_seconds": 3600,
+      "resource_locks": "unchanged existing pool locks; one controller",
+      "utilization_is_soft_goal": true
+    },
+    "previous_coverage": {
+      "at_1000": 183,
+      "at_128": 17,
+      "paired_at_1000": 83
+    },
+    "projected_coverage_after_extensions": {
+      "at_1000": 190,
+      "at_128": 10,
+      "paired_at_1000": 90
+    },
+    "purpose": "Complete seven existing B recipe counterparts with unchanged numerical execution. Development FP32-QDQ only.",
+    "selection_source": {
+      "path": "results/summaries/b-stage-paired-1k-v2/configurations.csv",
+      "sha256": "89c724e12eef5adc13f1ccf1d9007cb1a614c6f0984c19602aef19e8baebad5a"
+    },
+    "status": "selected_not_launched",
+    "version": "b-recipe-completion-v1"
+  },
+  "sha256": "0d3967a49c953e491585a1bd57f0f89ec0652b993c8fd772f7eacc7136d9cdc5"
+}

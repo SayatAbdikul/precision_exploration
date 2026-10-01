@@ -1,0 +1,185 @@
+{
+  "title": "B recipe completion v1 run report",
+  "date": "2026-09-28",
+  "selection": "The seven arms were selected using earlier development outcomes; this is a selected development panel.",
+  "plan_sha256": "38e490e447a5cd6b097f84fe5e9ddeacf8707575e9220d71c41df031a8556820",
+  "manifest_payload_sha256": "0d3967a49c953e491585a1bd57f0f89ec0652b993c8fd772f7eacc7136d9cdc5",
+  "execution": {
+    "result": "stopped_on_provenance_write_guard",
+    "completed_configurations": 5,
+    "selected_configurations": 7,
+    "new_images_completed": 4360,
+    "new_images_per_inference_second": 59.101491534478946,
+    "runner_elapsed_seconds": 133.64636893302668,
+    "inference_seconds_sum": 73.77140384784434,
+    "gpu": "NVIDIA GeForce RTX 4070 Ti",
+    "gpu_utilization_sustained_percent": null,
+    "gpu_utilization_note": "Sustained utilization could not be measured: nvidia-smi monitor could not communicate with the driver during execution. A later single sample showed 42% utilization, 861 MiB of 12,282 MiB used, 45 C; this is not sustained evidence.",
+    "error": "ValueError: refusing to rewrite existing evidence: artifacts/experiment_b_ext/validation/095d319b3087b139585312b504bdecbf2628a127bedf29953b7df47881931b02.json",
+    "unfinished": [
+      {
+        "model": "resnet18",
+        "format": "mxfp8_e4m3",
+        "images_completed": 128
+      },
+      {
+        "model": "mobilenet_v2",
+        "format": "mxfp8_e4m3",
+        "images_completed": 128
+      }
+    ]
+  },
+  "coverage_from_sealed_results": {
+    "total_configurations": 200,
+    "at_1000_images": 188,
+    "at_128_images": 12,
+    "recipe_pairs_with_both_at_1000": 88
+  },
+  "verification": {
+    "launcher_verify": "passed",
+    "retained_prefixes_verified": 7,
+    "completed_1000_image_candidates_and_baselines": "verified by verify_one against sealed identities and digests",
+    "ordered_sample_identity": "verified",
+    "original_128_image_prefixes_unchanged": true,
+    "configuration_identities_unchanged": true,
+    "original_128_image_summaries_preserved": true,
+    "existing_completed_counterpart_summaries_preserved": true
+  },
+  "cases": [
+    {
+      "model": "resnet18",
+      "format": "mxfp8_e4m3",
+      "recipe": "percentile_99_9",
+      "images_completed": 128,
+      "state": "incomplete"
+    },
+    {
+      "model": "mobilenet_v2",
+      "format": "mxfp8_e4m3",
+      "recipe": "percentile_99_9",
+      "images_completed": 128,
+      "state": "incomplete"
+    },
+    {
+      "model": "resnet18",
+      "format": "fp7_e3m3",
+      "recipe": "percentile_99_9",
+      "images_completed": 1000,
+      "state": "complete",
+      "percentile_top1_percent": 58.9,
+      "maxabs_top1_percent": 69.69999999999999,
+      "top1_percentile_minus_maxabs_pp": -10.8,
+      "top1_pointwise_paired_95_interval_pp": [
+        -13.3,
+        -8.297500000000037
+      ],
+      "percentile_top5_percent": 86.8,
+      "maxabs_top5_percent": 88.5,
+      "top5_percentile_minus_maxabs_pp": -1.7000000000000002,
+      "top5_pointwise_paired_95_interval_pp": [
+        -3.0,
+        -0.4
+      ],
+      "new_images": 872,
+      "inference_seconds_this_invocation": 11.95411742432043,
+      "new_images_per_second": 72.9455775819913
+    },
+    {
+      "model": "resnet18",
+      "format": "fp8_e4m3fn",
+      "recipe": "percentile_99_9",
+      "images_completed": 1000,
+      "state": "complete",
+      "percentile_top1_percent": 59.699999999999996,
+      "maxabs_top1_percent": 69.0,
+      "top1_percentile_minus_maxabs_pp": -9.3,
+      "top1_pointwise_paired_95_interval_pp": [
+        -11.8,
+        -6.8
+      ],
+      "percentile_top5_percent": 86.6,
+      "maxabs_top5_percent": 87.9,
+      "top5_percentile_minus_maxabs_pp": -1.3,
+      "top5_pointwise_paired_95_interval_pp": [
+        -2.6,
+        0.0
+      ],
+      "new_images": 872,
+      "inference_seconds_this_invocation": 12.295900256722234,
+      "new_images_per_second": 70.91794677850228
+    },
+    {
+      "model": "resnet18",
+      "format": "log8",
+      "recipe": "percentile_99_9",
+      "images_completed": 1000,
+      "state": "complete",
+      "percentile_top1_percent": 57.99999999999999,
+      "maxabs_top1_percent": 66.4,
+      "top1_percentile_minus_maxabs_pp": -8.4,
+      "top1_pointwise_paired_95_interval_pp": [
+        -11.2,
+        -5.6
+      ],
+      "percentile_top5_percent": 86.2,
+      "maxabs_top5_percent": 87.9,
+      "top5_percentile_minus_maxabs_pp": -1.7000000000000002,
+      "top5_pointwise_paired_95_interval_pp": [
+        -3.2,
+        -0.3
+      ],
+      "new_images": 872,
+      "inference_seconds_this_invocation": 11.360973917064257,
+      "new_images_per_second": 76.753983097369
+    },
+    {
+      "model": "mobilenet_v3_large",
+      "format": "fp8_e4m3fn",
+      "recipe": "percentile_99_9",
+      "images_completed": 1000,
+      "state": "complete",
+      "percentile_top1_percent": 61.199999999999996,
+      "maxabs_top1_percent": 68.60000000000001,
+      "top1_percentile_minus_maxabs_pp": -7.3999999999999995,
+      "top1_pointwise_paired_95_interval_pp": [
+        -9.9,
+        -4.9
+      ],
+      "percentile_top5_percent": 85.0,
+      "maxabs_top5_percent": 87.4,
+      "top5_percentile_minus_maxabs_pp": -2.4,
+      "top5_pointwise_paired_95_interval_pp": [
+        -4.2,
+        -0.6
+      ],
+      "new_images": 872,
+      "inference_seconds_this_invocation": 19.298253155662678,
+      "new_images_per_second": 45.18543688728269
+    },
+    {
+      "model": "mobilenet_v3_large",
+      "format": "log8",
+      "recipe": "percentile_99_9",
+      "images_completed": 1000,
+      "state": "complete",
+      "percentile_top1_percent": 61.3,
+      "maxabs_top1_percent": 68.60000000000001,
+      "top1_percentile_minus_maxabs_pp": -7.3,
+      "top1_pointwise_paired_95_interval_pp": [
+        -9.9,
+        -4.7
+      ],
+      "percentile_top5_percent": 87.2,
+      "maxabs_top5_percent": 88.8,
+      "top5_percentile_minus_maxabs_pp": -1.6,
+      "top5_pointwise_paired_95_interval_pp": [
+        -3.4,
+        0.2
+      ],
+      "new_images": 872,
+      "inference_seconds_this_invocation": 18.86215909407474,
+      "new_images_per_second": 46.230126447927454
+    }
+  ],
+  "interpretation": "FP32-QDQ development results only; not exact-arithmetic admission, hardware throughput, or final benchmark confirmation."
+}

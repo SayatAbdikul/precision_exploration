@@ -1,0 +1,751 @@
+{
+  "payload": {
+    "additional_unchanged_configuration_images": 10464,
+    "analysis": {
+      "path": "results/summaries/b-stage-paired-1k-v1/analysis.json",
+      "sha256": "306b97253559363b9c282333e7316f8be0a95b5c68d6f259dd8b944403d44c18"
+    },
+    "balance_extensions": [
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/d61876a496b6cf8dc069c42dd54a1748cc75efcf60a458f6f3f7e8f149e4f272.json",
+          "sha256": "1b0e7f76e9321b1c85f6f914fc0e1ee791f61f005df2db38f856ebe1a087b6fd"
+        },
+        "configuration_sha256": "d61876a496b6cf8dc069c42dd54a1748cc75efcf60a458f6f3f7e8f149e4f272",
+        "format": "fp6_e2m3",
+        "model": "mobilenet_v2",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/a2e76bad304560c11bb385a305d38f59c3d09b32ba37b05a5780db14adf2b474.json",
+          "sha256": "9bfa91f143ee7f4cea3a88e17c9d76e061ad927bc2a7895a41df05d6cacc08ba"
+        },
+        "configuration_sha256": "a2e76bad304560c11bb385a305d38f59c3d09b32ba37b05a5780db14adf2b474",
+        "format": "fp6_e3m2",
+        "model": "mobilenet_v2",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/d7b97e2424deb094cfb0511dfd3c143f41c11eb51c686336af8db69e0c32c4b5.json",
+          "sha256": "1d82e8bea4d10b0f2f9e4cf7f92a992b8deedac6c9a5be7237fcbecbb4b6211b"
+        },
+        "configuration_sha256": "d7b97e2424deb094cfb0511dfd3c143f41c11eb51c686336af8db69e0c32c4b5",
+        "format": "int6",
+        "model": "mobilenet_v2",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b_ext",
+        "configuration": {
+          "path": "artifacts/experiment_b_ext/configurations/9bb3dee63268fec38c06913c2d22c3ca58a3d169f17fa737672a9708f5ae4501.json",
+          "sha256": "d3c26411f4f1f615d88145b44d69ef11d51afcb7b629c238d35ca224e0069fd5"
+        },
+        "configuration_sha256": "9bb3dee63268fec38c06913c2d22c3ca58a3d169f17fa737672a9708f5ae4501",
+        "format": "bfp6",
+        "model": "mobilenet_v3_large",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/2f0f400ccb6116ff9c584d5d69abf574aa6efa90582c0f3a6e8c882f3b81fbb4.json",
+          "sha256": "2a2356bb6a1017d849ce097f3400fd0c6f0896394c41e55fe046bfbd3bc8ef9e"
+        },
+        "configuration_sha256": "2f0f400ccb6116ff9c584d5d69abf574aa6efa90582c0f3a6e8c882f3b81fbb4",
+        "format": "fp6_e2m3",
+        "model": "mobilenet_v3_large",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/e2492889c0aa9f79bff869a9be393339c02718696034b24c96e5bcfaa7c2431f.json",
+          "sha256": "f90a304bd4b4d573d908f36dffa1ff609565c3e7dc40f0f515b1a7455e62b1f8"
+        },
+        "configuration_sha256": "e2492889c0aa9f79bff869a9be393339c02718696034b24c96e5bcfaa7c2431f",
+        "format": "int6",
+        "model": "mobilenet_v3_large",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/4b5b93a05f5ff63c2c98f0a4c9572eb722319a6402bc49224c02f306d9a591c0.json",
+          "sha256": "687d436e4d4663f58feebcf6136580b9f0bfb5349b7e7162dc785f11bdab235e"
+        },
+        "configuration_sha256": "4b5b93a05f5ff63c2c98f0a4c9572eb722319a6402bc49224c02f306d9a591c0",
+        "format": "int8",
+        "model": "mobilenet_v3_large",
+        "reason": [
+          "B2_recipe_anchors"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/e490256e114d6d298dc73e6b683c668d99ee7b360b9a0d03e230423be38d68e5.json",
+          "sha256": "59ee22f34404594833fab53db965268f94daa77928dc55dba56961dd18d7c03c"
+        },
+        "configuration_sha256": "e490256e114d6d298dc73e6b683c668d99ee7b360b9a0d03e230423be38d68e5",
+        "format": "fp6_e2m3",
+        "model": "resnet18",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/96b377a83accd90054a2400d56aca9a77a2a82abead68a9b134f41a51ae22aa9.json",
+          "sha256": "b6e937e30859e7ffdac7330af7f55001aac549f1780fa2939a75386c85177b02"
+        },
+        "configuration_sha256": "96b377a83accd90054a2400d56aca9a77a2a82abead68a9b134f41a51ae22aa9",
+        "format": "fp6_e3m2",
+        "model": "resnet18",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "percentile_99_9",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/1b4fdb17e40be84d4282d28b2775dfdec2e66c33cf83220a389335174f74fcb6.json",
+          "sha256": "599f343f4cc3cdad86a3256e32f003342a82e3c23eac912b1b0335e247844a0a"
+        },
+        "configuration_sha256": "1b4fdb17e40be84d4282d28b2775dfdec2e66c33cf83220a389335174f74fcb6",
+        "format": "int4",
+        "model": "resnet18",
+        "reason": [
+          "B2_four_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/c98705051a90c9a43bd1def6ea641272f7fc4ed9108953a2d18c0ffcc3498aee.json",
+          "sha256": "cc11f297a7e0500fe2397369529921f4ce8b44861b13221446510c87e36a844d"
+        },
+        "configuration_sha256": "c98705051a90c9a43bd1def6ea641272f7fc4ed9108953a2d18c0ffcc3498aee",
+        "format": "int6",
+        "model": "resnet18",
+        "reason": [
+          "B2_six_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      },
+      {
+        "additional_images": 872,
+        "component": "experiment_b",
+        "configuration": {
+          "path": "artifacts/experiment_b/configurations/dcbe4aa5c031105caabd39c1a7c8771d11adce5563167a2b65e274d2b5308d1e.json",
+          "sha256": "5d437d12e4a0446365239eba569dd73961b532c02470b431e18480cca139c82e"
+        },
+        "configuration_sha256": "dcbe4aa5c031105caabd39c1a7c8771d11adce5563167a2b65e274d2b5308d1e",
+        "format": "nf4",
+        "model": "resnet18",
+        "reason": [
+          "B2_four_bit"
+        ],
+        "recipe": "maxabs",
+        "retained_images": 128,
+        "reuse": "only original numerical identity and validated matching per-image checkpoints",
+        "state": "selected_not_launched",
+        "target_images": 1000
+      }
+    ],
+    "cohorts": [
+      {
+        "id": "B2_recipe_anchors",
+        "members": [
+          [
+            "mobilenet_v2",
+            "int8",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v2",
+            "int8",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v3_large",
+            "int8",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "int8",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "int8",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "int8",
+            "percentile_99_9"
+          ],
+          [
+            "yolov8n",
+            "int8",
+            "maxabs"
+          ],
+          [
+            "yolov8n",
+            "int8",
+            "percentile_99_9"
+          ]
+        ],
+        "reason": "Common conventional anchor across all models; inspect top1 and top5 separately and isolate detector head calibration.",
+        "title": "Model-dependent recipe effects"
+      },
+      {
+        "id": "B2_six_bit",
+        "members": [
+          [
+            "mobilenet_v2",
+            "bfp6",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v2",
+            "bfp6",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v2",
+            "fp6_e2m3",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v2",
+            "fp6_e2m3",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v2",
+            "fp6_e3m2",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v2",
+            "fp6_e3m2",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v2",
+            "int6",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v2",
+            "int6",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v2",
+            "mxfp6_e3m2",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v2",
+            "mxfp6_e3m2",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v3_large",
+            "bfp6",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "bfp6",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v3_large",
+            "fp6_e2m3",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "fp6_e2m3",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v3_large",
+            "fp6_e3m2",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "fp6_e3m2",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v3_large",
+            "int6",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "int6",
+            "percentile_99_9"
+          ],
+          [
+            "mobilenet_v3_large",
+            "mxfp6_e3m2",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "mxfp6_e3m2",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "bfp6",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "bfp6",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "fp6_e2m3",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "fp6_e2m3",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "fp6_e3m2",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "fp6_e3m2",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "int6",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "int6",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "mxfp6_e3m2",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "mxfp6_e3m2",
+            "percentile_99_9"
+          ]
+        ],
+        "reason": "Compare same nominal payload width under both recipes. Shared scale metadata, block grouping and support cost are additional factors.",
+        "title": "Six-bit representation and recipe interactions"
+      },
+      {
+        "id": "B2_seven_vs_eight",
+        "members": [
+          [
+            "mobilenet_v2",
+            "fp7_e3m3",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v2",
+            "fp8_e4m3fn",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "fp7_e3m3",
+            "maxabs"
+          ],
+          [
+            "mobilenet_v3_large",
+            "fp8_e4m3fn",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "fp7_e3m3",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "fp8_e4m3fn",
+            "maxabs"
+          ],
+          [
+            "yolov8n",
+            "fp7_e3m3",
+            "maxabs"
+          ],
+          [
+            "yolov8n",
+            "fp8_e4m3fn",
+            "maxabs"
+          ]
+        ],
+        "reason": "Small observed FP7/FP8 gaps deserve paired uncertainty and cost analysis; similar scores do not prove equivalence.",
+        "title": "Seven-bit near-baseline candidates"
+      },
+      {
+        "id": "B2_four_bit",
+        "members": [
+          [
+            "resnet18",
+            "int4",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "int4",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "mxfp4_e2m1",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "mxfp4_e2m1",
+            "percentile_99_9"
+          ],
+          [
+            "resnet18",
+            "nf4",
+            "maxabs"
+          ],
+          [
+            "resnet18",
+            "nf4",
+            "percentile_99_9"
+          ]
+        ],
+        "reason": "INT4, NF4 and MXFP4 differ substantially on ResNet18. Compare recipes and diagnose before attributing the gap to datatype alone.",
+        "title": "Four-bit model/representation failure contrast"
+      },
+      {
+        "id": "B2_detector_shared",
+        "members": [
+          [
+            "yolov8n",
+            "bfp6",
+            "maxabs"
+          ],
+          [
+            "yolov8n",
+            "bfp6",
+            "percentile_99_9"
+          ],
+          [
+            "yolov8n",
+            "mxfp8_e4m3",
+            "maxabs"
+          ]
+        ],
+        "reason": "Retain shared-format detector evidence despite lower quality than INT8; evaluate head-domain sensitivity and support costs.",
+        "title": "Detector shared-scale alternatives"
+      }
+    ],
+    "core_existing_configurations": 55,
+    "deeper_statistics": {
+      "path": "results/summaries/b-stage-paired-1k-v1/deeper-paired-statistics.json",
+      "sha256": "d9681ed2d9a0ae922f610b0b589a3c07d544dfd92a48a2f54cc2b83ef12e2384"
+    },
+    "detector_followup": {
+      "action": "Inspect clipping/calibration before and after DFL and decoded boxes, with separate score/box domains already present in B. Change one factor per new arm.",
+      "case": [
+        "yolov8n",
+        "int8"
+      ],
+      "initial_images": 128,
+      "state": "diagnostic protocol needed; any head/operator exemption receives a new numerical identity"
+    },
+    "diagnostic_family_retention": [
+      {
+        "action": "Analyze normalized level/scale correspondence and retain alias controls; do not count identical saved outputs as independent support.",
+        "cases": [
+          [
+            "resnet18",
+            "q1_6"
+          ],
+          [
+            "mobilenet_v2",
+            "q1_6"
+          ],
+          [
+            "mobilenet_v3_large",
+            "q1_6"
+          ],
+          [
+            "yolov8n",
+            "q1_6"
+          ]
+        ],
+        "family": "fixed_point"
+      },
+      {
+        "action": "Inspect scale/range, code occupancy and layerwise reconstruction; higher-bit collapse is a recipe/implementation diagnosis, not grounds to reject the family.",
+        "cases": [
+          [
+            "resnet18",
+            "posit4_es0"
+          ],
+          [
+            "resnet18",
+            "posit6_es1"
+          ],
+          [
+            "resnet18",
+            "posit8_es1"
+          ]
+        ],
+        "family": "posit"
+      },
+      {
+        "action": "Keep viable LOG8 support-cost candidates and diagnose lower-bit losses; use retained predictions before allocating more images.",
+        "cases": [
+          [
+            "resnet18",
+            "log8"
+          ],
+          [
+            "mobilenet_v3_large",
+            "log8"
+          ],
+          [
+            "mobilenet_v2",
+            "log6"
+          ]
+        ],
+        "family": "logarithmic"
+      },
+      {
+        "action": "Preserve collapse and counterexample evidence; code occupancy/calibration and arithmetic reachability come before more quality images.",
+        "cases": [
+          [
+            "mobilenet_v3_large",
+            "binary_pm1"
+          ]
+        ],
+        "family": "binary"
+      },
+      {
+        "action": "Reuse current E1 correctness evidence when complete; B collapse remains a separate recipe-quality issue.",
+        "cases": [
+          [
+            "mobilenet_v3_large",
+            "ternary"
+          ]
+        ],
+        "family": "ternary"
+      }
+    ],
+    "execution": {
+      "current_selected_b_enrollment_unchanged": true,
+      "current_study_next_queue_unchanged": true,
+      "inference_launched": false,
+      "runner_for_new_enrollment": "not implemented in this analysis task"
+    },
+    "larger_panels": {
+      "requirements": [
+        "Close key recipe pairing gaps first.",
+        "Freeze claim-specific candidates, calibration seeds, data exposure and compute budget.",
+        "Use larger development panels only where uncertainty changes selection; full benchmark confirmation remains E4.",
+        "Keep all 100 datatype/model pairs in the ledger; no family is eliminated by this shortlist."
+      ],
+      "state": "not_enrolled"
+    },
+    "new_recipe_pilot_proposal": {
+      "arms": [
+        "calibration_MSE_scale_only",
+        "BRECQ_block_reconstruction_baseline"
+      ],
+      "cases": [
+        [
+          "resnet18",
+          "int4"
+        ],
+        [
+          "mobilenet_v2",
+          "int4"
+        ],
+        [
+          "mobilenet_v2",
+          "int6"
+        ]
+      ],
+      "conditions": [
+        "Use independent training calibration with fixed budget and seeds.",
+        "Do not label the current exact-A rounding adaptation a BRECQ/AdaRound reproduction.",
+        "Match W/A precision and operator exceptions; if these change, add explicit matched controls outside the nominal six-arm budget.",
+        "Declare scalar and shared scale policies; do not apply an integer method to every format without validation.",
+        "Expand to 1000 only after a predeclared useful-effect and absolute-quality diagnostic gate."
+      ],
+      "initial_images_per_new_arm": 128,
+      "nominal_candidate_images": 768,
+      "nominal_new_arms": 6,
+      "published_method_reference": "https://openreview.net/forum?id=POWv6hDd9XH",
+      "status": "requires_new_versioned_recipe_implementations_and_frozen_protocol"
+    },
+    "nominal_new_recipe_pilot_total": {
+      "arms": 9,
+      "candidate_images": 1152,
+      "excludes": "additional matched controls if published-method operator policies differ, detector diagnostics and calibration fitting",
+      "images_per_arm": 128
+    },
+    "nonuniform_scale_pilot_proposal": {
+      "arm": "calibration_reconstruction_MSE_scale_search_for_declared_codebook",
+      "cases": [
+        [
+          "resnet18",
+          "posit8_es1"
+        ],
+        [
+          "resnet18",
+          "nf4"
+        ],
+        [
+          "mobilenet_v2",
+          "fp6_e2m3"
+        ]
+      ],
+      "conditions": [
+        "Inspect cached calibration reconstruction and code occupancy first.",
+        "Keep the declared codebook, W/A precision, graph and operator exceptions fixed.",
+        "Fit on training calibration only; preserve FP32-QDQ semantics and report the method as a new B recipe.",
+        "No blanket claim that integer reconstruction methods apply unchanged to these grids."
+      ],
+      "initial_images_per_new_arm": 128,
+      "nominal_candidate_images": 384,
+      "nominal_new_arms": 3,
+      "reason": "Test endpoint-scaling failure in Posit, codebook sensitivity in NF4, and exponent/mantissa recipe interaction in FP6.",
+      "status": "requires_frozen_scale_search_budget_and_new_recipe_identity"
+    },
+    "prior_matrix": {
+      "path": "public/experiments/configs/breadth-study/comparison-matrix-v1.json",
+      "sha256": "64e97fb3d673a6bb2d4444c334a09f96382ddc269149419d45437a33675bb091"
+    },
+    "projected_coverage_after_extensions": {
+      "at_1000": 183,
+      "at_128": 17,
+      "existing_configurations": 200,
+      "recipe_pairs_at_1000": 83,
+      "scope": "projection only; extensions not launched"
+    },
+    "purpose": "bounded follow-up to completed selected B extensions; companion to frozen comparison-matrix-v1",
+    "selection_rules": [
+      "Model and family coverage, matched conventional anchors, same-bit alternatives, recipe sensitivity and uncertain useful-quality cases.",
+      "No automatic winner-only or p-value-only ranking; collapsed families receive diagnosis rather than large duplicate sweeps.",
+      "Shared-scale nominal bits exclude scale metadata and do not represent total hardware cost.",
+      "Paired statistical agreement is not proof of arithmetic or hardware equivalence."
+    ],
+    "selection_source": {
+      "path": "tools/analysis/b_stage_shortlist.py",
+      "sha256": "4f0e2fc13a9057f463ddb96b11c7e7e4d9ffad8c163948bec4a9b09247b4b174"
+    },
+    "status": "selected_after_development_analysis; no_new_inference_launched",
+    "version": "b-deeper-comparisons-v1"
+  },
+  "sha256": "09372c4476a189a99f98ff26a27369ce40e6bf02dd348ccac27af57b3ee42de3"
+}

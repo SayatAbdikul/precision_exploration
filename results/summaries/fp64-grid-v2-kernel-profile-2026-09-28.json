@@ -1,0 +1,48 @@
+{
+  "compiler_resource_usage": {
+    "command": "/usr/local/cuda/bin/nvcc -std=c++17 -O3 -shared --ftz=false --fmad=false -Xcompiler -fPIC -ccbin g++-14 -Xptxas=-v public/cuda/kernels/fp64_grid_v2.cu -o /tmp/libprecision_grid_v2_profile.so",
+    "grid_conv": {
+      "registers_per_thread": 54,
+      "spill_loads_bytes": 0,
+      "spill_stores_bytes": 0,
+      "stack_bytes": 0
+    },
+    "grid_gemm": {
+      "registers_per_thread": 48,
+      "spill_loads_bytes": 0,
+      "spill_stores_bytes": 0,
+      "stack_bytes": 0
+    },
+    "target": "sm_75 (default nvcc target; deployed binary may JIT PTX on the RTX 4070 Ti)"
+  },
+  "cuda_api_timing_ns": {
+    "cuda_free_total": 111313,
+    "cuda_launch_kernel": 211872,
+    "cuda_malloc_longest": 86888421,
+    "cuda_malloc_total": 86917181,
+    "cuda_memcpy_total": 1181309
+  },
+  "full_graph_context_from_integrator": {
+    "case": "ResNet18 FP6 E2M3",
+    "cuda_execution_seconds": 4.63,
+    "cuda_mac_phase_seconds": 0.47,
+    "mac_fraction": 0.10151187904967603,
+    "max_speedup_if_mac_phase_eliminated": 1.1129807692307692
+  },
+  "gpu_timing_ns": {
+    "device_to_host_total": 823911,
+    "grid_conv_kernel": 196002,
+    "host_to_device_total": 29760
+  },
+  "limits": [
+    "single profiled layer and invocation, not a throughput distribution",
+    "first cudaMalloc includes one-time CUDA context/module setup",
+    "Nsight Systems GPU operation times do not include Python input conversion, weight certification, host tuple creation, bias/store, residual or diagnostics",
+    "ptxas figures are for the compiler sm_75 target and not a measured JIT register count on sm_89"
+  ],
+  "nsys_report_path": "/tmp/fp64_grid_firstconv_cuda_20260928.nsys-rep",
+  "nsys_report_sha256": "50f52f3746a62103bdc0ee050da60856cea3e5bb1318ee322222163ac4447268",
+  "profile_command": "nsys profile --trace=cuda --sample=none --cpuctxsw=none --stats=false --output=/tmp/fp64_grid_firstconv_cuda_20260928 --force-overwrite true .venv/bin/python -m pytest tests/unit/test_native_fp64_grid_v2.py -q -k 'selected_first_conv and cuda'",
+  "schema_version": 1,
+  "scope": "single selected ResNet18 FP6 E2M3 first convolution; 118,013,952 MACs, 802,816 outputs; concurrent workstation; one CUDA profiler run"
+}

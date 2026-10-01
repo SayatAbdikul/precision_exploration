@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "Current local host inventory for ICS55 physical flow; separate from mapped integer matrix",
+  "pdk": {
+    "prior_release": "v1.10.102",
+    "prior_liberty_sha256": "15af0dceceeeb02e174174e7123c7d551551369bf5ad1e8417d3ce8dcbc24fcd",
+    "prior_release_payload_status": "absent from original project cache and current worktree",
+    "current_package": "ics55_LLSC_H7C_V1p10C100",
+    "current_commit": "c0a4ee0123a4c04812571dd71c3922d9b17ed5c0",
+    "current_rvt_tt_liberty_sha256": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7"
+  },
+  "executables": {
+    "yosys": "0.53+67 (4f968c669)",
+    "opensta": null,
+    "openroad": null,
+    "ieda": null,
+    "ecc_cli": "0.1.0a5",
+    "ecc_tools": "0.1.0a7"
+  },
+  "cached_docker_images_checked": {
+    "hdlc/sim:osvb": "no openroad/sta/iEDA executable found",
+    "patch_image:latest": "no openroad/sta/iEDA executable found",
+    "claude-agent:latest": "no openroad/sta/iEDA executable found"
+  },
+  "ecc_attempt": {
+    "command_file": "artifacts/ppa/ics55-hardware-foundation/ecc-placement-attempt-command.txt",
+    "log_file": "artifacts/ppa/ics55-hardware-foundation/ecc-placement-attempt.log",
+    "log_sha256": "aa3d6cc2d88f88b8dfa6547b033ecca6db80f790e8d4a81c55e4d0c105db95e3",
+    "exit_code": 1,
+    "error": "OSError: [Errno 30] Read-only file system: editable_rebuild.lock in external ecc-dreamplace/build",
+    "flow_state_file": "artifacts/ppa/ics55-hardware-foundation/smoke-ecc/runs/default/home/flow.json",
+    "flow_state_sha256": "417c221695f549d5232ef093bfe65a28916df77d8c04cb14dad494b8f6408e98",
+    "deepest_stage": "mapped_synthesis",
+    "placement_state": "Unstart"
+  },
+  "pdk_preview_missing": ["characterized SRAM", "validated RC collateral", "validated PDN collateral"],
+  "no_zero_substitution": ["slack", "fmax", "routed_area", "power", "energy_per_operation"]
+}

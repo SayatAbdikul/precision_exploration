@@ -1,0 +1,9 @@
+format,block_size,status,scale_count,effective_bits_per_value
+bfp6,16,hypothetical_not_accepted_configuration,96,8.484848484848484
+bfp6,64,hypothetical_not_accepted_configuration,32,8.0
+mxfp8_e4m3,16,hypothetical_not_accepted_configuration,96,10.424242424242424
+mxfp8_e4m3,64,hypothetical_not_accepted_configuration,32,9.93939393939394
+mxfp6_e3m2,16,hypothetical_not_accepted_configuration,96,8.484848484848484
+mxfp6_e3m2,64,hypothetical_not_accepted_configuration,32,8.0
+mxfp4_e2m1,16,hypothetical_not_accepted_configuration,96,6.545454545454546
+mxfp4_e2m1,64,hypothetical_not_accepted_configuration,32,6.0606060606060606

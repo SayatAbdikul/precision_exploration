@@ -34,6 +34,14 @@ def test_yosys_fixture_normalizes_and_has_stable_identity() -> None:
     assert first["identity"]["pdk"] == "ics55"
 
 
+def test_hierarchical_design_area_includes_core() -> None:
+    fixture = json.loads((ROOT / "tests/conformance/fixtures/hardware/yosys-stat-smoke.json").read_text())
+    fixture["modules"]["\\registered_smoke_arithmetic"]["area"] = 20.0
+    fixture["design"]["area"] = 70.0
+    result = parse_yosys_stat(fixture, top="registered_smoke_arithmetic", identity=IDENTITY)
+    assert result["metrics"]["cell_area"] == {"value": 70.0, "unit": "library_area_units"}
+
+
 def test_missing_top_and_identity_are_rejected() -> None:
     fixture = ROOT / "tests" / "conformance" / "fixtures" / "hardware" / "yosys-stat-smoke.json"
     with pytest.raises(HardwareParseError, match="top module"):

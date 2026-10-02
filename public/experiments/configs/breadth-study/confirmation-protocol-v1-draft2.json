@@ -1,0 +1,843 @@
+{
+ "id": "confirmation-protocol-v1",
+ "status": "DRAFT - not signed",
+ "revision": 2,
+ "date": "2026-10-02",
+ "author": "lane P4 (agents r1-r3)",
+ "text": "docs/analysis/confirmation-protocol-draft2-2026-10-02.md",
+ "decision_package": "docs/decisions/decision-package-2026-10-02.md",
+ "signing": "Fill every owner_choices.*.value, re-check interim_inputs, write a NEW file confirmation-protocol-v1.json with status SIGNED, owner, date; record its sha256 in the owner's decision record. No held-out step before.",
+ "scope": {
+  "quantisation": "post-training only",
+  "workloads": [
+   "resnet18",
+   "mobilenet_v2",
+   "mobilenet_v3_large",
+   "yolov8n"
+  ],
+  "mixed_precision": false,
+  "source": "owner-decisions-2026-10-01.md:19"
+ },
+ "data_roles": {
+  "calibration": {
+   "imagenet": "data/manifests/calibration/imagenet1k_train_2k.tsv",
+   "coco": "data/manifests/calibration/coco2017_train_2k.tsv",
+   "use": "B2 ranges from the 2k list, bias correction from its first 256 images (frozen)"
+  },
+  "development": {
+   "imagenet": "imagenet1k_val_1k.tsv",
+   "coco": "coco2017_val_1k.tsv"
+  },
+  "confirmation": {
+   "imagenet_9k": {
+    "rule": "rows of imagenet1k_val_10k.tsv whose sha256 is not in imagenet1k_val_1k.tsv, full-manifest order",
+    "rows": 9000,
+    "per_class": 9,
+    "digest_sorted_sha256": "d47669bbf06d04c7442baa4a7411a9687d8c5d392418f9a474ac17feca161574",
+    "digest_rows_in_order": "03bb87539016fda88ceab1936417cba937ce69e0a36599f9a5a2e7ce0b7e1e3e"
+   },
+   "coco_4k": {
+    "rule": "rows of coco2017_val_5k.tsv whose sha256 is not in coco2017_val_1k.tsv, full-manifest order",
+    "rows": 4000,
+    "digest_sorted_sha256": "4fd234e061c1a69f30edf9d5f1c992c136b08a6c4dc9baa7c2252d703e418638",
+    "digest_rows_in_order": "7abc4519c263b2d53457669206e7cac8d6e234d7eddffdb6a4bea12acb9d65af",
+    "disclosure": "YOLOv8n FP32 scored all 5,000 images earlier (owner-decisions-2026-10-01.md:33)"
+   }
+  },
+  "later": "40k complement of the 10k list in the 50k set, own protocol (OC19)",
+  "forbidden": [
+   "image folders",
+   "dataset yaml val entries",
+   "Ultralytics val",
+   "artifacts/per_image_predictions val5k files before unblinding"
+  ]
+ },
+ "audit_before_untouched": [
+  ".venv/bin/python tools/analysis/evaluation_history_audit.py --out results/summaries/evaluation-history-audit-v2.json",
+  ".venv/bin/python -m pytest -q tests/unit/test_evaluation_history_audit.py",
+  "pass: ImageNet 9k digest in evaluation unions = e3b0c442... (empty); index_mentions 9,000 only; COCO 4k only in YOLOv8n FP32 baseline records (evaluation-history-audit-2026-10-01.md:104-110)",
+  "python3 artifacts/confirmation_protocol_v1/complement_digest_v2.py --out artifacts/confirmation_protocol_v1/complement-digests-audit.json --compare artifacts/confirmation_protocol_v1/complement-digests-v1.json  -> 'EQUAL (4 of 4)', exit 0",
+  "on failure: no held-out run; finding to the owner"
+ ],
+ "definitions": {
+  "top1": "tie-aware expected credit (1/t); lowest-index secondary",
+  "wide": "exact-sum arm of the same case",
+  "case": "(network, format, frozen B2 recipe), one export",
+  "width_units": "bits including sign, case product grid (accumulator-sweep-2026-10-01.md:94-110)",
+  "W_noevent": "narrowest measured W from which upward no saturation event on any screen image",
+  "W_acc(d)": "narrowest W from which upward top1 >= wide - d (point estimate, screen)",
+  "W_half": "widest W with top1 <= half of wide (screen)",
+  "W_cert_abs": "certified absolute width"
+ },
+ "hypotheses": {
+  "H1": {
+   "role": "confirmatory",
+   "R2": "B2 frozen recipe under R_bits(6)",
+   "R1": "OC6.a",
+   "pairs": {
+    "source": "results/summaries/b2-rank-v1/reversals.csv (lane Q2 final; sha256 recorded at signing)",
+    "columns": "tools/experiment_b2_rank/analysis.py:269-287",
+    "views": {
+     "V_R2": {
+      "8": "default",
+      "6": "default",
+      "le5": "minimal"
+     },
+     "V_R1": {
+      "minimal": "minimal",
+      "v1_maxabs": "v1_maxabs",
+      "no_bias_correction": "default_no_bias_correction"
+     }
+    },
+    "filters": [
+     "one network, view pair {V_R2, V_R1}",
+     "point_reversal true (all rows)",
+     "chance_pair false",
+     "pool OC6.g",
+     "class '7' (FP7) never paired"
+    ],
+    "screen_power": "se9 = (high - low) / (2 x 1.96 x 3) per view; projected z = min_view |d| / se9; keep z >= 3.83",
+    "order": "projected z desc; ties network (resnet18, mobilenet_v2, mobilenet_v3_large), class (8, 6, le5), x, y",
+    "caps": {
+     "total": 6,
+     "per_network": 2,
+     "status": "P4 proposal, OC6.g"
+    },
+    "orientation": "D_R = top1(x,R) - top1(y,R)"
+   },
+   "level": "two-sided a_H1/k per component; criterion B bounds at nominal a_pair/1.4",
+   "criterion": "OC6.b",
+   "outcome": "supported if >= 1 pair meets the criterion, else 'not shown'; per pair descriptive 'reversal excluded' / 'open'"
+  },
+  "H2": {
+   "role": "no alpha (OC7)",
+   "quality_side": "E: equal-width promoted pairs per network, TOST delta 1.0 pp, pointwise two-sided 90 % interval",
+   "cost_criterion_frozen": "X lower multiplier-only area and Y lower complete-MAC area (decode, scale, accumulate at certified width) at every pipeline setting, one PDK, placement-seed spread reported",
+   "evaluated": "later addendum, no alpha"
+  },
+  "H3": {
+   "role": "confirmatory",
+   "accumulator": "uniform signed saturating register sat.w<W>, bias outside in binary64",
+   "cases_resnet18": [
+    "int8",
+    "int8 signed activations",
+    "int6",
+    "fp6_e2m3",
+    "fp7_e3m3",
+    "fp8_e4m3fn",
+    "posit8_es1"
+   ],
+   "descriptive": [
+    "fp8_e5m2 (not bracketable)"
+   ],
+   "cases_mobilenet": "OC8 (interim floor list: mobilenet_v2 int8/int6/fp6_e2m3/fp7_e3m3/fp8_e4m3fn, mobilenet_v3_large int8/fp7_e3m3/fp8_e4m3fn; C = 15)",
+   "contrast": "Delta(W) = top1(sat.wW) - top1(wide), 9k, delta 1.0 pp",
+   "sequence_N": "from W_noevent(1k) down; pass if lower bound > -1.0; stop at first failure; k* = narrowest of the passing run; one-sided a_case/2",
+   "sequence_I": "from narrowest grid width up; pass if upper bound < -1.0; stop at first failure; f = widest of the passing run; one-sided a_case/2",
+   "zero_event_width": "interval [0,0]; passes N without a test ('identical'); cannot pass I",
+   "nominal_divisor_m": {
+    "C=7": 1.4,
+    "C=15": 1.5,
+    "source": "coverage-v2.json, coverage-v2a.json"
+   },
+   "slack": "s* = W_cert_abs - k*; also against the structural certificate and the [Agg24] closed form",
+   "claim": "OC6.c",
+   "half_margin": "OC3",
+   "event_counts": "9k saturation-event count per run width, declared outcome (OC2)",
+   "float_accumulators": "fp16 rule, f21, control: secondary NI against wide, pointwise one-sided 95 %"
+  },
+  "M1": {
+   "role": "OC6.d",
+   "contrast": "top1(B2 simulator cell) - top1(exact wide), 9k",
+   "cases_resnet18": 8,
+   "cases_mobilenet_rule": "admitted to H3 by OC8 and projected TOST power >= 0.8: power = Phi((1-|D_s|)/se9 - z) + Phi((1+|D_s|)/se9 - z) - 1, se9 from Q1's 1k 95 % interval / (2 x 1.96 x 3), z at C_M = 8 + admitted (calibrated)",
+   "cases_mobilenet_interim": [
+    "mobilenet_v2-int8",
+    "mobilenet_v2-int6",
+    "mobilenet_v2-fp6_e2m3",
+    "mobilenet_v2-fp8_e4m3fn",
+    "mobilenet_v3_large-fp8_e4m3fn"
+   ],
+   "criterion": "TOST 1.0 pp, each side one-sided a_M1/C_M at nominal /1.4",
+   "also": "per-image change rate with one-sided 95 % upper bound"
+  },
+  "D": {
+   "role": "OC6.e (proposed secondary)",
+   "contrasts": "each promoted format vs INT8 and vs FP32 (disclosed), YOLOv8n COCO 4k, recipe OC5",
+   "secondary_rule": "'within margin' if 90 % interval inside +-delta_det; 'different' if 95 % interval excludes 0",
+   "confirmatory_rule": "TOST, both sides at a_D/n_D, interval form OC9",
+   "delta_det": {
+    "8-bit and recipe": 0.5,
+    "6-bit": 1.0
+   },
+   "also": [
+    "Spearman and Kendall tau-b vs classifier order",
+    "AP small/medium/large"
+   ]
+  },
+  "exploratory": [
+   "operator structure as predictor",
+   "per-layer selection",
+   "any screen-chosen repair or recipe arm"
+  ]
+ },
+ "statistics": {
+  "classifier_interval": "unstratified paired image bootstrap, percentile (tools/analysis/b2_ties.py:28,47-57); not BCa",
+  "seed": "OC9",
+  "resamples": {
+   "pointwise": 10000,
+   "adjusted_levels": 200000
+  },
+  "wrapper": "new module (not an edit) reproducing b2_ties.paired at 2.5/97.5, 10,000 resamples, same seed, exactly (unit test)",
+  "non_zero_margin_rule": "nominal alpha/m, m = 1.4 (1.5 for H3 at C = 15)",
+  "coverage_files": [
+   "artifacts/confirmation_protocol_v1/coverage-v1.json",
+   "coverage-v2.json",
+   "coverage-v2a.json"
+  ],
+  "detector_interval": "COCOeval on paired image resamples, 2,000 draws; form OC9",
+  "readouts": "expected credit primary; detector tie rule OC4"
+ },
+ "multiplicity": {
+  "family_wise_alpha": 0.05,
+  "between_families": "Bonferroni, shares OC6.f",
+  "within_H1": "Bonferroni over k pairs",
+  "within_M1": "Bonferroni over C_M cases",
+  "within_D_if_confirmatory": "Bonferroni over n_D",
+  "within_H3": "Bonferroni over cases; two fixed sequences per case at a_case/2 (0.4/0.4/0.2 with a third 0.5 pp sequence under OC3 (ii))",
+  "holm": "not used (intervals only)",
+  "looks": "one per family after all its runs exist",
+  "levels_equal_thirds": {
+   "H3 C=7": {
+    "a_case": 0.002381,
+    "per_sequence": 0.00119,
+    "nominal": 0.00085,
+    "z": 3.138
+   },
+   "H3 C=15": {
+    "a_case": 0.001111,
+    "per_sequence": 0.000556,
+    "nominal": 0.00037,
+    "z": 3.374
+   },
+   "H1 k=6": {
+    "two_sided": 0.002778,
+    "z": 2.991,
+    "z_criterion_B": 3.093
+   },
+   "M1 C_M=8": {
+    "one_sided": 0.002083,
+    "nominal": 0.001488,
+    "z": 2.97
+   },
+   "M1 C_M=13": {
+    "one_sided": 0.001282,
+    "nominal": 0.000916,
+    "z": 3.116
+   }
+  },
+  "source": "artifacts/confirmation_protocol_v1/design-v3.json levels_calibrated; C=15 m=1.5 from coverage-v2a.json"
+ },
+ "margins": {
+  "H1": 1.0,
+  "E": 1.0,
+  "recipe_pair_equivalence": "not claimed",
+  "H3": 1.0,
+  "H3_half_margin": "OC3",
+  "M1": 1.0,
+  "D": {
+   "8-bit": 0.5,
+   "6-bit": 1.0
+  },
+  "source": "quality-metrics-resolution-2026-10-02.md:348-373"
+ },
+ "promoted_set": {
+  "rule": "b2-matrix-protocol-v1.json:57 rule (d) via tools/analysis/b2_matrix.py propose()",
+  "file": "results/summaries/b2-matrix-v1/proposal-d4.csv",
+  "sha256_prefix": "3e288cca80d1a529",
+  "fourteen": [
+   "fp32",
+   "int8",
+   "posit8_es1",
+   "fp8_e4m3fn",
+   "log8",
+   "mxfp8_e4m3 (cum5_act_maxabs)",
+   "fp7_e3m3",
+   "fp6_e2m3",
+   "bfp6",
+   "int6",
+   "log6",
+   "posit6_es1",
+   "nf4",
+   "ternary"
+  ],
+  "twelve": "fourteen without nf4 and ternary",
+  "choice": "OC1"
+ },
+ "grids": {
+  "exact_resnet18": {
+   "choice": "OC2",
+   "full_73": {
+    "int8": "16-21 (10)",
+    "int8_signed": "16-21 (10)",
+    "int6": "13-17 (9)",
+    "fp6_e2m3": "14-19 (10)",
+    "fp7_e3m3": "21-26 (10)",
+    "fp8_e4m3fn": "37-42 (10)",
+    "posit8_es1": "30-35 (10)",
+    "fp8_e5m2": "wide, control, fp16.x-27, f21 (4)"
+   },
+   "core_56": {
+    "int8": "18-21 (7)",
+    "int8_signed": "17-21 (8)",
+    "int6": "14-17 (7)",
+    "fp6_e2m3": "16-19 (7)",
+    "fp7_e3m3": "22-26 (8)",
+    "fp8_e4m3fn": "38-42 (8)",
+    "posit8_es1": "31-35 (8)",
+    "fp8_e5m2": "wide, control, fp16 (3)"
+   },
+   "rule_full": "wide, control, fp16 rule, f21, sat.w W_half..W_noevent, + sat.w16 for INT8",
+   "rule_core": "wide, control, fp16 rule, sat.w W_acc(1.0)-1..W_noevent",
+   "source": "accumulator-sweep-2026-10-01.md:362-388"
+  },
+  "exact_mobilenet": {
+   "status": "INTERIM (Q1 summaries 18:36, document not reviewed)",
+   "rule": "OC8 (same rule as OC2 or Q1's 60-run proposal)",
+   "source": "results/summaries/accumulator-sweep-mn-v1/widths.csv via design_v3.py",
+   "full_runs": 83,
+   "core_runs": 61,
+   "floor_cases_only": {
+    "full": 66,
+    "core": 49
+   },
+   "q1_proposal_runs": 60,
+   "per_case": "design-v3.json mobilenet_grid"
+  },
+  "simulator": {
+   "S-A": {
+    "12-set": 36,
+    "14-set": 42
+   },
+   "S-B_max": 12,
+   "S-M": 2,
+   "totals": {
+    "12-set": 50,
+    "14-set": 56,
+    "pool_ii": [
+     62,
+     68
+    ]
+   },
+   "S-seed_max": 72,
+   "inputs": "streamed from the complement list, no input cache"
+  },
+  "detector": {
+   "configurations": {
+    "one_recipe": 12,
+    "both": 23
+   },
+   "skip": "formats below 1 mAP on the screen (nf4, ternary)"
+  },
+  "optional": {
+   "per_node_runs": 32,
+   "per_node_halving": "16 runs, P4 proposal",
+   "b1_runs": 18,
+   "bias_correction_form_cells": 6,
+   "q4_r3b_cells": 1,
+   "axe_cells": 4,
+   "v1_gap_rerun": "OC10"
+  }
+ },
+ "engine": {
+  "base": "artifacts/speed_v1/implementations/edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b",
+  "base_engine_sources": "1f75c923 (all cases, ResNet18 included; speed-optimizations-2026-10-02.md:87,113)",
+  "sealed_resnet18_1k_from": "7c6344af",
+  "source_change": "list selection only (manifest path + expected digest, manifest order, list digest in every record); compression per OC21",
+  "rechecks": "S1-engine-review.md:716-729 part (d) steps 1-5 (step 1 only if fastdot.cu, kernel.h, native.py or engine.py changed)",
+  "screen_equivalence": "one sealed 1k file per (case, policy family) reproduced record for record",
+  "review": "careful independent review + owner acceptance (OC20)",
+  "ungated_cases": "mobilenet_v2-int6 and mobilenet_v3_large-fp7_e3m3: S1 gates 18:07, Q1 K2/K3 pass; reviewer D trace_gates.py not yet run",
+  "per_runner": "K1 (archive manifest, run-root digest, torch 2.3.0+cu121, NumPy 1.26.4, driver 595.91.07); K4 seeded 10 % repeat, identity only",
+  "batch": 8
+ },
+ "ledger": {
+  "tools": [
+   "artifacts/confirmation_protocol_v1/design_v2.py",
+   "design_v3.py"
+  ],
+  "exact_gpu_h_new_shared": {
+   "resnet18_73": [
+    2.3,
+    3.0
+   ],
+   "resnet18_56": [
+    1.8,
+    2.3
+   ],
+   "mobilenet_83": [
+    2.91,
+    3.2
+   ],
+   "mobilenet_61": [
+    2.16,
+    2.38
+   ],
+   "mobilenet_60": [
+    2.12,
+    2.35
+   ]
+  },
+  "exact_gpu_h_old_shared": {
+   "resnet18_73": [
+    40.2,
+    63.9
+   ],
+   "resnet18_56": [
+    30.8,
+    49.0
+   ],
+   "mobilenet_83": [
+    106.9,
+    131.8
+   ],
+   "mobilenet_61": [
+    78.5,
+    96.8
+   ],
+   "mobilenet_60": [
+    77.3,
+    95.3
+   ]
+  },
+  "exact_gpu_h_new_exclusive": {
+   "resnet18_73": 1.2,
+   "resnet18_56": 0.9,
+   "mobilenet_83": [
+    1.37,
+    1.4
+   ],
+   "mobilenet_61": [
+    1.03,
+    1.06
+   ]
+  },
+  "simulator_gpu_h": {
+   "36": [
+    0.84,
+    5.35
+   ],
+   "42": [
+    0.98,
+    6.24
+   ],
+   "50": [
+    1.17,
+    7.43
+   ],
+   "56": [
+    1.31,
+    8.32
+   ],
+   "72_seed": [
+    1.68,
+    10.7
+   ]
+  },
+  "detector": {
+   "12": {
+    "gpu_h": [
+     0.72,
+     3.2
+    ],
+    "cocoeval_cpu_h": [
+     6.4,
+     7.2
+    ]
+   },
+   "23": {
+    "gpu_h": [
+     1.38,
+     6.13
+    ],
+    "cocoeval_cpu_h": [
+     12.3,
+     13.8
+    ]
+   }
+  },
+  "optional_gpu_h": {
+   "per_node_b1_screen": [
+    0.24,
+    0.31
+   ],
+   "per_node_b1_9k": [
+    1.62,
+    2.06
+   ],
+   "halved_9k": [
+    1.12,
+    1.43
+   ],
+   "axe_4": [
+    0.09,
+    0.59
+   ],
+   "bc_form_6": [
+    0.14,
+    0.89
+   ],
+   "r3b_1": [
+    0.02,
+    0.15
+   ],
+   "v1_gap_old": [
+    5.2,
+    7.9
+   ]
+  },
+  "engine_rechecks_gpu_h_max": 2.0,
+  "disk_gb_uncompressed": {
+   "resnet18_73": [
+    1.38,
+    1.79
+   ],
+   "resnet18_56": [
+    1.06,
+    1.37
+   ],
+   "mobilenet_83": [
+    1.57,
+    2.03
+   ],
+   "mobilenet_61": [
+    1.15,
+    1.49
+   ]
+  },
+  "disk_gb_gzip_73_plus_83": [
+   0.32,
+   1.06
+  ],
+  "ceiling": "1.5 x upper estimate of the chosen options; unfinished = budget-limited (OC14)"
+ },
+ "order_of_operations": [
+  "re-check interim inputs; fill pair list, MobileNet grid and case lists by their rules",
+  "owner fills OC; signed JSON hashed",
+  "audit",
+  "engine change, re-checks, screen equivalence, review, acceptance; held-out loaders shown to reproduce screen cells",
+  "analysis code dry run on screen; sha256 in an addendum",
+  "runs outcome-blind",
+  "unblinding: frozen analysis once per family; summaries written once to new versioned paths",
+  "anything else exploratory"
+ ],
+ "deviation_rules": [
+  "before first held-out call: numbered addendum before the affected step",
+  "after: change of hypotheses, contrasts, margins, levels, recipes, promoted set or analysis code -> affected result exploratory, new protocol version",
+  "crash/OOM rerun identically (OOM once with --heavy 8000), logged",
+  "integrity failure stops that configuration (reported failed)",
+  "no interim look",
+  "stop at ledger ceiling or disk allowance",
+  "contrast not run stays 'not run', alpha not redistributed; an unrun H3 width stops its sequence"
+ ],
+ "owner_choices": {
+  "OC1_promoted_set": {
+   "value": null,
+   "options": [
+    "14 (code)",
+    "12 (without nf4, ternary)"
+   ],
+   "proposed_recommendation": "12",
+   "raised": "b2-matrix-2026-10-01.md:465-475,520-525"
+  },
+  "OC2_resnet18_grid": {
+   "value": null,
+   "options": [
+    "73 full",
+    "56 core"
+   ],
+   "proposed_recommendation": "73 + 9k event counts",
+   "raised": "accumulator-sweep-2026-10-01.md:360-392"
+  },
+  "OC3_margins": {
+   "value": null,
+   "options": [
+    "1.0 pp; 0.5 pp arms (i) secondary pointwise",
+    "1.0 pp; 0.5 pp arms (ii) confirmatory 0.4/0.4/0.2"
+   ],
+   "proposed_recommendation": "(i)",
+   "raised": "quality-metrics-resolution-2026-10-02.md:348-373"
+  },
+  "OC4_detector_tie_rule": {
+   "value": null,
+   "options": [
+    "expected AP over 200 orders primary",
+    "fixed rule primary + expected AP beside 6-bit"
+   ],
+   "proposed_recommendation": "expected AP primary",
+   "raised": "quality-metrics-resolution-2026-10-02.md:328-337"
+  },
+  "OC5_detector_recipe": {
+   "value": null,
+   "options": [
+    "default",
+    "conformant",
+    "both, conformant primary"
+   ],
+   "proposed_recommendation": "both, conformant primary",
+   "raised": "b2-detector-2026-10-01.md:102-109,616-621"
+  },
+  "OC6_contrasts": {
+   "a_H1_R1": {
+    "value": null,
+    "options": [
+     "minimal",
+     "v1_maxabs",
+     "default_no_bias_correction"
+    ],
+    "proposed_recommendation": "minimal unless Q2 final gives no pair, then default_no_bias_correction",
+    "raised": "draft 1 fact-check; Q2 handoff 18:38"
+   },
+   "b_H1_criterion": {
+    "value": null,
+    "options": [
+     "A: intervals exclude 0 oppositely and |D| >= delta",
+     "B: intervals beyond +-delta"
+    ],
+    "proposed_recommendation": "A",
+    "raised": "draft 1 :101-107"
+   },
+   "c_H3_claim": {
+    "value": null,
+    "options": [
+     "raw k* difference >= 2 bits",
+     "slack form >= 2"
+    ],
+    "proposed_recommendation": "slack form",
+    "raised": "draft 1 fact-check items 2-3"
+   },
+   "d_M1_role": {
+    "value": null,
+    "options": [
+     "confirmatory",
+     "secondary"
+    ],
+    "proposed_recommendation": "confirmatory",
+    "raised": "owner-decisions-2026-10-01.md:17"
+   },
+   "e_D_role": {
+    "value": null,
+    "options": [
+     "secondary",
+     "confirmatory"
+    ],
+    "proposed_recommendation": "secondary",
+    "raised": "draft 1 fact-check item 6"
+   },
+   "f_alpha_shares": {
+    "value": null,
+    "options": [
+     "equal among confirmatory families",
+     "H3 half, rest equal"
+    ],
+    "proposed_recommendation": "equal",
+    "raised": "draft 1 fact-check item 7"
+   },
+   "g_H1_pool_and_caps": {
+    "value": null,
+    "options": [
+     "promoted set only",
+     "any B2 format"
+    ],
+    "proposed_recommendation": "promoted only; caps 6 / 2 per network",
+    "raised": "this protocol"
+   }
+  },
+  "OC7_H2": {
+   "value": null,
+   "options": [
+    "freeze cost criterion; quality side pointwise TOST; cost later without alpha",
+    "remove H2 from this paper"
+   ],
+   "proposed_recommendation": "freeze",
+   "raised": "owner-decisions-2026-10-01.md:50-56"
+  },
+  "OC8_mobilenets": {
+   "value": null,
+   "options": [
+    "ResNet18 only",
+    "floor 10 pp to H3, M1 by power >= 0.8",
+    "descriptive"
+   ],
+   "proposed_recommendation": "floor option if Q1 reviewed before signing, else descriptive",
+   "raised": "this lane's task",
+   "grid_options": [
+    "same rule as OC2",
+    "Q1 60-run proposal (accumulator-sweep-mobilenet-2026-10-02.md:117-122)"
+   ],
+   "floor_pp_proposed": 10
+  },
+  "OC9_statistics": {
+   "seed": {
+    "value": null,
+    "options": [
+     20260927,
+     20261001
+    ],
+    "proposed_recommendation": 20260927,
+    "raised": "draft 1 :24; b2_ties.py:28"
+   },
+   "strata": {
+    "value": null,
+    "options": [
+     "none",
+     "class"
+    ],
+    "proposed_recommendation": "none",
+    "raised": "draft 1 :24"
+   },
+   "detector_interval": {
+    "value": null,
+    "options": [
+     "basic for every contrast",
+     "percentile for every contrast"
+    ],
+    "proposed_recommendation": "basic",
+    "raised": "b2-detector-breadth-2026-10-02.md:266-273"
+   }
+  },
+  "OC10_optional_arms": {
+   "value": null,
+   "options": [
+    "per-node 32 + B1 18 (screen first)",
+    "halved 16 + B1",
+    "v1 gap rerun",
+    "AXE 4 cells",
+    "none"
+   ],
+   "proposed_recommendation": "per-node + B1 on screen, secondary if done before signing; AXE secondary; no v1 gap rerun",
+   "raised": "accumulator-sweep-2026-10-01.md:297-300,390-391"
+  },
+  "OC11_P1_P3_P5": {
+   "value": null,
+   "options": [
+    "sign as written",
+    "amend",
+    "leave open"
+   ],
+   "proposed_recommendation": "sign",
+   "raised": "proposed-decision-updates-2026-10-01.md:7-30,41-47"
+  },
+  "OC12_bias_correction_form": {
+   "value": null,
+   "options": [
+    "keep B2 pass",
+    "weights-only Appendix D",
+    "local own-error",
+    "guarded rule",
+    "keep B2 + one form as secondary arm"
+   ],
+   "proposed_recommendation": "keep B2 + weights-only as secondary arm",
+   "raised": "b2-collapse-diagnosis-2026-10-02.md:546-566"
+  },
+  "OC13_q4_r3b": {
+   "value": null,
+   "options": [
+    "one secondary cell",
+    "MobileNetV3 recipe arm",
+    "neither"
+   ],
+   "proposed_recommendation": "one secondary cell",
+   "raised": "b2-activation-attribution-2026-10-02.md:358-377"
+  },
+  "OC14_ledgers": {
+   "value": null,
+   "options": [
+    "binding, closed; new confirmation ledger",
+    "reopen ledger A",
+    "drop"
+   ],
+   "proposed_recommendation": "binding",
+   "raised": "proposed-decision-updates-2026-10-01.md:32-39"
+  },
+  "OC15_bridge_contract": {
+   "value": null,
+   "options": [
+    "F6 unamended, bridge = B recipe with exact arithmetic",
+    "amend F6"
+   ],
+   "proposed_recommendation": "unamended",
+   "raised": "proposed-decision-updates-2026-10-01.md:17-23"
+  },
+  "OC16_calibration_seeds": {
+   "value": null,
+   "options": [
+    "one frozen draw",
+    "plus Q5 subsets on 9k for H1 pair cells",
+    "new disjoint 2k lists",
+    "addable: Q5 bracket check"
+   ],
+   "proposed_recommendation": "plus Q5 subsets",
+   "raised": "owner-decisions-2026-10-01.md:44; b2-calibration-seeds-2026-10-02.md:185-201"
+  },
+  "OC17_unsigned_activations": {
+   "value": null,
+   "options": [
+    "labelled recipe switch",
+    "extend D1"
+   ],
+   "proposed_recommendation": "labelled switch",
+   "raised": "proposed-decision-updates-2026-10-01.md:56; d1-initial-candidate-set.md:50"
+  },
+  "OC18_second_pdk": {
+   "value": null,
+   "options": [
+    "state ICS55-only limit",
+    "authorise when RTL resumes"
+   ],
+   "proposed_recommendation": "state limit",
+   "raised": "proposed-decision-updates-2026-10-01.md:58"
+  },
+  "OC19_50k_payload": {
+   "value": null,
+   "options": [
+    "9k/4k now, 40k later own protocol",
+    "wait"
+   ],
+   "proposed_recommendation": "9k/4k now",
+   "raised": "owner-decisions-2026-10-01.md:45-46"
+  },
+  "OC20_engine_change": {
+   "value": null,
+   "options": [
+    "fast engine list change + re-checks + review + acceptance",
+    "archive change",
+    "no exact runs"
+   ],
+   "proposed_recommendation": "fast engine change",
+   "raised": "S1-engine-review.md:698,716-729"
+  },
+  "OC21_disk": {
+   "value": null,
+   "options": [
+    "about 1 GB allowance, compressed",
+    "3-4 GB uncompressed",
+    "slimmer records"
+   ],
+   "proposed_recommendation": "1 GB compressed",
+   "raised": "protocol section 11"
+  }
+ },
+ "interim_inputs_state_18_43": {
+  "Q1": "summaries results/summaries/accumulator-sweep-mn-v1/ 18:36; doc 18:37 not reviewed; handoff 18:37",
+  "Q2": "doc stub 17:48; handoff 18:38; b2-rank-v1 not written",
+  "Q3": "b2-collapse-diagnosis-2026-10-02.md 18:20",
+  "Q4": "b2-activation-attribution-2026-10-02.md 18:18",
+  "Q5": "b2-calibration-seeds-2026-10-02.md 17:59; summaries 17:57; handoff 18:34",
+  "Q6": "b2-detector-breadth-2026-10-02.md 17:52",
+  "Q8": "accumulator-aware-ptq-2026-10-02.md 18:03",
+  "S1": "speed-optimizations-2026-10-02.md 18:08",
+  "S1_review": "S1-engine-review.md 16:48 combined verdict; trace_gates.py for the two 18:07 gates pending"
+ },
+ "disagreements": "protocol text section 16, items 1-16"
+}

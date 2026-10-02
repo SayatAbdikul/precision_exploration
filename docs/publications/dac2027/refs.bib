@@ -1,0 +1,314 @@
+% refs.bib -- DAC 2027 draft 1 (lane P2, 2026-10-02).
+% Source of every field: docs/analysis/related-work-audit-2026-10-01.md, section 1 entries (line numbers given).
+% Rule: only fields the audit marks VERIFIED are filled. A venue taken only from an author-supplied arXiv
+% comment or journal-ref field is NOT entered as a venue; it is noted in a comment ("venue unverified").
+% Author first names are given as initials, as in the audit; full first names were not verified.
+% Revision 2 (same evening): added Cuy26, Ni20, Sak19, Wan18 from their audit headers (L301, L506, L537, L547).
+% Not yet entered (add from the audit when needed): ZhaM26, Shen24, Che25, Dai21, Mue25, Tam20, Kha25, Fas21,
+% Gil25, Ram24, Ram25, Hu26, Che26, LiX24, Mik23, Dai24.
+% Later verifications by lane P1 (docs/analysis/closest-prior-work-accumulators-2026-10-02.md, STATUS: FINAL,
+% unreviewed) are recorded in comments only, because this file's rule admits audit-VERIFIED fields only.
+
+% audit L122-125. VERIFIED (arXiv v3 HTML full text; FPL venue, pages and DOI via Crossref [check]).
+@inproceedings{Agg24,
+  author    = {Aggarwal, S. and Damsgaard, H. J. and Pappalardo, A. and Franco, G. and Preu{\ss}er, T. B. and Blott, M. and Mitra, T.},
+  title     = {Shedding the Bits: Pushing the Boundaries of Quantization with Minifloats on {FPGAs}},
+  booktitle = {International Conference on Field-Programmable Logic and Applications (FPL)},
+  year      = {2024},
+  pages     = {297--303},
+  doi       = {10.1109/FPL64840.2024.00048},
+  eprint    = {2311.12359},
+  archivePrefix = {arXiv}
+}
+
+% audit L177-180. VERIFIED (Zenodo record with abstract and DOI). Online 2024, issue June 2025.
+@article{Dam24,
+  author  = {Damsgaard, H. J. and Hossfeld, K. J. and Nurmi, J. and Preusser, T. B.},
+  title   = {Parallel Accurate Minifloat {MACCs} for Neural Network Inference on {Versal} {FPGAs}},
+  journal = {IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems},
+  volume  = {44},
+  number  = {6},
+  pages   = {2181--2194},
+  year    = {2025},
+  doi     = {10.1109/TCAD.2024.3511343}
+}
+
+% audit L630-632. VERIFIED [check] via Crossref.
+@inproceedings{Des23,
+  author    = {Desrentes, O. and Dupont de Dinechin, B. and Le Maire, J.},
+  title     = {Exact Dot Product Accumulate Operators for 8-bit Floating-Point Deep Learning},
+  booktitle = {Euromicro Conference on Digital System Design (DSD)},
+  year      = {2023},
+  pages     = {642--649},
+  doi       = {10.1109/DSD60849.2023.00093}
+}
+
+% audit L813-815. VERIFIED (HAL API record with abstract).
+@techreport{Ugu17,
+  author      = {Uguen, Y. and de Dinechin, F.},
+  title       = {Design-space exploration for the {Kulisch} accumulator},
+  institution = {HAL},
+  number      = {hal-01488916v2},
+  year        = {2017}
+}
+
+% audit L608-612. VERIFIED (arXiv abstract). "submitted to ACM TRETS per the arXiv page" -- venue not entered.
+@misc{Umu25,
+  author = {Umuroglu, Y. and Berganski, C. and Jentzsch, F. and Danilowicz, M. and Kryjak, T. and Bezaitis, C. and Sjalander, M. and Colbert, I. and Preusser, T. and Petri-Koenig, J. and Blott, M.},
+  title  = {{SIRA}: Scaled-Integer Range Analysis for Optimizing {FPGA} Dataflow Neural Network Accelerators},
+  year   = {2025},
+  eprint = {2508.21493},
+  archivePrefix = {arXiv}
+}
+
+% audit L554-558. arXiv VERIFIED; ICCV 2023 venue, pages and DOI VERIFIED [check] via Crossref.
+@inproceedings{Col23,
+  author    = {Colbert, I. and Pappalardo, A. and Petri-Koenig, J.},
+  title     = {{A2Q}: Accumulator-Aware Quantization with Guaranteed Overflow Avoidance},
+  booktitle = {IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year      = {2023},
+  pages     = {16943--16952},
+  doi       = {10.1109/ICCV51070.2023.01558},
+  eprint    = {2308.13504},
+  archivePrefix = {arXiv}
+}
+
+% audit L567-569. VERIFIED (PMLR page and arXiv abstract).
+@inproceedings{Col24a,
+  author    = {Colbert, I. and Pappalardo, A. and Petri-Koenig, J. and Umuroglu, Y.},
+  title     = {{A2Q+}: Improving Accumulator-Aware Weight Quantization},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  series    = {PMLR},
+  volume    = {235},
+  pages     = {9275--9291},
+  year      = {2024},
+  eprint    = {2401.10432},
+  archivePrefix = {arXiv}
+}
+
+% audit L573-576. VERIFIED (arXiv abstract). Year not stated in the header line read by this lane: 2024 is
+% inferred from the arXiv id 2409.x -- verify. Final venue not checked (audit 7.5).
+@misc{Col24b,
+  author = {Colbert, I. and Franco, G. and Grob, F. and Zhang, J. and Saab, R.},
+  title  = {Accumulator-Aware Post-Training Quantization for Large Language Models},
+  year   = {2024},
+  eprint = {2409.17092},
+  archivePrefix = {arXiv}
+}
+
+% audit L589-592. arXiv VERIFIED; ICLR 2024 venue VERIFIED [check] (proceedings.iclr.cc listing).
+@inproceedings{Blu24,
+  author    = {Blumenfeld, Y. and Hubara, I. and Soudry, D.},
+  title     = {Towards Cheaper Inference in Deep Networks with Lower Bit-Width Accumulators},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  eprint    = {2401.14110},
+  archivePrefix = {arXiv}
+}
+
+% audit L839-841. VERIFIED (arXiv API). Final venue not checked (audit 7.5).
+% P1 (L45-49): published as IPDPS 2026, pp. 557-569, DOI 10.1109/ipdps65963.2026.00054, title "MGS: Markov Greedy
+% Sums for Low-Power DNN Accumulation" (VERIFIED by P1 via Crossref; published text not opened). Not entered here
+% until the audit rule is extended to P1's verifications; the paper should cite the published version.
+@misc{Nat25,
+  author = {Natesh, V. and Kung, H. T. and Kong, D.},
+  title  = {{MGS}: Markov Greedy Sums for Accurate Low-Bitwidth Floating-Point Accumulation},
+  year   = {2025},
+  eprint = {2504.09072},
+  archivePrefix = {arXiv}
+}
+
+% audit L819-822. VERIFIED (arXiv API; Crossref). Year 2022 from the ARITH 2022 venue.
+@inproceedings{Ber22,
+  author    = {Bertaccini, L. and Paulin, G. and Fischer, T. and Mach, S. and Benini, L.},
+  title     = {{MiniFloat-NN} and {ExSdotp}: An {ISA} Extension and a Modular Open Hardware Unit for Low-Precision Training on {RISC-V} Cores},
+  booktitle = {IEEE Symposium on Computer Arithmetic (ARITH)},
+  year      = {2022},
+  doi       = {10.1109/ARITH54963.2022.00010},
+  eprint    = {2207.03192},
+  archivePrefix = {arXiv}
+}
+
+% audit L830-833. Bibliographic fields VERIFIED (Crossref); abstract read only in a secondary copy (audit 7.5).
+% P1 (L69-71) read the full text from the open ARITH 2024 conference site: synthesis at 5 nm, no network accuracy.
+@inproceedings{Lut24,
+  author    = {Lutz, D. R. and Saini, A. and Kroes, M. and Elmer, T. and Valsaraju, H.},
+  title     = {Fused {FP8} 4-Way Dot Product With Scaling and {FP32} Accumulation},
+  booktitle = {IEEE Symposium on Computer Arithmetic (ARITH)},
+  year      = {2024},
+  pages     = {40--47},
+  doi       = {10.1109/ARITH61463.2024.00016}
+}
+
+% audit L472-473. VERIFIED (arXiv API).
+@misc{Joh18,
+  author = {Johnson, J.},
+  title  = {Rethinking floating point for deep learning},
+  year   = {2018},
+  eprint = {1811.01721},
+  archivePrefix = {arXiv}
+}
+
+% audit L60-63. VERIFIED (arXiv abstract page); no venue on arXiv.
+@misc{vB23,
+  author = {van Baalen, M. and Kuzmin, A. and Nair, S. S. and Ren, Y. and Mahurin, E. and Patel, C. and Subramanian, S. and Lee, S. and Nagel, M. and Soriaga, J. and Blankevoort, T.},
+  title  = {{FP8} versus {INT8} for efficient deep learning inference},
+  year   = {2023},
+  eprint = {2303.17951},
+  archivePrefix = {arXiv}
+}
+
+% audit L78-82. arXiv VERIFIED; NeurIPS 2022 venue VERIFIED [check] (proceedings listing).
+@inproceedings{Kuz22,
+  author    = {Kuzmin, A. and van Baalen, M. and Ren, Y. and Nagel, M. and Peters, J. and Blankevoort, T.},
+  title     = {{FP8} Quantization: The Power of the Exponent},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2022},
+  eprint    = {2208.09225},
+  archivePrefix = {arXiv}
+}
+
+% audit L885-888. VERIFIED (arXiv API). Venue (NeurIPS 2021 Datasets and Benchmarks) only from the arXiv
+% comment: venue unverified, not entered.
+@misc{LiM21,
+  author = {Li, Y. and Shen, M. and Ma, J. and Ren, Y. and Zhao, M. and Zhang, Q. and Gong, R. and Yu, F. and Yan, J.},
+  title  = {{MQBench}: Towards Reproducible and Deployable Model Quantization Benchmark},
+  year   = {2021},
+  eprint = {2111.03759},
+  archivePrefix = {arXiv}
+}
+
+% audit L650-653. Venue ICCV 2019 only from arXiv journal-ref: venue unverified, not entered. The header line
+% read by this lane carries no VERIFIED tag for the arXiv record either -- check before use.
+@misc{Nag19,
+  author = {Nagel, M. and van Baalen, M. and Blankevoort, T. and Welling, M.},
+  title  = {Data-Free Quantization Through Weight Equalization and Bias Correction},
+  year   = {2019},
+  eprint = {1906.04721},
+  archivePrefix = {arXiv}
+}
+
+% audit L658-660. VERIFIED (PMLR page).
+@inproceedings{Nag20,
+  author    = {Nagel, M. and Amjad, R. A. and van Baalen, M. and Louizos, C. and Blankevoort, T.},
+  title     = {Up or Down? {Adaptive} Rounding for Post-Training Quantization},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  series    = {PMLR},
+  volume    = {119},
+  pages     = {7197--7206},
+  year      = {2020},
+  eprint    = {2004.10568},
+  archivePrefix = {arXiv}
+}
+
+% audit L662-665. ICLR 2021 venue VERIFIED [check] (iclr.cc listing).
+@inproceedings{Li21,
+  author    = {Li, Y. and Gong, R. and Tan, X. and Yang, Y. and Hu, P. and Zhang, Q. and Yu, F. and Wang, W. and Gu, S.},
+  title     = {{BRECQ}: Pushing the Limit of Post-Training Quantization by Block Reconstruction},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2021},
+  eprint    = {2102.05426},
+  archivePrefix = {arXiv}
+}
+
+% audit L679-682. CVPR 2018 venue, DOI and pages VERIFIED [check] (Crossref).
+@inproceedings{Jac18,
+  author    = {Jacob, B. and Kligys, S. and Chen, B. and Zhu, M. and Tang, M. and Howard, A. and Adam, H. and Kalenichenko, D.},
+  title     = {Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2018},
+  pages     = {2704--2713},
+  doi       = {10.1109/CVPR.2018.00286},
+  eprint    = {1712.05877},
+  archivePrefix = {arXiv}
+}
+
+% audit L769-770. VERIFIED (arXiv). Final venue not checked.
+@misc{Isl26,
+  author = {Islam, M. and Mikaitis, M.},
+  title  = {Simulation of Custom-Precision {OCP} {MX} Block Floating-Point Formats and Arithmetic},
+  year   = {2026},
+  eprint = {2607.12915},
+  archivePrefix = {arXiv}
+}
+
+% audit L737-739. arXiv id read; VERIFIED tag not on the header line read by this lane -- check. Final venue not checked.
+@misc{Pra25,
+  author = {Prabhu, K. and Yu, J. and Pan, X. A. and Xie, Z. and Aleshire, A. and Chen, Z. and Ratnani, A. A. and Raina, P.},
+  title  = {Voyager: An End-to-End Framework for Design-Space Exploration and Generation of {DNN} Accelerators},
+  year   = {2025},
+  eprint = {2509.15205},
+  archivePrefix = {arXiv}
+}
+
+% audit L338-340. arXiv VERIFIED; MICRO 2022 only from arXiv comment: venue unverified, not entered.
+@misc{Guo22,
+  author = {Guo, C. and Zhang, C. and Leng, J. and Liu, Z. and Yang, F. and Liu, Y. and Guo, M. and Zhu, Y.},
+  title  = {{ANT}: Exploiting Adaptive Numerical Data Type for Low-bit Deep Neural Network Quantization},
+  year   = {2022},
+  eprint = {2208.14286},
+  archivePrefix = {arXiv}
+}
+
+% audit L348-351. VERIFIED [check] (arXiv, Crossref).
+@inproceedings{Hu25,
+  author    = {Hu, W. and Zhang, H. and Guo, C. and Feng, Y. and Guan, R. and Hua, Z. and Liu, Z. and Guan, Y. and Guo, M. and Leng, J.},
+  title     = {{M-ANT}: Efficient Low-bit Group Quantization for {LLMs} via Mathematically Adaptive Numerical Type},
+  booktitle = {IEEE International Symposium on High-Performance Computer Architecture (HPCA)},
+  year      = {2025},
+  pages     = {1112--1126},
+  doi       = {10.1109/HPCA61900.2025.00086},
+  eprint    = {2502.18755},
+  archivePrefix = {arXiv}
+}
+
+% audit L708-711. arXiv VERIFIED; AutoML 2024 only from arXiv comment: venue unverified, not entered.
+@misc{Dot24,
+  author = {Dotzel, J. and Wu, G. and Li, A. and Umar, M. and Ni, Y. and Abdelfattah, M. S. and Zhang, Z. and Cheng, L. and Dixon, M. G. and Jouppi, N. P. and Le, Q. V. and Li, S.},
+  title  = {{FLIQS}: One-Shot Mixed-Precision Floating-Point and Integer Quantization Search},
+  year   = {2023},
+  eprint = {2308.03290},
+  archivePrefix = {arXiv}
+}
+% NOTE Dot24: year 2023 inferred from arXiv id 2308.x -- verify.
+
+% audit L301-304. VERIFIED (arXiv API). ASP-DAC 2026 (invited) only from the arXiv comment: venue unverified,
+% not entered. Year 2025 inferred from arXiv id 2511.x -- verify.
+@misc{Cuy26,
+  author = {Cuyckens, S. and Yi, X. and Geens, R. and Dumoulin, J. and Wiesner, M. and Fang, C. and Verhelst, M.},
+  title  = {Precision-Scalable Microscaling Datapaths with Optimized Reduction Tree for Efficient {NPU} Integration},
+  year   = {2025},
+  eprint = {2511.06313},
+  archivePrefix = {arXiv}
+}
+
+% audit L506-510. arXiv VERIFIED (arXiv API); ICLR 2021 venue VERIFIED [check] (iclr.cc lists the title with
+% "Ultra-Low-Precision"; the arXiv title, used here, says "Ultra-Low-Resolution").
+@inproceedings{Ni20,
+  author    = {Ni, R. and Chu, H.-m. and Casta{\~n}eda, O. and Chiang, P.-y. and Studer, C. and Goldstein, T.},
+  title     = {{WrapNet}: Neural Net Inference with Ultra-Low-Resolution Arithmetic},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2021},
+  eprint    = {2007.13242},
+  archivePrefix = {arXiv}
+}
+
+% audit L537-540. VERIFIED (arXiv API). ICLR 2019 only from the arXiv comment: venue unverified, not entered.
+% Year 2019 from arXiv id 1901.x.
+@misc{Sak19,
+  author = {Sakr, C. and Wang, N. and Chen, C.-Y. and Choi, J. and Agrawal, A. and Shanbhag, N. and Gopalakrishnan, K.},
+  title  = {Accumulation Bit-Width Scaling For Ultra-Low Precision Training Of Deep Networks},
+  year   = {2019},
+  eprint = {1901.06588},
+  archivePrefix = {arXiv}
+}
+
+% audit L547-550. VERIFIED (arXiv API). NeurIPS 2018 only from the arXiv comment: venue unverified, not entered.
+% Year 2018 from arXiv id 1812.x.
+@misc{Wan18,
+  author = {Wang, N. and Choi, J. and Brand, D. and Chen, C.-Y. and Gopalakrishnan, K.},
+  title  = {Training Deep Neural Networks with 8-bit Floating Point Numbers},
+  year   = {2018},
+  eprint = {1812.08011},
+  archivePrefix = {arXiv}
+}

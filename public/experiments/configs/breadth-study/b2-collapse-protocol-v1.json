@@ -1,0 +1,66 @@
+{
+  "protocol": "b2-collapse-protocol-v1",
+  "written": "2026-10-02, lane Q3, before any new measurement",
+  "purpose": "Diagnose three failure modes of the repaired B2 recipe; decide per mode: implementation defect, property of the method, or fragile design choice. No frozen recipe is changed; recommendations go to the owner.",
+  "evidence": {
+    "panel": "imagenet_screen_1k (frozen 1k screen; contains dev512 on which B2 was chosen): every number is development evidence",
+    "calibration": "B2 v1 calibration observations (unchanged) and the first 256 images of imagenet_calibration_2k (the B2 bias-correction set, existing cache entry, build=False); never the 2000-image entry",
+    "held_out": "ImageNet 10k beyond the screen and COCO are not touched",
+    "learned_rounding": "L6 fits (artifacts/experiment_b2_recon/fits, read-only); no new AdaRound fit",
+    "readout": "expected-credit top-1 primary (credit 1/k when the label is among k tied maxima), lowest-index secondary; one-class share = largest fraction of images on which one class is among the maxima (L6 addendum-1 primary share); collapse = one-class share >= 0.90",
+    "statistics": "paired image bootstrap of the expected-credit difference, 10000 resamples, seed 20260927 (tools.analysis.b2_ties.paired); pointwise 95 percent intervals, no multiplicity correction"
+  },
+  "identity_checks": [
+    "every reference arm rebuilt by this lane must reproduce the existing record: L6 arms by deployed_state_sha256 and 1000/1000 top-5 lists; matrix cells by configuration identity and readout arrays",
+    "the lane's re-implementation of sequential correction in policy 'global' must give the same corrected biases as tools.experiment_b2.engine.bias_correct (max abs difference <= 1e-5 relative to bias scale) and the same top-5 lists"
+  ],
+  "mode1_bias_correction": {
+    "reference_method": "Nagel et al. 2019 (DFQ, arXiv 1906.04721) section 4.2 and Appendix D: per-channel pre-activation means of the FP32 network on N images; for each layer in order, after every producer is corrected, subtract E[y_q]-E[y_fp] from the bias; run with quantized weights only (activations FP32), quantize activations afterwards. AdaRound (arXiv 2004.10568) Table 8: ResNet18 W4 per-layer nearest 23.99, empirical bias correction 38.87; its eq. 26 writes the correction with the same input x for both terms.",
+    "hypotheses": {
+      "H1.0_fidelity": "B2 bias_correct implements the Appendix-D procedure (FP32 reference, sign, channel axis, order, bias before the fused nonlinearity, nothing applied twice) with one deviation: it runs with quantized activations. Defect if an independent re-implementation differs or a structural slip is found.",
+      "H1.1_mechanism": "At large weight error the correction of late layers is dominated by inherited drift E[W(x_fp - x_q)] (upstream noise rectified by ReLU raises input means), not by the layer's own error E[(W - W_q) x_q]; the global correction cancels the drift with large negative shifts that push channels below the ReLU threshold, so late channels go dead and image-to-image spread collapses. Predictions: in collapse cells the inherited part exceeds the local part in the layers where correction RMS > FP32 channel-mean RMS; more always-off channels after correction than in FP32 and in the uncorrected network; fc spread ratio corrected/FP32 < 0.2.",
+      "H1.2_sample_size": "Not a sample-size effect: the collapse persists at 32, 64, 128 and 256 correction images.",
+      "H1.3_variants": "Variants that do not chase inherited drift (local_empirical, analytic_fp32, linear_only) avoid collapse in the 5 cells and are not worse than no correction by more than 2 points there; cap_rms reduces but may not remove the collapse; executed (recompute the layer with its corrected bias) equals B2 within 0.3 point; dfq_weights_only equals B2 at A32 by construction."
+    },
+    "variants": {
+      "b2": "tools.experiment_b2.engine.bias_correct (reference, must reproduce existing records)",
+      "none": "no correction",
+      "global": "lane re-implementation of b2 (identity check)",
+      "executed": "global, but each corrected layer is recomputed with its new bias in the staged pass (executed arithmetic)",
+      "dfq_weights_only": "global computed with every activation boundary unquantized (Appendix D literal), deployed with the recipe's activation quantization",
+      "cap_rms": "global, with the correction vector of each layer scaled down so its RMS does not exceed the RMS of the FP32 channel means",
+      "linear_only": "global, applied only at conv/linear layers whose output does not feed a rectifier (ReLU/ReLU6) directly, i.e. block outputs, projections, downsample and classifier (per layer-group correction)",
+      "local_empirical": "own-error correction E[(W - W_q) x_q] with x_q the corrected quantized network's input (AdaRound eq. 26 read with x = x_q)",
+      "analytic_fp32": "own-error correction (W - W_q) applied to the FP32 network's input E[x_fp] (DFQ section 4.2 analytic form, with the empirical FP32 input instead of batch-norm statistics)",
+      "images_32_64_128": "b2 on the first 32/64/128 of the 256 correction images"
+    },
+    "cells": {
+      "collapse5": ["resnet18 W4/A8 nearest default", "resnet18 W4/A4 nearest default", "resnet18 W4/A4 learned (L6 fit) default", "mobilenet_v2 W4/A4 nearest default", "mobilenet_v2 W4/A4 learned default"],
+      "faithfulness": "resnet18 W4/A32 one MSE scale per layer, nearest (paper 23.99 / 38.87)",
+      "equal_format": "INT4, INT5, INT6 weights and activations, nearest, default recipe, all three networks",
+      "helps": "mobilenet_v3_large INT8 nearest default and learned (L6 fit) default"
+    },
+    "instrumentation": "per conv/linear layer, policies none and b2 (and the variants on the faithfulness cell and the 5 cells): correction RMS, FP32 channel-mean RMS, local and inherited parts, fraction of always-off channels (positive on < 1 percent of positions) in FP32 / corrected network, across-image spread of per-image channel means (screen images 0..63, diagnostic only)"
+  },
+  "mode2_posit_maxabs": {
+    "hypotheses": {
+      "H2.1_no_slip": "scale_for maps the per-channel max-abs weight to the top codebook level (posit8_es1 4096, posit6_es1 256); the table holds the posit values; no slip.",
+      "H2.2_mechanism": "Under max-abs the largest weights fall into the top regimes, where posit8_es1 has levels 4096, 1024, 512, 256 (weights in 0.19..0.63 of max all map to 0.25 of max), so the layer weight SQNR is far below the MSE-scale SQNR; the bulk sits where spacing is 25 to 50 percent.",
+      "H2.3_anchor": "Anchoring max-abs at 1.0 (scale = maxabs) recovers posit8 to within 2 points of the MSE weight scale on all three networks; for posit6 (2 fraction bits at 1, none at 1/16) anchor-at-1 stays below MSE.",
+      "H2.4_nodes": "The MobileNetV2 posit8 one-class output is driven by a small group of late layers; quantizing only that group with max-abs (others MSE) reproduces the one-class output and the reverse arm removes it."
+    },
+    "arms": "minimal recipe with weight anchors maxpos (= minimal), one, mse (= minimal with MSE weight scales); posit8_es1 and posit6_es1, three networks; MobileNetV2 posit8 layer-group swaps",
+    "weight_analysis": "CPU: per-layer weight SQNR and level occupancy under each anchor"
+  },
+  "mode3_wide_exponent": {
+    "fact_to_verify": "for non-integer formats default and minimal differ only in weight range and bias correction (fused_relu, MSE activation ranges, signed codes in both); verified by plan and activation-scale equality",
+    "hypotheses": {
+      "H3.1": "The default-minus-minimal loss of fp8_e5m2, fp6_e3m2, log6, mxfp6_e3m2 on ResNet18 and MobileNetV2 is caused by bias correction: default_no_bias_correction recovers at least half of the loss with an interval excluding zero, with the H1.1 mechanism (late always-off channels; features_18 output 99.6 vs 93.5 percent zero codes on MobileNetV2 E5M2).",
+      "H3.2_alternative": "The MSE weight scale causes it: default_weight_maxabs recovers the loss."
+    },
+    "arms": "default_no_bias_correction and default_weight_maxabs for fp8_e5m2, fp6_e3m2, log6, posit6_es1 (three networks) and mxfp6_e3m2 (ResNet18 and MobileNetV2), plus the mode-1 variants on the scalar formats",
+    "decision": "a switch is the cause if removing it alone recovers >= 50 percent of the default-minus-minimal loss with the paired interval of (arm - default) excluding zero"
+  },
+  "verdict_rule": "defect = the code does not do what the cited method prescribes; property = the faithful method fails in this regime; fragile design = a recipe choice that is defensible but fails for a format family and has a cheap alternative.",
+  "budget": "about 1.5-2 GPU-hours, at most 2 jobs; disk <= 0.1 GB"
+}

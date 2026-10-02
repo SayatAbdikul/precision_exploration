@@ -1,0 +1,131 @@
+{
+ "mobilenet_v2": {
+  "groups": 12,
+  "min_sqnr_db_vs_damage_pp": {
+   "n": 12,
+   "p": 0.21982901960594778,
+   "rho": 0.382
+  },
+  "min_sqnr_db_vs_kl_only": {
+   "n": 12,
+   "p": 0.3191387855033045,
+   "rho": 0.315
+  },
+  "min_sqnr_db_vs_kl_reduction": {
+   "n": 12,
+   "p": 0.37856866966230307,
+   "rho": 0.28
+  },
+  "min_sqnr_db_vs_recovery_pp": {
+   "n": 12,
+   "p": 0.9312343512018807,
+   "rho": -0.028
+  },
+  "nsr_db_vs_damage_pp": {
+   "n": 12,
+   "p": 0.13952956520032403,
+   "rho": 0.453
+  },
+  "nsr_db_vs_kl_only": {
+   "n": 12,
+   "p": 0.512840943181826,
+   "rho": 0.21
+  },
+  "nsr_db_vs_kl_reduction": {
+   "n": 12,
+   "p": 0.5273023541661079,
+   "rho": 0.203
+  },
+  "nsr_db_vs_recovery_pp": {
+   "n": 12,
+   "p": 0.9827917689028476,
+   "rho": 0.007
+  }
+ },
+ "mobilenet_v3_large": {
+  "groups": 39,
+  "min_sqnr_db_vs_damage_pp": {
+   "n": 39,
+   "p": 0.0619921506771156,
+   "rho": -0.302
+  },
+  "min_sqnr_db_vs_kl_only": {
+   "n": 39,
+   "p": 7.367750610445825e-05,
+   "rho": -0.591
+  },
+  "min_sqnr_db_vs_kl_reduction": {
+   "n": 39,
+   "p": 0.5418305687917256,
+   "rho": -0.101
+  },
+  "min_sqnr_db_vs_recovery_pp": {
+   "n": 39,
+   "p": 0.22891611673263149,
+   "rho": -0.197
+  },
+  "nsr_db_vs_damage_pp": {
+   "n": 39,
+   "p": 0.06471013777712356,
+   "rho": -0.299
+  },
+  "nsr_db_vs_kl_only": {
+   "n": 39,
+   "p": 8.250629483676626e-05,
+   "rho": -0.588
+  },
+  "nsr_db_vs_kl_reduction": {
+   "n": 39,
+   "p": 0.6012315192599758,
+   "rho": -0.086
+  },
+  "nsr_db_vs_recovery_pp": {
+   "n": 39,
+   "p": 0.45873961633553145,
+   "rho": -0.122
+  }
+ },
+ "resnet18": {
+  "groups": 12,
+  "min_sqnr_db_vs_damage_pp": {
+   "n": 12,
+   "p": 0.7282748777285676,
+   "rho": 0.112
+  },
+  "min_sqnr_db_vs_kl_only": {
+   "n": 12,
+   "p": 0.7787253962454419,
+   "rho": 0.091
+  },
+  "min_sqnr_db_vs_kl_reduction": {
+   "n": 12,
+   "p": 0.11210929146889187,
+   "rho": 0.483
+  },
+  "min_sqnr_db_vs_recovery_pp": {
+   "n": 12,
+   "p": 0.6561292074448726,
+   "rho": 0.144
+  },
+  "nsr_db_vs_damage_pp": {
+   "n": 12,
+   "p": 0.31734788434996153,
+   "rho": 0.316
+  },
+  "nsr_db_vs_kl_only": {
+   "n": 12,
+   "p": 0.5717012385276553,
+   "rho": 0.182
+  },
+  "nsr_db_vs_kl_reduction": {
+   "n": 12,
+   "p": 0.9827917689028476,
+   "rho": 0.007
+  },
+  "nsr_db_vs_recovery_pp": {
+   "n": 12,
+   "p": 0.32969829123223027,
+   "rho": -0.308
+  }
+ }
+}

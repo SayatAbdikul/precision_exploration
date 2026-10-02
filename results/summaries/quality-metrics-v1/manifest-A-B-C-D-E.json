@@ -1,0 +1,39 @@
+{
+ "written": "2026-10-02T12:35:32+05:00",
+ "protocol": "public/experiments/configs/breadth-study/quality-metrics-protocol-v1.json",
+ "protocol_sha256": "bbbb9a6e5424e5e9d44cf635a4bb53c019d2a2d86864bb828c606b55b72db05e",
+ "seed": 20261002,
+ "evidence": "development evidence: ImageNet and COCO screen-1k lists only",
+ "analysis_code_sha256": {
+  "__init__.py": "22b43d48025aa0204d848e11631eeb360cf0a866244a65b9a59e112126bae1cd",
+  "agreement.py": "293b026fc091bead391744dc314bcfef0a23ff70d18d32b4ba87c5072078cf4d",
+  "detector.py": "cdc7ccf7850d10c46d5880fa462539e3882e7cac330f53e79d6cf134d4d4943f",
+  "figures.py": "aee9194ba118e2d457ac1a861b28e65b762e9f34313154a8c414d74240d5af00",
+  "fixed_width.py": "270339635e6ad102a2a68f557359e5b46aace24d77b10b23eba7e13cefc6ab2a",
+  "report.py": "aae3240b109f223bb12fec345099ad116cf2a837d3f35a470010839e5071ebf9",
+  "resolution.py": "baf55ca3ae3b8aac0e3b4310a29331d4c43e5bc5a8601521150458d72c168e4a",
+  "ties.py": "2dc5b7f6ce2526dff335951434ff411344f63b28e7e3989b9f61f85013f610b6",
+  "units.py": "38d9faec87b1318e41b68de22421b189c1220664743fe77f33fc1830cfc05681"
+ },
+ "files": [
+  "partA-units.csv",
+  "partA-pairs.csv",
+  "partA-resolution.json",
+  "partB-subsample.csv",
+  "partB-subsample-summary.csv",
+  "partB-coverage.csv",
+  "partB-power.csv",
+  "partB-power-check.csv",
+  "partB-ledger.json",
+  "partC-classifier-ties.csv",
+  "partC-classifier-ties-by-family.csv",
+  "partB-detector-resolution.csv",
+  "partB-detector-se.csv",
+  "partC-detector-tie-orders.csv",
+  "partD-detector-agreement.csv",
+  "partD-score-step.csv",
+  "partE-grid.csv",
+  "partE-orders.csv",
+  "partE-float-accumulators.csv"
+ ]
+}

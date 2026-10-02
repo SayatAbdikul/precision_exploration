@@ -1,0 +1,25 @@
+case,format,policy,type,top1,diff_vs_wide,diff_lo,diff_hi
+resnet18-int8-default-b2,INT8,control,control,69.05,0.0,0.0,0.0
+resnet18-int8-default-b2,INT8,f21,f21,69.433333,0.383333,-0.1,0.9
+resnet18-int8-default-b2,INT8,fp16.x-11,fp16,69.341667,0.291667,-0.3,0.883333
+resnet18-int8-default_signed-b2,INT8 signed act.,control,control,69.058333,0.0,0.0,0.0
+resnet18-int8-default_signed-b2,INT8 signed act.,f21,f21,68.9,-0.158333,-0.8,0.458333
+resnet18-int8-default_signed-b2,INT8 signed act.,fp16.x-10,fp16,68.908333,-0.15,-0.7,0.40125
+resnet18-int6-default-b2,INT6,control,control,65.908333,0.0,0.0,0.0
+resnet18-int6-default-b2,INT6,f21,f21,65.979286,0.070952,-0.815732,0.956673
+resnet18-int6-default-b2,INT6,fp16.x-7,fp16,65.842619,-0.065714,-0.827405,0.678571
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,control,control,66.528333,0.0,0.0,0.0
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,f21,f21,66.86,0.331667,-0.571667,1.246667
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,fp16.x-1,fp16,66.833333,0.305,-0.695,1.346708
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,control,control,67.289167,0.0,0.0,0.0
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,f21,f21,67.287619,-0.001548,-0.839881,0.813494
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,fp16.x-5,fp16,67.280833,-0.008333,-0.875,0.841708
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,control,control,67.5275,-0.075,-0.3,0.133333
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,f21,f21,67.603333,0.000833,-0.75,0.755021
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,fp16.x-13,fp16,67.431667,-0.170833,-1.004167,0.680854
+resnet18-posit8_es1-default-b2,Posit8 es1,control,control,69.653333,0.0,0.0,0.0
+resnet18-posit8_es1-default-b2,Posit8 es1,f21,f21,69.317619,-0.335714,-0.843333,0.152857
+resnet18-posit8_es1-default-b2,Posit8 es1,fp16.x-10,fp16,70.286667,0.633333,0.029917,1.246667
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,control,control,60.89167,-0.016667,-0.05,0.0
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,f21,f21,60.223333,-0.685004,-1.779219,0.390533
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,fp16.x-27,fp16,60.107097,-0.80124,-1.915283,0.298692

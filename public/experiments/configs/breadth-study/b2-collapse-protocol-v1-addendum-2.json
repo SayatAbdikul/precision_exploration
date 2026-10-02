@@ -1,0 +1,11 @@
+{
+ "protocol": "b2-collapse-protocol-v1-addendum-2",
+ "amends": {
+  "file": "public/experiments/configs/breadth-study/b2-collapse-protocol-v1-addendum-1.json",
+  "sha256": "6872c72dc30fa92cdd89353df46bb94f6b41102d59139f81780c33560d793606"
+ },
+ "written": "2026-10-02T16:23:30+05:00",
+ "author": "lane Q3 agent r4",
+ "change": "MobileNetV2 validation of the low-memory path is identity-only: before the mobilenet_v2 mxfp6_e3m2 default_weight_maxabs cell, the same process rebuilds the mobilenet_v2 mxfp6_e3m2 default configuration with the low-memory correction (no evaluation) and compares its configuration identity (per-layer correction report: max-abs and RMS of the applied correction and RMS of the FP32 channel means, plus the quantized-weight hashes) with the matrix record artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp6_e3m2--default--1000--bb4ec972ac49.json; written to artifacts/experiment_b2_collapse/matrix/checks/mobilenet_v2--mxfp6_e3m2--default--lowmem-identity.json. A mismatch stops the process before the cell (exit 5) and the MobileNetV2 max-abs arm is then reported as not measured. Reason: a full MobileNetV2 validation cell costs about 10 GPU-minutes; the low-memory path changes only the preparation, which the identity covers; the full logits/readout check is done on ResNet18.",
+ "evidence": "1k screen, development evidence (unchanged)"
+}

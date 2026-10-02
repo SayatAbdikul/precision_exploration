@@ -1,0 +1,29 @@
+{
+ "protocol": "b2-collapse-protocol-v1-addendum-3",
+ "amends": {
+  "file": "public/experiments/configs/breadth-study/b2-collapse-protocol-v1-addendum-2.json",
+  "sha256": "b1b40419f05d9592f4eb59ed5efb9c87e01dee4062b05cd48153ba344a386eb1"
+ },
+ "written": "2026-10-02T17:43:00+05:00",
+ "author": "lane Q3 agent r5",
+ "reason": "Independent review 1 (artifacts/agent_orchestration/handoffs/Q3-collapse-diagnosis-review.md, blocking finding 2): the analysis document says that rectified upstream noise raises the means of the quantized activations and that the global correction cancels this positive drift. The lane's sealed records hold no input-side mean, so that sentence was never measured; the reviewer's own measurement (artifacts/experiment_b2_collapse/review-scratch/drift_check.json, lane build code plus forward hooks) found the late conv/linear inputs attenuated, not raised. This addendum adds one diagnostic measurement so that the direction rests on a lane record. It is written AFTER the reviewer's measurement: it is a reproduction with the lane's code and the sealed arms, not a blind test.",
+ "measurement": "For each listed arm: rebuild the engine exactly as tools/experiment_b2_collapse/evaluate.run_group does (same spec from evaluate.mode1_arms / mode3_arms, same L6 fit for learned arms, same 256 correction images, same calibration observations); compare the rebuilt deployed-state SHA-256 with the sealed record's; then run the 256 correction images through the FP32 graph and through the rebuilt engine (chunks of 32) and record, at the input of every conv/linear module, the per-channel mean over images and positions in both networks: drift = E[x_q] - E[x_fp] (mean over channels), share of channels with drift > 0, FP32 input mean (mean over channels). No screen image is used and no accuracy is computed.",
+ "arms": {
+  "resnet18": ["faith-w4-a32-perlayer-N--none", "faith-w4-a32-perlayer-N--global", "w4-a4-default-N--none", "w4-a4-default-N--global", "w4-a4-default-L--none", "w4-a4-default-L--global", "w5-a5-default-N--none", "w5-a5-default-N--global", "fp6_e3m2-default-N--none (unsealed: mode 3 has no lane 'none' arm; its deployed state is compared with the sealed fp6_e3m2-default_no_bias_correction-N--b2 record for information)", "fp6_e3m2-default-N--global"],
+  "mobilenet_v2": ["w4-a4-default-L--none", "w4-a4-default-L--global", "w4-a4-default-N--none", "w4-a4-default-N--global", "fp8_e5m2-default-N--none (unsealed, as above, compared with fp8_e5m2-default_no_bias_correction-N--b2)", "fp8_e5m2-default-N--global"]
+ },
+ "late_inputs": {
+  "resnet18": ["layer4_0_conv2", "layer4_1_conv1", "layer4_1_conv2", "fc"],
+  "mobilenet_v2": ["features_17_conv_1_0", "features_17_conv_2", "classifier_1"]
+ },
+ "hypotheses": {
+  "D1_global_attenuates": "Under the global correction, at every listed late input of every listed collapse or loss cell (all '--global' arms except w5-a5 ResNet18, which is reported but not tested), the mean drift is negative and at most 10 percent of the channels have a positive drift.",
+  "D2_no_raised_inputs_uncorrected": "Without correction, the listed late inputs are not raised: at most 60 percent of their channels have a positive drift. Rejecting D2 (more than 60 percent positive at most late inputs) would support the old sentence; accepting it rejects that sentence as a description of the inputs."
+ },
+ "acceptance": "An arm with a sealed record whose rebuilt deployed-state SHA-256 differs from the record is reported as not reproduced and excluded from D1/D2.",
+ "data": "first 256 images of imagenet_calibration_2k (existing B2 cache entry, build=False); B2 v1 calibration observations; L6 fits read-only. Nothing from the 1k screen or the held-out lists.",
+ "running": "two GPU jobs (one per network) through GPU_LANE=Q3 artifacts/agent_orchestration/gpu_run.sh --min-free-mib 3000, one at a time, each expected under 15 minutes; not heavy (lane arms peak at about 1.6 GB).",
+ "outputs": "artifacts/experiment_b2_collapse/drift/input-drift--<model>--r1.json, each written once.",
+ "other_changes_without_measurement": "Review blocking findings 1 and 3 and the must-fix items are text corrections of numbers already in the r2 summaries and in artifacts/experiment_b2_collapse/weights/weight-placement-r1.json. A unit test for H2.1 (independent posit decoder, value-nearest rounding, max-abs to maxpos) is added; it measures nothing on images.",
+ "evidence": "diagnostic on calibration images (no evaluation); the document's accuracies stay 1k-screen development evidence"
+}

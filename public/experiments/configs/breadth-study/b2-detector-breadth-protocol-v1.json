@@ -1,0 +1,59 @@
+{
+  "version": "experiment-b2-detector-breadth-1.0.0",
+  "lane": "Q6 (detector breadth), 2026-10-02",
+  "written": "2026-10-02 11:36 (+05; this label was corrected twice within the same minute, before any measurement), before any measurement of this study",
+  "inherits": "experiment-b2-detector-1.0.0 with addenda 1 to 4 (public/experiments/configs/breadth-study/b2-detector-protocol-v1*.json): model, graph, operators, engine, recipes `default` and `conformant`, head and DFL policy, fixed tie rule, tie orders, metric, statistics and data roles are unchanged. Nothing here re-freezes or changes a recipe.",
+  "purpose": "Close three gaps of the YOLOv8n detector study on the COCO 1k screen: (A) the 16 formats never measured under the repaired recipes, (B) robustness to the calibration draw, (C) where the 6-bit loss lives. All of it is development evidence.",
+  "data": {
+    "calibration": "coco_calibration_2k only (data/manifests/index.json), through the sealed v1 per-batch observations in artifacts/experiment_b_ext/calibration/e3af168d... (read-only; 250 batches of 8 images in ascending sha256 order, 256 rotating-channel samples per node per image and exact per-batch node maxima).",
+    "evaluation": "coco_screen_1k only, iterated from the manifest (data/manifests/evaluation/coco2017_val_1k.tsv through tools.experiment_b.common.dataset): screen1k = all 1000 rows. No image outside it is opened; no dataset yaml, no Ultralytics val, no val5k prediction file is read.",
+    "reuse": "L7's FP32, INT8 and sentinel detections and bootstrap vectors under artifacts/experiment_b2_det/ are read, never written. Draw sequence identical (2000 draws, seed 310911), so pairs across the two evidence trees are valid."
+  },
+  "running": {
+    "wrapper": "tools/experiment_b2_det_breadth/ imports tools.experiment_b2_det (runner.Session, recipes, engine, post, stats) read-only and writes only to artifacts/experiment_b2_det_breadth/. Any module attribute patch is made inside the wrapper's own process.",
+    "reproduction_gate": "Before any new measurement the wrapper must reproduce L7's INT8 `default` configuration exactly (same configuration identity, detections bit-identical to the stored screen1k fixed-rule file), through the format path, the calibration-subset path with all 250 batches, and the attribution path with an empty group. A failure stops the study.",
+    "gpu": "gpu_run.sh with GPU_LANE=Q6 and --min-free-mib 5000; at most 2 jobs at a time; several configurations per process. Budget: 4.5 GPU-hours in total."
+  },
+  "part_a_formats": {
+    "formats": ["int5", "int4", "q1_6", "fp8_e5m2", "fp6_e3m2", "fp5_e2m2", "fp4_e2m1", "mxfp6_e3m2", "mxfp4_e2m1", "posit6_es1", "posit4_es0", "log6", "log4", "nf4", "ternary", "binary_pm1"],
+    "q1_6": "Included. It is not an exact alias of int8 under the B2 recipes: the unsigned codebook variant exists only for the integer family (tools/experiment_b2/codebook.supports_unsigned), so under `default` q1_6 stores the input image, the sigmoid scores and the box expectation with signed codes where int8 uses unsigned ones. A unit test checks this on the plan.",
+    "recipes": "`default` (frozen) and `conformant` (addendum 3). For the block formats mxfp6_e3m2 and mxfp4_e2m1 the conformant arm is `default_fp32_box_logits`, the nearest available recipe (box logits wide as the rule prescribes, joins not stored), marked with a dagger everywhere, as L7 did for bfp6 and mxfp8_e4m3.",
+    "tie_orders": "The fixed rule plus reverse and random0..3 (the six orders of runner.TIE_ORDERS) evaluated on the GPU from the same engine; `imageid` (ascending COCO image_id, plain pycocotools) evaluated on the CPU from the stored fixed-rule detections. Tie-order files are stored relative to the fixed-rule file (a reference index per detection plus the detections not present in it), reconstructed exactly before evaluation (unit-tested round trip).",
+    "stop_rule": "A format whose `default` mAP50-95 under the fixed rule is below 1.0 point is at chance: its conformant arm and its extra tie orders are not run. Its `default` value, its paired difference to FP32 and the count of detections are still reported.",
+    "comparisons": "Paired image bootstrap (L7's stats.Evaluated.bootstrap, 2000 draws, seed 310911) of: each configuration minus FP32 (L7 fp32 vector), conformant minus default, and minus INT8 under the same recipe (L7 vectors). Intervals pointwise 95 percent, no multiplicity adjustment.",
+    "classifier_comparison": "Descriptive only: beside the 25-format detector table (9 L7 sentinels + 16 here) the classifier matrix's `default` top-1 per format and model (results/summaries/b2-matrix-v1/cells-d4.csv, column top1_expected, read-only) and Spearman and Kendall rank correlations between detector mAP50-95 and each classifier's top-1 over the 25 formats, under `default` (and with the detector's conformant column). No test is attached."
+  },
+  "part_b_calibration_subsets": {
+    "subsets": "The 250 calibration batches are partitioned into 5 disjoint subsets of 50 batches (400 images) each by numpy.random.default_rng(20261002).permutation(250), subset k = permuted positions 50k..50k+49, each subset's batches used in ascending order. Samples of a subset = the concatenation of its batches' stored samples; maxima = the maximum of its batches' stored maxima. The union of all 250 batches must reproduce the ranges, samples and calibration identity of the full set exactly (unit test), and then the configuration identity of L7's INT8 default (reproduction gate).",
+    "formats": "int8, int6, fp6_e2m3, posit8_es1, log8 under `default` and `conformant` (5 x 2 x 5 = 50 configurations); fp8_e4m3fn under both recipes only if the GPU budget allows after parts A and C (stated in the results either way). bfp6 and mxfp8_e4m3 take no calibration (block max-abs scale computed at run time; no range rule, no bias correction): a unit test shows their engine does not read the observations, so their value is the same for every subset and L7's value is used.",
+    "readouts": "Per format and recipe: the five subset values, their mean and standard deviation (n-1 denominator), range, and the full-set value from L7. The seed SD is compared with half the 0.5 mAP50-95 margin of the confirmation-protocol draft (0.25; the draft extends to five seeds when the seed SD exceeds delta/2) and with the margin itself. Close gaps: posit8 minus int8 (both on the same subset) and log8 minus bfp6 (bfp6 calibration-invariant) per subset under each recipe, with the paired bootstrap interval per subset for these pairs; sign stability = number of subsets on which the sign agrees with the full-set sign. Fixed tie rule only.",
+    "caveat_fixed_in_advance": "400-image subsets are smaller than the 2000-image set used everywhere else, so their spread is an estimate of the spread of a 400-image draw and an upper reference for a 2000-image draw; no scaling to 2000 is claimed."
+  },
+  "part_c_six_bit_attribution": {
+    "status": "Diagnostic only. No result here becomes a recipe, a per-layer precision proposal or a mixed-precision claim.",
+    "formats": "int6 and fp6_e2m3 under `default`, screen1k, fixed tie rule.",
+    "wide_group": "A group is kept wide when every activation boundary of its nodes is not quantized and the weight constants of its convolutions (and, for the DFL group, the projection constants) are the FP32 originals. A pass-through node (slice, max-pool, upsample) outside the group whose source is no longer on the grid quantizes with its own observed range, as the engine does for a source that is not on the grid; nothing else changes.",
+    "groups": {
+      "stem": "input image, model_0, model_1",
+      "stage_p2": "model_2",
+      "stage_p3": "model_3, model_4",
+      "stage_p4": "model_5, model_6",
+      "stage_p5": "model_7, model_8",
+      "sppf": "model_9",
+      "neck": "model_10 .. model_21",
+      "head_p3": "model_22_level_0 convolutions (box and class branches, including the two network outputs)",
+      "head_p4": "model_22_level_1 convolutions",
+      "head_p5": "model_22_level_2 convolutions",
+      "dfl": "model_22_level_{0,1,2}_dfl and the projection constants",
+      "scores": "model_22_level_{0,1,2}_scores (sigmoid)"
+    },
+    "whole_network_splits": "Also weights only quantized and activations only quantized (L7's arms default_weights_only and default_activations_only) for both formats.",
+    "finer_stage": "The worst group per format = the largest point gain of keeping it wide over `default` on screen1k (ties broken by the order listed above). Inside it, one finer unit at a time is kept wide, with the units fixed now: stem: input | model_0 | model_1; a backbone stage: per module (stage_p2: model_2_cv1 | model_2_m_0 | model_2 split, cat and cv2); sppf: cv1 | the three pools and the concatenation | cv2; neck: model_10-11 | model_12 | model_13-14 | model_15 | model_16-17 | model_18 | model_19-20 | model_21; head_pX: box convolutions 0 and 1 | box logits | class convolutions 0 and 1 | class logits; dfl and scores: per level.",
+    "gpu_cap": "At most 14 group configurations and at most 12 finer configurations per format (52 in total, about 1 GPU-hour). The finer stage is skipped if the cap or the 4.5-hour total would be exceeded.",
+    "readouts": "Gain over `default` with the paired bootstrap interval, and the share of the format's loss to FP32 that the gain recovers (gain / (FP32 - default)); shares are not additive and are not claimed to be."
+  },
+  "statistics": "As inherited: paired image-level percentile bootstrap of the dataset-level AP difference, 2000 draws, seed 310911, pointwise 95 percent, no multiplicity adjustment. Arms in parts A and C are chosen by this protocol; the finer stage of part C is chosen adaptively by the rule above.",
+  "outputs": "results/summaries/b2-detector-breadth-v1/ (written once; a regenerated summary goes to a new versioned name), results/figures/b2-detector-breadth-*, docs/analysis/b2-detector-breadth-2026-10-02.md, evidence under artifacts/experiment_b2_det_breadth/.",
+  "storage": "Detections as L7's compact integer arrays (one fixed-rule file per configuration), tie-order files as reference indices into the fixed-rule file; no inputs, activations, weights or calibration copies are stored. Lane budget 0.2 GB.",
+  "what_this_does_not_do": "No re-freeze, no choice between `default` and `conformant` (owner decision), no exact-engine or hardware claim, no image outside the 1k screen, no new calibration images, no bias-correction arm."
+}

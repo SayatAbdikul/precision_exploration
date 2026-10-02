@@ -1,0 +1,26 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-7",
+ "lane": "Q4 activation attribution (agent r5)",
+ "written_utc": "2026-10-02T12:24:37+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92",
+  "addendum_4_sha256": "9f2b73bd4c2bb524ae4d5755ab18255614ee5b03c91e920f9e4813ab7231fb01",
+  "addendum_6_sha256": "bf731668e740fb56bfbb04599c8a9030f1bfa62b4067b029466df61788db8e15"
+ },
+ "status": "written before the arm defined here ran; Part C MobileNetV2 FP6 E2M3 attribution and the addendum-4 r3 arms measured before it",
+ "observation_motivating_it": "In every attributed cell the stem group has the largest damage; in MobileNetV2 FP6 E2M3 keeping the stem FP32 recovers 4.7 [3.2, 6.2] of a 6.07 pp activation loss. Does the stem repair r3a (pcf:role.stem) transfer to that cell?",
+ "repair_arm": {
+  "arm": "pcf:role.stem",
+  "cells": {
+   "mobilenet_v2": [
+    "fp6_e2m3"
+   ]
+  },
+  "audit": false,
+  "definition": "as addendum 4 r3a (pcfull per-channel scales at the stem boundaries other than the input)",
+  "selection": "chosen after looking at the screen attribution: development evidence, optimistic"
+ },
+ "gpu": "one job (about 150-250 s) inside the remaining 10800 s cap (recorded 9245 s + 1200 s allowance = 10445 s at writing); not run if the cap would be exceeded",
+ "evidence": "development: ImageNet 1k screen"
+}

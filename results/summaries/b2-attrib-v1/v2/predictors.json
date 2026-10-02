@@ -1,0 +1,1272 @@
+{
+ "by_model_group_sqnr_vs_damage": {
+  "mobilenet_v2": {
+   "bootstrap": "percentile, 10000 resamples, strata=cell, seed 20261002",
+   "bootstrap_valid": 10000,
+   "ci95": [
+    -0.19,
+    0.86
+   ],
+   "n": 12,
+   "p": 0.13952956520032403,
+   "rho": 0.453
+  },
+  "mobilenet_v3_large": {
+   "bootstrap": "percentile, 10000 resamples, strata=cell, seed 20261002",
+   "bootstrap_valid": 10000,
+   "ci95": [
+    -0.58,
+    0.0
+   ],
+   "n": 39,
+   "p": 0.06471013777712356,
+   "rho": -0.299
+  },
+  "resnet18": {
+   "bootstrap": "percentile, 10000 resamples, strata=cell, seed 20261002",
+   "bootstrap_valid": 10000,
+   "ci95": [
+    -0.35,
+    0.73
+   ],
+   "n": 12,
+   "p": 0.31734788434996153,
+   "rho": 0.316
+  }
+ },
+ "holm": {
+  "adjusted_p": {
+   "by_model:mobilenet_v2:nsr_db_vs_damage_pp": 1.0,
+   "by_model:mobilenet_v3_large:nsr_db_vs_damage_pp": 1.0,
+   "by_model:resnet18:nsr_db_vs_damage_pp": 1.0,
+   "leave_one_out:fp6_e2m3:node_sqnr_vs_recovery": 1.0,
+   "leave_one_out:int6:node_sqnr_vs_recovery": 1.0,
+   "leave_one_out:int8:node_sqnr_vs_recovery": 1.0,
+   "mobilenet_v2/fp6_e2m3:group_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v2/fp6_e2m3:group_sqnr_vs_kl_only": 1.0,
+   "mobilenet_v2/fp6_e2m3:group_sqnr_vs_recovery_pp": 1.0,
+   "mobilenet_v2/fp6_e2m3:min_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v2/int6:group_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v2/int6:group_sqnr_vs_kl_only": 1.0,
+   "mobilenet_v2/int6:group_sqnr_vs_recovery_pp": 1.0,
+   "mobilenet_v2/int6:min_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v3_large/fp6_e2m3:group_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v3_large/fp6_e2m3:group_sqnr_vs_kl_only": 1.0,
+   "mobilenet_v3_large/fp6_e2m3:group_sqnr_vs_recovery_pp": 1.0,
+   "mobilenet_v3_large/fp6_e2m3:min_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v3_large/int6:group_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v3_large/int6:group_sqnr_vs_kl_only": 1.0,
+   "mobilenet_v3_large/int6:group_sqnr_vs_recovery_pp": 1.0,
+   "mobilenet_v3_large/int6:min_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v3_large/int8:group_sqnr_vs_damage_pp": 1.0,
+   "mobilenet_v3_large/int8:group_sqnr_vs_kl_only": 0.5899410014813649,
+   "mobilenet_v3_large/int8:group_sqnr_vs_recovery_pp": 1.0,
+   "mobilenet_v3_large/int8:min_sqnr_vs_damage_pp": 1.0,
+   "pooled:min_sqnr_db_vs_damage_pp": 1.0,
+   "pooled:nsr_db_vs_damage_pp": 1.0,
+   "pooled:nsr_db_vs_kl_only": 1.0,
+   "pooled:nsr_db_vs_recovery_pp": 1.0,
+   "resnet18/fp6_e2m3:group_sqnr_vs_damage_pp": 1.0,
+   "resnet18/fp6_e2m3:group_sqnr_vs_kl_only": 1.0,
+   "resnet18/fp6_e2m3:group_sqnr_vs_recovery_pp": 1.0,
+   "resnet18/fp6_e2m3:min_sqnr_vs_damage_pp": 1.0,
+   "resnet18/int6:group_sqnr_vs_damage_pp": 1.0,
+   "resnet18/int6:group_sqnr_vs_kl_only": 1.0,
+   "resnet18/int6:group_sqnr_vs_recovery_pp": 1.0,
+   "resnet18/int6:min_sqnr_vs_damage_pp": 1.0,
+   "within_cell:min_sqnr_db_vs_damage_pp": 1.0,
+   "within_cell:nsr_db_vs_damage_pp": 1.0,
+   "within_cell:nsr_db_vs_kl_only": 1.0,
+   "within_cell:nsr_db_vs_recovery_pp": 1.0
+  },
+  "below_0.05_after_adjustment": [],
+  "family": "every SQNR-predictor p-value in this block (per cell, pooled, within-cell, by model, leave-one-out)",
+  "raw_p": {
+   "by_model:mobilenet_v2:nsr_db_vs_damage_pp": 0.13952956520032403,
+   "by_model:mobilenet_v3_large:nsr_db_vs_damage_pp": 0.06471013777712356,
+   "by_model:resnet18:nsr_db_vs_damage_pp": 0.31734788434996153,
+   "leave_one_out:fp6_e2m3:node_sqnr_vs_recovery": 0.9324023932339925,
+   "leave_one_out:int6:node_sqnr_vs_recovery": 0.6562016850758908,
+   "leave_one_out:int8:node_sqnr_vs_recovery": 0.1275528697032343,
+   "mobilenet_v2/fp6_e2m3:group_sqnr_vs_damage_pp": 0.4614828403508045,
+   "mobilenet_v2/fp6_e2m3:group_sqnr_vs_kl_only": 0.3287230320699708,
+   "mobilenet_v2/fp6_e2m3:group_sqnr_vs_recovery_pp": 0.9571545189504373,
+   "mobilenet_v2/fp6_e2m3:min_sqnr_vs_damage_pp": 0.658373571260927,
+   "mobilenet_v2/int6:group_sqnr_vs_damage_pp": 0.32063258286582746,
+   "mobilenet_v2/int6:group_sqnr_vs_kl_only": 0.7871720116618076,
+   "mobilenet_v2/int6:group_sqnr_vs_recovery_pp": 0.9571545189504373,
+   "mobilenet_v2/int6:min_sqnr_vs_damage_pp": 0.2573693316225746,
+   "mobilenet_v3_large/fp6_e2m3:group_sqnr_vs_damage_pp": 0.8863080654327772,
+   "mobilenet_v3_large/fp6_e2m3:group_sqnr_vs_kl_only": 0.5655798619595344,
+   "mobilenet_v3_large/fp6_e2m3:group_sqnr_vs_recovery_pp": 0.6157988686488813,
+   "mobilenet_v3_large/fp6_e2m3:min_sqnr_vs_damage_pp": 0.7677166575397277,
+   "mobilenet_v3_large/int6:group_sqnr_vs_damage_pp": 0.21517716251196958,
+   "mobilenet_v3_large/int6:group_sqnr_vs_kl_only": 0.0707490406749638,
+   "mobilenet_v3_large/int6:group_sqnr_vs_recovery_pp": 0.6676075762175145,
+   "mobilenet_v3_large/int6:min_sqnr_vs_damage_pp": 0.26224557983406577,
+   "mobilenet_v3_large/int8:group_sqnr_vs_damage_pp": 0.5974214671276694,
+   "mobilenet_v3_large/int8:group_sqnr_vs_kl_only": 0.014046214320984877,
+   "mobilenet_v3_large/int8:group_sqnr_vs_recovery_pp": 0.31030924567559964,
+   "mobilenet_v3_large/int8:min_sqnr_vs_damage_pp": 0.4298162935995503,
+   "pooled:min_sqnr_db_vs_damage_pp": 0.2906905004406855,
+   "pooled:nsr_db_vs_damage_pp": 0.38405477796089277,
+   "pooled:nsr_db_vs_kl_only": 0.03353549353206331,
+   "pooled:nsr_db_vs_recovery_pp": 0.5013012515009541,
+   "resnet18/fp6_e2m3:group_sqnr_vs_damage_pp": 0.4684781341107872,
+   "resnet18/fp6_e2m3:group_sqnr_vs_kl_only": 0.4684781341107872,
+   "resnet18/fp6_e2m3:group_sqnr_vs_recovery_pp": 0.8717434402332361,
+   "resnet18/fp6_e2m3:min_sqnr_vs_damage_pp": 0.9571545189504373,
+   "resnet18/int6:group_sqnr_vs_damage_pp": 0.4246625075613642,
+   "resnet18/int6:group_sqnr_vs_kl_only": 0.9571545189504373,
+   "resnet18/int6:group_sqnr_vs_recovery_pp": 0.208,
+   "resnet18/int6:min_sqnr_vs_damage_pp": 0.9131317851623264,
+   "within_cell:min_sqnr_db_vs_damage_pp": 0.8417158284171583,
+   "within_cell:nsr_db_vs_damage_pp": 0.30356964303569645,
+   "within_cell:nsr_db_vs_kl_only": 0.7501249875012499,
+   "within_cell:nsr_db_vs_recovery_pp": 0.5487451254874512
+  },
+  "tests": 42
+ },
+ "per_cell": {
+  "mobilenet_v2/fp6_e2m3": {
+   "activation_loss_pp": 6.07,
+   "first_minus_second_damage": {
+    "ci95_pp": [
+     0.89,
+     3.86
+    ],
+    "diff_pp": 2.36,
+    "groups": [
+     "stem",
+     "classifier"
+    ]
+   },
+   "format": "fp6_e2m3",
+   "group_sqnr_ranking_db": [
+    [
+     "stem",
+     29.0
+    ],
+    [
+     "residual_add",
+     19.5
+    ],
+    [
+     "dw_act",
+     18.7
+    ],
+    [
+     "expand_act",
+     18.6
+    ],
+    [
+     "classifier",
+     15.5
+    ],
+    [
+     "project",
+     14.9
+    ]
+   ],
+   "groups": 6,
+   "largest_damage": [
+    {
+     "ci95_pp": [
+      1.4,
+      4.5
+     ],
+     "damage_pp": 2.9,
+     "group": "stem",
+     "group_sqnr_db": 29.0,
+     "recovery_ci95_pp": [
+      3.23,
+      6.2
+     ],
+     "recovery_pp": 4.7
+    },
+    {
+     "ci95_pp": [
+      -0.25,
+      1.38
+     ],
+     "damage_pp": 0.54,
+     "group": "classifier",
+     "group_sqnr_db": 15.5,
+     "recovery_ci95_pp": [
+      -0.14,
+      1.68
+     ],
+     "recovery_pp": 0.77
+    },
+    {
+     "ci95_pp": [
+      -0.8,
+      1.2
+     ],
+     "damage_pp": 0.2,
+     "group": "dw_act",
+     "group_sqnr_db": 18.7,
+     "recovery_ci95_pp": [
+      -0.4,
+      1.86
+     ],
+     "recovery_pp": 0.74
+    }
+   ],
+   "model": "mobilenet_v2",
+   "predictors": {
+    "group_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9989,
+     "ci95": [
+      -0.8,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.4614828403508045,
+     "rho": 0.377
+    },
+    "group_sqnr_vs_kl_only": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -0.81,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.3287230320699708,
+     "rho": 0.486
+    },
+    "group_sqnr_vs_recovery_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -1.0,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.9571545189504373,
+     "rho": 0.029
+    },
+    "min_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9989,
+     "ci95": [
+      -1.0,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.658373571260927,
+     "rho": 0.232
+    }
+   },
+   "stem_rank_by_group_sqnr": 1
+  },
+  "mobilenet_v2/int6": {
+   "activation_loss_pp": 2.6,
+   "first_minus_second_damage": {
+    "ci95_pp": [
+     -0.4,
+     2.1
+    ],
+    "diff_pp": 0.8,
+    "groups": [
+     "stem",
+     "residual_add"
+    ]
+   },
+   "format": "int6",
+   "group_sqnr_ranking_db": [
+    [
+     "stem",
+     33.0
+    ],
+    [
+     "dw_act",
+     23.5
+    ],
+    [
+     "expand_act",
+     22.7
+    ],
+    [
+     "residual_add",
+     17.6
+    ],
+    [
+     "classifier",
+     15.2
+    ],
+    [
+     "project",
+     12.0
+    ]
+   ],
+   "groups": 6,
+   "largest_damage": [
+    {
+     "ci95_pp": [
+      0.2,
+      2.6
+     ],
+     "damage_pp": 1.4,
+     "group": "stem",
+     "group_sqnr_db": 33.0,
+     "recovery_ci95_pp": [
+      -0.39,
+      1.74
+     ],
+     "recovery_pp": 0.68
+    },
+    {
+     "ci95_pp": [
+      -0.2,
+      1.4
+     ],
+     "damage_pp": 0.6,
+     "group": "residual_add",
+     "group_sqnr_db": 17.6,
+     "recovery_ci95_pp": [
+      -0.81,
+      1.15
+     ],
+     "recovery_pp": 0.16
+    },
+    {
+     "ci95_pp": [
+      -0.1,
+      1.2
+     ],
+     "damage_pp": 0.5,
+     "group": "dw_act",
+     "group_sqnr_db": 23.5,
+     "recovery_ci95_pp": [
+      -1.84,
+      0.3
+     ],
+     "recovery_pp": -0.76
+    }
+   ],
+   "model": "mobilenet_v2",
+   "predictors": {
+    "group_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9980,
+     "ci95": [
+      -0.5,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.32063258286582746,
+     "rho": 0.493
+    },
+    "group_sqnr_vs_kl_only": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -1.0,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.7871720116618076,
+     "rho": 0.143
+    },
+    "group_sqnr_vs_recovery_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -1.0,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.9571545189504373,
+     "rho": 0.029
+    },
+    "min_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9980,
+     "ci95": [
+      -0.89,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.2573693316225746,
+     "rho": 0.551
+    }
+   },
+   "stem_rank_by_group_sqnr": 1
+  },
+  "mobilenet_v3_large/fp6_e2m3": {
+   "activation_loss_pp": 16.17,
+   "first_minus_second_damage": {
+    "ci95_pp": [
+     3.5,
+     8.1
+    ],
+    "diff_pp": 5.8,
+    "groups": [
+     "stem",
+     "hswish"
+    ]
+   },
+   "format": "fp6_e2m3",
+   "group_sqnr_ranking_db": [
+    [
+     "stem",
+     24.9
+    ],
+    [
+     "se_expand",
+     22.5
+    ],
+    [
+     "se_gate",
+     22.2
+    ],
+    [
+     "se_reduce",
+     21.5
+    ],
+    [
+     "residual_add",
+     19.6
+    ],
+    [
+     "relu_act",
+     17.5
+    ],
+    [
+     "classifier",
+     16.9
+    ],
+    [
+     "expand_conv",
+     16.8
+    ],
+    [
+     "se_pool",
+     16.4
+    ],
+    [
+     "dw_conv",
+     16.3
+    ],
+    [
+     "project",
+     15.4
+    ],
+    [
+     "se_product",
+     14.4
+    ],
+    [
+     "hswish",
+     10.8
+    ]
+   ],
+   "groups": 13,
+   "largest_damage": [
+    {
+     "ci95_pp": [
+      6.4,
+      11.0
+     ],
+     "damage_pp": 8.7,
+     "group": "stem",
+     "group_sqnr_db": 24.9,
+     "recovery_ci95_pp": [
+      4.79,
+      9.47
+     ],
+     "recovery_pp": 7.13
+    },
+    {
+     "ci95_pp": [
+      1.1,
+      4.7
+     ],
+     "damage_pp": 2.9,
+     "group": "hswish",
+     "group_sqnr_db": 10.8,
+     "recovery_ci95_pp": [
+      0.35,
+      4.62
+     ],
+     "recovery_pp": 2.46
+    },
+    {
+     "ci95_pp": [
+      -0.1,
+      2.7
+     ],
+     "damage_pp": 1.3,
+     "group": "relu_act",
+     "group_sqnr_db": 17.5,
+     "recovery_ci95_pp": [
+      -1.2,
+      2.76
+     ],
+     "recovery_pp": 0.76
+    }
+   ],
+   "model": "mobilenet_v3_large",
+   "predictors": {
+    "group_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.7,
+      0.59
+     ],
+     "n": 13,
+     "p": 0.8863080654327772,
+     "rho": -0.044
+    },
+    "group_sqnr_vs_kl_only": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.76,
+      0.52
+     ],
+     "n": 13,
+     "p": 0.5655798619595344,
+     "rho": -0.176
+    },
+    "group_sqnr_vs_recovery_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.77,
+      0.5
+     ],
+     "n": 13,
+     "p": 0.6157988686488813,
+     "rho": -0.154
+    },
+    "min_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.63,
+      0.52
+     ],
+     "n": 13,
+     "p": 0.7677166575397277,
+     "rho": -0.091
+    }
+   },
+   "stem_rank_by_group_sqnr": 1
+  },
+  "mobilenet_v3_large/int6": {
+   "activation_loss_pp": 53.8,
+   "first_minus_second_damage": {
+    "ci95_pp": [
+     4.8,
+     10.4
+    ],
+    "diff_pp": 7.6,
+    "groups": [
+     "hswish",
+     "stem"
+    ]
+   },
+   "format": "int6",
+   "group_sqnr_ranking_db": [
+    [
+     "se_gate",
+     27.7
+    ],
+    [
+     "se_reduce",
+     23.2
+    ],
+    [
+     "se_expand",
+     22.9
+    ],
+    [
+     "stem",
+     22.8
+    ],
+    [
+     "relu_act",
+     16.8
+    ],
+    [
+     "residual_add",
+     15.9
+    ],
+    [
+     "dw_conv",
+     14.2
+    ],
+    [
+     "expand_conv",
+     13.7
+    ],
+    [
+     "se_pool",
+     12.8
+    ],
+    [
+     "se_product",
+     11.2
+    ],
+    [
+     "project",
+     9.8
+    ],
+    [
+     "classifier",
+     6.1
+    ],
+    [
+     "hswish",
+     6.0
+    ]
+   ],
+   "groups": 13,
+   "largest_damage": [
+    {
+     "ci95_pp": [
+      20.2,
+      26.0
+     ],
+     "damage_pp": 23.1,
+     "group": "hswish",
+     "group_sqnr_db": 6.0,
+     "recovery_ci95_pp": [
+      25.84,
+      31.37
+     ],
+     "recovery_pp": 28.6
+    },
+    {
+     "ci95_pp": [
+      12.9,
+      18.1
+     ],
+     "damage_pp": 15.5,
+     "group": "stem",
+     "group_sqnr_db": 22.8,
+     "recovery_ci95_pp": [
+      19.79,
+      25.19
+     ],
+     "recovery_pp": 22.5
+    },
+    {
+     "ci95_pp": [
+      0.8,
+      2.9
+     ],
+     "damage_pp": 1.8,
+     "group": "relu_act",
+     "group_sqnr_db": 16.8,
+     "recovery_ci95_pp": [
+      0.21,
+      4.2
+     ],
+     "recovery_pp": 2.2
+    }
+   ],
+   "model": "mobilenet_v3_large",
+   "predictors": {
+    "group_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.81,
+      0.33
+     ],
+     "n": 13,
+     "p": 0.21517716251196958,
+     "rho": -0.369
+    },
+    "group_sqnr_vs_kl_only": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.9,
+      0.19
+     ],
+     "n": 13,
+     "p": 0.0707490406749638,
+     "rho": -0.516
+    },
+    "group_sqnr_vs_recovery_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.69,
+      0.52
+     ],
+     "n": 13,
+     "p": 0.6676075762175145,
+     "rho": -0.132
+    },
+    "min_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.78,
+      0.34
+     ],
+     "n": 13,
+     "p": 0.26224557983406577,
+     "rho": -0.336
+    }
+   },
+   "stem_rank_by_group_sqnr": 4
+  },
+  "mobilenet_v3_large/int8": {
+   "activation_loss_pp": 3.4,
+   "first_minus_second_damage": {
+    "ci95_pp": [
+     0.8,
+     4.2
+    ],
+    "diff_pp": 2.5,
+    "groups": [
+     "stem",
+     "se_product"
+    ]
+   },
+   "format": "int8",
+   "group_sqnr_ranking_db": [
+    [
+     "se_gate",
+     39.8
+    ],
+    [
+     "se_expand",
+     33.8
+    ],
+    [
+     "se_reduce",
+     33.2
+    ],
+    [
+     "stem",
+     32.4
+    ],
+    [
+     "relu_act",
+     29.3
+    ],
+    [
+     "residual_add",
+     26.8
+    ],
+    [
+     "classifier",
+     24.0
+    ],
+    [
+     "expand_conv",
+     23.1
+    ],
+    [
+     "project",
+     21.4
+    ],
+    [
+     "se_pool",
+     20.9
+    ],
+    [
+     "dw_conv",
+     19.6
+    ],
+    [
+     "se_product",
+     18.1
+    ],
+    [
+     "hswish",
+     14.6
+    ]
+   ],
+   "groups": 13,
+   "largest_damage": [
+    {
+     "ci95_pp": [
+      1.4,
+      4.8
+     ],
+     "damage_pp": 3.1,
+     "group": "stem",
+     "group_sqnr_db": 32.4,
+     "recovery_ci95_pp": [
+      -0.5,
+      3.3
+     ],
+     "recovery_pp": 1.4
+    },
+    {
+     "ci95_pp": [
+      0.1,
+      1.2
+     ],
+     "damage_pp": 0.6,
+     "group": "se_product",
+     "group_sqnr_db": 18.1,
+     "recovery_ci95_pp": [
+      -1.9,
+      0.6
+     ],
+     "recovery_pp": -0.65
+    },
+    {
+     "ci95_pp": [
+      -0.0,
+      0.9
+     ],
+     "damage_pp": 0.4,
+     "group": "relu_act",
+     "group_sqnr_db": 29.3,
+     "recovery_ci95_pp": [
+      -1.3,
+      1.25
+     ],
+     "recovery_pp": 0.0
+    }
+   ],
+   "model": "mobilenet_v3_large",
+   "predictors": {
+    "group_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.73,
+      0.47
+     ],
+     "n": 13,
+     "p": 0.5974214671276694,
+     "rho": -0.162
+    },
+    "group_sqnr_vs_kl_only": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.95,
+      -0.05
+     ],
+     "n": 13,
+     "p": 0.014046214320984877,
+     "rho": -0.66
+    },
+    "group_sqnr_vs_recovery_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.34,
+      0.78
+     ],
+     "n": 13,
+     "p": 0.31030924567559964,
+     "rho": 0.305
+    },
+    "min_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 10000,
+     "ci95": [
+      -0.77,
+      0.35
+     ],
+     "n": 13,
+     "p": 0.4298162935995503,
+     "rho": -0.24
+    }
+   },
+   "stem_rank_by_group_sqnr": 4
+  },
+  "resnet18/fp6_e2m3": {
+   "activation_loss_pp": 3.24,
+   "first_minus_second_damage": {
+    "ci95_pp": [
+     -0.89,
+     1.62
+    ],
+    "diff_pp": 0.33,
+    "groups": [
+     "stem",
+     "classifier"
+    ]
+   },
+   "format": "fp6_e2m3",
+   "group_sqnr_ranking_db": [
+    [
+     "stem",
+     27.0
+    ],
+    [
+     "downsample",
+     22.7
+    ],
+    [
+     "classifier",
+     21.9
+    ],
+    [
+     "block_out",
+     18.6
+    ],
+    [
+     "inner_act",
+     18.2
+    ],
+    [
+     "pre_add_conv",
+     17.8
+    ]
+   ],
+   "groups": 6,
+   "largest_damage": [
+    {
+     "ci95_pp": [
+      -0.0,
+      2.8
+     ],
+     "damage_pp": 1.4,
+     "group": "stem",
+     "group_sqnr_db": 27.0,
+     "recovery_ci95_pp": [
+      0.3,
+      2.8
+     ],
+     "recovery_pp": 1.51
+    },
+    {
+     "ci95_pp": [
+      -0.01,
+      2.18
+     ],
+     "damage_pp": 1.07,
+     "group": "classifier",
+     "group_sqnr_db": 21.9,
+     "recovery_ci95_pp": [
+      -0.82,
+      1.32
+     ],
+     "recovery_pp": 0.24
+    },
+    {
+     "ci95_pp": [
+      0.1,
+      1.9
+     ],
+     "damage_pp": 1.0,
+     "group": "block_out",
+     "group_sqnr_db": 18.6,
+     "recovery_ci95_pp": [
+      -0.16,
+      1.85
+     ],
+     "recovery_pp": 0.84
+    }
+   ],
+   "model": "resnet18",
+   "predictors": {
+    "group_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -0.81,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.4684781341107872,
+     "rho": 0.371
+    },
+    "group_sqnr_vs_kl_only": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -0.81,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.4684781341107872,
+     "rho": 0.371
+    },
+    "group_sqnr_vs_recovery_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -1.0,
+      0.92
+     ],
+     "n": 6,
+     "p": 0.8717434402332361,
+     "rho": -0.086
+    },
+    "min_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -1.0,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.9571545189504373,
+     "rho": 0.029
+    }
+   },
+   "stem_rank_by_group_sqnr": 1
+  },
+  "resnet18/int6": {
+   "activation_loss_pp": 2.71,
+   "first_minus_second_damage": {
+    "ci95_pp": [
+     -0.99,
+     1.37
+    ],
+    "diff_pp": 0.17,
+    "groups": [
+     "stem",
+     "classifier"
+    ]
+   },
+   "format": "int6",
+   "group_sqnr_ranking_db": [
+    [
+     "stem",
+     29.0
+    ],
+    [
+     "downsample",
+     19.8
+    ],
+    [
+     "block_out",
+     19.6
+    ],
+    [
+     "classifier",
+     19.5
+    ],
+    [
+     "inner_act",
+     19.5
+    ],
+    [
+     "pre_add_conv",
+     14.7
+    ]
+   ],
+   "groups": 6,
+   "largest_damage": [
+    {
+     "ci95_pp": [
+      -0.2,
+      2.2
+     ],
+     "damage_pp": 1.0,
+     "group": "stem",
+     "group_sqnr_db": 29.0,
+     "recovery_ci95_pp": [
+      -0.69,
+      1.5
+     ],
+     "recovery_pp": 0.4
+    },
+    {
+     "ci95_pp": [
+      -0.08,
+      1.77
+     ],
+     "damage_pp": 0.83,
+     "group": "classifier",
+     "group_sqnr_db": 19.5,
+     "recovery_ci95_pp": [
+      -0.63,
+      1.27
+     ],
+     "recovery_pp": 0.31
+    },
+    {
+     "ci95_pp": [
+      -0.6,
+      1.2
+     ],
+     "damage_pp": 0.3,
+     "group": "pre_add_conv",
+     "group_sqnr_db": 14.7,
+     "recovery_ci95_pp": [
+      -0.33,
+      1.48
+     ],
+     "recovery_pp": 0.6
+    }
+   ],
+   "model": "resnet18",
+   "predictors": {
+    "group_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9984,
+     "ci95": [
+      -0.89,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.4246625075613642,
+     "rho": 0.406
+    },
+    "group_sqnr_vs_kl_only": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -1.0,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.9571545189504373,
+     "rho": 0.029
+    },
+    "group_sqnr_vs_recovery_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9999,
+     "ci95": [
+      -1.0,
+      0.6
+     ],
+     "n": 6,
+     "p": 0.208,
+     "rho": -0.6
+    },
+    "min_sqnr_vs_damage_pp": {
+     "bootstrap": "percentile, 10000 resamples, strata=none, seed 20261002",
+     "bootstrap_valid": 9984,
+     "ci95": [
+      -1.0,
+      1.0
+     ],
+     "n": 6,
+     "p": 0.9131317851623264,
+     "rho": 0.058
+    }
+   },
+   "stem_rank_by_group_sqnr": 1
+  }
+ },
+ "pooled": {
+  "min_sqnr_db_vs_damage_pp": {
+   "pooled": {
+    "bootstrap": "percentile, 10000 resamples, strata=cell, seed 20261002",
+    "bootstrap_valid": 10000,
+    "ci95": [
+     -0.37,
+     0.11
+    ],
+    "n": 63,
+    "p": 0.2906905004406855,
+    "rho": -0.135
+   },
+   "within_cell": {
+    "cells": 7,
+    "mean_within_cell_rho": 0.029,
+    "per_cell_rho": [
+     -0.24,
+     -0.336,
+     -0.091,
+     0.058,
+     0.029,
+     0.551,
+     0.232
+    ],
+    "permutations": 10000,
+    "seed": 20261002,
+    "stratified_permutation_p": 0.8417158284171583
+   }
+  },
+  "nsr_db_vs_damage_pp": {
+   "pooled": {
+    "bootstrap": "percentile, 10000 resamples, strata=cell, seed 20261002",
+    "bootstrap_valid": 10000,
+    "ci95": [
+     -0.36,
+     0.14
+    ],
+    "n": 63,
+    "p": 0.38405477796089277,
+    "rho": -0.112
+   },
+   "within_cell": {
+    "cells": 7,
+    "mean_within_cell_rho": 0.153,
+    "per_cell_rho": [
+     -0.162,
+     -0.369,
+     -0.044,
+     0.406,
+     0.371,
+     0.493,
+     0.377
+    ],
+    "permutations": 10000,
+    "seed": 20261002,
+    "stratified_permutation_p": 0.30356964303569645
+   }
+  },
+  "nsr_db_vs_kl_only": {
+   "pooled": {
+    "bootstrap": "percentile, 10000 resamples, strata=cell, seed 20261002",
+    "bootstrap_valid": 10000,
+    "ci95": [
+     -0.52,
+     -0.01
+    ],
+    "n": 63,
+    "p": 0.03353549353206331,
+    "rho": -0.268
+   },
+   "within_cell": {
+    "cells": 7,
+    "mean_within_cell_rho": -0.046,
+    "per_cell_rho": [
+     -0.66,
+     -0.516,
+     -0.176,
+     0.029,
+     0.371,
+     0.143,
+     0.486
+    ],
+    "permutations": 10000,
+    "seed": 20261002,
+    "stratified_permutation_p": 0.7501249875012499
+   }
+  },
+  "nsr_db_vs_recovery_pp": {
+   "pooled": {
+    "bootstrap": "percentile, 10000 resamples, strata=cell, seed 20261002",
+    "bootstrap_valid": 10000,
+    "ci95": [
+     -0.35,
+     0.17
+    ],
+    "n": 63,
+    "p": 0.5013012515009541,
+    "rho": -0.086
+   },
+   "within_cell": {
+    "cells": 7,
+    "mean_within_cell_rho": -0.087,
+    "per_cell_rho": [
+     0.305,
+     -0.132,
+     -0.154,
+     -0.6,
+     -0.086,
+     0.029,
+     0.029
+    ],
+    "permutations": 10000,
+    "seed": 20261002,
+    "stratified_permutation_p": 0.5487451254874512
+   }
+  }
+ }
+}

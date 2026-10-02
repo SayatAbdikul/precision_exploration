@@ -1,0 +1,93 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-8",
+ "lane": "Q4 activation attribution (agent r6)",
+ "written_utc": "2026-10-02T13:08:11+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92",
+  "addendum_1_sha256": "7ae5f26d1c936f4003d220575dcb7f164a887f469465c92a2bb8e7fd816574aa",
+  "addendum_2_sha256": "c6a4da75d72c3e52d9c510f2650c18dc61d2e7e9358a655d7e37be9342b80fa6",
+  "addendum_3_sha256": "02a6971fe2e4ceaece52b94c04165af1d2059b88a1c253d9c0ac8f3cecc8b66f",
+  "addendum_4_sha256": "9f2b73bd4c2bb524ae4d5755ab18255614ee5b03c91e920f9e4813ab7231fb01",
+  "addendum_5_sha256": "cd5b881f3bcd2c59b8305791bbf7240354a8286d05476d3f5b4d04d69e913449",
+  "addendum_6_sha256": "bf731668e740fb56bfbb04599c8a9030f1bfa62b4067b029466df61788db8e15",
+  "addendum_7_sha256": "f39f92ef223d9036c70517df22d104313eb9d458cbbe76b970ed2f99034ffc3c"
+ },
+ "status": "written before any pcu arm ran and before any v2 summary was computed; after independent review 1 (artifacts/agent_orchestration/handoffs/Q4-activation-attribution-review.md, findings B1-B3 and the must-fix items)",
+ "observation_motivating_it": "Review finding B1: tools/experiment_b2_attrib/pcfull.py keeps every k-th value in (image, row, column) order with k = ceil(256*H*W/4096) = H*W/16, so on 112x112 maps (k = 784 = 7*112) all 4096 search values of a channel come from image column 0, on 56x56 maps from columns {0, 28}, on 28x28 maps from four columns. The pcf per-channel scales were therefore fitted on border pixels, not on 'the full FP32 activations' as addendum 2 and the doc state. The reviewer's rerun with a stride coprime to H and W changed several pcf results by up to 25 pp (MobileNetV2 INT8 pcf:all 47.05 -> 72.38). Every claim resting on pcf is re-measured here.",
+ "pcu_definition": {
+  "term": "pcu:TARGET = pcf:TARGET (addendum 2: same eligibility, folding into conv/linear consumers, other consumers per-channel requantized, bias-correction refit, pcu wins over affine on overlap) with a different sample of MSE-search values",
+  "sample": "per node, a simple random sample without replacement of min(n, 4096) positions (image, row, column) out of the n = 256*H*W positions of the FP32 node output on the 256 bias-correction calibration images (first 256 of the frozen calibration list); the same positions for every channel of the node; torch.randperm(n, generator=torch.Generator().manual_seed(20261002 + zlib.crc32(node name)))[:4096], sorted. Every position has the same inclusion probability.",
+  "anchor": "exact per-channel max |x| over all 256 images and positions (unchanged from pcf)",
+  "search": "frozen tools/experiment_b2/scales.py mse_search with the boundary's own B2 table (unchanged)",
+  "code": {
+   "tools/experiment_b2_attrib/pcunbiased.py": "ba4042c14a381581fe77bcc9c688280e7b9ea2b8fcdff0a735bead300ad94697",
+   "tools/experiment_b2_attrib/pcurunner.py": "ce707bf4c22404dcd94e67d717b5a47ce310101d3409a5c8da8f5274c1faa80e",
+   "tools/run/experiment_b2_attrib_pcu_queue.sh": "eb3e623a7ae026ff898637ca673b2c407d20360bcbe63f7484bc68ff25426656"
+  },
+  "tests": "tests/unit/test_experiment_b2_attrib_pcu.py (6 pass on CPU before any measurement: seeded sample, full row/column coverage on 112/56/28 maps where the pcf stride hits <= 4 columns, exact kept positions across chunks, parse)",
+  "records": "artifacts/experiment_b2_attrib/arms/<model>--<format>/pcu~*.json; the 36 pcf records stay unchanged and are reported as 'pcf (border-column sample; superseded by pcu)'",
+  "per_node_evidence": "each pcu record stores per boundary: positions kept, sha256 of the positions, distinct rows/columns/images touched, min and median ratio of the found scale to the max-abs scale (the 2^-6 search floor = 0.015625 flags clipping)"
+ },
+ "arms": {
+  "mobilenet_v3_large": {
+   "formats": [
+    "int8",
+    "int6",
+    "fp6_e2m3",
+    "fp8_e4m3fn"
+   ],
+   "arms": [
+    "pcu:role.dw_conv",
+    "pcu:role.se_product",
+    "pcu:kind.hardswish",
+    "pcu:all",
+    "pcu:role.stem",
+    "affine:kind.hardswish+pcu:role.stem",
+    "pcu:node.features_0_0"
+   ],
+   "combination": "affine:signed + the best of pcu:role.dw_conv, pcu:role.se_product, pcu:kind.hardswish, pcu:all on that format (highest top-1 expected on the screen, ties by lower mean KL): the addendum-2 rule re-applied to pcu, selected inside the same job after the four arms exist (pcurunner --combo). Includes FP8 E4M3, which addendum 2 planned and the GPU cap dropped.",
+   "audit": true
+  },
+  "regression": {
+   "models": {
+    "mobilenet_v2": [
+     "int8"
+    ],
+    "resnet18": [
+     "int8"
+    ]
+   },
+   "arms": [
+    "pcu:all",
+    "pcu:role.stem"
+   ],
+   "combination": "affine:signed+pcu:all on MobileNetV2 and ResNet18 INT8 when pcu:all is the best of the four MobileNetV3 INT8 pcu arms (addendum-2 regression rule; pcurunner --regression-combo-from mobilenet_v3_large/int8); otherwise skipped and reported",
+   "audit": true
+  },
+  "addendum_7": {
+   "model": "mobilenet_v2",
+   "format": "fp6_e2m3",
+   "arm": "pcu:role.stem",
+   "audit": false
+  },
+  "total": "28 MobileNetV3 arms + 4 MobileNetV3 combinations + 4 regression arms + up to 2 regression combinations + 1 addendum-7 arm"
+ },
+ "reading_rules": {
+  "evidence": "development: ImageNet 1k screen, top-1 expected credit, paired bootstrap of tools/analysis/b2_matrix.interval",
+  "selection": "r3 arms and combinations were chosen on the screen; any gain is optimistic and needs held-out confirmation (owner's decision)",
+  "sampler_sensitivity": "the reviewer's coprime-stride reruns (review-scratch/out-*.json, 7 arms) are a second unbiased sampler: the doc reports pcu next to them as a sensitivity check; no new GPU job for it"
+ },
+ "cpu": {
+  "fold_diagnostic_v2": "the addendum-6 fold diagnostic (tools/experiment_b2_attrib/folddiag.py) rerun with pcu scales through a wrapper (tools/experiment_b2_attrib/folddiag_pcu.py), MobileNetV2/MobileNetV3/ResNet18 INT8, written once to artifacts/experiment_b2_attrib/folddiag/fold-diagnostic-v2-pcu.json; v1 stays",
+  "summaries_v2": "results/summaries/b2-attrib-v1/v2/ (written once; v1 stays): (a) review B3 fix: leave-one-out takes only records named wide:node.<node> without a '+' suffix (the addendum-5 '+fixbc' arm is excluded); (b) B tables with pcu arms, pcf labelled superseded; (c) predictor statistics: Spearman rho with a percentile bootstrap 95 % interval over groups (10000 resamples, numpy default_rng(20261002)), per cell and pooled; within-cell mean rho with a stratified permutation p (y permuted within each cell, 10000 permutations, same seed); Holm adjustment over every SQNR-predictor p-value reported in the doc; (d) stem damage/recovery with intervals in every attributed cell, so that 'largest' is read with its interval"
+ },
+ "gpu": {
+  "path": "low-memory path of addendum 1 through tools/run/experiment_b2_attrib_pcu_queue.sh (--min-free-mib 3000, OOM retried once with --heavy 8000)",
+  "jobs": "7 jobs, one per (model, format): queue A = MobileNetV3 INT8 (+combo), MobileNetV2 INT8, ResNet18 INT8, MobileNetV2 FP6 E2M3 (addendum 7); queue B = MobileNetV3 INT6, FP6 E2M3, FP8 E4M3 (+combo each); at most 2 Q4 jobs at a time, each < 15 min (--max-seconds 840)",
+  "cap": "3600 s of recorded job wall for addendum-8 jobs (ledger artifacts/experiment_b2_attrib/pcu/logs/jobs.jsonl), checked before each job with that job's estimate (stage-start rule); a job that would pass the cap is skipped and reported. Priority by queue order: INT8 and regression first, FP8 last.",
+  "deviation": "the lane had used 10481 s (9281 s recorded + 1200 s allowance) of the original 10800 s cap; this re-measurement is required by the review and takes the lane total to at most 14081 s (3.9 GPU-hours) against the brief's 'about 3 GPU-hours'. Reported as a deviation for the owner."
+ },
+ "doc_corrections": "B2 (stem is not the top-SQNR group at MobileNetV3 INT8/INT6: rank 4 of 13), B3, accumulator form with pre-subtracted operand (network maximum 25 bits at INT8, 21 at INT6), zero-point range, SQNR claims with intervals, 'largest damage' read with intervals, doc lines 95, 250-251 and 262, protocol list with addenda 7 and 8",
+ "evidence": "development: ImageNet 1k screen"
+}

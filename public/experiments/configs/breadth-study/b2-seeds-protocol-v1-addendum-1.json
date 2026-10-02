@@ -1,0 +1,18 @@
+{
+  "version": "b2-seeds-protocol-v1-addendum-1",
+  "written": "2026-10-02T09:50Z, after 382 of the 426 protocol cells were measured and before any cell of this addendum",
+  "parent": "public/experiments/configs/breadth-study/b2-seeds-protocol-v1.json (sha256 79c6bbe173b34401b559f55e5692f81f498d972e6a8fc7a9fd4fcc1211ec6e92)",
+  "why": "Observed in the seed arm (development evidence, 1k screen): for the wide-exponent 6-bit formats under the default recipe on ResNet18 and MobileNetV2 (fp6_e3m2, log6, posit6_es1) every 400-image seed scores 4 to 9 points above the 2000-image calibration. The protocol's bias-only arm covers only int8, posit8_es1, fp8_e4m3fn and int6, so it cannot say whether the range statistics or the bias-correction images cause this. This addendum is a mechanism check, added after seeing the data, and is labelled so in every report.",
+  "subsets": {
+    "R0..R2": "range-only: ranges from S_k (k = 0, 1, 2), bias correction from the original first 256 images of the list",
+    "B0..B2": "bias-only (as in the protocol): ranges from all 2000 images, bias correction from the first 256 images of S_k"
+  },
+  "cells": {
+    "models": ["resnet18", "mobilenet_v2"],
+    "formats_recipe_default": ["fp6_e3m2", "log6", "posit6_es1"],
+    "arms": {"addendum_range_only": ["R0", "R1", "R2"], "addendum_bias_only": ["B0", "B1", "B2"]},
+    "count": 36
+  },
+  "analysis": "for each (model, format): mean over k of the range-only and bias-only cells, against the seed mean (S0..S2) and the full-set value; whichever arm reproduces the seed-versus-full difference identifies the source. Reported descriptively, no interval rule.",
+  "budget": "about 10 GPU-minutes; the protocol's hard stop (3 h summed job time) still applies"
+}

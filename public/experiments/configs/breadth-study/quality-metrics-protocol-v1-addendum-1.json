@@ -1,0 +1,35 @@
+{
+ "protocol": "quality-metrics-protocol-v1-addendum-1",
+ "amends": "public/experiments/configs/breadth-study/quality-metrics-protocol-v1.json (sha256 bbbb9a6e5424e5e9d44cf635a4bb53c019d2a2d86864bb828c606b55b72db05e, unchanged)",
+ "lane": "Q7 metrics and resolution (CPU only)",
+ "written": "2026-10-02T12:52:00+05:00, after the v1 summaries and after independent review 1 (artifacts/agent_orchestration/handoffs/Q7-metrics-resolution-review.md); before any number of this addendum was computed by lane code",
+ "evidence_status": "development evidence: re-reads the v1 summaries (results/summaries/quality-metrics-v1/, ImageNet and COCO screen-1k lists) and re-runs part of the v1 coverage simulation; no model, no GPU, no held-out data",
+ "reason": "Review 1 found document numbers that no lane code produced (near-equal subset, its power table, the agreement/top-1 correlation) and three document statements contradicted by the v1 summaries (coverage, slope quantiles, one pair label). This addendum gives those numbers code and a versioned summary, and records protocol deviations of v1.",
+ "post_hoc_disclosure": "The near-equal subset (|expected-credit difference| < 2 pp at n = 1,000) was chosen in v1 after the subsample data were seen and is not in the v1 protocol. It is registered here as a descriptive secondary selection. The 1 pp and 3 pp thresholds are declared here, before they are computed, as sensitivity of that choice.",
+ "inputs_read_only": [
+  "results/summaries/quality-metrics-v1/partA-units.csv",
+  "results/summaries/quality-metrics-v1/partB-subsample.csv",
+  "results/summaries/quality-metrics-v1/partB-power.csv",
+  "results/summaries/quality-metrics-v1/partB-coverage.csv",
+  "results/summaries/quality-metrics-v1/partC-detector-tie-orders.csv",
+  "results/summaries/quality-metrics-v1/partD-detector-agreement.csv"
+ ],
+ "items": {
+  "near_equal": "per v1 contrast kind (format_pair, recipe_pair, cell_vs_int8, cell_vs_fp32, accumulator_vs_wide) and threshold t in {1, 2, 3} pp: contrasts with |diff_expected_pp| < t; count; median of discordance (lowest-index binary discordance at n = 1,000); median 1k half-width = median(width_expected_median_n1000 / 2); projected half-width at N = 4,000 and 9,000 = 1k half-width x sqrt(1000/N) (projection only); MDD(n, p_d) = (z_0.975 + z_0.8) sqrt(p_d / n) at the median discordance for n = 1,000, 4,000, 9,000. t = 2 is the v1 document selection (post hoc).",
+  "power_near_equal": "images for power 0.8, alpha 0.05, normal approximation, n = z^2 p_d / delta^2 with tools.analysis.quality_metrics_v1.resolution.images_needed, margins 1.0, 0.5, 0.25 pp, hypothesis types: difference (two-sided, true difference = margin), equivalence (TOST, true 0), non-inferiority (one-sided, true 0), beyond_margin (two-sided interval bound beyond the margin when the true difference is twice the margin; effect = margin, z = z_0.975 + z_0.8). Rows: the document table (difference and equivalence at the near-equal format-pair median discordance, non-inferiority and equivalence at the near-equal accumulator-arm median, beyond_margin at the near-equal recipe-pair median), each also at the all-contrast median discordance of the same kind (as in v1 partB-power.csv), with the ratio all-contrast / near-equal images.",
+  "slope_quantiles": "per contrast kind: count, 10th percentile, median, 90th percentile, minimum and maximum of slope_expected (and slope_binary) from partB-subsample.csv; numpy default percentile interpolation.",
+  "agreement_correlation": "matrix own cells (source matrix, group default or minimal, no intrinsic '@' arm, not FP32) with top1_expected >= 10 percent: Pearson r and Spearman rho between agree_lowest and the top-1 drop top1_expected - fp32_top1 (both percent), from partA-units.csv.",
+  "coverage_extremes": "from partB-coverage.csv: per method (percentile, BCa, Wald) and n, the minimum coverage and its scenario (discordance, right-only share, true difference); per scenario and n, BCa minus percentile coverage, flagged when |difference| >= 0.02 (about 4 Monte Carlo SE of one proportion).",
+  "coverage_knife_edge": "scenario pd_q5_asym_q95 of v1 (true difference -0.005 pp): re-draw the identical simulated data sets (v1 seed tags: scenario index 4, default_rng([20261002, 21, 4, n])) and count coverage of its own truth (must reproduce v1 exactly) and of truth 0. Plus one new symmetric null scenario at the 5th-percentile discordance of v1 (p_d = 0.0255, right-only share 0.5, seed tag scenario index 100), n in {128, 256, 512, 1000}, 2,000 data sets x 2,000 resamples as in v1.",
+  "tie_scheme_gap": "from partC-detector-tie-orders.csv: per configuration, image_order_mean - uniform_mean (points) and the fixed-rule percentile rank under both schemes; the maximum absolute gap.",
+  "detector_new_false_positives": "from partD-detector-agreement.csv: fp_new_s025 per configuration (used to correct the document range)."
+ },
+ "v1_deviations_disclosed": [
+  "Subsample permutations were seeded numpy default_rng([20261002, 10, r]), not default_rng(20261002 + r) as the v1 protocol says.",
+  "The between-block SD of the difference was reported for n <= 256 only, not for every n with >= 3 blocks.",
+  "Between-block SD over the analytic SE at n = 128 (median 0.94) equals the finite-population factor sqrt(1 - 128/1000) = 0.934 expected for disjoint blocks drawn without replacement from 1,000 images; it is a consistency check of the analytic SE, not an independent confirmation.",
+  "manifest-A-B-C-D-E.json records figures.py sha256 aee9194b...; figures.py was edited afterwards (tick labels only, per the v1 handoff) to 563af530.... The addendum manifest records the current hashes of every analysis file."
+ ],
+ "outputs": "results/summaries/quality-metrics-v1/addendum-1/ (written once; an existing file is never replaced) with manifest-addendum-1.json; tools/analysis/quality_metrics_v1/addendum1.py; tools/run/quality_metrics.py subcommand addendum1; tests/unit/test_quality_metrics_addendum1.py; document updated in place with a change log section.",
+ "compute": "CPU only, one process, nice -n 10, a few minutes."
+}

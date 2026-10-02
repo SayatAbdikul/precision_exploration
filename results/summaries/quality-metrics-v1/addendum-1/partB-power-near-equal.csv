@@ -1,0 +1,11 @@
+hypothesis,kind,basis,threshold_pp,discordance,images_margin1.0,images_margin0.5,images_margin0.25,ratio_to_near_equal
+difference,format_pair,near_equal,2.0,0.0705,5534,22134,88536,
+difference,format_pair,all_contrasts,,0.2255,17700,70797,283188,3.19841
+equivalence,format_pair,near_equal,2.0,0.0705,6038,24151,96601,
+equivalence,format_pair,all_contrasts,,0.2255,19312,77246,308984,3.19841
+noninferiority,accumulator_vs_wide,near_equal,2.0,0.016,990,3957,15828,
+noninferiority,accumulator_vs_wide,all_contrasts,,0.0195,1206,4823,19290,1.218182
+equivalence,accumulator_vs_wide,near_equal,2.0,0.016,1371,5481,21924,
+equivalence,accumulator_vs_wide,all_contrasts,,0.0195,1670,6680,26720,1.218089
+beyond_margin,recipe_pair,near_equal,2.0,0.102,8006,32024,128094,
+beyond_margin,recipe_pair,all_contrasts,,0.124,9733,38931,155722,1.215713

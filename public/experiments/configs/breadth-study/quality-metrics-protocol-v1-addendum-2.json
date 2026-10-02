@@ -1,0 +1,28 @@
+{
+ "protocol": "quality-metrics-protocol-v1-addendum-2",
+ "amends": "public/experiments/configs/breadth-study/quality-metrics-protocol-v1.json (sha256 bbbb9a6e5424e5e9d44cf635a4bb53c019d2a2d86864bb828c606b55b72db05e, unchanged) and addendum 1 (sha256 8c8dca5b249447dcf3c70a55e5a02093509ce476381455ecc9b463e61a337158, unchanged)",
+ "lane": "Q7 metrics and resolution (CPU only)",
+ "written": "2026-10-02T13:11:00+05:00 (clock reading), after independent review 2 (artifacts/agent_orchestration/handoffs/Q7-metrics-resolution-review.md, section Review 2); before any number of this addendum was computed by lane code",
+ "evidence_status": "development evidence: re-reads the v1 summaries (results/summaries/quality-metrics-v1/, ImageNet and COCO screen-1k lists) and re-runs part of the v1 coverage simulation; no model, no GPU, no held-out data",
+ "reason": "Review 2 found that the near-equal accumulator-arm subset of addendum 1 (51 arms) contains 15 arms identical to their wide arm (binary discordance 0 at n = 1,000: control arms and event-free widths), which lowers the planning discordance for H3; that the knife-edge statement counted every interval with an end point at 0 as missing a negative truth; and that no summary row holds the recipe-pair equivalence image count. This addendum separates identical contrasts, gives per-contrast sufficiency shares, a full power grid, the end-point split of the knife-edge misses, and an exact-cell (enumerated) coverage for the low-discordance scenarios.",
+ "inputs_read_only": [
+  "results/summaries/quality-metrics-v1/partB-subsample.csv",
+  "results/summaries/quality-metrics-v1/partB-coverage.csv"
+ ],
+ "definitions": {
+  "identical_contrast": "a v1 subsample contrast whose lowest-index binary discordance at n = 1,000 is 0 (the two arms give the same lowest-index top-1 outcome on every image). Its expected-credit difference may still be nonzero through tie shares (reported). Labelled 'control' (accumulator arm named control), 'event_free_width' (other accumulator arm) or 'other'.",
+  "differing_contrast": "binary discordance > 0 at n = 1,000",
+  "near_equal": "|diff_expected_pp| < t at n = 1,000, t in {1, 2, 3} pp (t = 2 is the post hoc v1 selection, registered in addendum 1)"
+ },
+ "items": {
+  "identical_contrasts": "list of identical contrasts per kind with label, diff_expected_pp and width_expected_median_n1000.",
+  "subsets": "per kind, per subset in {all, all_differing, near_equal_t (t = 1, 2, 3), near_equal_t_differing}: count; discordance 25th, 50th, 75th percentile (numpy default interpolation); median 1k half-width (width_expected_median_n1000 / 2); median width_expected_median_n{128,256,512,1000}; projected half-width at N = 4,000 and 9,000 = median 1k half-width x sqrt(1000/N) (projection only); MDD(n, median discordance) for n = 1,000, 4,000, 9,000.",
+  "power_grid": "images for power 0.8, alpha 0.05, normal approximation (tools.analysis.quality_metrics_v1.resolution.images_needed) for hypothesis in {difference, equivalence, noninferiority, beyond_margin} x kind x subset in {all, all_differing, near_equal_2, near_equal_2_differing} x discordance quantile in {q25, median, q75} x margin in {1.0, 0.5, 0.25} pp.",
+  "sufficiency": "per kind and subset in {near_equal_2, near_equal_2_differing, all_differing}: share of contrasts whose own discordance gives images_needed <= N for N in {1,000, 4,000, 9,000}, per hypothesis in {noninferiority, equivalence, difference} and margin in {1.0, 0.5} pp.",
+  "knife_edge_endpoints": "scenario pd_q5_asym_q95 (v1 scenario index 4), identical v1 draws (default_rng([20261002, 21, 4, n])), n in {128, 256, 512, 1000}, per method: coverage of its own truth (must reproduce v1), share of intervals with lower end at 0 only, upper end at 0 only, both ends at 0; share missing the truth split into 'lower end at 0' and 'other'.",
+  "exact_cell_coverage": "for every v1 scenario with discordance <= 0.05 (pd_q5_* five scenarios, null_pd1, null_pd2, null_pd5) and the addendum-1 symmetric null at discordance 0.0255, n in {128, 256, 512, 1000}: coverage = sum over discordant counts (left, right) of the multinomial probability times the indicator that the interval covers the truth, enumerated over all count pairs with probability mass captured >= 1 - 1e-6 (captured mass reported). Intervals: bootstrap seed 0 = the lane's resolution.intervals (identical to v1); seeds 1 and 2 = the same construction with default_rng([20261002, 20, n, left, right, seed]). Reported per seed and as the mean over the three seeds, with the v1 2,000-data-set value beside it.",
+  "single_values": "McNemar p-values in the document are printed to two significant digits (no truncation)."
+ },
+ "outputs": "results/summaries/quality-metrics-v1/addendum-2/ (written once; an existing file is never replaced) with manifest-addendum-2.json; tools/analysis/quality_metrics_v1/addendum2.py; tools/run/quality_metrics.py subcommand addendum2; tests/unit/test_quality_metrics_addendum2.py; document updated in place with a revision-2 change log; v1 and addendum-1 summaries unchanged.",
+ "compute": "CPU only, one process, nice -n 10, a few minutes."
+}

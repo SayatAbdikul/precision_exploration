@@ -1,0 +1,53 @@
+{
+ "written": "2026-10-02T12:53:56+05:00",
+ "protocol": "public/experiments/configs/breadth-study/quality-metrics-protocol-v1.json",
+ "protocol_sha256": "bbbb9a6e5424e5e9d44cf635a4bb53c019d2a2d86864bb828c606b55b72db05e",
+ "addendum": "public/experiments/configs/breadth-study/quality-metrics-protocol-v1-addendum-1.json",
+ "addendum_sha256": "8c8dca5b249447dcf3c70a55e5a02093509ce476381455ecc9b463e61a337158",
+ "seed": 20261002,
+ "evidence": "development evidence: ImageNet and COCO screen-1k lists only",
+ "inputs_sha256": {
+  "partA-pairs.csv": "1b9a18414d041dbddfdc89d6c93a75c8cc2d8b148bee2cff6936664195b5e837",
+  "partA-units.csv": "7a6547ddf88b831606bf1e5ad71a8be56fd9a2948b7b4aa59cb33816e865363e",
+  "partB-coverage.csv": "8b72b290fddfe6f1cd537459bc0fd1377d3a7f513d44ef8e0705c3147df3f119",
+  "partB-detector-resolution.csv": "3c800185e1e9cab63b2319c119a559ce90c862be53d0d3139b53a556bca9bd6a",
+  "partB-detector-se.csv": "56a99a9e7b1e59981976b907bd13d8b1254e5dcc464b3f38549bb19b0da98746",
+  "partB-power-check.csv": "fc5bd3c3df91ab30de541c7d00d5e508c5c9ba752b6b8a508a6cc6d99f4c1077",
+  "partB-power.csv": "22e582a4e422b5137c53dce4514ceee6776c989355ffc5346c19e0a8bedfd771",
+  "partB-subsample-summary.csv": "606206d2a55327dd2968476f9e446b45500fb26c528917c2f7c49642bfba1608",
+  "partB-subsample.csv": "20b4bd99508c23e728401254e8b38036262dc7df4062611e46a29606a2083806",
+  "partC-classifier-ties-by-family.csv": "f2a0f0fd3edc13ed43fd221d61393ea33090af13acde7a4cc1e93f954e420f16",
+  "partC-classifier-ties.csv": "250c8f41fa93d60f76a4f3ffd31bdd3d3e452f202703b936443821eaba9151d7",
+  "partC-detector-tie-orders.csv": "b6805088ca7461f2ec1a2c20e1465189a1ae633b049ad6d235140481fa53e336",
+  "partD-detector-agreement.csv": "6c6f9ed85b9da1134cd4c696292947e3ba9f29cc0b10a4c0b2cdf72f45994557",
+  "partD-score-step.csv": "d6b4c27b8c3e263681eb455030adf2820d8237af43cc55b151d4546364987b0d",
+  "partE-float-accumulators.csv": "7a69cf15db3eb94462f02f59f64b4d1f2afd37e79a02c12552c3cf2092914d76",
+  "partE-grid.csv": "a9d2f05bd02b1f6088eb7451c5574797c9bd79097da414e312c3b7af10edce5e",
+  "partE-orders.csv": "3006afc68faefdeff86dd9625dd39e823c1a7275c6796a2ccd19081b9d773606"
+ },
+ "analysis_code_sha256": {
+  "__init__.py": "22b43d48025aa0204d848e11631eeb360cf0a866244a65b9a59e112126bae1cd",
+  "addendum1.py": "d8d68b4585fd5a4e9e6fdd2b13085e342327dcd54289e65e3f81aacbd6369885",
+  "agreement.py": "293b026fc091bead391744dc314bcfef0a23ff70d18d32b4ba87c5072078cf4d",
+  "detector.py": "cdc7ccf7850d10c46d5880fa462539e3882e7cac330f53e79d6cf134d4d4943f",
+  "figures.py": "563af5300b59c5c539c5c7722492d78a023dbaf9dc431d4201721228a84b8849",
+  "fixed_width.py": "270339635e6ad102a2a68f557359e5b46aace24d77b10b23eba7e13cefc6ab2a",
+  "report.py": "aae3240b109f223bb12fec345099ad116cf2a837d3f35a470010839e5071ebf9",
+  "resolution.py": "baf55ca3ae3b8aac0e3b4310a29331d4c43e5bc5a8601521150458d72c168e4a",
+  "ties.py": "2dc5b7f6ce2526dff335951434ff411344f63b28e7e3989b9f61f85013f610b6",
+  "units.py": "38d9faec87b1318e41b68de22421b189c1220664743fe77f33fc1830cfc05681"
+ },
+ "note": "v1 manifest-A-B-C-D-E.json lists figures.py aee9194b...; that file was edited afterwards (tick labels only) and its current hash is listed here",
+ "files": [
+  "partB-near-equal.csv",
+  "partB-power-near-equal.csv",
+  "partB-slope-quantiles.csv",
+  "partA-agreement-correlation.json",
+  "partB-coverage-extremes.csv",
+  "partB-coverage-bca-vs-percentile.csv",
+  "partB-coverage-knife-edge.csv",
+  "partC-detector-tie-scheme-gap.csv",
+  "partD-new-false-positives.csv",
+  "manifest-addendum-1.json"
+ ]
+}

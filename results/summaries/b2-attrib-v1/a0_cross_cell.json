@@ -1,0 +1,772 @@
+{
+ "excluded_nonfinite": [
+  "mobilenet_v3_large/binary_pm1"
+ ],
+ "recipe": "default",
+ "rows": [
+  {
+   "bits": 1,
+   "family": "binary",
+   "format": "binary_pm1",
+   "median_sqnr_db": 1.4403468211496826,
+   "min_sqnr_db": -11.815819978269664,
+   "model": "mobilenet_v2",
+   "network_nsr_db": -18.69518267150951,
+   "tensors": 65,
+   "top1_drop_pp": 72.0
+  },
+  {
+   "bits": 4,
+   "family": "float",
+   "format": "fp4_e2m1",
+   "median_sqnr_db": 17.673078977297774,
+   "min_sqnr_db": 0.0,
+   "model": "mobilenet_v2",
+   "network_nsr_db": -5.244008049325087,
+   "tensors": 65,
+   "top1_drop_pp": 72.0
+  },
+  {
+   "bits": 5,
+   "family": "float",
+   "format": "fp5_e2m2",
+   "median_sqnr_db": 23.995753742661176,
+   "min_sqnr_db": 4.153910221107076,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 1.057932033334781,
+   "tensors": 65,
+   "top1_drop_pp": 63.78922356432652
+  },
+  {
+   "bits": 6,
+   "family": "float",
+   "format": "fp6_e2m3",
+   "median_sqnr_db": 30.281484712433286,
+   "min_sqnr_db": 16.638937336408613,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 9.963946660442746,
+   "tensors": 65,
+   "top1_drop_pp": 5.865000000000009
+  },
+  {
+   "bits": 6,
+   "family": "float",
+   "format": "fp6_e3m2",
+   "median_sqnr_db": 25.614388981454606,
+   "min_sqnr_db": 21.26955385045141,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 7.522412154405557,
+   "tensors": 65,
+   "top1_drop_pp": 51.2375
+  },
+  {
+   "bits": 7,
+   "family": "float",
+   "format": "fp7_e3m3",
+   "median_sqnr_db": 31.58940376157583,
+   "min_sqnr_db": 30.926697929749988,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 13.614289202339261,
+   "tensors": 65,
+   "top1_drop_pp": 4.474999999999994
+  },
+  {
+   "bits": 8,
+   "family": "float",
+   "format": "fp8_e4m3fn",
+   "median_sqnr_db": 31.593942411205735,
+   "min_sqnr_db": 31.480643441088112,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 13.641986810053538,
+   "tensors": 65,
+   "top1_drop_pp": 4.391666666666666
+  },
+  {
+   "bits": 8,
+   "family": "float",
+   "format": "fp8_e5m2",
+   "median_sqnr_db": 25.6094346686061,
+   "min_sqnr_db": 25.47389901804188,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 7.679206648899157,
+   "tensors": 65,
+   "top1_drop_pp": 48.86488095238094
+  },
+  {
+   "bits": 4,
+   "family": "integer",
+   "format": "int4",
+   "median_sqnr_db": 21.628228982186506,
+   "min_sqnr_db": 0.48356139200303966,
+   "model": "mobilenet_v2",
+   "network_nsr_db": -3.5421748458711653,
+   "tensors": 65,
+   "top1_drop_pp": 72.0
+  },
+  {
+   "bits": 5,
+   "family": "integer",
+   "format": "int5",
+   "median_sqnr_db": 27.344725770688573,
+   "min_sqnr_db": 3.902465801685083,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 1.2956384557484344,
+   "tensors": 65,
+   "top1_drop_pp": 39.549986656762506
+  },
+  {
+   "bits": 6,
+   "family": "integer",
+   "format": "int6",
+   "median_sqnr_db": 33.47078766383997,
+   "min_sqnr_db": 15.751259810714405,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 9.196420251474319,
+   "tensors": 65,
+   "top1_drop_pp": 2.001666666666651
+  },
+  {
+   "bits": 8,
+   "family": "integer",
+   "format": "int8",
+   "median_sqnr_db": 45.60285731274764,
+   "min_sqnr_db": 30.142287845609587,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 19.803294326362675,
+   "tensors": 65,
+   "top1_drop_pp": -0.20000000000000284
+  },
+  {
+   "bits": 4,
+   "family": "logarithmic",
+   "format": "log4",
+   "median_sqnr_db": 16.487757190072106,
+   "min_sqnr_db": 0.0,
+   "model": "mobilenet_v2",
+   "network_nsr_db": -5.025823753303019,
+   "tensors": 65,
+   "top1_drop_pp": 72.0
+  },
+  {
+   "bits": 6,
+   "family": "logarithmic",
+   "format": "log6",
+   "median_sqnr_db": 25.93502000047392,
+   "min_sqnr_db": 16.147885439578026,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 6.953878352865408,
+   "tensors": 65,
+   "top1_drop_pp": 51.76309523809523
+  },
+  {
+   "bits": 8,
+   "family": "logarithmic",
+   "format": "log8",
+   "median_sqnr_db": 32.07658808170467,
+   "min_sqnr_db": 31.807872244067106,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 14.082169424363272,
+   "tensors": 65,
+   "top1_drop_pp": 3.9266666666666623
+  },
+  {
+   "bits": 4,
+   "family": "codebook",
+   "format": "nf4",
+   "median_sqnr_db": 19.914502500702728,
+   "min_sqnr_db": 1.309253587936169,
+   "model": "mobilenet_v2",
+   "network_nsr_db": -3.2074513103461513,
+   "tensors": 65,
+   "top1_drop_pp": 71.99864226044717
+  },
+  {
+   "bits": 4,
+   "family": "posit",
+   "format": "posit4_es0",
+   "median_sqnr_db": 18.112321114898545,
+   "min_sqnr_db": 0.6313345259054483,
+   "model": "mobilenet_v2",
+   "network_nsr_db": -4.5005277269732415,
+   "tensors": 65,
+   "top1_drop_pp": 72.0
+  },
+  {
+   "bits": 6,
+   "family": "posit",
+   "format": "posit6_es1",
+   "median_sqnr_db": 25.534673352890227,
+   "min_sqnr_db": 18.038253862145854,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 7.068079407106334,
+   "tensors": 65,
+   "top1_drop_pp": 53.31098088186323
+  },
+  {
+   "bits": 8,
+   "family": "posit",
+   "format": "posit8_es1",
+   "median_sqnr_db": 37.50691055636213,
+   "min_sqnr_db": 35.510216724785,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 19.43641271870127,
+   "tensors": 65,
+   "top1_drop_pp": -0.2916666666666856
+  },
+  {
+   "bits": 8,
+   "family": "fixed_point",
+   "format": "q1_6",
+   "median_sqnr_db": 39.78662322539052,
+   "min_sqnr_db": 29.82359753808723,
+   "model": "mobilenet_v2",
+   "network_nsr_db": 18.93013317194622,
+   "tensors": 65,
+   "top1_drop_pp": -0.10000000000000853
+  },
+  {
+   "bits": 2,
+   "family": "ternary",
+   "format": "ternary",
+   "median_sqnr_db": 7.459216364500431,
+   "min_sqnr_db": 0.0,
+   "model": "mobilenet_v2",
+   "network_nsr_db": -12.392693038124495,
+   "tensors": 65,
+   "top1_drop_pp": 72.0
+  },
+  {
+   "bits": 4,
+   "family": "float",
+   "format": "fp4_e2m1",
+   "median_sqnr_db": 16.20844912009863,
+   "min_sqnr_db": 0.9783592963424937,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -6.975540627802692,
+   "tensors": 120,
+   "top1_drop_pp": 74.87696119556236
+  },
+  {
+   "bits": 5,
+   "family": "float",
+   "format": "fp5_e2m2",
+   "median_sqnr_db": 22.931344795613462,
+   "min_sqnr_db": 8.349822108000053,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -1.3842959187050974,
+   "tensors": 120,
+   "top1_drop_pp": 64.3746543895561
+  },
+  {
+   "bits": 6,
+   "family": "float",
+   "format": "fp6_e2m3",
+   "median_sqnr_db": 28.806931719479298,
+   "min_sqnr_db": 18.789989461943087,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 5.429370251869003,
+   "tensors": 120,
+   "top1_drop_pp": 16.574999999999996
+  },
+  {
+   "bits": 6,
+   "family": "float",
+   "format": "fp6_e3m2",
+   "median_sqnr_db": 25.584619215402,
+   "min_sqnr_db": 20.382010816695775,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 4.852270404406737,
+   "tensors": 120,
+   "top1_drop_pp": 30.426428571428573
+  },
+  {
+   "bits": 7,
+   "family": "float",
+   "format": "fp7_e3m3",
+   "median_sqnr_db": 31.54817543775266,
+   "min_sqnr_db": 27.896473388457732,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 10.725227000003821,
+   "tensors": 120,
+   "top1_drop_pp": 3.875
+  },
+  {
+   "bits": 8,
+   "family": "float",
+   "format": "fp8_e4m3fn",
+   "median_sqnr_db": 31.586071683152948,
+   "min_sqnr_db": 30.146601995044247,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 10.964435104885403,
+   "tensors": 120,
+   "top1_drop_pp": 3.3416666666666686
+  },
+  {
+   "bits": 8,
+   "family": "float",
+   "format": "fp8_e5m2",
+   "median_sqnr_db": 25.635573103345354,
+   "min_sqnr_db": 23.006584991391005,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 5.004199840471648,
+   "tensors": 120,
+   "top1_drop_pp": 28.425714285714285
+  },
+  {
+   "bits": 4,
+   "family": "integer",
+   "format": "int4",
+   "median_sqnr_db": 17.27264788139891,
+   "min_sqnr_db": 0.28755368806639564,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -7.206824273092627,
+   "tensors": 120,
+   "top1_drop_pp": 74.89679487179487
+  },
+  {
+   "bits": 5,
+   "family": "integer",
+   "format": "int5",
+   "median_sqnr_db": 21.24603071048403,
+   "min_sqnr_db": 6.486353043617554,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -2.695071891313817,
+   "tensors": 120,
+   "top1_drop_pp": 66.94083254839245
+  },
+  {
+   "bits": 6,
+   "family": "integer",
+   "format": "int6",
+   "median_sqnr_db": 26.005651095443135,
+   "min_sqnr_db": 8.686649298419706,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 0.5969087382038709,
+   "tensors": 120,
+   "top1_drop_pp": 54.00479790354055
+  },
+  {
+   "bits": 8,
+   "family": "integer",
+   "format": "int8",
+   "median_sqnr_db": 36.13170774148816,
+   "min_sqnr_db": 22.606503776222695,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 10.457853273901094,
+   "tensors": 120,
+   "top1_drop_pp": 3.4000000000000057
+  },
+  {
+   "bits": 4,
+   "family": "logarithmic",
+   "format": "log4",
+   "median_sqnr_db": 16.481692805270995,
+   "min_sqnr_db": 4.111409159196379,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -5.39997904122982,
+   "tensors": 120,
+   "top1_drop_pp": 74.92436970918912
+  },
+  {
+   "bits": 6,
+   "family": "logarithmic",
+   "format": "log6",
+   "median_sqnr_db": 25.790012216019697,
+   "min_sqnr_db": 21.402072343623875,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 4.7943870031724956,
+   "tensors": 120,
+   "top1_drop_pp": 21.84166666666667
+  },
+  {
+   "bits": 8,
+   "family": "logarithmic",
+   "format": "log8",
+   "median_sqnr_db": 32.04746883542428,
+   "min_sqnr_db": 28.651690230254356,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 11.441431545546113,
+   "tensors": 120,
+   "top1_drop_pp": 5.166666666666671
+  },
+  {
+   "bits": 4,
+   "family": "codebook",
+   "format": "nf4",
+   "median_sqnr_db": 18.670960841805687,
+   "min_sqnr_db": 8.917311654776183,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -4.10466634592095,
+   "tensors": 120,
+   "top1_drop_pp": 72.83066086691086
+  },
+  {
+   "bits": 4,
+   "family": "posit",
+   "format": "posit4_es0",
+   "median_sqnr_db": 17.030063068365394,
+   "min_sqnr_db": 1.1047976968096809,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -6.503584064269611,
+   "tensors": 120,
+   "top1_drop_pp": 74.88551235141368
+  },
+  {
+   "bits": 6,
+   "family": "posit",
+   "format": "posit6_es1",
+   "median_sqnr_db": 25.43266426298347,
+   "min_sqnr_db": 19.57444493947577,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 4.228078006826007,
+   "tensors": 120,
+   "top1_drop_pp": 32.089999999999996
+  },
+  {
+   "bits": 8,
+   "family": "posit",
+   "format": "posit8_es1",
+   "median_sqnr_db": 37.312975307357654,
+   "min_sqnr_db": 34.21982189665778,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 16.289817800184608,
+   "tensors": 120,
+   "top1_drop_pp": 1.64166666666668
+  },
+  {
+   "bits": 8,
+   "family": "fixed_point",
+   "format": "q1_6",
+   "median_sqnr_db": 35.40591002972551,
+   "min_sqnr_db": 22.387167508168847,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": 10.262953653862397,
+   "tensors": 120,
+   "top1_drop_pp": 3.0333333333333172
+  },
+  {
+   "bits": 2,
+   "family": "ternary",
+   "format": "ternary",
+   "median_sqnr_db": 6.381920926597532,
+   "min_sqnr_db": 0.0,
+   "model": "mobilenet_v3_large",
+   "network_nsr_db": -15.276862657451762,
+   "tensors": 112,
+   "top1_drop_pp": 74.9
+  },
+  {
+   "bits": 1,
+   "family": "binary",
+   "format": "binary_pm1",
+   "median_sqnr_db": -0.8187515875791661,
+   "min_sqnr_db": -18.265332793671707,
+   "model": "resnet18",
+   "network_nsr_db": -23.697510666671143,
+   "tensors": 31,
+   "top1_drop_pp": 69.99914994908048
+  },
+  {
+   "bits": 4,
+   "family": "float",
+   "format": "fp4_e2m1",
+   "median_sqnr_db": 15.27673383521699,
+   "min_sqnr_db": 1.1369328562870336,
+   "model": "resnet18",
+   "network_nsr_db": -3.6966690207559187,
+   "tensors": 31,
+   "top1_drop_pp": 70.0143566229522
+  },
+  {
+   "bits": 5,
+   "family": "float",
+   "format": "fp5_e2m2",
+   "median_sqnr_db": 22.082464169461,
+   "min_sqnr_db": 12.886873357082337,
+   "model": "resnet18",
+   "network_nsr_db": 5.065312458391112,
+   "tensors": 31,
+   "top1_drop_pp": 31.00598781937017
+  },
+  {
+   "bits": 6,
+   "family": "float",
+   "format": "fp6_e2m3",
+   "median_sqnr_db": 27.832312549294898,
+   "min_sqnr_db": 23.968489390870307,
+   "model": "resnet18",
+   "network_nsr_db": 12.245475439508024,
+   "tensors": 31,
+   "top1_drop_pp": 3.443333333333314
+  },
+  {
+   "bits": 6,
+   "family": "float",
+   "format": "fp6_e3m2",
+   "median_sqnr_db": 25.541991795456607,
+   "min_sqnr_db": 24.392804084084013,
+   "model": "resnet18",
+   "network_nsr_db": 10.623901964831973,
+   "tensors": 31,
+   "top1_drop_pp": 16.476468253968243
+  },
+  {
+   "bits": 7,
+   "family": "float",
+   "format": "fp7_e3m3",
+   "median_sqnr_db": 31.518027696610492,
+   "min_sqnr_db": 31.376512798834028,
+   "model": "resnet18",
+   "network_nsr_db": 16.63094434189106,
+   "tensors": 31,
+   "top1_drop_pp": 2.6174999999999926
+  },
+  {
+   "bits": 8,
+   "family": "float",
+   "format": "fp8_e4m3fn",
+   "median_sqnr_db": 31.536242569891527,
+   "min_sqnr_db": 31.443852718959473,
+   "model": "resnet18",
+   "network_nsr_db": 16.657443417162973,
+   "tensors": 31,
+   "top1_drop_pp": 2.4341666666666697
+  },
+  {
+   "bits": 8,
+   "family": "float",
+   "format": "fp8_e5m2",
+   "median_sqnr_db": 25.563502318573413,
+   "min_sqnr_db": 25.252700906364282,
+   "model": "resnet18",
+   "network_nsr_db": 10.701536569335836,
+   "tensors": 31,
+   "top1_drop_pp": 8.9220238095238
+  },
+  {
+   "bits": 4,
+   "family": "integer",
+   "format": "int4",
+   "median_sqnr_db": 16.126620873885017,
+   "min_sqnr_db": 0.6184524255715816,
+   "model": "resnet18",
+   "network_nsr_db": -2.9867675505410665,
+   "tensors": 31,
+   "top1_drop_pp": 69.97132173382172
+  },
+  {
+   "bits": 5,
+   "family": "integer",
+   "format": "int5",
+   "median_sqnr_db": 21.29470954338029,
+   "min_sqnr_db": 7.731950031091037,
+   "model": "resnet18",
+   "network_nsr_db": 2.897239894697295,
+   "tensors": 31,
+   "top1_drop_pp": 56.4088207781833
+  },
+  {
+   "bits": 6,
+   "family": "integer",
+   "format": "int6",
+   "median_sqnr_db": 27.098392462697333,
+   "min_sqnr_db": 20.27629595832618,
+   "model": "resnet18",
+   "network_nsr_db": 11.02392556709746,
+   "tensors": 31,
+   "top1_drop_pp": 4.208333333333329
+  },
+  {
+   "bits": 8,
+   "family": "integer",
+   "format": "int8",
+   "median_sqnr_db": 36.85796809875451,
+   "min_sqnr_db": 31.22282645453418,
+   "model": "resnet18",
+   "network_nsr_db": 20.692486055869175,
+   "tensors": 31,
+   "top1_drop_pp": 0.88333333333334
+  },
+  {
+   "bits": 4,
+   "family": "logarithmic",
+   "format": "log4",
+   "median_sqnr_db": 15.822406902518392,
+   "min_sqnr_db": 0.8700182109401101,
+   "model": "resnet18",
+   "network_nsr_db": -3.6325722062798715,
+   "tensors": 31,
+   "top1_drop_pp": 70.02749999999999
+  },
+  {
+   "bits": 6,
+   "family": "logarithmic",
+   "format": "log6",
+   "median_sqnr_db": 25.633168777605245,
+   "min_sqnr_db": 23.319413470348856,
+   "model": "resnet18",
+   "network_nsr_db": 10.527984248513839,
+   "tensors": 31,
+   "top1_drop_pp": 15.557222222222222
+  },
+  {
+   "bits": 8,
+   "family": "logarithmic",
+   "format": "log8",
+   "median_sqnr_db": 32.033964612867784,
+   "min_sqnr_db": 31.472495097922305,
+   "model": "resnet18",
+   "network_nsr_db": 17.149207994865332,
+   "tensors": 31,
+   "top1_drop_pp": 2.0149999999999864
+  },
+  {
+   "bits": 4,
+   "family": "codebook",
+   "format": "nf4",
+   "median_sqnr_db": 17.39937778949361,
+   "min_sqnr_db": 3.3348865381181,
+   "model": "resnet18",
+   "network_nsr_db": -1.3571737999415714,
+   "tensors": 31,
+   "top1_drop_pp": 69.84780907256993
+  },
+  {
+   "bits": 4,
+   "family": "posit",
+   "format": "posit4_es0",
+   "median_sqnr_db": 16.752136983548457,
+   "min_sqnr_db": 3.2036441718282753,
+   "model": "resnet18",
+   "network_nsr_db": -1.6303906525851133,
+   "tensors": 31,
+   "top1_drop_pp": 70.0462803146674
+  },
+  {
+   "bits": 6,
+   "family": "posit",
+   "format": "posit6_es1",
+   "median_sqnr_db": 25.232899577454653,
+   "min_sqnr_db": 23.81163168955616,
+   "model": "resnet18",
+   "network_nsr_db": 10.189847230242018,
+   "tensors": 31,
+   "top1_drop_pp": 10.50496031746031
+  },
+  {
+   "bits": 8,
+   "family": "posit",
+   "format": "posit8_es1",
+   "median_sqnr_db": 37.15944565742213,
+   "min_sqnr_db": 36.77006237633136,
+   "model": "resnet18",
+   "network_nsr_db": 22.23518923027466,
+   "tensors": 31,
+   "top1_drop_pp": 0.46666666666665435
+  },
+  {
+   "bits": 8,
+   "family": "fixed_point",
+   "format": "q1_6",
+   "median_sqnr_db": 33.59410777468295,
+   "min_sqnr_db": 31.270260268142977,
+   "model": "resnet18",
+   "network_nsr_db": 18.844056553970145,
+   "tensors": 31,
+   "top1_drop_pp": 0.9333333333333229
+  },
+  {
+   "bits": 2,
+   "family": "ternary",
+   "format": "ternary",
+   "median_sqnr_db": 3.420869372753469,
+   "min_sqnr_db": 0.0,
+   "model": "resnet18",
+   "network_nsr_db": -11.651274812876839,
+   "tensors": 30,
+   "top1_drop_pp": 70.0
+  }
+ ],
+ "spearman": {
+  "mobilenet_v2": {
+   "cells": 21,
+   "median_sqnr_db": {
+    "p_value": 7.786682748913852e-14,
+    "spearman_rho_vs_drop": -0.9747770385280101
+   },
+   "median_sqnr_db_drop_below_20pp": {
+    "cells": 8,
+    "p_value": 0.0008629681828999767,
+    "spearman_rho_vs_drop": -0.9285714285714287
+   },
+   "min_sqnr_db": {
+    "p_value": 2.0410910567254432e-07,
+    "spearman_rho_vs_drop": -0.8754154309651341
+   },
+   "network_nsr_db": {
+    "p_value": 6.34229584016638e-12,
+    "spearman_rho_vs_drop": -0.9596693081465113
+   }
+  },
+  "mobilenet_v3_large": {
+   "cells": 20,
+   "median_sqnr_db": {
+    "p_value": 1.759049358343191e-11,
+    "spearman_rho_vs_drop": -0.9609022556390976
+   },
+   "median_sqnr_db_drop_below_20pp": {
+    "cells": 7,
+    "p_value": 0.0521814004570578,
+    "spearman_rho_vs_drop": -0.7500000000000002
+   },
+   "min_sqnr_db": {
+    "p_value": 1.082772775951494e-08,
+    "spearman_rho_vs_drop": -0.918796992481203
+   },
+   "network_nsr_db": {
+    "p_value": 8.333045726679196e-11,
+    "spearman_rho_vs_drop": -0.9533834586466164
+   }
+  },
+  "pooled": {
+   "cells": 62,
+   "median_sqnr_db": {
+    "p_value": 1.1598256479156251e-26,
+    "spearman_rho_vs_drop": -0.9235769978174979
+   },
+   "median_sqnr_db_drop_below_20pp": {
+    "cells": 27,
+    "p_value": 6.549474115664138e-08,
+    "spearman_rho_vs_drop": -0.833943833943834
+   },
+   "min_sqnr_db": {
+    "p_value": 4.794435406486684e-22,
+    "spearman_rho_vs_drop": -0.8892360963682847
+   },
+   "network_nsr_db": {
+    "p_value": 3.4699708367875743e-32,
+    "spearman_rho_vs_drop": -0.9506343272134604
+   }
+  },
+  "resnet18": {
+   "cells": 21,
+   "median_sqnr_db": {
+    "p_value": 4.592230591649308e-12,
+    "spearman_rho_vs_drop": -0.961038961038961
+   },
+   "median_sqnr_db_drop_below_20pp": {
+    "cells": 12,
+    "p_value": 3.880985299627466e-07,
+    "spearman_rho_vs_drop": -0.965034965034965
+   },
+   "min_sqnr_db": {
+    "p_value": 7.846115695184519e-09,
+    "spearman_rho_vs_drop": -0.9129870129870129
+   },
+   "network_nsr_db": {
+    "p_value": 3.3446990261039678e-12,
+    "spearman_rho_vs_drop": -0.9623376623376624
+   }
+  }
+ }
+}

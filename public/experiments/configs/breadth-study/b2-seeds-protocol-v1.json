@@ -1,0 +1,91 @@
+{
+  "version": "b2-seeds-protocol-v1",
+  "written": "2026-10-02T06:36Z, before any calibration-subset cell was measured",
+  "lane": "Q5 calibration seeds and calibration size",
+  "parents": {
+    "b2_baseline": "public/experiments/configs/breadth-study/b2-baseline-repair-protocol-v1.json (+ r3 addendum)",
+    "b2_matrix": "public/experiments/configs/breadth-study/b2-matrix-protocol-v1.json",
+    "confirmation_draft": "docs/analysis/confirmation-protocol-draft-2026-10-01.md section 4 (three seeds, five when a primary contrast changes sign or the seed SD exceeds delta/2; delta = 1 pp); fact-check item 9 allows subsamples of the existing 2k list"
+  },
+  "purpose": "Measure how much the B2 top-1 figures and the same-width format contrasts move when the calibration data (activation-range statistics and bias-correction images) is drawn differently, and how they depend on the calibration size; recommend the number of seeds for the confirmation protocol.",
+  "evidence_class": "development evidence: every number is measured on the frozen 1k ImageNet screen (imagenet_screen_1k), on which the B2 recipes were selected. The calibration 'seeds' are disjoint subsamples of the one existing 2k calibration list (imagenet_calibration_2k), not independent draws from the ImageNet training set; no new calibration images exist on this machine.",
+  "data": {
+    "calibration_list": "imagenet_calibration_2k (data/manifests/calibration/imagenet1k_train_2k.tsv, sha256 3e0417ef0c4d5badd8fb396e156955ff760d306311d4a6496ed9a305b67d7381), 2000 rows in ascending sha256 order",
+    "evaluation_list": "imagenet_screen_1k, all 1000 images, batch 8 (unchanged B2 readout)",
+    "not_touched": "ImageNet 10k evaluation list beyond the 1k screen; any COCO image; the 2000-image B2 input-cache entry (never built)"
+  },
+  "calibration_units": {
+    "observation_cache": "v1 observation cache artifacts/experiment_b/calibration/<model>/<identity>/ (read-only): one checkpoint per batch of 8 consecutive list rows (250 batches, starts 0,8,...,1992); each holds 256 sampled values per image per quantizing node (rotating_channel_stratified_256_per_image_v1) and the exact per-node max-abs of the batch",
+    "subset_definition": "a subset is a set of whole batches; its images are the union of their rows",
+    "range_statistics_from_subset": "arrays[node] = concatenation, in ascending batch-start order, of the ravelled stored samples of the selected batches (exactly the v1_calibration code path restricted to those batches); maxima[node] = max(0, max over selected batches of the stored batch maximum). The MSE scale search and every other step of the frozen recipe are unchanged.",
+    "full_set_identity_requirement": "with all 250 batches the subset loader must return arrays and maxima bit-identical to tools.experiment_b2.data.v1_calibration (unit test) and the same calibration identity record, so a full-set cell has the configuration identity of the existing matrix cell (GPU reproduction test, below)",
+    "bias_correction_from_subset": "the first min(256, subset images) images of the subset in ascending sha256 order (the original rule 'first 256 of the list in ascending sha256 order' applied to the subset). Preprocessed inputs come from the existing 256-image B2 input-cache entry where an image is in it, otherwise from tools.experiment_b.classifier.image_batch on the JPEG payload in the running process (CPU); nothing is persisted. The bias-correction chunking (32 scalar, 8 block) is unchanged.",
+    "block_formats": "for the shared-exponent formats under cum5_act_maxabs (the proposal arm) activation scales are intrinsic per block and use no calibration data; only bias correction depends on the subset. Their minimal counterpart cum1_fused uses no calibration data at all and is seed-invariant by construction (not run)."
+  },
+  "subsets": {
+    "seed_rng": "numpy.random.default_rng(20261002).permutation(250) over batch indices (seed chosen before measurement, not data-derived)",
+    "seeds": "K = 5 disjoint subsets S0..S4: S_k = sorted(perm[50k : 50k+50]) -> 50 batches = 400 images each; together they partition the 2000-image list",
+    "ladder_nested": "L32_k = sorted(perm[50k : 50k+4]) (32 images) and L128_k = sorted(perm[50k : 50k+16]) (128 images) for k = 0, 1, 2; nested inside S_k",
+    "ladder_1000": "H_j for j = 0, 1: second permutation numpy.random.default_rng(20261003).permutation(250); H0 = sorted(first 125), H1 = sorted(last 125) (1000 images each, disjoint)",
+    "full_2000": "the existing matrix cells (artifacts/experiment_b2/matrix/cells, read-only) are the 2000-image reference; three of them are re-run through this lane's wrapper with the full subset to prove the machinery reproduces them",
+    "bias_only_arm": "ranges from the full 2000 images, bias correction from the first 256 images of S_k (k = 0..4): isolates the bias-correction share of the seed effect"
+  },
+  "cells": {
+    "seed_default": {
+      "subsets": ["S0", "S1", "S2", "S3", "S4"],
+      "models": ["resnet18", "mobilenet_v2", "mobilenet_v3_large"],
+      "formats_recipe_default": ["int8", "posit8_es1", "fp8_e4m3fn", "log8", "fp7_e3m3", "int6", "fp6_e2m3", "fp6_e3m2", "log6", "posit6_es1"],
+      "formats_recipe_cum5_act_maxabs": ["mxfp8_e4m3", "bfp6"],
+      "count": 180
+    },
+    "seed_minimal": {
+      "why": "rule (c) of the matrix (R_bits(6)) is decided at 6 bits by default-versus-minimal comparisons; NF4 enters the proposal under the minimal recipe",
+      "subsets": ["S0", "S1", "S2", "S3", "S4"],
+      "models": ["resnet18", "mobilenet_v2", "mobilenet_v3_large"],
+      "formats_recipe_minimal": ["int6", "fp6_e2m3", "fp6_e3m2", "log6", "posit6_es1", "nf4"],
+      "count": 90
+    },
+    "ladder": {
+      "models": ["resnet18", "mobilenet_v2", "mobilenet_v3_large"],
+      "formats_recipe_default": ["int8", "posit8_es1", "fp8_e4m3fn", "int6"],
+      "subsets": ["L32_0", "L32_1", "L32_2", "L128_0", "L128_1", "L128_2", "H0", "H1"],
+      "plus": "S0..S4 from seed_default (400 images) and the existing full-set cell (2000 images)",
+      "count": 96
+    },
+    "bias_only": {
+      "models": ["resnet18", "mobilenet_v2", "mobilenet_v3_large"],
+      "formats_recipe_default": ["int8", "posit8_es1", "fp8_e4m3fn", "int6"],
+      "subsets": ["B0", "B1", "B2", "B3", "B4"],
+      "count": 60
+    },
+    "reproduction": [["resnet18", "int8", "default"], ["mobilenet_v3_large", "posit8_es1", "default"], ["resnet18", "mxfp8_e4m3", "cum5_act_maxabs"]],
+    "not_run": "ternary (chance on every model in the matrix), block formats under the searched default recipe (5-10 min each on MobileNets), cum1_fused (calibration-free), CLE and AdaRound arms (would need the 2000-image input cache, rule 12)",
+    "execution_order_and_budget": "reproduction, seed_default, seed_minimal, ladder, bias_only; GPU budget about 2 GPU-hours, hard stop at 3 h of summed job wall time; anything not run is reported as not run"
+  },
+  "outputs": {
+    "per_cell": "artifacts/experiment_b2_seeds/readout/<configuration>.npz (the B2 tie-aware readout arrays, readout.py), cells/<arm>/<model>--<format>--<recipe>--<subset>--<id12>.json (sealed), configurations/<configuration>.json.gz (compact: calibration identity, subset, bias rows, activation scales, bias-correction report; weight scales by digest)",
+    "summaries": "results/summaries/b2-seeds-v1/ (written once)",
+    "document": "docs/analysis/b2-calibration-seeds-2026-10-02.md"
+  },
+  "readout": "primary expected-credit top-1, secondary lowest-index top-1 (tools/experiment_b2/readout.py), batch 8, unchanged",
+  "analysis_rules_stated_in_advance": {
+    "cell": "per (model, format, recipe) over S0..S4: mean, SD (ddof 1), min, max of top-1 under both readouts; flag SD > delta/2 = 0.5 pp; difference of the seed mean to the full-set cell",
+    "contrasts": {
+      "8_bit": "every pair among int8, posit8_es1, fp8_e4m3fn, log8, mxfp8_e4m3 (10 per model)",
+      "7_vs_8": "fp7_e3m3 - int8, fp7_e3m3 - fp8_e4m3fn (2 per model)",
+      "6_bit": "every pair among int6, fp6_e2m3, fp6_e3m2, bfp6, log6, posit6_es1 under the default-type recipe (15 per model)",
+      "recipe_rule_c": "default - minimal for int6, fp6_e2m3, fp6_e3m2, log6, posit6_es1 (5 per model)",
+      "pairing": "both sides of a contrast use the same subset; the per-seed contrast is the paired mean credit difference on the 1000 screen images"
+    },
+    "five_seed_rule": "draft rule applied per contrast: needs five seeds if the sign of the per-seed difference is not the same on all seeds considered, or the seed SD of the difference exceeds 0.5 pp. Evaluated (a) on S0..S2 (what a three-seed run would have seen) and (b) on S0..S4. A per-seed difference of exactly zero counts as a sign change against any non-zero seed.",
+    "variance_decomposition": "per cell and contrast: seed variance = variance over S0..S4 (ddof 1) of the 1k estimate; image variance = mean over seeds of the paired image-bootstrap variance of the estimate at n = 1000 (10000 resamples, project seed 20260927, tools.analysis.b2_ties / b2_matrix.interval); report both SDs and the seed share seed/(seed+image). The seed SD is measured at 400 calibration images (bias correction at 256, as in the full set); the ladder and bias-only arms are used to say how it would scale to 2000 images, as an estimate.",
+    "size": "per ladder format and model: mean and SD at 32, 128, 400, 1000 and the 2000 value; difference to 2000",
+    "matrix_outcomes_report_only": "per seed, recompute for the proposal formats in this list the mean and worst drop against FP32 and the floor (5.0 / 10.0 points), the class of each format against INT8 of the same model under rule (b) classify(); for rule (c) at 6 bits, which recipe each seed would pick (separated better) per format and model. Changes are reported, not acted on.",
+    "intervals": "pointwise 95 percent paired image bootstrap, 10000 resamples, seed 20260927 (unchanged project convention); no multiplicity correction; descriptive only"
+  },
+  "limits_stated_in_advance": [
+    "seeds are disjoint subsamples of one 2k list (2 images per class); they share the list's selection and cannot show variation between independently drawn calibration sets",
+    "seed subsets have 400 images for the range statistics (full set: 2000) and 256 for bias correction (full set: 256), so the range part of the seed SD is for a smaller calibration than the production one",
+    "one evaluation list of 1000 images, development evidence; the per-seed estimates share the images"
+  ]
+}

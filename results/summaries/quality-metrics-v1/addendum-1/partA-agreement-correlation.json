@@ -1,0 +1,8 @@
+{
+ "cells": 96,
+ "pearson_r": 0.9888939444712697,
+ "spearman_rho": 0.9878283286781381,
+ "selection": "matrix own cells (default/minimal, no '@' arm, not FP32), top1_expected >= 10 percent",
+ "x": "agree_lowest (percent)",
+ "y": "top1_expected - fp32_top1 (pp)"
+}

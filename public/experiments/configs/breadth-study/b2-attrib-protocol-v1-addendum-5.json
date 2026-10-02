@@ -1,0 +1,27 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-5",
+ "lane": "Q4 activation attribution (agent r4)",
+ "written_utc": "2026-10-02T09:59:15+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92",
+  "addendum_3_sha256": "02a6971fe2e4ceaece52b94c04165af1d2059b88a1c253d9c0ac8f3cecc8b66f",
+  "addendum_4_sha256": "9f2b73bd4c2bb524ae4d5755ab18255614ee5b03c91e920f9e4813ab7231fb01"
+ },
+ "status": "written before the arms defined here ran; A2 INT6 and FP6 E2M3 measured before it",
+ "observation_motivating_it": "A2: keeping the single node features_11_block_0_2 (Hardswish after the expand conv of the first 112-channel block) in FP32 gains 17.5 pp at INT6 but loses 9.8 pp at FP6 E2M3, the same sign flip as wide:role.expand_conv (-8.3 INT6, -10.2 FP6). Addendum 3 tests the per-arm bias-correction refit only at group level.",
+ "diagnostic_arms": {
+  "arms": [
+   "wide:node.features_11_block_0_2+fixbc"
+  ],
+  "formats": {
+   "mobilenet_v3_large": [
+    "int6",
+    "fp6_e2m3"
+   ]
+  },
+  "definition": "fixbc as in addendum 3 (default arm's corrected biases instead of a refit); diagnostic only, never a recipe",
+  "reading": "if the FP6 loss disappears with fixbc, the refit causes it; the attribution is then reported in both readings"
+ },
+ "gpu": "2 arms, about 2 GPU-minutes, within the unchanged 10800 s cap"
+}

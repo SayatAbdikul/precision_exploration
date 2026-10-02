@@ -1,0 +1,742 @@
+{
+ "version": "b2-attrib-protocol-v1",
+ "lane": "Q4: activation-error attribution and the MobileNetV3-Large repair (B2)",
+ "written_utc": "2026-10-02T06:51:12.542753+00:00",
+ "status": "written before any new measurement of this lane",
+ "evidence": {
+  "class": "development evidence (the 1k screen was used to select the B2 default and is used here to choose repairs)",
+  "evaluation_list": "imagenet_screen_1k: all 1000 images in frozen manifest order, batch 8, through the B2 input cache with build=False",
+  "audit_images": "first 128 images of imagenet_screen_1k (as the B2 matrix occupancy audit)",
+  "calibration": "frozen v1 FP32 observations of imagenet_calibration_2k (read-only) for every activation scale; first 256 images of imagenet_calibration_2k for bias correction (the frozen B2 rule)",
+  "reserved_data": "no ImageNet evaluation image outside the 1k screen and no COCO image is used; no held-out confirmation is run"
+ },
+ "base": {
+  "engine": "B2 FP32 quantize-dequantize surrogate with wide FP32 accumulation (tools/experiment_b2, sources read-only)",
+  "recipe": "frozen B2 default (fused_relu boundaries, unsigned integer codes on provably non-negative boundaries, activation MSE scale, per-channel weight MSE scale, sequential empirical bias correction)",
+  "readout": "b2-tie-readout-1 (tools/experiment_b2/readout.py); primary metric top-1 expected credit"
+ },
+ "reproduction_gate": "Before any arm of a (model, format) runs, the verify job must reproduce the sealed matrix cell <model>--<format>--default: configuration identity, the readout arrays and the logits sha256 through tools.experiment_b2.runner.build, and the same readout arrays and logits sha256 through this lane's arm engine with the empty arm, with all parameters bit-identical after bias correction. Every arm job checks that its shared state (activation scales, weight scales, quantized weights) has the verified fingerprint.",
+ "arm_semantics": {
+  "wide": "the named activation boundaries are not quantized (FP32 tensor passed on); every other boundary, all weights and the bias-correction procedure follow the default; bias correction is refitted for the arm's boundary plan (the frozen procedure, run on the arm). Diagnostic only: mixed precision is never proposed as a recipe.",
+  "only": "only the named boundaries are quantized; all other boundaries wide (same rules as wide)",
+  "ref_weights_only": "every activation boundary wide (weights quantized, bias correction as the default)",
+  "affine": "affine (zero-point) code at the named signed boundaries: x_hat = (Q(x/s + z) - z) * s with z a non-positive codebook level; (s, z) from a float64 SSE search over the calibration samples on the B2 ratio grid anchored at the asymmetric span, z = smallest level >= bottom level - min/s; it replaces the B2 symmetric scale only where its error is strictly smaller. Unsigned and wide boundaries are untouched.",
+  "pc": "per-channel activation scales (dimension 1) at the named boundaries (never the network input or linear outputs); per-channel B2 MSE search over the v1 calibration samples regrouped by channel with the v1 sampler; every conv/linear consumer gets the per-channel ratios r_c = s_c / s_node folded into its FP32 weights before per-output-channel weight quantization (the QDQ surrogate uses Qw(W*r)/r against the dequantized input, which is the folded hardware computation up to FP32 rounding); elementwise consumers (Hardswish, add, mul, pooling) take the per-channel scale as is."
+ },
+ "hardware_semantics": {
+  "affine": "a zero point z changes every consuming MAC: sum w*(q - z) = sum w*q - z*sum(w), a per-output-channel constant precomputed offline and added to the accumulator, and padded positions must use the code z. Accumulator: closed form of tools/scaled_bridge_v2/certificates.py (signed_bits_absolute = bit_length(max|a| * sum|w|) + 1, max over output channels); with the term in the accumulator the bound is max|q|*sum|w| + |z|*|sum w|; with the operand q - z formed first it is max|q - z|*sum|w| (a wider operand). Reported per consuming MAC and as the network maximum for integer formats, from the arm's integer weight codes.",
+  "pc": "per-channel activation scales need a per-channel requantization multiplier at the producer (already per channel after a conv with per-channel weight scales; new for Hardswish/add/mul producers) and, at every consumer, either an exact fold into a depthwise conv's per-channel weight scale (free), a fold into a dense conv's weights before weight quantization (changes the weight codes; reported as the folded accumulator width), or per-channel handling in an elementwise unit (Hardswish LUT or multiplier per channel)."
+ },
+ "groups": {
+  "mobilenet_v3_large": {
+   "role": {
+    "stem": [
+     "x",
+     "features_0_0",
+     "features_0_2"
+    ],
+    "expand_conv": [
+     "features_7_block_0_0",
+     "features_8_block_0_0",
+     "features_9_block_0_0",
+     "features_10_block_0_0",
+     "features_11_block_0_0",
+     "features_12_block_0_0",
+     "features_13_block_0_0",
+     "features_14_block_0_0",
+     "features_15_block_0_0",
+     "features_16_0"
+    ],
+    "relu_act": [
+     "features_1_block_0_2",
+     "features_2_block_0_2",
+     "features_2_block_1_2",
+     "features_3_block_0_2",
+     "features_3_block_1_2",
+     "features_4_block_0_2",
+     "features_4_block_1_2",
+     "features_5_block_0_2",
+     "features_5_block_1_2",
+     "features_6_block_0_2",
+     "features_6_block_1_2"
+    ],
+    "hswish": [
+     "features_7_block_0_2",
+     "features_7_block_1_2",
+     "features_8_block_0_2",
+     "features_8_block_1_2",
+     "features_9_block_0_2",
+     "features_9_block_1_2",
+     "features_10_block_0_2",
+     "features_10_block_1_2",
+     "features_11_block_0_2",
+     "features_11_block_1_2",
+     "features_12_block_0_2",
+     "features_12_block_1_2",
+     "features_13_block_0_2",
+     "features_13_block_1_2",
+     "features_14_block_0_2",
+     "features_14_block_1_2",
+     "features_15_block_0_2",
+     "features_15_block_1_2",
+     "features_16_2"
+    ],
+    "dw_conv": [
+     "features_7_block_1_0",
+     "features_8_block_1_0",
+     "features_9_block_1_0",
+     "features_10_block_1_0",
+     "features_11_block_1_0",
+     "features_12_block_1_0",
+     "features_13_block_1_0",
+     "features_14_block_1_0",
+     "features_15_block_1_0"
+    ],
+    "se_pool": [
+     "features_4_block_2_avgpool",
+     "features_5_block_2_avgpool",
+     "features_6_block_2_avgpool",
+     "features_11_block_2_avgpool",
+     "features_12_block_2_avgpool",
+     "features_13_block_2_avgpool",
+     "features_14_block_2_avgpool",
+     "features_15_block_2_avgpool"
+    ],
+    "se_reduce": [
+     "features_4_block_2_activation",
+     "features_5_block_2_activation",
+     "features_6_block_2_activation",
+     "features_11_block_2_activation",
+     "features_12_block_2_activation",
+     "features_13_block_2_activation",
+     "features_14_block_2_activation",
+     "features_15_block_2_activation"
+    ],
+    "se_expand": [
+     "features_4_block_2_fc2",
+     "features_5_block_2_fc2",
+     "features_6_block_2_fc2",
+     "features_11_block_2_fc2",
+     "features_12_block_2_fc2",
+     "features_13_block_2_fc2",
+     "features_14_block_2_fc2",
+     "features_15_block_2_fc2"
+    ],
+    "se_gate": [
+     "features_4_block_2_scale_activation",
+     "features_5_block_2_scale_activation",
+     "features_6_block_2_scale_activation",
+     "features_11_block_2_scale_activation",
+     "features_12_block_2_scale_activation",
+     "features_13_block_2_scale_activation",
+     "features_14_block_2_scale_activation",
+     "features_15_block_2_scale_activation"
+    ],
+    "se_product": [
+     "mul",
+     "mul_1",
+     "mul_2",
+     "mul_3",
+     "mul_4",
+     "mul_5",
+     "mul_6",
+     "mul_7"
+    ],
+    "project": [
+     "features_1_block_1_0",
+     "features_2_block_2_0",
+     "features_3_block_2_0",
+     "features_4_block_3_0",
+     "features_5_block_3_0",
+     "features_6_block_3_0",
+     "features_7_block_2_0",
+     "features_8_block_2_0",
+     "features_9_block_2_0",
+     "features_10_block_2_0",
+     "features_11_block_3_0",
+     "features_12_block_3_0",
+     "features_13_block_3_0",
+     "features_14_block_3_0",
+     "features_15_block_3_0"
+    ],
+    "residual_add": [
+     "add",
+     "add_1",
+     "add_2",
+     "add_3",
+     "add_4",
+     "add_5",
+     "add_6",
+     "add_7",
+     "add_8",
+     "add_9"
+    ],
+    "classifier": [
+     "avgpool",
+     "classifier_0",
+     "classifier_1",
+     "classifier_3"
+    ]
+   },
+   "position": {
+    "stem": [
+     "x",
+     "features_0_0",
+     "features_0_2"
+    ],
+    "early": [
+     "features_1_block_0_2",
+     "features_1_block_1_0",
+     "add",
+     "features_2_block_0_2",
+     "features_2_block_1_2",
+     "features_2_block_2_0",
+     "features_3_block_0_2",
+     "features_3_block_1_2",
+     "features_3_block_2_0",
+     "add_1",
+     "features_4_block_0_2",
+     "features_4_block_1_2",
+     "features_4_block_2_avgpool",
+     "features_4_block_2_activation",
+     "features_4_block_2_fc2",
+     "features_4_block_2_scale_activation",
+     "mul",
+     "features_4_block_3_0",
+     "features_5_block_0_2",
+     "features_5_block_1_2",
+     "features_5_block_2_avgpool",
+     "features_5_block_2_activation",
+     "features_5_block_2_fc2",
+     "features_5_block_2_scale_activation",
+     "mul_1",
+     "features_5_block_3_0",
+     "add_2",
+     "features_6_block_0_2",
+     "features_6_block_1_2",
+     "features_6_block_2_avgpool",
+     "features_6_block_2_activation",
+     "features_6_block_2_fc2",
+     "features_6_block_2_scale_activation",
+     "mul_2",
+     "features_6_block_3_0",
+     "add_3"
+    ],
+    "middle": [
+     "features_7_block_0_0",
+     "features_7_block_0_2",
+     "features_7_block_1_0",
+     "features_7_block_1_2",
+     "features_7_block_2_0",
+     "features_8_block_0_0",
+     "features_8_block_0_2",
+     "features_8_block_1_0",
+     "features_8_block_1_2",
+     "features_8_block_2_0",
+     "add_4",
+     "features_9_block_0_0",
+     "features_9_block_0_2",
+     "features_9_block_1_0",
+     "features_9_block_1_2",
+     "features_9_block_2_0",
+     "add_5",
+     "features_10_block_0_0",
+     "features_10_block_0_2",
+     "features_10_block_1_0",
+     "features_10_block_1_2",
+     "features_10_block_2_0",
+     "add_6",
+     "features_11_block_0_0",
+     "features_11_block_0_2",
+     "features_11_block_1_0",
+     "features_11_block_1_2",
+     "features_11_block_2_avgpool",
+     "features_11_block_2_activation",
+     "features_11_block_2_fc2",
+     "features_11_block_2_scale_activation",
+     "mul_3",
+     "features_11_block_3_0",
+     "features_12_block_0_0",
+     "features_12_block_0_2",
+     "features_12_block_1_0",
+     "features_12_block_1_2",
+     "features_12_block_2_avgpool",
+     "features_12_block_2_activation",
+     "features_12_block_2_fc2",
+     "features_12_block_2_scale_activation",
+     "mul_4",
+     "features_12_block_3_0",
+     "add_7"
+    ],
+    "late": [
+     "features_13_block_0_0",
+     "features_13_block_0_2",
+     "features_13_block_1_0",
+     "features_13_block_1_2",
+     "features_13_block_2_avgpool",
+     "features_13_block_2_activation",
+     "features_13_block_2_fc2",
+     "features_13_block_2_scale_activation",
+     "mul_5",
+     "features_13_block_3_0",
+     "features_14_block_0_0",
+     "features_14_block_0_2",
+     "features_14_block_1_0",
+     "features_14_block_1_2",
+     "features_14_block_2_avgpool",
+     "features_14_block_2_activation",
+     "features_14_block_2_fc2",
+     "features_14_block_2_scale_activation",
+     "mul_6",
+     "features_14_block_3_0",
+     "add_8",
+     "features_15_block_0_0",
+     "features_15_block_0_2",
+     "features_15_block_1_0",
+     "features_15_block_1_2",
+     "features_15_block_2_avgpool",
+     "features_15_block_2_activation",
+     "features_15_block_2_fc2",
+     "features_15_block_2_scale_activation",
+     "mul_7",
+     "features_15_block_3_0",
+     "add_9",
+     "features_16_0",
+     "features_16_2"
+    ],
+    "classifier": [
+     "avgpool",
+     "classifier_0",
+     "classifier_1",
+     "classifier_3"
+    ]
+   }
+  },
+  "mobilenet_v2": {
+   "role": {
+    "stem": [
+     "x",
+     "features_0_2"
+    ],
+    "expand_act": [
+     "features_2_conv_0_2",
+     "features_3_conv_0_2",
+     "features_4_conv_0_2",
+     "features_5_conv_0_2",
+     "features_6_conv_0_2",
+     "features_7_conv_0_2",
+     "features_8_conv_0_2",
+     "features_9_conv_0_2",
+     "features_10_conv_0_2",
+     "features_11_conv_0_2",
+     "features_12_conv_0_2",
+     "features_13_conv_0_2",
+     "features_14_conv_0_2",
+     "features_15_conv_0_2",
+     "features_16_conv_0_2",
+     "features_17_conv_0_2",
+     "features_18_2"
+    ],
+    "dw_act": [
+     "features_1_conv_0_2",
+     "features_2_conv_1_2",
+     "features_3_conv_1_2",
+     "features_4_conv_1_2",
+     "features_5_conv_1_2",
+     "features_6_conv_1_2",
+     "features_7_conv_1_2",
+     "features_8_conv_1_2",
+     "features_9_conv_1_2",
+     "features_10_conv_1_2",
+     "features_11_conv_1_2",
+     "features_12_conv_1_2",
+     "features_13_conv_1_2",
+     "features_14_conv_1_2",
+     "features_15_conv_1_2",
+     "features_16_conv_1_2",
+     "features_17_conv_1_2"
+    ],
+    "project": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_4_conv_2",
+     "features_5_conv_2",
+     "features_6_conv_2",
+     "features_7_conv_2",
+     "features_8_conv_2",
+     "features_9_conv_2",
+     "features_10_conv_2",
+     "features_11_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "residual_add": [
+     "add",
+     "add_1",
+     "add_2",
+     "add_3",
+     "add_4",
+     "add_5",
+     "add_6",
+     "add_7",
+     "add_8",
+     "add_9"
+    ],
+    "classifier": [
+     "adaptive_avg_pool2d",
+     "classifier_1"
+    ]
+   },
+   "position": {
+    "stem": [
+     "x",
+     "features_0_2"
+    ],
+    "early": [
+     "features_1_conv_0_2",
+     "features_1_conv_1",
+     "features_2_conv_0_2",
+     "features_2_conv_1_2",
+     "features_2_conv_2",
+     "features_3_conv_0_2",
+     "features_3_conv_1_2",
+     "features_3_conv_2",
+     "add",
+     "features_4_conv_0_2",
+     "features_4_conv_1_2",
+     "features_4_conv_2",
+     "features_5_conv_0_2",
+     "features_5_conv_1_2",
+     "features_5_conv_2",
+     "add_1",
+     "features_6_conv_0_2",
+     "features_6_conv_1_2",
+     "features_6_conv_2",
+     "add_2"
+    ],
+    "middle": [
+     "features_7_conv_0_2",
+     "features_7_conv_1_2",
+     "features_7_conv_2",
+     "features_8_conv_0_2",
+     "features_8_conv_1_2",
+     "features_8_conv_2",
+     "add_3",
+     "features_9_conv_0_2",
+     "features_9_conv_1_2",
+     "features_9_conv_2",
+     "add_4",
+     "features_10_conv_0_2",
+     "features_10_conv_1_2",
+     "features_10_conv_2",
+     "add_5",
+     "features_11_conv_0_2",
+     "features_11_conv_1_2",
+     "features_11_conv_2",
+     "features_12_conv_0_2",
+     "features_12_conv_1_2",
+     "features_12_conv_2",
+     "add_6",
+     "features_13_conv_0_2",
+     "features_13_conv_1_2",
+     "features_13_conv_2",
+     "add_7"
+    ],
+    "late": [
+     "features_14_conv_0_2",
+     "features_14_conv_1_2",
+     "features_14_conv_2",
+     "features_15_conv_0_2",
+     "features_15_conv_1_2",
+     "features_15_conv_2",
+     "add_8",
+     "features_16_conv_0_2",
+     "features_16_conv_1_2",
+     "features_16_conv_2",
+     "add_9",
+     "features_17_conv_0_2",
+     "features_17_conv_1_2",
+     "features_17_conv_2",
+     "features_18_2"
+    ],
+    "classifier": [
+     "adaptive_avg_pool2d",
+     "classifier_1"
+    ]
+   }
+  },
+  "resnet18": {
+   "role": {
+    "stem": [
+     "x",
+     "relu"
+    ],
+    "inner_act": [
+     "layer1_0_relu",
+     "layer1_1_relu",
+     "layer2_0_relu",
+     "layer2_1_relu",
+     "layer3_0_relu",
+     "layer3_1_relu",
+     "layer4_0_relu",
+     "layer4_1_relu"
+    ],
+    "pre_add_conv": [
+     "layer1_0_conv2",
+     "layer1_1_conv2",
+     "layer2_0_conv2",
+     "layer2_1_conv2",
+     "layer3_0_conv2",
+     "layer3_1_conv2",
+     "layer4_0_conv2",
+     "layer4_1_conv2"
+    ],
+    "downsample": [
+     "layer2_0_downsample_0",
+     "layer3_0_downsample_0",
+     "layer4_0_downsample_0"
+    ],
+    "block_out": [
+     "layer1_0_relu_1",
+     "layer1_1_relu_1",
+     "layer2_0_relu_1",
+     "layer2_1_relu_1",
+     "layer3_0_relu_1",
+     "layer3_1_relu_1",
+     "layer4_0_relu_1",
+     "layer4_1_relu_1"
+    ],
+    "classifier": [
+     "avgpool",
+     "fc"
+    ]
+   },
+   "position": {
+    "stem": [
+     "x",
+     "relu"
+    ],
+    "layer1": [
+     "layer1_0_relu",
+     "layer1_0_conv2",
+     "layer1_0_relu_1",
+     "layer1_1_relu",
+     "layer1_1_conv2",
+     "layer1_1_relu_1"
+    ],
+    "layer2": [
+     "layer2_0_relu",
+     "layer2_0_conv2",
+     "layer2_0_downsample_0",
+     "layer2_0_relu_1",
+     "layer2_1_relu",
+     "layer2_1_conv2",
+     "layer2_1_relu_1"
+    ],
+    "layer3": [
+     "layer3_0_relu",
+     "layer3_0_conv2",
+     "layer3_0_downsample_0",
+     "layer3_0_relu_1",
+     "layer3_1_relu",
+     "layer3_1_conv2",
+     "layer3_1_relu_1"
+    ],
+    "layer4": [
+     "layer4_0_relu",
+     "layer4_0_conv2",
+     "layer4_0_downsample_0",
+     "layer4_0_relu_1",
+     "layer4_1_relu",
+     "layer4_1_conv2",
+     "layer4_1_relu_1"
+    ],
+    "classifier": [
+     "avgpool",
+     "fc"
+    ]
+   }
+  }
+ },
+ "group_rules": "tools/experiment_b2_attrib/groups.py (structural, from the FX graph and the B2 default plan; each scheme is a partition of the quantizing boundaries). The lists above are the int8 plan; the same structural plan holds for every scalar format except that unsigned codes exist only for integers.",
+ "metrics": {
+  "primary": "top-1 expected credit (tie-aware) on the 1k screen",
+  "secondary": [
+   "mean per-image KL(FP32 || arm) of the softmax logits, nats (FP32 logits recomputed in the job from the frozen FP32 graph)",
+   "top-1 lowest-index and topk",
+   "per-node SQNR of the arm on the 128 audit images (recipe arms)"
+  ],
+  "derived": {
+   "activation_loss": "L = top1(ref_weights_only) - top1(ref_default)",
+   "damage": "D_G = top1(ref_weights_only) - top1(only:G)",
+   "recovery": "R_G = top1(wide:G) - top1(ref_default)",
+   "additivity": "sum of D_G and of R_G over the role partition compared with L",
+   "sqnr_predictors": "from the per-node SQNR stored in the sealed default matrix cell of the same model and format (128 audit images): NSR(S) = sum over S of 10^(-SQNR/10), min SQNR over S, |S|; Spearman rank correlation of each predictor with D_G (only arms), R_G (wide arms), the KL of only:G and the KL reduction of wide:G, over the role groups per format; with node recovery over the leave-one-out nodes",
+   "cross_cell": "over the sealed matrix cells (scalar formats, default recipe, three networks): Spearman of median SQNR, min SQNR and network NSR with the top-1 drop to FP32, per network and pooled; cells with non-finite SQNR entries excluded and listed"
+  }
+ },
+ "statistics": "paired image bootstrap of the mean difference of per-image credits (tools.analysis.b2_ties.paired / tools.analysis.b2_matrix.interval: 10000 resamples, seed 20260927), pointwise 95 percent intervals, no multiplicity correction (stated with every table); Spearman correlations are descriptive (n = 13 role groups per format).",
+ "stages": {
+  "A0_cpu": "stored SQNR only (no new inference): per-node SQNR of the MobileNetV3 default cells at int8, int6, fp6_e2m3, fp8_e4m3fn, grouped by the role partition; the cross_cell analysis over all sealed scalar default matrix cells.",
+  "V": "verify jobs: mobilenet_v3_large int8, int6, fp6_e2m3, fp8_e4m3fn; mobilenet_v2 int8; resnet18 int8; Part C formats before their arms.",
+  "A1": {
+   "models": [
+    "mobilenet_v3_large"
+   ],
+   "formats": [
+    "int8",
+    "int6",
+    "fp6_e2m3"
+   ],
+   "arms": [
+    "ref_default",
+    "ref_weights_only",
+    "only:role.stem",
+    "wide:role.stem",
+    "only:role.expand_conv",
+    "wide:role.expand_conv",
+    "only:role.relu_act",
+    "wide:role.relu_act",
+    "only:role.hswish",
+    "wide:role.hswish",
+    "only:role.dw_conv",
+    "wide:role.dw_conv",
+    "only:role.se_pool",
+    "wide:role.se_pool",
+    "only:role.se_reduce",
+    "wide:role.se_reduce",
+    "only:role.se_expand",
+    "wide:role.se_expand",
+    "only:role.se_gate",
+    "wide:role.se_gate",
+    "only:role.se_product",
+    "wide:role.se_product",
+    "only:role.project",
+    "wide:role.project",
+    "only:role.residual_add",
+    "wide:role.residual_add",
+    "only:role.classifier",
+    "wide:role.classifier",
+    "only:position.early",
+    "wide:position.early",
+    "only:position.middle",
+    "wide:position.middle",
+    "only:position.late",
+    "wide:position.late"
+   ],
+   "audit": "ref arms only"
+  },
+  "A2": {
+   "rule": "per format of A1: rank the role groups by recovery R_G (top-1 expected; ties by KL reduction); leave-one-out arms wide:node.<n> over every node of the top 2 groups; if their union exceeds 40 nodes for a format, the 40 with the lowest stored SQNR in the default cell; nodes already covered by a group arm of size 1 are skipped",
+   "cap_arms": 120
+  },
+  "B": {
+   "models": {
+    "mobilenet_v3_large": [
+     "int8",
+     "int6",
+     "fp6_e2m3",
+     "fp8_e4m3fn"
+    ]
+   },
+   "arms": {
+    "r1a": "affine:kind.hardswish",
+    "r1b": "affine:signed",
+    "r2a": "pc:role.dw_conv",
+    "r2b": "pc:role.se_product",
+    "r2c": "pc:kind.hardswish",
+    "r2d": "pc:all"
+   },
+   "combination": "per format, the better of r1a/r1b combined with the best of r2a-r2d (top-1 expected on the screen; ties by KL) where the two act on disjoint boundaries; if they overlap, the r2 arm restricted to the boundaries the r1 arm does not change",
+   "r3": "at most 8 further uniform-precision arms chosen from the A1/A2 attribution, written as a protocol addendum before they run",
+   "regression": {
+    "mobilenet_v2": [
+     "int8"
+    ],
+    "resnet18": [
+     "int8"
+    ],
+    "arms": [
+     "affine:signed",
+     "pc:all",
+     "the int8 MobileNetV3 combination where its targets exist"
+    ]
+   },
+   "audit": "all B arms",
+   "cap_arms": 60
+  },
+  "C": {
+   "models": [
+    "resnet18",
+    "mobilenet_v2"
+   ],
+   "formats": [
+    "int6",
+    "fp6_e2m3",
+    "fp6_e3m2",
+    "posit6_es1",
+    "log6"
+   ],
+   "arms": {
+    "resnet18": [
+     "ref_default",
+     "ref_weights_only",
+     "only:role.stem",
+     "wide:role.stem",
+     "only:role.inner_act",
+     "wide:role.inner_act",
+     "only:role.pre_add_conv",
+     "wide:role.pre_add_conv",
+     "only:role.downsample",
+     "wide:role.downsample",
+     "only:role.block_out",
+     "wide:role.block_out",
+     "only:role.classifier",
+     "wide:role.classifier"
+    ],
+    "mobilenet_v2": [
+     "ref_default",
+     "ref_weights_only",
+     "only:role.stem",
+     "wide:role.stem",
+     "only:role.expand_act",
+     "wide:role.expand_act",
+     "only:role.dw_act",
+     "wide:role.dw_act",
+     "only:role.project",
+     "wide:role.project",
+     "only:role.residual_add",
+     "wide:role.residual_add",
+     "only:role.classifier",
+     "wide:role.classifier"
+    ]
+   },
+   "cap_arms": 160,
+   "runs_only_within_the_remaining_budget": true
+  }
+ },
+ "gpu_caps": {
+  "total_job_wall_seconds": 10800,
+  "max_concurrent_jobs": 2,
+  "max_job_seconds": 900,
+  "launcher": "GPU_LANE=Q4 artifacts/agent_orchestration/gpu_run.sh .venv-b/bin/python -m tools.run.experiment_b2_attrib ...",
+  "order": "V, A1, A2, B, C; a stage starts only if the measured total job wall-clock so far plus its estimate stays under the total cap"
+ },
+ "stop_rules": [
+  "any verify check failing stops all arms of that (model, format)",
+  "arm jobs never write into artifacts/experiment_b2/",
+  "no recipe change is adopted by this lane; whether a repair enters the recipe is the owner's decision",
+  "results are reported as measured, including null results"
+ ],
+ "outputs": {
+  "records": "artifacts/experiment_b2_attrib/{verification,arms,logs}/",
+  "summaries": "results/summaries/b2-attrib-v1/ (written once)",
+  "figures": "results/figures/b2-attrib-*",
+  "analysis": "docs/analysis/b2-activation-attribution-2026-10-02.md"
+ }
+}

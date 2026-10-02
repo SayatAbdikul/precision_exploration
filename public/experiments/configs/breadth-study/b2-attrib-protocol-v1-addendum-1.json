@@ -1,0 +1,43 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-1",
+ "lane": "Q4 activation attribution (agent r3)",
+ "written_utc": "2026-10-02T07:35:04+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92"
+ },
+ "status": "written before any measurement through the low-memory path; no arm record existed when it was written",
+ "reason": "The frozen bias correction keeps FP32 and quantized activations of 256 calibration images on the GPU (5-8 GB); on the shared 12 GB GPU every such job waits for the cross-lane heavy lock. No arm had been measured by 2026-10-02 12:25.",
+ "lowmem_path": {
+  "code": [
+   "tools/experiment_b2_attrib/lowmem.py",
+   "tools/experiment_b2_attrib/lmrunner.py",
+   "tools/run/experiment_b2_attrib_lm.py",
+   "tools/run/experiment_b2_attrib_lm_queue.sh"
+  ],
+  "rule": "bias_correct is replaced in the job's own process by lowmem.bias_correct: FP32 per-channel float64 sums per calibration chunk (32 images) once per job, then per arm only the quantized side, chunk by chunk with host-memory storage; every GPU kernel sees the same tensors as in tools/experiment_b2/engine.py bias_correct, so the result is meant to be bit-identical. No existing source file is edited; runner.OWN files are unchanged, so arm identities are unchanged and either path skips records the other wrote.",
+  "cpu_test": "tests/unit/test_experiment_b2_attrib_lowmem.py: report and all parameters equal the frozen bias_correct bit for bit (MobileNetV3 int8 default and a wide arm, ResNet18 fp6_e2m3; synthetic data, uneven chunks)."
+ },
+ "reproduction_gate_lowmem": {
+  "applies_to": "every (model, format) before its arms run through the low-memory path, unless the v1 verify job already passed",
+  "checks": [
+   "digest of the sealed configuration file artifacts/experiment_b2/configurations/<id>.json equals the cell's configuration identity",
+   "activation scales of the shared state equal the sealed configuration's",
+   "weight scales equal the sealed configuration's",
+   "the bias-correction report of the ref_default arm through the low-memory path equals the sealed configuration's (digest)",
+   "readout arrays of that arm equal the sealed cell's",
+   "logits sha256 of that arm equals the sealed cell's"
+  ],
+  "note": "runner.build (the heavy path) is not rerun; the sealed configuration stores what it computed. The per-job fingerprint check of v1 stays.",
+  "first_gate": "mobilenet_v3_large int8 (v1 verify already passed there; the gate tests the low-memory path itself)",
+  "failure": "any failing check stops the low-memory path for that (model, format); a failure on mobilenet_v3_large int8 stops it everywhere"
+ },
+ "records": "same arm records and identities as v1 plus a 'lowmem' block (sources sha256, peak GPU memory per arm); records are written to a temporary file and hard-linked into place, never overwriting; an arm that an old-path job of the lane is computing at that moment is deferred",
+ "gpu": {
+  "launcher": "GPU_LANE=Q4 artifacts/agent_orchestration/gpu_run.sh --min-free-mib <measured peak + margin> .venv-b/bin/python -m tools.run.experiment_b2_attrib_lm ...",
+  "max_jobs_running_or_waiting": 2,
+  "max_job_seconds": 900,
+  "total_job_wall_seconds": "unchanged (10800, shared with the v1 path)"
+ },
+ "unchanged": "groups, arms grammar, A1/A2/B/C stage definitions, metrics, statistics, stop rules of v1"
+}

@@ -1,0 +1,36 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-4",
+ "lane": "Q4 activation attribution (agent r4)",
+ "written_utc": "2026-10-02T09:42:28+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92",
+  "addendum_1_sha256": "7ae5f26d1c936f4003d220575dcb7f164a887f469465c92a2bb8e7fd816574aa",
+  "addendum_2_sha256": "c6a4da75d72c3e52d9c510f2650c18dc61d2e7e9358a655d7e37be9342b80fa6",
+  "addendum_3_sha256": "02a6971fe2e4ceaece52b94c04165af1d2059b88a1c253d9c0ac8f3cecc8b66f"
+ },
+ "status": "written before any arm defined here ran. Measured before it: A1 complete for MobileNetV3 INT6 and FP6 E2M3, A1 INT8 first half, B v1 arms, pcf INT6/FP6 and three of four pcf FP8 arms; A2 not yet in.",
+ "observation_motivating_it": "A1: the stem role group (input x, stem conv output features_0_0, stem Hardswish output features_0_2) carries the largest single-group damage at INT8 (only:role.stem costs 3.10 of the 3.40 pp activation loss) and FP6 E2M3 (8.7 of 16.2 pp), and the second largest at INT6 (15.5 pp, after the Hardswish outputs at 23.1 pp), although its stored SQNR is high (INT8 35-46 dB). CPU probe on the 256 bias-correction calibration images (FP32): features_0_0 has 16 channels whose max |x| spans 1.0 to 33.4 (5.1 octaves; 5 of 16 channels below 1/8 of the tensor max), features_0_2 5.6 octaves, the input x 0.23 octaves. A per-tensor scale therefore leaves the small stem channels a few levels; per-channel scales at the two stem outputs are the uniform-precision change this attribution points to. The INT6 loss also sits in the Hardswish outputs, which a zero point repairs (affine:kind.hardswish 21.0 -> 57.1).",
+ "r3_arms": {
+  "definition": "the three r3 arms reserved by addendum 2 (grammar of tools/experiment_b2_attrib/arms.py and lmrunner.parse_lm; pcf as in addendum 2; a boundary named by a pcf term is removed from the arm's affine set; the input x is never per-channel (pc rule))",
+  "arms": {
+   "r3a": "pcf:role.stem",
+   "r3b": "affine:kind.hardswish+pcf:role.stem",
+   "r3c": "pcf:node.features_0_0"
+  },
+  "reading": "r3a = per-channel scales at both stem outputs; r3c = only at the stem conv output (its one consumer is the stem Hardswish, so the hardware cost is one per-channel requantisation before an elementwise op); r3b = r3a plus zero points at the Hardswish outputs (the two attributed groups together)",
+  "formats": {
+   "mobilenet_v3_large": [
+    "int8",
+    "int6",
+    "fp6_e2m3",
+    "fp8_e4m3fn"
+   ]
+  },
+  "audit": "all r3 arms (screen audit, first 128 images)",
+  "regression": "the r3 arm with the highest MobileNetV3 INT8 top-1 (ties by KL) is repeated on MobileNetV2 and ResNet18 INT8 where its target exists (role.stem exists in both: MobileNetV2 features_0_2, ResNet18 relu; node.features_0_0 and kind.hardswish do not exist there, so r3b/r3c fall back to pcf:role.stem)",
+  "hardware": "accumulator widths from meta.accumulator (closed form of tools/scaled_bridge_v2/certificates.py); per-channel consumers split into folded conv/linear edges and edges needing per-channel requantisation (summarize.channel_cost)"
+ },
+ "selection_caveat": "r3 arms are chosen and evaluated on the same 1k screen (development evidence); any gain is optimistic by construction and is not a recipe decision (owner's call).",
+ "gpu": "low-memory path of addendum 1; 12 MobileNetV3 arms + 2 regression arms, about 10 GPU-minutes; within the unchanged 10800 s cap; line Z of agent r4 keeps at most 2 Q4 jobs running"
+}

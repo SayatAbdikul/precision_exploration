@@ -1,0 +1,7372 @@
+{
+ "tag": "r1",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/b2-collapse-protocol-v1.json",
+  "sha256": "3c474583fbbbb77cca702bba7fffcabe7be07343f5acff5adbbb7c5880fe5045"
+ },
+ "own_sources": {
+  "tools/experiment_b2_collapse/correct.py": "06e3b8ce303b968b881043d93f4d3d82409ff6ddf91cfd441a34d4a663f2b537",
+  "tools/experiment_b2_collapse/build.py": "a393998661a2499baea5f827d41a7d8e6a6451c22b65701f44a44e68c17f9d4f",
+  "tools/experiment_b2_collapse/evaluate.py": "7b56e90a1fc1395fdaec5d362dd962e613f07b52102b7f813da685e9eed4150e",
+  "tools/experiment_b2_collapse/common.py": "5115526e71a43eefbf5bb9e5f6feecb911dda7416fb75189c9a910d282541e34",
+  "tools/experiment_b2_collapse/report.py": "8d12b1cee720e848455b47890df0cb1d2a965db3c20b36808d93880d2ebfc668"
+ },
+ "evidence": "development_evidence_screen1k",
+ "statistics": "paired image bootstrap, expected credit, 10000 resamples, seed 20260927, pointwise 95%",
+ "rows": [
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 42.6,
+   "top1_lowest_index": 42.6,
+   "one_class_share": 0.026,
+   "one_class": 904,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 23.6,
+    "interval_pp": [
+     20.8,
+     26.5
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 42.5,
+    "interval_pp": [
+     39.4,
+     45.5
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--analytic_fp32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "cap_rms",
+   "top1_expected": 1.3,
+   "top1_lowest_index": 1.3,
+   "one_class_share": 0.736,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -17.7,
+    "interval_pp": [
+     -20.2,
+     -15.2
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 1.2,
+    "interval_pp": [
+     0.5,
+     2.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--cap_rms.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "executed",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -18.9,
+    "interval_pp": [
+     -21.3,
+     -16.4
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--executed.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "global--n128",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -18.9,
+    "interval_pp": [
+     -21.3,
+     -16.4
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global--n128.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "global--n32",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 0.583,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -18.9,
+    "interval_pp": [
+     -21.3,
+     -16.4
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     -0.3,
+     0.3
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global--n32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "global--n64",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -18.9,
+    "interval_pp": [
+     -21.3,
+     -16.4
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global--n64.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "global",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -18.9,
+    "interval_pp": [
+     -21.3,
+     -16.4
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-A32-bc--w-int4--a-fp32--mse_per_layer--bias-empirical.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "linear_only",
+   "top1_expected": 44.9,
+   "top1_lowest_index": 44.9,
+   "one_class_share": 0.009,
+   "one_class": 395,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 25.9,
+    "interval_pp": [
+     22.8,
+     29.0
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 44.8,
+    "interval_pp": [
+     41.7,
+     47.9
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--linear_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "local_empirical",
+   "top1_expected": 37.7,
+   "top1_lowest_index": 37.7,
+   "one_class_share": 0.054,
+   "one_class": 904,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 18.7,
+    "interval_pp": [
+     16.0,
+     21.5
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 37.6,
+    "interval_pp": [
+     34.6,
+     40.6
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--local_empirical.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "arm": "none",
+   "top1_expected": 19.0,
+   "top1_lowest_index": 19.0,
+   "one_class_share": 0.107,
+   "one_class": 904,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 18.9,
+    "interval_pp": [
+     16.4,
+     21.3
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-A32--w-int4--a-fp32--mse_per_layer.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--none.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "arm": "analytic_fp32",
+   "top1_expected": 25.88,
+   "top1_lowest_index": 24.5,
+   "one_class_share": 0.028,
+   "one_class": 226,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.06,
+    "interval_pp": [
+     -0.01,
+     2.11
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 22.88,
+    "interval_pp": [
+     20.93,
+     24.85
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--analytic_fp32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "arm": "cap_rms",
+   "top1_expected": 29.79,
+   "top1_lowest_index": 29.9,
+   "one_class_share": 0.365,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 4.96,
+    "interval_pp": [
+     2.05,
+     7.85
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 26.79,
+    "interval_pp": [
+     24.51,
+     29.08
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--cap_rms.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "arm": "dfq_weights_only",
+   "top1_expected": 45.72,
+   "top1_lowest_index": 44.4,
+   "one_class_share": 0.012,
+   "one_class": 189,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 20.89,
+    "interval_pp": [
+     18.77,
+     22.94
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 42.72,
+    "interval_pp": [
+     40.17,
+     45.24
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--dfq_weights_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "arm": "global",
+   "top1_expected": 3.0,
+   "top1_lowest_index": 5.2,
+   "one_class_share": 0.944,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -21.83,
+    "interval_pp": [
+     -23.76,
+     -19.91
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/L-bc--w-int4--a-int4--default--fit-mse_per_channel-fp32in-s0.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--global.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "arm": "linear_only",
+   "top1_expected": 20.07,
+   "top1_lowest_index": 19.0,
+   "one_class_share": 0.032,
+   "one_class": 226,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -4.75,
+    "interval_pp": [
+     -6.18,
+     -3.32
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 17.07,
+    "interval_pp": [
+     15.34,
+     18.8
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--linear_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "arm": "local_empirical",
+   "top1_expected": 25.56,
+   "top1_lowest_index": 24.5,
+   "one_class_share": 0.028,
+   "one_class": 226,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.73,
+    "interval_pp": [
+     -0.25,
+     1.69
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 22.56,
+    "interval_pp": [
+     20.64,
+     24.54
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--local_empirical.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "arm": "none",
+   "top1_expected": 24.83,
+   "top1_lowest_index": 23.7,
+   "one_class_share": 0.028,
+   "one_class": 226,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 21.83,
+    "interval_pp": [
+     19.91,
+     23.76
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/L-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-fp32in-s0.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--none.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 31.78,
+   "top1_lowest_index": 30.8,
+   "one_class_share": 0.026,
+   "one_class": 287,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 3.99,
+    "interval_pp": [
+     2.1,
+     5.9
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 31.65,
+    "interval_pp": [
+     29.31,
+     34.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 1.32,
+   "top1_lowest_index": 2.1,
+   "one_class_share": 0.924,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -26.47,
+    "interval_pp": [
+     -28.64,
+     -24.29
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 1.19,
+    "interval_pp": [
+     0.79,
+     1.66
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--cap_rms.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 0.05,
+   "top1_lowest_index": 0.0,
+   "one_class_share": 0.988,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -27.74,
+    "interval_pp": [
+     -29.89,
+     -25.59
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.08,
+    "interval_pp": [
+     -0.19,
+     -0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "executed",
+   "top1_expected": 0.13,
+   "top1_lowest_index": 0.2,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -27.65,
+    "interval_pp": [
+     -29.8,
+     -25.5
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--executed.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "global--n128",
+   "top1_expected": 0.12,
+   "top1_lowest_index": 0.2,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -27.67,
+    "interval_pp": [
+     -29.82,
+     -25.52
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.01,
+    "interval_pp": [
+     -0.09,
+     0.07
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global--n128.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "global--n32",
+   "top1_expected": 0.14,
+   "top1_lowest_index": 0.2,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -27.64,
+    "interval_pp": [
+     -29.79,
+     -25.5
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.01,
+    "interval_pp": [
+     -0.09,
+     0.1
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global--n32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "global--n64",
+   "top1_expected": 0.08,
+   "top1_lowest_index": 0.2,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -27.7,
+    "interval_pp": [
+     -29.85,
+     -25.55
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.05,
+    "interval_pp": [
+     -0.11,
+     0.01
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global--n64.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "global",
+   "top1_expected": 0.13,
+   "top1_lowest_index": 0.2,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -27.65,
+    "interval_pp": [
+     -29.8,
+     -25.5
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-default--w-int4--a-int4--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "linear_only",
+   "top1_expected": 24.82,
+   "top1_lowest_index": 23.8,
+   "one_class_share": 0.028,
+   "one_class": 170,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -2.97,
+    "interval_pp": [
+     -5.13,
+     -0.84
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 24.69,
+    "interval_pp": [
+     22.81,
+     26.62
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--linear_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 30.07,
+   "top1_lowest_index": 29.3,
+   "one_class_share": 0.044,
+   "one_class": 669,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 2.29,
+    "interval_pp": [
+     0.35,
+     4.22
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 29.94,
+    "interval_pp": [
+     27.7,
+     32.21
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--local_empirical.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "arm": "none",
+   "top1_expected": 27.78,
+   "top1_lowest_index": 28.5,
+   "one_class_share": 0.042,
+   "one_class": 50,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 27.65,
+    "interval_pp": [
+     25.5,
+     29.8
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-nobc--w-int4--a-int4--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--none.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 59.95,
+   "top1_lowest_index": 59.5,
+   "one_class_share": 0.01,
+   "one_class": 904,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 6.48,
+    "interval_pp": [
+     4.15,
+     8.8
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 59.85,
+    "interval_pp": [
+     56.82,
+     62.73
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 11.43,
+   "top1_lowest_index": 11.3,
+   "one_class_share": 0.549,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -42.03,
+    "interval_pp": [
+     -45.12,
+     -38.77
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 11.33,
+    "interval_pp": [
+     9.53,
+     13.24
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--cap_rms.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -53.37,
+    "interval_pp": [
+     -56.38,
+     -50.25
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "arm": "global",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -53.37,
+    "interval_pp": [
+     -56.38,
+     -50.25
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-default--w-int4--a-int8--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--global.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "arm": "linear_only",
+   "top1_expected": 63.05,
+   "top1_lowest_index": 62.8,
+   "one_class_share": 0.005,
+   "one_class": 171,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 9.58,
+    "interval_pp": [
+     7.22,
+     11.93
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 62.95,
+    "interval_pp": [
+     60.0,
+     65.8
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--linear_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 59.22,
+   "top1_lowest_index": 59.0,
+   "one_class_share": 0.013,
+   "one_class": 904,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 5.75,
+    "interval_pp": [
+     3.5,
+     8.03
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 59.12,
+    "interval_pp": [
+     56.08,
+     62.05
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--local_empirical.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "arm": "none",
+   "top1_expected": 53.47,
+   "top1_lowest_index": 53.6,
+   "one_class_share": 0.009,
+   "one_class": 50,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 53.37,
+    "interval_pp": [
+     50.25,
+     56.38
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-nobc--w-int4--a-int8--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--none.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 54.93,
+   "top1_lowest_index": 54.6,
+   "one_class_share": 0.007,
+   "one_class": 54,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -1.25,
+    "interval_pp": [
+     -3.01,
+     0.58
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 41.24,
+    "interval_pp": [
+     38.27,
+     44.27
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 39.67,
+   "top1_lowest_index": 41.3,
+   "one_class_share": 0.217,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -16.51,
+    "interval_pp": [
+     -19.38,
+     -13.63
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 25.98,
+    "interval_pp": [
+     23.72,
+     28.2
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--cap_rms.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 51.27,
+   "top1_lowest_index": 51.6,
+   "one_class_share": 0.087,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -4.91,
+    "interval_pp": [
+     -7.35,
+     -2.42
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 37.58,
+    "interval_pp": [
+     35.02,
+     40.1
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "arm": "global",
+   "top1_expected": 13.69,
+   "top1_lowest_index": 15.3,
+   "one_class_share": 0.765,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -42.49,
+    "interval_pp": [
+     -45.49,
+     -39.47
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/resnet18--int5--default--1000--8ae392039b89.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--global.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "arm": "linear_only",
+   "top1_expected": 52.09,
+   "top1_lowest_index": 52.8,
+   "one_class_share": 0.01,
+   "one_class": 200,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -4.09,
+    "interval_pp": [
+     -5.97,
+     -2.21
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 38.4,
+    "interval_pp": [
+     35.42,
+     41.38
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--linear_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 55.18,
+   "top1_lowest_index": 54.9,
+   "one_class_share": 0.007,
+   "one_class": 77,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -1.0,
+    "interval_pp": [
+     -2.75,
+     0.84
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 41.48,
+    "interval_pp": [
+     38.5,
+     44.52
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--local_empirical.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "arm": "none",
+   "top1_expected": 56.18,
+   "top1_lowest_index": 56.1,
+   "one_class_share": 0.007,
+   "one_class": 192,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 42.49,
+    "interval_pp": [
+     39.47,
+     45.49
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--none.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 65.79,
+   "top1_lowest_index": 66.1,
+   "one_class_share": 0.005,
+   "one_class": 267,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.72,
+    "interval_pp": [
+     -1.74,
+     0.31
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.11,
+    "interval_pp": [
+     -1.74,
+     1.55
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 65.89,
+   "top1_lowest_index": 65.2,
+   "one_class_share": 0.008,
+   "one_class": 523,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.61,
+    "interval_pp": [
+     -2.36,
+     1.15
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--cap_rms.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 67.8,
+   "top1_lowest_index": 67.3,
+   "one_class_share": 0.005,
+   "one_class": 743,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.3,
+    "interval_pp": [
+     -0.07,
+     2.66
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 1.91,
+    "interval_pp": [
+     0.77,
+     3.05
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "arm": "global",
+   "top1_expected": 65.89,
+   "top1_lowest_index": 65.2,
+   "one_class_share": 0.008,
+   "one_class": 523,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.61,
+    "interval_pp": [
+     -2.36,
+     1.15
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-default--w-int6--a-int6--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--global.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "arm": "linear_only",
+   "top1_expected": 66.01,
+   "top1_lowest_index": 66.1,
+   "one_class_share": 0.005,
+   "one_class": 722,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.49,
+    "interval_pp": [
+     -1.6,
+     0.63
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.12,
+    "interval_pp": [
+     -1.57,
+     1.79
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--linear_only.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 65.79,
+   "top1_lowest_index": 65.6,
+   "one_class_share": 0.005,
+   "one_class": 743,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.71,
+    "interval_pp": [
+     -1.81,
+     0.36
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.1,
+    "interval_pp": [
+     -1.76,
+     1.55
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--local_empirical.json"
+  },
+  {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "arm": "none",
+   "top1_expected": 66.5,
+   "top1_lowest_index": 66.8,
+   "one_class_share": 0.004,
+   "one_class": 101,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 0.61,
+    "interval_pp": [
+     -1.15,
+     2.36
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/resnet18/N-nobc--w-int6--a-int6--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--none.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "arm": "analytic_fp32",
+   "top1_expected": 20.43,
+   "top1_lowest_index": 18.2,
+   "one_class_share": 0.035,
+   "one_class": 788,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -6.75,
+    "interval_pp": [
+     -8.21,
+     -5.29
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 20.2,
+    "interval_pp": [
+     18.81,
+     21.61
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "arm": "cap_rms",
+   "top1_expected": 0.42,
+   "top1_lowest_index": 0.8,
+   "one_class_share": 0.996,
+   "one_class": 457,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -26.76,
+    "interval_pp": [
+     -28.52,
+     -25.01
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.19,
+    "interval_pp": [
+     -0.02,
+     0.49
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "arm": "dfq_weights_only",
+   "top1_expected": 25.27,
+   "top1_lowest_index": 26.5,
+   "one_class_share": 0.528,
+   "one_class": 600,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -1.91,
+    "interval_pp": [
+     -4.54,
+     0.73
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 25.04,
+    "interval_pp": [
+     22.68,
+     27.42
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "arm": "global",
+   "top1_expected": 0.23,
+   "top1_lowest_index": 0.4,
+   "one_class_share": 0.999,
+   "one_class": 457,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -26.95,
+    "interval_pp": [
+     -28.69,
+     -25.23
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/L-bc--w-int4--a-int4--default--fit-mse_per_channel-fp32in-s0.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--global.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "arm": "linear_only",
+   "top1_expected": 10.35,
+   "top1_lowest_index": 11.2,
+   "one_class_share": 0.805,
+   "one_class": 733,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -16.83,
+    "interval_pp": [
+     -19.1,
+     -14.56
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 10.12,
+    "interval_pp": [
+     8.5,
+     11.77
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "arm": "local_empirical",
+   "top1_expected": 16.97,
+   "top1_lowest_index": 15.3,
+   "one_class_share": 0.034,
+   "one_class": 721,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -10.21,
+    "interval_pp": [
+     -11.7,
+     -8.76
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 16.74,
+    "interval_pp": [
+     15.7,
+     17.81
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "arm": "none",
+   "top1_expected": 27.18,
+   "top1_lowest_index": 25.6,
+   "one_class_share": 0.028,
+   "one_class": 975,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 26.95,
+    "interval_pp": [
+     25.23,
+     28.69
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/L-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-fp32in-s0.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--none.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 22.12,
+   "top1_lowest_index": 23.0,
+   "one_class_share": 0.043,
+   "one_class": 973,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 21.0,
+    "interval_pp": [
+     19.27,
+     22.76
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 22.02,
+    "interval_pp": [
+     20.36,
+     23.72
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 457,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -1.01,
+    "interval_pp": [
+     -1.66,
+     -0.46
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 0.55,
+   "top1_lowest_index": 1.2,
+   "one_class_share": 0.997,
+   "one_class": 600,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -0.56,
+    "interval_pp": [
+     -1.26,
+     0.09
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.45,
+    "interval_pp": [
+     0.21,
+     0.78
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "executed",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 457,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -1.01,
+    "interval_pp": [
+     -1.66,
+     -0.46
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--executed.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "global--n128",
+   "top1_expected": 0.11,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -1.0,
+    "interval_pp": [
+     -1.65,
+     -0.45
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.01,
+    "interval_pp": [
+     -0.02,
+     0.04
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global--n128.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "global--n32",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 910,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -1.01,
+    "interval_pp": [
+     -1.69,
+     -0.42
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.0,
+    "interval_pp": [
+     -0.13,
+     0.22
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global--n32.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "global--n64",
+   "top1_expected": 0.12,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 85,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -0.99,
+    "interval_pp": [
+     -1.64,
+     -0.44
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.02,
+    "interval_pp": [
+     -0.02,
+     0.06
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global--n64.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "global",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 1.0,
+   "one_class": 457,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -1.01,
+    "interval_pp": [
+     -1.66,
+     -0.46
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-default--w-int4--a-int4--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "linear_only",
+   "top1_expected": 0.53,
+   "top1_lowest_index": 0.7,
+   "one_class_share": 0.992,
+   "one_class": 457,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -0.58,
+    "interval_pp": [
+     -1.27,
+     0.04
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.43,
+    "interval_pp": [
+     0.18,
+     0.75
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 20.94,
+   "top1_lowest_index": 20.7,
+   "one_class_share": 0.059,
+   "one_class": 973,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 19.83,
+    "interval_pp": [
+     18.21,
+     21.45
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 20.84,
+    "interval_pp": [
+     19.27,
+     22.4
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "arm": "none",
+   "top1_expected": 1.11,
+   "top1_lowest_index": 1.2,
+   "one_class_share": 0.44,
+   "one_class": 815,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 1.01,
+    "interval_pp": [
+     0.46,
+     1.66
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-nobc--w-int4--a-int4--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--none.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 58.69,
+   "top1_lowest_index": 58.7,
+   "one_class_share": 0.006,
+   "one_class": 58,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 22.07,
+    "interval_pp": [
+     19.37,
+     24.85
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 26.14,
+    "interval_pp": [
+     23.31,
+     29.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 34.15,
+   "top1_lowest_index": 35.7,
+   "one_class_share": 0.388,
+   "one_class": 733,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -2.47,
+    "interval_pp": [
+     -5.37,
+     0.4
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 1.6,
+    "interval_pp": [
+     0.05,
+     3.16
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 65.38,
+   "top1_lowest_index": 65.0,
+   "one_class_share": 0.007,
+   "one_class": 523,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 28.76,
+    "interval_pp": [
+     25.87,
+     31.55
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 32.83,
+    "interval_pp": [
+     30.15,
+     35.53
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "arm": "global",
+   "top1_expected": 32.55,
+   "top1_lowest_index": 33.5,
+   "one_class_share": 0.42,
+   "one_class": 733,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -4.07,
+    "interval_pp": [
+     -7.06,
+     -1.16
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--int5--default--1000--d94a9210cf9d.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--global.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "arm": "linear_only",
+   "top1_expected": 52.46,
+   "top1_lowest_index": 53.2,
+   "one_class_share": 0.067,
+   "one_class": 733,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 15.84,
+    "interval_pp": [
+     13.0,
+     18.69
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 19.91,
+    "interval_pp": [
+     17.68,
+     22.16
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 58.89,
+   "top1_lowest_index": 59.4,
+   "one_class_share": 0.007,
+   "one_class": 58,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 22.27,
+    "interval_pp": [
+     19.55,
+     24.98
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 26.34,
+    "interval_pp": [
+     23.54,
+     29.17
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "arm": "none",
+   "top1_expected": 36.62,
+   "top1_lowest_index": 37.3,
+   "one_class_share": 0.055,
+   "one_class": 611,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 4.07,
+    "interval_pp": [
+     1.16,
+     7.06
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--none.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 70.35,
+   "top1_lowest_index": 70.1,
+   "one_class_share": 0.004,
+   "one_class": 58,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 3.21,
+    "interval_pp": [
+     1.58,
+     4.86
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.26,
+    "interval_pp": [
+     -1.22,
+     1.76
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 69.75,
+   "top1_lowest_index": 69.9,
+   "one_class_share": 0.004,
+   "one_class": 77,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 2.61,
+    "interval_pp": [
+     0.68,
+     4.57
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.35,
+    "interval_pp": [
+     -1.46,
+     0.77
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 71.69,
+   "top1_lowest_index": 71.8,
+   "one_class_share": 0.004,
+   "one_class": 58,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 4.55,
+    "interval_pp": [
+     2.82,
+     6.37
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 1.59,
+    "interval_pp": [
+     0.24,
+     2.97
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "arm": "global",
+   "top1_expected": 70.1,
+   "top1_lowest_index": 70.3,
+   "one_class_share": 0.004,
+   "one_class": 77,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 2.96,
+    "interval_pp": [
+     1.0,
+     4.92
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-default--w-int6--a-int6--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--global.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "arm": "linear_only",
+   "top1_expected": 69.87,
+   "top1_lowest_index": 69.7,
+   "one_class_share": 0.004,
+   "one_class": 77,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 2.72,
+    "interval_pp": [
+     0.85,
+     4.62
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.23,
+    "interval_pp": [
+     -1.37,
+     0.92
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 70.97,
+   "top1_lowest_index": 70.5,
+   "one_class_share": 0.004,
+   "one_class": 251,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 3.82,
+    "interval_pp": [
+     2.14,
+     5.54
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.87,
+    "interval_pp": [
+     -0.65,
+     2.4
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "arm": "none",
+   "top1_expected": 67.14,
+   "top1_lowest_index": 66.6,
+   "one_class_share": 0.005,
+   "one_class": 49,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": -2.96,
+    "interval_pp": [
+     -4.92,
+     -1.0
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-nobc--w-int6--a-int6--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--none.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 0.14,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 0.615,
+   "one_class": 950,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.06,
+    "interval_pp": [
+     -0.34,
+     0.16
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.04,
+    "interval_pp": [
+     -0.12,
+     0.21
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 0.913,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -0.11,
+    "interval_pp": [
+     -0.37,
+     0.09
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.01,
+    "interval_pp": [
+     -0.09,
+     0.06
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 0.11,
+   "top1_lowest_index": 0.2,
+   "one_class_share": 0.943,
+   "one_class": 950,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -0.09,
+    "interval_pp": [
+     -0.37,
+     0.15
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.01,
+    "interval_pp": [
+     -0.16,
+     0.26
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "executed",
+   "top1_expected": 0.07,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 0.897,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.13,
+    "interval_pp": [
+     -0.4,
+     0.07
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.03,
+    "interval_pp": [
+     -0.08,
+     0.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--executed.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "global",
+   "top1_expected": 0.1,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 0.877,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.1,
+    "interval_pp": [
+     -0.37,
+     0.11
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-default--w-int4--a-int4--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--global.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "linear_only",
+   "top1_expected": 0.12,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 0.986,
+   "one_class": 463,
+   "collapse": true,
+   "minus_none": {
+    "difference_pp": -0.08,
+    "interval_pp": [
+     -0.36,
+     0.15
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.02,
+    "interval_pp": [
+     -0.08,
+     0.13
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 0.2,
+   "top1_lowest_index": 0.2,
+   "one_class_share": 0.673,
+   "one_class": 794,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.0,
+    "interval_pp": [
+     -0.19,
+     0.18
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.1,
+    "interval_pp": [
+     -0.12,
+     0.38
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "arm": "none",
+   "top1_expected": 0.2,
+   "top1_lowest_index": 0.1,
+   "one_class_share": 0.825,
+   "one_class": 950,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": 0.1,
+    "interval_pp": [
+     -0.11,
+     0.37
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-nobc--w-int4--a-int4--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--none.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 1.15,
+   "top1_lowest_index": 1.1,
+   "one_class_share": 0.248,
+   "one_class": 616,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.57,
+    "interval_pp": [
+     -0.15,
+     1.3
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -6.91,
+    "interval_pp": [
+     -8.49,
+     -5.34
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 6.47,
+   "top1_lowest_index": 7.1,
+   "one_class_share": 0.075,
+   "one_class": 840,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 5.88,
+    "interval_pp": [
+     4.55,
+     7.3
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -1.59,
+    "interval_pp": [
+     -3.18,
+     -0.02
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 0.59,
+   "top1_lowest_index": 0.8,
+   "one_class_share": 0.315,
+   "one_class": 905,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.01,
+    "interval_pp": [
+     -0.45,
+     0.41
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -7.47,
+    "interval_pp": [
+     -8.93,
+     -6.04
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "arm": "global",
+   "top1_expected": 8.06,
+   "top1_lowest_index": 9.0,
+   "one_class_share": 0.06,
+   "one_class": 733,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 7.48,
+    "interval_pp": [
+     5.95,
+     9.05
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--int5--default--1000--0ddb96c2a11d.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--global.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "arm": "linear_only",
+   "top1_expected": 4.43,
+   "top1_lowest_index": 4.7,
+   "one_class_share": 0.094,
+   "one_class": 463,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 3.84,
+    "interval_pp": [
+     2.72,
+     5.0
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -3.63,
+    "interval_pp": [
+     -5.22,
+     -2.08
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 0.97,
+   "top1_lowest_index": 1.1,
+   "one_class_share": 0.229,
+   "one_class": 646,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.39,
+    "interval_pp": [
+     -0.28,
+     1.1
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -7.08,
+    "interval_pp": [
+     -8.63,
+     -5.57
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "arm": "none",
+   "top1_expected": 0.58,
+   "top1_lowest_index": 0.7,
+   "one_class_share": 0.343,
+   "one_class": 905,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": -7.48,
+    "interval_pp": [
+     -9.05,
+     -5.95
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--none.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 4.3,
+   "top1_lowest_index": 4.6,
+   "one_class_share": 0.239,
+   "one_class": 506,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.85,
+    "interval_pp": [
+     -0.17,
+     1.85
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -16.7,
+    "interval_pp": [
+     -19.08,
+     -14.29
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 20.01,
+   "top1_lowest_index": 21.4,
+   "one_class_share": 0.041,
+   "one_class": 840,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 16.56,
+    "interval_pp": [
+     14.24,
+     18.92
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.98,
+    "interval_pp": [
+     -2.89,
+     0.89
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 4.39,
+   "top1_lowest_index": 4.7,
+   "one_class_share": 0.225,
+   "one_class": 506,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.94,
+    "interval_pp": [
+     -0.04,
+     1.94
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -16.6,
+    "interval_pp": [
+     -19.05,
+     -14.15
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "arm": "global",
+   "top1_expected": 21.0,
+   "top1_lowest_index": 20.9,
+   "one_class_share": 0.053,
+   "one_class": 733,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 17.55,
+    "interval_pp": [
+     15.14,
+     19.95
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-default--w-int6--a-int6--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--global.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "arm": "linear_only",
+   "top1_expected": 23.45,
+   "top1_lowest_index": 23.3,
+   "one_class_share": 0.032,
+   "one_class": 868,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 20.0,
+    "interval_pp": [
+     17.4,
+     22.59
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 2.46,
+    "interval_pp": [
+     0.13,
+     4.7
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 4.17,
+   "top1_lowest_index": 4.5,
+   "one_class_share": 0.23,
+   "one_class": 506,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.72,
+    "interval_pp": [
+     -0.28,
+     1.72
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -16.83,
+    "interval_pp": [
+     -19.33,
+     -14.32
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "arm": "none",
+   "top1_expected": 3.45,
+   "top1_lowest_index": 3.5,
+   "one_class_share": 0.225,
+   "one_class": 905,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": -17.55,
+    "interval_pp": [
+     -19.95,
+     -15.14
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-nobc--w-int6--a-int6--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--none.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "arm": "analytic_fp32",
+   "top1_expected": 71.1,
+   "top1_lowest_index": 71.2,
+   "one_class_share": 0.004,
+   "one_class": 267,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.08,
+    "interval_pp": [
+     -1.4,
+     1.25
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -1.85,
+    "interval_pp": [
+     -3.45,
+     -0.25
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "arm": "cap_rms",
+   "top1_expected": 71.73,
+   "top1_lowest_index": 71.8,
+   "one_class_share": 0.004,
+   "one_class": 58,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.55,
+    "interval_pp": [
+     -1.1,
+     2.18
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -1.22,
+    "interval_pp": [
+     -2.55,
+     0.1
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "arm": "dfq_weights_only",
+   "top1_expected": 71.05,
+   "top1_lowest_index": 70.9,
+   "one_class_share": 0.004,
+   "one_class": 659,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.13,
+    "interval_pp": [
+     -1.45,
+     1.12
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -1.9,
+    "interval_pp": [
+     -3.45,
+     -0.4
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "arm": "global",
+   "top1_expected": 72.95,
+   "top1_lowest_index": 73.1,
+   "one_class_share": 0.004,
+   "one_class": 859,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.77,
+    "interval_pp": [
+     0.17,
+     3.35
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/L-bc--w-int8--a-int8--default--fit-mse_per_channel-fp32in-s0.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--global.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "arm": "linear_only",
+   "top1_expected": 73.25,
+   "top1_lowest_index": 73.1,
+   "one_class_share": 0.005,
+   "one_class": 859,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 2.07,
+    "interval_pp": [
+     0.5,
+     3.62
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.3,
+    "interval_pp": [
+     -1.2,
+     1.8
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "arm": "local_empirical",
+   "top1_expected": 71.25,
+   "top1_lowest_index": 71.1,
+   "one_class_share": 0.004,
+   "one_class": 171,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.07,
+    "interval_pp": [
+     -1.28,
+     1.4
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -1.7,
+    "interval_pp": [
+     -3.25,
+     -0.15
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "arm": "none",
+   "top1_expected": 71.18,
+   "top1_lowest_index": 71.3,
+   "one_class_share": 0.004,
+   "one_class": 523,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": -1.77,
+    "interval_pp": [
+     -3.35,
+     -0.17
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/L-nobc--w-int8--a-int8--default_no_bias_correction--fit-mse_per_channel-fp32in-s0.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--none.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "analytic_fp32",
+   "top1_expected": 70.8,
+   "top1_lowest_index": 70.8,
+   "one_class_share": 0.005,
+   "one_class": 646,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.3,
+    "interval_pp": [
+     -1.0,
+     1.6
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.8,
+    "interval_pp": [
+     -2.4,
+     0.8
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--analytic_fp32.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "cap_rms",
+   "top1_expected": 71.2,
+   "top1_lowest_index": 71.2,
+   "one_class_share": 0.004,
+   "one_class": 58,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.7,
+    "interval_pp": [
+     -1.05,
+     2.5
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.4,
+    "interval_pp": [
+     -1.65,
+     0.85
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--cap_rms.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "dfq_weights_only",
+   "top1_expected": 71.05,
+   "top1_lowest_index": 70.9,
+   "one_class_share": 0.005,
+   "one_class": 789,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.55,
+    "interval_pp": [
+     -0.7,
+     1.8
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.55,
+    "interval_pp": [
+     -2.25,
+     1.2
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--dfq_weights_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "executed",
+   "top1_expected": 72.38,
+   "top1_lowest_index": 72.2,
+   "one_class_share": 0.004,
+   "one_class": 824,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.88,
+    "interval_pp": [
+     0.15,
+     3.63
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.78,
+    "interval_pp": [
+     -0.4,
+     1.97
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--executed.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "global--n128",
+   "top1_expected": 71.53,
+   "top1_lowest_index": 71.5,
+   "one_class_share": 0.004,
+   "one_class": 58,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.03,
+    "interval_pp": [
+     -0.77,
+     2.8
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.07,
+    "interval_pp": [
+     -1.38,
+     1.3
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global--n128.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "global--n32",
+   "top1_expected": 71.15,
+   "top1_lowest_index": 70.8,
+   "one_class_share": 0.004,
+   "one_class": 718,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 0.65,
+    "interval_pp": [
+     -1.2,
+     2.5
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -0.45,
+    "interval_pp": [
+     -1.75,
+     0.85
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global--n32.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "global--n64",
+   "top1_expected": 71.6,
+   "top1_lowest_index": 71.5,
+   "one_class_share": 0.004,
+   "one_class": 928,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.1,
+    "interval_pp": [
+     -0.8,
+     3.05
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     -1.4,
+     1.4
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global--n64.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "global",
+   "top1_expected": 71.6,
+   "top1_lowest_index": 71.5,
+   "one_class_share": 0.004,
+   "one_class": 171,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.1,
+    "interval_pp": [
+     -0.6,
+     2.85
+    ]
+   },
+   "minus_global": null,
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-default--w-int8--a-int8--default.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "linear_only",
+   "top1_expected": 72.05,
+   "top1_lowest_index": 72.1,
+   "one_class_share": 0.004,
+   "one_class": 65,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": 1.55,
+    "interval_pp": [
+     -0.1,
+     3.2
+    ]
+   },
+   "minus_global": {
+    "difference_pp": 0.45,
+    "interval_pp": [
+     -1.1,
+     2.0
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--linear_only.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "local_empirical",
+   "top1_expected": 70.15,
+   "top1_lowest_index": 70.0,
+   "one_class_share": 0.004,
+   "one_class": 456,
+   "collapse": false,
+   "minus_none": {
+    "difference_pp": -0.35,
+    "interval_pp": [
+     -1.7,
+     0.95
+    ]
+   },
+   "minus_global": {
+    "difference_pp": -1.45,
+    "interval_pp": [
+     -3.15,
+     0.3
+    ]
+   },
+   "reproduction_check": null,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--local_empirical.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "arm": "none",
+   "top1_expected": 70.5,
+   "top1_lowest_index": 70.6,
+   "one_class_share": 0.004,
+   "one_class": 171,
+   "collapse": false,
+   "minus_none": null,
+   "minus_global": {
+    "difference_pp": -1.1,
+    "interval_pp": [
+     -2.85,
+     0.6
+    ]
+   },
+   "reproduction_check": {
+    "deployed_state_equal": true,
+    "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-nobc--w-int8--a-int8--default_no_bias_correction.json",
+    "top5_lists_equal": 1000
+   },
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--none.json"
+  }
+ ],
+ "cells": {
+  "resnet18/faith-w4-a32-perlayer-N": {
+   "model": "resnet18",
+   "cell": "faith-w4-a32-perlayer-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 42.6,
+     "top1_lowest_index": 42.6,
+     "one_class_share": 0.026,
+     "one_class": 904,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 23.6,
+      "interval_pp": [
+       20.8,
+       26.5
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 42.5,
+      "interval_pp": [
+       39.4,
+       45.5
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "cap_rms",
+     "top1_expected": 1.3,
+     "top1_lowest_index": 1.3,
+     "one_class_share": 0.736,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -17.7,
+      "interval_pp": [
+       -20.2,
+       -15.2
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 1.2,
+      "interval_pp": [
+       0.5,
+       2.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--cap_rms.json"
+    },
+    "executed": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "executed",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -18.9,
+      "interval_pp": [
+       -21.3,
+       -16.4
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--executed.json"
+    },
+    "global--n128": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "global--n128",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -18.9,
+      "interval_pp": [
+       -21.3,
+       -16.4
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global--n128.json"
+    },
+    "global--n32": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "global--n32",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 0.583,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -18.9,
+      "interval_pp": [
+       -21.3,
+       -16.4
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       -0.3,
+       0.3
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global--n32.json"
+    },
+    "global--n64": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "global--n64",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -18.9,
+      "interval_pp": [
+       -21.3,
+       -16.4
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global--n64.json"
+    },
+    "global": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "global",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -18.9,
+      "interval_pp": [
+       -21.3,
+       -16.4
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-A32-bc--w-int4--a-fp32--mse_per_layer--bias-empirical.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--global.json"
+    },
+    "linear_only": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "linear_only",
+     "top1_expected": 44.9,
+     "top1_lowest_index": 44.9,
+     "one_class_share": 0.009,
+     "one_class": 395,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 25.9,
+      "interval_pp": [
+       22.8,
+       29.0
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 44.8,
+      "interval_pp": [
+       41.7,
+       47.9
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "local_empirical",
+     "top1_expected": 37.7,
+     "top1_lowest_index": 37.7,
+     "one_class_share": 0.054,
+     "one_class": 904,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 18.7,
+      "interval_pp": [
+       16.0,
+       21.5
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 37.6,
+      "interval_pp": [
+       34.6,
+       40.6
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--local_empirical.json"
+    },
+    "none": {
+     "model": "resnet18",
+     "cell": "faith-w4-a32-perlayer-N",
+     "arm": "none",
+     "top1_expected": 19.0,
+     "top1_lowest_index": 19.0,
+     "one_class_share": 0.107,
+     "one_class": 904,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 18.9,
+      "interval_pp": [
+       16.4,
+       21.3
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-A32--w-int4--a-fp32--mse_per_layer.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/faith-w4-a32-perlayer-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "layer2_0_conv2",
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 23.6696114991081,
+    "worst_off_layer": "layer4_1_conv1",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.9609375,
+     "uncorrected": 0.001953125
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.12977430555555555,
+     "uncorrected": 0.021050347222222224
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 0.11988891321465227,
+     "uncorrected": 1.4877311140821228
+    },
+    "last_layer_spread_ratio_corrected": 0.0448275475231917
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "executed": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": false
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global--n128": true,
+    "global--n32": false,
+    "global--n64": true,
+    "global": true
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0448,
+    "choice": "local_empirical",
+    "top1_expected": 37.7,
+    "minus_none": {
+     "difference_pp": 18.7,
+     "interval_pp": [
+      16.0,
+      21.5
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "resnet18/w4-a4-default-L": {
+   "model": "resnet18",
+   "cell": "w4-a4-default-L",
+   "policies": {
+    "analytic_fp32": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-L",
+     "arm": "analytic_fp32",
+     "top1_expected": 25.88,
+     "top1_lowest_index": 24.5,
+     "one_class_share": 0.028,
+     "one_class": 226,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.06,
+      "interval_pp": [
+       -0.01,
+       2.11
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 22.88,
+      "interval_pp": [
+       20.93,
+       24.85
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-L",
+     "arm": "cap_rms",
+     "top1_expected": 29.79,
+     "top1_lowest_index": 29.9,
+     "one_class_share": 0.365,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 4.96,
+      "interval_pp": [
+       2.05,
+       7.85
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 26.79,
+      "interval_pp": [
+       24.51,
+       29.08
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-L",
+     "arm": "dfq_weights_only",
+     "top1_expected": 45.72,
+     "top1_lowest_index": 44.4,
+     "one_class_share": 0.012,
+     "one_class": 189,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 20.89,
+      "interval_pp": [
+       18.77,
+       22.94
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 42.72,
+      "interval_pp": [
+       40.17,
+       45.24
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-L",
+     "arm": "global",
+     "top1_expected": 3.0,
+     "top1_lowest_index": 5.2,
+     "one_class_share": 0.944,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -21.83,
+      "interval_pp": [
+       -23.76,
+       -19.91
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/L-bc--w-int4--a-int4--default--fit-mse_per_channel-fp32in-s0.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--global.json"
+    },
+    "linear_only": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-L",
+     "arm": "linear_only",
+     "top1_expected": 20.07,
+     "top1_lowest_index": 19.0,
+     "one_class_share": 0.032,
+     "one_class": 226,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -4.75,
+      "interval_pp": [
+       -6.18,
+       -3.32
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 17.07,
+      "interval_pp": [
+       15.34,
+       18.8
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-L",
+     "arm": "local_empirical",
+     "top1_expected": 25.56,
+     "top1_lowest_index": 24.5,
+     "one_class_share": 0.028,
+     "one_class": 226,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.73,
+      "interval_pp": [
+       -0.25,
+       1.69
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 22.56,
+      "interval_pp": [
+       20.64,
+       24.54
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--local_empirical.json"
+    },
+    "none": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-L",
+     "arm": "none",
+     "top1_expected": 24.83,
+     "top1_lowest_index": 23.7,
+     "one_class_share": 0.028,
+     "one_class": 226,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 21.83,
+      "interval_pp": [
+       19.91,
+       23.76
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/L-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-fp32in-s0.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-L--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 49.32922487266169,
+    "worst_off_layer": "layer4_1_conv1",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.587890625,
+     "uncorrected": 0.0
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.07921006944444445,
+     "uncorrected": 0.013888888888888888
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 0.443511399588102,
+     "uncorrected": 2.505544203625924
+    },
+    "last_layer_spread_ratio_corrected": 0.16583291823253493
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": true
+   },
+   "guard": {
+    "logit_spread_ratio": 0.1658,
+    "choice": "local_empirical",
+    "top1_expected": 25.56,
+    "minus_none": {
+     "difference_pp": 0.73,
+     "interval_pp": [
+      -0.25,
+      1.69
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "resnet18/w4-a4-default-N": {
+   "model": "resnet18",
+   "cell": "w4-a4-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 31.78,
+     "top1_lowest_index": 30.8,
+     "one_class_share": 0.026,
+     "one_class": 287,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 3.99,
+      "interval_pp": [
+       2.1,
+       5.9
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 31.65,
+      "interval_pp": [
+       29.31,
+       34.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 1.32,
+     "top1_lowest_index": 2.1,
+     "one_class_share": 0.924,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -26.47,
+      "interval_pp": [
+       -28.64,
+       -24.29
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 1.19,
+      "interval_pp": [
+       0.79,
+       1.66
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 0.05,
+     "top1_lowest_index": 0.0,
+     "one_class_share": 0.988,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -27.74,
+      "interval_pp": [
+       -29.89,
+       -25.59
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.08,
+      "interval_pp": [
+       -0.19,
+       -0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--dfq_weights_only.json"
+    },
+    "executed": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "executed",
+     "top1_expected": 0.13,
+     "top1_lowest_index": 0.2,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -27.65,
+      "interval_pp": [
+       -29.8,
+       -25.5
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--executed.json"
+    },
+    "global--n128": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "global--n128",
+     "top1_expected": 0.12,
+     "top1_lowest_index": 0.2,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -27.67,
+      "interval_pp": [
+       -29.82,
+       -25.52
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.01,
+      "interval_pp": [
+       -0.09,
+       0.07
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global--n128.json"
+    },
+    "global--n32": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "global--n32",
+     "top1_expected": 0.14,
+     "top1_lowest_index": 0.2,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -27.64,
+      "interval_pp": [
+       -29.79,
+       -25.5
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.01,
+      "interval_pp": [
+       -0.09,
+       0.1
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global--n32.json"
+    },
+    "global--n64": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "global--n64",
+     "top1_expected": 0.08,
+     "top1_lowest_index": 0.2,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -27.7,
+      "interval_pp": [
+       -29.85,
+       -25.55
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.05,
+      "interval_pp": [
+       -0.11,
+       0.01
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global--n64.json"
+    },
+    "global": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "global",
+     "top1_expected": 0.13,
+     "top1_lowest_index": 0.2,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -27.65,
+      "interval_pp": [
+       -29.8,
+       -25.5
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-default--w-int4--a-int4--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "linear_only",
+     "top1_expected": 24.82,
+     "top1_lowest_index": 23.8,
+     "one_class_share": 0.028,
+     "one_class": 170,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -2.97,
+      "interval_pp": [
+       -5.13,
+       -0.84
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 24.69,
+      "interval_pp": [
+       22.81,
+       26.62
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 30.07,
+     "top1_lowest_index": 29.3,
+     "one_class_share": 0.044,
+     "one_class": 669,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 2.29,
+      "interval_pp": [
+       0.35,
+       4.22
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 29.94,
+      "interval_pp": [
+       27.7,
+       32.21
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "resnet18",
+     "cell": "w4-a4-default-N",
+     "arm": "none",
+     "top1_expected": 27.78,
+     "top1_lowest_index": 28.5,
+     "one_class_share": 0.042,
+     "one_class": 50,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 27.65,
+      "interval_pp": [
+       25.5,
+       29.8
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-nobc--w-int4--a-int4--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a4-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2",
+     "fc"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 34.29072456289243,
+    "worst_off_layer": "layer4_1_conv1",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.970703125,
+     "uncorrected": 0.0
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.130859375,
+     "uncorrected": 0.014322916666666666
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 0.20020779209086254,
+     "uncorrected": 1.9977186413678683
+    },
+    "last_layer_spread_ratio_corrected": 0.07485950179895003
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": false
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": false
+    },
+    "executed": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": false
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global--n128": true,
+    "global--n32": true,
+    "global--n64": true,
+    "global": true
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0749,
+    "choice": "local_empirical",
+    "top1_expected": 30.07,
+    "minus_none": {
+     "difference_pp": 2.29,
+     "interval_pp": [
+      0.35,
+      4.22
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "resnet18/w4-a8-default-N": {
+   "model": "resnet18",
+   "cell": "w4-a8-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "resnet18",
+     "cell": "w4-a8-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 59.95,
+     "top1_lowest_index": 59.5,
+     "one_class_share": 0.01,
+     "one_class": 904,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 6.48,
+      "interval_pp": [
+       4.15,
+       8.8
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 59.85,
+      "interval_pp": [
+       56.82,
+       62.73
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "resnet18",
+     "cell": "w4-a8-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 11.43,
+     "top1_lowest_index": 11.3,
+     "one_class_share": 0.549,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -42.03,
+      "interval_pp": [
+       -45.12,
+       -38.77
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 11.33,
+      "interval_pp": [
+       9.53,
+       13.24
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "resnet18",
+     "cell": "w4-a8-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -53.37,
+      "interval_pp": [
+       -56.38,
+       -50.25
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "resnet18",
+     "cell": "w4-a8-default-N",
+     "arm": "global",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -53.37,
+      "interval_pp": [
+       -56.38,
+       -50.25
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-default--w-int4--a-int8--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "resnet18",
+     "cell": "w4-a8-default-N",
+     "arm": "linear_only",
+     "top1_expected": 63.05,
+     "top1_lowest_index": 62.8,
+     "one_class_share": 0.005,
+     "one_class": 171,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 9.58,
+      "interval_pp": [
+       7.22,
+       11.93
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 62.95,
+      "interval_pp": [
+       60.0,
+       65.8
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "resnet18",
+     "cell": "w4-a8-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 59.22,
+     "top1_lowest_index": 59.0,
+     "one_class_share": 0.013,
+     "one_class": 904,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 5.75,
+      "interval_pp": [
+       3.5,
+       8.03
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 59.12,
+      "interval_pp": [
+       56.08,
+       62.05
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "resnet18",
+     "cell": "w4-a8-default-N",
+     "arm": "none",
+     "top1_expected": 53.47,
+     "top1_lowest_index": 53.6,
+     "one_class_share": 0.009,
+     "one_class": 50,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 53.37,
+      "interval_pp": [
+       50.25,
+       56.38
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-nobc--w-int4--a-int8--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w4-a8-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 35.22515776573732,
+    "worst_off_layer": "layer4_1_conv1",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.935546875,
+     "uncorrected": 0.0
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.11827256944444445,
+     "uncorrected": 0.013888888888888888
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 0.15902838397178554,
+     "uncorrected": 2.1303737551381428
+    },
+    "last_layer_spread_ratio_corrected": 0.059462149158595747
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": false
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": true
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0595,
+    "choice": "local_empirical",
+    "top1_expected": 59.22,
+    "minus_none": {
+     "difference_pp": 5.75,
+     "interval_pp": [
+      3.5,
+      8.03
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "resnet18/w5-a5-default-N": {
+   "model": "resnet18",
+   "cell": "w5-a5-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "resnet18",
+     "cell": "w5-a5-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 54.93,
+     "top1_lowest_index": 54.6,
+     "one_class_share": 0.007,
+     "one_class": 54,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -1.25,
+      "interval_pp": [
+       -3.01,
+       0.58
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 41.24,
+      "interval_pp": [
+       38.27,
+       44.27
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "resnet18",
+     "cell": "w5-a5-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 39.67,
+     "top1_lowest_index": 41.3,
+     "one_class_share": 0.217,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -16.51,
+      "interval_pp": [
+       -19.38,
+       -13.63
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 25.98,
+      "interval_pp": [
+       23.72,
+       28.2
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "resnet18",
+     "cell": "w5-a5-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 51.27,
+     "top1_lowest_index": 51.6,
+     "one_class_share": 0.087,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -4.91,
+      "interval_pp": [
+       -7.35,
+       -2.42
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 37.58,
+      "interval_pp": [
+       35.02,
+       40.1
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "resnet18",
+     "cell": "w5-a5-default-N",
+     "arm": "global",
+     "top1_expected": 13.69,
+     "top1_lowest_index": 15.3,
+     "one_class_share": 0.765,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -42.49,
+      "interval_pp": [
+       -45.49,
+       -39.47
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/resnet18--int5--default--1000--8ae392039b89.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "resnet18",
+     "cell": "w5-a5-default-N",
+     "arm": "linear_only",
+     "top1_expected": 52.09,
+     "top1_lowest_index": 52.8,
+     "one_class_share": 0.01,
+     "one_class": 200,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -4.09,
+      "interval_pp": [
+       -5.97,
+       -2.21
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 38.4,
+      "interval_pp": [
+       35.42,
+       41.38
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "resnet18",
+     "cell": "w5-a5-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 55.18,
+     "top1_lowest_index": 54.9,
+     "one_class_share": 0.007,
+     "one_class": 77,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -1.0,
+      "interval_pp": [
+       -2.75,
+       0.84
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 41.48,
+      "interval_pp": [
+       38.5,
+       44.52
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "resnet18",
+     "cell": "w5-a5-default-N",
+     "arm": "none",
+     "top1_expected": 56.18,
+     "top1_lowest_index": 56.1,
+     "one_class_share": 0.007,
+     "one_class": 192,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 42.49,
+      "interval_pp": [
+       39.47,
+       45.49
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w5-a5-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 41.317318608734105,
+    "worst_off_layer": "layer4_1_conv1",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.3125,
+     "uncorrected": 0.0
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.04861111111111111,
+     "uncorrected": 0.013888888888888888
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 0.5004606382850575,
+     "uncorrected": 2.3286150830664294
+    },
+    "last_layer_spread_ratio_corrected": 0.18712675296374642
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.1871,
+    "choice": "local_empirical",
+    "top1_expected": 55.18,
+    "minus_none": {
+     "difference_pp": -1.0,
+     "interval_pp": [
+      -2.75,
+      0.84
+     ]
+    },
+    "best_of_global_local_none": "none"
+   }
+  },
+  "resnet18/w6-a6-default-N": {
+   "model": "resnet18",
+   "cell": "w6-a6-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "resnet18",
+     "cell": "w6-a6-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 65.79,
+     "top1_lowest_index": 66.1,
+     "one_class_share": 0.005,
+     "one_class": 267,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.72,
+      "interval_pp": [
+       -1.74,
+       0.31
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.11,
+      "interval_pp": [
+       -1.74,
+       1.55
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "resnet18",
+     "cell": "w6-a6-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 65.89,
+     "top1_lowest_index": 65.2,
+     "one_class_share": 0.008,
+     "one_class": 523,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.61,
+      "interval_pp": [
+       -2.36,
+       1.15
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "resnet18",
+     "cell": "w6-a6-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 67.8,
+     "top1_lowest_index": 67.3,
+     "one_class_share": 0.005,
+     "one_class": 743,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.3,
+      "interval_pp": [
+       -0.07,
+       2.66
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 1.91,
+      "interval_pp": [
+       0.77,
+       3.05
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "resnet18",
+     "cell": "w6-a6-default-N",
+     "arm": "global",
+     "top1_expected": 65.89,
+     "top1_lowest_index": 65.2,
+     "one_class_share": 0.008,
+     "one_class": 523,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.61,
+      "interval_pp": [
+       -2.36,
+       1.15
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-default--w-int6--a-int6--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "resnet18",
+     "cell": "w6-a6-default-N",
+     "arm": "linear_only",
+     "top1_expected": 66.01,
+     "top1_lowest_index": 66.1,
+     "one_class_share": 0.005,
+     "one_class": 722,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.49,
+      "interval_pp": [
+       -1.6,
+       0.63
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.12,
+      "interval_pp": [
+       -1.57,
+       1.79
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "resnet18",
+     "cell": "w6-a6-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 65.79,
+     "top1_lowest_index": 65.6,
+     "one_class_share": 0.005,
+     "one_class": 743,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.71,
+      "interval_pp": [
+       -1.81,
+       0.36
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.1,
+      "interval_pp": [
+       -1.76,
+       1.55
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "resnet18",
+     "cell": "w6-a6-default-N",
+     "arm": "none",
+     "top1_expected": 66.5,
+     "top1_lowest_index": 66.8,
+     "one_class_share": 0.004,
+     "one_class": 101,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 0.61,
+      "interval_pp": [
+       -1.15,
+       2.36
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/resnet18/N-nobc--w-int6--a-int6--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/w6-a6-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [],
+    "inherited_exceeds_local_in_those": null,
+    "median_inherited_over_local_in_those": null,
+    "worst_off_layer": "conv1",
+    "worst_off_fraction": {
+     "fp32": 0.125,
+     "corrected": 0.125,
+     "uncorrected": 0.125
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.013888888888888888,
+     "uncorrected": 0.013888888888888888
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 1.5936853855805608,
+     "uncorrected": 2.641142265855585
+    },
+    "last_layer_spread_ratio_corrected": 0.5958933603077945
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.5959,
+    "choice": "global",
+    "top1_expected": 65.89,
+    "minus_none": {
+     "difference_pp": -0.61,
+     "interval_pp": [
+      -2.36,
+      1.15
+     ]
+    },
+    "best_of_global_local_none": "none"
+   }
+  },
+  "mobilenet_v2/w4-a4-default-L": {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-L",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-L",
+     "arm": "analytic_fp32",
+     "top1_expected": 20.43,
+     "top1_lowest_index": 18.2,
+     "one_class_share": 0.035,
+     "one_class": 788,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -6.75,
+      "interval_pp": [
+       -8.21,
+       -5.29
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 20.2,
+      "interval_pp": [
+       18.81,
+       21.61
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-L",
+     "arm": "cap_rms",
+     "top1_expected": 0.42,
+     "top1_lowest_index": 0.8,
+     "one_class_share": 0.996,
+     "one_class": 457,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -26.76,
+      "interval_pp": [
+       -28.52,
+       -25.01
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.19,
+      "interval_pp": [
+       -0.02,
+       0.49
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-L",
+     "arm": "dfq_weights_only",
+     "top1_expected": 25.27,
+     "top1_lowest_index": 26.5,
+     "one_class_share": 0.528,
+     "one_class": 600,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -1.91,
+      "interval_pp": [
+       -4.54,
+       0.73
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 25.04,
+      "interval_pp": [
+       22.68,
+       27.42
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-L",
+     "arm": "global",
+     "top1_expected": 0.23,
+     "top1_lowest_index": 0.4,
+     "one_class_share": 0.999,
+     "one_class": 457,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -26.95,
+      "interval_pp": [
+       -28.69,
+       -25.23
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/L-bc--w-int4--a-int4--default--fit-mse_per_channel-fp32in-s0.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-L",
+     "arm": "linear_only",
+     "top1_expected": 10.35,
+     "top1_lowest_index": 11.2,
+     "one_class_share": 0.805,
+     "one_class": 733,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -16.83,
+      "interval_pp": [
+       -19.1,
+       -14.56
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 10.12,
+      "interval_pp": [
+       8.5,
+       11.77
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-L",
+     "arm": "local_empirical",
+     "top1_expected": 16.97,
+     "top1_lowest_index": 15.3,
+     "one_class_share": 0.034,
+     "one_class": 721,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -10.21,
+      "interval_pp": [
+       -11.7,
+       -8.76
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 16.74,
+      "interval_pp": [
+       15.7,
+       17.81
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-L",
+     "arm": "none",
+     "top1_expected": 27.18,
+     "top1_lowest_index": 25.6,
+     "one_class_share": 0.028,
+     "one_class": 975,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 26.95,
+      "interval_pp": [
+       25.23,
+       28.69
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/L-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-fp32in-s0.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-L--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 53,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_4_conv_2",
+     "features_5_conv_2",
+     "features_7_conv_2",
+     "features_8_conv_2",
+     "features_9_conv_2",
+     "features_10_conv_2",
+     "features_11_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 0.6927701990203696,
+    "worst_off_layer": "features_18_0",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.99921875,
+     "uncorrected": 0.0
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.015074404761904761,
+     "corrected": 0.06334573412698413,
+     "uncorrected": 0.016046626984126983
+    },
+    "last_layer": "classifier_1",
+    "last_layer_spread": {
+     "fp32": 0.7279229536978642,
+     "corrected": 0.01323534032816004,
+     "uncorrected": 0.7052389566826887
+    },
+    "last_layer_spread_ratio_corrected": 0.018182336826891125
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "cap_rms": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": false
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    }
+   },
+   "h12_images": {
+    "global": true
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0182,
+    "choice": "local_empirical",
+    "top1_expected": 16.97,
+    "minus_none": {
+     "difference_pp": -10.21,
+     "interval_pp": [
+      -11.7,
+      -8.76
+     ]
+    },
+    "best_of_global_local_none": "none"
+   }
+  },
+  "mobilenet_v2/w4-a4-default-N": {
+   "model": "mobilenet_v2",
+   "cell": "w4-a4-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 22.12,
+     "top1_lowest_index": 23.0,
+     "one_class_share": 0.043,
+     "one_class": 973,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 21.0,
+      "interval_pp": [
+       19.27,
+       22.76
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 22.02,
+      "interval_pp": [
+       20.36,
+       23.72
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 457,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -1.01,
+      "interval_pp": [
+       -1.66,
+       -0.46
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 0.55,
+     "top1_lowest_index": 1.2,
+     "one_class_share": 0.997,
+     "one_class": 600,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -0.56,
+      "interval_pp": [
+       -1.26,
+       0.09
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.45,
+      "interval_pp": [
+       0.21,
+       0.78
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--dfq_weights_only.json"
+    },
+    "executed": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "executed",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 457,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -1.01,
+      "interval_pp": [
+       -1.66,
+       -0.46
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--executed.json"
+    },
+    "global--n128": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "global--n128",
+     "top1_expected": 0.11,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -1.0,
+      "interval_pp": [
+       -1.65,
+       -0.45
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.01,
+      "interval_pp": [
+       -0.02,
+       0.04
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global--n128.json"
+    },
+    "global--n32": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "global--n32",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 910,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -1.01,
+      "interval_pp": [
+       -1.69,
+       -0.42
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.0,
+      "interval_pp": [
+       -0.13,
+       0.22
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global--n32.json"
+    },
+    "global--n64": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "global--n64",
+     "top1_expected": 0.12,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 85,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -0.99,
+      "interval_pp": [
+       -1.64,
+       -0.44
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.02,
+      "interval_pp": [
+       -0.02,
+       0.06
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global--n64.json"
+    },
+    "global": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "global",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 1.0,
+     "one_class": 457,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -1.01,
+      "interval_pp": [
+       -1.66,
+       -0.46
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-default--w-int4--a-int4--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "linear_only",
+     "top1_expected": 0.53,
+     "top1_lowest_index": 0.7,
+     "one_class_share": 0.992,
+     "one_class": 457,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -0.58,
+      "interval_pp": [
+       -1.27,
+       0.04
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.43,
+      "interval_pp": [
+       0.18,
+       0.75
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 20.94,
+     "top1_lowest_index": 20.7,
+     "one_class_share": 0.059,
+     "one_class": 973,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 19.83,
+      "interval_pp": [
+       18.21,
+       21.45
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 20.84,
+      "interval_pp": [
+       19.27,
+       22.4
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v2",
+     "cell": "w4-a4-default-N",
+     "arm": "none",
+     "top1_expected": 1.11,
+     "top1_lowest_index": 1.2,
+     "one_class_share": 0.44,
+     "one_class": 815,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 1.01,
+      "interval_pp": [
+       0.46,
+       1.66
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-nobc--w-int4--a-int4--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w4-a4-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 53,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_4_conv_2",
+     "features_5_conv_2",
+     "features_6_conv_2",
+     "features_7_conv_2",
+     "features_8_conv_2",
+     "features_9_conv_2",
+     "features_10_conv_2",
+     "features_11_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 0.4878460086928738,
+    "worst_off_layer": "features_18_0",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 1.0,
+     "uncorrected": 0.5109375
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.015074404761904761,
+     "corrected": 0.07000496031746033,
+     "uncorrected": 0.08385912698412698
+    },
+    "last_layer": "classifier_1",
+    "last_layer_spread": {
+     "fp32": 0.7279229536978642,
+     "corrected": 0.004855709111019014,
+     "uncorrected": 0.3119776110871107
+    },
+    "last_layer_spread_ratio_corrected": 0.006670636069864136
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": true
+    },
+    "executed": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global--n128": true,
+    "global--n32": true,
+    "global--n64": true,
+    "global": true
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0067,
+    "choice": "local_empirical",
+    "top1_expected": 20.94,
+    "minus_none": {
+     "difference_pp": 19.83,
+     "interval_pp": [
+      18.21,
+      21.45
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "mobilenet_v2/w5-a5-default-N": {
+   "model": "mobilenet_v2",
+   "cell": "w5-a5-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v2",
+     "cell": "w5-a5-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 58.69,
+     "top1_lowest_index": 58.7,
+     "one_class_share": 0.006,
+     "one_class": 58,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 22.07,
+      "interval_pp": [
+       19.37,
+       24.85
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 26.14,
+      "interval_pp": [
+       23.31,
+       29.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v2",
+     "cell": "w5-a5-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 34.15,
+     "top1_lowest_index": 35.7,
+     "one_class_share": 0.388,
+     "one_class": 733,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -2.47,
+      "interval_pp": [
+       -5.37,
+       0.4
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 1.6,
+      "interval_pp": [
+       0.05,
+       3.16
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v2",
+     "cell": "w5-a5-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 65.38,
+     "top1_lowest_index": 65.0,
+     "one_class_share": 0.007,
+     "one_class": 523,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 28.76,
+      "interval_pp": [
+       25.87,
+       31.55
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 32.83,
+      "interval_pp": [
+       30.15,
+       35.53
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "mobilenet_v2",
+     "cell": "w5-a5-default-N",
+     "arm": "global",
+     "top1_expected": 32.55,
+     "top1_lowest_index": 33.5,
+     "one_class_share": 0.42,
+     "one_class": 733,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -4.07,
+      "interval_pp": [
+       -7.06,
+       -1.16
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--int5--default--1000--d94a9210cf9d.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v2",
+     "cell": "w5-a5-default-N",
+     "arm": "linear_only",
+     "top1_expected": 52.46,
+     "top1_lowest_index": 53.2,
+     "one_class_share": 0.067,
+     "one_class": 733,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 15.84,
+      "interval_pp": [
+       13.0,
+       18.69
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 19.91,
+      "interval_pp": [
+       17.68,
+       22.16
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v2",
+     "cell": "w5-a5-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 58.89,
+     "top1_lowest_index": 59.4,
+     "one_class_share": 0.007,
+     "one_class": 58,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 22.27,
+      "interval_pp": [
+       19.55,
+       24.98
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 26.34,
+      "interval_pp": [
+       23.54,
+       29.17
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v2",
+     "cell": "w5-a5-default-N",
+     "arm": "none",
+     "top1_expected": 36.62,
+     "top1_lowest_index": 37.3,
+     "one_class_share": 0.055,
+     "one_class": 611,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 4.07,
+      "interval_pp": [
+       1.16,
+       7.06
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w5-a5-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 53,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_4_conv_2",
+     "features_5_conv_2",
+     "features_7_conv_2",
+     "features_10_conv_2",
+     "features_11_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 0.3991368069899478,
+    "worst_off_layer": "features_18_0",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.8953125000000001,
+     "uncorrected": 0.032031250000000004
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.015074404761904761,
+     "corrected": 0.05224206349206349,
+     "uncorrected": 0.02898561507936508
+    },
+    "last_layer": "classifier_1",
+    "last_layer_spread": {
+     "fp32": 0.7279229536978642,
+     "corrected": 0.0978630659596769,
+     "uncorrected": 0.6523834033733792
+    },
+    "last_layer_spread_ratio_corrected": 0.134441516732685
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": false
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.1344,
+    "choice": "local_empirical",
+    "top1_expected": 58.89,
+    "minus_none": {
+     "difference_pp": 22.27,
+     "interval_pp": [
+      19.55,
+      24.98
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "mobilenet_v2/w6-a6-default-N": {
+   "model": "mobilenet_v2",
+   "cell": "w6-a6-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v2",
+     "cell": "w6-a6-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 70.35,
+     "top1_lowest_index": 70.1,
+     "one_class_share": 0.004,
+     "one_class": 58,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 3.21,
+      "interval_pp": [
+       1.58,
+       4.86
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.26,
+      "interval_pp": [
+       -1.22,
+       1.76
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v2",
+     "cell": "w6-a6-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 69.75,
+     "top1_lowest_index": 69.9,
+     "one_class_share": 0.004,
+     "one_class": 77,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 2.61,
+      "interval_pp": [
+       0.68,
+       4.57
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.35,
+      "interval_pp": [
+       -1.46,
+       0.77
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v2",
+     "cell": "w6-a6-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 71.69,
+     "top1_lowest_index": 71.8,
+     "one_class_share": 0.004,
+     "one_class": 58,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 4.55,
+      "interval_pp": [
+       2.82,
+       6.37
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 1.59,
+      "interval_pp": [
+       0.24,
+       2.97
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "mobilenet_v2",
+     "cell": "w6-a6-default-N",
+     "arm": "global",
+     "top1_expected": 70.1,
+     "top1_lowest_index": 70.3,
+     "one_class_share": 0.004,
+     "one_class": 77,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 2.96,
+      "interval_pp": [
+       1.0,
+       4.92
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-default--w-int6--a-int6--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v2",
+     "cell": "w6-a6-default-N",
+     "arm": "linear_only",
+     "top1_expected": 69.87,
+     "top1_lowest_index": 69.7,
+     "one_class_share": 0.004,
+     "one_class": 77,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 2.72,
+      "interval_pp": [
+       0.85,
+       4.62
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.23,
+      "interval_pp": [
+       -1.37,
+       0.92
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v2",
+     "cell": "w6-a6-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 70.97,
+     "top1_lowest_index": 70.5,
+     "one_class_share": 0.004,
+     "one_class": 251,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 3.82,
+      "interval_pp": [
+       2.14,
+       5.54
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.87,
+      "interval_pp": [
+       -0.65,
+       2.4
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v2",
+     "cell": "w6-a6-default-N",
+     "arm": "none",
+     "top1_expected": 67.14,
+     "top1_lowest_index": 66.6,
+     "one_class_share": 0.005,
+     "one_class": 49,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": -2.96,
+      "interval_pp": [
+       -4.92,
+       -1.0
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v2/N-nobc--w-int6--a-int6--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/w6-a6-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 53,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_5_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 0.6039252398102299,
+    "worst_off_layer": "features_16_conv_1_0",
+    "worst_off_fraction": {
+     "fp32": 0.13125,
+     "corrected": 0.24583333333333332,
+     "uncorrected": 0.16354166666666667
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.015074404761904761,
+     "corrected": 0.020989583333333332,
+     "uncorrected": 0.017609126984126984
+    },
+    "last_layer": "classifier_1",
+    "last_layer_spread": {
+     "fp32": 0.7279229536978642,
+     "corrected": 0.37802531696113784,
+     "uncorrected": 0.7000967046325696
+    },
+    "last_layer_spread_ratio_corrected": 0.5193205064365138
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.5193,
+    "choice": "global",
+    "top1_expected": 70.1,
+    "minus_none": {
+     "difference_pp": 2.96,
+     "interval_pp": [
+      1.0,
+      4.92
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "mobilenet_v3_large/w4-a4-default-N": {
+   "model": "mobilenet_v3_large",
+   "cell": "w4-a4-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 0.14,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 0.615,
+     "one_class": 950,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.06,
+      "interval_pp": [
+       -0.34,
+       0.16
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.04,
+      "interval_pp": [
+       -0.12,
+       0.21
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 0.913,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -0.11,
+      "interval_pp": [
+       -0.37,
+       0.09
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.01,
+      "interval_pp": [
+       -0.09,
+       0.06
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 0.11,
+     "top1_lowest_index": 0.2,
+     "one_class_share": 0.943,
+     "one_class": 950,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -0.09,
+      "interval_pp": [
+       -0.37,
+       0.15
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.01,
+      "interval_pp": [
+       -0.16,
+       0.26
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--dfq_weights_only.json"
+    },
+    "executed": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "executed",
+     "top1_expected": 0.07,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 0.897,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.13,
+      "interval_pp": [
+       -0.4,
+       0.07
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.03,
+      "interval_pp": [
+       -0.08,
+       0.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--executed.json"
+    },
+    "global": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "global",
+     "top1_expected": 0.1,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 0.877,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.1,
+      "interval_pp": [
+       -0.37,
+       0.11
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-default--w-int4--a-int4--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "linear_only",
+     "top1_expected": 0.12,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 0.986,
+     "one_class": 463,
+     "collapse": true,
+     "minus_none": {
+      "difference_pp": -0.08,
+      "interval_pp": [
+       -0.36,
+       0.15
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.02,
+      "interval_pp": [
+       -0.08,
+       0.13
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 0.2,
+     "top1_lowest_index": 0.2,
+     "one_class_share": 0.673,
+     "one_class": 794,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.0,
+      "interval_pp": [
+       -0.19,
+       0.18
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.1,
+      "interval_pp": [
+       -0.12,
+       0.38
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v3_large",
+     "cell": "w4-a4-default-N",
+     "arm": "none",
+     "top1_expected": 0.2,
+     "top1_lowest_index": 0.1,
+     "one_class_share": 0.825,
+     "one_class": 950,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": 0.1,
+      "interval_pp": [
+       -0.11,
+       0.37
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-nobc--w-int4--a-int4--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w4-a4-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 64,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_block_1_0",
+     "features_2_block_2_0",
+     "features_3_block_2_0",
+     "features_4_block_3_0",
+     "features_5_block_3_0",
+     "features_6_block_3_0",
+     "features_7_block_2_0",
+     "features_8_block_2_0",
+     "features_9_block_2_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_11_block_3_0",
+     "features_12_block_1_0",
+     "features_12_block_3_0",
+     "features_13_block_1_0",
+     "features_13_block_3_0",
+     "features_14_block_2_fc1",
+     "features_14_block_3_0",
+     "features_15_block_2_fc1",
+     "features_15_block_3_0",
+     "classifier_3"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 1.9226133746734009,
+    "worst_off_layer": "features_15_block_2_fc1",
+    "worst_off_fraction": {
+     "fp32": 0.004166666666666667,
+     "corrected": 0.31666666666666665,
+     "uncorrected": 0.225
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.027712673611111113,
+     "corrected": 0.04017237103174603,
+     "uncorrected": 0.06660025053197607
+    },
+    "last_layer": "classifier_3",
+    "last_layer_spread": {
+     "fp32": 0.8330030832035178,
+     "corrected": 0.06985019075374939,
+     "uncorrected": 0.38093859686808695
+    },
+    "last_layer_spread_ratio_corrected": 0.0838534600437772
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": true
+    },
+    "executed": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": false,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0839,
+    "choice": "local_empirical",
+    "top1_expected": 0.2,
+    "minus_none": {
+     "difference_pp": -0.0,
+     "interval_pp": [
+      -0.19,
+      0.18
+     ]
+    },
+    "best_of_global_local_none": "local_empirical"
+   }
+  },
+  "mobilenet_v3_large/w5-a5-default-N": {
+   "model": "mobilenet_v3_large",
+   "cell": "w5-a5-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v3_large",
+     "cell": "w5-a5-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 1.15,
+     "top1_lowest_index": 1.1,
+     "one_class_share": 0.248,
+     "one_class": 616,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.57,
+      "interval_pp": [
+       -0.15,
+       1.3
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -6.91,
+      "interval_pp": [
+       -8.49,
+       -5.34
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v3_large",
+     "cell": "w5-a5-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 6.47,
+     "top1_lowest_index": 7.1,
+     "one_class_share": 0.075,
+     "one_class": 840,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 5.88,
+      "interval_pp": [
+       4.55,
+       7.3
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -1.59,
+      "interval_pp": [
+       -3.18,
+       -0.02
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w5-a5-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 0.59,
+     "top1_lowest_index": 0.8,
+     "one_class_share": 0.315,
+     "one_class": 905,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.01,
+      "interval_pp": [
+       -0.45,
+       0.41
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -7.47,
+      "interval_pp": [
+       -8.93,
+       -6.04
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "mobilenet_v3_large",
+     "cell": "w5-a5-default-N",
+     "arm": "global",
+     "top1_expected": 8.06,
+     "top1_lowest_index": 9.0,
+     "one_class_share": 0.06,
+     "one_class": 733,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 7.48,
+      "interval_pp": [
+       5.95,
+       9.05
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--int5--default--1000--0ddb96c2a11d.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w5-a5-default-N",
+     "arm": "linear_only",
+     "top1_expected": 4.43,
+     "top1_lowest_index": 4.7,
+     "one_class_share": 0.094,
+     "one_class": 463,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 3.84,
+      "interval_pp": [
+       2.72,
+       5.0
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -3.63,
+      "interval_pp": [
+       -5.22,
+       -2.08
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v3_large",
+     "cell": "w5-a5-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 0.97,
+     "top1_lowest_index": 1.1,
+     "one_class_share": 0.229,
+     "one_class": 646,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.39,
+      "interval_pp": [
+       -0.28,
+       1.1
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -7.08,
+      "interval_pp": [
+       -8.63,
+       -5.57
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v3_large",
+     "cell": "w5-a5-default-N",
+     "arm": "none",
+     "top1_expected": 0.58,
+     "top1_lowest_index": 0.7,
+     "one_class_share": 0.343,
+     "one_class": 905,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": -7.48,
+      "interval_pp": [
+       -9.05,
+       -5.95
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w5-a5-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 64,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_block_1_0",
+     "features_2_block_2_0",
+     "features_3_block_2_0",
+     "features_4_block_3_0",
+     "features_5_block_3_0",
+     "features_6_block_3_0",
+     "features_7_block_2_0",
+     "features_8_block_2_0",
+     "features_9_block_2_0",
+     "features_10_block_2_0",
+     "features_11_block_3_0",
+     "features_12_block_3_0",
+     "features_13_block_1_0",
+     "features_13_block_3_0",
+     "features_14_block_3_0",
+     "features_15_block_3_0",
+     "classifier_3"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 1.9138938112994253,
+    "worst_off_layer": "features_15_block_2_fc1",
+    "worst_off_fraction": {
+     "fp32": 0.004166666666666667,
+     "corrected": 0.2,
+     "uncorrected": 0.14166666666666666
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.027712673611111113,
+     "corrected": 0.03216145833333333,
+     "uncorrected": 0.044354538690476196
+    },
+    "last_layer": "classifier_3",
+    "last_layer_spread": {
+     "fp32": 0.8330030832035178,
+     "corrected": 0.23687180048209563,
+     "uncorrected": 0.5301225978105827
+    },
+    "last_layer_spread_ratio_corrected": 0.28435885203587363
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.2844,
+    "choice": "global",
+    "top1_expected": 8.06,
+    "minus_none": {
+     "difference_pp": 7.48,
+     "interval_pp": [
+      5.95,
+      9.05
+     ]
+    },
+    "best_of_global_local_none": "global"
+   }
+  },
+  "mobilenet_v3_large/w6-a6-default-N": {
+   "model": "mobilenet_v3_large",
+   "cell": "w6-a6-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v3_large",
+     "cell": "w6-a6-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 4.3,
+     "top1_lowest_index": 4.6,
+     "one_class_share": 0.239,
+     "one_class": 506,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.85,
+      "interval_pp": [
+       -0.17,
+       1.85
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -16.7,
+      "interval_pp": [
+       -19.08,
+       -14.29
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v3_large",
+     "cell": "w6-a6-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 20.01,
+     "top1_lowest_index": 21.4,
+     "one_class_share": 0.041,
+     "one_class": 840,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 16.56,
+      "interval_pp": [
+       14.24,
+       18.92
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.98,
+      "interval_pp": [
+       -2.89,
+       0.89
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w6-a6-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 4.39,
+     "top1_lowest_index": 4.7,
+     "one_class_share": 0.225,
+     "one_class": 506,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.94,
+      "interval_pp": [
+       -0.04,
+       1.94
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -16.6,
+      "interval_pp": [
+       -19.05,
+       -14.15
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "mobilenet_v3_large",
+     "cell": "w6-a6-default-N",
+     "arm": "global",
+     "top1_expected": 21.0,
+     "top1_lowest_index": 20.9,
+     "one_class_share": 0.053,
+     "one_class": 733,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 17.55,
+      "interval_pp": [
+       15.14,
+       19.95
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-default--w-int6--a-int6--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w6-a6-default-N",
+     "arm": "linear_only",
+     "top1_expected": 23.45,
+     "top1_lowest_index": 23.3,
+     "one_class_share": 0.032,
+     "one_class": 868,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 20.0,
+      "interval_pp": [
+       17.4,
+       22.59
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 2.46,
+      "interval_pp": [
+       0.13,
+       4.7
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v3_large",
+     "cell": "w6-a6-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 4.17,
+     "top1_lowest_index": 4.5,
+     "one_class_share": 0.23,
+     "one_class": 506,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.72,
+      "interval_pp": [
+       -0.28,
+       1.72
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -16.83,
+      "interval_pp": [
+       -19.33,
+       -14.32
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v3_large",
+     "cell": "w6-a6-default-N",
+     "arm": "none",
+     "top1_expected": 3.45,
+     "top1_lowest_index": 3.5,
+     "one_class_share": 0.225,
+     "one_class": 905,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": -17.55,
+      "interval_pp": [
+       -19.95,
+       -15.14
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-nobc--w-int6--a-int6--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w6-a6-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 64,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_block_1_0",
+     "features_2_block_2_0",
+     "features_3_block_2_0",
+     "features_4_block_3_0",
+     "features_5_block_3_0",
+     "features_7_block_2_0",
+     "features_8_block_2_0",
+     "features_9_block_2_0",
+     "features_10_block_2_0",
+     "features_11_block_3_0",
+     "features_12_block_3_0",
+     "features_13_block_3_0",
+     "features_14_block_3_0",
+     "features_15_block_3_0",
+     "classifier_3"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 2.8594241350266545,
+    "worst_off_layer": "features_15_block_2_fc1",
+    "worst_off_fraction": {
+     "fp32": 0.004166666666666667,
+     "corrected": 0.15833333333333333,
+     "uncorrected": 0.10833333333333334
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.027712673611111113,
+     "corrected": 0.031206597222222226,
+     "uncorrected": 0.03304501488095238
+    },
+    "last_layer": "classifier_3",
+    "last_layer_spread": {
+     "fp32": 0.8330030832035178,
+     "corrected": 0.2372185771688793,
+     "uncorrected": 0.9348640340708955
+    },
+    "last_layer_spread_ratio_corrected": 0.28477514903858103
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.2848,
+    "choice": "global",
+    "top1_expected": 21.0,
+    "minus_none": {
+     "difference_pp": 17.55,
+     "interval_pp": [
+      15.14,
+      19.95
+     ]
+    },
+    "best_of_global_local_none": "global"
+   }
+  },
+  "mobilenet_v3_large/w8-a8-default-L": {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-L",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-L",
+     "arm": "analytic_fp32",
+     "top1_expected": 71.1,
+     "top1_lowest_index": 71.2,
+     "one_class_share": 0.004,
+     "one_class": 267,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.08,
+      "interval_pp": [
+       -1.4,
+       1.25
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -1.85,
+      "interval_pp": [
+       -3.45,
+       -0.25
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-L",
+     "arm": "cap_rms",
+     "top1_expected": 71.73,
+     "top1_lowest_index": 71.8,
+     "one_class_share": 0.004,
+     "one_class": 58,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.55,
+      "interval_pp": [
+       -1.1,
+       2.18
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -1.22,
+      "interval_pp": [
+       -2.55,
+       0.1
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-L",
+     "arm": "dfq_weights_only",
+     "top1_expected": 71.05,
+     "top1_lowest_index": 70.9,
+     "one_class_share": 0.004,
+     "one_class": 659,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.13,
+      "interval_pp": [
+       -1.45,
+       1.12
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -1.9,
+      "interval_pp": [
+       -3.45,
+       -0.4
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--dfq_weights_only.json"
+    },
+    "global": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-L",
+     "arm": "global",
+     "top1_expected": 72.95,
+     "top1_lowest_index": 73.1,
+     "one_class_share": 0.004,
+     "one_class": 859,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.77,
+      "interval_pp": [
+       0.17,
+       3.35
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/L-bc--w-int8--a-int8--default--fit-mse_per_channel-fp32in-s0.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-L",
+     "arm": "linear_only",
+     "top1_expected": 73.25,
+     "top1_lowest_index": 73.1,
+     "one_class_share": 0.005,
+     "one_class": 859,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 2.07,
+      "interval_pp": [
+       0.5,
+       3.62
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       -1.2,
+       1.8
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-L",
+     "arm": "local_empirical",
+     "top1_expected": 71.25,
+     "top1_lowest_index": 71.1,
+     "one_class_share": 0.004,
+     "one_class": 171,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.07,
+      "interval_pp": [
+       -1.28,
+       1.4
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -1.7,
+      "interval_pp": [
+       -3.25,
+       -0.15
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-L",
+     "arm": "none",
+     "top1_expected": 71.18,
+     "top1_lowest_index": 71.3,
+     "one_class_share": 0.004,
+     "one_class": 523,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": -1.77,
+      "interval_pp": [
+       -3.35,
+       -0.17
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/L-nobc--w-int8--a-int8--default_no_bias_correction--fit-mse_per_channel-fp32in-s0.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-L--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 64,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_block_1_0",
+     "features_2_block_2_0",
+     "features_5_block_3_0",
+     "features_8_block_2_0",
+     "features_9_block_2_0",
+     "features_11_block_3_0",
+     "features_12_block_3_0",
+     "features_14_block_3_0"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 14.559759850639866,
+    "worst_off_layer": "features_15_block_2_fc2",
+    "worst_off_fraction": {
+     "fp32": 0.0010416666666666667,
+     "corrected": 0.0020833333333333333,
+     "uncorrected": 0.0010416666666666667
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.027712673611111113,
+     "corrected": 0.02756076388888889,
+     "uncorrected": 0.027408854166666666
+    },
+    "last_layer": "classifier_3",
+    "last_layer_spread": {
+     "fp32": 0.8330030832035178,
+     "corrected": 0.7783599913861493,
+     "uncorrected": 0.8440797927735385
+    },
+    "last_layer_spread_ratio_corrected": 0.9344022934378285
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.9344,
+    "choice": "global",
+    "top1_expected": 72.95,
+    "minus_none": {
+     "difference_pp": 1.77,
+     "interval_pp": [
+      0.17,
+      3.35
+     ]
+    },
+    "best_of_global_local_none": "global"
+   }
+  },
+  "mobilenet_v3_large/w8-a8-default-N": {
+   "model": "mobilenet_v3_large",
+   "cell": "w8-a8-default-N",
+   "policies": {
+    "analytic_fp32": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "analytic_fp32",
+     "top1_expected": 70.8,
+     "top1_lowest_index": 70.8,
+     "one_class_share": 0.005,
+     "one_class": 646,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       -1.0,
+       1.6
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.8,
+      "interval_pp": [
+       -2.4,
+       0.8
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--analytic_fp32.json"
+    },
+    "cap_rms": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "cap_rms",
+     "top1_expected": 71.2,
+     "top1_lowest_index": 71.2,
+     "one_class_share": 0.004,
+     "one_class": 58,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.7,
+      "interval_pp": [
+       -1.05,
+       2.5
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.4,
+      "interval_pp": [
+       -1.65,
+       0.85
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--cap_rms.json"
+    },
+    "dfq_weights_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "dfq_weights_only",
+     "top1_expected": 71.05,
+     "top1_lowest_index": 70.9,
+     "one_class_share": 0.005,
+     "one_class": 789,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.55,
+      "interval_pp": [
+       -0.7,
+       1.8
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.55,
+      "interval_pp": [
+       -2.25,
+       1.2
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--dfq_weights_only.json"
+    },
+    "executed": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "executed",
+     "top1_expected": 72.38,
+     "top1_lowest_index": 72.2,
+     "one_class_share": 0.004,
+     "one_class": 824,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.88,
+      "interval_pp": [
+       0.15,
+       3.63
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.78,
+      "interval_pp": [
+       -0.4,
+       1.97
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--executed.json"
+    },
+    "global--n128": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "global--n128",
+     "top1_expected": 71.53,
+     "top1_lowest_index": 71.5,
+     "one_class_share": 0.004,
+     "one_class": 58,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.03,
+      "interval_pp": [
+       -0.77,
+       2.8
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.07,
+      "interval_pp": [
+       -1.38,
+       1.3
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global--n128.json"
+    },
+    "global--n32": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "global--n32",
+     "top1_expected": 71.15,
+     "top1_lowest_index": 70.8,
+     "one_class_share": 0.004,
+     "one_class": 718,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 0.65,
+      "interval_pp": [
+       -1.2,
+       2.5
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -0.45,
+      "interval_pp": [
+       -1.75,
+       0.85
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global--n32.json"
+    },
+    "global--n64": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "global--n64",
+     "top1_expected": 71.6,
+     "top1_lowest_index": 71.5,
+     "one_class_share": 0.004,
+     "one_class": 928,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.1,
+      "interval_pp": [
+       -0.8,
+       3.05
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       -1.4,
+       1.4
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global--n64.json"
+    },
+    "global": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "global",
+     "top1_expected": 71.6,
+     "top1_lowest_index": 71.5,
+     "one_class_share": 0.004,
+     "one_class": 171,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.1,
+      "interval_pp": [
+       -0.6,
+       2.85
+      ]
+     },
+     "minus_global": null,
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-default--w-int8--a-int8--default.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--global.json"
+    },
+    "linear_only": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "linear_only",
+     "top1_expected": 72.05,
+     "top1_lowest_index": 72.1,
+     "one_class_share": 0.004,
+     "one_class": 65,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": 1.55,
+      "interval_pp": [
+       -0.1,
+       3.2
+      ]
+     },
+     "minus_global": {
+      "difference_pp": 0.45,
+      "interval_pp": [
+       -1.1,
+       2.0
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--linear_only.json"
+    },
+    "local_empirical": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "local_empirical",
+     "top1_expected": 70.15,
+     "top1_lowest_index": 70.0,
+     "one_class_share": 0.004,
+     "one_class": 456,
+     "collapse": false,
+     "minus_none": {
+      "difference_pp": -0.35,
+      "interval_pp": [
+       -1.7,
+       0.95
+      ]
+     },
+     "minus_global": {
+      "difference_pp": -1.45,
+      "interval_pp": [
+       -3.15,
+       0.3
+      ]
+     },
+     "reproduction_check": null,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--local_empirical.json"
+    },
+    "none": {
+     "model": "mobilenet_v3_large",
+     "cell": "w8-a8-default-N",
+     "arm": "none",
+     "top1_expected": 70.5,
+     "top1_lowest_index": 70.6,
+     "one_class_share": 0.004,
+     "one_class": 171,
+     "collapse": false,
+     "minus_none": null,
+     "minus_global": {
+      "difference_pp": -1.1,
+      "interval_pp": [
+       -2.85,
+       0.6
+      ]
+     },
+     "reproduction_check": {
+      "deployed_state_equal": true,
+      "source": "artifacts/experiment_b2_recon/evals/mobilenet_v3_large/N-nobc--w-int8--a-int8--default_no_bias_correction.json",
+      "top5_lists_equal": 1000
+     },
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/w8-a8-default-N--none.json"
+    }
+   },
+   "mechanism_global": {
+    "layers": 64,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_block_1_0",
+     "features_2_block_2_0",
+     "features_3_block_2_0",
+     "features_5_block_3_0",
+     "features_8_block_2_0",
+     "features_9_block_2_0",
+     "features_11_block_3_0",
+     "features_12_block_3_0",
+     "features_14_block_3_0"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 6.737619187933815,
+    "worst_off_layer": "features_15_block_2_fc2",
+    "worst_off_fraction": {
+     "fp32": 0.0010416666666666667,
+     "corrected": 0.0020833333333333333,
+     "uncorrected": 0.0010416666666666667
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.027712673611111113,
+     "corrected": 0.027300347222222226,
+     "uncorrected": 0.027582465277777777
+    },
+    "last_layer": "classifier_3",
+    "last_layer_spread": {
+     "fp32": 0.8330030832035178,
+     "corrected": 0.7773254181549071,
+     "uncorrected": 0.8464904145160975
+    },
+    "last_layer_spread_ratio_corrected": 0.9331603133634409
+   },
+   "h13": {
+    "analytic_fp32": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "cap_rms": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "dfq_weights_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "executed": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "linear_only": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    },
+    "local_empirical": {
+     "avoids_collapse": true,
+     "not_worse_than_none_by_2": true
+    }
+   },
+   "h12_images": {
+    "global--n128": false,
+    "global--n32": false,
+    "global--n64": false,
+    "global": false
+   },
+   "guard": {
+    "logit_spread_ratio": 0.9332,
+    "choice": "global",
+    "top1_expected": 71.6,
+    "minus_none": {
+     "difference_pp": 1.1,
+     "interval_pp": [
+      -0.6,
+      2.85
+     ]
+    },
+    "best_of_global_local_none": "global"
+   }
+  }
+ }
+}

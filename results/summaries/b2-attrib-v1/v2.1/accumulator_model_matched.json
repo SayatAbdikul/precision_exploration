@@ -1,0 +1,1468 @@
+{
+ "cells": {
+  "mobilenet_v2/int8": {
+   "affine:signed": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 3,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 25,
+    "network_max_bits_arm_check": 25,
+    "network_max_bits_certificate_default": 25,
+    "network_max_bits_default": 25,
+    "network_max_bits_presubtracted": 25,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": [
+     -15,
+     -13,
+     -6
+    ]
+   },
+   "affine:signed+pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 53,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 25,
+    "network_max_bits_default": 25,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_1",
+     "features_12_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "zero_points": [
+     -15
+    ]
+   },
+   "pc:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 52,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 25,
+    "network_max_bits_default": 25,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_1",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_17_conv_2"
+    ],
+    "zero_points": []
+   },
+   "pcf:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 52,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 25,
+    "network_max_bits_default": 25,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_1",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "zero_points": []
+   },
+   "pcf:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 1,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 25,
+    "network_max_bits_arm_check": 25,
+    "network_max_bits_certificate_default": 25,
+    "network_max_bits_default": 25,
+    "network_max_bits_presubtracted": 25,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 52,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 25,
+    "network_max_bits_default": 25,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_1",
+     "features_12_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "zero_points": []
+   },
+   "pcu:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 1,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 25,
+    "network_max_bits_arm_check": 25,
+    "network_max_bits_certificate_default": 25,
+    "network_max_bits_default": 25,
+    "network_max_bits_presubtracted": 25,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   }
+  },
+  "mobilenet_v3_large/int6": {
+   "affine:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 11,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 21,
+    "presubtracted_increase_layers": [
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_12_block_1_0",
+     "features_13_block_1_0",
+     "features_14_block_1_0",
+     "features_15_block_1_0",
+     "features_1_block_0_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -30,
+     -29,
+     -28,
+     -27,
+     -25,
+     -23
+    ]
+   },
+   "affine:kind.hardswish+pcf:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 11,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 21,
+    "presubtracted_increase_layers": [
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_12_block_1_0",
+     "features_13_block_1_0",
+     "features_14_block_1_0",
+     "features_15_block_1_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -29,
+     -28,
+     -27,
+     -25,
+     -23
+    ]
+   },
+   "affine:kind.hardswish+pcu:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 11,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 21,
+    "presubtracted_increase_layers": [
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_12_block_1_0",
+     "features_13_block_1_0",
+     "features_14_block_1_0",
+     "features_15_block_1_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -29,
+     -28,
+     -27,
+     -25,
+     -23
+    ]
+   },
+   "affine:signed": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 28,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 11,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 21,
+    "presubtracted_increase_layers": [
+     "classifier_0",
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_11_block_2_fc1",
+     "features_12_block_1_0",
+     "features_12_block_2_fc1",
+     "features_12_block_3_0",
+     "features_13_block_1_0",
+     "features_13_block_2_fc1",
+     "features_13_block_3_0",
+     "features_14_block_1_0",
+     "features_14_block_2_fc1",
+     "features_15_block_1_0",
+     "features_15_block_2_fc1",
+     "features_1_block_0_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -30,
+     -29,
+     -28,
+     -27,
+     -26,
+     -25,
+     -24,
+     -23,
+     -22,
+     -20,
+     -18,
+     -4,
+     -2
+    ]
+   },
+   "affine:signed+pcf:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 64,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -4
+    ]
+   },
+   "affine:signed+pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 64,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -4
+    ]
+   },
+   "pc:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 63,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pc:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pc:role.dw_conv": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pc:role.se_product": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 8,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 63,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcf:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcf:node.features_0_0": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:role.dw_conv": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:role.se_product": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 8,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 1,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 63,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcu:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcu:node.features_0_0": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:role.dw_conv": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:role.se_product": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 8,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 1,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 20,
+    "network_max_bits_arm_check": 20,
+    "network_max_bits_certificate_default": 20,
+    "network_max_bits_default": 20,
+    "network_max_bits_presubtracted": 20,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   }
+  },
+  "mobilenet_v3_large/int8": {
+   "affine:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 10,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 25,
+    "presubtracted_increase_layers": [
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_12_block_1_0",
+     "features_13_block_1_0",
+     "features_14_block_1_0",
+     "features_15_block_1_0",
+     "features_1_block_0_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -124,
+     -123,
+     -120,
+     -119,
+     -115,
+     -107,
+     -102
+    ]
+   },
+   "affine:kind.hardswish+pcf:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 10,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 25,
+    "presubtracted_increase_layers": [
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_12_block_1_0",
+     "features_13_block_1_0",
+     "features_14_block_1_0",
+     "features_15_block_1_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -124,
+     -120,
+     -119,
+     -115,
+     -107,
+     -102
+    ]
+   },
+   "affine:kind.hardswish+pcu:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 10,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 25,
+    "presubtracted_increase_layers": [
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_12_block_1_0",
+     "features_13_block_1_0",
+     "features_14_block_1_0",
+     "features_15_block_1_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -124,
+     -120,
+     -119,
+     -115,
+     -107,
+     -102
+    ]
+   },
+   "affine:signed": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 28,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 12,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 1,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 25,
+    "presubtracted_increase_layers": [
+     "classifier_0",
+     "classifier_3",
+     "features_10_block_1_0",
+     "features_10_block_2_0",
+     "features_11_block_1_0",
+     "features_11_block_2_fc1",
+     "features_12_block_1_0",
+     "features_12_block_2_fc1",
+     "features_12_block_3_0",
+     "features_13_block_1_0",
+     "features_13_block_2_fc1",
+     "features_13_block_3_0",
+     "features_14_block_1_0",
+     "features_14_block_2_fc1",
+     "features_15_block_1_0",
+     "features_15_block_2_fc1",
+     "features_15_block_3_0",
+     "features_1_block_0_0",
+     "features_7_block_1_0",
+     "features_7_block_2_0",
+     "features_8_block_1_0",
+     "features_8_block_2_0",
+     "features_9_block_1_0"
+    ],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -124,
+     -123,
+     -120,
+     -119,
+     -118,
+     -115,
+     -113,
+     -112,
+     -108,
+     -107,
+     -106,
+     -104,
+     -103,
+     -102,
+     -100,
+     -96,
+     -87,
+     -18,
+     -15
+    ]
+   },
+   "affine:signed+pcf:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 64,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -15
+    ]
+   },
+   "affine:signed+pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 64,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": [
+     -15
+    ]
+   },
+   "pc:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 63,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pc:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pc:role.dw_conv": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pc:role.se_product": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 8,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 63,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 1,
+    "max_layer_increase_bits": 1,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcf:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcf:node.features_0_0": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:role.dw_conv": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:role.se_product": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 8,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcf:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 1,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 63,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcu:kind.hardswish": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 15,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "classifier_3"
+    ],
+    "zero_points": []
+   },
+   "pcu:node.features_0_0": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:role.dw_conv": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:role.se_product": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 8,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 1,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 24,
+    "network_max_bits_arm_check": 24,
+    "network_max_bits_certificate_default": 24,
+    "network_max_bits_default": 24,
+    "network_max_bits_presubtracted": 24,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   }
+  },
+  "resnet18/int8": {
+   "affine:signed": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 1,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 27,
+    "network_max_bits_arm_check": 27,
+    "network_max_bits_certificate_default": 27,
+    "network_max_bits_default": 27,
+    "network_max_bits_presubtracted": 27,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": [
+     -15
+    ]
+   },
+   "affine:signed+pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 20,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": 0,
+    "network_max_bits_arm": 26,
+    "network_max_bits_arm_check": 26,
+    "network_max_bits_certificate_default": 27,
+    "network_max_bits_default": 27,
+    "network_max_bits_presubtracted": 26,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "zero_points": [
+     -15
+    ]
+   },
+   "pc:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 19,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 26,
+    "network_max_bits_arm_check": 26,
+    "network_max_bits_certificate_default": 27,
+    "network_max_bits_default": 27,
+    "network_max_bits_presubtracted": 26,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "zero_points": []
+   },
+   "pcf:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 19,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 26,
+    "network_max_bits_arm_check": 26,
+    "network_max_bits_certificate_default": 27,
+    "network_max_bits_default": 27,
+    "network_max_bits_presubtracted": 26,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "zero_points": []
+   },
+   "pcf:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 27,
+    "network_max_bits_arm_check": 27,
+    "network_max_bits_certificate_default": 27,
+    "network_max_bits_default": 27,
+    "network_max_bits_presubtracted": 27,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   },
+   "pcu:all": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 19,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 26,
+    "network_max_bits_arm_check": 26,
+    "network_max_bits_certificate_default": 27,
+    "network_max_bits_default": 27,
+    "network_max_bits_presubtracted": 26,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [
+     "layer4_0_conv2",
+     "layer4_1_conv1",
+     "layer4_1_conv2"
+    ],
+    "zero_points": []
+   },
+   "pcu:role.stem": {
+    "certificate_matches_layer_defaults": true,
+    "layers_changed": 0,
+    "layers_missing_from_certificate": [],
+    "layers_with_increase": 0,
+    "max_layer_increase_bits": 0,
+    "max_layer_increase_bits_presubtracted": null,
+    "network_max_bits_arm": 27,
+    "network_max_bits_arm_check": 27,
+    "network_max_bits_certificate_default": 27,
+    "network_max_bits_default": 27,
+    "network_max_bits_presubtracted": 27,
+    "presubtracted_increase_layers": [],
+    "presubtracted_widest_layers": [],
+    "zero_points": []
+   }
+  }
+ },
+ "certificates": {
+  "mobilenet_v2/int8": {
+   "layers": 53,
+   "network_max_bits": 25,
+   "path": "artifacts/scaled_bridge_v2/runs/1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863/mobilenet_v2-int8-default-b2/certificate.json",
+   "sha256": "3bab48ff398f150cfcd9619218b6fca97a77480c52cc6e585662596c7216a927"
+  },
+  "mobilenet_v3_large/int6": {
+   "layers": 64,
+   "network_max_bits": 20,
+   "path": "artifacts/scaled_bridge_v2/runs/1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863/mobilenet_v3_large-int6-default-b2/certificate.json",
+   "sha256": "6ec0752335d7a64f2ef7ec234f59e3289299dd1a0c7524221da4fa2650c9c0de"
+  },
+  "mobilenet_v3_large/int8": {
+   "layers": 64,
+   "network_max_bits": 24,
+   "path": "artifacts/scaled_bridge_v2/runs/1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863/mobilenet_v3_large-int8-default-b2/certificate.json",
+   "sha256": "6dfa08cb762fc42ff95e5e85177ae622f90fff02b80d845b4f406dda479f78e4"
+  },
+  "resnet18/int8": {
+   "layers": 21,
+   "network_max_bits": 27,
+   "path": "artifacts/scaled_bridge_v2/runs/1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863/resnet18-int8-default-b2/certificate.json",
+   "sha256": "dd83d221da9af32e3ffe7946e105f6dc59ea547011fcd19687f09fdaaf20d2ec"
+  }
+ },
+ "note": "v2.1 correction of the accumulator fields of v2/b_regression.json (MobileNetV3 certificate was applied to MobileNetV2/ResNet18). Development evidence; no new measurement.",
+ "source": {
+  "module": "tools/experiment_b2_attrib/regacc.py",
+  "module_sha256": "a4f2e1cb2673402a5e20348ce9b5050ab396bb1ebf9879e33df1a1f637eee8c7"
+ },
+ "v2_mismatches": [
+  {
+   "arm": "affine:signed",
+   "cell": "mobilenet_v2/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ],
+    "network_max_bits_arm_check": [
+     24,
+     25
+    ],
+    "network_max_bits_presubtracted": [
+     24,
+     25
+    ]
+   }
+  },
+  {
+   "arm": "affine:signed+pcu:all",
+   "cell": "mobilenet_v2/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pc:all",
+   "cell": "mobilenet_v2/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pcf:all",
+   "cell": "mobilenet_v2/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pcf:role.stem",
+   "cell": "mobilenet_v2/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ],
+    "network_max_bits_arm_check": [
+     24,
+     25
+    ],
+    "network_max_bits_presubtracted": [
+     24,
+     25
+    ]
+   }
+  },
+  {
+   "arm": "pcu:all",
+   "cell": "mobilenet_v2/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pcu:role.stem",
+   "cell": "mobilenet_v2/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ],
+    "network_max_bits_arm_check": [
+     24,
+     25
+    ],
+    "network_max_bits_presubtracted": [
+     24,
+     25
+    ]
+   }
+  },
+  {
+   "arm": "affine:signed",
+   "cell": "resnet18/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ],
+    "network_max_bits_arm_check": [
+     24,
+     27
+    ],
+    "network_max_bits_presubtracted": [
+     24,
+     27
+    ]
+   }
+  },
+  {
+   "arm": "affine:signed+pcu:all",
+   "cell": "resnet18/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pc:all",
+   "cell": "resnet18/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pcf:all",
+   "cell": "resnet18/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pcf:role.stem",
+   "cell": "resnet18/int8",
+   "v2_vs_matched": {
+    "network_max_bits_arm_check": [
+     24,
+     27
+    ],
+    "network_max_bits_presubtracted": [
+     24,
+     27
+    ]
+   }
+  },
+  {
+   "arm": "pcu:all",
+   "cell": "resnet18/int8",
+   "v2_vs_matched": {
+    "certificate_matches_layer_defaults": [
+     false,
+     true
+    ]
+   }
+  },
+  {
+   "arm": "pcu:role.stem",
+   "cell": "resnet18/int8",
+   "v2_vs_matched": {
+    "network_max_bits_arm_check": [
+     24,
+     27
+    ],
+    "network_max_bits_presubtracted": [
+     24,
+     27
+    ]
+   }
+  }
+ ]
+}

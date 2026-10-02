@@ -1,0 +1,84 @@
+{
+ "file": "artifacts/experiment_b2_attrib/folddiag/fold-diagnostic-v2-pcu.json",
+ "models": {
+  "mobilenet_v2": {
+   "summary": {
+    "consumers_with_folded_error_above_2x_default": 3,
+    "dense_folded_consumers": 35,
+    "input_channels_total": 9920,
+    "max_weighted_rel_error_folded": 0.06071,
+    "median_weighted_rel_error_default": 0.0076,
+    "median_weighted_rel_error_folded": 0.00883,
+    "median_zero_code_fraction_default": 0.0137,
+    "median_zero_code_fraction_folded": 0.0218,
+    "silenced_input_channels_default": 10,
+    "silenced_input_channels_folded": 10,
+    "spearman_spread_vs_error_ratio": {
+     "n": 35,
+     "p": 0.00011057637741952716,
+     "rho": 0.607
+    }
+   },
+   "worst5": [
+    "features_16_conv_2",
+    "features_13_conv_2",
+    "features_6_conv_2",
+    "features_15_conv_2",
+    "features_11_conv_2"
+   ]
+  },
+  "mobilenet_v3_large": {
+   "summary": {
+    "consumers_with_folded_error_above_2x_default": 2,
+    "dense_folded_consumers": 48,
+    "input_channels_total": 13544,
+    "max_weighted_rel_error_folded": 0.02763,
+    "median_weighted_rel_error_default": 0.00781,
+    "median_weighted_rel_error_folded": 0.0097,
+    "median_zero_code_fraction_default": 0.01365,
+    "median_zero_code_fraction_folded": 0.0276,
+    "silenced_input_channels_default": 8,
+    "silenced_input_channels_folded": 8,
+    "spearman_spread_vs_error_ratio": {
+     "n": 48,
+     "p": 4.30462181299934e-06,
+     "rho": 0.609
+    }
+   },
+   "worst5": [
+    "features_14_block_2_fc2",
+    "features_14_block_3_0",
+    "features_15_block_2_fc1",
+    "features_12_block_3_0",
+    "features_13_block_2_fc1"
+   ]
+  },
+  "resnet18": {
+   "summary": {
+    "consumers_with_folded_error_above_2x_default": 0,
+    "dense_folded_consumers": 19,
+    "input_channels_total": 4288,
+    "max_weighted_rel_error_folded": 0.02131,
+    "median_weighted_rel_error_default": 0.0123,
+    "median_weighted_rel_error_folded": 0.01639,
+    "median_zero_code_fraction_default": 0.0199,
+    "median_zero_code_fraction_folded": 0.029,
+    "silenced_input_channels_default": 0,
+    "silenced_input_channels_folded": 0,
+    "spearman_spread_vs_error_ratio": {
+     "n": 19,
+     "p": 0.007322994534379456,
+     "rho": 0.594
+    }
+   },
+   "worst5": [
+    "layer3_1_conv1",
+    "layer3_1_conv2",
+    "layer1_0_conv2",
+    "layer4_0_conv1",
+    "layer4_1_conv1"
+   ]
+  }
+ },
+ "sha256": "b2db9582a9292a333a73fc18f9cc579bd777944b5cccd36d318b021a525e18b7"
+}

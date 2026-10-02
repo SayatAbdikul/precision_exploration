@@ -1,0 +1,35 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-3",
+ "lane": "Q4 activation attribution (agent r3)",
+ "written_utc": "2026-10-02T09:06:28+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92",
+  "addendum_2_sha256": "c6a4da75d72c3e52d9c510f2650c18dc61d2e7e9358a655d7e37be9342b80fa6"
+ },
+ "status": "written before any fixbc arm ran",
+ "observation_motivating_it": "A1 shows wide arms below the default: wide:role.expand_conv -8.3 pp (INT6) and -10.2 pp (FP6 E2M3), wide:position.late -5.9 pp (INT6), wide:role.se_pool -2.5 pp (FP6). Every v1 arm refits the sequential bias correction for its own plan; the question is whether that refit causes the losses.",
+ "diagnostic_arms": {
+  "fixbc_definition": "NAME+fixbc = the wide/only/reference arm NAME with the conv/linear biases of the default arm (bias correction fitted once for the frozen default plan, same calibration images) instead of a refit. Diagnostic only, never a recipe. Code: tools/experiment_b2_attrib/lmrunner.py build_fixbc.",
+  "control": "ref_default+fixbc must reproduce the ref_default logits sha256 (same biases, same plan)",
+  "arms": [
+   "ref_default+fixbc",
+   "ref_weights_only+fixbc",
+   "wide:role.expand_conv+fixbc",
+   "wide:position.late+fixbc",
+   "wide:role.se_pool+fixbc",
+   "wide:role.hswish+fixbc",
+   "wide:role.stem+fixbc"
+  ],
+  "formats": {
+   "mobilenet_v3_large": [
+    "int6",
+    "fp6_e2m3",
+    "int8"
+   ]
+  },
+  "reading": "if wide:G+fixbc recovers where wide:G loses, the per-arm refit is the cause and the attribution is reported in both readings; the recipe is not changed (lane Q3 owns bias-correction failures)"
+ },
+ "r3_repairs": "the up-to-3 attribution-driven repair arms reserved by addendum 2 are not defined here; a later addendum defines them before they run",
+ "gpu": "low-memory path; 21 arms, about 8 GPU-minutes; within the unchanged 10800 s cap"
+}

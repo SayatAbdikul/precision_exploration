@@ -1,0 +1,40 @@
+{
+ "rows": {
+  "mobilenet_v2/int8:pcf:all": {
+   "pcf_border_sample": 47.05,
+   "pcu": 71.98,
+   "reviewer_coprime_stride": 72.38
+  },
+  "mobilenet_v2/int8:pcf:role.stem": {
+   "pcf_border_sample": 72.68,
+   "pcu": 72.25,
+   "reviewer_coprime_stride": 72.55
+  },
+  "mobilenet_v3_large/int6:pcf:all": {
+   "pcf_border_sample": 65.04,
+   "pcu": 66.01,
+   "reviewer_coprime_stride": 66.91
+  },
+  "mobilenet_v3_large/int8:affine:kind.hardswish+pcf:role.stem": {
+   "pcf_border_sample": 74.65,
+   "pcu": 74.1,
+   "reviewer_coprime_stride": 76.13
+  },
+  "mobilenet_v3_large/int8:pcf:role.stem": {
+   "pcf_border_sample": 73.23,
+   "pcu": 73.7,
+   "reviewer_coprime_stride": 73.75
+  },
+  "resnet18/int8:pcf:all": {
+   "pcf_border_sample": 67.95,
+   "pcu": 69.03,
+   "reviewer_coprime_stride": 68.73
+  },
+  "resnet18/int8:pcf:role.stem": {
+   "pcf_border_sample": 67.97,
+   "pcu": 69.21,
+   "reviewer_coprime_stride": 69.15
+  }
+ },
+ "source": "artifacts/experiment_b2_attrib/review-scratch"
+}

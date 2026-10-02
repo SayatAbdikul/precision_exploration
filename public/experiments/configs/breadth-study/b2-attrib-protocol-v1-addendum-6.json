@@ -1,0 +1,39 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-6",
+ "lane": "Q4 activation attribution (agent r5)",
+ "written_utc": "2026-10-02T11:48:45+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92",
+  "addendum_2_sha256": "c6a4da75d72c3e52d9c510f2650c18dc61d2e7e9358a655d7e37be9342b80fa6",
+  "addendum_5_sha256": "cd5b881f3bcd2c59b8305791bbf7240354a8286d05476d3f5b4d04d69e913449"
+ },
+ "status": "written before the diagnostic defined here ran; the pcf:all arms it explains (MBv2 INT8 -25.3 pp, R18 INT8 -1.3 pp, MBv3 INT8 +1.1 pp) were measured before it",
+ "observation_motivating_it": "pcf:all (addendum 2) regresses MobileNetV2 INT8 by 25 pp. Candidate mechanism: folding per-input-channel activation scale ratios r_c into a dense consumer's weights before per-output-channel weight quantization moves the channel-range disparity into the weights, so input channels with small r_c get few or zero weight codes.",
+ "diagnostic": {
+  "kind": "CPU only, no GPU, no accuracy measured, no new record under artifacts/experiment_b2_attrib/arms",
+  "cells": {
+   "mobilenet_v2": [
+    "int8"
+   ],
+   "mobilenet_v3_large": [
+    "int8"
+   ],
+   "resnet18": [
+    "int8"
+   ]
+  },
+  "arm": "pcf:all (the same per-channel scales as the arm: pcfull on the FP32 activations of the first 256 calibration images; the same fold function engine._fold)",
+  "per_folded_consumer": [
+   "zero weight-code fraction: default per-output-channel MSE weight codes vs folded codes Qw(W r)",
+   "silenced input channels: input channels c whose folded codes are zero for every output channel (and the same count for the default codes)",
+   "range-weighted relative weight error: ||(W_eff - W) r||_F / ||W r||_F with W_eff = Qw(W) (default) or Qw(W r)/r (folded); r = per-channel scale / per-tensor scale",
+   "scale spread log2(max r / min r) of the folded boundary"
+  ],
+  "summary": "per model: medians and maxima over folded dense consumers, and the consumers ranked by folded minus default error",
+  "reading": "the fold mechanism is supported if MobileNetV2 shows much larger folded-weight error growth and silenced input channels than MobileNetV3 and ResNet18; it does not isolate the accuracy effect (no arm), so it is reported as mechanism evidence only",
+  "runner": "CUDA_VISIBLE_DEVICES='' PYTHONPATH=. .venv-b/bin/python -m tools.experiment_b2_attrib.folddiag (nice -n 10)",
+  "output": "artifacts/experiment_b2_attrib/folddiag/fold-diagnostic-v1.json (written once)"
+ },
+ "evidence": "development (calibration images only; no screen images are evaluated)"
+}

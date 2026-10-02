@@ -1,0 +1,23 @@
+{
+ "protocol": "b2-collapse-protocol-v1-addendum-1",
+ "amends": {
+  "file": "public/experiments/configs/breadth-study/b2-collapse-protocol-v1.json",
+  "sha256": "3c474583fbbbb77cca702bba7fffcabe7be07343f5acff5adbbb7c5880fe5045"
+ },
+ "written": "2026-10-02T16:21:37+05:00",
+ "author": "lane Q3 agent r4",
+ "reason": "The MXFP6 E3M2 default_weight_maxabs cells (ResNet18, MobileNetV2) of the mode-3 decomposition run the B2 block-format bias correction, which keeps the activations of all 256 correction images on the GPU (5-8 GB, heavy-job queue; the ResNet18 cell died of CUDA OOM at 15:40 and its heavy retry waits for the cross-lane heavy lock). Nothing about what is measured changes.",
+ "change": "Execution path only: tools/experiment_b2_collapse/lowmem.py runs the same GPU operations of tools.experiment_b2.blocks.bias_correct_blocks (read-only) on the same 8-image chunks in the same order, but parks live activations in host memory between nodes. It is swapped in, in the lane's own process only, through tools/run/experiment_b2_collapse_lowmem.py; cells are written to artifacts/experiment_b2_collapse/matrix/ (never artifacts/experiment_b2/matrix/).",
+ "acceptance_before_use": [
+  "CPU: tests/unit/test_experiment_b2_collapse_lowmem.py - corrected biases, bias-correction report and engine outputs equal (torch.equal / ==) to blocks.bias_correct_blocks for mxfp6_e3m2 default and default_weight_maxabs, mxfp4_e2m1 and bfp6 default on a tiny graph, and for a chunk size that does not divide the image count",
+  "GPU: the same process first recomputes resnet18 mxfp6_e3m2 default with the low-memory path; it must reproduce the existing matrix record artifacts/experiment_b2/matrix/cells/resnet18--mxfp6_e3m2--default--1000--073adb1b3e2a.json by configuration identity (which contains the per-layer correction report), logits sha256 and readout arrays (written to artifacts/experiment_b2_collapse/matrix/checks/*--lowmem.json); if MobileNetV2 is run, the mobilenet_v2 mxfp6_e3m2 default record is reproduced the same way first",
+  "only cells of a process whose validation cell reproduced are used; otherwise the MXFP6 decomposition is reported as not measured"
+ ],
+ "cells": [
+  "resnet18 mxfp6_e3m2 default (validation), default_weight_maxabs",
+  "mobilenet_v2 mxfp6_e3m2 default (validation), default_weight_maxabs",
+  "mobilenet_v2 mxfp6_e3m2 default_no_bias_correction runs the original path (no bias correction, no calibration activations)"
+ ],
+ "decision_rule": "unchanged (protocol v1 mode3_wide_exponent.decision)",
+ "evidence": "1k screen, development evidence (unchanged)"
+}

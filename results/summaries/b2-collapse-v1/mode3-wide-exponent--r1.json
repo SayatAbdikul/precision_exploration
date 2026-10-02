@@ -1,0 +1,3780 @@
+{
+ "tag": "r1",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/b2-collapse-protocol-v1.json",
+  "sha256": "3c474583fbbbb77cca702bba7fffcabe7be07343f5acff5adbbb7c5880fe5045"
+ },
+ "own_sources": {
+  "tools/experiment_b2_collapse/correct.py": "06e3b8ce303b968b881043d93f4d3d82409ff6ddf91cfd441a34d4a663f2b537",
+  "tools/experiment_b2_collapse/build.py": "a393998661a2499baea5f827d41a7d8e6a6451c22b65701f44a44e68c17f9d4f",
+  "tools/experiment_b2_collapse/evaluate.py": "7b56e90a1fc1395fdaec5d362dd962e613f07b52102b7f813da685e9eed4150e",
+  "tools/experiment_b2_collapse/common.py": "5115526e71a43eefbf5bb9e5f6feecb911dda7416fb75189c9a910d282541e34",
+  "tools/experiment_b2_collapse/report.py": "8d12b1cee720e848455b47890df0cb1d2a965db3c20b36808d93880d2ebfc668"
+ },
+ "evidence": "development_evidence_screen1k",
+ "statistics": "paired image bootstrap, expected credit, 10000 resamples, seed 20260927, pointwise 95%",
+ "rows": [
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "default",
+   "top1_expected": 61.18,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.01,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp8_e5m2--default--1000--4068da0b9ca5.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "minimal",
+   "top1_expected": 62.97,
+   "minus_default": {
+    "difference_pp": 1.79,
+    "interval_pp": [
+     0.21,
+     3.43
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.006,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp8_e5m2--minimal--1000--567267c6767c.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 63.65,
+   "minus_default": {
+    "difference_pp": 2.47,
+    "interval_pp": [
+     0.8,
+     4.21
+    ]
+   },
+   "recovered_fraction_of_loss": 1.38,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 59.76,
+   "minus_default": {
+    "difference_pp": -1.41,
+    "interval_pp": [
+     -2.75,
+     -0.12
+    ]
+   },
+   "recovered_fraction_of_loss": -0.788,
+   "one_class_share": 0.018,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.01,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default_weight_maxabs-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "bc:global",
+   "top1_expected": 61.18,
+   "minus_default": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "recovered_fraction_of_loss": 0.0,
+   "one_class_share": 0.014,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.01,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--global.json",
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/resnet18--fp8_e5m2--default--1000--4068da0b9ca5.json",
+    "top5_lists_equal": 1000
+   }
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "bc:local_empirical",
+   "top1_expected": 64.39,
+   "minus_default": {
+    "difference_pp": 3.21,
+    "interval_pp": [
+     1.62,
+     4.86
+    ]
+   },
+   "recovered_fraction_of_loss": 1.793,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--local_empirical.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "bc:analytic_fp32",
+   "top1_expected": 64.08,
+   "minus_default": {
+    "difference_pp": 2.9,
+    "interval_pp": [
+     1.27,
+     4.6
+    ]
+   },
+   "recovered_fraction_of_loss": 1.62,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--analytic_fp32.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "bc:linear_only",
+   "top1_expected": 65.02,
+   "minus_default": {
+    "difference_pp": 3.84,
+    "interval_pp": [
+     2.27,
+     5.46
+    ]
+   },
+   "recovered_fraction_of_loss": 2.145,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--linear_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "bc:cap_rms",
+   "top1_expected": 61.18,
+   "minus_default": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "recovered_fraction_of_loss": 0.0,
+   "one_class_share": 0.014,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.01,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--cap_rms.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "arm": "bc:dfq_weights_only",
+   "top1_expected": 63.5,
+   "minus_default": {
+    "difference_pp": 2.32,
+    "interval_pp": [
+     0.78,
+     3.89
+    ]
+   },
+   "recovered_fraction_of_loss": 1.296,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--dfq_weights_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "default",
+   "top1_expected": 53.62,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.031,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp6_e3m2--default--1000--b0e30473c2a4.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "minimal",
+   "top1_expected": 62.91,
+   "minus_default": {
+    "difference_pp": 9.29,
+    "interval_pp": [
+     7.2,
+     11.39
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp6_e3m2--minimal--1000--ada48de91961.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 64.26,
+   "minus_default": {
+    "difference_pp": 10.63,
+    "interval_pp": [
+     8.59,
+     12.72
+    ]
+   },
+   "recovered_fraction_of_loss": 1.144,
+   "one_class_share": 0.008,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 51.7,
+   "minus_default": {
+    "difference_pp": -1.92,
+    "interval_pp": [
+     -3.28,
+     -0.58
+    ]
+   },
+   "recovered_fraction_of_loss": -0.207,
+   "one_class_share": 0.081,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.042,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "bc:global",
+   "top1_expected": 53.62,
+   "minus_default": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "recovered_fraction_of_loss": 0.0,
+   "one_class_share": 0.052,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.031,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--global.json",
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/resnet18--fp6_e3m2--default--1000--b0e30473c2a4.json",
+    "top5_lists_equal": 1000
+   }
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "bc:local_empirical",
+   "top1_expected": 64.36,
+   "minus_default": {
+    "difference_pp": 10.73,
+    "interval_pp": [
+     8.78,
+     12.77
+    ]
+   },
+   "recovered_fraction_of_loss": 1.155,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--local_empirical.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "bc:analytic_fp32",
+   "top1_expected": 65.35,
+   "minus_default": {
+    "difference_pp": 11.72,
+    "interval_pp": [
+     9.72,
+     13.76
+    ]
+   },
+   "recovered_fraction_of_loss": 1.262,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--analytic_fp32.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "bc:linear_only",
+   "top1_expected": 64.57,
+   "minus_default": {
+    "difference_pp": 10.95,
+    "interval_pp": [
+     8.91,
+     13.1
+    ]
+   },
+   "recovered_fraction_of_loss": 1.179,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.006,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--linear_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "bc:cap_rms",
+   "top1_expected": 53.9,
+   "minus_default": {
+    "difference_pp": 0.27,
+    "interval_pp": [
+     -0.52,
+     1.11
+    ]
+   },
+   "recovered_fraction_of_loss": 0.029,
+   "one_class_share": 0.05,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.031,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--cap_rms.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "arm": "bc:dfq_weights_only",
+   "top1_expected": 63.74,
+   "minus_default": {
+    "difference_pp": 10.11,
+    "interval_pp": [
+     8.17,
+     12.1
+    ]
+   },
+   "recovered_fraction_of_loss": 1.088,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--dfq_weights_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "default",
+   "top1_expected": 54.54,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.035,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--log6--default--1000--0d52189a1c6a.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "minimal",
+   "top1_expected": 61.5,
+   "minus_default": {
+    "difference_pp": 6.96,
+    "interval_pp": [
+     4.77,
+     9.15
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--log6--minimal--1000--f34c05491513.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 60.64,
+   "minus_default": {
+    "difference_pp": 6.1,
+    "interval_pp": [
+     3.99,
+     8.25
+    ]
+   },
+   "recovered_fraction_of_loss": 0.876,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.006,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 54.73,
+   "minus_default": {
+    "difference_pp": 0.19,
+    "interval_pp": [
+     -1.34,
+     1.73
+    ]
+   },
+   "recovered_fraction_of_loss": 0.027,
+   "one_class_share": 0.059,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.038,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "bc:global",
+   "top1_expected": 54.54,
+   "minus_default": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "recovered_fraction_of_loss": 0.0,
+   "one_class_share": 0.051,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.035,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--global.json",
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/resnet18--log6--default--1000--0d52189a1c6a.json",
+    "top5_lists_equal": 1000
+   }
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "bc:local_empirical",
+   "top1_expected": 62.81,
+   "minus_default": {
+    "difference_pp": 8.26,
+    "interval_pp": [
+     6.1,
+     10.42
+    ]
+   },
+   "recovered_fraction_of_loss": 1.187,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.006,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--local_empirical.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "bc:analytic_fp32",
+   "top1_expected": 61.68,
+   "minus_default": {
+    "difference_pp": 7.14,
+    "interval_pp": [
+     4.99,
+     9.28
+    ]
+   },
+   "recovered_fraction_of_loss": 1.026,
+   "one_class_share": 0.005,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--analytic_fp32.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "bc:linear_only",
+   "top1_expected": 62.82,
+   "minus_default": {
+    "difference_pp": 8.28,
+    "interval_pp": [
+     6.11,
+     10.44
+    ]
+   },
+   "recovered_fraction_of_loss": 1.19,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.004,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--linear_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "bc:cap_rms",
+   "top1_expected": 55.03,
+   "minus_default": {
+    "difference_pp": 0.49,
+    "interval_pp": [
+     -0.22,
+     1.21
+    ]
+   },
+   "recovered_fraction_of_loss": 0.07,
+   "one_class_share": 0.048,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.031,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--cap_rms.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "log6",
+   "arm": "bc:dfq_weights_only",
+   "top1_expected": 63.21,
+   "minus_default": {
+    "difference_pp": 8.67,
+    "interval_pp": [
+     6.67,
+     10.75
+    ]
+   },
+   "recovered_fraction_of_loss": 1.246,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--dfq_weights_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "posit6_es1",
+   "arm": "default",
+   "top1_expected": 59.6,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.014,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--posit6_es1--default--1000--332a0a188433.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "posit6_es1",
+   "arm": "minimal",
+   "top1_expected": 3.75,
+   "minus_default": {
+    "difference_pp": -55.85,
+    "interval_pp": [
+     -58.62,
+     -52.98
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.266,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--posit6_es1--minimal--1000--fe4e4ea9a84d.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "posit6_es1",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 64.06,
+   "minus_default": {
+    "difference_pp": 4.46,
+    "interval_pp": [
+     2.72,
+     6.23
+    ]
+   },
+   "recovered_fraction_of_loss": -0.08,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/posit6_es1-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "posit6_es1",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 0.1,
+   "minus_default": {
+    "difference_pp": -59.5,
+    "interval_pp": [
+     -62.18,
+     -56.71
+    ]
+   },
+   "recovered_fraction_of_loss": 1.065,
+   "one_class_share": 0.999,
+   "collapse": true,
+   "lowest_index_prediction_share": 0.999,
+   "record": "artifacts/experiment_b2_collapse/evals/resnet18/posit6_es1-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "resnet18",
+   "format": "mxfp6_e3m2",
+   "arm": "default",
+   "top1_expected": 51.61,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.057,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--mxfp6_e3m2--default--1000--073adb1b3e2a.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "mxfp6_e3m2",
+   "arm": "minimal",
+   "top1_expected": 64.38,
+   "minus_default": {
+    "difference_pp": 12.76,
+    "interval_pp": [
+     10.59,
+     14.96
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2/matrix/cells/resnet18--mxfp6_e3m2--minimal--1000--04c86821e80c.json"
+  },
+  {
+   "model": "resnet18",
+   "format": "mxfp6_e3m2",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 64.23,
+   "minus_default": {
+    "difference_pp": 12.62,
+    "interval_pp": [
+     10.47,
+     14.81
+    ]
+   },
+   "recovered_fraction_of_loss": 0.989,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.007,
+   "record": "artifacts/experiment_b2_collapse/matrix/cells/resnet18--mxfp6_e3m2--default_no_bias_correction--1000--0a3153dc3f2e.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "default",
+   "top1_expected": 23.24,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.362,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp8_e5m2--default--1000--dec403f2de33.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "minimal",
+   "top1_expected": 41.94,
+   "minus_default": {
+    "difference_pp": 18.71,
+    "interval_pp": [
+     15.7,
+     21.64
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.049,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp8_e5m2--minimal--1000--bc919f907f2b.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 54.45,
+   "minus_default": {
+    "difference_pp": 31.22,
+    "interval_pp": [
+     28.29,
+     34.12
+    ]
+   },
+   "recovered_fraction_of_loss": 1.669,
+   "one_class_share": 0.011,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.01,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 30.67,
+   "minus_default": {
+    "difference_pp": 7.44,
+    "interval_pp": [
+     5.67,
+     9.25
+    ]
+   },
+   "recovered_fraction_of_loss": 0.398,
+   "one_class_share": 0.359,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.255,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "bc:global",
+   "top1_expected": 23.24,
+   "minus_default": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "recovered_fraction_of_loss": 0.0,
+   "one_class_share": 0.481,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.362,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--global.json",
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp8_e5m2--default--1000--dec403f2de33.json",
+    "top5_lists_equal": 1000
+   }
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "bc:local_empirical",
+   "top1_expected": 65.03,
+   "minus_default": {
+    "difference_pp": 41.79,
+    "interval_pp": [
+     38.79,
+     44.7
+    ]
+   },
+   "recovered_fraction_of_loss": 2.234,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--local_empirical.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "bc:analytic_fp32",
+   "top1_expected": 63.89,
+   "minus_default": {
+    "difference_pp": 40.66,
+    "interval_pp": [
+     37.64,
+     43.55
+    ]
+   },
+   "recovered_fraction_of_loss": 2.173,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.006,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--analytic_fp32.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "bc:linear_only",
+   "top1_expected": 45.62,
+   "minus_default": {
+    "difference_pp": 22.39,
+    "interval_pp": [
+     19.95,
+     24.82
+    ]
+   },
+   "recovered_fraction_of_loss": 1.197,
+   "one_class_share": 0.095,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.049,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--linear_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "bc:cap_rms",
+   "top1_expected": 23.52,
+   "minus_default": {
+    "difference_pp": 0.28,
+    "interval_pp": [
+     -1.06,
+     1.64
+    ]
+   },
+   "recovered_fraction_of_loss": 0.015,
+   "one_class_share": 0.48,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.374,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--cap_rms.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "arm": "bc:dfq_weights_only",
+   "top1_expected": 63.88,
+   "minus_default": {
+    "difference_pp": 40.64,
+    "interval_pp": [
+     37.63,
+     43.63
+    ]
+   },
+   "recovered_fraction_of_loss": 2.172,
+   "one_class_share": 0.005,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.004,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--dfq_weights_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "default",
+   "top1_expected": 20.86,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.444,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp6_e3m2--default--1000--df29802f2ff5.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "minimal",
+   "top1_expected": 42.61,
+   "minus_default": {
+    "difference_pp": 21.75,
+    "interval_pp": [
+     18.77,
+     24.66
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.027,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp6_e3m2--minimal--1000--a48d4e238c04.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 49.16,
+   "minus_default": {
+    "difference_pp": 28.3,
+    "interval_pp": [
+     25.27,
+     31.17
+    ]
+   },
+   "recovered_fraction_of_loss": 1.301,
+   "one_class_share": 0.037,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.014,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 27.6,
+   "minus_default": {
+    "difference_pp": 6.74,
+    "interval_pp": [
+     5.01,
+     8.46
+    ]
+   },
+   "recovered_fraction_of_loss": 0.31,
+   "one_class_share": 0.414,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.298,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "bc:global",
+   "top1_expected": 20.86,
+   "minus_default": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "recovered_fraction_of_loss": 0.0,
+   "one_class_share": 0.546,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.444,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--global.json",
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp6_e3m2--default--1000--df29802f2ff5.json",
+    "top5_lists_equal": 1000
+   }
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "bc:local_empirical",
+   "top1_expected": 64.59,
+   "minus_default": {
+    "difference_pp": 43.72,
+    "interval_pp": [
+     40.66,
+     46.69
+    ]
+   },
+   "recovered_fraction_of_loss": 2.01,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--local_empirical.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "bc:analytic_fp32",
+   "top1_expected": 64.53,
+   "minus_default": {
+    "difference_pp": 43.67,
+    "interval_pp": [
+     40.6,
+     46.58
+    ]
+   },
+   "recovered_fraction_of_loss": 2.008,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.004,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--analytic_fp32.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "bc:linear_only",
+   "top1_expected": 42.13,
+   "minus_default": {
+    "difference_pp": 21.27,
+    "interval_pp": [
+     18.8,
+     23.7
+    ]
+   },
+   "recovered_fraction_of_loss": 0.978,
+   "one_class_share": 0.123,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.071,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--linear_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "bc:cap_rms",
+   "top1_expected": 19.73,
+   "minus_default": {
+    "difference_pp": -1.13,
+    "interval_pp": [
+     -2.54,
+     0.25
+    ]
+   },
+   "recovered_fraction_of_loss": -0.052,
+   "one_class_share": 0.59,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.477,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--cap_rms.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "arm": "bc:dfq_weights_only",
+   "top1_expected": 63.46,
+   "minus_default": {
+    "difference_pp": 42.59,
+    "interval_pp": [
+     39.6,
+     45.54
+    ]
+   },
+   "recovered_fraction_of_loss": 1.958,
+   "one_class_share": 0.006,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--dfq_weights_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "default",
+   "top1_expected": 20.34,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.414,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--log6--default--1000--50b0e16cedc6.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "minimal",
+   "top1_expected": 47.49,
+   "minus_default": {
+    "difference_pp": 27.15,
+    "interval_pp": [
+     24.2,
+     30.1
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.031,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--log6--minimal--1000--2ae4d9a65bcf.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 50.56,
+   "minus_default": {
+    "difference_pp": 30.22,
+    "interval_pp": [
+     27.14,
+     33.19
+    ]
+   },
+   "recovered_fraction_of_loss": 1.113,
+   "one_class_share": 0.04,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.02,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 25.46,
+   "minus_default": {
+    "difference_pp": 5.13,
+    "interval_pp": [
+     3.53,
+     6.78
+    ]
+   },
+   "recovered_fraction_of_loss": 0.189,
+   "one_class_share": 0.467,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.313,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "bc:global",
+   "top1_expected": 20.34,
+   "minus_default": {
+    "difference_pp": 0.0,
+    "interval_pp": [
+     0.0,
+     0.0
+    ]
+   },
+   "recovered_fraction_of_loss": 0.0,
+   "one_class_share": 0.559,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.414,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--global.json",
+   "reproduction_check": {
+    "deployed_state_equal": null,
+    "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--log6--default--1000--50b0e16cedc6.json",
+    "top5_lists_equal": 1000
+   }
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "bc:local_empirical",
+   "top1_expected": 62.77,
+   "minus_default": {
+    "difference_pp": 42.43,
+    "interval_pp": [
+     39.37,
+     45.43
+    ]
+   },
+   "recovered_fraction_of_loss": 1.563,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--local_empirical.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "bc:analytic_fp32",
+   "top1_expected": 63.37,
+   "minus_default": {
+    "difference_pp": 43.03,
+    "interval_pp": [
+     39.95,
+     46.02
+    ]
+   },
+   "recovered_fraction_of_loss": 1.585,
+   "one_class_share": 0.008,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--analytic_fp32.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "bc:linear_only",
+   "top1_expected": 39.99,
+   "minus_default": {
+    "difference_pp": 19.65,
+    "interval_pp": [
+     17.27,
+     22.08
+    ]
+   },
+   "recovered_fraction_of_loss": 0.724,
+   "one_class_share": 0.155,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.106,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--linear_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "bc:cap_rms",
+   "top1_expected": 19.73,
+   "minus_default": {
+    "difference_pp": -0.61,
+    "interval_pp": [
+     -1.91,
+     0.67
+    ]
+   },
+   "recovered_fraction_of_loss": -0.022,
+   "one_class_share": 0.562,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.385,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--cap_rms.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "arm": "bc:dfq_weights_only",
+   "top1_expected": 62.99,
+   "minus_default": {
+    "difference_pp": 42.65,
+    "interval_pp": [
+     39.58,
+     45.65
+    ]
+   },
+   "recovered_fraction_of_loss": 1.571,
+   "one_class_share": 0.007,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--dfq_weights_only.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "posit6_es1",
+   "arm": "default",
+   "top1_expected": 18.79,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.322,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--posit6_es1--default--1000--8fde26339e90.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "posit6_es1",
+   "arm": "minimal",
+   "top1_expected": 0.1,
+   "minus_default": {
+    "difference_pp": -18.69,
+    "interval_pp": [
+     -21.0,
+     -16.49
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.783,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--posit6_es1--minimal--1000--69aee58ea992.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "posit6_es1",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 54.5,
+   "minus_default": {
+    "difference_pp": 35.71,
+    "interval_pp": [
+     32.8,
+     38.52
+    ]
+   },
+   "recovered_fraction_of_loss": -1.911,
+   "one_class_share": 0.015,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.01,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/posit6_es1-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "posit6_es1",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 0.1,
+   "minus_default": {
+    "difference_pp": -18.69,
+    "interval_pp": [
+     -20.98,
+     -16.49
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": 1.0,
+   "collapse": true,
+   "lowest_index_prediction_share": 1.0,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/posit6_es1-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "mxfp6_e3m2",
+   "arm": "default",
+   "top1_expected": 7.23,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.777,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp6_e3m2--default--1000--bb4ec972ac49.json"
+  },
+  {
+   "model": "mobilenet_v2",
+   "format": "mxfp6_e3m2",
+   "arm": "minimal",
+   "top1_expected": 41.93,
+   "minus_default": {
+    "difference_pp": 34.69,
+    "interval_pp": [
+     31.73,
+     37.6
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.031,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp6_e3m2--minimal--1000--e725580cce64.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp8_e5m2",
+   "arm": "default",
+   "top1_expected": 46.57,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.009,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp8_e5m2--default--1000--09e1690591cc.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp8_e5m2",
+   "arm": "minimal",
+   "top1_expected": 45.15,
+   "minus_default": {
+    "difference_pp": -1.42,
+    "interval_pp": [
+     -4.13,
+     1.25
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.036,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp8_e5m2--minimal--1000--69df577859cf.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp8_e5m2",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 52.5,
+   "minus_default": {
+    "difference_pp": 5.93,
+    "interval_pp": [
+     3.34,
+     8.64
+    ]
+   },
+   "recovered_fraction_of_loss": -4.176,
+   "one_class_share": 0.03,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.022,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp8_e5m2-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp8_e5m2",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 47.21,
+   "minus_default": {
+    "difference_pp": 0.64,
+    "interval_pp": [
+     -1.47,
+     2.77
+    ]
+   },
+   "recovered_fraction_of_loss": -0.451,
+   "one_class_share": 0.015,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.012,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp8_e5m2-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp6_e3m2",
+   "arm": "default",
+   "top1_expected": 44.57,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.013,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp6_e3m2--default--1000--2bf358d58600.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp6_e3m2",
+   "arm": "minimal",
+   "top1_expected": 42.28,
+   "minus_default": {
+    "difference_pp": -2.29,
+    "interval_pp": [
+     -4.99,
+     0.39
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.022,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp6_e3m2--minimal--1000--0c1fc7b5e447.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp6_e3m2",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 52.94,
+   "minus_default": {
+    "difference_pp": 8.37,
+    "interval_pp": [
+     5.88,
+     10.87
+    ]
+   },
+   "recovered_fraction_of_loss": -3.655,
+   "one_class_share": 0.024,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.018,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp6_e3m2-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "fp6_e3m2",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 44.29,
+   "minus_default": {
+    "difference_pp": -0.28,
+    "interval_pp": [
+     -2.29,
+     1.68
+    ]
+   },
+   "recovered_fraction_of_loss": 0.122,
+   "one_class_share": 0.015,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.01,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp6_e3m2-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "log6",
+   "arm": "default",
+   "top1_expected": 53.16,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.005,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--log6--default--1000--5d5c664314d7.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "log6",
+   "arm": "minimal",
+   "top1_expected": 15.9,
+   "minus_default": {
+    "difference_pp": -37.25,
+    "interval_pp": [
+     -40.16,
+     -34.32
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.095,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--log6--minimal--1000--311d65ed51e4.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "log6",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 20.6,
+   "minus_default": {
+    "difference_pp": -32.56,
+    "interval_pp": [
+     -35.45,
+     -29.7
+    ]
+   },
+   "recovered_fraction_of_loss": 0.874,
+   "one_class_share": 0.122,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.068,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/log6-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "log6",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 49.26,
+   "minus_default": {
+    "difference_pp": -3.9,
+    "interval_pp": [
+     -6.11,
+     -1.76
+    ]
+   },
+   "recovered_fraction_of_loss": 0.105,
+   "one_class_share": 0.008,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.006,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/log6-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "posit6_es1",
+   "arm": "default",
+   "top1_expected": 42.91,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.014,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--posit6_es1--default--1000--9d77fb85407d.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "posit6_es1",
+   "arm": "minimal",
+   "top1_expected": 0.1,
+   "minus_default": {
+    "difference_pp": -42.81,
+    "interval_pp": [
+     -45.6,
+     -39.93
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.406,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--posit6_es1--minimal--1000--1501a3c5e355.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "posit6_es1",
+   "arm": "default_no_bias_correction",
+   "top1_expected": 46.53,
+   "minus_default": {
+    "difference_pp": 3.62,
+    "interval_pp": [
+     0.94,
+     6.36
+    ]
+   },
+   "recovered_fraction_of_loss": -0.085,
+   "one_class_share": 0.025,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.014,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/posit6_es1-default_no_bias_correction-N--b2.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "posit6_es1",
+   "arm": "default_weight_maxabs",
+   "top1_expected": 0.07,
+   "minus_default": {
+    "difference_pp": -42.84,
+    "interval_pp": [
+     -45.62,
+     -39.97
+    ]
+   },
+   "recovered_fraction_of_loss": 1.001,
+   "one_class_share": 0.602,
+   "collapse": false,
+   "lowest_index_prediction_share": 0.436,
+   "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/posit6_es1-default_weight_maxabs-N--global.json",
+   "reproduction_check": null
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "mxfp6_e3m2",
+   "arm": "default",
+   "top1_expected": 43.04,
+   "minus_default": null,
+   "recovered_fraction_of_loss": null,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.018,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--mxfp6_e3m2--default--1000--ba5a75b17ebb.json"
+  },
+  {
+   "model": "mobilenet_v3_large",
+   "format": "mxfp6_e3m2",
+   "arm": "minimal",
+   "top1_expected": 28.15,
+   "minus_default": {
+    "difference_pp": -14.89,
+    "interval_pp": [
+     -17.75,
+     -12.07
+    ]
+   },
+   "recovered_fraction_of_loss": 1.0,
+   "one_class_share": null,
+   "collapse": null,
+   "lowest_index_prediction_share": 0.118,
+   "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--mxfp6_e3m2--minimal--1000--c39470e222aa.json"
+  }
+ ],
+ "decisions": {
+  "resnet18/fp8_e5m2": {
+   "model": "resnet18",
+   "format": "fp8_e5m2",
+   "minimal_minus_default": {
+    "difference_pp": 1.79,
+    "interval_pp": [
+     0.21,
+     3.43
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "default",
+     "top1_expected": 61.18,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.01,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp8_e5m2--default--1000--4068da0b9ca5.json"
+    },
+    "minimal": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "minimal",
+     "top1_expected": 62.97,
+     "minus_default": {
+      "difference_pp": 1.79,
+      "interval_pp": [
+       0.21,
+       3.43
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.006,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp8_e5m2--minimal--1000--567267c6767c.json"
+    },
+    "default_no_bias_correction": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 63.65,
+     "minus_default": {
+      "difference_pp": 2.47,
+      "interval_pp": [
+       0.8,
+       4.21
+      ]
+     },
+     "recovered_fraction_of_loss": 1.38,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 59.76,
+     "minus_default": {
+      "difference_pp": -1.41,
+      "interval_pp": [
+       -2.75,
+       -0.12
+      ]
+     },
+     "recovered_fraction_of_loss": -0.788,
+     "one_class_share": 0.018,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.01,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default_weight_maxabs-N--b2.json",
+     "reproduction_check": null
+    },
+    "bc:global": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "bc:global",
+     "top1_expected": 61.18,
+     "minus_default": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "recovered_fraction_of_loss": 0.0,
+     "one_class_share": 0.014,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.01,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--global.json",
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/resnet18--fp8_e5m2--default--1000--4068da0b9ca5.json",
+      "top5_lists_equal": 1000
+     }
+    },
+    "bc:local_empirical": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "bc:local_empirical",
+     "top1_expected": 64.39,
+     "minus_default": {
+      "difference_pp": 3.21,
+      "interval_pp": [
+       1.62,
+       4.86
+      ]
+     },
+     "recovered_fraction_of_loss": 1.793,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--local_empirical.json",
+     "reproduction_check": null
+    },
+    "bc:analytic_fp32": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "bc:analytic_fp32",
+     "top1_expected": 64.08,
+     "minus_default": {
+      "difference_pp": 2.9,
+      "interval_pp": [
+       1.27,
+       4.6
+      ]
+     },
+     "recovered_fraction_of_loss": 1.62,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--analytic_fp32.json",
+     "reproduction_check": null
+    },
+    "bc:linear_only": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "bc:linear_only",
+     "top1_expected": 65.02,
+     "minus_default": {
+      "difference_pp": 3.84,
+      "interval_pp": [
+       2.27,
+       5.46
+      ]
+     },
+     "recovered_fraction_of_loss": 2.145,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--linear_only.json",
+     "reproduction_check": null
+    },
+    "bc:cap_rms": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "bc:cap_rms",
+     "top1_expected": 61.18,
+     "minus_default": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "recovered_fraction_of_loss": 0.0,
+     "one_class_share": 0.014,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.01,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--cap_rms.json",
+     "reproduction_check": null
+    },
+    "bc:dfq_weights_only": {
+     "model": "resnet18",
+     "format": "fp8_e5m2",
+     "arm": "bc:dfq_weights_only",
+     "top1_expected": 63.5,
+     "minus_default": {
+      "difference_pp": 2.32,
+      "interval_pp": [
+       0.78,
+       3.89
+      ]
+     },
+     "recovered_fraction_of_loss": 1.296,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default-N--dfq_weights_only.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": {
+    "default_weight_maxabs": {
+     "b2": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default_weight_maxabs-N--b2.json",
+     "global": "artifacts/experiment_b2_collapse/evals/resnet18/fp8_e5m2-default_weight_maxabs-N--global.json",
+     "deployed_state_equal": true,
+     "credit_arrays_equal": true
+    }
+   },
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [],
+    "inherited_exceeds_local_in_those": null,
+    "median_inherited_over_local_in_those": null,
+    "worst_off_layer": "conv1",
+    "worst_off_fraction": {
+     "fp32": 0.125,
+     "corrected": 0.125,
+     "uncorrected": null
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.013888888888888888,
+     "uncorrected": null
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 1.3109870165578872,
+     "uncorrected": null
+    },
+    "last_layer_spread_ratio_corrected": 0.49018988671467584
+   },
+   "guard": {
+    "logit_spread_ratio": 0.4902,
+    "choice": "default",
+    "top1_expected": 61.18,
+    "minus_default": null
+   },
+   "cause_by_rule": [
+    "default_no_bias_correction"
+   ]
+  },
+  "resnet18/fp6_e3m2": {
+   "model": "resnet18",
+   "format": "fp6_e3m2",
+   "minimal_minus_default": {
+    "difference_pp": 9.29,
+    "interval_pp": [
+     7.2,
+     11.39
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "default",
+     "top1_expected": 53.62,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.031,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp6_e3m2--default--1000--b0e30473c2a4.json"
+    },
+    "minimal": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "minimal",
+     "top1_expected": 62.91,
+     "minus_default": {
+      "difference_pp": 9.29,
+      "interval_pp": [
+       7.2,
+       11.39
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--fp6_e3m2--minimal--1000--ada48de91961.json"
+    },
+    "default_no_bias_correction": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 64.26,
+     "minus_default": {
+      "difference_pp": 10.63,
+      "interval_pp": [
+       8.59,
+       12.72
+      ]
+     },
+     "recovered_fraction_of_loss": 1.144,
+     "one_class_share": 0.008,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 51.7,
+     "minus_default": {
+      "difference_pp": -1.92,
+      "interval_pp": [
+       -3.28,
+       -0.58
+      ]
+     },
+     "recovered_fraction_of_loss": -0.207,
+     "one_class_share": 0.081,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.042,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    },
+    "bc:global": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "bc:global",
+     "top1_expected": 53.62,
+     "minus_default": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "recovered_fraction_of_loss": 0.0,
+     "one_class_share": 0.052,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.031,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--global.json",
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/resnet18--fp6_e3m2--default--1000--b0e30473c2a4.json",
+      "top5_lists_equal": 1000
+     }
+    },
+    "bc:local_empirical": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "bc:local_empirical",
+     "top1_expected": 64.36,
+     "minus_default": {
+      "difference_pp": 10.73,
+      "interval_pp": [
+       8.78,
+       12.77
+      ]
+     },
+     "recovered_fraction_of_loss": 1.155,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--local_empirical.json",
+     "reproduction_check": null
+    },
+    "bc:analytic_fp32": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "bc:analytic_fp32",
+     "top1_expected": 65.35,
+     "minus_default": {
+      "difference_pp": 11.72,
+      "interval_pp": [
+       9.72,
+       13.76
+      ]
+     },
+     "recovered_fraction_of_loss": 1.262,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--analytic_fp32.json",
+     "reproduction_check": null
+    },
+    "bc:linear_only": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "bc:linear_only",
+     "top1_expected": 64.57,
+     "minus_default": {
+      "difference_pp": 10.95,
+      "interval_pp": [
+       8.91,
+       13.1
+      ]
+     },
+     "recovered_fraction_of_loss": 1.179,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.006,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--linear_only.json",
+     "reproduction_check": null
+    },
+    "bc:cap_rms": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "bc:cap_rms",
+     "top1_expected": 53.9,
+     "minus_default": {
+      "difference_pp": 0.27,
+      "interval_pp": [
+       -0.52,
+       1.11
+      ]
+     },
+     "recovered_fraction_of_loss": 0.029,
+     "one_class_share": 0.05,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.031,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--cap_rms.json",
+     "reproduction_check": null
+    },
+    "bc:dfq_weights_only": {
+     "model": "resnet18",
+     "format": "fp6_e3m2",
+     "arm": "bc:dfq_weights_only",
+     "top1_expected": 63.74,
+     "minus_default": {
+      "difference_pp": 10.11,
+      "interval_pp": [
+       8.17,
+       12.1
+      ]
+     },
+     "recovered_fraction_of_loss": 1.088,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/fp6_e3m2-default-N--dfq_weights_only.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "layer4_1_conv2"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 64.7507959469473,
+    "worst_off_layer": "layer4_1_conv1",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.0078125,
+     "uncorrected": null
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.014756944444444444,
+     "uncorrected": null
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 0.9970393305268751,
+     "uncorrected": null
+    },
+    "last_layer_spread_ratio_corrected": 0.37280201123903706
+   },
+   "guard": {
+    "logit_spread_ratio": 0.3728,
+    "choice": "default",
+    "top1_expected": 53.62,
+    "minus_default": null
+   },
+   "cause_by_rule": [
+    "default_no_bias_correction"
+   ]
+  },
+  "resnet18/log6": {
+   "model": "resnet18",
+   "format": "log6",
+   "minimal_minus_default": {
+    "difference_pp": 6.96,
+    "interval_pp": [
+     4.77,
+     9.15
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "default",
+     "top1_expected": 54.54,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.035,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--log6--default--1000--0d52189a1c6a.json"
+    },
+    "minimal": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "minimal",
+     "top1_expected": 61.5,
+     "minus_default": {
+      "difference_pp": 6.96,
+      "interval_pp": [
+       4.77,
+       9.15
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--log6--minimal--1000--f34c05491513.json"
+    },
+    "default_no_bias_correction": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 60.64,
+     "minus_default": {
+      "difference_pp": 6.1,
+      "interval_pp": [
+       3.99,
+       8.25
+      ]
+     },
+     "recovered_fraction_of_loss": 0.876,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.006,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 54.73,
+     "minus_default": {
+      "difference_pp": 0.19,
+      "interval_pp": [
+       -1.34,
+       1.73
+      ]
+     },
+     "recovered_fraction_of_loss": 0.027,
+     "one_class_share": 0.059,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.038,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    },
+    "bc:global": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "bc:global",
+     "top1_expected": 54.54,
+     "minus_default": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "recovered_fraction_of_loss": 0.0,
+     "one_class_share": 0.051,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.035,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--global.json",
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/resnet18--log6--default--1000--0d52189a1c6a.json",
+      "top5_lists_equal": 1000
+     }
+    },
+    "bc:local_empirical": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "bc:local_empirical",
+     "top1_expected": 62.81,
+     "minus_default": {
+      "difference_pp": 8.26,
+      "interval_pp": [
+       6.1,
+       10.42
+      ]
+     },
+     "recovered_fraction_of_loss": 1.187,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.006,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--local_empirical.json",
+     "reproduction_check": null
+    },
+    "bc:analytic_fp32": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "bc:analytic_fp32",
+     "top1_expected": 61.68,
+     "minus_default": {
+      "difference_pp": 7.14,
+      "interval_pp": [
+       4.99,
+       9.28
+      ]
+     },
+     "recovered_fraction_of_loss": 1.026,
+     "one_class_share": 0.005,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--analytic_fp32.json",
+     "reproduction_check": null
+    },
+    "bc:linear_only": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "bc:linear_only",
+     "top1_expected": 62.82,
+     "minus_default": {
+      "difference_pp": 8.28,
+      "interval_pp": [
+       6.11,
+       10.44
+      ]
+     },
+     "recovered_fraction_of_loss": 1.19,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.004,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--linear_only.json",
+     "reproduction_check": null
+    },
+    "bc:cap_rms": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "bc:cap_rms",
+     "top1_expected": 55.03,
+     "minus_default": {
+      "difference_pp": 0.49,
+      "interval_pp": [
+       -0.22,
+       1.21
+      ]
+     },
+     "recovered_fraction_of_loss": 0.07,
+     "one_class_share": 0.048,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.031,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--cap_rms.json",
+     "reproduction_check": null
+    },
+    "bc:dfq_weights_only": {
+     "model": "resnet18",
+     "format": "log6",
+     "arm": "bc:dfq_weights_only",
+     "top1_expected": 63.21,
+     "minus_default": {
+      "difference_pp": 8.67,
+      "interval_pp": [
+       6.67,
+       10.75
+      ]
+     },
+     "recovered_fraction_of_loss": 1.246,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/log6-default-N--dfq_weights_only.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": {
+    "layers": 21,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "layer4_1_conv2"
+    ],
+    "inherited_exceeds_local_in_those": true,
+    "median_inherited_over_local_in_those": 63.97849388627682,
+    "worst_off_layer": "layer4_1_conv1",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.0078125,
+     "uncorrected": null
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.013888888888888888,
+     "corrected": 0.014756944444444444,
+     "uncorrected": null
+    },
+    "last_layer": "fc",
+    "last_layer_spread": {
+     "fp32": 2.6744472949948306,
+     "corrected": 1.0168372779756631,
+     "uncorrected": null
+    },
+    "last_layer_spread_ratio_corrected": 0.380204642611074
+   },
+   "guard": {
+    "logit_spread_ratio": 0.3802,
+    "choice": "default",
+    "top1_expected": 54.54,
+    "minus_default": null
+   },
+   "cause_by_rule": [
+    "default_no_bias_correction"
+   ]
+  },
+  "resnet18/posit6_es1": {
+   "model": "resnet18",
+   "format": "posit6_es1",
+   "minimal_minus_default": {
+    "difference_pp": -55.85,
+    "interval_pp": [
+     -58.62,
+     -52.98
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "resnet18",
+     "format": "posit6_es1",
+     "arm": "default",
+     "top1_expected": 59.6,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.014,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--posit6_es1--default--1000--332a0a188433.json"
+    },
+    "minimal": {
+     "model": "resnet18",
+     "format": "posit6_es1",
+     "arm": "minimal",
+     "top1_expected": 3.75,
+     "minus_default": {
+      "difference_pp": -55.85,
+      "interval_pp": [
+       -58.62,
+       -52.98
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.266,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--posit6_es1--minimal--1000--fe4e4ea9a84d.json"
+    },
+    "default_no_bias_correction": {
+     "model": "resnet18",
+     "format": "posit6_es1",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 64.06,
+     "minus_default": {
+      "difference_pp": 4.46,
+      "interval_pp": [
+       2.72,
+       6.23
+      ]
+     },
+     "recovered_fraction_of_loss": -0.08,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/posit6_es1-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "resnet18",
+     "format": "posit6_es1",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 0.1,
+     "minus_default": {
+      "difference_pp": -59.5,
+      "interval_pp": [
+       -62.18,
+       -56.71
+      ]
+     },
+     "recovered_fraction_of_loss": 1.065,
+     "one_class_share": 0.999,
+     "collapse": true,
+     "lowest_index_prediction_share": 0.999,
+     "record": "artifacts/experiment_b2_collapse/evals/resnet18/posit6_es1-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": "no significant default-minus-minimal loss"
+  },
+  "resnet18/mxfp6_e3m2": {
+   "model": "resnet18",
+   "format": "mxfp6_e3m2",
+   "minimal_minus_default": {
+    "difference_pp": 12.76,
+    "interval_pp": [
+     10.59,
+     14.96
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "resnet18",
+     "format": "mxfp6_e3m2",
+     "arm": "default",
+     "top1_expected": 51.61,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.057,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--mxfp6_e3m2--default--1000--073adb1b3e2a.json"
+    },
+    "minimal": {
+     "model": "resnet18",
+     "format": "mxfp6_e3m2",
+     "arm": "minimal",
+     "top1_expected": 64.38,
+     "minus_default": {
+      "difference_pp": 12.76,
+      "interval_pp": [
+       10.59,
+       14.96
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2/matrix/cells/resnet18--mxfp6_e3m2--minimal--1000--04c86821e80c.json"
+    },
+    "default_no_bias_correction": {
+     "model": "resnet18",
+     "format": "mxfp6_e3m2",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 64.23,
+     "minus_default": {
+      "difference_pp": 12.62,
+      "interval_pp": [
+       10.47,
+       14.81
+      ]
+     },
+     "recovered_fraction_of_loss": 0.989,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.007,
+     "record": "artifacts/experiment_b2_collapse/matrix/cells/resnet18--mxfp6_e3m2--default_no_bias_correction--1000--0a3153dc3f2e.json"
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": [
+    "default_no_bias_correction"
+   ]
+  },
+  "mobilenet_v2/fp8_e5m2": {
+   "model": "mobilenet_v2",
+   "format": "fp8_e5m2",
+   "minimal_minus_default": {
+    "difference_pp": 18.71,
+    "interval_pp": [
+     15.7,
+     21.64
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "default",
+     "top1_expected": 23.24,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.362,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp8_e5m2--default--1000--dec403f2de33.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "minimal",
+     "top1_expected": 41.94,
+     "minus_default": {
+      "difference_pp": 18.71,
+      "interval_pp": [
+       15.7,
+       21.64
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.049,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp8_e5m2--minimal--1000--bc919f907f2b.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 54.45,
+     "minus_default": {
+      "difference_pp": 31.22,
+      "interval_pp": [
+       28.29,
+       34.12
+      ]
+     },
+     "recovered_fraction_of_loss": 1.669,
+     "one_class_share": 0.011,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.01,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 30.67,
+     "minus_default": {
+      "difference_pp": 7.44,
+      "interval_pp": [
+       5.67,
+       9.25
+      ]
+     },
+     "recovered_fraction_of_loss": 0.398,
+     "one_class_share": 0.359,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.255,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    },
+    "bc:global": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "bc:global",
+     "top1_expected": 23.24,
+     "minus_default": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "recovered_fraction_of_loss": 0.0,
+     "one_class_share": 0.481,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.362,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--global.json",
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp8_e5m2--default--1000--dec403f2de33.json",
+      "top5_lists_equal": 1000
+     }
+    },
+    "bc:local_empirical": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "bc:local_empirical",
+     "top1_expected": 65.03,
+     "minus_default": {
+      "difference_pp": 41.79,
+      "interval_pp": [
+       38.79,
+       44.7
+      ]
+     },
+     "recovered_fraction_of_loss": 2.234,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--local_empirical.json",
+     "reproduction_check": null
+    },
+    "bc:analytic_fp32": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "bc:analytic_fp32",
+     "top1_expected": 63.89,
+     "minus_default": {
+      "difference_pp": 40.66,
+      "interval_pp": [
+       37.64,
+       43.55
+      ]
+     },
+     "recovered_fraction_of_loss": 2.173,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.006,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--analytic_fp32.json",
+     "reproduction_check": null
+    },
+    "bc:linear_only": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "bc:linear_only",
+     "top1_expected": 45.62,
+     "minus_default": {
+      "difference_pp": 22.39,
+      "interval_pp": [
+       19.95,
+       24.82
+      ]
+     },
+     "recovered_fraction_of_loss": 1.197,
+     "one_class_share": 0.095,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.049,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--linear_only.json",
+     "reproduction_check": null
+    },
+    "bc:cap_rms": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "bc:cap_rms",
+     "top1_expected": 23.52,
+     "minus_default": {
+      "difference_pp": 0.28,
+      "interval_pp": [
+       -1.06,
+       1.64
+      ]
+     },
+     "recovered_fraction_of_loss": 0.015,
+     "one_class_share": 0.48,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.374,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--cap_rms.json",
+     "reproduction_check": null
+    },
+    "bc:dfq_weights_only": {
+     "model": "mobilenet_v2",
+     "format": "fp8_e5m2",
+     "arm": "bc:dfq_weights_only",
+     "top1_expected": 63.88,
+     "minus_default": {
+      "difference_pp": 40.64,
+      "interval_pp": [
+       37.63,
+       43.63
+      ]
+     },
+     "recovered_fraction_of_loss": 2.172,
+     "one_class_share": 0.005,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.004,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp8_e5m2-default-N--dfq_weights_only.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": {
+    "layers": 53,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_5_conv_2",
+     "features_7_conv_2",
+     "features_10_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 0.7446044023899884,
+    "worst_off_layer": "features_18_0",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.9789062500000001,
+     "uncorrected": null
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.015074404761904761,
+     "corrected": 0.056540178571428575,
+     "uncorrected": null
+    },
+    "last_layer": "classifier_1",
+    "last_layer_spread": {
+     "fp32": 0.7279229536978642,
+     "corrected": 0.06475808899216404,
+     "uncorrected": null
+    },
+    "last_layer_spread_ratio_corrected": 0.08896283413401317
+   },
+   "guard": {
+    "logit_spread_ratio": 0.089,
+    "choice": "bc:local_empirical",
+    "top1_expected": 65.03,
+    "minus_default": {
+     "difference_pp": 41.79,
+     "interval_pp": [
+      38.79,
+      44.7
+     ]
+    }
+   },
+   "cause_by_rule": [
+    "default_no_bias_correction"
+   ]
+  },
+  "mobilenet_v2/fp6_e3m2": {
+   "model": "mobilenet_v2",
+   "format": "fp6_e3m2",
+   "minimal_minus_default": {
+    "difference_pp": 21.75,
+    "interval_pp": [
+     18.77,
+     24.66
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "default",
+     "top1_expected": 20.86,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.444,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp6_e3m2--default--1000--df29802f2ff5.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "minimal",
+     "top1_expected": 42.61,
+     "minus_default": {
+      "difference_pp": 21.75,
+      "interval_pp": [
+       18.77,
+       24.66
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.027,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp6_e3m2--minimal--1000--a48d4e238c04.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 49.16,
+     "minus_default": {
+      "difference_pp": 28.3,
+      "interval_pp": [
+       25.27,
+       31.17
+      ]
+     },
+     "recovered_fraction_of_loss": 1.301,
+     "one_class_share": 0.037,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.014,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 27.6,
+     "minus_default": {
+      "difference_pp": 6.74,
+      "interval_pp": [
+       5.01,
+       8.46
+      ]
+     },
+     "recovered_fraction_of_loss": 0.31,
+     "one_class_share": 0.414,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.298,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    },
+    "bc:global": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "bc:global",
+     "top1_expected": 20.86,
+     "minus_default": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "recovered_fraction_of_loss": 0.0,
+     "one_class_share": 0.546,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.444,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--global.json",
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--fp6_e3m2--default--1000--df29802f2ff5.json",
+      "top5_lists_equal": 1000
+     }
+    },
+    "bc:local_empirical": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "bc:local_empirical",
+     "top1_expected": 64.59,
+     "minus_default": {
+      "difference_pp": 43.72,
+      "interval_pp": [
+       40.66,
+       46.69
+      ]
+     },
+     "recovered_fraction_of_loss": 2.01,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--local_empirical.json",
+     "reproduction_check": null
+    },
+    "bc:analytic_fp32": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "bc:analytic_fp32",
+     "top1_expected": 64.53,
+     "minus_default": {
+      "difference_pp": 43.67,
+      "interval_pp": [
+       40.6,
+       46.58
+      ]
+     },
+     "recovered_fraction_of_loss": 2.008,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.004,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--analytic_fp32.json",
+     "reproduction_check": null
+    },
+    "bc:linear_only": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "bc:linear_only",
+     "top1_expected": 42.13,
+     "minus_default": {
+      "difference_pp": 21.27,
+      "interval_pp": [
+       18.8,
+       23.7
+      ]
+     },
+     "recovered_fraction_of_loss": 0.978,
+     "one_class_share": 0.123,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.071,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--linear_only.json",
+     "reproduction_check": null
+    },
+    "bc:cap_rms": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "bc:cap_rms",
+     "top1_expected": 19.73,
+     "minus_default": {
+      "difference_pp": -1.13,
+      "interval_pp": [
+       -2.54,
+       0.25
+      ]
+     },
+     "recovered_fraction_of_loss": -0.052,
+     "one_class_share": 0.59,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.477,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--cap_rms.json",
+     "reproduction_check": null
+    },
+    "bc:dfq_weights_only": {
+     "model": "mobilenet_v2",
+     "format": "fp6_e3m2",
+     "arm": "bc:dfq_weights_only",
+     "top1_expected": 63.46,
+     "minus_default": {
+      "difference_pp": 42.59,
+      "interval_pp": [
+       39.6,
+       45.54
+      ]
+     },
+     "recovered_fraction_of_loss": 1.958,
+     "one_class_share": 0.006,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/fp6_e3m2-default-N--dfq_weights_only.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": {
+    "layers": 53,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_5_conv_2",
+     "features_11_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 0.7114057831129845,
+    "worst_off_layer": "features_18_0",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.9890625000000001,
+     "uncorrected": null
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.015074404761904761,
+     "corrected": 0.05721230158730159,
+     "uncorrected": null
+    },
+    "last_layer": "classifier_1",
+    "last_layer_spread": {
+     "fp32": 0.7279229536978642,
+     "corrected": 0.059331888166780776,
+     "uncorrected": null
+    },
+    "last_layer_spread_ratio_corrected": 0.08150847265548299
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0815,
+    "choice": "bc:local_empirical",
+    "top1_expected": 64.59,
+    "minus_default": {
+     "difference_pp": 43.72,
+     "interval_pp": [
+      40.66,
+      46.69
+     ]
+    }
+   },
+   "cause_by_rule": [
+    "default_no_bias_correction"
+   ]
+  },
+  "mobilenet_v2/log6": {
+   "model": "mobilenet_v2",
+   "format": "log6",
+   "minimal_minus_default": {
+    "difference_pp": 27.15,
+    "interval_pp": [
+     24.2,
+     30.1
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "default",
+     "top1_expected": 20.34,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.414,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--log6--default--1000--50b0e16cedc6.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "minimal",
+     "top1_expected": 47.49,
+     "minus_default": {
+      "difference_pp": 27.15,
+      "interval_pp": [
+       24.2,
+       30.1
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.031,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--log6--minimal--1000--2ae4d9a65bcf.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 50.56,
+     "minus_default": {
+      "difference_pp": 30.22,
+      "interval_pp": [
+       27.14,
+       33.19
+      ]
+     },
+     "recovered_fraction_of_loss": 1.113,
+     "one_class_share": 0.04,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.02,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 25.46,
+     "minus_default": {
+      "difference_pp": 5.13,
+      "interval_pp": [
+       3.53,
+       6.78
+      ]
+     },
+     "recovered_fraction_of_loss": 0.189,
+     "one_class_share": 0.467,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.313,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    },
+    "bc:global": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "bc:global",
+     "top1_expected": 20.34,
+     "minus_default": {
+      "difference_pp": 0.0,
+      "interval_pp": [
+       0.0,
+       0.0
+      ]
+     },
+     "recovered_fraction_of_loss": 0.0,
+     "one_class_share": 0.559,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.414,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--global.json",
+     "reproduction_check": {
+      "deployed_state_equal": null,
+      "source": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--log6--default--1000--50b0e16cedc6.json",
+      "top5_lists_equal": 1000
+     }
+    },
+    "bc:local_empirical": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "bc:local_empirical",
+     "top1_expected": 62.77,
+     "minus_default": {
+      "difference_pp": 42.43,
+      "interval_pp": [
+       39.37,
+       45.43
+      ]
+     },
+     "recovered_fraction_of_loss": 1.563,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--local_empirical.json",
+     "reproduction_check": null
+    },
+    "bc:analytic_fp32": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "bc:analytic_fp32",
+     "top1_expected": 63.37,
+     "minus_default": {
+      "difference_pp": 43.03,
+      "interval_pp": [
+       39.95,
+       46.02
+      ]
+     },
+     "recovered_fraction_of_loss": 1.585,
+     "one_class_share": 0.008,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--analytic_fp32.json",
+     "reproduction_check": null
+    },
+    "bc:linear_only": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "bc:linear_only",
+     "top1_expected": 39.99,
+     "minus_default": {
+      "difference_pp": 19.65,
+      "interval_pp": [
+       17.27,
+       22.08
+      ]
+     },
+     "recovered_fraction_of_loss": 0.724,
+     "one_class_share": 0.155,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.106,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--linear_only.json",
+     "reproduction_check": null
+    },
+    "bc:cap_rms": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "bc:cap_rms",
+     "top1_expected": 19.73,
+     "minus_default": {
+      "difference_pp": -0.61,
+      "interval_pp": [
+       -1.91,
+       0.67
+      ]
+     },
+     "recovered_fraction_of_loss": -0.022,
+     "one_class_share": 0.562,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.385,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--cap_rms.json",
+     "reproduction_check": null
+    },
+    "bc:dfq_weights_only": {
+     "model": "mobilenet_v2",
+     "format": "log6",
+     "arm": "bc:dfq_weights_only",
+     "top1_expected": 62.99,
+     "minus_default": {
+      "difference_pp": 42.65,
+      "interval_pp": [
+       39.58,
+       45.65
+      ]
+     },
+     "recovered_fraction_of_loss": 1.571,
+     "one_class_share": 0.007,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/log6-default-N--dfq_weights_only.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": {
+    "layers": 53,
+    "layers_correction_rms_above_fp32_mean_rms": [
+     "features_1_conv_1",
+     "features_2_conv_2",
+     "features_3_conv_2",
+     "features_5_conv_2",
+     "features_6_conv_2",
+     "features_7_conv_2",
+     "features_10_conv_2",
+     "features_12_conv_2",
+     "features_13_conv_2",
+     "features_14_conv_2",
+     "features_15_conv_2",
+     "features_16_conv_2",
+     "features_17_conv_2"
+    ],
+    "inherited_exceeds_local_in_those": false,
+    "median_inherited_over_local_in_those": 0.8083234637979618,
+    "worst_off_layer": "features_18_0",
+    "worst_off_fraction": {
+     "fp32": 0.0,
+     "corrected": 0.98984375,
+     "uncorrected": null
+    },
+    "mean_off_fraction_rectified": {
+     "fp32": 0.015074404761904761,
+     "corrected": 0.054873511904761904,
+     "uncorrected": null
+    },
+    "last_layer": "classifier_1",
+    "last_layer_spread": {
+     "fp32": 0.7279229536978642,
+     "corrected": 0.05577012080323034,
+     "uncorrected": null
+    },
+    "last_layer_spread_ratio_corrected": 0.07661541722227186
+   },
+   "guard": {
+    "logit_spread_ratio": 0.0766,
+    "choice": "bc:local_empirical",
+    "top1_expected": 62.77,
+    "minus_default": {
+     "difference_pp": 42.43,
+     "interval_pp": [
+      39.37,
+      45.43
+     ]
+    }
+   },
+   "cause_by_rule": [
+    "default_no_bias_correction"
+   ]
+  },
+  "mobilenet_v2/posit6_es1": {
+   "model": "mobilenet_v2",
+   "format": "posit6_es1",
+   "minimal_minus_default": {
+    "difference_pp": -18.69,
+    "interval_pp": [
+     -21.0,
+     -16.49
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v2",
+     "format": "posit6_es1",
+     "arm": "default",
+     "top1_expected": 18.79,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.322,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--posit6_es1--default--1000--8fde26339e90.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v2",
+     "format": "posit6_es1",
+     "arm": "minimal",
+     "top1_expected": 0.1,
+     "minus_default": {
+      "difference_pp": -18.69,
+      "interval_pp": [
+       -21.0,
+       -16.49
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.783,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--posit6_es1--minimal--1000--69aee58ea992.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v2",
+     "format": "posit6_es1",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 54.5,
+     "minus_default": {
+      "difference_pp": 35.71,
+      "interval_pp": [
+       32.8,
+       38.52
+      ]
+     },
+     "recovered_fraction_of_loss": -1.911,
+     "one_class_share": 0.015,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.01,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/posit6_es1-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v2",
+     "format": "posit6_es1",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 0.1,
+     "minus_default": {
+      "difference_pp": -18.69,
+      "interval_pp": [
+       -20.98,
+       -16.49
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": 1.0,
+     "collapse": true,
+     "lowest_index_prediction_share": 1.0,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v2/posit6_es1-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": "no significant default-minus-minimal loss"
+  },
+  "mobilenet_v2/mxfp6_e3m2": {
+   "model": "mobilenet_v2",
+   "format": "mxfp6_e3m2",
+   "minimal_minus_default": {
+    "difference_pp": 34.69,
+    "interval_pp": [
+     31.73,
+     37.6
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v2",
+     "format": "mxfp6_e3m2",
+     "arm": "default",
+     "top1_expected": 7.23,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.777,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp6_e3m2--default--1000--bb4ec972ac49.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v2",
+     "format": "mxfp6_e3m2",
+     "arm": "minimal",
+     "top1_expected": 41.93,
+     "minus_default": {
+      "difference_pp": 34.69,
+      "interval_pp": [
+       31.73,
+       37.6
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.031,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp6_e3m2--minimal--1000--e725580cce64.json"
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": []
+  },
+  "mobilenet_v3_large/fp8_e5m2": {
+   "model": "mobilenet_v3_large",
+   "format": "fp8_e5m2",
+   "minimal_minus_default": {
+    "difference_pp": -1.42,
+    "interval_pp": [
+     -4.13,
+     1.25
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v3_large",
+     "format": "fp8_e5m2",
+     "arm": "default",
+     "top1_expected": 46.57,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.009,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp8_e5m2--default--1000--09e1690591cc.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v3_large",
+     "format": "fp8_e5m2",
+     "arm": "minimal",
+     "top1_expected": 45.15,
+     "minus_default": {
+      "difference_pp": -1.42,
+      "interval_pp": [
+       -4.13,
+       1.25
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.036,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp8_e5m2--minimal--1000--69df577859cf.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v3_large",
+     "format": "fp8_e5m2",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 52.5,
+     "minus_default": {
+      "difference_pp": 5.93,
+      "interval_pp": [
+       3.34,
+       8.64
+      ]
+     },
+     "recovered_fraction_of_loss": -4.176,
+     "one_class_share": 0.03,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.022,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp8_e5m2-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v3_large",
+     "format": "fp8_e5m2",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 47.21,
+     "minus_default": {
+      "difference_pp": 0.64,
+      "interval_pp": [
+       -1.47,
+       2.77
+      ]
+     },
+     "recovered_fraction_of_loss": -0.451,
+     "one_class_share": 0.015,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.012,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp8_e5m2-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": "no significant default-minus-minimal loss"
+  },
+  "mobilenet_v3_large/fp6_e3m2": {
+   "model": "mobilenet_v3_large",
+   "format": "fp6_e3m2",
+   "minimal_minus_default": {
+    "difference_pp": -2.29,
+    "interval_pp": [
+     -4.99,
+     0.39
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v3_large",
+     "format": "fp6_e3m2",
+     "arm": "default",
+     "top1_expected": 44.57,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.013,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp6_e3m2--default--1000--2bf358d58600.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v3_large",
+     "format": "fp6_e3m2",
+     "arm": "minimal",
+     "top1_expected": 42.28,
+     "minus_default": {
+      "difference_pp": -2.29,
+      "interval_pp": [
+       -4.99,
+       0.39
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.022,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp6_e3m2--minimal--1000--0c1fc7b5e447.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v3_large",
+     "format": "fp6_e3m2",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 52.94,
+     "minus_default": {
+      "difference_pp": 8.37,
+      "interval_pp": [
+       5.88,
+       10.87
+      ]
+     },
+     "recovered_fraction_of_loss": -3.655,
+     "one_class_share": 0.024,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.018,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp6_e3m2-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v3_large",
+     "format": "fp6_e3m2",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 44.29,
+     "minus_default": {
+      "difference_pp": -0.28,
+      "interval_pp": [
+       -2.29,
+       1.68
+      ]
+     },
+     "recovered_fraction_of_loss": 0.122,
+     "one_class_share": 0.015,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.01,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/fp6_e3m2-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": "no significant default-minus-minimal loss"
+  },
+  "mobilenet_v3_large/log6": {
+   "model": "mobilenet_v3_large",
+   "format": "log6",
+   "minimal_minus_default": {
+    "difference_pp": -37.25,
+    "interval_pp": [
+     -40.16,
+     -34.32
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v3_large",
+     "format": "log6",
+     "arm": "default",
+     "top1_expected": 53.16,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.005,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--log6--default--1000--5d5c664314d7.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v3_large",
+     "format": "log6",
+     "arm": "minimal",
+     "top1_expected": 15.9,
+     "minus_default": {
+      "difference_pp": -37.25,
+      "interval_pp": [
+       -40.16,
+       -34.32
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.095,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--log6--minimal--1000--311d65ed51e4.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v3_large",
+     "format": "log6",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 20.6,
+     "minus_default": {
+      "difference_pp": -32.56,
+      "interval_pp": [
+       -35.45,
+       -29.7
+      ]
+     },
+     "recovered_fraction_of_loss": 0.874,
+     "one_class_share": 0.122,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.068,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/log6-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v3_large",
+     "format": "log6",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 49.26,
+     "minus_default": {
+      "difference_pp": -3.9,
+      "interval_pp": [
+       -6.11,
+       -1.76
+      ]
+     },
+     "recovered_fraction_of_loss": 0.105,
+     "one_class_share": 0.008,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.006,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/log6-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": "no significant default-minus-minimal loss"
+  },
+  "mobilenet_v3_large/posit6_es1": {
+   "model": "mobilenet_v3_large",
+   "format": "posit6_es1",
+   "minimal_minus_default": {
+    "difference_pp": -42.81,
+    "interval_pp": [
+     -45.6,
+     -39.93
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v3_large",
+     "format": "posit6_es1",
+     "arm": "default",
+     "top1_expected": 42.91,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.014,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--posit6_es1--default--1000--9d77fb85407d.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v3_large",
+     "format": "posit6_es1",
+     "arm": "minimal",
+     "top1_expected": 0.1,
+     "minus_default": {
+      "difference_pp": -42.81,
+      "interval_pp": [
+       -45.6,
+       -39.93
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.406,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--posit6_es1--minimal--1000--1501a3c5e355.json"
+    },
+    "default_no_bias_correction": {
+     "model": "mobilenet_v3_large",
+     "format": "posit6_es1",
+     "arm": "default_no_bias_correction",
+     "top1_expected": 46.53,
+     "minus_default": {
+      "difference_pp": 3.62,
+      "interval_pp": [
+       0.94,
+       6.36
+      ]
+     },
+     "recovered_fraction_of_loss": -0.085,
+     "one_class_share": 0.025,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.014,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/posit6_es1-default_no_bias_correction-N--b2.json",
+     "reproduction_check": null
+    },
+    "default_weight_maxabs": {
+     "model": "mobilenet_v3_large",
+     "format": "posit6_es1",
+     "arm": "default_weight_maxabs",
+     "top1_expected": 0.07,
+     "minus_default": {
+      "difference_pp": -42.84,
+      "interval_pp": [
+       -45.62,
+       -39.97
+      ]
+     },
+     "recovered_fraction_of_loss": 1.001,
+     "one_class_share": 0.602,
+     "collapse": false,
+     "lowest_index_prediction_share": 0.436,
+     "record": "artifacts/experiment_b2_collapse/evals/mobilenet_v3_large/posit6_es1-default_weight_maxabs-N--global.json",
+     "reproduction_check": null
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": "no significant default-minus-minimal loss"
+  },
+  "mobilenet_v3_large/mxfp6_e3m2": {
+   "model": "mobilenet_v3_large",
+   "format": "mxfp6_e3m2",
+   "minimal_minus_default": {
+    "difference_pp": -14.89,
+    "interval_pp": [
+     -17.75,
+     -12.07
+    ]
+   },
+   "arms": {
+    "default": {
+     "model": "mobilenet_v3_large",
+     "format": "mxfp6_e3m2",
+     "arm": "default",
+     "top1_expected": 43.04,
+     "minus_default": null,
+     "recovered_fraction_of_loss": null,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.018,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--mxfp6_e3m2--default--1000--ba5a75b17ebb.json"
+    },
+    "minimal": {
+     "model": "mobilenet_v3_large",
+     "format": "mxfp6_e3m2",
+     "arm": "minimal",
+     "top1_expected": 28.15,
+     "minus_default": {
+      "difference_pp": -14.89,
+      "interval_pp": [
+       -17.75,
+       -12.07
+      ]
+     },
+     "recovered_fraction_of_loss": 1.0,
+     "one_class_share": null,
+     "collapse": null,
+     "lowest_index_prediction_share": 0.118,
+     "record": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--mxfp6_e3m2--minimal--1000--c39470e222aa.json"
+    }
+   },
+   "b2_versus_lean_identity": null,
+   "mechanism_global": null,
+   "cause_by_rule": "no significant default-minus-minimal loss"
+  }
+ }
+}

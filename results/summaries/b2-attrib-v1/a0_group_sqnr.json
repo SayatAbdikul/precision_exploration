@@ -1,0 +1,1122 @@
+{
+ "fp6_e2m3": {
+  "cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp6_e2m3--default--1000--637b7db07312.json",
+  "groups": {
+   "classifier": {
+    "lowest": [
+     [
+      "avgpool",
+      19.69
+     ],
+     [
+      "classifier_3",
+      22.9
+     ],
+     [
+      "classifier_0",
+      25.96
+     ]
+    ],
+    "median_sqnr_db": 24.430785056235948,
+    "min_sqnr_db": 19.692794484681976,
+    "nodes": 4,
+    "nsr_db": 16.8610372263548,
+    "share_of_network_nsr": 0.07191728812531564
+   },
+   "dw_conv": {
+    "lowest": [
+     [
+      "features_15_block_1_0",
+      22.66
+     ],
+     [
+      "features_14_block_1_0",
+      22.96
+     ],
+     [
+      "features_13_block_1_0",
+      24.42
+     ]
+    ],
+    "median_sqnr_db": 26.05058429598984,
+    "min_sqnr_db": 22.663936075624797,
+    "nodes": 9,
+    "nsr_db": 16.26540578772803,
+    "share_of_network_nsr": 0.08248907742934584
+   },
+   "expand_conv": {
+    "lowest": [
+     [
+      "features_12_block_0_0",
+      23.11
+     ],
+     [
+      "features_15_block_0_0",
+      25.41
+     ],
+     [
+      "features_14_block_0_0",
+      25.71
+     ]
+    ],
+    "median_sqnr_db": 27.556470653895197,
+    "min_sqnr_db": 23.10841250319172,
+    "nodes": 10,
+    "nsr_db": 16.790468606769835,
+    "share_of_network_nsr": 0.07309541977228053
+   },
+   "hswish": {
+    "lowest": [
+     [
+      "features_15_block_1_2",
+      19.81
+     ],
+     [
+      "features_12_block_1_2",
+      20.73
+     ],
+     [
+      "features_14_block_0_2",
+      21.71
+     ]
+    ],
+    "median_sqnr_db": 24.49955250413702,
+    "min_sqnr_db": 19.809012307094058,
+    "nodes": 19,
+    "nsr_db": 10.848454260241308,
+    "share_of_network_nsr": 0.2871386136186485
+   },
+   "project": {
+    "lowest": [
+     [
+      "features_8_block_2_0",
+      24.21
+     ],
+     [
+      "features_3_block_2_0",
+      25.14
+     ],
+     [
+      "features_1_block_1_0",
+      25.88
+     ]
+    ],
+    "median_sqnr_db": 26.942124156555142,
+    "min_sqnr_db": 24.209596954260935,
+    "nodes": 15,
+    "nsr_db": 15.405027864488014,
+    "share_of_network_nsr": 0.10056207794677306
+   },
+   "relu_act": {
+    "lowest": [
+     [
+      "features_6_block_1_2",
+      24.2
+     ],
+     [
+      "features_2_block_0_2",
+      25.72
+     ],
+     [
+      "features_5_block_1_2",
+      26.26
+     ]
+    ],
+    "median_sqnr_db": 29.45061640394814,
+    "min_sqnr_db": 24.201325148267394,
+    "nodes": 11,
+    "nsr_db": 17.45064896971174,
+    "share_of_network_nsr": 0.06278734632544913
+   },
+   "residual_add": {
+    "lowest": [
+     [
+      "add_9",
+      28.59
+     ],
+     [
+      "add",
+      28.77
+     ],
+     [
+      "add_1",
+      28.81
+     ]
+    ],
+    "median_sqnr_db": 29.763291340125157,
+    "min_sqnr_db": 28.589987032816623,
+    "nodes": 10,
+    "nsr_db": 19.555456231392,
+    "share_of_network_nsr": 0.03867153420401124
+   },
+   "se_expand": {
+    "lowest": [
+     [
+      "features_4_block_2_fc2",
+      30.76
+     ],
+     [
+      "features_5_block_2_fc2",
+      30.91
+     ],
+     [
+      "features_11_block_2_fc2",
+      31.2
+     ]
+    ],
+    "median_sqnr_db": 31.67266205759925,
+    "min_sqnr_db": 30.757732902313045,
+    "nodes": 8,
+    "nsr_db": 22.510790064227,
+    "share_of_network_nsr": 0.01958204385079304
+   },
+   "se_gate": {
+    "lowest": [
+     [
+      "features_14_block_2_scale_activation",
+      28.47
+     ],
+     [
+      "features_15_block_2_scale_activation",
+      29.81
+     ],
+     [
+      "features_12_block_2_scale_activation",
+      30.93
+     ]
+    ],
+    "median_sqnr_db": 31.764472265939208,
+    "min_sqnr_db": 28.472925486233226,
+    "nodes": 8,
+    "nsr_db": 22.20702731324327,
+    "share_of_network_nsr": 0.0210007252846954
+   },
+   "se_pool": {
+    "lowest": [
+     [
+      "features_15_block_2_avgpool",
+      20.27
+     ],
+     [
+      "features_14_block_2_avgpool",
+      24.15
+     ],
+     [
+      "features_12_block_2_avgpool",
+      25.26
+     ]
+    ],
+    "median_sqnr_db": 27.23461052383714,
+    "min_sqnr_db": 20.267198535423052,
+    "nodes": 8,
+    "nsr_db": 16.44621914805889,
+    "share_of_network_nsr": 0.07912525276555823
+   },
+   "se_product": {
+    "lowest": [
+     [
+      "mul_6",
+      18.79
+     ],
+     [
+      "mul_7",
+      20.63
+     ],
+     [
+      "mul_4",
+      21.15
+     ]
+    ],
+    "median_sqnr_db": 27.17398147224361,
+    "min_sqnr_db": 18.789989461943087,
+    "nodes": 8,
+    "nsr_db": 14.374889082562543,
+    "share_of_network_nsr": 0.12748177945063657
+   },
+   "se_reduce": {
+    "lowest": [
+     [
+      "features_15_block_2_activation",
+      28.15
+     ],
+     [
+      "features_14_block_2_activation",
+      29.13
+     ],
+     [
+      "features_13_block_2_activation",
+      29.86
+     ]
+    ],
+    "median_sqnr_db": 30.200592480542213,
+    "min_sqnr_db": 28.148447583889222,
+    "nodes": 8,
+    "nsr_db": 21.472938224363393,
+    "share_of_network_nsr": 0.02486813422252784
+   },
+   "stem": {
+    "lowest": [
+     [
+      "features_0_0",
+      28.61
+     ],
+     [
+      "features_0_2",
+      29.51
+     ],
+     [
+      "x",
+      31.34
+     ]
+    ],
+    "median_sqnr_db": 29.513840405994824,
+    "min_sqnr_db": 28.608341910829775,
+    "nodes": 3,
+    "nsr_db": 24.906007058322565,
+    "share_of_network_nsr": 0.011280707003965022
+   }
+  },
+  "median_sqnr_db": 28.806931719479298,
+  "network_nsr_db": 5.429370251869003
+ },
+ "fp8_e4m3fn": {
+  "cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--fp8_e4m3fn--default--1000--c37ab2eba88a.json",
+  "groups": {
+   "classifier": {
+    "lowest": [
+     [
+      "classifier_3",
+      31.41
+     ],
+     [
+      "avgpool",
+      31.54
+     ],
+     [
+      "classifier_0",
+      31.59
+     ]
+    ],
+    "median_sqnr_db": 31.560972579814795,
+    "min_sqnr_db": 31.40553481560641,
+    "nodes": 4,
+    "nsr_db": 25.772412946314425,
+    "share_of_network_nsr": 0.03305234032620277
+   },
+   "dw_conv": {
+    "lowest": [
+     [
+      "features_14_block_1_0",
+      31.37
+     ],
+     [
+      "features_15_block_1_0",
+      31.37
+     ],
+     [
+      "features_12_block_1_0",
+      31.55
+     ]
+    ],
+    "median_sqnr_db": 31.61855408196194,
+    "min_sqnr_db": 31.366896444694135,
+    "nodes": 9,
+    "nsr_db": 22.126848861640923,
+    "share_of_network_nsr": 0.07651712157041583
+   },
+   "expand_conv": {
+    "lowest": [
+     [
+      "features_12_block_0_0",
+      31.52
+     ],
+     [
+      "features_7_block_0_0",
+      31.53
+     ],
+     [
+      "features_16_0",
+      31.53
+     ]
+    ],
+    "median_sqnr_db": 31.547943846829895,
+    "min_sqnr_db": 31.521716418909847,
+    "nodes": 10,
+    "nsr_db": 21.559852127189348,
+    "share_of_network_nsr": 0.08718831764866325
+   },
+   "hswish": {
+    "lowest": [
+     [
+      "features_7_block_0_2",
+      30.54
+     ],
+     [
+      "features_14_block_1_2",
+      30.62
+     ],
+     [
+      "features_14_block_0_2",
+      30.83
+     ]
+    ],
+    "median_sqnr_db": 31.738635888564787,
+    "min_sqnr_db": 30.54459604464254,
+    "nodes": 19,
+    "nsr_db": 19.285636666200343,
+    "share_of_network_nsr": 0.1471905214493744
+   },
+   "project": {
+    "lowest": [
+     [
+      "features_13_block_3_0",
+      31.53
+     ],
+     [
+      "features_2_block_2_0",
+      31.53
+     ],
+     [
+      "features_12_block_3_0",
+      31.54
+     ]
+    ],
+    "median_sqnr_db": 31.54373391121693,
+    "min_sqnr_db": 31.52657483892218,
+    "nodes": 15,
+    "nsr_db": 19.789575340926724,
+    "share_of_network_nsr": 0.13106477201577513
+   },
+   "relu_act": {
+    "lowest": [
+     [
+      "features_6_block_1_2",
+      31.33
+     ],
+     [
+      "features_4_block_0_2",
+      31.55
+     ],
+     [
+      "features_6_block_0_2",
+      31.58
+     ]
+    ],
+    "median_sqnr_db": 31.6221552833763,
+    "min_sqnr_db": 31.33064782343705,
+    "nodes": 11,
+    "nsr_db": 21.2819656640771,
+    "share_of_network_nsr": 0.09294947563373504
+   },
+   "residual_add": {
+    "lowest": [
+     [
+      "add_8",
+      31.39
+     ],
+     [
+      "add_3",
+      31.51
+     ],
+     [
+      "add_2",
+      31.53
+     ]
+    ],
+    "median_sqnr_db": 31.539859661053548,
+    "min_sqnr_db": 31.386309721581043,
+    "nodes": 10,
+    "nsr_db": 21.5429256020511,
+    "share_of_network_nsr": 0.08752879513355315
+   },
+   "se_expand": {
+    "lowest": [
+     [
+      "features_5_block_2_fc2",
+      31.65
+     ],
+     [
+      "features_11_block_2_fc2",
+      31.84
+     ],
+     [
+      "features_6_block_2_fc2",
+      32.14
+     ]
+    ],
+    "median_sqnr_db": 32.185827553904744,
+    "min_sqnr_db": 31.653630378670208,
+    "nodes": 8,
+    "nsr_db": 23.349394413749174,
+    "share_of_network_nsr": 0.057743628296655795
+   },
+   "se_gate": {
+    "lowest": [
+     [
+      "features_15_block_2_scale_activation",
+      31.34
+     ],
+     [
+      "features_14_block_2_scale_activation",
+      31.77
+     ],
+     [
+      "features_11_block_2_scale_activation",
+      31.87
+     ]
+    ],
+    "median_sqnr_db": 32.060354221527795,
+    "min_sqnr_db": 31.340007543261788,
+    "nodes": 8,
+    "nsr_db": 23.34484696369651,
+    "share_of_network_nsr": 0.05780412268470033
+   },
+   "se_pool": {
+    "lowest": [
+     [
+      "features_11_block_2_avgpool",
+      31.58
+     ],
+     [
+      "features_14_block_2_avgpool",
+      31.67
+     ],
+     [
+      "features_12_block_2_avgpool",
+      31.69
+     ]
+    ],
+    "median_sqnr_db": 31.71975991323564,
+    "min_sqnr_db": 31.579456096207075,
+    "nodes": 8,
+    "nsr_db": 22.71292599399921,
+    "share_of_network_nsr": 0.0668576197825892
+   },
+   "se_product": {
+    "lowest": [
+     [
+      "mul_1",
+      30.15
+     ],
+     [
+      "mul_3",
+      30.41
+     ],
+     [
+      "mul_2",
+      30.67
+     ]
+    ],
+    "median_sqnr_db": 30.791510056034184,
+    "min_sqnr_db": 30.146601995044247,
+    "nodes": 8,
+    "nsr_db": 22.179300310070047,
+    "share_of_network_nsr": 0.07559855239913428
+   },
+   "se_reduce": {
+    "lowest": [
+     [
+      "features_11_block_2_activation",
+      31.46
+     ],
+     [
+      "features_5_block_2_activation",
+      31.53
+     ],
+     [
+      "features_15_block_2_activation",
+      31.54
+     ]
+    ],
+    "median_sqnr_db": 31.55171208944314,
+    "min_sqnr_db": 31.46162233554362,
+    "nodes": 8,
+    "nsr_db": 23.111954374178648,
+    "share_of_network_nsr": 0.06098851698766166
+   },
+   "stem": {
+    "lowest": [
+     [
+      "features_0_2",
+      30.75
+     ],
+     [
+      "x",
+      31.88
+     ],
+     [
+      "features_0_0",
+      32.56
+     ]
+    ],
+    "median_sqnr_db": 31.881554989390047,
+    "min_sqnr_db": 30.75463107070584,
+    "nodes": 3,
+    "nsr_db": 26.896272393851035,
+    "share_of_network_nsr": 0.025516216071539203
+   }
+  },
+  "median_sqnr_db": 31.586071683152948,
+  "network_nsr_db": 10.964435104885403
+ },
+ "int6": {
+  "cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--int6--default--1000--5ddda738bae6.json",
+  "groups": {
+   "classifier": {
+    "lowest": [
+     [
+      "avgpool",
+      8.69
+     ],
+     [
+      "classifier_3",
+      10.77
+     ],
+     [
+      "classifier_0",
+      17.73
+     ]
+    ],
+    "median_sqnr_db": 14.250009878111836,
+    "min_sqnr_db": 8.686649298419706,
+    "nodes": 4,
+    "nsr_db": 6.12212800492471,
+    "share_of_network_nsr": 0.28020641474014835
+   },
+   "dw_conv": {
+    "lowest": [
+     [
+      "features_15_block_1_0",
+      21.33
+     ],
+     [
+      "features_13_block_1_0",
+      21.46
+     ],
+     [
+      "features_14_block_1_0",
+      21.75
+     ]
+    ],
+    "median_sqnr_db": 22.721087593729425,
+    "min_sqnr_db": 21.33495727318756,
+    "nodes": 9,
+    "nsr_db": 14.249442706729386,
+    "share_of_network_nsr": 0.043126737277249805
+   },
+   "expand_conv": {
+    "lowest": [
+     [
+      "features_12_block_0_0",
+      20.14
+     ],
+     [
+      "features_14_block_0_0",
+      21.53
+     ],
+     [
+      "features_15_block_0_0",
+      22.09
+     ]
+    ],
+    "median_sqnr_db": 24.76536418809681,
+    "min_sqnr_db": 20.13713546166191,
+    "nodes": 10,
+    "nsr_db": 13.68698535709866,
+    "share_of_network_nsr": 0.049089921555738526
+   },
+   "hswish": {
+    "lowest": [
+     [
+      "features_16_2",
+      11.91
+     ],
+     [
+      "features_14_block_1_2",
+      13.78
+     ],
+     [
+      "features_15_block_1_2",
+      15.0
+     ]
+    ],
+    "median_sqnr_db": 21.404875127515517,
+    "min_sqnr_db": 11.911822714038841,
+    "nodes": 19,
+    "nsr_db": 6.009882649850134,
+    "share_of_network_nsr": 0.2875428737510724
+   },
+   "project": {
+    "lowest": [
+     [
+      "features_8_block_2_0",
+      14.44
+     ],
+     [
+      "features_9_block_2_0",
+      19.02
+     ],
+     [
+      "features_15_block_3_0",
+      19.89
+     ]
+    ],
+    "median_sqnr_db": 23.413600512908186,
+    "min_sqnr_db": 14.441382240381188,
+    "nodes": 15,
+    "nsr_db": 9.773280758831156,
+    "share_of_network_nsr": 0.12088232318739298
+   },
+   "relu_act": {
+    "lowest": [
+     [
+      "features_1_block_0_2",
+      21.59
+     ],
+     [
+      "features_6_block_1_2",
+      21.88
+     ],
+     [
+      "features_2_block_0_2",
+      26.54
+     ]
+    ],
+    "median_sqnr_db": 32.045383772156185,
+    "min_sqnr_db": 21.588960805406106,
+    "nodes": 11,
+    "nsr_db": 16.75938332915086,
+    "share_of_network_nsr": 0.024196499479227557
+   },
+   "residual_add": {
+    "lowest": [
+     [
+      "add_9",
+      22.65
+     ],
+     [
+      "add_5",
+      24.3
+     ],
+     [
+      "add_8",
+      25.35
+     ]
+    ],
+    "median_sqnr_db": 26.1462425210378,
+    "min_sqnr_db": 22.647681577727425,
+    "nodes": 10,
+    "nsr_db": 15.913057842839326,
+    "share_of_network_nsr": 0.029402556252867196
+   },
+   "se_expand": {
+    "lowest": [
+     [
+      "features_4_block_2_fc2",
+      27.04
+     ],
+     [
+      "features_5_block_2_fc2",
+      30.53
+     ],
+     [
+      "features_6_block_2_fc2",
+      32.47
+     ]
+    ],
+    "median_sqnr_db": 33.63170610328348,
+    "min_sqnr_db": 27.04128291513005,
+    "nodes": 8,
+    "nsr_db": 22.9392488812936,
+    "share_of_network_nsr": 0.0058313080664802175
+   },
+   "se_gate": {
+    "lowest": [
+     [
+      "features_15_block_2_scale_activation",
+      32.97
+     ],
+     [
+      "features_14_block_2_scale_activation",
+      33.22
+     ],
+     [
+      "features_12_block_2_scale_activation",
+      35.79
+     ]
+    ],
+    "median_sqnr_db": 39.149126050661664,
+    "min_sqnr_db": 32.97438100927959,
+    "nodes": 8,
+    "nsr_db": 27.74077335372538,
+    "share_of_network_nsr": 0.0019302498992033342
+   },
+   "se_pool": {
+    "lowest": [
+     [
+      "features_15_block_2_avgpool",
+      16.2
+     ],
+     [
+      "features_14_block_2_avgpool",
+      18.97
+     ],
+     [
+      "features_12_block_2_avgpool",
+      22.31
+     ]
+    ],
+    "median_sqnr_db": 24.107212696669315,
+    "min_sqnr_db": 16.197534822818966,
+    "nodes": 8,
+    "nsr_db": 12.842593051074331,
+    "share_of_network_nsr": 0.05962543613110075
+   },
+   "se_product": {
+    "lowest": [
+     [
+      "mul_6",
+      14.2
+     ],
+     [
+      "mul_7",
+      18.09
+     ],
+     [
+      "mul_4",
+      19.6
+     ]
+    ],
+    "median_sqnr_db": 23.842068903269094,
+    "min_sqnr_db": 14.20148301492737,
+    "nodes": 8,
+    "nsr_db": 11.218479445033761,
+    "share_of_network_nsr": 0.08666483795532025
+   },
+   "se_reduce": {
+    "lowest": [
+     [
+      "features_15_block_2_activation",
+      28.44
+     ],
+     [
+      "features_14_block_2_activation",
+      29.37
+     ],
+     [
+      "features_13_block_2_activation",
+      31.63
+     ]
+    ],
+    "median_sqnr_db": 32.886698546572845,
+    "min_sqnr_db": 28.444754722844074,
+    "nodes": 8,
+    "nsr_db": 23.234768714966666,
+    "share_of_network_nsr": 0.005447710273022811
+   },
+   "stem": {
+    "lowest": [
+     [
+      "features_0_0",
+      25.66
+     ],
+     [
+      "features_0_2",
+      26.69
+     ],
+     [
+      "x",
+      33.77
+     ]
+    ],
+    "median_sqnr_db": 26.694319054998665,
+    "min_sqnr_db": 25.6624776603814,
+    "nodes": 3,
+    "nsr_db": 22.77710770002875,
+    "share_of_network_nsr": 0.0060531314311758275
+   }
+  },
+  "median_sqnr_db": 26.005651095443135,
+  "network_nsr_db": 0.5969087382038709
+ },
+ "int8": {
+  "cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--int8--default--1000--0c58078f4cb6.json",
+  "groups": {
+   "classifier": {
+    "lowest": [
+     [
+      "avgpool",
+      26.42
+     ],
+     [
+      "classifier_3",
+      30.58
+     ],
+     [
+      "classifier_1",
+      33.15
+     ]
+    ],
+    "median_sqnr_db": 31.866888342729702,
+    "min_sqnr_db": 26.42206555345186,
+    "nodes": 4,
+    "nsr_db": 23.98668892913627,
+    "share_of_network_nsr": 0.04437275914816781
+   },
+   "dw_conv": {
+    "lowest": [
+     [
+      "features_14_block_1_0",
+      24.15
+     ],
+     [
+      "features_15_block_1_0",
+      25.87
+     ],
+     [
+      "features_13_block_1_0",
+      28.04
+     ]
+    ],
+    "median_sqnr_db": 29.74395924263152,
+    "min_sqnr_db": 24.154410276506407,
+    "nodes": 9,
+    "nsr_db": 19.626476302474554,
+    "share_of_network_nsr": 0.12109820259089696
+   },
+   "expand_conv": {
+    "lowest": [
+     [
+      "features_12_block_0_0",
+      29.72
+     ],
+     [
+      "features_14_block_0_0",
+      30.85
+     ],
+     [
+      "features_15_block_0_0",
+      31.74
+     ]
+    ],
+    "median_sqnr_db": 33.98348072696449,
+    "min_sqnr_db": 29.71543660184194,
+    "nodes": 10,
+    "nsr_db": 23.112463007125644,
+    "share_of_network_nsr": 0.05426740150437809
+   },
+   "hswish": {
+    "lowest": [
+     [
+      "features_15_block_1_2",
+      22.62
+     ],
+     [
+      "features_14_block_0_2",
+      22.68
+     ],
+     [
+      "features_14_block_1_2",
+      24.06
+     ]
+    ],
+    "median_sqnr_db": 29.610219688634963,
+    "min_sqnr_db": 22.618718156408203,
+    "nodes": 19,
+    "nsr_db": 14.62396261693553,
+    "share_of_network_nsr": 0.38316785316001895
+   },
+   "project": {
+    "lowest": [
+     [
+      "features_8_block_2_0",
+      29.21
+     ],
+     [
+      "features_10_block_2_0",
+      30.18
+     ],
+     [
+      "features_1_block_1_0",
+      31.75
+     ]
+    ],
+    "median_sqnr_db": 33.8470661634027,
+    "min_sqnr_db": 29.209326990054933,
+    "nodes": 15,
+    "nsr_db": 21.446370947449886,
+    "share_of_network_nsr": 0.07964311405374026
+   },
+   "relu_act": {
+    "lowest": [
+     [
+      "features_6_block_1_2",
+      34.23
+     ],
+     [
+      "features_2_block_0_2",
+      36.38
+     ],
+     [
+      "features_5_block_1_2",
+      37.88
+     ]
+    ],
+    "median_sqnr_db": 42.44461540535099,
+    "min_sqnr_db": 34.23058102430496,
+    "nodes": 11,
+    "nsr_db": 29.253328013448645,
+    "share_of_network_nsr": 0.013196310512302386
+   },
+   "residual_add": {
+    "lowest": [
+     [
+      "add_1",
+      35.38
+     ],
+     [
+      "add_9",
+      35.47
+     ],
+     [
+      "add",
+      36.04
+     ]
+    ],
+    "median_sqnr_db": 37.03691042522469,
+    "min_sqnr_db": 35.378516006630164,
+    "nodes": 10,
+    "nsr_db": 26.829189886604183,
+    "share_of_network_nsr": 0.02306037358566709
+   },
+   "se_expand": {
+    "lowest": [
+     [
+      "features_4_block_2_fc2",
+      38.85
+     ],
+     [
+      "features_11_block_2_fc2",
+      40.9
+     ],
+     [
+      "features_5_block_2_fc2",
+      41.99
+     ]
+    ],
+    "median_sqnr_db": 44.06698391651803,
+    "min_sqnr_db": 38.85327418223049,
+    "nodes": 8,
+    "nsr_db": 33.79522555410519,
+    "share_of_network_nsr": 0.004637274153886458
+   },
+   "se_gate": {
+    "lowest": [
+     [
+      "features_15_block_2_scale_activation",
+      44.83
+     ],
+     [
+      "features_14_block_2_scale_activation",
+      45.66
+     ],
+     [
+      "features_12_block_2_scale_activation",
+      47.86
+     ]
+    ],
+    "median_sqnr_db": 50.85393889276334,
+    "min_sqnr_db": 44.831721575196354,
+    "nodes": 8,
+    "nsr_db": 39.777881626021035,
+    "share_of_network_nsr": 0.001169491756182186
+   },
+   "se_pool": {
+    "lowest": [
+     [
+      "features_15_block_2_avgpool",
+      23.76
+     ],
+     [
+      "features_14_block_2_avgpool",
+      28.35
+     ],
+     [
+      "features_12_block_2_avgpool",
+      29.88
+     ]
+    ],
+    "median_sqnr_db": 31.98630300240584,
+    "min_sqnr_db": 23.75584140817446,
+    "nodes": 8,
+    "nsr_db": 20.867872290224774,
+    "share_of_network_nsr": 0.09099092884307125
+   },
+   "se_product": {
+    "lowest": [
+     [
+      "mul_6",
+      22.61
+     ],
+     [
+      "mul_4",
+      23.51
+     ],
+     [
+      "mul_7",
+      23.7
+     ]
+    ],
+    "median_sqnr_db": 32.55117180367458,
+    "min_sqnr_db": 22.606503776222695,
+    "nodes": 8,
+    "nsr_db": 18.08291135372446,
+    "share_of_network_nsr": 0.17278028738001067
+   },
+   "se_reduce": {
+    "lowest": [
+     [
+      "features_13_block_2_activation",
+      37.78
+     ],
+     [
+      "features_15_block_2_activation",
+      39.64
+     ],
+     [
+      "features_14_block_2_activation",
+      40.79
+     ]
+    ],
+    "median_sqnr_db": 44.16019157480882,
+    "min_sqnr_db": 37.777125940272505,
+    "nodes": 8,
+    "nsr_db": 33.24993045538254,
+    "share_of_network_nsr": 0.005257657384264456
+   },
+   "stem": {
+    "lowest": [
+     [
+      "features_0_0",
+      35.0
+     ],
+     [
+      "features_0_2",
+      36.37
+     ],
+     [
+      "x",
+      45.96
+     ]
+    ],
+    "median_sqnr_db": 36.37201528454936,
+    "min_sqnr_db": 34.99943631209667,
+    "nodes": 3,
+    "nsr_db": 32.42441175267795,
+    "share_of_network_nsr": 0.006358345927413453
+   }
+  },
+  "median_sqnr_db": 36.13170774148816,
+  "network_nsr_db": 10.457853273901094
+ }
+}

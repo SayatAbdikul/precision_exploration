@@ -1,0 +1,43 @@
+{
+ "version": "b2-seeds-protocol-v1-erratum-1",
+ "written": "2026-10-02, after review 1 of lane Q5 (artifacts/agent_orchestration/handoffs/Q5-calibration-seeds-review.md); no cell was measured after it and none is planned",
+ "kind": "erratum: records where the protocol, its addendum 1 or the executed analysis differ in wording or detail. It adds no cell, changes no rule and changes no number of results/summaries/b2-seeds-v1/.",
+ "parents": [
+  "public/experiments/configs/breadth-study/b2-seeds-protocol-v1.json (sha256 79c6bbe173b34401b559f55e5692f81f498d972e6a8fc7a9fd4fcc1211ec6e92)",
+  "public/experiments/configs/breadth-study/b2-seeds-protocol-v1-addendum-1.json (sha256 3bdfc7a2f501582dd291c583beb3a68c08e838588a6a7fcd35a2157802667152)"
+ ],
+ "items": [
+  {
+   "where": "addendum 1, field 'why'",
+   "stated": "every 400-image seed scores 4 to 9 points above the 2000-image calibration for fp6_e3m2, log6 and posit6_es1 (default recipe) on ResNet18 and MobileNetV2",
+   "correct": "the five-seed MEANS are above the 2000-image value by +5.89 (fp6_e3m2) and +4.76 (log6) on ResNet18 and by +5.62, +3.83 and +9.33 (fp6_e3m2, log6, posit6_es1) on MobileNetV2; ResNet18 posit6_es1 is not shifted (seeds 58.91 to 60.90 against 59.595, mean +0.33), and single seeds fall below the 2000-image value in two cases (ResNet18 posit6_es1 S0, S2, S4; MobileNetV2 log6 S2 20.06 against 20.34). Per-seed ranges of seed minus 2000-image value: ResNet18 fp6_e3m2 +2.76 to +8.31, log6 +2.27 to +6.35, posit6_es1 -0.68 to +1.30; MobileNetV2 fp6_e3m2 +3.92 to +7.40, log6 -0.28 to +9.00, posit6_es1 +5.83 to +16.31 (results/summaries/b2-seeds-v1/seed-cells.csv). The addendum's cells and analysis are unaffected; only the motivating sentence overstated the observation."
+  },
+  {
+   "where": "addendum 1, field 'written'",
+   "stated": "after 382 of the 426 protocol cells were measured",
+   "correct": "386 cell records under artifacts/experiment_b2_seeds/cells/ have a modification time before the addendum file (09:45:30Z); the count in the addendum was taken a few minutes before the file was saved. No addendum cell is older than the addendum (first addendum cell 10:28Z)."
+  },
+  {
+   "where": "addendum 1 cell records",
+   "stated": "(implicit) cells of the addendum carry the addendum's identity",
+   "correct": "the 36 addendum cell records carry only the v1 protocol sha256 (79c6bbe1...); they are identified as addendum cells by their arm name (addendum_range_only, addendum_bias_only) and their subsets R0..R2 / B0..B2, and by time (10:28Z to 10:44Z, after the addendum file)."
+  },
+  {
+   "where": "protocol v1, outputs",
+   "stated": "cells/<arm>/<model>--<format>--<recipe>--<subset>--<id12>.json",
+   "correct": "the cell records are in one flat folder artifacts/experiment_b2_seeds/cells/<model>--<format>--<recipe>--<subset>--<id12>.json; the arm is given by the subset name and the record's fields."
+  },
+  {
+   "where": "protocol v1, variance decomposition (image variance)",
+   "stated": "image variance = mean over seeds of the paired image-bootstrap variance",
+   "executed": "tools/experiment_b2_seeds/analysis.py v1 (sha256 recorded in results/summaries/b2-seeds-v1/summary.json) reports the mean over seeds of the bootstrap SD",
+   "effect": "checked in artifacts/experiment_b2_seeds/checks/review1-checks-v1.json (tools/experiment_b2_seeds/checks.py): over all 54 seed cells and 96 contrasts, both readouts, the protocol's definition changes the image SD by at most 0.018 pp and the seed share by at most 0.12, both in cells at chance level (MobileNetV2 Posit6 minimal, MobileNetV3-Large NF4 minimal, lowest index; top-1 below 0.2 percent). Under expected credit the largest changes are 0.008 pp and 0.033 (MobileNetV3-Large NF4 minimal, at chance). No reported median or conclusion changes; the v1 summaries are kept."
+  },
+  {
+   "where": "protocol v1, five-seed rule, zero handling",
+   "stated": "a per-seed difference of exactly zero counts as a sign change against any non-zero seed",
+   "executed": "analysis.py v1 takes numpy.sign of the float per-seed mean difference, so an exact zero could come out as +/-4e-17",
+   "effect": "rechecked in exact rational arithmetic (checks.py): 9 per-seed differences are exactly zero (1 under expected credit, ResNet18 INT8 - Posit8 S3; 8 under lowest index); the sign columns of contrasts.csv (consistent after 3 and 5 seeds, needs five after 3 and 5) agree with the exact evaluation in all 192 contrast-readout pairs (0 mismatches). Counts unchanged: sign changes over five seeds 30 (expected) and 34 (lowest index); five seeds needed 81/84 (expected) and 86/87 (lowest index)."
+  }
+ ]
+}

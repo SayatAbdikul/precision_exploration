@@ -1,0 +1,49 @@
+{
+ "version": "b2-attrib-protocol-v1-addendum-2",
+ "lane": "Q4 activation attribution (agent r3)",
+ "written_utc": "2026-10-02T08:05:48+00:00",
+ "amends": {
+  "path": "public/experiments/configs/breadth-study/b2-attrib-protocol-v1.json",
+  "sha256": "f2f3ae1e9753ca5f4f301abde3207de9d259e73f3f63b5e3128bb72151863b92",
+  "addendum_1_sha256": "7ae5f26d1c936f4003d220575dcb7f164a887f469465c92a2bb8e7fd816574aa"
+ },
+ "status": "written before any pcf arm ran; measured before it: the six v1 B arms of MobileNetV3 INT8 (q1 job 1)",
+ "observation_motivating_it": "All four v1 per-channel arms on MobileNetV3 INT8 are below the default (pc:kind.hardswish 69.27, pc:all 69.39, pc:role.se_product 68.33, pc:role.dw_conv 70.70 vs 71.60 top-1 expected). Their scales come from the v1 calibration samples regrouped by channel (about 400-530 samples per channel at 960-1280 channels) with the MSE search anchored at that sparse sample maximum; the screen audit shows clipping (features_16_2 loses 9.4 dB SQNR). This is a calibration defect of the v1 pc arms, not evidence against per-channel codes; the v1 pc results are reported as measured.",
+ "r3_arms": {
+  "pcf_definition": "pcf:TARGET = per-channel activation scales at the TARGET boundaries (same eligibility and folding as pc:), fitted by tools/experiment_b2_attrib/pcfull.py: frozen mse_search per channel on the FP32 activations of the 256 bias-correction calibration images (first 256 of the frozen calibration list), anchored at the exact per-channel max |x|, at most 4096 values per channel (every k-th value in image,row,column order). A boundary named by a pcf term is removed from the arm's affine set.",
+  "arms": [
+   "pcf:role.dw_conv",
+   "pcf:role.se_product",
+   "pcf:kind.hardswish",
+   "pcf:all",
+   "affine:signed+pcf:<best of the four pcf arms on that format>"
+  ],
+  "reserved": "up to 3 further r3 arms chosen from the A1/A2 attribution, written as addendum 3 before they run",
+  "formats": {
+   "mobilenet_v3_large": [
+    "int8",
+    "int6",
+    "fp6_e2m3",
+    "fp8_e4m3fn"
+   ]
+  },
+  "regression": {
+   "mobilenet_v2": [
+    "int8"
+   ],
+   "resnet18": [
+    "int8"
+   ],
+   "arms": [
+    "affine:signed",
+    "pc:all",
+    "pcf:all",
+    "the MobileNetV3 INT8 best combination where its targets exist"
+   ]
+  },
+  "audit": "all arms (occupancy and SQNR on the first 128 screen images)",
+  "selection_note": "'best' = highest top-1 expected on the screen (development evidence; ties by KL). The screen is used both to pick and to report the combination: its number is optimistic by construction and is labelled so."
+ },
+ "hardware_semantics": "affine: per-output-channel term z*sum(w) added to the accumulator (certified width from the B2 weight codes, closed form of tools/scaled_bridge_v2/certificates.py); per-channel: folded exactly into conv/linear consumers (weights re-quantized after folding; depthwise folds are exact per output channel), other consumers (pool, add, mul, hard-sigmoid) need per-channel requantization",
+ "gpu": "low-memory path of addendum 1; at most 2 jobs running or waiting; total job wall cap unchanged (10800 s)"
+}

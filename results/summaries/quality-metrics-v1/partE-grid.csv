@@ -1,0 +1,137 @@
+case,format,W,status,wide_top1,narrowest_measured_W,narrowest_measured_top1,top1,diff_vs_wide,diff_lo,diff_hi,keeps_1pp,keeps_1pp_interval
+resnet18-int8-default-b2,INT8,16,measured,69.05,15,0.1,0.183333,-68.866667,-71.7,-65.95,False,False
+resnet18-int8-default-b2,INT8,17,measured,69.05,15,0.1,24.016667,-45.033333,-48.316667,-41.699583,False,False
+resnet18-int8-default-b2,INT8,18,measured,69.05,15,0.1,67.6,-1.45,-3.0,0.05,False,False
+resnet18-int8-default-b2,INT8,19,measured,69.05,15,0.1,69.033333,-0.016667,-0.8,0.766667,True,True
+resnet18-int8-default-b2,INT8,20,measured,69.05,15,0.1,69.15,0.1,-0.1,0.35125,True,True
+resnet18-int8-default-b2,INT8,21,measured,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,22,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,23,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,24,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,25,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,26,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,27,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,28,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,29,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,30,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,31,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default-b2,INT8,32,exact_by_no_event,69.05,15,0.1,69.05,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,16,measured,69.058333,14,0.1,2.366667,-66.691667,-69.541667,-63.691667,False,False
+resnet18-int8-default_signed-b2,INT8 signed act.,17,measured,69.058333,14,0.1,48.666667,-20.391667,-23.333333,-17.516667,False,False
+resnet18-int8-default_signed-b2,INT8 signed act.,18,measured,69.058333,14,0.1,68.166667,-0.891667,-2.175208,0.391667,True,False
+resnet18-int8-default_signed-b2,INT8 signed act.,19,measured,69.058333,14,0.1,68.77,-0.288333,-0.971667,0.415,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,20,measured,69.058333,14,0.1,68.941667,-0.116667,-0.416667,0.15,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,21,measured,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,22,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,23,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,24,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,25,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,26,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,27,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,28,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,29,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,30,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,31,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int8-default_signed-b2,INT8 signed act.,32,exact_by_no_event,69.058333,14,0.1,69.058333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,16,measured,65.908333,11,0.1204,66.356667,0.448333,0.02,0.891708,True,True
+resnet18-int6-default-b2,INT6,17,measured,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,18,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,19,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,20,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,21,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,22,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,23,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,24,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,25,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,26,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,27,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,28,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,29,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,30,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,31,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-int6-default-b2,INT6,32,exact_by_no_event,65.908333,11,0.1204,65.908333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,16,measured,66.528333,12,0.1,65.203333,-1.325,-2.51,-0.13325,False,False
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,17,measured,66.528333,12,0.1,66.511667,-0.016667,-0.775,0.735,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,18,measured,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,19,measured,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,20,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,21,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,22,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,23,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,24,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,25,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,26,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,27,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,28,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,29,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,30,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,31,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp6_e2m3-default-b2,FP6 E2M3,32,exact_by_no_event,66.528333,12,0.1,66.528333,0.0,0.0,0.0,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,16,collapsed_not_measured,67.289167,19,0.1,,,,,False,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,17,collapsed_not_measured,67.289167,19,0.1,,,,,False,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,18,collapsed_not_measured,67.289167,19,0.1,,,,,False,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,19,measured,67.289167,19,0.1,0.1,-67.189167,-69.860979,-64.418333,False,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,20,measured,67.289167,19,0.1,0.1,-67.189167,-69.876708,-64.414062,False,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,21,measured,67.289167,19,0.1,16.304286,-50.984881,-53.996682,-47.925655,False,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,22,measured,67.289167,19,0.1,61.77,-5.519167,-7.336708,-3.726667,False,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,23,measured,67.289167,19,0.1,67.200952,-0.088214,-1.066452,0.891673,True,False
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,24,measured,67.289167,19,0.1,67.394444,0.105278,-0.758333,0.948611,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,25,measured,67.289167,19,0.1,66.955833,-0.333333,-0.616667,-0.1,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,26,measured,67.289167,19,0.1,67.289167,0.0,0.0,0.0,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,27,exact_by_no_event,67.289167,19,0.1,67.289167,0.0,0.0,0.0,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,28,exact_by_no_event,67.289167,19,0.1,67.289167,0.0,0.0,0.0,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,29,exact_by_no_event,67.289167,19,0.1,67.289167,0.0,0.0,0.0,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,30,exact_by_no_event,67.289167,19,0.1,67.289167,0.0,0.0,0.0,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,31,exact_by_no_event,67.289167,19,0.1,67.289167,0.0,0.0,0.0,True,True
+resnet18-fp7_e3m3-default-b2,FP7 E3M3,32,exact_by_no_event,67.289167,19,0.1,67.289167,0.0,0.0,0.0,True,True
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,16,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,17,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,18,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,19,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,20,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,21,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,22,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,23,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,24,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,25,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,26,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,27,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,28,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,29,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,30,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,31,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-fp8_e4m3fn-default-b2,FP8 E4M3,32,collapsed_not_measured,67.6025,35,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,16,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,17,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,18,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,19,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,20,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,21,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,22,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,23,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,24,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,25,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,26,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,27,collapsed_not_measured,69.653333,28,0.1,,,,,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,28,measured,69.653333,28,0.1,0.1,-69.553333,-72.253333,-66.756667,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,29,measured,69.653333,28,0.1,0.1,-69.553333,-72.25,-66.77325,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,30,measured,69.653333,28,0.1,1.35,-68.303333,-71.073583,-65.453333,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,31,measured,69.653333,28,0.1,51.44,-18.213333,-20.971708,-15.466542,False,False
+resnet18-posit8_es1-default-b2,Posit8 es1,32,measured,69.653333,28,0.1,68.825,-0.828333,-1.941667,0.273375,True,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,16,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,17,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,18,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,19,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,20,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,21,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,22,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,23,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,24,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,25,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,26,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,27,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,28,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,29,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,30,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,31,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False
+resnet18-fp8_e5m2-default-b2,FP8 E5M2,32,collapsed_not_measured,60.908337,61,0.114286,,,,,False,False

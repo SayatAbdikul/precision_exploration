@@ -1,0 +1,50 @@
+{
+ "id": "accumulator-sweep-mn-protocol-v1-addendum-4",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1.json",
+  "sha256": "c7b76f02a24fc1dd827ff7d023dd6b4b56a54becc6c201ab19de610c68726ed0"
+ },
+ "previous_addenda": [
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-1.json",
+   "sha256": "a88f6ede63e37d3cde05c7af45fba90d200794ee7dfc18b9cfa480534a30435f"
+  },
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-2.json",
+   "sha256": "bccd3935c1de8c34872e3194a089164f422b366b75f2f668c2c85f4253ad145d"
+  },
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-3.json",
+   "sha256": "d0ec65d12a267d4c77cd3e38a4f61c4d680e812a99563c1399f53b23d6e12be6"
+  }
+ ],
+ "written": "2026-10-02 17:26:49 +0500",
+ "written_before": "the first archive slot job and the first K3 anchor call; after 136 fast calls (K2 of the 8 gated cases, their location phases and priority-2 1k grids; 0 failures, 0 differences) and one single archive call (mobilenet_v2-int6 sat.w20 0-128, launched 17:23:54 by the runner of addendum 3)",
+ "cases_added": [],
+ "deviations": [
+  {
+   "what": "archive runs inside slot jobs (mechanics only)",
+   "rule": "The archive's runs (the two ungated cases, addendum-2 tiles unchanged) and the K3 anchor calls are made like the fast runs: one GPU job (tools/run/accumulator_sweep_mn_fastjob.py --engine archive inside gpu_run.sh --min-free-mib 3000) runs successive archive calls ($M/run.sh predict ... --batch 8, PYTHONDONTWRITEBYTECODE=1, one process per call) for at most 720 s of new calls, rebuilding the queue after each call. Reason: the fast cases' location and priority-2 grids finished in 15 minutes, while each single archive call waits about 10 minutes for a GPU slot; the two ungated cases' remaining ~60 calls would otherwise take most of a day. Which runs are made is unchanged."
+  },
+  {
+   "what": "budget accounting of archive calls inside slot jobs",
+   "rule": "Counted by the job's wall time (logs/fast-jobs.jsonl, engine 'archive'), as fast jobs are; their per-call logs go to logs/jobarchive/<case>/ (not logs/<case>/), so the first runner's ledger rule does not count them a second time. Single archive calls of earlier runners keep the addendum-1/2 rule."
+  },
+  {
+   "what": "jobs per engine",
+   "rule": "At most 2 GPU jobs of the lane at a time (unchanged); the runner starts at most one new slot job per engine per pass, a second one of the same engine only when at least 6 runs of that engine are queued."
+  },
+  {
+   "what": "log names",
+   "rule": "Slot-job logs are logs/run2-fastjobs/<time>-<engine>-<n>.log (addendum 3's runner wrote two jobs started in the same second into one file: cosmetic, both calls lists are complete)."
+  }
+ ],
+ "code_sha256": {
+  "tools/accumulator_sweep_mn/fast.py": "85a9faf5da3e6ae9aecf706e4e2c59bd31a90f0497a3c8e35d72a7842ab3e8b7",
+  "tools/accumulator_sweep_mn/sched.py": "1d72595f2a0b9bbea78da213c2ddd7ce6195d0e178f2aadd75c717dacd9594f4",
+  "tools/run/accumulator_sweep_mn_run2.py": "90efac3fbc59abc170bb2346afcdf083f2e52d46ec1311c78ea65ae03f8dfe7e",
+  "tools/run/accumulator_sweep_mn_fastjob.py": "5af0d1ebfebd371857fbde6bb5e2cade57b9d0b55742ec064dae88644a4b9024",
+  "tools/run/accumulator_sweep_mn_k4.py": "acdcaa1f300d3c20c551b1910061d3009a4cc1d7327b3dbd13ebde748e02470d",
+  "tools/accumulator_sweep_mn/analysis2.py": "165dc8a2c898a5f6a34d6b23e254d08535d1c204126968df6c4714e77ed3be80"
+ }
+}

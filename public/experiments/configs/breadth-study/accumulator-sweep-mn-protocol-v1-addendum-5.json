@@ -1,0 +1,40 @@
+{
+ "id": "accumulator-sweep-mn-protocol-v1-addendum-5",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1.json",
+  "sha256": "c7b76f02a24fc1dd827ff7d023dd6b4b56a54becc6c201ab19de610c68726ed0"
+ },
+ "previous_addenda": [
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-1.json",
+   "sha256": "a88f6ede63e37d3cde05c7af45fba90d200794ee7dfc18b9cfa480534a30435f"
+  },
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-2.json",
+   "sha256": "bccd3935c1de8c34872e3194a089164f422b366b75f2f668c2c85f4253ad145d"
+  },
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-3.json",
+   "sha256": "d0ec65d12a267d4c77cd3e38a4f61c4d680e812a99563c1399f53b23d6e12be6"
+  },
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-4.json",
+   "sha256": "e602ebe4669b55d345f757fd713663d1b61d20c94b4430701def596c50b4235c"
+  }
+ ],
+ "written": "2026-10-02 17:52:01 +0500",
+ "cases_added": [],
+ "deviations": [
+  {
+   "what": "K4 round 1 result file (bookkeeping bug, no measurement affected)",
+   "rule": "tools/run/accumulator_sweep_mn_k4.py `run` recomputed all 11 sampled fast 1k files at batch 5 in the scratch root and printed 11 x status pass, then failed to write its result file (relative plan path). Fixed (plan path resolved) and a CPU mode `compare` added that compares the existing repeat files with the fast files; it wrote artifacts/accumulator_sweep_mn_v1/k4/k4-round1-result-175140.json (11/11 pass, 11,000 records identical, nodes equal). Later rounds use the fixed `run`."
+  },
+  {
+   "what": "K4 GPU time",
+   "rule": "The K4 job is entered in logs/fast-jobs.jsonl as job k4-round1 with begin = end - (sum of per-file seconds) - 30 s (204 s); later K4 rounds likewise."
+  }
+ ],
+ "code_sha256": {
+  "tools/run/accumulator_sweep_mn_k4.py": "c7508d5b835553f0f68549e1f305ff0685febf1cc0b6eeba70dbcc6017e1f7e9"
+ }
+}

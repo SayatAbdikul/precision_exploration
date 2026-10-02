@@ -1,0 +1,73 @@
+{
+  "protocol": "b2-axe-protocol-v1",
+  "lane": "Q8 accumulator-aware PTQ at equal accumulator width",
+  "written": "2026-10-02, before any measurement of this lane",
+  "evidence_class": "development evidence: every accuracy is on the frozen 1k ImageNet screen (imagenet_screen_1k, all 1000 images, which contains dev512 on which the B2 recipe was chosen). No held-out image is read. Calibration uses only the first 256 images of the frozen calibration list (imagenet_calibration_2k, sha256 order) from the existing B2 input cache, build=False.",
+  "question": "Does accumulator-aware PTQ (AXE, Colbert et al. arXiv:2409.17092v1), which constrains the integer weights so that a signed P-bit register can never overflow, keep more Top-1 than a saturating P-bit register (lane L8, sat.wP) at the same P, and where does it sit relative to the certified lossless width?",
+  "cases": {
+    "primary": [
+      {"id": "resnet18-int8", "model": "resnet18", "weight_format": "int8", "activation_format": "int8", "recipe": "default", "N": 8, "M": 8, "P": [27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14], "l8_case": "resnet18-int8-default-b2"},
+      {"id": "resnet18-int6", "model": "resnet18", "weight_format": "int6", "activation_format": "int6", "recipe": "default", "N": 6, "M": 6, "P": [23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11], "l8_case": "resnet18-int6-default-b2"}
+    ],
+    "optional_if_time": [
+      {"id": "resnet18-w4a8", "model": "resnet18", "weight_format": "int4", "activation_format": "int8", "recipe": "default_no_bias_correction", "N": 8, "M": 4, "note": "no saturating comparator exists (L8 has no W4A8 case); reported against its own wide arms only; bias correction off because B2 bias correction collapses W4A8 to one class (lane L6, doc b2-reconstruction-baseline section 3)"},
+      {"id": "mobilenet_v2-int8", "note": "only if lane Q1's saturating MobileNetV2 summaries exist; needs its own addendum before running"}
+    ]
+  },
+  "recipe": "B2 frozen recipe 'default' (tools/experiment_b2/frozen.py) unchanged: fused_relu boundaries, unsigned activation codes behind ReLU-class producers (integers), MSE-searched per-tensor activation scales from the v1 calibration observations, MSE-searched per-output-channel weight scales s_c computed by B2 on the folded FP32 weights, and B2 empirical bias correction (first 256 calibration images, sequential) applied AFTER the weight integers are fixed, in every arm. Weight scales and activation scales are identical in all arms of a case; only the weight integers differ.",
+  "register_semantics": "As the exact engine's sat.wP (contract 2.1): one signed two's-complement P-bit register per output element at every one of the 21 MAC nodes (20 convolutions and the fc layer), range [-2^(P-1), 2^(P-1)-1], accumulating integer products a*q on the product grid; the bias is added outside the register; residual adds are not MAC registers.",
+  "overflow_bound_enforced": {
+    "per_channel_quantities": "for the integer weights q of output channel c of a MAC node: beta_c = sum of the positive q, alpha_c = sum of the negative q (alpha_c <= 0)",
+    "input_ranges": "unsigned N-bit codes [0, 2^N-1] at every MAC input behind a ReLU-class producer or the unsigned average pool (all nodes except conv1); signed N-bit codes [-2^(N-1), 2^(N-1)-1] at conv1 (image input). In both cases nu - mu = 2^N - 1 and mu <= 0 <= nu.",
+    "bound": "beta_c <= (2^(P-1)-1)/(2^N-1) and -alpha_c <= (2^(P-1)-1)/(2^N-1) for every channel c of every MAC node (AXE Eq. 17 and its negative counterpart; Eq. 21 budgets with max(Delta)=0.5 for round-to-nearest).",
+    "why_it_covers_every_prefix": "Any partial sum S over any subset of the K terms (hence every prefix of the sequential sum in any order, padded positions contributing 0) satisfies S <= nu*beta_c + |mu|*(-alpha_c) <= (nu - mu) * max(beta_c, -alpha_c) <= 2^(P-1)-1 and S >= -(|mu|*beta_c + nu*(-alpha_c)) >= -(2^(P-1)-1). For unsigned inputs (mu=0) this is AXE Eqs. 7-8 exactly; for conv1 (signed input) it is the sufficient per-sign form of Eqs. 7-8 that AXE's separate A and B budgets enforce. The bias is outside the register (engine semantics) so bias correction cannot affect the bound.",
+    "certificate_check": "From the constrained integer weights, the engine's own closed-form certificate (tools.scaled_bridge_v2.certificates.certify, imported read-only, applied in memory to the adapted export of the case with the weight integers replaced) must give signed_bits_structural <= P and signed_bits_range <= P at every node. signed_bits_absolute (v1 definition, max|a|*sum|q| + sign) is reported but is not the guarantee: it ignores one-sidedness and may be P+1."
+  },
+  "methods": {
+    "axe": {
+      "name": "AXE on OPTQ (Algorithm 2 of arXiv:2409.17092v1)",
+      "faithful_parts": [
+        "per output channel, weights in units of the fixed per-channel scale (q_i integer codes of the B2 signed codebook)",
+        "soft constraint: Pi_lambda(x) = sign(x)(|x|-lambda)_+ with lambda per channel from Eq. 16 (Euclidean projection of the original weights onto the l1 ball of radius Z), derived once before the sequential loop",
+        "Z = (2^P - 2)/(2^N - 1) in code units (Eq. 4; 'up to a scaling' = the per-channel scale s_c in real units)",
+        "hard constraint: V_i = clip(Pi_lambda(W_i); a, b) with running budgets a = A - alpha_i, b = B - beta_i, -A = B = (2^(P-1)-1)/(2^N-1) - 0.5 (Eq. 19-21); Q_i = round-to-nearest (ties to even, as the B2 integer codebook) clipped to the codebook range",
+        "OPTQ error update with the quantized Q_i: E = (W_i - Q_i)/Hinv_ii, W_(i:K) -= E Hinv_(i,i:K) (Alg. 2 lines 9-10), Hinv = upper Cholesky factor of (2 X X^T + eta I)^-1, eta = 1% of the mean diagonal (App. C, following OPTQ)",
+        "processing order: descending diagonal of the Hessian proxy (App. C, 'act order')",
+        "sequential: X for layer l is the input of layer l in the deployed B2 simulator with layers 1..l-1 already replaced by their constrained integer weights and activations quantized by the B2 recipe (GPFQ/OPTQ X-tilde); bias correction is applied once after all layers are fixed (App. C: 'before finally applying bias correction')"
+      ],
+      "adapted_parts": [
+        "calibration: 256 images (the B2 bias-correction set), not the paper's 1000 (one image per class)",
+        "quantizer: B2's per-channel MSE-searched weight scales and B2 activation recipe (unsigned codes, MSE scales), not the paper's max-scaled weights (Eq. 27) and asymmetric 99th-percentile activations",
+        "every MAC node including conv1 and fc is constrained to the same P and uses the case's formats (the paper holds input and output layers at 8 bits); this is required for an equal-width comparison with sat.wP, which clamps every node",
+        "the budget update follows Eq. 19-20 (b decreases by positive Q, a by negative Q); Alg. 2 lines 11-12 print the two indicator labels the other way round, read as a typesetting slip",
+        "OPTQ lazy batch updates in blocks of 128 columns (mathematically the same updates as Alg. 2); input channels with zero Hessian diagonal get weight 0 and H_ii = 1 as in the OPTQ reference code; Hessian accumulated in float64 from float32 inputs"
+      ]
+    },
+    "naive": {
+      "name": "projection and clipping without error compensation (data-free)",
+      "definition": "the same Pi_lambda (same lambda, Eq. 16, same Z) and the same greedy hard clip and budgets as axe, applied to the original weights in natural index order, then round-to-nearest; no OPTQ update and no calibration data. It enforces exactly the same bound."
+    },
+    "optq": {"name": "unconstrained OPTQ", "definition": "axe with lambda = 0 and no clip (P = infinity); same order, damping and calibration"},
+    "rtn": {"name": "B2 default (unconstrained round-to-nearest)", "definition": "the B2 default network itself; must reproduce the sealed B2 top-5 lists on the 1k screen (redirected-cell test)"},
+    "sat": {"name": "saturating register sat.wP", "source": "lane L8 sealed exact-engine predict files (tools.accumulator_sweep_v1.load.assemble, read-only), 1000 images; widths above the measured bracket (INT8 > 21, INT6 > 17) equal the exact wide arm because no saturation event occurs there (L8 W_noevent)"},
+    "ep_init": {"status": "not run in v1", "reason": "AXE's own ablation (App. C.2, Table 2) shows EP-init below AXE; budget kept for the two primary cases"}
+  },
+  "evaluation": {
+    "simulator": "B2 FP32 simulator (tools.experiment_b2.engine.B2Interpreter), wide accumulator. Because the constrained integers cannot overflow a P-bit register, the wide simulator computes what a P-bit register would compute (up to the simulator's FP32-versus-exact difference, measured by L8 at about +-0.3 points).",
+    "images": "imagenet_screen_1k, all 1000, B2 inference batch size",
+    "scores": "Top-1 under both tie rules (tie-aware expected credit; lowest-index maximum), via tools.experiment_b2_recon.evaluate.readout (imported read-only)",
+    "integer_check": "on the first 32 screen images, for every constrained arm and every MAC node: the input codes are recovered from the simulator's stored activations (value/scale must be integral), and (i) the order-free bounds sum_k max(0, a_k q_k) <= 2^(P-1)-1 and sum_k min(0, a_k q_k) >= -2^(P-1) for every output element, computed exactly in float64 on integers, and (ii) every literal prefix sum in the PyTorch tap order (input channel, kernel row, kernel column) in int32 on the GPU, must lie in the P-bit range; maxima and minima are recorded per node. Positive control: the same check on the rtn arm must find violations at narrow P.",
+    "statistics": "paired per image on the same 1000 images: expected credit with tools.analysis.b2_ties.paired, lowest index with tools.analysis.b_stage_balanced_comparisons.paired_outcomes (exact McNemar p); 95% pointwise paired bootstrap, 10000 resamples, seed 20260927; no multiplicity correction (stated).",
+    "comparisons": [
+      "axe(P) and naive(P) against rtn (same simulator, paired) -- primary reference 'unconstrained wide arm'",
+      "axe(P) against optq (cost of the constraint for the same algorithm)",
+      "sat.wP against L8's exact wide arm (as in L8)",
+      "axe(P) against sat.wP directly (paired across evaluators; carries the simulator-versus-exact difference)"
+    ],
+    "derived_width": "P_acc(1.0) per method = the narrowest P such that expected-credit Top-1 >= reference - 1.0 point at P and at every wider measured P (the L8 definition, tools.accumulator_sweep_v1.score.derived); also P_acc(0.5) and the lowest-index version.",
+    "skip_rule": "if the integer weights of axe(P) equal those of optq (or naive(P) those of rtn) element for element, the arm is recorded as identical by weight digest and is not evaluated again"
+  },
+  "storage": "per arm: one sealed JSON record and one compressed npz of per-image readouts (int16/uint8) under artifacts/experiment_b2_axe/evals/<case>/; weight integers are stored (int8, compressed) only for rtn, optq, and the axe and naive arms at the narrowest P within 1 point and one P below it; every arm records the sha256 of its weight integers and per-channel beta/alpha. Lane budget 0.15 GB.",
+  "budget": "about 1.5 GPU-hours; at most 2 jobs of this lane at once through gpu_run.sh with GPU_LANE=Q8, each under about 15 minutes",
+  "limits_stated_in_advance": ["one network (ResNet18), integer formats only, one calibration draw of 256 images, one OPTQ order", "development evidence on the 1k screen", "simulator (FP32) for axe/naive/optq/rtn versus exact engine for sat"]
+}

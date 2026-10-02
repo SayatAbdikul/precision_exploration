@@ -1,0 +1,135 @@
+{
+ "id": "accumulator-sweep-mn-protocol-v1-addendum-3",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1.json",
+  "sha256": "c7b76f02a24fc1dd827ff7d023dd6b4b56a54becc6c201ab19de610c68726ed0"
+ },
+ "previous_addenda": [
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-1.json",
+   "sha256": "a88f6ede63e37d3cde05c7af45fba90d200794ee7dfc18b9cfa480534a30435f"
+  },
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-2.json",
+   "sha256": "bccd3935c1de8c34872e3194a089164f422b366b75f2f668c2c85f4253ad145d"
+  }
+ ],
+ "written": "2026-10-02 17:09:27 +0500",
+ "written_before": "the first call of this lane through the fast path (no fast file of this lane exists; the first runner, PID 308537, had ended by 17:07 with no call in flight)",
+ "cases_added": [],
+ "summary": "From now on the remaining runs of the gated cases go through lane S1's fast exact-engine path, which the four-reviewer combined verdict (artifacts/agent_orchestration/handoffs/S1-engine-review.md, COMBINED VERDICT; reviewer D's list 'What lane Q1 must do to switch') approves as bit-identical to the 1f75c923 archive under conditions K1-K5. No rule of the protocol (location ladder, refinement, bracket, grid, extension rules, statistics) changes; only the engine path, the call mechanics and the budget accounting do.",
+ "engine": {
+  "fast": {
+   "path": "artifacts/speed_v1/implementations/edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b/run.sh",
+   "engine_sources": "edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b",
+   "base_engine_sources": "1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863",
+   "run_root": "artifacts/speed_v1/runs/edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b",
+   "command": "GPU_LANE=Q1 artifacts/agent_orchestration/gpu_run.sh --min-free-mib 3000 --wait 7200 .venv/bin/python -m tools.run.accumulator_sweep_mn_fastjob (each call inside: PYTHONDONTWRITEBYTECODE=1 $F/run.sh predict CASE POLICY cuda START STOP --batch 8)",
+   "manifest_sha256": "662665e68eb9a790fbc451b9c06a147a5fb2ab4f0189080bc7c9f617dd521fc6"
+  },
+  "archive": {
+   "path": "artifacts/scaled_bridge_v2/implementations/1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863/run.sh",
+   "engine_sources": "1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863",
+   "run_root": "artifacts/scaled_bridge_v2/runs/1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863",
+   "command": "GPU_LANE=Q1 artifacts/agent_orchestration/gpu_run.sh --min-free-mib 3000 --wait 7200 $M/run.sh predict CASE POLICY cuda START STOP --batch 8 (PYTHONDONTWRITEBYTECODE=1)"
+  },
+  "certificates": "always from the 1f75c923 run root (the fast path writes none)",
+  "versions_required": {
+   "torch": "2.3.0+cu121",
+   "numpy": "1.26.4",
+   "cuda_runtime": "12.1",
+   "driver": "595.91.07"
+  }
+ },
+ "routing": {
+  "fast": [
+   "mobilenet_v2-int8-default-b2",
+   "mobilenet_v2-fp6_e2m3-default-b2",
+   "mobilenet_v2-fp7_e3m3-default-b2",
+   "mobilenet_v2-fp8_e4m3fn-default-b2",
+   "mobilenet_v3_large-int8-default-b2",
+   "mobilenet_v3_large-int6-default-b2",
+   "mobilenet_v3_large-fp6_e2m3-default-b2",
+   "mobilenet_v3_large-fp8_e4m3fn-default-b2"
+  ],
+  "archive_until_fast_gate": [
+   "mobilenet_v2-int6-default-b2",
+   "mobilenet_v3_large-fp7_e3m3-default-b2"
+  ],
+  "rule": "A case runs on the fast path when artifacts/speed_v1/runs/<edfecd5c>/<case>/gate.json exists and passes, and only after its check K2 passed; otherwise on the archive. A case that gains its fast gate moves to the fast path after its own K2 (decided at every pass of the runner, tools/accumulator_sweep_mn/sched.py build_queue).",
+  "already_on_archive": {
+   "all ten cases": "wide and control 0-1000 (priority 1, addendum-2 tiles)",
+   "mobilenet_v2-int8-default-b2 location tile 0-128": [
+    "f21.x-9-cuda-00000-00128.json",
+    "fp16.x-10-cuda-00000-00128.json",
+    "fp16.x-11-cuda-00000-00128.json",
+    "fp16.x-12-cuda-00000-00128.json",
+    "fp16.x-6-cuda-00000-00128.json",
+    "fp16.x-7-cuda-00000-00128.json",
+    "fp16.x-8-cuda-00000-00128.json",
+    "sat.struct-1-cuda-00000-00128.json",
+    "sat.struct-2-cuda-00000-00128.json",
+    "sat.w14-cuda-00000-00128.json",
+    "sat.w16-cuda-00000-00128.json",
+    "sat.w18-cuda-00000-00128.json",
+    "sat.w20-cuda-00000-00128.json",
+    "sat.w22-cuda-00000-00128.json",
+    "sat.w24-cuda-00000-00128.json"
+   ]
+  }
+ },
+ "batch": 8,
+ "tiles": "Archive calls keep the addendum-2 tiles (128/564/1000). A fast run is ONE call over its whole range: 0-128 for a location run, 0-1000 for a 1k run, even where an archive 0-128 location file of the same policy exists (the fast 1k file then re-measures images 0-127, which is compared with the archive file by the cross-root check). A failed fast call leaves no file and costs about 20 s, so the tile split is not needed.",
+ "assembly": "A (case, policy, range) is assembled from the 1f75c923 root alone if it covers the range, else from the fast root alone, else from both (tools/accumulator_sweep_mn/fast.py choose/assemble); archive files must carry engine_sources 1f75c923, fast files engine_sources edfecd5c with base_engine_sources 1f75c923 and the fast execution_path; every summary row lists its file references with root and engine identity. The two 64-image files lane S1 made in the fast root (mobilenet_v3_large-int8 sat.w14 0-64, mobilenet_v2-fp6_e2m3 sat.struct-2 0-64) are admitted by the same rule but are never chosen when a longer file covers the range.",
+ "fast_jobs": "A fast GPU job holds one gpu_run slot for at most 720 s of new calls (one fast process per call, the fast CLI takes one case and policy) and rebuilds the protocol queue after every call, so the location ladder advances by one rung per call instead of one rung per slot wait. Concurrency of two jobs is resolved by claim files (artifacts/accumulator_sweep_mn_v1/claims/). Which runs are made is decided by the protocol's rules on sealed results only, as before.",
+ "budget": "14 GPU job-hours unchanged. Archive calls: the addendum-1/2 rule (1f75c923 engine-ledger wall_seconds of this lane's calls). Fast jobs: the wall time of each fast job from its start inside gpu_run (i.e. after admission) to its end record (artifacts/accumulator_sweep_mn_v1/logs/fast-jobs.jsonl; to the last call record if a job died), including per-call process setup and idle time; the fast engine ledger is not used (it has no label). K2, K3 and K4 jobs count. A priority-3/4 fast call is launched while the sum is below 14 h minus 40 s.",
+ "checks": {
+  "K1": "Before every runner start (and the manifest part before every fast job): sha256 of the 14 files of the fast archive's manifest.json, `run.sh root` ends in edfecd5c..., torch/NumPy/CUDA-runtime/driver versions equal versions_required; PYTHONDONTWRITEBYTECODE=1. Records: artifacts/accumulator_sweep_mn_v1/checks/k1-*.json.",
+  "K2": "Per gated case before any other fast run of it: fast wide and control 0-1000 against this lane's archive files (all 1,000 images, every field of every image record, node tables). Records: checks/k2-<case>.json.",
+  "K3": {
+   "rule": "Per gated case once its location phase is complete: archive anchors with the archive's own run.sh on 32 images [s, s+32) of the location tile: (1) the widest location width with an event, (2) one further policy of the case's 1k grid drawn with the seed (wide, control and (1) excluded; sorted names; random.Random(f'{seed}:{case}:policy').choice), (3) on a sensitivity case whose f21.x<e> location run was made on the fast path, that policy. An existing archive file covering [s, s+32) is the anchor (no new call). Compared with the fast records of the same images (location or 1k file) as soon as both exist. Records: checks/k3-<case>-<policy>.json.",
+   "seed": 3102001,
+   "start_rule": "s = random.Random(f'{seed}:{case}:start').randrange(0, 97)",
+   "starts": {
+    "mobilenet_v2-int8-default-b2": 94,
+    "mobilenet_v2-int6-default-b2": 39,
+    "mobilenet_v2-fp6_e2m3-default-b2": 11,
+    "mobilenet_v2-fp7_e3m3-default-b2": 24,
+    "mobilenet_v2-fp8_e4m3fn-default-b2": 84,
+    "mobilenet_v3_large-int8-default-b2": 6,
+    "mobilenet_v3_large-int6-default-b2": 95,
+    "mobilenet_v3_large-fp6_e2m3-default-b2": 3,
+    "mobilenet_v3_large-fp7_e3m3-default-b2": 51,
+    "mobilenet_v3_large-fp8_e4m3fn-default-b2": 40
+   }
+  },
+  "K3_plus": "Every (gated case, policy) with files in both roots: all overlapping image records compared (checks/xroot-*.json), every 30 min of the runner and at its end.",
+  "K4": {
+   "rule": "In rounds (after the priority-2 grid and at the end): of this lane's fast 1k files not sampled before, the ceil(10 %) with the smallest int(sha256(f'{seed}:{case}:{policy}:{start}:{stop}')) recomputed in a second process (tools/run/accumulator_sweep_mn_k4.py run) at batch 5 into the scratch root artifacts/accumulator_sweep_mn_v1/k4/speed (the archived fast package with its speed root redirected inside that process) and compared field by field (images, nodes).",
+   "seed": 3102002,
+   "batch": 5
+  },
+  "K5": "A non-zero exit leaves no file and is retried by a later job (a (case, policy) is given up after 5 failed calls and reported); fast files stay under the fast root and are never copied; fast GPU seconds are accounted as above; this addendum precedes the first fast call.",
+  "on_difference": "Any difference in K2, K3, K3_plus or K4 writes artifacts/accumulator_sweep_mn_v1/FAST-HALT: fast jobs stop before their next call, the runner launches nothing more; all files are kept; the lane returns blocked with the evidence."
+ },
+ "reporting": "Summaries and the document give, per file, the engine identity (engine_sources, base_engine_sources, execution path). Timing statements about the exact engine use the archive's numbers (archive files' execution_seconds), never the fast path's.",
+ "code": {
+  "new": [
+   "tools/accumulator_sweep_mn/fast.py",
+   "tools/accumulator_sweep_mn/sched.py",
+   "tools/run/accumulator_sweep_mn_run2.py",
+   "tools/run/accumulator_sweep_mn_fastjob.py",
+   "tools/run/accumulator_sweep_mn_k4.py"
+  ],
+  "sha256": {
+   "tools/accumulator_sweep_mn/fast.py": "85a9faf5da3e6ae9aecf706e4e2c59bd31a90f0497a3c8e35d72a7842ab3e8b7",
+   "tools/accumulator_sweep_mn/sched.py": "1d72595f2a0b9bbea78da213c2ddd7ce6195d0e178f2aadd75c717dacd9594f4",
+   "tools/run/accumulator_sweep_mn_run2.py": "57c914b3fa0dd977f540892b88c3afd51fa379d00b923d8873d4e226f08ceb2f",
+   "tools/run/accumulator_sweep_mn_fastjob.py": "e62c95a760c662e44236353cf6e543a23e4e30aab36afbbe6b52c72d7572e2ae",
+   "tools/run/accumulator_sweep_mn_k4.py": "acdcaa1f300d3c20c551b1910061d3009a4cc1d7327b3dbd13ebde748e02470d",
+   "tools/accumulator_sweep_mn/plan.py": "0463234048425c77012051be6e04ebb28c28f46ac53e2169c9951930b0e92fa8",
+   "tools/run/accumulator_sweep_mn_run.py": "7f56b963474fe432fbc02963d041736b94b93296f07a741a184d86f73318bfc6"
+  },
+  "unchanged": "plan.py, load.py, certs.py and the first runner are imported, not edited; the first runner's `summary` and `prefix_end` are re-pointed at the two-root loader inside the new processes only."
+ }
+}

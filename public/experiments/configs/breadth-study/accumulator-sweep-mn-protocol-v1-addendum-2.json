@@ -1,0 +1,30 @@
+{
+ "id": "accumulator-sweep-mn-protocol-v1-addendum-2",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1.json",
+  "sha256": "c7b76f02a24fc1dd827ff7d023dd6b4b56a54becc6c201ab19de610c68726ed0"
+ },
+ "previous_addenda": [
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1-addendum-1.json",
+   "sha256": "a88f6ede63e37d3cde05c7af45fba90d200794ee7dfc18b9cfa480534a30435f"
+  }
+ ],
+ "written": "2026-10-02 12:04:52 +0500",
+ "written_before": "any location-phase or priority-2/3/4 run; after two priority-1 calls (mobilenet_v2-int8 wide and control, 0-1000) failed with the transient `bridge v2 kernel error 2` (CUDA allocation failure under contention: 6-11 GB of the 12 GB GPU used by other lanes) at about image 680 and 136; both are being retried as single 1k calls",
+ "cases_added": [],
+ "deviations": [
+  {
+   "what": "calls per 1k run (runner mechanics; no rule of the protocol changes)",
+   "rule": "From now on a 1k run is made of up to three contiguous predict calls with boundaries 128, 564 and 1000 (tile_stop in tools/run/accumulator_sweep_mn_run.py), assembled by the protocol's reuse rule (the engine is exact and batch invariant; step 1 checked a 64-image file against a 32-image one). Reason: a transient allocation failure loses the whole call; a tile limits the loss to at most 436 images. Cost: about 35 s setup per extra call. The first 128-image tile is also the location tile."
+  },
+  {
+   "what": "retries",
+   "rule": "A (case, policy) is launched again after a failed call until it has failed 5 times in one runner process (was: 3 times per call range); failures are reported."
+  },
+  {
+   "what": "budget accounting",
+   "rule": "Lane calls are identified from the runner ledger and from the per-run log file names (logs/<case>/<policy>-<start>-<stop>.log), so that calls of a stopped runner are counted."
+  }
+ ]
+}

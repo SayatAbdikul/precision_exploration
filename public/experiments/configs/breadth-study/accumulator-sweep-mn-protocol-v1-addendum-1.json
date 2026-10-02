@@ -1,0 +1,24 @@
+{
+ "id": "accumulator-sweep-mn-protocol-v1-addendum-1",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/accumulator-sweep-mn-protocol-v1.json",
+  "sha256": "c7b76f02a24fc1dd827ff7d023dd6b4b56a54becc6c201ab19de610c68726ed0"
+ },
+ "written": "2026-10-02 11:41:43 +0500",
+ "written_before": "any location-phase or priority-2/3/4 run (only priority-1 wide/control 1k runs had been launched, 11:41)",
+ "cases_added": [],
+ "clarifications": [
+  {
+   "what": "stress case (mobilenet_v3_large-int6) and the 1k extension rules",
+   "rule": "The extension rules are not applied to the stress case: its reduced uniform grid (plan.stress_widths) is not a contiguous bracket, so the rules have no complete bracket to test. Its derived widths are reported as bounds over the measured widths only."
+  },
+  {
+   "what": "launch order inside the location phase (runner tools/run/accumulator_sweep_mn_run.py)",
+   "rule": "Location runs rank after every priority-1 run and before priority 2. Within a case: the exponent-sensitivity runs first, then the next uniform rung (one new rung per case per pass, descending), then the next per-node d (one at a time per case). Cases in protocol order. No effect on which runs are made."
+  },
+  {
+   "what": "budget accounting",
+   "rule": "The step-1 smoke run (wide 0-64, before the protocol) is not counted. Priority 3/4 runs are launched only while (engine-ledger wall_seconds of this lane's predict calls since the protocol) + (35 s + 0.30 s per image for each running job) + the new run's estimate is below 14 h."
+  }
+ ]
+}

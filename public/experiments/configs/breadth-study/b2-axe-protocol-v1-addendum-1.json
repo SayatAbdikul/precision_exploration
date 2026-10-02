@@ -1,0 +1,13 @@
+{
+  "protocol": "b2-axe-protocol-v1-addendum-1",
+  "amends": "b2-axe-protocol-v1 (sha256 3fc991b7f4610b3f61492fbd0a130e24cff0c0e80201831f7eaaf5545d076762)",
+  "written": "2026-10-02 12:16 +05, after the first launch was stopped and before the relaunch",
+  "first_launch": "2026-10-02 12:05-12:15, records in artifacts/experiment_b2_axe/evals/resnet18-int8/ (rtn, optq, axe-P20, naive-P20, axe-P27, naive-P27, axe-P26). Kept as written and superseded, not used by the report. Reason: the naive (and optq/axe) arms rounded a float64 quotient w/s, while B2's nearest rounding acts on the float32 quotient; near-ties differ, so naive at lambda = 0 with no clip was not bit-identical to the B2 default (naive-P27 69.07 against rtn 69.22, expected credit). Observed in first-launch records: rtn 69.22, optq 69.47, axe-P20 0.10, naive-P20 0.10 (INT8). The INT6 chain had written nothing; one INT8/INT6 process failed with CUDA out-of-memory under shared load.",
+  "changes": [
+    "the weights entering every method are the float32 quotient w/s (as B2 rounds it), promoted to float64; Setup asserts that rounding it reproduces B2's nearest codes for every layer",
+    "records go to artifacts/experiment_b2_axe/evals-v2/<case>/ (the report reads only evals-v2)",
+    "Hessian capture batch 16 instead of 32 (memory only; H is an exact float64 sum of integer products, so it does not change)",
+    "gpu_run admission --min-free-mib 5000"
+  ],
+  "unchanged": "everything else in protocol v1, including cases, P grids, methods, checks, statistics and the derived-width rule"
+}

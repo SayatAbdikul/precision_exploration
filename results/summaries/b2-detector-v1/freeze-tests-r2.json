@@ -1,0 +1,527 @@
+{
+  "payload": {
+    "interpretation": "development evidence (COCO screen list); pointwise paired image-bootstrap intervals, no multiplicity adjustment",
+    "rows": [
+      {
+        "conformant_carries": false,
+        "decision": "bias correction",
+        "decision_pair_measured": "before",
+        "default_carries": false,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_weight_mse",
+          "base": "cum6_bias_correction",
+          "delta": 11.200024827641887,
+          "delta_map50": 13.580571455484636,
+          "interval": [
+            7.527013880079376,
+            13.899770781597498
+          ],
+          "interval_map50": [
+            8.657650692913762,
+            16.17492884831334
+          ]
+        },
+        "frozen_recipe": "dropped",
+        "kind": "default",
+        "rule_prescribes": false,
+        "screen1k": {
+          "arm": "default",
+          "base": "default_bias_correction",
+          "delta": 14.766693732808612,
+          "delta_map50": 18.474189414463062,
+          "interval": [
+            13.695773610728804,
+            16.1494343567568
+          ],
+          "interval_map50": [
+            17.122868791924372,
+            20.202709797693874
+          ]
+        },
+        "test_met_on_dev128": true
+      },
+      {
+        "conformant_carries": true,
+        "decision": "unsigned codes",
+        "decision_pair_measured": "before",
+        "default_carries": true,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_signed",
+          "base": "cum5_weight_mse",
+          "delta": 0.19848164498611487,
+          "delta_map50": 0.5776678783404043,
+          "interval": [
+            -0.5681174520250974,
+            0.8711246191236772
+          ],
+          "interval_map50": [
+            -0.4509057480798442,
+            1.7224841628585346
+          ]
+        },
+        "frozen_recipe": "kept",
+        "kind": "default",
+        "rule_prescribes": true,
+        "screen1k": {
+          "arm": "default_signed",
+          "base": "default",
+          "delta": -0.32701716108684,
+          "delta_map50": -0.40052504597327676,
+          "interval": [
+            -0.6147807669227114,
+            -0.05179432630595587
+          ],
+          "interval_map50": [
+            -0.7786892064058784,
+            -0.08158985858919021
+          ]
+        },
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": true,
+        "decision": "activation MSE ranges",
+        "decision_pair_measured": "before",
+        "default_carries": true,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_act_maxabs",
+          "base": "cum5_weight_mse",
+          "delta": -3.456075393481534,
+          "delta_map50": -3.9856909257985795,
+          "interval": [
+            -5.3025462968365815,
+            -0.755600475351296
+          ],
+          "interval_map50": [
+            -5.802376003937502,
+            -0.4845758306020913
+          ]
+        },
+        "frozen_recipe": "kept",
+        "kind": "default",
+        "rule_prescribes": true,
+        "screen1k": {
+          "arm": "default_act_maxabs",
+          "base": "default",
+          "delta": -0.4140183850805057,
+          "delta_map50": -1.089845550759161,
+          "interval": [
+            -0.9545267728128043,
+            0.021592383497830676
+          ],
+          "interval_map50": [
+            -1.7544809211039507,
+            -0.5488603316650804
+          ]
+        },
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": true,
+        "decision": "weight MSE ranges",
+        "decision_pair_measured": "before",
+        "default_carries": true,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum4_act_mse",
+          "base": "cum5_weight_mse",
+          "delta": -0.2942155535446689,
+          "delta_map50": -0.2410339573829079,
+          "interval": [
+            -0.950865797722009,
+            0.8600874795603949
+          ],
+          "interval_map50": [
+            -1.119326008603356,
+            1.6020622086414098
+          ]
+        },
+        "frozen_recipe": "kept",
+        "kind": "default",
+        "rule_prescribes": true,
+        "screen1k": {
+          "arm": "default_weight_maxabs",
+          "base": "default",
+          "delta": -0.09043993489404323,
+          "delta_map50": -0.2932126264024282,
+          "interval": [
+            -0.3902750963066295,
+            0.27127396112144553
+          ],
+          "interval_map50": [
+            -0.6615207332525274,
+            0.10370659027941197
+          ]
+        },
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": true,
+        "decision": "code pass-through (max-pool, slice, upsample)",
+        "decision_pair_measured": "before",
+        "default_carries": true,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_no_passthrough",
+          "base": "cum5_weight_mse",
+          "delta": -0.026222517197860284,
+          "delta_map50": -0.0028061048275684897,
+          "interval": [
+            -1.0605351813977237,
+            0.6856134023089636
+          ],
+          "interval_map50": [
+            -1.109195932437459,
+            1.4778833162676326
+          ]
+        },
+        "frozen_recipe": "kept",
+        "kind": "default",
+        "rule_prescribes": true,
+        "screen1k": null,
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": true,
+        "decision": "fused SiLU boundary",
+        "decision_pair_measured": "before",
+        "default_carries": true,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_fused_silu",
+          "base": "cum5_weight_mse",
+          "delta": 1.417703015404287,
+          "delta_map50": 1.4072548614785463,
+          "interval": [
+            0.256682629778415,
+            2.085535370506505
+          ],
+          "interval_map50": [
+            0.14766283971593333,
+            2.8333237775778954
+          ]
+        },
+        "frozen_recipe": "adopted",
+        "kind": "contract",
+        "rule_prescribes": true,
+        "screen1k": {
+          "arm": "default",
+          "base": "default_unfused_silu",
+          "delta": 0.43255785535322167,
+          "delta_map50": 0.8348757149292285,
+          "interval": [
+            0.05548163111669216,
+            0.7288238154311372
+          ],
+          "interval_map50": [
+            0.3908120238180892,
+            1.2443469040666093
+          ]
+        },
+        "test_met_on_dev128": true
+      },
+      {
+        "conformant_carries": false,
+        "decision": "concatenation pass-through",
+        "decision_pair_measured": "before",
+        "default_carries": false,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_concat_passthrough",
+          "base": "cum5_weight_mse",
+          "delta": 0.6572680277174392,
+          "delta_map50": 0.8558207047524524,
+          "interval": [
+            -0.15496433812924976,
+            1.4510395165851868
+          ],
+          "interval_map50": [
+            -0.27354549136774037,
+            2.416943707258422
+          ]
+        },
+        "frozen_recipe": "not adopted",
+        "kind": "contract",
+        "rule_prescribes": false,
+        "screen1k": {
+          "arm": "default_concat_passthrough",
+          "base": "default",
+          "delta": -0.1674040545853961,
+          "delta_map50": -0.1054715115376359,
+          "interval": [
+            -0.365996996336799,
+            0.07244217525782291
+          ],
+          "interval_map50": [
+            -0.3712637071830818,
+            0.21935062535821806
+          ]
+        },
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": false,
+        "decision": "head: projection constant not quantized",
+        "decision_pair_measured": "before",
+        "default_carries": false,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_weight_mse",
+          "base": "cum5_q_projection",
+          "delta": -0.10374180858386262,
+          "delta_map50": -0.0013871844377733034,
+          "interval": [
+            -0.28347787523937934,
+            0.1116504306740477
+          ],
+          "interval_map50": [
+            -0.01055949995889732,
+            0.005904149013276349
+          ]
+        },
+        "frozen_recipe": "not adopted (quantized)",
+        "kind": "contract",
+        "rule_prescribes": false,
+        "screen1k": null,
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": true,
+        "decision": "head: box logits not quantized",
+        "decision_pair_measured": "before",
+        "default_carries": false,
+        "default_deviates_from_rule": true,
+        "dev128": {
+          "arm": "cum5_fp32_box_logits",
+          "base": "cum5_weight_mse",
+          "delta": 0.5643294077942174,
+          "delta_map50": 0.5214772591057848,
+          "interval": [
+            0.2073940023685307,
+            0.8689511215293709
+          ],
+          "interval_map50": [
+            0.0851122474369407,
+            1.4863499514581442
+          ]
+        },
+        "frozen_recipe": "not adopted (quantized; classed as a diagnostic before running)",
+        "kind": "contract",
+        "rule_prescribes": true,
+        "screen1k": {
+          "arm": "default_fp32_box_logits",
+          "base": "default",
+          "delta": 0.4347924147164062,
+          "delta_map50": 0.2922558237745121,
+          "interval": [
+            0.296251384341749,
+            0.5962746307536797
+          ],
+          "interval_map50": [
+            0.12228831314456401,
+            0.40696172719377466
+          ]
+        },
+        "test_met_on_dev128": true
+      },
+      {
+        "conformant_carries": false,
+        "decision": "head: box expectation not quantized",
+        "decision_pair_measured": "before",
+        "default_carries": false,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_weight_mse",
+          "base": "cum5_q_dfl",
+          "delta": -0.02581905946575369,
+          "delta_map50": 0.016499522512913867,
+          "interval": [
+            -0.23828470037472702,
+            0.21252611370727367
+          ],
+          "interval_map50": [
+            -0.03798874706295057,
+            0.055222642519462385
+          ]
+        },
+        "frozen_recipe": "not adopted (quantized)",
+        "kind": "contract",
+        "rule_prescribes": false,
+        "screen1k": null,
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": true,
+        "decision": "head: decoded boxes not quantized",
+        "decision_pair_measured": "before",
+        "default_carries": true,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_weight_mse",
+          "base": "cum5_q_boxes",
+          "delta": 2.1619455356378046,
+          "delta_map50": 1.2637945389863736,
+          "interval": [
+            1.4991042271898525,
+            3.295549393997221
+          ],
+          "interval_map50": [
+            0.5583917158564684,
+            1.8338787224310416
+          ]
+        },
+        "frozen_recipe": "adopted",
+        "kind": "contract",
+        "rule_prescribes": true,
+        "screen1k": {
+          "arm": "default",
+          "base": "default_q_boxes",
+          "delta": 2.316277993464361,
+          "delta_map50": 1.3605686011991303,
+          "interval": [
+            2.044050541828258,
+            2.617762838525534
+          ],
+          "interval_map50": [
+            1.0840987316746706,
+            1.6397025044515712
+          ]
+        },
+        "test_met_on_dev128": true
+      },
+      {
+        "conformant_carries": false,
+        "decision": "head: class logits not quantized",
+        "decision_pair_measured": "before",
+        "default_carries": false,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_fp32_class_logits",
+          "base": "cum5_weight_mse",
+          "delta": 0.36130203803431127,
+          "delta_map50": 0.3277302210252686,
+          "interval": [
+            -0.0695686429514651,
+            0.7340669097469162
+          ],
+          "interval_map50": [
+            0.022971676769854853,
+            0.9258452698521716
+          ]
+        },
+        "frozen_recipe": "not adopted (quantized; classed as a diagnostic before running)",
+        "kind": "contract",
+        "rule_prescribes": false,
+        "screen1k": {
+          "arm": "default_fp32_class_logits",
+          "base": "default",
+          "delta": 0.07203172463546847,
+          "delta_map50": 0.07498744266686286,
+          "interval": [
+            -0.00010409529338699558,
+            0.25987161769964806
+          ],
+          "interval_map50": [
+            -0.03751133761514169,
+            0.3118339388201748
+          ]
+        },
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": false,
+        "decision": "head: sigmoid scores not quantized",
+        "decision_pair_measured": "before",
+        "default_carries": false,
+        "default_deviates_from_rule": false,
+        "dev128": {
+          "arm": "cum5_weight_mse",
+          "base": "cum5_q_scores_also",
+          "delta": -0.1777667596880972,
+          "delta_map50": 0.06995841356087773,
+          "interval": [
+            -0.29579156399687817,
+            0.06668839804388588
+          ],
+          "interval_map50": [
+            -0.007577592801110696,
+            0.1942016477062765
+          ]
+        },
+        "frozen_recipe": "not adopted (quantized)",
+        "kind": "contract",
+        "rule_prescribes": false,
+        "screen1k": {
+          "arm": "default_head_logits",
+          "base": "default",
+          "delta": 0.13582897154731932,
+          "delta_map50": 0.1277620330932816,
+          "interval": [
+            0.030589816674369233,
+            0.33117390391765306
+          ],
+          "interval_map50": [
+            0.002962483994295718,
+            0.2340138704087714
+          ]
+        },
+        "test_met_on_dev128": false
+      },
+      {
+        "conformant_carries": false,
+        "decision": "head: 84-channel joins not quantized",
+        "decision_pair_measured": "after (addendum 2)",
+        "default_carries": true,
+        "default_deviates_from_rule": true,
+        "dev128": {
+          "arm": "default",
+          "base": "default_q_joins",
+          "delta": 0.19290594221697543,
+          "delta_map50": 0.23166140325294737,
+          "interval": [
+            0.08470149233934285,
+            0.4310254338252855
+          ],
+          "interval_map50": [
+            0.09989133226292635,
+            0.5992197894278619
+          ]
+        },
+        "frozen_recipe": "adopted together with the box exemption, no own arm",
+        "kind": "contract",
+        "rule_prescribes": false,
+        "screen1k": {
+          "arm": "default",
+          "base": "default_q_joins",
+          "delta": 0.08071592762874391,
+          "delta_map50": 0.10389141660480661,
+          "interval": [
+            0.0633016707738804,
+            0.22103742976911384
+          ],
+          "interval_map50": [
+            0.08112680563435282,
+            0.24800004522458466
+          ]
+        },
+        "test_met_on_dev128": false
+      }
+    ],
+    "rule": {
+      "contract": "contract-changing option or head exemption. Pair (without the option, with it); delta = with minus without. test_met = adopted: the recipe without it is worse on dev128 by more than 0.5 point with a paired 95 percent interval excluding zero",
+      "default": "classifier-default switch. Pair (with the switch, without it); delta = without minus with. test_met = dropped: the leave-one-out arm is better on dev128 with a paired 95 percent interval excluding zero (addendum 1)",
+      "rule_prescribes": "true = the written rule keeps the classifier-default switch / adopts the option or exemption. A contract option counts only if an arm measured before the freeze (20:04:01) met the test; an untested head tensor stays quantized (protocol v1 freeze_rule item 4, addendum 1). default_deviates_from_rule marks the protocol deviation of the frozen recipe (addendum 3).",
+      "screen1k": "the same question asked around the frozen recipe (default_* ablations) where such an arm exists; descriptive, no decision depends on it"
+    },
+    "statistics": {
+      "confidence": 0.95,
+      "resamples": 2000,
+      "seed": 310911,
+      "units": "mAP points"
+    }
+  },
+  "sha256": "ba7f73728cdb618bfdca9696a0c8a256f60e9e1537d3143e2591cc784ca8729d"
+}

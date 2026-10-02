@@ -1,0 +1,16 @@
+arm,reading,map50_95,map50,minus_fp32.delta,minus_fp32.interval.low,minus_fp32.interval.high,minus_fp32.delta_map50,minus_fp32.interval_map50.low,minus_fp32.interval_map50.high,minus_frozen_recipe.delta,minus_frozen_recipe.interval.low,minus_frozen_recipe.interval.high,minus_frozen_recipe.delta_map50,minus_frozen_recipe.interval_map50.low,minus_frozen_recipe.interval_map50.high
+default_weights_only,activations and input left in FP32: what weight quantization alone costs,39.074,54.569,0.026,-0.237,0.164,0.218,-0.03,0.411,1.05,0.771,1.482,0.845,0.462,1.309
+default_activations_only,weights left in FP32: what activation quantization alone costs,38.136,53.689,-0.913,-1.347,-0.695,-0.663,-1.14,-0.376,0.112,-0.197,0.437,-0.036,-0.453,0.305
+default_no_input,input image left in FP32,38.018,53.748,-1.03,-1.544,-0.781,-0.604,-1.161,-0.225,-0.005,-0.136,0.118,0.023,-0.166,0.187
+default_fp32_head,both network outputs (box and class logits) and everything after them in FP32: what is left is the backbone and neck,38.663,54.21,-0.386,-0.708,-0.097,-0.142,-0.539,0.226,0.639,0.523,0.968,0.486,0.326,0.778
+default_fp32_box_logits,box logits leave the accelerator as wide values,38.459,54.017,-0.59,-1.055,-0.361,-0.335,-0.857,-0.018,0.435,0.296,0.596,0.292,0.122,0.407
+default_fp32_class_logits,class logits leave the accelerator as wide values,38.096,53.8,-0.953,-1.386,-0.65,-0.552,-0.985,-0.155,0.072,-0.0,0.26,0.075,-0.038,0.312
+default_head_logits,"projection constant, box expectation and sigmoid scores not stored as k-bit codes",38.16,53.853,-0.889,-1.329,-0.626,-0.499,-1.017,-0.165,0.136,0.031,0.331,0.128,0.003,0.234
+default_q_joins,the 84-channel joins store the scores again as k-bit codes,37.943,53.621,-1.106,-1.668,-0.914,-0.731,-1.296,-0.408,-0.081,-0.221,-0.063,-0.104,-0.248,-0.081
+default_q_boxes,decoded pixel boxes stored as k-bit codes,35.708,52.364,-3.341,-3.945,-2.985,-1.988,-2.576,-1.55,-2.316,-2.618,-2.044,-1.361,-1.64,-1.084
+default_unfused_silu,v1 boundaries: convolution output and SiLU output both requantized,37.591,52.89,-1.457,-1.963,-1.14,-1.462,-2.043,-0.989,-0.433,-0.729,-0.055,-0.835,-1.244,-0.391
+default_concat_passthrough,concatenations forward the codes of their inputs,37.856,53.619,-1.192,-1.664,-0.921,-0.733,-1.204,-0.322,-0.167,-0.366,0.072,-0.105,-0.371,0.219
+default_signed,signed codes at the non-negative boundaries,37.697,53.324,-1.352,-1.872,-1.125,-1.028,-1.544,-0.662,-0.327,-0.615,-0.052,-0.401,-0.779,-0.082
+default_act_maxabs,max-abs activation ranges,37.61,52.635,-1.439,-2.057,-1.179,-1.717,-2.409,-1.295,-0.414,-0.955,0.022,-1.09,-1.754,-0.549
+default_weight_maxabs,max-abs weight ranges,37.933,53.432,-1.115,-1.59,-0.839,-0.92,-1.364,-0.577,-0.09,-0.39,0.271,-0.293,-0.662,0.104
+default_bias_correction,empirical bias correction put back (the classifier default),23.257,35.251,-15.792,-17.352,-14.827,-19.101,-20.892,-17.815,-14.767,-16.149,-13.696,-18.474,-20.203,-17.123

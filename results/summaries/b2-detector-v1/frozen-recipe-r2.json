@@ -1,0 +1,167 @@
+{
+  "payload": {
+    "conformant": {
+      "difference_from_default": {
+        "q_box_logits": false,
+        "q_joins": true
+      },
+      "hardware_semantics": {
+        "activation_scale_metadata": "one FP32 scale per quantizing node (mse)",
+        "bias_constants": "folded FP32 bias unchanged",
+        "diagnostic": [],
+        "head": [
+          "the constant 0..15 of the box expectation is stored as weight codes with one scale",
+          "NOT quantized (q_box_logits=false): box logits leave the accelerator as wide values",
+          "the softmax expectation (distance in bins) is requantized to k-bit codes",
+          "NOT quantized (q_boxes=false): anchor decode and stride scaling run in the FP32 postprocessor; no k-bit box store",
+          "the 80-channel class logits are stored as k-bit codes (network output)",
+          "the sigmoid output is requantized to k-bit codes",
+          "the 84-channel joins requantize boxes and scores with one scale per group"
+        ],
+        "passthrough": "channel slice, max-pool and nearest upsample forward codes and the scale of their source (no requantizer); a concatenation requantizes its inputs to one output scale",
+        "requantization_points": "a convolution feeding only SiLU keeps the wide accumulator; SiLU is evaluated on the wide value and requantized once (a wide-precision nonlinearity or a large table is required)",
+        "signedness": "non-negative boundaries (input image, sigmoid output, box expectation) store unsigned integer codes; the first convolution has an unsigned k-bit activation operand",
+        "weight_scale_metadata": "one FP32 scale per output channel (mse)"
+      },
+      "name": "conformant",
+      "notes": [
+        "box logits leave the accelerator as wide values (no k-bit store of the 64-channel box-distribution logits); the softmax and expectation run on them and are requantized",
+        "the joins re-store only the score group (boxes are not a k-bit store) with the signed codebook, as engine.analyze defines a join (never non-negative); the scores are thus unsigned k-bit codes after the sigmoid and signed k-bit codes after each join",
+        "bfp6 and mxfp8_e4m3: default_fp32_box_logits (no join store), because block formats store a join only as a whole 84-channel tensor"
+      ],
+      "switches": {
+        "activation_range": "mse",
+        "bias_correction": "none",
+        "boundaries": "fused_silu",
+        "passthrough": "nonarith",
+        "q_box_logits": false,
+        "q_boxes": false,
+        "q_class_logits": true,
+        "q_dfl": true,
+        "q_joins": true,
+        "q_projection": true,
+        "q_scores": true,
+        "quantize_activations": true,
+        "quantize_input": true,
+        "quantize_weights": true,
+        "unsigned": true,
+        "weight_range": "mse"
+      }
+    },
+    "differences_from_classifier_default": [
+      {
+        "classifier_default": "empirical",
+        "detector": "none",
+        "hardware": "none: the folded FP32 bias is used unchanged",
+        "switch": "bias correction",
+        "why": "leave-one-out arm better on dev128 with an interval excluding zero (rule of addendum 1)"
+      },
+      {
+        "classifier_default": "fused_relu (clamps only; Hardswish and Hardsigmoid unfused)",
+        "detector": "fused_silu",
+        "hardware": "a convolution that feeds only SiLU keeps the wide accumulator; SiLU is evaluated on the wide value and requantized once: a wide-precision nonlinearity or a large table, instead of a k-bit code-to-code table",
+        "switch": "activation boundaries",
+        "why": "passed the 0.5-point test of the protocol on dev128"
+      },
+      {
+        "classifier_default": "max-pool",
+        "detector": "max-pool, channel slice, nearest upsample",
+        "hardware": "fewer requantizers, nothing added; a concatenation still requantizes its inputs to one scale",
+        "switch": "code pass-through",
+        "why": "the two extra operators do not exist in the classifiers; no arithmetic happens in them"
+      },
+      {
+        "classifier_default": "every ReLU/ReLU6/Hardsigmoid output",
+        "detector": "input image, sigmoid scores and box expectation only",
+        "hardware": "the first convolution has an unsigned k-bit activation operand; all other operands are signed",
+        "switch": "unsigned codes",
+        "why": "same rule (provably non-negative boundaries); SiLU outputs are not non-negative"
+      },
+      {
+        "classifier_default": "does not exist",
+        "detector": "not k-bit stores (q_boxes=false, q_joins=false)",
+        "hardware": "anchor decode and stride scaling run in the wide (FP32) postprocessor on the dequantized box expectation; no k-bit store of pixel coordinates and no 84-channel k-bit tensor",
+        "switch": "head: decoded boxes and 84-channel joins",
+        "why": "decoded boxes: test met on dev128, +2.16 [+1.50, +3.30] (cum5_q_boxes -> cum5_weight_mse). Joins: PROTOCOL DEVIATION. No arm tested the join exemption before the freeze, so the written rule keeps the joins quantized; the exemption was adopted with the box exemption. Measured afterwards: +0.19 [+0.08, +0.43] (default_q_joins -> default), test not met."
+      },
+      {
+        "classifier_default": "does not exist (classifier logits are k-bit codes)",
+        "detector": "all stored as k-bit codes",
+        "hardware": "the accelerator emits k-bit box-expectation codes and k-bit score codes; NMS compares score codes, so equal scores are frequent and the tie rule is part of the contract",
+        "switch": "head: projection constant, box expectation, sigmoid scores, box and class logits",
+        "why": "projection constant, box expectation and sigmoid scores: putting each back did not meet the test on dev128. Class logits: exemption +0.36 [-0.07, +0.73] (cum5_weight_mse -> cum5_fp32_class_logits), test not met. Box logits: PROTOCOL DEVIATION. Exemption +0.56 [+0.21, +0.87] (cum5_weight_mse -> cum5_fp32_box_logits) met the test before the freeze (bootstrap 19:57:51, frozen.py 20:04:01); the first agent had classed the logit exemptions as diagnostics and kept the box logits quantized."
+      },
+      {
+        "classifier_default": "not covered by the classifier default",
+        "detector": "block semantics of tools/experiment_b_ext/shared.py unchanged; boundary and head switches apply; range rules, pass-through and unsigned do not",
+        "hardware": "as v1 block formats, with the fused SiLU boundary and without box/join stores",
+        "switch": "shared-exponent formats",
+        "why": "the block scale is computed at run time (block max-abs covering power of two)"
+      }
+    ],
+    "hardware_semantics": {
+      "activation_scale_metadata": "one FP32 scale per quantizing node (mse)",
+      "bias_constants": "folded FP32 bias unchanged",
+      "diagnostic": [],
+      "head": [
+        "the constant 0..15 of the box expectation is stored as weight codes with one scale",
+        "the 64-channel box-distribution logits are stored as k-bit codes (network output)",
+        "the softmax expectation (distance in bins) is requantized to k-bit codes",
+        "NOT quantized (q_boxes=false): anchor decode and stride scaling run in the FP32 postprocessor; no k-bit box store",
+        "the 80-channel class logits are stored as k-bit codes (network output)",
+        "the sigmoid output is requantized to k-bit codes",
+        "NOT quantized (q_joins=false): no 84-channel k-bit store; the postprocessor reads boxes and scores"
+      ],
+      "passthrough": "channel slice, max-pool and nearest upsample forward codes and the scale of their source (no requantizer); a concatenation requantizes its inputs to one output scale",
+      "requantization_points": "a convolution feeding only SiLU keeps the wide accumulator; SiLU is evaluated on the wide value and requantized once (a wide-precision nonlinearity or a large table is required)",
+      "signedness": "non-negative boundaries (input image, sigmoid output, box expectation) store unsigned integer codes; the first convolution has an unsigned k-bit activation operand",
+      "weight_scale_metadata": "one FP32 scale per output channel (mse)"
+    },
+    "name": "default",
+    "postprocess": {
+      "boxes": "v1 scale_boxes, xywh, 3 decimals; score 5 decimals",
+      "class_offset": 7680,
+      "conf": 0.001,
+      "emission": "kept detections in that total order",
+      "iou": 0.7,
+      "max_det": 300,
+      "max_nms": 30000,
+      "multi_label": true,
+      "total_order": "score descending, then anchor index ascending, then class index ascending",
+      "version": "b2_detector_postprocess_v1"
+    },
+    "protocol_deviation": {
+      "source": "public/experiments/configs/breadth-study/b2-detector-protocol-v1-addendum-3.json",
+      "status": "the frozen recipe is unchanged and every number reported for it stands; the owner decides between `default` and `conformant`",
+      "where": [
+        "box logits quantized although their exemption met the freeze test on dev128",
+        "84-channel joins not quantized although no test admitted the exemption"
+      ]
+    },
+    "same_as_classifier_default": [
+      "unsigned codes at non-negative boundaries (integer formats only)",
+      "activation range: MSE search (tools/experiment_b2/scales.py)",
+      "weight range: MSE search per output channel",
+      "max-pool code pass-through"
+    ],
+    "switches": {
+      "activation_range": "mse",
+      "bias_correction": "none",
+      "boundaries": "fused_silu",
+      "passthrough": "nonarith",
+      "q_box_logits": true,
+      "q_boxes": false,
+      "q_class_logits": true,
+      "q_dfl": true,
+      "q_joins": false,
+      "q_projection": true,
+      "q_scores": true,
+      "quantize_activations": true,
+      "quantize_input": true,
+      "quantize_weights": true,
+      "unsigned": true,
+      "weight_range": "mse"
+    }
+  },
+  "sha256": "3a3523a9e0cd3c4fb6cd038099f893768f895ec53fbd89c80485a2551537e7ca"
+}

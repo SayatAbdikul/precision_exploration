@@ -1,0 +1,1502 @@
+{
+  "payload": {
+    "interpretation": "development evidence (COCO screen list)",
+    "panel": "screen1000",
+    "protocol": "addendum 4 (public/experiments/configs/breadth-study/b2-detector-protocol-v1-addendum-4.json)",
+    "recipe_comparison": [
+      {
+        "conformant_arm": "conformant",
+        "conformant_minus_default": {
+          "delta": 0.33106330119079264,
+          "delta_map50": 0.17103577760452238,
+          "interval": [
+            0.11759130852557174,
+            0.45514048708193944
+          ],
+          "interval_map50": [
+            -0.07989730483588697,
+            0.25725044891048426
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.31685928585271483,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.43911889738276955,
+          "min": 0.1883633261634614,
+          "orders": 7
+        },
+        "format": "int8",
+        "orders_measured_conformant": 7,
+        "orders_measured_default": 7,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "rule-conformant: box logits not quantized, score group of the joins stored (signed codes)",
+        "tie_sensitivity": 0.15719829284891773
+      },
+      {
+        "conformant_arm": "conformant",
+        "conformant_minus_default": {
+          "delta": 0.10537566876388516,
+          "delta_map50": -0.7395795705440744,
+          "interval": [
+            -0.19096135937821612,
+            0.3543207930922068
+          ],
+          "interval_map50": [
+            -1.0899234207876134,
+            -0.4505063270436501
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.11140805183292102,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.22523527946942323,
+          "min": 0.10537566876388738,
+          "orders": 7
+        },
+        "format": "int6",
+        "orders_measured_conformant": 7,
+        "orders_measured_default": 7,
+        "reading": "within tie-order sensitivity",
+        "rule_conformance": "rule-conformant: box logits not quantized, score group of the joins stored (signed codes)",
+        "tie_sensitivity": 0.2013193694119515
+      },
+      {
+        "conformant_arm": "conformant",
+        "conformant_minus_default": {
+          "delta": 0.8851225850856292,
+          "delta_map50": 0.22803866621800006,
+          "interval": [
+            0.606479919853999,
+            1.0904514604875215
+          ],
+          "interval_map50": [
+            -0.025331949496150884,
+            0.46904919098115133
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.9234774834971802,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.9234774834971802,
+          "min": 0.8851225850856252,
+          "orders": 2
+        },
+        "format": "fp8_e4m3fn",
+        "orders_measured_conformant": 2,
+        "orders_measured_default": 2,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "rule-conformant: box logits not quantized, score group of the joins stored (signed codes)",
+        "tie_sensitivity": 0.03380985608967535
+      },
+      {
+        "conformant_arm": "conformant",
+        "conformant_minus_default": {
+          "delta": 0.977973588384573,
+          "delta_map50": 0.3215903774440254,
+          "interval": [
+            0.7389354668066731,
+            1.208684279813397
+          ],
+          "interval_map50": [
+            0.06290371883858537,
+            0.5077376449618181
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.991752065112955,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.991752065112955,
+          "min": 0.9779735883845717,
+          "orders": 2
+        },
+        "format": "fp7_e3m3",
+        "orders_measured_conformant": 2,
+        "orders_measured_default": 2,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "rule-conformant: box logits not quantized, score group of the joins stored (signed codes)",
+        "tie_sensitivity": 0.06035729478497842
+      },
+      {
+        "conformant_arm": "conformant",
+        "conformant_minus_default": {
+          "delta": 0.7893176833575211,
+          "delta_map50": 0.5161167513165699,
+          "interval": [
+            0.5076027849885487,
+            0.9963009067879697
+          ],
+          "interval_map50": [
+            0.2472573283808255,
+            0.7919473757248529
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.8228144234007573,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.90971997249639,
+          "min": 0.789317683357524,
+          "orders": 7
+        },
+        "format": "fp6_e2m3",
+        "orders_measured_conformant": 7,
+        "orders_measured_default": 7,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "rule-conformant: box logits not quantized, score group of the joins stored (signed codes)",
+        "tie_sensitivity": 0.16822268891603898
+      },
+      {
+        "conformant_arm": "conformant",
+        "conformant_minus_default": {
+          "delta": 0.6821821582514875,
+          "delta_map50": 0.13471206407736913,
+          "interval": [
+            0.4596259855241679,
+            0.9115994466828454
+          ],
+          "interval_map50": [
+            -0.11911861622492387,
+            0.3698080319424107
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.7047734219940267,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.7047734219940267,
+          "min": 0.6821821582514858,
+          "orders": 2
+        },
+        "format": "log8",
+        "orders_measured_conformant": 2,
+        "orders_measured_default": 2,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "rule-conformant: box logits not quantized, score group of the joins stored (signed codes)",
+        "tie_sensitivity": 0.018033862724237792
+      },
+      {
+        "conformant_arm": "conformant",
+        "conformant_minus_default": {
+          "delta": 0.3021917858548495,
+          "delta_map50": 0.309470710415094,
+          "interval": [
+            0.095707513119913,
+            0.43860229074237156
+          ],
+          "interval_map50": [
+            0.06858569681331195,
+            0.528532563974812
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.311666717138948,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.311666717138948,
+          "min": 0.30219178585484485,
+          "orders": 2
+        },
+        "format": "posit8_es1",
+        "orders_measured_conformant": 2,
+        "orders_measured_default": 2,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "rule-conformant: box logits not quantized, score group of the joins stored (signed codes)",
+        "tie_sensitivity": 0.041842877811788526
+      },
+      {
+        "conformant_arm": "default_fp32_box_logits",
+        "conformant_minus_default": {
+          "delta": 0.23984429438996258,
+          "delta_map50": 0.18663476671314516,
+          "interval": [
+            0.07673474771578749,
+            0.34290286784734486
+          ],
+          "interval_map50": [
+            0.014161836944091847,
+            0.306446710747929
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.2363829564212665,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.24051055717894343,
+          "min": 0.0758515632622192,
+          "orders": 7
+        },
+        "format": "bfp6",
+        "orders_measured_conformant": 7,
+        "orders_measured_default": 7,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "nearest available, NOT rule-conformant at the joins: box logits not quantized as the rule prescribes, but the joins are not stored although the rule keeps them quantized (the engine has no score-only join store for block formats)",
+        "tie_sensitivity": 0.12668406865692106
+      },
+      {
+        "conformant_arm": "default_fp32_box_logits",
+        "conformant_minus_default": {
+          "delta": 0.8764642051336202,
+          "delta_map50": 0.3085331752274212,
+          "interval": [
+            0.6873850152150376,
+            1.102395553377598
+          ],
+          "interval_map50": [
+            0.10228294590075376,
+            0.468014412865356
+          ]
+        },
+        "conformant_minus_default_imageid_order": 0.8771245944609021,
+        "conformant_minus_default_over_common_orders": {
+          "max": 0.8771245944609021,
+          "min": 0.8764642051336224,
+          "orders": 2
+        },
+        "format": "mxfp8_e4m3",
+        "orders_measured_conformant": 2,
+        "orders_measured_default": 2,
+        "reading": "larger than tie-order sensitivity",
+        "rule_conformance": "nearest available, NOT rule-conformant at the joins: box logits not quantized as the rule prescribes, but the joins are not stored although the rule keeps them quantized (the engine has no score-only join store for block formats)",
+        "tie_sensitivity": 0.07011863466274804
+      }
+    ],
+    "rows": [
+      {
+        "configuration": "235e0bc835cc",
+        "detections": 177739,
+        "detections_scored": 168009,
+        "distinct_scores": 17739,
+        "envelope_width_map50": 0.0020401210323872654,
+        "envelope_width_map50_95": 0.0010710340090924753,
+        "false_positives_first": [
+          39.04788258071484,
+          54.35040795369205
+        ],
+        "fixed_rule": [
+          39.048651507944555,
+          54.35196322519529
+        ],
+        "format": "fp32",
+        "imageid": {
+          "map50": 54.350876839839266,
+          "map50_95": 39.0482213420266
+        },
+        "imageid_minus_fixed": {
+          "map50": -0.0010863853560252323,
+          "map50_95": -0.0004301659179546391
+        },
+        "largest_move_from_fixed_map50": 0.0010863853560252323,
+        "largest_move_from_fixed_map50_95": 0.0004301659179546391,
+        "order_range_map50": 0.0010863853560252323,
+        "order_range_map50_95": 0.0004301659179546391,
+        "orders": {
+          "imageid": {
+            "map50": 54.350876839839266,
+            "map50_95": 39.0482213420266
+          },
+          "index": {
+            "map50": 54.35196322519529,
+            "map50_95": 39.048651507944555
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "fp32",
+        "role": "reference",
+        "share_of_scored_detections_with_a_tied_score": 0.6682320589968395,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          39.048953614723935,
+          54.352448074724435
+        ]
+      },
+      {
+        "configuration": "1834351b1f74",
+        "detections": 152257,
+        "detections_scored": 144208,
+        "distinct_scores": 88,
+        "envelope_width_map50": 1.3777283183501132,
+        "envelope_width_map50_95": 1.308327556104294,
+        "false_positives_first": [
+          37.42517699478503,
+          53.11643872207355
+        ],
+        "fixed_rule": [
+          38.023829667605185,
+          53.7248445387929
+        ],
+        "format": "int8",
+        "imageid": {
+          "map50": 53.74841825153885,
+          "map50_95": 38.03538459390585
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.023573712745950104,
+          "map50_95": 0.011554926300675561
+        },
+        "largest_move_from_fixed_map50": 0.09318078546767339,
+        "largest_move_from_fixed_map50_95": 0.12133246725231572,
+        "order_range_map50": 0.12298621189934522,
+        "order_range_map50_95": 0.13244069883781862,
+        "orders": {
+          "imageid": {
+            "map50": 53.74841825153885,
+            "map50_95": 38.03538459390585
+          },
+          "index": {
+            "map50": 53.7248445387929,
+            "map50_95": 38.02382966760518
+          },
+          "random0": {
+            "map50": 53.772030608101474,
+            "map50_95": 38.07297236426212
+          },
+          "random1": {
+            "map50": 53.7415977817258,
+            "map50_95": 38.012721436019675
+          },
+          "random2": {
+            "map50": 53.69503911236123,
+            "map50_95": 38.03133280699088
+          },
+          "random3": {
+            "map50": 53.78318694875339,
+            "map50_95": 38.14516213485749
+          },
+          "reverse": {
+            "map50": 53.818025324260574,
+            "map50_95": 38.05500368724905
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9931973260845446,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          38.73350455088933,
+          54.49416704042367
+        ]
+      },
+      {
+        "configuration": "d8b87c9bd8f6",
+        "detections": 102265,
+        "detections_scored": 97559,
+        "distinct_scores": 54,
+        "envelope_width_map50": 2.0925333112491007,
+        "envelope_width_map50_95": 1.8460904291250524,
+        "false_positives_first": [
+          37.540665221906586,
+          52.99658808802125
+        ],
+        "fixed_rule": [
+          38.35489296879597,
+          53.895880316397424
+        ],
+        "format": "int8",
+        "imageid": {
+          "map50": 53.90250366638386,
+          "map50_95": 38.35224387975857
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.00662334998643388,
+          "map50_95": -0.002649089037404906
+        },
+        "largest_move_from_fixed_map50": 0.1480930656732724,
+        "largest_move_from_fixed_map50_95": 0.15719829284891773,
+        "order_range_map50": 0.17663138102133047,
+        "order_range_map50_95": 0.1785658006239359,
+        "orders": {
+          "imageid": {
+            "map50": 53.90250366638386,
+            "map50_95": 38.35224387975857
+          },
+          "index": {
+            "map50": 53.895880316397424,
+            "map50_95": 38.35489296879597
+          },
+          "random0": {
+            "map50": 54.043973382070696,
+            "map50_95": 38.51209126164489
+          },
+          "random1": {
+            "map50": 53.910933189759625,
+            "map50_95": 38.358970898130615
+          },
+          "random2": {
+            "map50": 53.88350531020467,
+            "map50_95": 38.415589867207174
+          },
+          "random3": {
+            "map50": 53.867342001049366,
+            "map50_95": 38.333525461020955
+          },
+          "reverse": {
+            "map50": 53.95299213188828,
+            "map50_95": 38.43873944424505
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "conformant",
+        "role": "conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.993193862175709,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          39.38675565103164,
+          55.08912139927035
+        ]
+      },
+      {
+        "configuration": "1209460b7248",
+        "detections": 63961,
+        "detections_scored": 61145,
+        "distinct_scores": 26,
+        "envelope_width_map50": 4.429465155969031,
+        "envelope_width_map50_95": 3.606943609208696,
+        "false_positives_first": [
+          29.586243666570255,
+          44.22143784070308
+        ],
+        "fixed_rule": [
+          30.943869706936884,
+          45.953011438856606
+        ],
+        "format": "int6",
+        "imageid": {
+          "map50": 46.03735156854417,
+          "map50_95": 31.13128805430906
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.08434012968756832,
+          "map50_95": 0.1874183473721729
+        },
+        "largest_move_from_fixed_map50": 0.1852633580630183,
+        "largest_move_from_fixed_map50_95": 0.1874183473721729,
+        "order_range_map50": 0.1852633580630183,
+        "order_range_map50_95": 0.2029726976987689,
+        "orders": {
+          "imageid": {
+            "map50": 46.03735156854417,
+            "map50_95": 31.13128805430906
+          },
+          "index": {
+            "map50": 45.9530114388566,
+            "map50_95": 30.943869706936887
+          },
+          "random0": {
+            "map50": 46.0488642076386,
+            "map50_95": 31.051915178707638
+          },
+          "random1": {
+            "map50": 45.981563913157274,
+            "map50_95": 30.92831535661029
+          },
+          "random2": {
+            "map50": 45.98586753745667,
+            "map50_95": 31.031286337553045
+          },
+          "random3": {
+            "map50": 45.99955214770331,
+            "map50_95": 31.05058064225056
+          },
+          "reverse": {
+            "map50": 46.13827479691962,
+            "map50_95": 31.025329465643303
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9968108594324965,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          33.19318727577895,
+          48.650902996672116
+        ]
+      },
+      {
+        "configuration": "8f0cd537abc8",
+        "detections": 30634,
+        "detections_scored": 30011,
+        "distinct_scores": 16,
+        "envelope_width_map50": 6.659712751116492,
+        "envelope_width_map50_95": 4.991486611046225,
+        "false_positives_first": [
+          29.33642595820421,
+          42.955565659524666
+        ],
+        "fixed_rule": [
+          31.049245375700767,
+          45.213431868312526
+        ],
+        "format": "int6",
+        "imageid": {
+          "map50": 45.269702171505976,
+          "map50_95": 31.24269610614198
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.05627030319345039,
+          "map50_95": 0.19345073044120653
+        },
+        "largest_move_from_fixed_map50": 0.18982491340383234,
+        "largest_move_from_fixed_map50_95": 0.2013193694119515,
+        "order_range_map50": 0.2307977715455678,
+        "order_range_map50_95": 0.2013193694119515,
+        "orders": {
+          "imageid": {
+            "map50": 45.269702171505976,
+            "map50_95": 31.24269610614198
+          },
+          "index": {
+            "map50": 45.213431868312526,
+            "map50_95": 31.049245375700774
+          },
+          "random0": {
+            "map50": 45.17245901017079,
+            "map50_95": 31.185690025397484
+          },
+          "random1": {
+            "map50": 45.18926037772938,
+            "map50_95": 31.057213081949765
+          },
+          "random2": {
+            "map50": 45.32791816288433,
+            "map50_95": 31.186009698018246
+          },
+          "random3": {
+            "map50": 45.36089050449872,
+            "map50_95": 31.177891648220886
+          },
+          "reverse": {
+            "map50": 45.40325678171636,
+            "map50_95": 31.250564745112726
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "conformant",
+        "role": "conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.9954016860484489,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          34.32791256925044,
+          49.61527841064115
+        ]
+      },
+      {
+        "configuration": "7221154128a8",
+        "detections": 196268,
+        "detections_scored": 184960,
+        "distinct_scores": 112,
+        "envelope_width_map50": 1.203423344534349,
+        "envelope_width_map50_95": 1.2512087916371206,
+        "false_positives_first": [
+          33.83817401974677,
+          50.51512824789636
+        ],
+        "fixed_rule": [
+          34.4197560112201,
+          51.08705326802914
+        ],
+        "format": "fp8_e4m3fn",
+        "imageid": {
+          "map50": 51.079186263085944,
+          "map50_95": 34.415210968898215
+        },
+        "imageid_minus_fixed": {
+          "map50": -0.007867004943193479,
+          "map50_95": -0.004545042321879578
+        },
+        "largest_move_from_fixed_map50": 0.007867004943193479,
+        "largest_move_from_fixed_map50_95": 0.004545042321879578,
+        "order_range_map50": 0.007867004943193479,
+        "order_range_map50_95": 0.004545042321879578,
+        "orders": {
+          "imageid": {
+            "map50": 51.079186263085944,
+            "map50_95": 34.415210968898215
+          },
+          "index": {
+            "map50": 51.08705326802914,
+            "map50_95": 34.419756011220095
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9928308823529411,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          35.0893828113839,
+          51.71855159243071
+        ]
+      },
+      {
+        "configuration": "5519c2e6243a",
+        "detections": 193994,
+        "detections_scored": 183144,
+        "distinct_scores": 51,
+        "envelope_width_map50": 2.292351428116257,
+        "envelope_width_map50_95": 2.2543177392437554,
+        "false_positives_first": [
+          34.331014281269226,
+          50.31684151564833
+        ],
+        "fixed_rule": [
+          35.30487859630572,
+          51.31509193424715
+        ],
+        "format": "fp8_e4m3fn",
+        "imageid": {
+          "map50": 51.30759926329236,
+          "map50_95": 35.338688452395395
+        },
+        "imageid_minus_fixed": {
+          "map50": -0.007492670954775349,
+          "map50_95": 0.03380985608967535
+        },
+        "largest_move_from_fixed_map50": 0.007492670954775349,
+        "largest_move_from_fixed_map50_95": 0.03380985608967535,
+        "order_range_map50": 0.007492670954775349,
+        "order_range_map50_95": 0.03380985608967535,
+        "orders": {
+          "imageid": {
+            "map50": 51.30759926329236,
+            "map50_95": 35.338688452395395
+          },
+          "index": {
+            "map50": 51.315091934247135,
+            "map50_95": 35.30487859630572
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "conformant",
+        "role": "conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.9975265364958721,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          36.585332020512986,
+          52.60919294376458
+        ]
+      },
+      {
+        "configuration": "36aaf9c1768f",
+        "detections": 214011,
+        "detections_scored": 202015,
+        "distinct_scores": 110,
+        "envelope_width_map50": 1.1345619169826349,
+        "envelope_width_map50_95": 1.2392948011083094,
+        "false_positives_first": [
+          33.58931823339157,
+          50.111488506872135
+        ],
+        "fixed_rule": [
+          34.14876952528299,
+          50.61774423123374
+        ],
+        "format": "fp7_e3m3",
+        "imageid": {
+          "map50": 50.67375399469445,
+          "map50_95": 34.195348343339575
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.05600976346070752,
+          "map50_95": 0.04657881805659514
+        },
+        "largest_move_from_fixed_map50": 0.05600976346070752,
+        "largest_move_from_fixed_map50_95": 0.04657881805659514,
+        "order_range_map50": 0.05600976346070752,
+        "order_range_map50_95": 0.04657881805659514,
+        "orders": {
+          "imageid": {
+            "map50": 50.67375399469445,
+            "map50_95": 34.195348343339575
+          },
+          "index": {
+            "map50": 50.61774423123374,
+            "map50_95": 34.14876952528298
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.993520283147291,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          34.82861303449988,
+          51.24605042385477
+        ]
+      },
+      {
+        "configuration": "6f99e4181dee",
+        "detections": 212082,
+        "detections_scored": 200134,
+        "distinct_scores": 47,
+        "envelope_width_map50": 2.1693691059855635,
+        "envelope_width_map50_95": 2.23146566856004,
+        "false_positives_first": [
+          34.186853204423265,
+          49.99812872638852
+        ],
+        "fixed_rule": [
+          35.12674311366756,
+          50.93933460867777
+        ],
+        "format": "fp7_e3m3",
+        "imageid": {
+          "map50": 50.97632483185357,
+          "map50_95": 35.18710040845253
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.03699022317579903,
+          "map50_95": 0.06035729478497842
+        },
+        "largest_move_from_fixed_map50": 0.03699022317579903,
+        "largest_move_from_fixed_map50_95": 0.06035729478497842,
+        "order_range_map50": 0.03699022317579903,
+        "order_range_map50_95": 0.06035729478497842,
+        "orders": {
+          "imageid": {
+            "map50": 50.97632483185357,
+            "map50_95": 35.18710040845253
+          },
+          "index": {
+            "map50": 50.93933460867777,
+            "map50_95": 35.12674311366755
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "conformant",
+        "role": "conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.9978564361877542,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          36.4183188729833,
+          52.16749783237409
+        ]
+      },
+      {
+        "configuration": "c31c47d0aeaa",
+        "detections": 56480,
+        "detections_scored": 53434,
+        "distinct_scores": 26,
+        "envelope_width_map50": 4.778795390646806,
+        "envelope_width_map50_95": 3.7771096493080525,
+        "false_positives_first": [
+          30.703748564568084,
+          45.865485619187254
+        ],
+        "fixed_rule": [
+          32.13101125202939,
+          47.7883578196972
+        ],
+        "format": "fp6_e2m3",
+        "imageid": {
+          "map50": 47.72626365159545,
+          "map50_95": 32.16423623878937
+        },
+        "imageid_minus_fixed": {
+          "map50": -0.06209416810173707,
+          "map50_95": 0.03322498675997565
+        },
+        "largest_move_from_fixed_map50": 0.2123266346047714,
+        "largest_move_from_fixed_map50_95": 0.12540809406901587,
+        "order_range_map50": 0.29802995783056474,
+        "order_range_map50_95": 0.21472823336249292,
+        "orders": {
+          "imageid": {
+            "map50": 47.72626365159545,
+            "map50_95": 32.16423623878937
+          },
+          "index": {
+            "map50": 47.78835781969719,
+            "map50_95": 32.131011252029396
+          },
+          "random0": {
+            "map50": 47.809498972797456,
+            "map50_95": 32.14174131600195
+          },
+          "random1": {
+            "map50": 47.87406114292298,
+            "map50_95": 32.0604021422218
+          },
+          "random2": {
+            "map50": 47.57603118509242,
+            "map50_95": 32.00560315796038
+          },
+          "random3": {
+            "map50": 47.74437515648225,
+            "map50_95": 32.12665376317773
+          },
+          "reverse": {
+            "map50": 47.761473273508074,
+            "map50_95": 32.22033139132287
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9963132088183554,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          34.48085821387614,
+          50.64428100983406
+        ]
+      },
+      {
+        "configuration": "ec832180ea14",
+        "detections": 54715,
+        "detections_scored": 51812,
+        "distinct_scores": 18,
+        "envelope_width_map50": 6.282419232419528,
+        "envelope_width_map50_95": 4.834826646612561,
+        "false_positives_first": [
+          31.160862150979725,
+          45.97820000729817
+        ],
+        "fixed_rule": [
+          32.92032893538692,
+          48.30447457101377
+        ],
+        "format": "fp6_e2m3",
+        "imageid": {
+          "map50": 48.331124940055005,
+          "map50_95": 32.98705066219013
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.026650369041242072,
+          "map50_95": 0.06672172680320898
+        },
+        "largest_move_from_fixed_map50": 0.08049765692753397,
+        "largest_move_from_fixed_map50_95": 0.16822268891603898,
+        "order_range_map50": 0.1412679604394853,
+        "order_range_map50_95": 0.19083191851817816,
+        "orders": {
+          "imageid": {
+            "map50": 48.331124940055005,
+            "map50_95": 32.98705066219013
+          },
+          "index": {
+            "map50": 48.30447457101376,
+            "map50_95": 32.92032893538692
+          },
+          "random0": {
+            "map50": 48.365244874525715,
+            "map50_95": 33.05146128849834
+          },
+          "random1": {
+            "map50": 48.35299848439264,
+            "map50_95": 32.89771970578478
+          },
+          "random2": {
+            "map50": 48.22397691408623,
+            "map50_95": 32.90983551301224
+          },
+          "random3": {
+            "map50": 48.35475241904154,
+            "map50_95": 32.98002116642599
+          },
+          "reverse": {
+            "map50": 48.26464933369428,
+            "map50_95": 33.08855162430296
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "conformant",
+        "role": "conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.9973365243572917,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          35.99568879759229,
+          52.2606192397177
+        ]
+      },
+      {
+        "configuration": "82fa3beacff0",
+        "detections": 197888,
+        "detections_scored": 187087,
+        "distinct_scores": 112,
+        "envelope_width_map50": 1.1095457744263237,
+        "envelope_width_map50_95": 1.099768552036845,
+        "false_positives_first": [
+          33.15844326108323,
+          49.83498133260191
+        ],
+        "fixed_rule": [
+          33.669676112491324,
+          50.34236992747102
+        ],
+        "format": "log8",
+        "imageid": {
+          "map50": 50.34383124629371,
+          "map50_95": 33.65164224976709
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.0014613188226988427,
+          "map50_95": -0.018033862724237792
+        },
+        "largest_move_from_fixed_map50": 0.0014613188226988427,
+        "largest_move_from_fixed_map50_95": 0.018033862724237792,
+        "order_range_map50": 0.0014613188226988427,
+        "order_range_map50_95": 0.018033862724237792,
+        "orders": {
+          "imageid": {
+            "map50": 50.34383124629371,
+            "map50_95": 33.65164224976709
+          },
+          "index": {
+            "map50": 50.34236992747101,
+            "map50_95": 33.66967611249133
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9925703015174758,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          34.25821181312008,
+          50.944527107028236
+        ]
+      },
+      {
+        "configuration": "09cc97f095c9",
+        "detections": 195842,
+        "detections_scored": 185428,
+        "distinct_scores": 61,
+        "envelope_width_map50": 1.8451834491639119,
+        "envelope_width_map50_95": 1.7570979549668075,
+        "false_positives_first": [
+          33.5828448701804,
+          49.676619362967045
+        ],
+        "fixed_rule": [
+          34.35185827074282,
+          50.47708199154838
+        ],
+        "format": "log8",
+        "imageid": {
+          "map50": 50.47511989326098,
+          "map50_95": 34.35641567176112
+        },
+        "imageid_minus_fixed": {
+          "map50": -0.001962098287400238,
+          "map50_95": 0.004557401018303153
+        },
+        "largest_move_from_fixed_map50": 0.001962098287400238,
+        "largest_move_from_fixed_map50_95": 0.004557401018303153,
+        "order_range_map50": 0.001962098287400238,
+        "order_range_map50_95": 0.004557401018303153,
+        "orders": {
+          "imageid": {
+            "map50": 50.47511989326098,
+            "map50_95": 34.35641567176112
+          },
+          "index": {
+            "map50": 50.47708199154838,
+            "map50_95": 34.35185827074282
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "conformant",
+        "role": "conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.9969422093750674,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          35.339942825147205,
+          51.52180281213096
+        ]
+      },
+      {
+        "configuration": "04fd1b90be7a",
+        "detections": 185294,
+        "detections_scored": 174773,
+        "distinct_scores": 164,
+        "envelope_width_map50": 0.795747361207344,
+        "envelope_width_map50_95": 0.8100757125914182,
+        "false_positives_first": [
+          37.75968792418063,
+          53.41656313174714
+        ],
+        "fixed_rule": [
+          38.11468793187161,
+          53.7951159353767
+        ],
+        "format": "posit8_es1",
+        "imageid": {
+          "map50": 53.796300507735225,
+          "map50_95": 38.14705587839929
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.0011845723585253154,
+          "map50_95": 0.032367946527685376
+        },
+        "largest_move_from_fixed_map50": 0.0011845723585253154,
+        "largest_move_from_fixed_map50_95": 0.032367946527685376,
+        "order_range_map50": 0.0011845723585253154,
+        "order_range_map50_95": 0.032367946527685376,
+        "orders": {
+          "imageid": {
+            "map50": 53.796300507735225,
+            "map50_95": 38.14705587839929
+          },
+          "index": {
+            "map50": 53.7951159353767,
+            "map50_95": 38.11468793187161
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9890772602175393,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          38.56976363677205,
+          54.21231049295449
+        ]
+      },
+      {
+        "configuration": "5c03ab8646b2",
+        "detections": 175702,
+        "detections_scored": 165797,
+        "distinct_scores": 75,
+        "envelope_width_map50": 1.357555695040713,
+        "envelope_width_map50_95": 1.4098586855699813,
+        "false_positives_first": [
+          37.80659233219566,
+          53.48341967518066
+        ],
+        "fixed_rule": [
+          38.41687971772645,
+          54.104586645791784
+        ],
+        "format": "posit8_es1",
+        "imageid": {
+          "map50": 54.10848308704955,
+          "map50_95": 38.45872259553824
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.0038964412577513485,
+          "map50_95": 0.041842877811788526
+        },
+        "largest_move_from_fixed_map50": 0.0038964412577513485,
+        "largest_move_from_fixed_map50_95": 0.041842877811788526,
+        "order_range_map50": 0.0038964412577513485,
+        "order_range_map50_95": 0.041842877811788526,
+        "orders": {
+          "imageid": {
+            "map50": 54.10848308704955,
+            "map50_95": 38.45872259553824
+          },
+          "index": {
+            "map50": 54.1045866457918,
+            "map50_95": 38.41687971772645
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "conformant",
+        "role": "conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.9938780556946145,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          39.21645101776564,
+          54.84097537022138
+        ]
+      },
+      {
+        "configuration": "60a7f065d41c",
+        "detections": 147304,
+        "detections_scored": 137770,
+        "distinct_scores": 38,
+        "envelope_width_map50": 8.10758626494873,
+        "envelope_width_map50_95": 6.214711061655814,
+        "false_positives_first": [
+          31.733542778882484,
+          46.42545791359658
+        ],
+        "fixed_rule": [
+          33.977691706293946,
+          49.359901238362276
+        ],
+        "format": "bfp6",
+        "imageid": {
+          "map50": 49.40454163230153,
+          "map50_95": 33.99529335798926
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.044640393939261,
+          "map50_95": 0.017601651695315468
+        },
+        "largest_move_from_fixed_map50": 0.26778678064502515,
+        "largest_move_from_fixed_map50_95": 0.12668406865692106,
+        "order_range_map50": 0.26778678064502515,
+        "order_range_map50_95": 0.13048244854368818,
+        "orders": {
+          "imageid": {
+            "map50": 49.40454163230153,
+            "map50_95": 33.99529335798926
+          },
+          "index": {
+            "map50": 49.35990123836227,
+            "map50_95": 33.977691706293946
+          },
+          "random0": {
+            "map50": 49.627688019007294,
+            "map50_95": 34.10437577495087
+          },
+          "random1": {
+            "map50": 49.41633393726011,
+            "map50_95": 33.97389332640718
+          },
+          "random2": {
+            "map50": 49.54922802121878,
+            "map50_95": 34.0655533959818
+          },
+          "random3": {
+            "map50": 49.467607942271485,
+            "map50_95": 34.098536291362166
+          },
+          "reverse": {
+            "map50": 49.51615387021385,
+            "map50_95": 34.0397866699645
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9982507077012412,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          37.9482538405383,
+          54.53304417854531
+        ]
+      },
+      {
+        "configuration": "f8251caf511b",
+        "detections": 146192,
+        "detections_scored": 136884,
+        "distinct_scores": 38,
+        "envelope_width_map50": 8.042380677897597,
+        "envelope_width_map50_95": 6.210854930226439,
+        "false_positives_first": [
+          31.95022832544995,
+          46.62058105317208
+        ],
+        "fixed_rule": [
+          34.217536000683914,
+          49.54653600507542
+        ],
+        "format": "bfp6",
+        "imageid": {
+          "map50": 49.58170493320838,
+          "map50_95": 34.23167631441053
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.03516892813296124,
+          "map50_95": 0.014140313726620946
+        },
+        "largest_move_from_fixed_map50": 0.23545285592322784,
+        "largest_move_from_fixed_map50_95": 0.04314814605952222,
+        "order_range_map50": 0.23545285592322784,
+        "order_range_map50_95": 0.08530009994696997,
+        "orders": {
+          "imageid": {
+            "map50": 49.58170493320838,
+            "map50_95": 34.23167631441053
+          },
+          "index": {
+            "map50": 49.54653600507542,
+            "map50_95": 34.21753600068391
+          },
+          "random0": {
+            "map50": 49.781988860998645,
+            "map50_95": 34.24252013331401
+          },
+          "random1": {
+            "map50": 49.60510283641462,
+            "map50_95": 34.21440388358612
+          },
+          "random2": {
+            "map50": 49.69573646752987,
+            "map50_95": 34.259687954571355
+          },
+          "random3": {
+            "map50": 49.67851055679485,
+            "map50_95": 34.174387854624385
+          },
+          "reverse": {
+            "map50": 49.68554220274547,
+            "map50_95": 34.23328928439635
+          }
+        },
+        "orders_measured": [
+          "index",
+          "reverse",
+          "random0",
+          "random1",
+          "random2",
+          "random3",
+          "imageid"
+        ],
+        "recipe": "default_fp32_box_logits",
+        "role": "nearest available to conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.9982247742614184,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          38.16108325567639,
+          54.66296173106968
+        ]
+      },
+      {
+        "configuration": "ea15b183c1d4",
+        "detections": 162926,
+        "detections_scored": 153815,
+        "distinct_scores": 36,
+        "envelope_width_map50": 2.4008596554772055,
+        "envelope_width_map50_95": 2.1871671488935984,
+        "false_positives_first": [
+          34.44124803723819,
+          51.047212112169184
+        ],
+        "fixed_rule": [
+          35.36061147452802,
+          52.07684985191909
+        ],
+        "format": "mxfp8_e4m3",
+        "imageid": {
+          "map50": 52.120352731418876,
+          "map50_95": 35.43006971986348
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.043502879499783376,
+          "map50_95": 0.0694582453354684
+        },
+        "largest_move_from_fixed_map50": 0.043502879499783376,
+        "largest_move_from_fixed_map50_95": 0.0694582453354684,
+        "order_range_map50": 0.043502879499783376,
+        "order_range_map50_95": 0.0694582453354684,
+        "orders": {
+          "imageid": {
+            "map50": 52.120352731418876,
+            "map50_95": 35.43006971986348
+          },
+          "index": {
+            "map50": 52.07684985191909,
+            "map50_95": 35.360611474528014
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "default",
+        "role": "frozen `default`",
+        "share_of_scored_detections_with_a_tied_score": 0.9976010142053766,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          36.62841518613178,
+          53.44807176764639
+        ]
+      },
+      {
+        "configuration": "afcbe91087e6",
+        "detections": 160565,
+        "detections_scored": 151901,
+        "distinct_scores": 36,
+        "envelope_width_map50": 2.402118076102344,
+        "envelope_width_map50_95": 2.1971067575771497,
+        "false_positives_first": [
+          35.32768198326796,
+          51.35596486863717
+        ],
+        "fixed_rule": [
+          36.23707567966162,
+          52.385383027146524
+        ],
+        "format": "mxfp8_e4m3",
+        "imageid": {
+          "map50": 52.422206980882855,
+          "map50_95": 36.307194314324384
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.036823953736337955,
+          "map50_95": 0.07011863466274804
+        },
+        "largest_move_from_fixed_map50": 0.036823953736337955,
+        "largest_move_from_fixed_map50_95": 0.07011863466274804,
+        "order_range_map50": 0.036823953736337955,
+        "order_range_map50_95": 0.07011863466274804,
+        "orders": {
+          "imageid": {
+            "map50": 52.422206980882855,
+            "map50_95": 36.307194314324384
+          },
+          "index": {
+            "map50": 52.38538302714652,
+            "map50_95": 36.237075679661636
+          }
+        },
+        "orders_measured": [
+          "index",
+          "imageid"
+        ],
+        "recipe": "default_fp32_box_logits",
+        "role": "nearest available to conformant",
+        "share_of_scored_detections_with_a_tied_score": 0.997537870060105,
+        "source": "fixed rule, new engine",
+        "true_positives_first": [
+          37.52478874084511,
+          53.75808294473951
+        ]
+      },
+      {
+        "detections": 95713,
+        "detections_scored": 90070,
+        "distinct_scores": 40,
+        "envelope_width_map50": 3.5055126246180346,
+        "envelope_width_map50_95": 2.657580576860974,
+        "false_positives_first": [
+          30.505677429948076,
+          46.53025140776996
+        ],
+        "fixed_rule": [
+          31.590591945550162,
+          47.97525591758121
+        ],
+        "format": "int8",
+        "imageid": {
+          "map50": 47.98399966538457,
+          "map50_95": 31.620701363761828
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.008743747803364954,
+          "map50_95": 0.03010941821167279
+        },
+        "recipe": "v1_maxabs",
+        "role": "old recipe",
+        "share_of_scored_detections_with_a_tied_score": 0.9960808260242034,
+        "source": "sealed v1 predictions",
+        "true_positives_first": [
+          33.16325800680905,
+          50.035764032387995
+        ]
+      },
+      {
+        "detections": 112880,
+        "detections_scored": 110484,
+        "distinct_scores": 4,
+        "envelope_width_map50": 61.66182478289075,
+        "envelope_width_map50_95": 42.057980728895544,
+        "false_positives_first": [
+          2.216592102181737,
+          3.876754755808203
+        ],
+        "fixed_rule": [
+          2.9054833858284392,
+          5.014336028699125
+        ],
+        "format": "int8",
+        "imageid": {
+          "map50": 5.61798688489438,
+          "map50_95": 3.266318256023647
+        },
+        "imageid_minus_fixed": {
+          "map50": 0.6036508561952552,
+          "map50_95": 0.36083487019520755
+        },
+        "recipe": "v1_percentile_99_9",
+        "role": "old recipe",
+        "share_of_scored_detections_with_a_tied_score": 1.0,
+        "source": "sealed v1 predictions",
+        "true_positives_first": [
+          44.27457283107728,
+          65.53857953869895
+        ]
+      }
+    ],
+    "rule": {
+      "envelope": "all orders of equal scores across detections at fixed image-local matching, fixed-rule detections: true positives first (upper) and false positives first (lower)",
+      "imageid": "fixed within-image rule (stored detections) and evaluation images in ascending COCO image_id: the order pycocotools uses when the original image ids are kept",
+      "index": "fixed rule: score descending, then anchor index ascending, then class index ascending, for NMS, the 300-detection cut and emission; evaluation images in ascending image sha256; COCOeval's stable sort completes the order",
+      "randomN": "random tie key per image (seed N) and random evaluation image order (seed 7919+N)",
+      "reading": "a conformant-minus-default difference is 'within tie-order sensitivity' when its absolute value is at most the larger of the two recipes' largest moves from the fixed rule over the orders measured (descriptive; decides nothing)",
+      "reverse": "tie key reversed and evaluation image order reversed",
+      "tie_formats": [
+        "int8",
+        "int6",
+        "fp6_e2m3",
+        "bfp6"
+      ]
+    }
+  },
+  "sha256": "076ed5567f6621c8469b3e2db399d10daa5518085a248b8a52f6f85d88a3c32e"
+}

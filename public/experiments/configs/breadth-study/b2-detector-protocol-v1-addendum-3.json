@@ -1,0 +1,31 @@
+{
+  "addendum_to": "experiment-b2-detector-1.0.0",
+  "written": "2026-10-01 22:39, by the fourth agent of lane L7 (CTXMARK-L7c-detector-r2), after independent review 1 (artifacts/agent_orchestration/handoffs/L7-detector-review.md) and before any measurement listed below. Everything the lane had measured was seen: every dev128 and screen1k run record, every bootstrap interval, every sentinel result, in particular default_fp32_box_logits (screen1k 38.459) and default_q_joins (screen1k 37.943).",
+  "protocol_deviation": {
+    "rule": "Protocol v1 'switches.head' lists the box-distribution logits as one of the independent head flags, and 'freeze_rule' item 4 says each head exemption is adopted only if the full recipe without it is worse on dev128 by more than 0.5 point with an interval excluding zero, and that the frozen head keeps quantized every tensor whose quantization does not meet that test. Addendum 1 evaluates these tests on the base cum5.",
+    "what_the_rule_required": [
+      "Box logits not quantized: cum5_fp32_box_logits minus cum5 on dev128 = +0.56 [+0.21, +0.87], test met. The bootstrap vector of cum5_fp32_box_logits was written at 19:57:51 and tools/experiment_b2_det/frozen.py at 20:04:01, so the interval existed when the recipe was frozen. The first agent had classed both logit exemptions as diagnostics at 19:48 and did not apply the rule to them.",
+      "84-channel joins quantized: no arm tested the join exemption before the freeze, so the join quantization did not meet the test and the rule keeps it. Measured afterwards (default_q_joins, addendum 2), putting the score group of the joins back costs 0.19 [0.08, 0.43] on dev128, which would not meet the test either."
+    ],
+    "what_was_frozen": "`default` keeps the box logits as k-bit codes and does not quantize the joins. This departs from the written rule in two places. Earlier versions of the results document called these 'post-hoc readings'; they are a protocol deviation.",
+    "classification_on_the_class_logits": "cum5_fp32_class_logits is +0.36 [-0.07, +0.73] on dev128: test not met, the class logits stay quantized under either reading."
+  },
+  "what_this_adds": [
+    "Arm `conformant` (tools/experiment_b2_det/arms4.py, a new module; recipe.py, engine.py and post.py are unchanged, so no configuration identity changes): `default` with q_box_logits=false and q_joins=true. Everything else equals `default`. The joins re-store only the score group (the box group is not a k-bit store because q_boxes=false), and the engine stores a join with the signed codebook (engine.analyze never classes a join as non-negative; the protocol's unsigned list names the input image, the sigmoid output and the expectation output only). This is kept as implemented; an unsigned join re-store is not measured.",
+    "Block formats (bfp6, mxfp8_e4m3): the engine defines a join store only for the whole 84-channel tensor (engine.analyze raises for a block format whose join keeps only the score group), so a block-format join with unquantized boxes does not exist. For these two formats the conformant recipe is the already registered arm default_fp32_box_logits (box logits wide, joins not quantized); no new configuration is registered for them.",
+    "Runs (GPU, fixed tie rule only, no tie orders): INT8 `conformant` on dev128 and screen1k; `conformant` on screen1k for int6, fp8_e4m3fn, fp7_e3m3, fp6_e2m3, log8, posit8_es1; default_fp32_box_logits on screen1k for bfp6 and mxfp8_e4m3. Then `stats` (2000-draw paired image bootstrap and tie statistics) for the new detection files.",
+    "Statistics: paired against FP32, against `default` of the same format and against the sealed v1 max-abs and percentile predictions, as for `default`."
+  ],
+  "what_this_does_not_do": [
+    "It does not re-freeze. `default` stays the registered recipe that was frozen at 20:04 and every number reported for it stands. `conformant` is the recipe the written rule prescribes. Which of the two is the paper's detector recipe is an owner decision; until then the document reports both side by side and names the deviation.",
+    "Its screen1k INT8 value can be anticipated from default_fp32_box_logits and default_q_joins, which had been seen; it is not a confirmation of anything, only the measurement of the prescribed recipe.",
+    "No sequential re-test of the later head tensors on a base that already has the box logits wide (the rule says graph order; addendum 1 placed every test on cum5, and that is kept).",
+    "No other arm, switch or format. Nothing is added to move the exit number."
+  ],
+  "exit_statement": "The exit rule of addendum 2 (screen1k INT8 minus FP32 with its paired interval, whether the point estimate is inside 1.0 point, residual account) is applied to `conformant` as well and reported beside `default`.",
+  "corrections_to_earlier_addenda": {
+    "addendum_2_seen_list": "Addendum 2's 'written' field lists FP32, the INT8 frozen recipe, the INT8 ladder up to cum5, the ablations of the frozen recipe and the frozen-recipe point estimates of seven sentinel formats. By the run records, at 20:45 these screen1k point estimates had also been produced: v1_maxabs (31.591), cum5_fused_silu, cum5_concat_passthrough, cum5_q_boxes and cum5_v1_head, and default_head_logits for int8 and for the same seven sentinel formats (the column that addendum 2's 'sentinel_reporting' then added to the reports). The tie-order files of int8, int6, bfp6 and fp6_e2m3 existed but had not been evaluated.",
+    "aliases": "Two pairs of registered names denote the same switches and therefore the same configuration and the same detections: b_head_logits = cum1_head_logits (configuration 09bcd24b64b1) and cum5_fused_silu = default_head_logits (8f8fd34baa21). Tables that list both report one measurement twice."
+  },
+  "unchanged": "data, panels, metric, statistics, tie rules, regression, sentinel list, storage, frozen recipe `default`, addenda 1 and 2"
+}

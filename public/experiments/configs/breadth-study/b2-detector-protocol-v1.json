@@ -1,0 +1,65 @@
+{
+  "version": "experiment-b2-detector-1.0.0",
+  "written": "2026-10-01, before any B2 detector measurement",
+  "lane": "L7-detector",
+  "purpose": "Explain the 7.5-point INT8 loss of YOLOv8n under the v1 FP32 quantize-dequantize recipes, freeze a detector recipe that follows the B2 classifier default wherever the same choice exists, and re-measure nine sentinel formats.",
+  "inherits": ["experiment-b-extension-1.0.0 (detector graph, operators, calibration observations, postprocessing, metric)", "experiment-b2-baseline-repair-1.0.0 (codebooks, MSE scale search, recipe vocabulary)"],
+  "scope": "PTQ only, CNN only, FP32 quantize-dequantize surrogate with a wide FP32 accumulator; development evidence, no exact-engine or hardware-equivalence claim",
+  "data": {
+    "calibration": "coco_calibration_2k only (data/manifests/index.json). Activation ranges use the sealed v1 detector observations (artifacts/experiment_b_ext/calibration, read-only: 256 rotating-channel samples per node per image and exact per-node maxima over 2000 images). Bias correction uses the first 64 images of coco_calibration_2k in ascending sha256 order.",
+    "evaluation": "coco_screen_1k only. dev128 = first 128 images in ascending sha256 order (the v1 128 panel); screen1k = all 1000. screen1k contains dev128. Every number measured on these lists is development evidence.",
+    "reserved": "No model is run on any COCO validation image outside coco_screen_1k.",
+    "no_input_cache": "Preprocessed COCO inputs are not cached on disk; images are decoded and letterboxed per batch exactly as v1 does."
+  },
+  "bias_correction_images_note": "64 instead of the classifier's 256: each 640x640 image supplies at least 400 positions per channel (49 at the classifier's last stage), and the staged pass keeps live activations of all images on the GPU that is shared with other lanes. The number is fixed here and is not tuned.",
+  "metric": "COCO bbox mAP50-95 (primary) and mAP50 from pycocotools COCOeval on the evaluated subset, conf 0.001, NMS IoU 0.7, multi-label, at most 300 detections per image, as v1.",
+  "statistics": {
+    "method": "paired image-level percentile bootstrap of the dataset-level AP difference: public.analysis.phase3.statistics.resampled_coco for the population, COCOeval.evaluate once per arm, COCOeval.accumulate per draw (image-local matching reused, as public.analysis.phase3.coco_cache does)",
+    "resamples": 2000,
+    "seed": 310911,
+    "confidence": 0.95,
+    "speed": "accumulate is restricted to the area range 'all' and maxDets 100, the only slices mAP50-95 and mAP50 read; the point estimates are asserted equal to the unrestricted evaluator",
+    "interpretation": "pointwise intervals, no multiplicity adjustment; arms were chosen adaptively on these images"
+  },
+  "panels": {
+    "dev128": "all diagnosis arms (INT8), one change at a time from v1 max-abs and cumulatively; the freeze decision is taken here",
+    "screen1k": "the cumulative ladder, the leave-one-out arms around the full ladder, the exit test and the sentinel formats"
+  },
+  "switches": {
+    "boundaries": "(a) v1: every convolution output and every SiLU output quantizes. fused_silu: a convolution whose only consumer is SiLU does not quantize; one quantization after the activation.",
+    "head": "(b) independent flags for the projection constant of the distribution-focal-loss expectation, the box-distribution logits, the expectation output, the decoded and stride-scaled boxes, the class logits, the class sigmoid output, and the 84-channel joins of boxes and scores.",
+    "ranges": "(c) activation and weight range rule: maxabs, percentile_99_9, or the B2 MSE search (tools/experiment_b2/scales.py, unchanged).",
+    "bias_correction": "(d) none or sequential empirical correction of every convolution bias; the corrected layer is recomputed with its new bias (exact for the executed engine).",
+    "passthrough": "(e) none; nonarith: channel slice, max-pool and nearest upsample forward the codes of an already quantized tensor; nonarith_concat: additionally a concatenation whose inputs are all quantized forwards their codes, each input keeping its own scale.",
+    "unsigned": "B2 unsigned integer codebook at provably non-negative boundaries (integer formats only). In this graph: the input image (pixel/255), the sigmoid output and the expectation output. SiLU outputs are not non-negative.",
+    "diagnostic_only": "quantize_input, quantize_weights, quantize_activations (never part of a frozen recipe)"
+  },
+  "freeze_rule": [
+    "Switches that exist in the classifier default take the classifier default value: unsigned on, activation MSE, weight MSE, empirical bias correction, max-pool code pass-through.",
+    "SiLU: the classifier default fuses only clamps (ReLU, ReLU6); Hardswish and Hardsigmoid stay unfused. By the same rule SiLU is unfused (code-to-code lookup). fused_silu needs a wide-precision nonlinearity and is adopted only if the unfused full recipe is worse on dev128 by more than 0.5 mAP50-95 point with a paired 95 percent interval excluding zero.",
+    "Slice and nearest-upsample pass-through remove requantizers and add nothing: adopted with max-pool.",
+    "Concatenation pass-through (mixed-scale operand groups) and each head exemption change the hardware contract: adopted only if the full recipe without it is worse on dev128 by more than 0.5 point with an interval excluding zero. Head tensors are considered in graph order; the frozen head keeps quantized every tensor whose quantization does not meet that test.",
+    "A classifier-default switch is not dropped on detector evidence; its leave-one-out arm is reported.",
+    "After the freeze nothing is added to reach the exit target. Diagnostic arms that explain a residual are reported as diagnostics."
+  ],
+  "exit_test": "INT8 frozen recipe against FP32 on screen1k: target within about 1 mAP50-95 point; otherwise a measured account of the residual (weights only, activations only, FP32 head, FP32 input, leave-one-out).",
+  "ties": {
+    "v1_rule": "ultralytics non_max_suppression then COCOeval: candidates enter torchvision NMS in anchor-major, class-minor order and NMS sorts scores with the CUDA sort, whose order among equal scores is unspecified; COCOeval orders equal scores by a stable sort, that is by emitted order inside an image and category and by evaluation image order across images.",
+    "fixed_rule": "total order (score descending, anchor index ascending, class index ascending) for NMS, for the 300-detection cut and for emission; evaluation image order = ascending image sha256 (the frozen panel order). Used for every new measurement including FP32.",
+    "sensitivity": "INT8 and the 6-bit sentinels on screen1k: reversed tie key with reversed image order; 4 random tie keys each with a random image order (seeds 0..3); and the envelope of all orders of equal scores across detections at fixed image-local matching (true positives first, false positives first).",
+    "legacy": "the v1 postprocessing is kept only for the regression against the sealed v1 predictions"
+  },
+  "regression": "With every new switch off the engine must reproduce the sealed v1 detector outputs: bit-identical head tensors against tools.experiment_b_ext.detector.prepare_detector and identical sealed detections on a sample of screen images, for int8 (both v1 recipes), posit8_es1 and bfp6, and for the FP32 baseline.",
+  "sentinels": {
+    "formats": ["int8", "int6", "fp8_e4m3fn", "fp7_e3m3", "fp6_e2m3", "log8", "posit8_es1", "bfp6", "mxfp8_e4m3"],
+    "recipe": "the frozen detector recipe; each reported beside its sealed v1 max-abs and percentile result on the same 1000 images",
+    "shared_exponent": "bfp6 and mxfp8_e4m3 use the block semantics of tools/experiment_b_ext/shared.py unchanged (stored activations in blocks of 32 along channels, weights and convolution patches in blocks of 32 along the reduction axis, block max-abs covering power-of-two scale). Boundary and head switches and bias correction apply; range rules do not (the block scale is computed at run time); pass-through switches do not (a block requantization after slice or upsample is lossless under the covering scale, and after max-pool or a block-straddling concatenation the exponent alignment is real hardware work)."
+  },
+  "storage": "detections as compressed integer arrays (image index uint16, category uint8, box in 0.001 pixel int32, score in 1e-5 int32), one file per configuration and panel; no activations, inputs or float weight copies are stored",
+  "batch": {"evaluation": 4, "calibration_and_bias_correction": 8},
+  "outputs": {
+    "evidence": "artifacts/experiment_b2_det/",
+    "summaries": "results/summaries/b2-detector-v1/",
+    "document": "docs/analysis/b2-detector-2026-10-01.md"
+  }
+}

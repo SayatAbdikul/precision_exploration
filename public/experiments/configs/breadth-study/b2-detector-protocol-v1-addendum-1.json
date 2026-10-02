@@ -1,0 +1,11 @@
+{
+  "addendum_to": "experiment-b2-detector-1.0.0",
+  "written": "2026-10-01, after the first dev128 pass (INT8 point estimates of the one-at-a-time arms and the ladder, no intervals yet) and before any 1k measurement, any sentinel format and the freeze",
+  "what_was_seen": "Empirical bias correction is harmful on the detector: cum5 39.25 -> cum6 28.05 mAP50-95 on dev128, and 0.03 when applied alone to v1 max-abs. The per-channel residual after correction is about 1e-7, so the step does what it is defined to do.",
+  "amendments": [
+    "Freeze rule, clause 'a classifier-default switch is not dropped on detector evidence' is replaced by the rule the classifier study itself used (b2-baseline-repair-protocol-v1, stage S2): a classifier-default switch is dropped only if its leave-one-out arm is better on dev128 with a paired 95 percent interval excluding zero.",
+    "Because bias correction is step 6 of the ladder, the two later steps (concatenation pass-through, fused SiLU), the leave-one-out arms, the head put-back arms and the residual diagnostics are also run on the base without bias correction (cum5). The arms are registered in tools/experiment_b2_det/arms2.py. The tests for the contract-changing options (more than 0.5 point with an interval excluding zero on dev128) are evaluated on that base.",
+    "The originally registered arms with bias correction stay in the tables as measured."
+  ],
+  "unchanged": "data, panels, metric, statistics, tie rules, regression, sentinel list, storage, the 64 bias-correction images, the 0.5-point test for contract-changing options, and the exit test"
+}

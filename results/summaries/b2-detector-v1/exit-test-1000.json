@@ -1,0 +1,547 @@
+{
+  "payload": {
+    "fp32": {
+      "map50": 54.35196322519529,
+      "map50_95": 39.048651507944555
+    },
+    "int8_frozen_recipe": {
+      "map50": 53.7248445387929,
+      "map50_95": 38.02382966760518
+    },
+    "int8_minus_fp32": {
+      "delta": -1.0248218403393738,
+      "delta_map50": -0.6271186864023837,
+      "interval": [
+        -1.520388937685054,
+        -0.7759244392940146
+      ],
+      "interval_map50": [
+        -1.1423949661514547,
+        -0.26387495407570655
+      ]
+    },
+    "interpretation": "development evidence (COCO screen list); pointwise paired image-bootstrap intervals, no multiplicity adjustment",
+    "interval_within_one_point": false,
+    "not_available": [],
+    "panel": "screen1000",
+    "point_estimate_within_one_point": false,
+    "residual_account": [
+      {
+        "arm": "default_weights_only",
+        "map50": 54.5694807580419,
+        "map50_95": 39.07424136510679,
+        "minus_fp32": {
+          "delta": 0.02558985716223927,
+          "delta_map50": 0.21751753284661168,
+          "interval": [
+            -0.23690399122046374,
+            0.16398747913682646
+          ],
+          "interval_map50": [
+            -0.030292596843096653,
+            0.4110104585495147
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": 1.0504116975016131,
+          "delta_map50": 0.8446362192489953,
+          "interval": [
+            0.7706377905059156,
+            1.4822642260895416
+          ],
+          "interval_map50": [
+            0.4622927729354606,
+            1.3090332241766616
+          ]
+        },
+        "reading": "activations and input left in FP32: what weight quantization alone costs"
+      },
+      {
+        "arm": "default_activations_only",
+        "map50": 53.68925060656606,
+        "map50_95": 38.136126565662124,
+        "minus_fp32": {
+          "delta": -0.9125249422824333,
+          "delta_map50": -0.6627126186292243,
+          "interval": [
+            -1.347196041325392,
+            -0.6947535689422365
+          ],
+          "interval_map50": [
+            -1.1400245982773474,
+            -0.37601923672266263
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": 0.11229689805694054,
+          "delta_map50": -0.0355939322268406,
+          "interval": [
+            -0.1967359438011032,
+            0.4365915569492952
+          ],
+          "interval_map50": [
+            -0.4529752696078133,
+            0.30548018164442325
+          ]
+        },
+        "reading": "weights left in FP32: what activation quantization alone costs"
+      },
+      {
+        "arm": "default_no_input",
+        "map50": 53.7479770972967,
+        "map50_95": 38.01838223833681,
+        "minus_fp32": {
+          "delta": -1.030269269607742,
+          "delta_map50": -0.6039861278985925,
+          "interval": [
+            -1.543563351430128,
+            -0.7811840984017941
+          ],
+          "interval_map50": [
+            -1.1608947244133032,
+            -0.22523994589542173
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -0.005447429268368165,
+          "delta_map50": 0.023132558503791145,
+          "interval": [
+            -0.13552671373529912,
+            0.11758669332158128
+          ],
+          "interval_map50": [
+            -0.16586983491608856,
+            0.18706405840386936
+          ]
+        },
+        "reading": "input image left in FP32"
+      },
+      {
+        "arm": "default_fp32_head",
+        "map50": 54.210415384086964,
+        "map50_95": 38.66260699596346,
+        "minus_fp32": {
+          "delta": -0.3860445119810929,
+          "delta_map50": -0.14154784110832486,
+          "interval": [
+            -0.7078997514274824,
+            -0.09660770615505787
+          ],
+          "interval_map50": [
+            -0.5389186048880503,
+            0.22641560997336888
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": 0.6387773283582809,
+          "delta_map50": 0.4855708452940588,
+          "interval": [
+            0.5231437893796927,
+            0.9680204659355811
+          ],
+          "interval_map50": [
+            0.3264453518773708,
+            0.7777162878747537
+          ]
+        },
+        "reading": "both network outputs (box and class logits) and everything after them in FP32: what is left is the backbone and neck"
+      },
+      {
+        "arm": "default_fp32_box_logits",
+        "map50": 54.01710036256742,
+        "map50_95": 38.45862208232159,
+        "minus_fp32": {
+          "delta": -0.5900294256229677,
+          "delta_map50": -0.33486286262787157,
+          "interval": [
+            -1.0550580390290585,
+            -0.3612365799166462
+          ],
+          "interval_map50": [
+            -0.8565638443520176,
+            -0.01774760190068066
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": 0.4347924147164062,
+          "delta_map50": 0.2922558237745121,
+          "interval": [
+            0.296251384341749,
+            0.5962746307536797
+          ],
+          "interval_map50": [
+            0.12228831314456401,
+            0.40696172719377466
+          ]
+        },
+        "reading": "box logits leave the accelerator as wide values"
+      },
+      {
+        "arm": "default_fp32_class_logits",
+        "map50": 53.79983198145977,
+        "map50_95": 38.09586139224065,
+        "minus_fp32": {
+          "delta": -0.9527901157039054,
+          "delta_map50": -0.5521312437355208,
+          "interval": [
+            -1.3860007575277933,
+            -0.6499789796154963
+          ],
+          "interval_map50": [
+            -0.985207856027542,
+            -0.15484353966570644
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": 0.07203172463546847,
+          "delta_map50": 0.07498744266686286,
+          "interval": [
+            -0.00010409529338699558,
+            0.25987161769964806
+          ],
+          "interval_map50": [
+            -0.03751133761514169,
+            0.3118339388201748
+          ]
+        },
+        "reading": "class logits leave the accelerator as wide values"
+      },
+      {
+        "arm": "default_head_logits",
+        "map50": 53.852606571886184,
+        "map50_95": 38.1596586391525,
+        "minus_fp32": {
+          "delta": -0.8889928687920545,
+          "delta_map50": -0.49935665330910206,
+          "interval": [
+            -1.3289844873150662,
+            -0.6256648701959825
+          ],
+          "interval_map50": [
+            -1.0167622870349928,
+            -0.1652696379514161
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": 0.13582897154731932,
+          "delta_map50": 0.1277620330932816,
+          "interval": [
+            0.030589816674369233,
+            0.33117390391765306
+          ],
+          "interval_map50": [
+            0.002962483994295718,
+            0.2340138704087714
+          ]
+        },
+        "reading": "projection constant, box expectation and sigmoid scores not stored as k-bit codes"
+      },
+      {
+        "arm": "default_q_joins",
+        "map50": 53.6209531221881,
+        "map50_95": 37.94311373997644,
+        "minus_fp32": {
+          "delta": -1.1055377679681178,
+          "delta_map50": -0.7310101030071903,
+          "interval": [
+            -1.668473375256589,
+            -0.9137030178910919
+          ],
+          "interval_map50": [
+            -1.2963347536584389,
+            -0.40816228169744917
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -0.08071592762874391,
+          "delta_map50": -0.10389141660480661,
+          "interval": [
+            -0.22103742976911392,
+            -0.06330167077388042
+          ],
+          "interval_map50": [
+            -0.24800004522458474,
+            -0.08112680563435283
+          ]
+        },
+        "reading": "the 84-channel joins store the scores again as k-bit codes"
+      },
+      {
+        "arm": "default_q_boxes",
+        "map50": 52.364275937593774,
+        "map50_95": 35.70755167414082,
+        "minus_fp32": {
+          "delta": -3.3410998338037343,
+          "delta_map50": -1.987687287601514,
+          "interval": [
+            -3.944917155920944,
+            -2.9853745480878566
+          ],
+          "interval_map50": [
+            -2.5762452829453326,
+            -1.55018127470607
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -2.316277993464361,
+          "delta_map50": -1.3605686011991303,
+          "interval": [
+            -2.6177628385255343,
+            -2.044050541828258
+          ],
+          "interval_map50": [
+            -1.6397025044515712,
+            -1.0840987316746706
+          ]
+        },
+        "reading": "decoded pixel boxes stored as k-bit codes"
+      },
+      {
+        "arm": "default_unfused_silu",
+        "map50": 52.889968823863676,
+        "map50_95": 37.59127181225196,
+        "minus_fp32": {
+          "delta": -1.4573796956925955,
+          "delta_map50": -1.4619944013316122,
+          "interval": [
+            -1.962635624814466,
+            -1.1396963997109084
+          ],
+          "interval_map50": [
+            -2.042697963220474,
+            -0.9892459229705303
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -0.43255785535322167,
+          "delta_map50": -0.8348757149292285,
+          "interval": [
+            -0.7288238154311372,
+            -0.05548163111669227
+          ],
+          "interval_map50": [
+            -1.2443469040666102,
+            -0.39081202381808977
+          ]
+        },
+        "reading": "v1 boundaries: convolution output and SiLU output both requantized"
+      },
+      {
+        "arm": "default_concat_passthrough",
+        "map50": 53.61937302725527,
+        "map50_95": 37.85642561301978,
+        "minus_fp32": {
+          "delta": -1.19222589492477,
+          "delta_map50": -0.7325901979400196,
+          "interval": [
+            -1.6637818804821944,
+            -0.9212499225704461
+          ],
+          "interval_map50": [
+            -1.2038010660953251,
+            -0.322178621404315
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -0.1674040545853961,
+          "delta_map50": -0.1054715115376359,
+          "interval": [
+            -0.365996996336799,
+            0.07244217525782291
+          ],
+          "interval_map50": [
+            -0.3712637071830818,
+            0.21935062535821806
+          ]
+        },
+        "reading": "concatenations forward the codes of their inputs"
+      },
+      {
+        "arm": "default_signed",
+        "map50": 53.324319492819626,
+        "map50_95": 37.69681250651834,
+        "minus_fp32": {
+          "delta": -1.3518390014262138,
+          "delta_map50": -1.0276437323756604,
+          "interval": [
+            -1.8721417247564685,
+            -1.1248601261988318
+          ],
+          "interval_map50": [
+            -1.5436847762530994,
+            -0.6617506285692434
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -0.32701716108684,
+          "delta_map50": -0.40052504597327676,
+          "interval": [
+            -0.6147807669227114,
+            -0.05179432630595587
+          ],
+          "interval_map50": [
+            -0.7786892064058784,
+            -0.08158985858919021
+          ]
+        },
+        "reading": "signed codes at the non-negative boundaries"
+      },
+      {
+        "arm": "default_act_maxabs",
+        "map50": 52.63499898803374,
+        "map50_95": 37.609811282524674,
+        "minus_fp32": {
+          "delta": -1.4388402254198795,
+          "delta_map50": -1.7169642371615446,
+          "interval": [
+            -2.0568151336409257,
+            -1.1791904386888339
+          ],
+          "interval_map50": [
+            -2.4094327965317324,
+            -1.2953331741212366
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -0.4140183850805057,
+          "delta_map50": -1.089845550759161,
+          "interval": [
+            -0.9545267728128043,
+            0.021592383497830676
+          ],
+          "interval_map50": [
+            -1.7544809211039507,
+            -0.5488603316650804
+          ]
+        },
+        "reading": "max-abs activation ranges"
+      },
+      {
+        "arm": "default_weight_maxabs",
+        "map50": 53.43163191239048,
+        "map50_95": 37.933389732711134,
+        "minus_fp32": {
+          "delta": -1.115261775233417,
+          "delta_map50": -0.9203313128048118,
+          "interval": [
+            -1.5902133733692443,
+            -0.8389845241965539
+          ],
+          "interval_map50": [
+            -1.3635977854398083,
+            -0.577150687840008
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -0.09043993489404323,
+          "delta_map50": -0.2932126264024282,
+          "interval": [
+            -0.3902750963066295,
+            0.27127396112144553
+          ],
+          "interval_map50": [
+            -0.6615207332525274,
+            0.10370659027941197
+          ]
+        },
+        "reading": "max-abs weight ranges"
+      },
+      {
+        "arm": "default_bias_correction",
+        "map50": 35.250655124329846,
+        "map50_95": 23.25713593479657,
+        "minus_fp32": {
+          "delta": -15.791515573147985,
+          "delta_map50": -19.101308100865445,
+          "interval": [
+            -17.35201434250438,
+            -14.826803661317706
+          ],
+          "interval_map50": [
+            -20.892250710338665,
+            -17.815089548971436
+          ]
+        },
+        "minus_frozen_recipe": {
+          "delta": -14.766693732808612,
+          "delta_map50": -18.474189414463062,
+          "interval": [
+            -16.1494343567568,
+            -13.695773610728804
+          ],
+          "interval_map50": [
+            -20.202709797693874,
+            -17.122868791924375
+          ]
+        },
+        "reading": "empirical bias correction put back (the classifier default)"
+      }
+    ],
+    "statistics": {
+      "confidence": 0.95,
+      "resamples": 2000,
+      "seed": 310911,
+      "units": "mAP points"
+    },
+    "target": "within about 1 mAP50-95 point, or a clear account of the residual",
+    "v1": {
+      "maxabs": {
+        "frozen_recipe_minus_v1": {
+          "delta": 6.433237722055024,
+          "delta_map50": 5.749588621211698,
+          "interval": [
+            5.872193480910327,
+            7.443874663564235
+          ],
+          "interval_map50": [
+            5.0353005508623045,
+            6.936083635403604
+          ]
+        },
+        "map50": 47.97525591758121,
+        "map50_95": 31.590591945550155,
+        "minus_fp32": {
+          "delta": -7.458059562394398,
+          "delta_map50": -6.376707307614082,
+          "interval": [
+            -8.553370732311251,
+            -7.023834792161183
+          ],
+          "interval_map50": [
+            -7.568940590330608,
+            -5.761913321067614
+          ]
+        }
+      },
+      "percentile_99_9": {
+        "frozen_recipe_minus_v1": {
+          "delta": 35.11834628177674,
+          "delta_map50": 48.71050851009378,
+          "interval": [
+            34.25564692088668,
+            37.654164120552956
+          ],
+          "interval_map50": [
+            47.40849592993314,
+            51.60613137244958
+          ]
+        },
+        "map50": 5.014336028699125,
+        "map50_95": 2.9054833858284392,
+        "minus_fp32": {
+          "delta": -36.143168122116116,
+          "delta_map50": -49.337627196496165,
+          "interval": [
+            -38.867218999990506,
+            -35.41493830197055
+          ],
+          "interval_map50": [
+            -52.29860867985665,
+            -48.06965021059275
+          ]
+        }
+      }
+    }
+  },
+  "sha256": "5e5d97aad02050d28003a8d27edd4dff1f3894f56640972376c4dad1e2d8ba15"
+}

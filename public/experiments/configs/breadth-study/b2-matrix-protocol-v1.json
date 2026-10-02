@@ -1,0 +1,73 @@
+{
+  "version": "b2-matrix-protocol-1.0.0",
+  "written": "2026-10-01, before any matrix cell, shared-exponent cell or new readout was computed",
+  "parents": [
+    "public/experiments/configs/breadth-study/b2-baseline-repair-protocol-v1.json",
+    "public/experiments/configs/breadth-study/b2-baseline-repair-protocol-v1-r3-addendum.json"
+  ],
+  "purpose": "Breadth evidence for the paper (PTQ only, CNN only): all 25 accepted formats on ResNet18, MobileNetV2 and MobileNetV3-Large under the two frozen B2 recipes, read out with a fixed tie rule, and a rule-based proposal of configurations for the exact engine.",
+  "evidence_class": "development evidence. Everything is measured on the frozen 1k ImageNet screen (imagenet_screen_1k), on which the B2 recipes were selected (dev512 is its first half). No held-out confirmation.",
+  "data": {
+    "fit_and_calibration": "frozen calibration list only: v1 activation observations of the 2000 calibration images (read-only cache) for scalar scales; the first 256 calibration images for bias correction. Shared-exponent block scales use no calibration data.",
+    "evaluation": "imagenet_screen_1k, all 1000 images, ascending sha256 order, batch size 8",
+    "reserved": "the ImageNet 10k evaluation list beyond the 1k screen and all COCO images are not opened by any code path of this stage"
+  },
+  "frozen": "tools/experiment_b2 numeric sources (B2 source identity 3966af3b5a01c6c621e865f011e001d8516f69b29894db000b298c477a7e6955) and the recipes 'default' and 'minimal' of tools/experiment_b2/frozen.py. No existing file is edited; this stage adds readout.py, blocks.py, matrix.py.",
+  "readout": {
+    "version": "b2-tie-readout-1",
+    "primary": "expected credit: top-1 credit 1/k when the label is among the k classes that share the largest logit, else 0; top-5 credit min(1, (5-g)/e) when g < 5, else 0, with g classes strictly above the label logit and e classes equal to it (label included)",
+    "secondary": "lowest class index: classes ordered by (logit descending, class index ascending); top-1 is the first, top-5 the first five",
+    "also_recorded": "the CUDA topk lists the stage-1 runner sealed (for identity checks only), strict and optimistic top-1",
+    "per_image_record": "label, greater, equal, equal_lower, tie_size (uint16), argmax_lowest, top5_lowest, top5_topk (int16), one compressed npz per cell",
+    "batch_size": "8, part of every configuration identity (PROTOCOL.inference_batch_size); ResNet18 predictions depend slightly on it (stage 1, r3)",
+    "applies_to": "all 150 matrix cells, the FP32 baselines, the shared-exponent intrinsic arm; stage-1 results post hoc (see stage1_reuse). Sealed v1 results keep their topk readout (no logits were kept) and carry the tie caveat."
+  },
+  "matrix": {
+    "models": ["resnet18", "mobilenet_v2", "mobilenet_v3_large"],
+    "formats": "the 25 accepted manifests of public/formats/manifests/accepted/index.json",
+    "recipes": ["default", "minimal"],
+    "cells": 150,
+    "stage1_reuse": "42 cells exist from stage 1 on the 1k screen (default: 9 formats x 3 models; minimal: int8, int6, int4, fp6_e2m3, posit8_es1 x 3 models). They keep their sealed configuration identity and sealed predictions; nothing of them is re-sealed. Because the sealed records hold only topk top-5 lists, the tie readout re-executes each of them once, must reproduce the sealed configuration id and 1000 of 1000 sealed top-5 lists, and only then writes the new readout record. A cell that fails this check stops the stage.",
+    "scalar_cells": "built by tools.experiment_b2.runner.build unchanged, so identities are those stage 1 would produce",
+    "occupancy": "every cell: code occupancy at every quantizing boundary on the first 128 screen images (entropy, levels used, fraction at the extreme levels, zeros, SQNR)",
+    "failures": "a cell that raises or collapses is reported as it is; no cell is tuned"
+  },
+  "shared_exponent_formats": {
+    "formats": ["bfp6", "mxfp4_e2m1", "mxfp6_e3m2", "mxfp8_e4m3"],
+    "block_semantics": "tools/experiment_b_ext/shared.py unchanged: one E8M0 scale per block of 32 elements; stored activations blocked along the channel axis; convolution patches and weights blocked along the reduction axis K; linear layers take the stored blocks; FP32 accumulation",
+    "boundaries": "the B2 plan (fused_relu) with one change: a max-pool output is re-blocked instead of forwarding codes, because its elements come from blocks with different exponents",
+    "range_rules": "maxabs and percentile_99_9 are the extension's rules run by the extension's code. 'mse' is the B2 scale search restricted to E8M0 scales: per block the exponent e_maxabs - d, d = 0..6, with the smallest block squared error (float64), smallest d on ties. Larger exponents are not searched (never better for these codebooks; unit-tested).",
+    "unsigned": "not defined (as for every non-integer format)",
+    "bias_correction": "the B2 sequential empirical correction on the block engine, first 256 calibration images, chunks of 8",
+    "matrix_cell": "the recipe translated literally: 'default' = fused boundaries, searched activation and weight blocks, bias correction; 'minimal' = fused boundaries, searched activation blocks, max-abs weight blocks",
+    "intrinsic_arm": "the activation block search is a run-time operation (seven trial encodings per block) that the scalar formats do not need. Therefore every shared cell is also measured with activation blocks scaled by the intrinsic max-abs rule: recipes cum5_act_maxabs (beside default) and cum1_fused (beside minimal), 24 further cells. The analysis reports both arms; a shared-exponent format may be proposed for the exact engine only through its intrinsic arm.",
+    "metadata_counting": "8 scale bits per block of up to 32 elements; an incomplete block still carries one scale. Reported per model as scale bits per weight element (blocks along K per output channel), per stored activation element (blocks along the channel axis per spatial position) and per convolution-patch element (transient MAC-operand blocks). Nominal element bits are used for the bit-width grouping, effective bits are tabulated beside them.",
+    "regression": "with boundaries v1, no bias correction and both rules maxabs (or both percentile_99_9) the block engine must give bit-identical logits to prepare_shared on 1000 of 1000 screen images and reproduce the sealed extension top-5 lists on 1000 of 1000, on six cells: resnet18 bfp6 maxabs, resnet18 mxfp4_e2m1 percentile, mobilenet_v2 mxfp6_e3m2 maxabs, mobilenet_v2 bfp6 percentile, mobilenet_v3_large mxfp8_e4m3 maxabs, mobilenet_v3_large mxfp6_e3m2 percentile. The vectorised audit path must equal the extension on the first 64 images of the max-abs cells."
+  },
+  "statistics": {
+    "paired": "per cell against FP32 and against INT8 of the same recipe, on the per-image primary credit: tools.analysis.b2_ties.paired (paired image bootstrap of the mean credit difference, 10000 resamples, seed 20260927), pointwise 95 percent interval; top-5 likewise",
+    "secondary": "the same comparisons under the lowest-index rule with tools.analysis.b_stage_balanced_comparisons.paired_outcomes (binary outcomes, exact McNemar)",
+    "multiplicity": "none applied; intervals are pointwise. With 150 cells a few intervals that exclude zero are expected by chance.",
+    "resolution": "1000 images: differences of about 1 to 2.5 points are not resolved"
+  },
+  "analysis_rules_stated_in_advance": {
+    "a_ordering": "per model and recipe, formats ordered by primary top-1. Two formats are called separated when the pointwise interval of their paired difference excludes zero, otherwise tied. Old orderings come from the sealed v1 1k results (results/summaries/b-stage-paired-1k-v2, topk readout); v1 cells without a 1k result are listed as missing. An ordering change is reported as rank correlation (Spearman) between recipes and as the list of format pairs whose separated order reverses.",
+    "b_per_bit_width": "per model and recipe, each format against INT8 of the same recipe and, where it exists, against the integer of its own bit width: 'within one point' when the absolute primary difference is at most 1.0; 'separated below' when the difference is below -1.0 and the interval lies below zero; 'separated above' when it is above +1.0 and the interval lies above zero; otherwise 'not resolved'.",
+    "c_recipe_rule": "candidate rules fixed here: R_default (default everywhere), R_minimal (minimal everywhere), R_bits(B) for B in {5, 6, 7, 8}: default for formats of at least B bits, minimal below. A rule is scored on the cells where at least one recipe reaches 10 percent primary top-1: number of cells where its pick is worse than the other recipe with an interval excluding zero, then mean regret (points lost to the better recipe per cell). The rule with the fewest such cells wins, mean regret breaks ties, then the simpler rule. Per-family exceptions are reported as observations, not adopted unless they hold on all three models with intervals excluding zero. The rule is selected on the same screen it is evaluated on: development evidence.",
+    "d_exact_engine_proposal": "A configuration is (format, recipe given by rule c). Anchors: FP32 and INT8. Families: integer, float, posit, logarithmic, shared exponent (bfp and mx_float), codebook, ternary/binary; q1_6 is excluded when it is an output alias of signed INT8. Candidate: the best format of each (family, bit width) by mean primary top-1 over the three models. Quality floor: mean drop against FP32 at most 5.0 points and no model more than 10.0 points below FP32. If more than 10 candidates pass, keep for every family its lowest passing bit width and its highest, then fill by ascending mean drop up to 10. If fewer than 6 pass, add per family the best failing format of the next lower bit width as a flagged stress configuration. Shared-exponent formats are judged by their intrinsic arm. The result is a proposal for the owner's sign-off, not a decision."
+  },
+  "execution": {
+    "environment": ".venv-b (torch 2.3.0+cu121), CUBLAS_WORKSPACE_CONFIG=:4096:8, deterministic algorithms",
+    "gpu": "every job under artifacts/agent_orchestration/gpu_run.sh (shared slot, up to 3 of this lane at once); no seconds-per-image figure is reported from these runs",
+    "commands": [
+      ".venv-b/bin/python -m tools.run.experiment_b2_matrix campaign baseline",
+      ".venv-b/bin/python -m tools.run.experiment_b2_matrix campaign regress",
+      ".venv-b/bin/python -m tools.run.experiment_b2_matrix campaign matrix",
+      ".venv-b/bin/python -m tools.run.experiment_b2_matrix campaign intrinsic",
+      ".venv/bin/python -m tools.analysis.b2_matrix"
+    ],
+    "evidence": "artifacts/experiment_b2/matrix/{cells,readout,configurations,regression,logs}; tables results/summaries/b2-matrix-v1/; figures results/figures/b2-matrix-*; document docs/analysis/b2-matrix-2026-10-01.md",
+    "storage": "one compressed readout record and one sealed cell record per cell; new configuration pre-images gzip-compressed; no per-image JSON files, no logits, no new input or activation cache"
+  },
+  "out_of_scope": ["YOLO (lane L7)", "reconstruction-based rounding (lane L6)", "the exact engine (lane L2)", "any change to the frozen recipes"]
+}

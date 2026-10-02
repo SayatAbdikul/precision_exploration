@@ -1,0 +1,15 @@
+role,format,family,bits,recipe,top1_resnet18,top1_mobilenet_v2,top1_mobilenet_v3_large,mean_drop_vs_fp32,worst_drop_vs_fp32,passes_floor
+anchor,fp32,anchor,32,baseline,70.1,72.1,75.0,0.0,0.0,True
+anchor,int8,anchor,8,default,69.22,72.3,71.6,1.36,3.4,True
+selected,posit8_es1,posit,8,default,69.63,72.39,73.36,0.61,1.64,True
+selected,fp8_e4m3fn,float,8,default,67.67,67.71,71.66,3.39,4.39,True
+selected,log8,logarithmic,8,default,68.09,68.17,69.83,3.7,5.17,True
+selected,mxfp8_e4m3,shared_exponent,8,cum5_act_maxabs,67.73,66.56,70.06,4.28,5.54,True
+selected,fp7_e3m3,float,7,default,67.48,67.62,71.12,3.66,4.47,True
+stress,fp6_e2m3,float,6,default,66.66,66.23,58.43,8.63,16.57,False
+stress,bfp6,shared_exponent,6,cum5_act_maxabs,68.2,65.6,56.6,8.93,18.4,False
+stress,int6,integer,6,default,65.89,70.1,21.0,20.07,54.0,False
+stress,log6,logarithmic,6,default,54.54,20.34,53.16,29.72,51.76,False
+stress,posit6_es1,posit,6,default,59.6,18.79,42.91,31.97,53.31,False
+stress,nf4,codebook,4,minimal,34.42,1.5,0.2,60.36,74.8,False
+stress,ternary,binary_ternary,2,minimal,0.1,0.1,0.06,72.31,74.94,False

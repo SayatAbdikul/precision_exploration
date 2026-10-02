@@ -1,0 +1,13 @@
+model,format,element_bits,weights_scale_bits_per_element,stored_activations_per_image_scale_bits_per_element,convolution_patches_per_image_scale_bits_per_element,effective_weight_bits,effective_stored_activation_bits
+resnet18,bfp6,6,0.25,0.3514,0.2528,6.25,6.3514
+resnet18,mxfp8_e4m3,8,0.25,0.3514,0.2528,8.25,8.3514
+resnet18,mxfp6_e3m2,6,0.25,0.3514,0.2528,6.25,6.3514
+resnet18,mxfp4_e2m1,4,0.25,0.3514,0.2528,4.25,4.3514
+mobilenet_v2,bfp6,6,0.2622,0.3172,0.807,6.2622,6.3172
+mobilenet_v2,mxfp8_e4m3,8,0.2622,0.3172,0.807,8.2622,8.3172
+mobilenet_v2,mxfp6_e3m2,6,0.2622,0.3172,0.807,6.2622,6.3172
+mobilenet_v2,mxfp4_e2m1,4,0.2622,0.3172,0.807,4.2622,4.3172
+mobilenet_v3_large,bfp6,6,0.259,0.3565,0.571,6.259,6.3565
+mobilenet_v3_large,mxfp8_e4m3,8,0.259,0.3565,0.571,8.259,8.3565
+mobilenet_v3_large,mxfp6_e3m2,6,0.259,0.3565,0.571,6.259,6.3565
+mobilenet_v3_large,mxfp4_e2m1,4,0.259,0.3565,0.571,4.259,4.3565

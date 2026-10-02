@@ -1,0 +1,50 @@
+{
+  "payload": {
+    "all": {
+      "gpu_seconds": 2200.6516173373675,
+      "job_wall_seconds": 2589.1150050713914,
+      "runs": 224
+    },
+    "audit": {
+      "gpu_seconds": 149.03290465800092,
+      "job_wall_seconds": 149.03290465800092,
+      "runs": 18
+    },
+    "diagnosis": {
+      "gpu_seconds": 742.0435344061116,
+      "job_wall_seconds": 742.0435344061116,
+      "runs": 90
+    },
+    "exit": {
+      "gpu_seconds": 254.58473410375882,
+      "job_wall_seconds": 254.58473410375882,
+      "runs": 24
+    },
+    "lowbit": {
+      "gpu_seconds": 583.2642529311124,
+      "job_wall_seconds": 583.2642529311124,
+      "runs": 42
+    },
+    "regression": {
+      "gpu_seconds": 142.5979950617766,
+      "job_wall_seconds": 142.5979950617766,
+      "runs": 12
+    },
+    "sentinel": {
+      "gpu_seconds": 319.4755764435977,
+      "job_wall_seconds": 319.4755764435977,
+      "runs": 27
+    },
+    "smoke": {
+      "gpu_seconds": 9.652619733009487,
+      "job_wall_seconds": 15.764967318042181,
+      "runs": 2
+    },
+    "vendor": {
+      "gpu_seconds": 0.0,
+      "job_wall_seconds": 382.35104014899116,
+      "runs": 9
+    }
+  },
+  "sha256": "e0d0ca221391cebd8c47c1ee95791b9b74e8e988954db3f117ac70adafcdcb1b"
+}

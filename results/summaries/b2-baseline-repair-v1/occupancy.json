@@ -1,0 +1,887 @@
+{
+  "payload": {
+    "mobilenet_v2/fp8_e4m3fn/default": {
+      "configuration_sha256": "41aa80268e3573a828fe030baa616a8d8fd51d24777895dc1d520bfc20fdebf8",
+      "entropy_bits": {
+        "max": 6.800603697418333,
+        "median": 4.98128869455849,
+        "min": 0.25203302309416664
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9934872997050382,
+        "median": 0.7863644969706634,
+        "min": 0.019468221859056126
+      },
+      "fraction_at_extremes": {
+        "max": 0.05584401500468351,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.9803590112802935,
+        "median": 0.2090347640368403,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 160.0,
+        "median": 68.0,
+        "min": 18.0
+      },
+      "quantizing_nodes": 65,
+      "sqnr_db": {
+        "max": 33.209222662023826,
+        "median": 31.593942411205735,
+        "min": 31.480643441088112
+      },
+      "worst_sqnr_nodes": [
+        [
+          31.480643441088112,
+          "add_3"
+        ],
+        [
+          31.512007381615824,
+          "add_6"
+        ],
+        [
+          31.514333645905865,
+          "add_2"
+        ]
+      ]
+    },
+    "mobilenet_v2/fp8_e4m3fn/v1_maxabs": {
+      "configuration_sha256": "f70676110d8658c4c572e9652b042251a672eaed4c6c290528a32f32f01dddff",
+      "entropy_bits": {
+        "max": 6.921860904679042,
+        "median": 6.34656991921384,
+        "min": 0.6761243539239185
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9968816017617985,
+        "median": 0.9426377819779239,
+        "min": 0.062368836694834194
+      },
+      "fraction_at_extremes": {
+        "max": 0.06361280168805802,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.9372634576291455,
+        "median": 4.204925225705516e-05,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 175.0,
+        "median": 132.0,
+        "min": 30.0
+      },
+      "quantizing_nodes": 100,
+      "sqnr_db": {
+        "max": 39.91928605216498,
+        "median": 31.535007854489418,
+        "min": 28.169812163621142
+      },
+      "worst_sqnr_nodes": [
+        [
+          28.169812163621142,
+          "features_12_conv_1_2"
+        ],
+        [
+          28.49062838019008,
+          "features_16_conv_0_2"
+        ],
+        [
+          29.905857961516993,
+          "features_14_conv_1_2"
+        ]
+      ]
+    },
+    "mobilenet_v2/int8/default": {
+      "configuration_sha256": "20906e6fa79efca8b2e218d416d537b14299d8ceb1a50ddb8e4fbf1a8f3cdf6f",
+      "entropy_bits": {
+        "max": 7.707272025065052,
+        "median": 5.770561309786373,
+        "min": 0.6653974607895442
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9934872997050382,
+        "median": 0.763112905074139,
+        "min": 0.05057086555325256
+      },
+      "fraction_at_extremes": {
+        "max": 0.9522437270806761,
+        "median": 0.2514903010154257,
+        "min": 3.736846301020408e-06
+      },
+      "fraction_zero": {
+        "max": 0.9494291344467475,
+        "median": 0.23688709492586096,
+        "min": 0.0065127002949617345
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 245.0,
+        "median": 126.0,
+        "min": 60.0
+      },
+      "quantizing_nodes": 65,
+      "sqnr_db": {
+        "max": 52.81602948862119,
+        "median": 45.60285731274764,
+        "min": 30.142287845609587
+      },
+      "worst_sqnr_nodes": [
+        [
+          30.142287845609587,
+          "classifier_1"
+        ],
+        [
+          30.291965340221694,
+          "features_6_conv_2"
+        ],
+        [
+          31.503633922746005,
+          "features_10_conv_2"
+        ]
+      ]
+    },
+    "mobilenet_v2/int8/v1_maxabs": {
+      "configuration_sha256": "b08ca95009af9c5462b10bbb547f14ea6665eda252ff0e9f0fd51111d220e1c5",
+      "entropy_bits": {
+        "max": 7.707272025065052,
+        "median": 4.575179086090147,
+        "min": 0.5380493780954315
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9934872997050382,
+        "median": 0.9045822506859189,
+        "min": 0.057058653539540816
+      },
+      "fraction_at_extremes": {
+        "max": 0.05155557515669842,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.9429413464604592,
+        "median": 0.09541774931408109,
+        "min": 0.0065127002949617345
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 218.0,
+        "median": 42.5,
+        "min": 4.0
+      },
+      "quantizing_nodes": 100,
+      "sqnr_db": {
+        "max": 52.5815967331623,
+        "median": 32.906880936991726,
+        "min": 20.62111993750196
+      },
+      "worst_sqnr_nodes": [
+        [
+          20.62111993750196,
+          "features_16_conv_1_0"
+        ],
+        [
+          20.76521068540255,
+          "features_15_conv_1_0"
+        ],
+        [
+          20.969605253935608,
+          "features_9_conv_1_0"
+        ]
+      ]
+    },
+    "mobilenet_v2/posit8_es1/default": {
+      "configuration_sha256": "d184fc93ab5b7a70881e1f57897e6a767356f7418ebe57003686ab96cd6658ee",
+      "entropy_bits": {
+        "max": 7.189342504128498,
+        "median": 5.508020452135394,
+        "min": 0.4995238256701867
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.6603174014967315,
+        "median": 0.14027602007599915,
+        "min": 0.007992187500000001
+      },
+      "fraction_at_extremes": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.9597712302694517,
+        "median": 0.21492955906320863,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 160.0,
+        "median": 87.0,
+        "min": 55.0
+      },
+      "quantizing_nodes": 65,
+      "sqnr_db": {
+        "max": 39.287149581522904,
+        "median": 37.50691055636213,
+        "min": 35.510216724785
+      },
+      "worst_sqnr_nodes": [
+        [
+          35.510216724785,
+          "classifier_1"
+        ],
+        [
+          36.480348856590275,
+          "features_6_conv_2"
+        ],
+        [
+          36.76426018561415,
+          "adaptive_avg_pool2d"
+        ]
+      ]
+    },
+    "mobilenet_v2/posit8_es1/v1_maxabs": {
+      "configuration_sha256": "f86a761f5c53f14bcb7dc155d017686b23ca8f8f6ea2d00b7a9f3651a5b2938e",
+      "entropy_bits": {
+        "max": 5.728282231978183,
+        "median": 3.8601832142453745,
+        "min": 0.7958104389532448
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 1.0,
+        "median": 0.9918368333050993,
+        "min": 0.11594923369738522
+      },
+      "fraction_at_extremes": {
+        "max": 0.2164914916161777,
+        "median": 0.00030770204505141906,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.8839969557158802,
+        "median": 2.595032153486394e-07,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 144.0,
+        "median": 42.0,
+        "min": 6.0
+      },
+      "quantizing_nodes": 100,
+      "sqnr_db": {
+        "max": 18.097316580830125,
+        "median": 11.842779385397534,
+        "min": 5.575050692741863
+      },
+      "worst_sqnr_nodes": [
+        [
+          5.575050692741863,
+          "features_14_conv_1_2"
+        ],
+        [
+          6.555823506100634,
+          "features_5_conv_1_2"
+        ],
+        [
+          7.106873866980478,
+          "features_7_conv_1_2"
+        ]
+      ]
+    },
+    "mobilenet_v3_large/fp8_e4m3fn/default": {
+      "configuration_sha256": "c37ab2eba88a8bb68bfaf07a8480aab7cd969cbd6afd7e301ed8437ab334308b",
+      "entropy_bits": {
+        "max": 7.220769638081519,
+        "median": 5.921502173170291,
+        "min": -0.0
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9999999999999999,
+        "median": 0.9296488266065354,
+        "min": 0.0
+      },
+      "fraction_at_extremes": {
+        "max": 0.013888888888888888,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 1.0,
+        "median": 0.00015846563845264668,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 190.0,
+        "median": 121.0,
+        "min": 1.0
+      },
+      "quantizing_nodes": 121,
+      "sqnr_db": {
+        "max": 37.48029426529553,
+        "median": 31.586071683152948,
+        "min": 30.146601995044247
+      },
+      "worst_sqnr_nodes": [
+        [
+          30.146601995044247,
+          "mul_1"
+        ],
+        [
+          30.409696295151733,
+          "mul_3"
+        ],
+        [
+          30.54459604464254,
+          "features_7_block_0_2"
+        ]
+      ]
+    },
+    "mobilenet_v3_large/fp8_e4m3fn/v1_maxabs": {
+      "configuration_sha256": "7e531564165dd03412ae94ab409d3129e03dd7b2ff350564f86063605fc3216c",
+      "entropy_bits": {
+        "max": 7.1573225391445465,
+        "median": 6.0556730522904,
+        "min": -0.0
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9999999999999999,
+        "median": 0.9379477097758746,
+        "min": 0.0
+      },
+      "fraction_at_extremes": {
+        "max": 0.04192708333333333,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 1.0,
+        "median": 0.00012352353050595238,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 186.0,
+        "median": 127.5,
+        "min": 1.0
+      },
+      "quantizing_nodes": 140,
+      "sqnr_db": {
+        "max": 36.310420223369,
+        "median": 31.54629661059493,
+        "min": 28.464762929758372
+      },
+      "worst_sqnr_nodes": [
+        [
+          28.464762929758372,
+          "features_11_block_2_activation"
+        ],
+        [
+          28.846127160539524,
+          "features_7_block_1_2"
+        ],
+        [
+          29.196597899006115,
+          "features_5_block_0_2"
+        ]
+      ]
+    },
+    "mobilenet_v3_large/int8/default": {
+      "configuration_sha256": "0c58078f4cb6fe02b03355a864432a5619c2ce7bdf529657debfcd1030ba9963",
+      "entropy_bits": {
+        "max": 7.707272025065052,
+        "median": 5.382640716397672,
+        "min": -0.0
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 1.0000000000000002,
+        "median": 0.9444335937499999,
+        "min": 0.0
+      },
+      "fraction_at_extremes": {
+        "max": 1.0,
+        "median": 4.359654017857143e-05,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 1.0,
+        "median": 0.05556640625,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 218.0,
+        "median": 90.0,
+        "min": 1.0
+      },
+      "quantizing_nodes": 121,
+      "sqnr_db": {
+        "max": 57.28620352658764,
+        "median": 36.13170774148816,
+        "min": 22.606503776222695
+      },
+      "worst_sqnr_nodes": [
+        [
+          22.606503776222695,
+          "mul_6"
+        ],
+        [
+          22.618718156408203,
+          "features_15_block_1_2"
+        ],
+        [
+          22.682522882752572,
+          "features_14_block_0_2"
+        ]
+      ]
+    },
+    "mobilenet_v3_large/int8/v1_maxabs": {
+      "configuration_sha256": "0f217507bf7c6a677cadbfb592415b08291f3ba485a5474c1a605d1a773e4609",
+      "entropy_bits": {
+        "max": 7.707272025065052,
+        "median": 4.4293971225357645,
+        "min": -0.0
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9999999999999999,
+        "median": 0.9005076233221561,
+        "min": 0.0
+      },
+      "fraction_at_extremes": {
+        "max": 0.0359375,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 1.0,
+        "median": 0.099492376677844,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 218.0,
+        "median": 39.5,
+        "min": 1.0
+      },
+      "quantizing_nodes": 140,
+      "sqnr_db": {
+        "max": 51.38655782376916,
+        "median": 29.90322105700001,
+        "min": 9.855067915200248
+      },
+      "worst_sqnr_nodes": [
+        [
+          9.855067915200248,
+          "features_14_block_1_2"
+        ],
+        [
+          10.32102164473753,
+          "features_15_block_1_2"
+        ],
+        [
+          11.63078672644751,
+          "mul_6"
+        ]
+      ]
+    },
+    "mobilenet_v3_large/posit8_es1/default": {
+      "configuration_sha256": "8c7426f2f188f71b927992553705e42b13b42d70b61666684b501994b45cbb9a",
+      "entropy_bits": {
+        "max": 7.20049188614426,
+        "median": 6.114452979126733,
+        "min": -0.0
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 1.0,
+        "median": 0.07631138392857142,
+        "min": 0.0
+      },
+      "fraction_at_extremes": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 1.0,
+        "median": 0.000625,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 171.0,
+        "median": 118.0,
+        "min": 1.0
+      },
+      "quantizing_nodes": 121,
+      "sqnr_db": {
+        "max": 42.415101228247934,
+        "median": 37.312975307357654,
+        "min": 34.21982189665778
+      },
+      "worst_sqnr_nodes": [
+        [
+          34.21982189665778,
+          "features_15_block_1_2"
+        ],
+        [
+          34.83012352315224,
+          "features_15_block_0_2"
+        ],
+        [
+          34.841097067304645,
+          "features_7_block_0_2"
+        ]
+      ]
+    },
+    "mobilenet_v3_large/posit8_es1/v1_maxabs": {
+      "configuration_sha256": "11b3d5fdc760a92ebab8c173590e858ea7efbb404a0363323e3c8635caab2605",
+      "entropy_bits": {
+        "max": 6.066405860897527,
+        "median": 3.9014589557901718,
+        "min": -0.0
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 1.0,
+        "median": 0.9920812074829932,
+        "min": 0.0
+      },
+      "fraction_at_extremes": {
+        "max": 1.0,
+        "median": 9.871502311862245e-06,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 1.0,
+        "median": 1.1210538903061226e-06,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 166.0,
+        "median": 51.0,
+        "min": 1.0
+      },
+      "quantizing_nodes": 140,
+      "sqnr_db": {
+        "max": 35.621154490232776,
+        "median": 13.669732351473108,
+        "min": 0.0
+      },
+      "worst_sqnr_nodes": [
+        [
+          0.0,
+          "features_4_block_2_activation"
+        ],
+        [
+          5.618723667644301,
+          "features_9_block_1_2"
+        ],
+        [
+          6.557065856283445,
+          "features_6_block_2_scale_activation"
+        ]
+      ]
+    },
+    "resnet18/fp8_e4m3fn/default": {
+      "configuration_sha256": "ae7a425c65b9176357fa5440d60957cdaddd5c90f1657693ba52dc83c9670892",
+      "entropy_bits": {
+        "max": 6.693157328353058,
+        "median": 4.875114089521484,
+        "min": 1.5765071800567927
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9935497880792942,
+        "median": 0.7610803720902423,
+        "min": 0.155025560028699
+      },
+      "fraction_at_extremes": {
+        "max": 2.1214387854751276e-06,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.8363058907645089,
+        "median": 0.23153959001813615,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 149.0,
+        "median": 62.0,
+        "min": 51.0
+      },
+      "quantizing_nodes": 31,
+      "sqnr_db": {
+        "max": 32.41573266496636,
+        "median": 31.536242569891527,
+        "min": 31.443852718959473
+      },
+      "worst_sqnr_nodes": [
+        [
+          31.443852718959473,
+          "layer2_1_relu_1"
+        ],
+        [
+          31.495396055122626,
+          "avgpool"
+        ],
+        [
+          31.50598676502151,
+          "layer3_1_relu"
+        ]
+      ]
+    },
+    "resnet18/fp8_e4m3fn/v1_maxabs": {
+      "configuration_sha256": "f3f09c186de714a14e8376492f7811de856e85b26a609ffc6bd8459dc9f78d01",
+      "entropy_bits": {
+        "max": 6.677139104042928,
+        "median": 6.1018954180155145,
+        "min": 1.7467949836236534
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9969158561862245,
+        "median": 0.9488380587830834,
+        "min": 0.18118722098214288
+      },
+      "fraction_at_extremes": {
+        "max": 0.005759102957589285,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.8103889932437818,
+        "median": 5.0447425063775505e-05,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 148.0,
+        "median": 130.0,
+        "min": 42.0
+      },
+      "quantizing_nodes": 49,
+      "sqnr_db": {
+        "max": 34.68828324394376,
+        "median": 31.534195152410042,
+        "min": 28.503606380693295
+      },
+      "worst_sqnr_nodes": [
+        [
+          28.503606380693295,
+          "relu"
+        ],
+        [
+          28.515583977645676,
+          "layer2_0_relu"
+        ],
+        [
+          30.105912751073433,
+          "layer1_1_relu"
+        ]
+      ]
+    },
+    "resnet18/int8/default": {
+      "configuration_sha256": "2483170b2bc68d583fc67f598ab001e8028b43fe4e032ce1ef491902590a5c0a",
+      "entropy_bits": {
+        "max": 7.704596906330022,
+        "median": 5.3560424167597604,
+        "min": 1.6723159286700264
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9935497880792941,
+        "median": 0.7622730099425025,
+        "min": 0.18013996980628189
+      },
+      "fraction_at_extremes": {
+        "max": 0.8198622100207269,
+        "median": 0.23773384094238278,
+        "min": 1.5881596779336732e-05
+      },
+      "fraction_zero": {
+        "max": 0.819860030193718,
+        "median": 0.2377269900574976,
+        "min": 0.006450211920705782
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 218.0,
+        "median": 74.0,
+        "min": 46.0
+      },
+      "quantizing_nodes": 31,
+      "sqnr_db": {
+        "max": 45.918732510198566,
+        "median": 36.85796809875451,
+        "min": 31.22282645453418
+      },
+      "worst_sqnr_nodes": [
+        [
+          31.22282645453418,
+          "layer3_0_conv2"
+        ],
+        [
+          32.09269615580765,
+          "layer4_1_conv2"
+        ],
+        [
+          32.406897564426785,
+          "layer1_1_conv2"
+        ]
+      ]
+    },
+    "resnet18/int8/v1_maxabs": {
+      "configuration_sha256": "dd9da54149871873e22f7ed7f5a4cb7f3829f85ede7189e1858c2c5224846a50",
+      "entropy_bits": {
+        "max": 7.704596906330022,
+        "median": 4.423319224633236,
+        "min": 1.2866878817123122
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.9935497880792941,
+        "median": 0.90924072265625,
+        "min": 0.17797415597098212
+      },
+      "fraction_at_extremes": {
+        "max": 0.0019467931215454931,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.8220258440290178,
+        "median": 0.09075927734375,
+        "min": 0.006450211920705782
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 218.0,
+        "median": 36.0,
+        "min": 10.0
+      },
+      "quantizing_nodes": 49,
+      "sqnr_db": {
+        "max": 45.918732510198566,
+        "median": 28.764265944571346,
+        "min": 24.088978160836025
+      },
+      "worst_sqnr_nodes": [
+        [
+          24.088978160836025,
+          "layer4_1_conv2"
+        ],
+        [
+          24.18315292418438,
+          "add_7"
+        ],
+        [
+          24.678170568350666,
+          "layer3_1_conv2"
+        ]
+      ]
+    },
+    "resnet18/posit8_es1/default": {
+      "configuration_sha256": "b7c945daf929df2d0775bee136116d346bbe676ccad82116688f3905ef96cda8",
+      "entropy_bits": {
+        "max": 7.103539618757903,
+        "median": 5.4069636070236635,
+        "min": 1.8101436067242858
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 0.6593891584954295,
+        "median": 0.059445517403738844,
+        "min": 0.011177218690210457
+      },
+      "fraction_at_extremes": {
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.816051249601403,
+        "median": 0.2314506452910754,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 153.0,
+        "median": 74.0,
+        "min": 62.0
+      },
+      "quantizing_nodes": 31,
+      "sqnr_db": {
+        "max": 37.707722188099076,
+        "median": 37.15944565742213,
+        "min": 36.77006237633136
+      },
+      "worst_sqnr_nodes": [
+        [
+          36.77006237633136,
+          "layer4_1_relu_1"
+        ],
+        [
+          36.89947819874575,
+          "fc"
+        ],
+        [
+          36.940202360314885,
+          "layer3_1_relu"
+        ]
+      ]
+    },
+    "resnet18/posit8_es1/v1_maxabs": {
+      "configuration_sha256": "86a40eb21855102d49fb4d1991286db4540d1860cd33ef312c6bd3c5cf6a15c6",
+      "entropy_bits": {
+        "max": 5.583918052825013,
+        "median": 4.299963546296264,
+        "min": 1.3880274535830581
+      },
+      "fraction_abs_level_ge_1": {
+        "max": 1.0,
+        "median": 0.9920380261479591,
+        "min": 0.18624410823899873
+      },
+      "fraction_at_extremes": {
+        "max": 0.17670611945950254,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "fraction_zero": {
+        "max": 0.8123374471859055,
+        "median": 9.34211575255102e-07,
+        "min": 0.0
+      },
+      "images": 128,
+      "levels_for_99_percent": {
+        "max": 140.0,
+        "median": 61.0,
+        "min": 16.0
+      },
+      "quantizing_nodes": 49,
+      "sqnr_db": {
+        "max": 33.73451560725095,
+        "median": 15.422123915901851,
+        "min": 7.671085316760147
+      },
+      "worst_sqnr_nodes": [
+        [
+          7.671085316760147,
+          "x"
+        ],
+        [
+          14.006943975233108,
+          "layer2_0_conv1"
+        ],
+        [
+          14.251882402938506,
+          "layer1_0_relu"
+        ]
+      ]
+    }
+  },
+  "sha256": "3784dc20146da93a3abf3292dfc7c67cb1c249b2f7cf06432823c1b0259d217b"
+}

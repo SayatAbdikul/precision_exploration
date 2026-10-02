@@ -1,0 +1,40 @@
+{
+  "protocol": "experiment-b2-baseline-repair-1.0.0, addendum r3",
+  "amends": "public/experiments/configs/breadth-study/b2-baseline-repair-protocol-v1.json (unchanged)",
+  "written": "2026-10-01, after independent review 2 and before any of the jobs below was run",
+  "purpose": "Verification only. Review 2 showed from the saved bias-residual record that the ResNet18 B2 engine output depends on the batch size on this GPU. The document said the effect of that on top-1 was not measured. These jobs measure it and re-record the vendor probes with one source file. Nothing here selects, tunes or changes a recipe, and no sealed configuration, prediction, summary or run record is written or replaced.",
+  "evidence_label": "development_evidence; diagnostic of reproducibility, not a quality comparison between recipes",
+  "jobs": {
+    "batch_sensitivity": {
+      "what": "For resnet18, mobilenet_v2 and mobilenet_v3_large: rebuild the sealed INT8 default configuration (identity must equal the sealed exit-test identity) and the folded FP32 graph, evaluate the 1000 screen images at batch sizes 8 (the protocol value), 32 and 1, on the GPU under the shared lock, one model per locked job.",
+      "lists": "imagenet_screen_1k for evaluation; the engine is built exactly as in the exit test (v1 calibration observations, first 256 calibration images for bias correction). No other list is read.",
+      "statistics": "Per batch size: top-1 percent; number of images whose top-5 list and whose top-1 class differ from the sealed batch-8 predictions; the largest absolute logit difference against the batch-8 logits of the same job; paired top-1 difference against the sealed batch-8 predictions with the pointwise 95 percent paired bootstrap interval of tools.analysis.b_stage_balanced_comparisons.compare_records. The same counts for the FP32 graph.",
+      "pass_condition": "Batch 8 must reproduce the sealed top-5 lists on 1000 of 1000 images; otherwise the job reports a failure and the other figures are not interpreted.",
+      "stop_rule": "One run per model. The result is reported whatever it is. The sealed exit-test numbers (batch 8) are not replaced by any of these.",
+      "note": "INT8 default only at batch 8, 32 and 1; all other configurations at batch 8 only (ties)."
+    },
+    "relu6_operator": {
+      "what": "CPU operator test of torch.ao.nn.quantized.ReLU6, Hardswish and Hardsigmoid on a random quantized tensor, for the x86 and QNNPACK engines, contiguous and channels-last layouts, in place and out of place, to record on disk the mechanism of the QNNPACK ReLU6 failure reported by review 2.",
+      "lists": "none (seeded random tensor)",
+      "statistics": "fraction of output codes that differ from the exact integer clamp; whether the code histogram equals that of the clamp; whether the output equals the clamp read in the other memory layout.",
+      "stop_rule": "One run."
+    },
+    "vendor_probe_rerecord": {
+      "what": "The twelve vendor probes of revision r2 are run again with the final verify.py and written to new files with the final suffix r3c (the r2 records are kept). The kernel audit is extended from conv, linear and ReLU6 to Hardswish, Hardsigmoid, add, mul and pooling.",
+      "lists": "imagenet_calibration_2k (2000 images) for the vendor calibration, imagenet_screen_1k for accuracy, the first 8 screen images for the kernel audit and code census, as in r2.",
+      "statistics": "as in r2: top-1, paired top-1 against FP32, the B2 default and the vendor x86 default; kernel audit counts by operator kind.",
+      "stop_rule": "One run per probe. A top-5 digest that differs from the r2 record of the same probe is reported as a discrepancy."
+    },
+    "logit_ties": {
+      "what": "For every sealed 1000-image configuration of the exit test (INT8 default, v1_maxabs, v1_percentile_99_9) and of the sentinel sweep (nine formats, default recipe), three classifiers: recompute the logits at batch 8, require that the sealed top-5 lists are reproduced, and count the images whose largest logit is attained by more than one class. For the vendor probes the same statistics are taken from the dequantized output.",
+      "lists": "imagenet_screen_1k only (engines built exactly as sealed).",
+      "statistics": "images with a tied top-1; top-1 under three tie rules: strict (label must be the unique maximum), expected (credit 1/k for a k-way tie, the mean over uniformly random tie-breaking) and optimistic (label among the maxima). No interval: these are exact counts on the screen. Added before the non-INT8 jobs ran: a fourth rule, lowest class index among the maxima wins (implementable by an integer argmax), and per-image tie lists so that paired differences can be recomputed under expected credit.",
+      "use": "Reported beside the sealed top-1 as a limit of the readout. Sealed numbers, the frozen recipe and the exit statement are not changed by it; the paired differences are additionally reported under expected credit only if the tie counts are large enough to matter, and labelled as a post-hoc readout.",
+      "stop_rule": "One run per configuration."
+    }
+  },
+  "write_rule": "Verification jobs refuse to write to a path that already exists; a new record needs a new tag.",
+  "cost_accounting": "job wall-clock and GPU-seconds (wall-clock while the lock is held) are sealed in every record",
+  "amended": "2026-10-01, once, after the first batch_sensitivity job (resnet18) and before any logit_ties job: the first resnet18 record did not reproduce the sealed batch-8 top-5 lists because the job took top-k on the CPU in float64 while the runner takes it on the GPU in float32, and the INT8-quantized logits tie; with top-k taken as the runner does, batch 8 reproduces 1000 of 1000. That exposed that part of top-1 is decided by tie-breaking, so the logit_ties job below was added. The failed record is kept.",
+  "tags": "Final records of this addendum carry the tag r3c (verify.py a17ce61588ef1f75...). Untagged, r3- and r3b-tagged records in batch-sensitivity/, operator/ and vendor-probe/ are intermediate records made while verify.py was still being edited (the last edit added the per-image tie lists and the lowest-index rule, before any non-INT8 tie job had run); they are kept and superseded."
+}

@@ -1,0 +1,2291 @@
+{
+  "payload": {
+    "evidence": "development (screen1k contains dev512)",
+    "models": {
+      "mobilenet_v2": {
+        "b2_default_order": [
+          "posit8_es1",
+          "int8",
+          "int6",
+          "fp8_e4m3fn",
+          "fp7_e3m3",
+          "log8",
+          "fp6_e2m3",
+          "int4",
+          "nf4"
+        ],
+        "formats": {
+          "fp6_e2m3": {
+            "configuration_sha256": "4d284610ef87952c8a7b0cbe855175f74a747e388314cf5b8921bb58e2d1e4b7",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.158551647211425,
+              "gpu_seconds": 12.552053374005482,
+              "job_wall_seconds": 12.552053374005482,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 3.564845227985643
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "d61876a496b6cf8dc069c42dd54a1748cc75efcf60a458f6f3f7e8f149e4f272",
+                "top1_percent": 10.2,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 890,
+                  "difference_pp": 56.699999999999996,
+                  "interval_pp": [
+                    53.6,
+                    59.8
+                  ],
+                  "left_percent": 10.2,
+                  "mcnemar_exact_p": 1.0938522646190087e-159,
+                  "right_percent": 66.9,
+                  "top5_difference_pp": 64.8,
+                  "top5_right_percent": 86.9
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "783a9f95e8011e9d99996c53d66298f93662b8ed3d0a4821e2317bb34d4472a5",
+                "top1_percent": 54.6,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 403,
+                  "difference_pp": 12.3,
+                  "interval_pp": [
+                    9.3,
+                    15.2
+                  ],
+                  "left_percent": 54.6,
+                  "mcnemar_exact_p": 3.51396273355821e-16,
+                  "right_percent": 66.9,
+                  "top5_difference_pp": 3.6999999999999997,
+                  "top5_right_percent": 86.9
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 214,
+              "difference_pp": -5.2,
+              "interval_pp": [
+                -7.3,
+                -3.1
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 1.8430439047785736e-06,
+              "right_percent": 66.9,
+              "top5_difference_pp": -4.2,
+              "top5_right_percent": 86.9
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 119,
+              "difference_pp": -5.942622950819672,
+              "interval_pp": [
+                -9.01639344262295,
+                -2.8688524590163933
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 0.00033670934946623826,
+              "right_percent": 64.34426229508196,
+              "top5_difference_pp": -4.713114754098361,
+              "top5_right_percent": 85.24590163934425
+            }
+          },
+          "fp7_e3m3": {
+            "configuration_sha256": "359105e3b7c50afd974419f4975fcc369544e0f1d2757762c57136a9bf698eb9",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.040104742627591,
+              "gpu_seconds": 12.86857168795541,
+              "job_wall_seconds": 12.86857168795541,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 4.166866734041832
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "0a5c26aea47c1437ef70f3ca0714895820c0f01a8b898f9f6d92fc32cf96fc88",
+                "top1_percent": 65.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 272,
+                  "difference_pp": 2.9000000000000004,
+                  "interval_pp": [
+                    0.5,
+                    5.3
+                  ],
+                  "left_percent": 65.0,
+                  "mcnemar_exact_p": 0.021483350777722215,
+                  "right_percent": 67.9,
+                  "top5_difference_pp": 0.3,
+                  "top5_right_percent": 87.6
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "613da5eaf4ee4fe8b42e30eb580d6426967b2a2f27cde481b086fece1fe9b4b1",
+                "top1_percent": 56.699999999999996,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 347,
+                  "difference_pp": 11.200000000000001,
+                  "interval_pp": [
+                    8.5,
+                    13.9
+                  ],
+                  "left_percent": 56.699999999999996,
+                  "mcnemar_exact_p": 9.885723797214291e-16,
+                  "right_percent": 67.9,
+                  "top5_difference_pp": 2.7,
+                  "top5_right_percent": 87.6
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 208,
+              "difference_pp": -4.2,
+              "interval_pp": [
+                -6.3,
+                -2.1
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 0.00010423670561637987,
+              "right_percent": 67.9,
+              "top5_difference_pp": -3.5000000000000004,
+              "top5_right_percent": 87.6
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 108,
+              "difference_pp": -4.098360655737705,
+              "interval_pp": [
+                -6.967213114754099,
+                -1.2295081967213115
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 0.01045481832189218,
+              "right_percent": 66.18852459016394,
+              "top5_difference_pp": -4.30327868852459,
+              "top5_right_percent": 85.65573770491804
+            }
+          },
+          "fp8_e4m3fn": {
+            "configuration_sha256": "41aa80268e3573a828fe030baa616a8d8fd51d24777895dc1d520bfc20fdebf8",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 2.9760601485613734,
+              "gpu_seconds": 13.996359486947767,
+              "job_wall_seconds": 13.996359486947767,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 5.382355601992458
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "92069157ba49d820cf62dd713e0b0578462e81439a722e21695bf131a74d2090",
+                "top1_percent": 65.7,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 266,
+                  "difference_pp": 2.4,
+                  "interval_pp": [
+                    0.1,
+                    4.7
+                  ],
+                  "left_percent": 65.7,
+                  "mcnemar_exact_p": 0.056603269970333596,
+                  "right_percent": 68.10000000000001,
+                  "top5_difference_pp": 0.7000000000000001,
+                  "top5_right_percent": 87.6
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "4aa48598d09e6e545bd5555480cacc885b1b5049228e2ff0cd1dbc4468b83cf8",
+                "top1_percent": 56.49999999999999,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 353,
+                  "difference_pp": 11.600000000000001,
+                  "interval_pp": [
+                    8.8,
+                    14.3
+                  ],
+                  "left_percent": 56.49999999999999,
+                  "mcnemar_exact_p": 4.949350047366857e-16,
+                  "right_percent": 68.10000000000001,
+                  "top5_difference_pp": 2.9000000000000004,
+                  "top5_right_percent": 87.6
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 206,
+              "difference_pp": -4.0,
+              "interval_pp": [
+                -6.1,
+                -1.9
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 0.00022681103233264182,
+              "right_percent": 68.10000000000001,
+              "top5_difference_pp": -3.5000000000000004,
+              "top5_right_percent": 87.6
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 112,
+              "difference_pp": -3.6885245901639343,
+              "interval_pp": [
+                -6.762295081967213,
+                -0.6147540983606558
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 0.030015864349067285,
+              "right_percent": 66.59836065573771,
+              "top5_difference_pp": -4.30327868852459,
+              "top5_right_percent": 85.65573770491804
+            }
+          },
+          "int4": {
+            "configuration_sha256": "ac771f06692ded2412dd8dfe0a8b0db12812d2f18dd5cebea6ef6e58a0a056bd",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.528999669710174,
+              "gpu_seconds": 12.287866516038775,
+              "job_wall_seconds": 12.287866516038775,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 3.139909227960743
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "544c16b3286985d8d938e3132bc5107738b37e1d12548a8c367955000150cd6d",
+                "top1_percent": 0.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": 0.1,
+                  "interval_pp": [
+                    0.0,
+                    0.3
+                  ],
+                  "left_percent": 0.0,
+                  "mcnemar_exact_p": 1.0,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": 0.0,
+                  "top5_right_percent": 0.5
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "31ea5c97cb30d45abee17fc6c46b6597afe8ccd3f60465ff4db5244399e96dd2",
+                "top1_percent": 0.1,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": 0.0,
+                  "interval_pp": [
+                    -0.3,
+                    0.3
+                  ],
+                  "left_percent": 0.1,
+                  "mcnemar_exact_p": 1.0,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": -0.5,
+                  "top5_right_percent": 0.5
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 999,
+              "difference_pp": -72.0,
+              "interval_pp": [
+                -74.8,
+                -69.2
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 6.554075252682688e-215,
+              "right_percent": 0.1,
+              "top5_difference_pp": -90.60000000000001,
+              "top5_right_percent": 0.5
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 487,
+              "difference_pp": -70.08196721311475,
+              "interval_pp": [
+                -74.18032786885246,
+                -65.98360655737704
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 1.9254426269159417e-101,
+              "right_percent": 0.20491803278688525,
+              "top5_difference_pp": -89.54918032786885,
+              "top5_right_percent": 0.4098360655737705
+            }
+          },
+          "int6": {
+            "configuration_sha256": "6a9e008b23894e2974d79398bacc269a33786a6fb60de61d87bc54f0dc10a1a8",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.353008579579182,
+              "gpu_seconds": 12.086362265981734,
+              "job_wall_seconds": 12.086362265981734,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 3.3570484300144017
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "d7b97e2424deb094cfb0511dfd3c143f41c11eb51c686336af8db69e0c32c4b5",
+                "top1_percent": 0.3,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 996,
+                  "difference_pp": 70.19999999999999,
+                  "interval_pp": [
+                    67.4,
+                    72.9
+                  ],
+                  "left_percent": 0.3,
+                  "mcnemar_exact_p": 9.5054578314758e-212,
+                  "right_percent": 70.5,
+                  "top5_difference_pp": 87.3,
+                  "top5_right_percent": 88.7
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "409b29d9446281080acd79d85dcda13fea1a941d2d15fcd73ed21bfc8cdd0fca",
+                "top1_percent": 51.9,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 395,
+                  "difference_pp": 18.6,
+                  "interval_pp": [
+                    15.8,
+                    21.4
+                  ],
+                  "left_percent": 51.9,
+                  "mcnemar_exact_p": 4.795549348663337e-37,
+                  "right_percent": 70.5,
+                  "top5_difference_pp": 11.700000000000001,
+                  "top5_right_percent": 88.7
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 152,
+              "difference_pp": -1.6,
+              "interval_pp": [
+                -3.4,
+                0.2
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 0.10113634213880449,
+              "right_percent": 70.5,
+              "top5_difference_pp": -2.4,
+              "top5_right_percent": 88.7
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 86,
+              "difference_pp": -2.459016393442623,
+              "interval_pp": [
+                -5.122950819672131,
+                0.20491803278688525
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 0.09614175442061423,
+              "right_percent": 67.82786885245902,
+              "top5_difference_pp": -3.8934426229508197,
+              "top5_right_percent": 86.0655737704918
+            }
+          },
+          "int8": {
+            "configuration_sha256": "20906e6fa79efca8b2e218d416d537b14299d8ceb1a50ddb8e4fbf1a8f3cdf6f",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 0.0,
+              "gpu_seconds": 7.965336111024953,
+              "job_wall_seconds": 7.965336111024953,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 3.632908138097264
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "064923345300cd7176f4b639bd5eae798877c4289a46c05df84c870ec05bc53e",
+                "top1_percent": 66.5,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 231,
+                  "difference_pp": 5.5,
+                  "interval_pp": [
+                    3.3,
+                    7.6
+                  ],
+                  "left_percent": 66.5,
+                  "mcnemar_exact_p": 9.239977718978823e-07,
+                  "right_percent": 72.0,
+                  "top5_difference_pp": 5.6000000000000005,
+                  "top5_right_percent": 91.2
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "b0e0a35c20ab1cfd7eb875df6d900a374c51ca825297ed62004f33674c8f611c",
+                "top1_percent": 66.4,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 191,
+                  "difference_pp": 5.6000000000000005,
+                  "interval_pp": [
+                    3.5,
+                    7.7
+                  ],
+                  "left_percent": 66.4,
+                  "mcnemar_exact_p": 1.9182738987900616e-07,
+                  "right_percent": 72.0,
+                  "top5_difference_pp": 1.3,
+                  "top5_right_percent": 91.2
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 26,
+              "difference_pp": -0.1,
+              "interval_pp": [
+                -0.8,
+                0.7
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 1.0,
+              "right_percent": 72.0,
+              "top5_difference_pp": 0.1,
+              "top5_right_percent": 91.2
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 14,
+              "difference_pp": 0.6147540983606558,
+              "interval_pp": [
+                -0.4098360655737705,
+                1.639344262295082
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 0.453125,
+              "right_percent": 70.90163934426229,
+              "top5_difference_pp": 0.0,
+              "top5_right_percent": 89.95901639344262
+            }
+          },
+          "log8": {
+            "configuration_sha256": "f17c9af62c250523f51229d7dbe6b31961d24c8426de8ab5a5089a765ca2b7bc",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.138800057116896,
+              "gpu_seconds": 14.31925190007314,
+              "job_wall_seconds": 14.31925190007314,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 5.288233897997998
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "9cd0feb10052ea6e8428e2139854d8bc1cd175c15e30393e4be2815250161628",
+                "top1_percent": 60.9,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 306,
+                  "difference_pp": 6.9,
+                  "interval_pp": [
+                    4.4,
+                    9.4
+                  ],
+                  "left_percent": 60.9,
+                  "mcnemar_exact_p": 6.450352813011449e-08,
+                  "right_percent": 67.80000000000001,
+                  "top5_difference_pp": 4.2,
+                  "top5_right_percent": 87.9
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "972064f5032415714a4c71642607dca0b1ac420c05e332445b7d3ad7895188ce",
+                "top1_percent": 58.9,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 322,
+                  "difference_pp": 8.9,
+                  "interval_pp": [
+                    6.3,
+                    11.5
+                  ],
+                  "left_percent": 58.9,
+                  "mcnemar_exact_p": 2.4045764645185023e-11,
+                  "right_percent": 67.80000000000001,
+                  "top5_difference_pp": 3.3000000000000003,
+                  "top5_right_percent": 87.9
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 191,
+              "difference_pp": -4.3,
+              "interval_pp": [
+                -6.2,
+                -2.4
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 2.2369582656172593e-05,
+              "right_percent": 67.80000000000001,
+              "top5_difference_pp": -3.2,
+              "top5_right_percent": 87.9
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 107,
+              "difference_pp": -4.508196721311475,
+              "interval_pp": [
+                -7.377049180327869,
+                -1.639344262295082
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 0.003838265880326096,
+              "right_percent": 65.77868852459017,
+              "top5_difference_pp": -4.918032786885246,
+              "top5_right_percent": 85.04098360655738
+            }
+          },
+          "nf4": {
+            "configuration_sha256": "7e4d3d8c1667e3165985af2fa3be72240c6594c204637d0a13837874d1c8a5a7",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 2.9664172417251393,
+              "gpu_seconds": 11.8879344179295,
+              "job_wall_seconds": 11.8879344179295,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 3.256057827034965
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "9ec3aa170a23721fc4f560fd83f571332b557a29a3ff3144334f2d75affceed6",
+                "top1_percent": 0.1,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": 0.0,
+                  "interval_pp": [
+                    -0.3,
+                    0.3
+                  ],
+                  "left_percent": 0.1,
+                  "mcnemar_exact_p": 1.0,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": 0.2,
+                  "top5_right_percent": 0.6
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "1121f3be8f9d68a9302627d7ee4794f21288413f54428a848b1690930e6a08ff",
+                "top1_percent": 0.2,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": -0.1,
+                  "interval_pp": [
+                    -0.5,
+                    0.2
+                  ],
+                  "left_percent": 0.2,
+                  "mcnemar_exact_p": 1.0,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": -0.4,
+                  "top5_right_percent": 0.6
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 999,
+              "difference_pp": -72.0,
+              "interval_pp": [
+                -74.7,
+                -69.2
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 3.6260443998244473e-217,
+              "right_percent": 0.1,
+              "top5_difference_pp": -90.5,
+              "top5_right_percent": 0.6
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 487,
+              "difference_pp": -70.08196721311475,
+              "interval_pp": [
+                -74.18032786885246,
+                -65.98360655737704
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 2.2323972485981933e-103,
+              "right_percent": 0.20491803278688525,
+              "top5_difference_pp": -89.13934426229508,
+              "top5_right_percent": 0.819672131147541
+            }
+          },
+          "posit8_es1": {
+            "configuration_sha256": "d184fc93ab5b7a70881e1f57897e6a767356f7418ebe57003686ab96cd6658ee",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 2.9595088716596365,
+              "gpu_seconds": 15.244394983979873,
+              "job_wall_seconds": 15.244394983979873,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 6.387104834080674
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "0c2e507cbd0832b4cb6941113f3fc10c1f705ce6a92d071a86779008dbce2eb6",
+                "top1_percent": 0.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": 72.1,
+                  "interval_pp": [
+                    69.3,
+                    74.8
+                  ],
+                  "left_percent": 0.0,
+                  "mcnemar_exact_p": 1.8130221999122236e-217,
+                  "right_percent": 72.1,
+                  "top5_difference_pp": 90.10000000000001,
+                  "top5_right_percent": 90.4
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "49c753867ea18fd9b58aeb03c460a6a2c3f01011dfe45ebe6ce9fac705f63889",
+                "top1_percent": 0.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": 72.1,
+                  "interval_pp": [
+                    69.3,
+                    74.8
+                  ],
+                  "left_percent": 0.0,
+                  "mcnemar_exact_p": 1.8130221999122236e-217,
+                  "right_percent": 72.1,
+                  "top5_difference_pp": 90.0,
+                  "top5_right_percent": 90.4
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 88,
+              "difference_pp": 0.0,
+              "interval_pp": [
+                -1.3,
+                1.4
+              ],
+              "left_percent": 72.1,
+              "mcnemar_exact_p": 1.0,
+              "right_percent": 72.1,
+              "top5_difference_pp": -0.7000000000000001,
+              "top5_right_percent": 90.4
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 43,
+              "difference_pp": -0.4098360655737705,
+              "interval_pp": [
+                -2.0491803278688523,
+                1.2295081967213115
+              ],
+              "left_percent": 70.28688524590164,
+              "mcnemar_exact_p": 0.8145294189453125,
+              "right_percent": 69.87704918032787,
+              "top5_difference_pp": -0.819672131147541,
+              "top5_right_percent": 89.13934426229508
+            }
+          }
+        },
+        "v1_best_recipe_order": [
+          "int8",
+          "fp8_e4m3fn",
+          "fp7_e3m3",
+          "log8",
+          "fp6_e2m3",
+          "int6",
+          "nf4",
+          "int4",
+          "posit8_es1"
+        ],
+        "versus_int8_default": {
+          "int8_vs_fp6_e2m3": {
+            "changed_top1_images": 210,
+            "difference_pp": -5.1,
+            "interval_pp": [
+              -7.2,
+              -3.0
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 1.7300043785001778e-06,
+            "right_percent": 66.9,
+            "top5_difference_pp": -4.3,
+            "top5_right_percent": 86.9
+          },
+          "int8_vs_fp7_e3m3": {
+            "changed_top1_images": 203,
+            "difference_pp": -4.1000000000000005,
+            "interval_pp": [
+              -6.2,
+              -2.0
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 0.00010730058802614813,
+            "right_percent": 67.9,
+            "top5_difference_pp": -3.5999999999999996,
+            "top5_right_percent": 87.6
+          },
+          "int8_vs_fp8_e4m3fn": {
+            "changed_top1_images": 201,
+            "difference_pp": -3.9,
+            "interval_pp": [
+              -6.0,
+              -1.8
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 0.0002718177522028417,
+            "right_percent": 68.10000000000001,
+            "top5_difference_pp": -3.5999999999999996,
+            "top5_right_percent": 87.6
+          },
+          "int8_vs_int4": {
+            "changed_top1_images": 1000,
+            "difference_pp": -71.89999999999999,
+            "interval_pp": [
+              -74.7,
+              -69.1
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 1.3090020283366255e-214,
+            "right_percent": 0.1,
+            "top5_difference_pp": -90.7,
+            "top5_right_percent": 0.5
+          },
+          "int8_vs_int6": {
+            "changed_top1_images": 144,
+            "difference_pp": -1.5,
+            "interval_pp": [
+              -3.2,
+              0.3
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 0.11001559898513334,
+            "right_percent": 70.5,
+            "top5_difference_pp": -2.5,
+            "top5_right_percent": 88.7
+          },
+          "int8_vs_log8": {
+            "changed_top1_images": 190,
+            "difference_pp": -4.2,
+            "interval_pp": [
+              -6.1,
+              -2.3
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 2.148435253799241e-05,
+            "right_percent": 67.80000000000001,
+            "top5_difference_pp": -3.3000000000000003,
+            "top5_right_percent": 87.9
+          },
+          "int8_vs_nf4": {
+            "changed_top1_images": 998,
+            "difference_pp": -71.89999999999999,
+            "interval_pp": [
+              -74.6,
+              -69.1
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 7.252088799648895e-217,
+            "right_percent": 0.1,
+            "top5_difference_pp": -90.60000000000001,
+            "top5_right_percent": 0.6
+          },
+          "int8_vs_posit8_es1": {
+            "changed_top1_images": 79,
+            "difference_pp": 0.1,
+            "interval_pp": [
+              -1.1,
+              1.4
+            ],
+            "left_percent": 72.0,
+            "mcnemar_exact_p": 1.0,
+            "right_percent": 72.1,
+            "top5_difference_pp": -0.8,
+            "top5_right_percent": 90.4
+          }
+        }
+      },
+      "mobilenet_v3_large": {
+        "b2_default_order": [
+          "posit8_es1",
+          "fp8_e4m3fn",
+          "int8",
+          "fp7_e3m3",
+          "log8",
+          "fp6_e2m3",
+          "int6",
+          "nf4",
+          "int4"
+        ],
+        "formats": {
+          "fp6_e2m3": {
+            "configuration_sha256": "637b7db07312acb9d954be4a6bbea69894d30694a3e06f2c59659fa88adf907f",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.7045172015205026,
+              "gpu_seconds": 15.1658927280223,
+              "job_wall_seconds": 15.1658927280223,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 4.632421516929753
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "2f0f400ccb6116ff9c584d5d69abf574aa6efa90582c0f3a6e8c882f3b81fbb4",
+                "top1_percent": 0.1,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 997,
+                  "difference_pp": 57.8,
+                  "interval_pp": [
+                    54.8,
+                    60.7
+                  ],
+                  "left_percent": 0.1,
+                  "mcnemar_exact_p": 2.0215873059760975e-174,
+                  "right_percent": 57.9,
+                  "top5_difference_pp": 79.3,
+                  "top5_right_percent": 80.10000000000001
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "9ca66c4a8f341179088bea1c62f3346ba11a67da070b74029cce296c80aa67c9",
+                "top1_percent": 44.3,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 539,
+                  "difference_pp": 13.600000000000001,
+                  "interval_pp": [
+                    10.5,
+                    16.7
+                  ],
+                  "left_percent": 44.3,
+                  "mcnemar_exact_p": 5.861652718157501e-17,
+                  "right_percent": 57.9,
+                  "top5_difference_pp": 7.199999999999999,
+                  "top5_right_percent": 80.10000000000001
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 358,
+              "difference_pp": -17.1,
+              "interval_pp": [
+                -19.8,
+                -14.4
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 2.5022289166371438e-33,
+              "right_percent": 57.9,
+              "top5_difference_pp": -12.0,
+              "top5_right_percent": 80.10000000000001
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 170,
+              "difference_pp": -14.754098360655737,
+              "interval_pp": [
+                -18.647540983606557,
+                -10.860655737704919
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 8.284451872080075e-14,
+              "right_percent": 58.19672131147541,
+              "top5_difference_pp": -11.475409836065573,
+              "top5_right_percent": 80.12295081967213
+            }
+          },
+          "fp7_e3m3": {
+            "configuration_sha256": "fed425d41037650f72e5d3cbd7c1e8ca9012b914c5225242cca441e15e943300",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.4876933872001246,
+              "gpu_seconds": 16.003234351985157,
+              "job_wall_seconds": 16.003234351985157,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 5.713349238038063
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "4c03f726649466557063f7cc8eb91562b20a52a49f8bf07713f9ee9802e060d9",
+                "top1_percent": 68.4,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 237,
+                  "difference_pp": 2.6,
+                  "interval_pp": [
+                    0.5,
+                    4.7
+                  ],
+                  "left_percent": 68.4,
+                  "mcnemar_exact_p": 0.020970029530035,
+                  "right_percent": 71.0,
+                  "top5_difference_pp": 2.1,
+                  "top5_right_percent": 90.4
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "92469f6a43b1bec388222a7cbd6dc969094c89b65f1d71e348d2dd752c234081",
+                "top1_percent": 61.7,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 321,
+                  "difference_pp": 9.3,
+                  "interval_pp": [
+                    6.6,
+                    12.0
+                  ],
+                  "left_percent": 61.7,
+                  "mcnemar_exact_p": 2.3663903621291367e-11,
+                  "right_percent": 71.0,
+                  "top5_difference_pp": 3.9,
+                  "top5_right_percent": 90.4
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 147,
+              "difference_pp": -4.0,
+              "interval_pp": [
+                -5.9,
+                -2.2
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 2.9664529225201866e-05,
+              "right_percent": 71.0,
+              "top5_difference_pp": -1.7000000000000002,
+              "top5_right_percent": 90.4
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 76,
+              "difference_pp": -2.663934426229508,
+              "interval_pp": [
+                -5.327868852459017,
+                0.0
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 0.0659940344557981,
+              "right_percent": 70.28688524590164,
+              "top5_difference_pp": -2.459016393442623,
+              "top5_right_percent": 89.13934426229508
+            }
+          },
+          "fp8_e4m3fn": {
+            "configuration_sha256": "c37ab2eba88a8bb68bfaf07a8480aab7cd969cbd6afd7e301ed8437ab334308b",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.5314394964370877,
+              "gpu_seconds": 17.83934619894717,
+              "job_wall_seconds": 17.83934619894717,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 7.546878637978807
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "110521a07488b46d82a41e3bd61fa14a83e79b1cdce87ccc2b570b3c462f3140",
+                "top1_percent": 68.60000000000001,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 210,
+                  "difference_pp": 3.0,
+                  "interval_pp": [
+                    0.9,
+                    5.1
+                  ],
+                  "left_percent": 68.60000000000001,
+                  "mcnemar_exact_p": 0.00589017298041324,
+                  "right_percent": 71.6,
+                  "top5_difference_pp": 2.8000000000000003,
+                  "top5_right_percent": 90.2
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 145,
+              "difference_pp": -3.4000000000000004,
+              "interval_pp": [
+                -5.2,
+                -1.7
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 0.00026645108697203506,
+              "right_percent": 71.6,
+              "top5_difference_pp": -1.9,
+              "top5_right_percent": 90.2
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 76,
+              "difference_pp": -3.0737704918032787,
+              "interval_pp": [
+                -5.737704918032787,
+                -0.6147540983606558
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 0.027533155829587486,
+              "right_percent": 69.87704918032787,
+              "top5_difference_pp": -2.8688524590163933,
+              "top5_right_percent": 88.72950819672131
+            }
+          },
+          "int4": {
+            "configuration_sha256": "70f4b9597858170e7678e40e036ef741fca64fb40d249806e54e6c8e91da1308",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.2810736655956134,
+              "gpu_seconds": 13.692806649021804,
+              "job_wall_seconds": 13.692806649021804,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 3.8918400279944763
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "077f5555eb0eed10ab8cdf7a52c1535046f5e995387ee67c6d1de08b262543f9",
+                "top1_percent": 0.1,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 999,
+                  "difference_pp": 0.0,
+                  "interval_pp": [
+                    -0.3,
+                    0.3
+                  ],
+                  "left_percent": 0.1,
+                  "mcnemar_exact_p": 1.0,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": 0.0,
+                  "top5_right_percent": 0.5
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "d986efc50719294aa7cf8e6ab11a6105301b7579c77243e140e5ef0f60ffb461",
+                "top1_percent": 0.1,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 999,
+                  "difference_pp": 0.0,
+                  "interval_pp": [
+                    -0.3,
+                    0.3
+                  ],
+                  "left_percent": 0.1,
+                  "mcnemar_exact_p": 1.0,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": -0.1,
+                  "top5_right_percent": 0.5
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 1000,
+              "difference_pp": -74.9,
+              "interval_pp": [
+                -77.5,
+                -72.2
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 1.2697583942990677e-223,
+              "right_percent": 0.1,
+              "top5_difference_pp": -91.60000000000001,
+              "top5_right_percent": 0.5
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 488,
+              "difference_pp": -72.74590163934425,
+              "interval_pp": [
+                -76.63934426229508,
+                -68.64754098360656
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 2.4389593963566687e-105,
+              "right_percent": 0.20491803278688525,
+              "top5_difference_pp": -91.18852459016394,
+              "top5_right_percent": 0.4098360655737705
+            }
+          },
+          "int6": {
+            "configuration_sha256": "5ddda738bae65380df41895180c632d50860fbc14366f655369201b880ae6a54",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.303701295866631,
+              "gpu_seconds": 14.184894001926295,
+              "job_wall_seconds": 14.184894001926295,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 4.388166012009606
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "e2492889c0aa9f79bff869a9be393339c02718696034b24c96e5bcfaa7c2431f",
+                "top1_percent": 0.1,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 999,
+                  "difference_pp": 21.0,
+                  "interval_pp": [
+                    18.5,
+                    23.5
+                  ],
+                  "left_percent": 0.1,
+                  "mcnemar_exact_p": 1.2154326714572542e-63,
+                  "right_percent": 21.099999999999998,
+                  "top5_difference_pp": 38.3,
+                  "top5_right_percent": 39.2
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "a7d9eb2ed07c99e731a27763ef9efbaa9b1cddce1e67687620499f436b2a2593",
+                "top1_percent": 14.399999999999999,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 911,
+                  "difference_pp": 6.7,
+                  "interval_pp": [
+                    3.8,
+                    9.5
+                  ],
+                  "left_percent": 14.399999999999999,
+                  "mcnemar_exact_p": 6.351396455890249e-06,
+                  "right_percent": 21.099999999999998,
+                  "top5_difference_pp": 7.6,
+                  "top5_right_percent": 39.2
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 779,
+              "difference_pp": -53.900000000000006,
+              "interval_pp": [
+                -57.1,
+                -50.8
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 3.652336682864148e-150,
+              "right_percent": 21.099999999999998,
+              "top5_difference_pp": -52.900000000000006,
+              "top5_right_percent": 39.2
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 373,
+              "difference_pp": -50.204918032786885,
+              "interval_pp": [
+                -54.71311475409836,
+                -45.69672131147541
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 3.044184759094947e-67,
+              "right_percent": 22.74590163934426,
+              "top5_difference_pp": -51.02459016393443,
+              "top5_right_percent": 40.57377049180328
+            }
+          },
+          "int8": {
+            "configuration_sha256": "0c58078f4cb6fe02b03355a864432a5619c2ce7bdf529657debfcd1030ba9963",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 0.0,
+              "gpu_seconds": 10.871968107996508,
+              "job_wall_seconds": 10.871968107996508,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 4.982513382914476
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "4b5b93a05f5ff63c2c98f0a4c9572eb722319a6402bc49224c02f306d9a591c0",
+                "top1_percent": 4.1000000000000005,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 954,
+                  "difference_pp": 67.4,
+                  "interval_pp": [
+                    64.4,
+                    70.3
+                  ],
+                  "left_percent": 4.1000000000000005,
+                  "mcnemar_exact_p": 8.958474628336134e-196,
+                  "right_percent": 71.5,
+                  "top5_difference_pp": 80.4,
+                  "top5_right_percent": 90.4
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "731c92b14b04bd992bdf82472cb799afb562f793c8a0b849c40a235f9328d6fb",
+                "top1_percent": 68.89999999999999,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 231,
+                  "difference_pp": 2.6,
+                  "interval_pp": [
+                    0.2,
+                    4.9
+                  ],
+                  "left_percent": 68.89999999999999,
+                  "mcnemar_exact_p": 0.03423566187319538,
+                  "right_percent": 71.5,
+                  "top5_difference_pp": 0.6,
+                  "top5_right_percent": 90.4
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 174,
+              "difference_pp": -3.5000000000000004,
+              "interval_pp": [
+                -5.4,
+                -1.5
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 0.000490157948963301,
+              "right_percent": 71.5,
+              "top5_difference_pp": -1.7000000000000002,
+              "top5_right_percent": 90.4
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 95,
+              "difference_pp": -2.663934426229508,
+              "interval_pp": [
+                -5.532786885245901,
+                0.20491803278688525
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 0.09191454981585423,
+              "right_percent": 70.28688524590164,
+              "top5_difference_pp": -1.8442622950819672,
+              "top5_right_percent": 89.75409836065575
+            }
+          },
+          "log8": {
+            "configuration_sha256": "3e291d121cc774d9ac13c83af0099d8af691766a3eccfe27a4c3b5b11773e882",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.7764716647798195,
+              "gpu_seconds": 17.910843760939315,
+              "job_wall_seconds": 17.910843760939315,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 7.280117557034828
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "c98d05e3575a2cdc648c11e8ea96b64a91955a0dc4a2190183138407b8c29be3",
+                "top1_percent": 68.60000000000001,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 248,
+                  "difference_pp": 1.4000000000000001,
+                  "interval_pp": [
+                    -0.9,
+                    3.7
+                  ],
+                  "left_percent": 68.60000000000001,
+                  "mcnemar_exact_p": 0.2683899720088744,
+                  "right_percent": 70.0,
+                  "top5_difference_pp": 0.3,
+                  "top5_right_percent": 89.1
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 197,
+              "difference_pp": -5.0,
+              "interval_pp": [
+                -7.0,
+                -3.0
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 9.701730804528465e-07,
+              "right_percent": 70.0,
+              "top5_difference_pp": -3.0,
+              "top5_right_percent": 89.1
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 103,
+              "difference_pp": -5.122950819672131,
+              "interval_pp": [
+                -7.786885245901639,
+                -2.459016393442623
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 0.00034600114031491097,
+              "right_percent": 67.82786885245902,
+              "top5_difference_pp": -3.278688524590164,
+              "top5_right_percent": 88.31967213114754
+            }
+          },
+          "nf4": {
+            "configuration_sha256": "9de247e3e6e5723ed267d1d15961b6b1296b8e2770c74a29af6aca4491535537",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.6803627590416,
+              "gpu_seconds": 14.785091541009024,
+              "job_wall_seconds": 14.785091541009024,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 4.213394421967678
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "1b9c35bc25b98c76826c1242e52369787aff003bc4e69b17faf93a57b9e02099",
+                "top1_percent": 0.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 999,
+                  "difference_pp": 2.1999999999999997,
+                  "interval_pp": [
+                    1.3,
+                    3.1
+                  ],
+                  "left_percent": 0.0,
+                  "mcnemar_exact_p": 4.76837158203125e-07,
+                  "right_percent": 2.1999999999999997,
+                  "top5_difference_pp": 7.1,
+                  "top5_right_percent": 7.6
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "c5ea6417337b823501efeb14255f7e95b1765dedcb484bc4c500d07e605ce529",
+                "top1_percent": 0.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 999,
+                  "difference_pp": 2.1999999999999997,
+                  "interval_pp": [
+                    1.3,
+                    3.1
+                  ],
+                  "left_percent": 0.0,
+                  "mcnemar_exact_p": 4.76837158203125e-07,
+                  "right_percent": 2.1999999999999997,
+                  "top5_difference_pp": 7.000000000000001,
+                  "top5_right_percent": 7.6
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 977,
+              "difference_pp": -72.8,
+              "interval_pp": [
+                -75.6,
+                -70.0
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 6.746527679267402e-212,
+              "right_percent": 2.1999999999999997,
+              "top5_difference_pp": -84.5,
+              "top5_right_percent": 7.6
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 475,
+              "difference_pp": -70.69672131147541,
+              "interval_pp": [
+                -74.79508196721312,
+                -66.59836065573771
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 2.7904965607477417e-104,
+              "right_percent": 2.2540983606557377,
+              "top5_difference_pp": -85.04098360655738,
+              "top5_right_percent": 6.557377049180328
+            }
+          },
+          "posit8_es1": {
+            "configuration_sha256": "8c7426f2f188f71b927992553705e42b13b42d70b61666684b501994b45cbb9a",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 3.501232112525031,
+              "gpu_seconds": 19.48025693593081,
+              "job_wall_seconds": 19.48025693593081,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 8.991353075951338
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "2b314f26fe844f1b56c6afcd9398f381bce09febb995832845e04a3633db5fb1",
+                "top1_percent": 0.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": 73.4,
+                  "interval_pp": [
+                    70.7,
+                    76.0
+                  ],
+                  "left_percent": 0.0,
+                  "mcnemar_exact_p": 2.2131618651272261e-221,
+                  "right_percent": 73.4,
+                  "top5_difference_pp": 90.2,
+                  "top5_right_percent": 90.60000000000001
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "4c6779a588f49f3b422e737745c7d848b80d73a496d1222d89c2e2c5cb88c8bf",
+                "top1_percent": 0.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": 73.4,
+                  "interval_pp": [
+                    70.7,
+                    76.0
+                  ],
+                  "left_percent": 0.0,
+                  "mcnemar_exact_p": 2.2131618651272261e-221,
+                  "right_percent": 73.4,
+                  "top5_difference_pp": 90.2,
+                  "top5_right_percent": 90.60000000000001
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 104,
+              "difference_pp": -1.6,
+              "interval_pp": [
+                -3.1,
+                -0.1
+              ],
+              "left_percent": 75.0,
+              "mcnemar_exact_p": 0.051893895928921435,
+              "right_percent": 73.4,
+              "top5_difference_pp": -1.5,
+              "top5_right_percent": 90.60000000000001
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 56,
+              "difference_pp": -0.819672131147541,
+              "interval_pp": [
+                -2.8688524590163933,
+                1.2295081967213115
+              ],
+              "left_percent": 72.95081967213115,
+              "mcnemar_exact_p": 0.5715881884098053,
+              "right_percent": 72.1311475409836,
+              "top5_difference_pp": -1.2295081967213115,
+              "top5_right_percent": 90.3688524590164
+            }
+          }
+        },
+        "v1_best_recipe_order": [
+          "int8",
+          "fp8_e4m3fn",
+          "log8",
+          "fp7_e3m3",
+          "fp6_e2m3",
+          "int6",
+          "int4",
+          "posit8_es1",
+          "nf4"
+        ],
+        "versus_int8_default": {
+          "int8_vs_fp6_e2m3": {
+            "changed_top1_images": 361,
+            "difference_pp": -13.600000000000001,
+            "interval_pp": [
+              -16.3,
+              -10.9
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 5.4541882582643195e-22,
+            "right_percent": 57.9,
+            "top5_difference_pp": -10.299999999999999,
+            "top5_right_percent": 80.10000000000001
+          },
+          "int8_vs_fp7_e3m3": {
+            "changed_top1_images": 188,
+            "difference_pp": -0.5,
+            "interval_pp": [
+              -2.5,
+              1.5
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 0.6936859650244834,
+            "right_percent": 71.0,
+            "top5_difference_pp": 0.0,
+            "top5_right_percent": 90.4
+          },
+          "int8_vs_fp8_e4m3fn": {
+            "changed_top1_images": 204,
+            "difference_pp": 0.1,
+            "interval_pp": [
+              -2.1,
+              2.3
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 1.0,
+            "right_percent": 71.6,
+            "top5_difference_pp": -0.2,
+            "top5_right_percent": 90.2
+          },
+          "int8_vs_int4": {
+            "changed_top1_images": 999,
+            "difference_pp": -71.39999999999999,
+            "interval_pp": [
+              -74.1,
+              -68.6
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 4.159798135478606e-213,
+            "right_percent": 0.1,
+            "top5_difference_pp": -89.9,
+            "top5_right_percent": 0.5
+          },
+          "int8_vs_int6": {
+            "changed_top1_images": 774,
+            "difference_pp": -50.4,
+            "interval_pp": [
+              -53.6,
+              -47.297500000000035
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 1.7888042700136348e-136,
+            "right_percent": 21.099999999999998,
+            "top5_difference_pp": -51.2,
+            "top5_right_percent": 39.2
+          },
+          "int8_vs_log8": {
+            "changed_top1_images": 224,
+            "difference_pp": -1.5,
+            "interval_pp": [
+              -3.7,
+              0.7
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 0.19534905940457842,
+            "right_percent": 70.0,
+            "top5_difference_pp": -1.3,
+            "top5_right_percent": 89.1
+          },
+          "int8_vs_nf4": {
+            "changed_top1_images": 973,
+            "difference_pp": -69.3,
+            "interval_pp": [
+              -72.1,
+              -66.4
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 7.399170045881005e-205,
+            "right_percent": 2.1999999999999997,
+            "top5_difference_pp": -82.8,
+            "top5_right_percent": 7.6
+          },
+          "int8_vs_posit8_es1": {
+            "changed_top1_images": 192,
+            "difference_pp": 1.9,
+            "interval_pp": [
+              -0.2,
+              4.0
+            ],
+            "left_percent": 71.5,
+            "mcnemar_exact_p": 0.08708912722374852,
+            "right_percent": 73.4,
+            "top5_difference_pp": 0.2,
+            "top5_right_percent": 90.60000000000001
+          }
+        }
+      },
+      "resnet18": {
+        "b2_default_order": [
+          "posit8_es1",
+          "int8",
+          "fp8_e4m3fn",
+          "fp7_e3m3",
+          "log8",
+          "fp6_e2m3",
+          "int6",
+          "nf4",
+          "int4"
+        ],
+        "formats": {
+          "fp6_e2m3": {
+            "configuration_sha256": "4252a3eff18a8f54db4b862736ae794ee9a912880b23490883ddc7b6664fe33d",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.6718781701056287,
+              "gpu_seconds": 7.2622530839871615,
+              "job_wall_seconds": 7.2622530839871615,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 1.810606085928157
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "cdc587d78962db490069c5f80efde4f37b53080e2239f8d63b27545a11f0eca9",
+                "top1_percent": 66.2,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 269,
+                  "difference_pp": 1.0999999999999999,
+                  "interval_pp": [
+                    -1.2,
+                    3.4
+                  ],
+                  "left_percent": 66.2,
+                  "mcnemar_exact_p": 0.38950262897613974,
+                  "right_percent": 67.30000000000001,
+                  "top5_difference_pp": 1.5,
+                  "top5_right_percent": 87.7
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "e490256e114d6d298dc73e6b683c668d99ee7b360b9a0d03e230423be38d68e5",
+                "top1_percent": 57.3,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 337,
+                  "difference_pp": 10.0,
+                  "interval_pp": [
+                    7.3,
+                    12.7
+                  ],
+                  "left_percent": 57.3,
+                  "mcnemar_exact_p": 1.9232250969218106e-12,
+                  "right_percent": 67.30000000000001,
+                  "top5_difference_pp": 0.8999999999999999,
+                  "top5_right_percent": 87.7
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 179,
+              "difference_pp": -2.8000000000000003,
+              "interval_pp": [
+                -4.7,
+                -0.9
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 0.00507843581282981,
+              "right_percent": 67.30000000000001,
+              "top5_difference_pp": -1.7999999999999998,
+              "top5_right_percent": 87.7
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 92,
+              "difference_pp": -2.663934426229508,
+              "interval_pp": [
+                -5.532786885245901,
+                0.20491803278688525
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 0.08543313315739454,
+              "right_percent": 66.39344262295081,
+              "top5_difference_pp": -2.663934426229508,
+              "top5_right_percent": 86.88524590163934
+            }
+          },
+          "fp7_e3m3": {
+            "configuration_sha256": "53e9ea5af9299b7a0e172d48a4569dec9776d7bfbfa11c196ea5570c07f9ee06",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.590815247502178,
+              "gpu_seconds": 7.582258331938647,
+              "job_wall_seconds": 7.582258331938647,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 2.1352262400323525
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "9596fea007161b62d84e42d599051a672e679490f5521f4536cebc60f1399a48",
+                "top1_percent": 69.69999999999999,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 172,
+                  "difference_pp": -1.7000000000000002,
+                  "interval_pp": [
+                    -3.5,
+                    0.1
+                  ],
+                  "left_percent": 69.69999999999999,
+                  "mcnemar_exact_p": 0.08205429958748713,
+                  "right_percent": 68.0,
+                  "top5_difference_pp": -0.1,
+                  "top5_right_percent": 88.4
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 131,
+              "difference_pp": -2.1,
+              "interval_pp": [
+                -3.7,
+                -0.5
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 0.013933875024287785,
+              "right_percent": 68.0,
+              "top5_difference_pp": -1.0999999999999999,
+              "top5_right_percent": 88.4
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 67,
+              "difference_pp": -3.0737704918032787,
+              "interval_pp": [
+                -5.327868852459017,
+                -0.819672131147541
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 0.013530986849218607,
+              "right_percent": 65.98360655737704,
+              "top5_difference_pp": -1.0245901639344261,
+              "top5_right_percent": 88.52459016393442
+            }
+          },
+          "fp8_e4m3fn": {
+            "configuration_sha256": "ae7a425c65b9176357fa5440d60957cdaddd5c90f1657693ba52dc83c9670892",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.6523689042078331,
+              "gpu_seconds": 8.381055879988708,
+              "job_wall_seconds": 8.381055879988708,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 2.7790238660527393
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "84b7f6fe4734308b1491eccbdd871e769d0275aac2780474d49e7d65fd366c83",
+                "top1_percent": 69.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 169,
+                  "difference_pp": -0.5,
+                  "interval_pp": [
+                    -2.4,
+                    1.4
+                  ],
+                  "left_percent": 69.0,
+                  "mcnemar_exact_p": 0.6785320136533249,
+                  "right_percent": 68.5,
+                  "top5_difference_pp": 0.2,
+                  "top5_right_percent": 88.1
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 138,
+              "difference_pp": -1.6,
+              "interval_pp": [
+                -3.3,
+                0.2
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 0.08878242522208005,
+              "right_percent": 68.5,
+              "top5_difference_pp": -1.4000000000000001,
+              "top5_right_percent": 88.1
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 70,
+              "difference_pp": -0.819672131147541,
+              "interval_pp": [
+                -3.278688524590164,
+                1.639344262295082
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 0.6271025701571489,
+              "right_percent": 68.23770491803278,
+              "top5_difference_pp": -2.0491803278688523,
+              "top5_right_percent": 87.5
+            }
+          },
+          "int4": {
+            "configuration_sha256": "728176a7c1efe27c6be03e8b1b1b10057e85b41328175602be06ab054ee425e8",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.602782878326252,
+              "gpu_seconds": 7.074146460043266,
+              "job_wall_seconds": 7.074146460043266,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 1.5896573229692876
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "1b4fdb17e40be84d4282d28b2775dfdec2e66c33cf83220a389335174f74fcb6",
+                "top1_percent": 0.2,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": -0.1,
+                  "interval_pp": [
+                    -0.5,
+                    0.2
+                  ],
+                  "left_percent": 0.2,
+                  "mcnemar_exact_p": 1.0,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": -0.5,
+                  "top5_right_percent": 0.5
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "f1a46b69889b994d3d11602ae7ee69b46588997a749cd6a24e846526da856180",
+                "top1_percent": 8.5,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": -8.4,
+                  "interval_pp": [
+                    -10.2,
+                    -6.6
+                  ],
+                  "left_percent": 8.5,
+                  "mcnemar_exact_p": 2.248897290378544e-24,
+                  "right_percent": 0.1,
+                  "top5_difference_pp": -17.8,
+                  "top5_right_percent": 0.5
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 999,
+              "difference_pp": -70.0,
+              "interval_pp": [
+                -72.8,
+                -67.2
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 6.682336855527487e-209,
+              "right_percent": 0.1,
+              "top5_difference_pp": -89.0,
+              "top5_right_percent": 0.5
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 488,
+              "difference_pp": -68.85245901639344,
+              "interval_pp": [
+                -72.95081967213115,
+                -64.54918032786885
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 1.21085226763966e-99,
+              "right_percent": 0.20491803278688525,
+              "top5_difference_pp": -88.9344262295082,
+              "top5_right_percent": 0.6147540983606558
+            }
+          },
+          "int6": {
+            "configuration_sha256": "9f3a82e502f3fc389683051de662fdce2193eac1b2a4bfd5d78bd15801c71f59",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.6133899443084374,
+              "gpu_seconds": 7.194082767004147,
+              "job_wall_seconds": 7.194082767004147,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 1.7395442370325327
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "c98705051a90c9a43bd1def6ea641272f7fc4ed9108953a2d18c0ffcc3498aee",
+                "top1_percent": 51.5,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 439,
+                  "difference_pp": 15.4,
+                  "interval_pp": [
+                    12.4,
+                    18.3
+                  ],
+                  "left_percent": 51.5,
+                  "mcnemar_exact_p": 1.1746133231263689e-23,
+                  "right_percent": 66.9,
+                  "top5_difference_pp": 10.9,
+                  "top5_right_percent": 86.7
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "7b0a7ded42e9ac9f5aa5f17e55a7e1c892573af1cbb859c838353c5dd7f853a0",
+                "top1_percent": 60.6,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 304,
+                  "difference_pp": 6.3,
+                  "interval_pp": [
+                    3.7,
+                    8.9
+                  ],
+                  "left_percent": 60.6,
+                  "mcnemar_exact_p": 3.2666467957746144e-06,
+                  "right_percent": 66.9,
+                  "top5_difference_pp": 0.7000000000000001,
+                  "top5_right_percent": 86.7
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 158,
+              "difference_pp": -3.2,
+              "interval_pp": [
+                -5.0,
+                -1.4
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 0.0007317100653124087,
+              "right_percent": 66.9,
+              "top5_difference_pp": -2.8000000000000003,
+              "top5_right_percent": 86.7
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 76,
+              "difference_pp": -2.459016393442623,
+              "interval_pp": [
+                -4.918032786885246,
+                0.0
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 0.07295138851623051,
+              "right_percent": 66.59836065573771,
+              "top5_difference_pp": -3.483606557377049,
+              "top5_right_percent": 86.0655737704918
+            }
+          },
+          "int8": {
+            "configuration_sha256": "2483170b2bc68d583fc67f598ab001e8028b43fe4e032ce1ef491902590a5c0a",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 0.0,
+              "gpu_seconds": 4.841706637991592,
+              "job_wall_seconds": 4.841706637991592,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 1.9082520690280944
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "d83afec240ed6806622f0936789268e1dce252eced24e71b724a936316505895",
+                "top1_percent": 69.8,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 106,
+                  "difference_pp": -0.8,
+                  "interval_pp": [
+                    -2.3,
+                    0.6
+                  ],
+                  "left_percent": 69.8,
+                  "mcnemar_exact_p": 0.3408909412200971,
+                  "right_percent": 69.0,
+                  "top5_difference_pp": 0.3,
+                  "top5_right_percent": 89.2
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "b17857e8b71bda649e1c12d71ffe6158d270cd19f033fbe2e0096f7eaefaf5ed",
+                "top1_percent": 62.4,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 205,
+                  "difference_pp": 6.6000000000000005,
+                  "interval_pp": [
+                    4.2,
+                    8.9
+                  ],
+                  "left_percent": 62.4,
+                  "mcnemar_exact_p": 4.4480547931883875e-08,
+                  "right_percent": 69.0,
+                  "top5_difference_pp": 2.1999999999999997,
+                  "top5_right_percent": 89.2
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 36,
+              "difference_pp": -1.0999999999999999,
+              "interval_pp": [
+                -2.0,
+                -0.2
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 0.02660369873046875,
+              "right_percent": 69.0,
+              "top5_difference_pp": -0.3,
+              "top5_right_percent": 89.2
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 17,
+              "difference_pp": -0.6147540983606558,
+              "interval_pp": [
+                -1.8442622950819672,
+                0.6147540983606558
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 0.5078125,
+              "right_percent": 68.44262295081968,
+              "top5_difference_pp": -0.4098360655737705,
+              "top5_right_percent": 89.13934426229508
+            }
+          },
+          "log8": {
+            "configuration_sha256": "72fc7ebf8a43c4ffea70f6e8da7565f31efdaf5204d97efd48306ceb74b13aae",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.5610300028929487,
+              "gpu_seconds": 8.031315464992076,
+              "job_wall_seconds": 8.031315464992076,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 2.714478434994817
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "af349a0615d60b91525e6781092975be66b0a9e68afac745f1cb899d426203c7",
+                "top1_percent": 66.4,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 145,
+                  "difference_pp": 1.6,
+                  "interval_pp": [
+                    -0.1,
+                    3.3
+                  ],
+                  "left_percent": 66.4,
+                  "mcnemar_exact_p": 0.07636915467183139,
+                  "right_percent": 68.0,
+                  "top5_difference_pp": 0.6,
+                  "top5_right_percent": 88.5
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 132,
+              "difference_pp": -2.1,
+              "interval_pp": [
+                -3.7,
+                -0.5
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 0.015432297453701269,
+              "right_percent": 68.0,
+              "top5_difference_pp": -1.0,
+              "top5_right_percent": 88.5
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 66,
+              "difference_pp": -1.4344262295081966,
+              "interval_pp": [
+                -3.6885245901639343,
+                0.6147540983606558
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 0.26493089646101,
+              "right_percent": 67.62295081967213,
+              "top5_difference_pp": -1.2295081967213115,
+              "top5_right_percent": 88.31967213114754
+            }
+          },
+          "nf4": {
+            "configuration_sha256": "4a202691ea0e77497c6e73b560f5c5a956c9ae2ad3e337dd25a55a99f71fce14",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.671920669497922,
+              "gpu_seconds": 7.262300587957725,
+              "job_wall_seconds": 7.262300587957725,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 1.6373253569472581
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "dcbe4aa5c031105caabd39c1a7c8771d11adce5563167a2b65e274d2b5308d1e",
+                "top1_percent": 1.0999999999999999,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 1000,
+                  "difference_pp": -0.7000000000000001,
+                  "interval_pp": [
+                    -1.5,
+                    0.0
+                  ],
+                  "left_percent": 1.0999999999999999,
+                  "mcnemar_exact_p": 0.11846923828124999,
+                  "right_percent": 0.4,
+                  "top5_difference_pp": -3.0,
+                  "top5_right_percent": 1.6
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "6a971e1493164d6a516d29b2c24976128f43355e136a89621272c6861cf6e316",
+                "top1_percent": 35.0,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 998,
+                  "difference_pp": -34.599999999999994,
+                  "interval_pp": [
+                    -37.5,
+                    -31.7
+                  ],
+                  "left_percent": 35.0,
+                  "mcnemar_exact_p": 5.356532554390337e-101,
+                  "right_percent": 0.4,
+                  "top5_difference_pp": -59.8,
+                  "top5_right_percent": 1.6
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 997,
+              "difference_pp": -69.69999999999999,
+              "interval_pp": [
+                -72.5,
+                -66.8
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 4.6776738207005666e-206,
+              "right_percent": 0.4,
+              "top5_difference_pp": -87.9,
+              "top5_right_percent": 1.6
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 486,
+              "difference_pp": -68.44262295081968,
+              "interval_pp": [
+                -72.54098360655738,
+                -64.13934426229508
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 4.814834385776583e-99,
+              "right_percent": 0.6147540983606558,
+              "top5_difference_pp": -88.11475409836066,
+              "top5_right_percent": 1.4344262295081966
+            }
+          },
+          "posit8_es1": {
+            "configuration_sha256": "b7c945daf929df2d0775bee136116d346bbe676ccad82116688f3905ef96cda8",
+            "cost": {
+              "baseline_seconds": 0.0,
+              "evaluation_seconds": 1.6451779115013778,
+              "gpu_seconds": 8.703992209979333,
+              "job_wall_seconds": 8.703992209979333,
+              "note": "gpu_seconds is the whole job wall-clock while the GPU lock was held",
+              "preparation_seconds": 3.245856376015581
+            },
+            "v1": {
+              "maxabs": {
+                "configuration_sha256": "168cd1d24d42c63fac15f6ce1cccc6fc43ec221c49603d1b35d3a3b6d121a675",
+                "top1_percent": 0.6,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 993,
+                  "difference_pp": 69.19999999999999,
+                  "interval_pp": [
+                    66.3,
+                    72.0
+                  ],
+                  "left_percent": 0.6,
+                  "mcnemar_exact_p": 1.4755938145467363e-204,
+                  "right_percent": 69.8,
+                  "top5_difference_pp": 87.5,
+                  "top5_right_percent": 89.2
+                }
+              },
+              "percentile_99_9": {
+                "configuration_sha256": "8d0be9a67cefb6f6d00669c672c7a032c7df2d8c7c82d2200ff0f0197a423832",
+                "top1_percent": 0.3,
+                "v1_vs_b2_default": {
+                  "changed_top1_images": 997,
+                  "difference_pp": 69.5,
+                  "interval_pp": [
+                    66.6,
+                    72.2
+                  ],
+                  "left_percent": 0.3,
+                  "mcnemar_exact_p": 1.2166986024289023e-209,
+                  "right_percent": 69.8,
+                  "top5_difference_pp": 88.4,
+                  "top5_right_percent": 89.2
+                }
+              }
+            },
+            "versus_fp32": {
+              "changed_top1_images": 59,
+              "difference_pp": -0.3,
+              "interval_pp": [
+                -1.4024999999999976,
+                0.9
+              ],
+              "left_percent": 70.1,
+              "mcnemar_exact_p": 0.735878800856881,
+              "right_percent": 69.8,
+              "top5_difference_pp": -0.3,
+              "top5_right_percent": 89.2
+            },
+            "versus_fp32_heldout488": {
+              "changed_top1_images": 32,
+              "difference_pp": 0.4098360655737705,
+              "interval_pp": [
+                -1.2295081967213115,
+                2.0491803278688523
+              ],
+              "left_percent": 69.05737704918032,
+              "mcnemar_exact_p": 0.8145294189453125,
+              "right_percent": 69.4672131147541,
+              "top5_difference_pp": -0.20491803278688525,
+              "top5_right_percent": 89.34426229508196
+            }
+          }
+        },
+        "v1_best_recipe_order": [
+          "int8",
+          "fp7_e3m3",
+          "fp8_e4m3fn",
+          "log8",
+          "fp6_e2m3",
+          "int6",
+          "nf4",
+          "int4",
+          "posit8_es1"
+        ],
+        "versus_int8_default": {
+          "int8_vs_fp6_e2m3": {
+            "changed_top1_images": 176,
+            "difference_pp": -1.7000000000000002,
+            "interval_pp": [
+              -3.6,
+              0.2
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 0.08932073673118937,
+            "right_percent": 67.30000000000001,
+            "top5_difference_pp": -1.5,
+            "top5_right_percent": 87.7
+          },
+          "int8_vs_fp7_e3m3": {
+            "changed_top1_images": 126,
+            "difference_pp": -1.0,
+            "interval_pp": [
+              -2.6,
+              0.5
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 0.26043547657665356,
+            "right_percent": 68.0,
+            "top5_difference_pp": -0.8,
+            "top5_right_percent": 88.4
+          },
+          "int8_vs_fp8_e4m3fn": {
+            "changed_top1_images": 137,
+            "difference_pp": -0.5,
+            "interval_pp": [
+              -2.2,
+              1.2024999999999635
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 0.6487911623106449,
+            "right_percent": 68.5,
+            "top5_difference_pp": -1.0999999999999999,
+            "top5_right_percent": 88.1
+          },
+          "int8_vs_int4": {
+            "changed_top1_images": 999,
+            "difference_pp": -68.89999999999999,
+            "interval_pp": [
+              -71.7,
+              -66.09750000000003
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 1.3471286926092806e-205,
+            "right_percent": 0.1,
+            "top5_difference_pp": -88.7,
+            "top5_right_percent": 0.5
+          },
+          "int8_vs_int6": {
+            "changed_top1_images": 156,
+            "difference_pp": -2.1,
+            "interval_pp": [
+              -3.9,
+              -0.3
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 0.027534178012294533,
+            "right_percent": 66.9,
+            "top5_difference_pp": -2.5,
+            "top5_right_percent": 86.7
+          },
+          "int8_vs_log8": {
+            "changed_top1_images": 127,
+            "difference_pp": -1.0,
+            "interval_pp": [
+              -2.6,
+              0.6
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 0.2678116648465871,
+            "right_percent": 68.0,
+            "top5_difference_pp": -0.7000000000000001,
+            "top5_right_percent": 88.5
+          },
+          "int8_vs_nf4": {
+            "changed_top1_images": 997,
+            "difference_pp": -68.60000000000001,
+            "interval_pp": [
+              -71.4,
+              -65.7
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 9.281794560788499e-203,
+            "right_percent": 0.4,
+            "top5_difference_pp": -87.6,
+            "top5_right_percent": 1.6
+          },
+          "int8_vs_posit8_es1": {
+            "changed_top1_images": 53,
+            "difference_pp": 0.8,
+            "interval_pp": [
+              -0.2,
+              1.9
+            ],
+            "left_percent": 69.0,
+            "mcnemar_exact_p": 0.20048842206597334,
+            "right_percent": 69.8,
+            "top5_difference_pp": 0.0,
+            "top5_right_percent": 89.2
+          }
+        }
+      }
+    },
+    "recipe": "default"
+  },
+  "sha256": "1f53d4e860db1668f639d368c5ca143dbfbc21d5a22dd097995c3c7fb0527222"
+}

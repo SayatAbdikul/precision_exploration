@@ -1,0 +1,29 @@
+{
+  "protocol": "b2-baseline-repair-protocol-v1",
+  "written": "2026-10-01, before any B2 quality measurement",
+  "purpose": "Make Experiment B (FP32 quantize-dequantize surrogate) a credible PTQ comparator: diagnose why v1 INT8 is far below FP32, freeze a repaired recipe, anchor it against a vendor INT8 flow.",
+  "code": "tools/experiment_b2 (v1 code imported, never edited); entry tools/run/experiment_b2.py",
+  "models": ["resnet18", "mobilenet_v2", "mobilenet_v3_large"],
+  "data": {
+    "calibration": "imagenet_calibration_2k (frozen). Activation ranges: the v1 FP32 observations of all 2000 images (256 stratified samples per image per node, exact maxima), reused read-only. Bias correction: first 256 images in ascending sha256 order. Vendor anchor: all 2000 images.",
+    "dev128": "first 128 images of imagenet_screen_1k in ascending sha256 order (the v1 panel)",
+    "dev512": "first 512 images of the same order (contains dev128)",
+    "screen1k": "all 1000 images; contains dev512. heldout488 = images 512..999, never used for any selection in this study",
+    "not_used": "imagenet_evaluation_10k is not touched by this study; ImageNet 50k is not on the machine"
+  },
+  "evidence_label": "Everything here is development evidence. The recipe is selected on dev512; the exit test on screen1k therefore overlaps the selection panel and is reported together with its heldout488 part.",
+  "stages": {
+    "S0_regression": "B2 with every switch off versus v1: INT8, both v1 recipes, three models, 1000 images. Pass = logits bit-identical to tools.experiment_b.classifier.prepare_qdq on every image, scales equal to the sealed v1 configuration, and the sealed v1 top-5 lists reproduced.",
+    "S1_diagnosis": "INT8, three models, dev512 (dev128 reported as its prefix). Arms: every name in tools/experiment_b2/recipe.py ONE_AT_A_TIME (one switch changed from v1_maxabs) and CUMULATIVE (ladder a,b,c,d,e plus leave-one-out and exemption arms). Reference arms: v1_maxabs, v1_percentile_99_9, FP32.",
+    "S1b_equalization": "Cross-layer equalization is implemented and measured only if the full ladder (cum5_bias_correction) is more than 1.0 point below FP32 on dev512 for some model.",
+    "S2_freeze": "Default recipe = the full ladder cum5_bias_correction with boundaries=fused_relu (the deployable semantics: ReLU/ReLU6 fold into the requantizer; Hardswish/Hardsigmoid remain separate quantized operators). A ladder step is dropped from the default only if its leave-one-out arm shows on dev512 that removing it is better with a 95 percent paired interval excluding zero for at least one model and not worse for the others. fused_all, signed-only and no-bias-correction variants are kept as named ablation arms. No per-format tuning: non-integer formats use the same switches (the unsigned switch is defined for integer formats only and is a no-op elsewhere).",
+    "S3_vendor": "PyTorch FX graph-mode static INT8 (torch.ao.quantization.quantize_fx, torch 2.3.0) on the same checkpoints (unfolded torchvision modules; FX fuses BN). Arm x86_default = get_default_qconfig_mapping('x86') (HistogramObserver with reduce_range=True, i.e. 7-bit activations; per-channel symmetric int8 weights). Arm x86_fullrange = same with reduce_range=False (8-bit activations). Calibration on all 2000 frozen calibration images, batch 32, CPU. Evaluation on screen1k, batch 8, per-image top-5 sealed.",
+    "S4_exit": "screen1k, INT8: B2 default versus FP32 (folded graph, same engine) and versus each vendor arm. Target: B2 default within about 1.0 point of FP32, or at least on par with the vendor anchor (95 percent paired interval of B2 minus vendor includes or exceeds zero). Reported for screen1k, dev512 and heldout488.",
+    "S5_sentinel": "screen1k, frozen default recipe: int8, int6, int4, fp8_e4m3fn, fp7_e3m3, fp6_e2m3, log8, posit8_es1, nf4 on the three classifiers, compared with the sealed v1 results of the same formats. Posit8 code-occupancy audit on dev128 under v1_maxabs and under the default recipe.",
+    "S6_export": "Recipe-as-data export (b2-recipe-export-1) of the default INT8 configuration for each classifier."
+  },
+  "statistics": "tools.analysis.b_stage_balanced_comparisons.paired_outcomes: paired top-1 (and top-5) difference, 95 percent interval from the paired multinomial bootstrap (10000 resamples, seed 20260927), exact McNemar p. No multiplicity correction is claimed for the diagnosis table; it is descriptive.",
+  "stop_rule": "One pass through S0-S6. Components are limited to the listed switches (a)-(g) and, conditionally, equalization. If the exit target is not met the result is reported as it is with a residual diagnosis; no further components are added to reach the number.",
+  "out_of_scope": ["the 200-configuration matrix", "shared-exponent formats (MX, BFP)", "YOLO", "imagenet_evaluation_10k", "ImageNet 50k"],
+  "cost_accounting": "Every measurement run seals job wall-clock seconds and GPU seconds (wall-clock while holding artifacts/agent_orchestration/gpu.lock) in artifacts/experiment_b2/runs/<stage>/."
+}

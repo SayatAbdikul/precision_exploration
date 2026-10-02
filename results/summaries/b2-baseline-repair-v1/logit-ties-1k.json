@@ -1,0 +1,1473 @@
+{
+  "configurations": [
+    {
+      "format": "int8",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 8.62638842803426,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 52.0,
+      "model": "resnet18",
+      "recipe": "v1_maxabs",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int8--v1_maxabs--dd9da5414987--r3c.json",
+      "sealed_top1": 69.8,
+      "tied_images_involving_label": 47,
+      "tied_top1_images": 72,
+      "top1_expected": 69.86666666666666,
+      "top1_lowest_index": 69.8,
+      "top1_optimistic": 72.3,
+      "top1_strict": 67.6
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 9.120408952934667,
+      "largest_tie": 8,
+      "median_distinct_logit_values": 114.0,
+      "model": "resnet18",
+      "recipe": "v1_percentile_99_9",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int8--v1_percentile_99_9--b49d9733dc6c--r3c.json",
+      "sealed_top1": 62.4,
+      "tied_images_involving_label": 167,
+      "tied_top1_images": 185,
+      "top1_expected": 62.03916666666667,
+      "top1_lowest_index": 62.0,
+      "top1_optimistic": 71.9,
+      "top1_strict": 55.2
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 11.44702716905158,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 48.0,
+      "model": "mobilenet_v2",
+      "recipe": "v1_maxabs",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int8--v1_maxabs--b08ca95009af--r3c.json",
+      "sealed_top1": 66.5,
+      "tied_images_involving_label": 15,
+      "tied_top1_images": 33,
+      "top1_expected": 66.55,
+      "top1_lowest_index": 66.3,
+      "top1_optimistic": 67.3,
+      "top1_strict": 65.8
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 12.818223215988837,
+      "largest_tie": 6,
+      "median_distinct_logit_values": 86.0,
+      "model": "mobilenet_v2",
+      "recipe": "v1_percentile_99_9",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int8--v1_percentile_99_9--3fb219292764--r3c.json",
+      "sealed_top1": 66.4,
+      "tied_images_involving_label": 135,
+      "tied_top1_images": 157,
+      "top1_expected": 66.45,
+      "top1_lowest_index": 67.0,
+      "top1_optimistic": 73.8,
+      "top1_strict": 60.3
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 10.125785788986832,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 81.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "v1_maxabs",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int8--v1_maxabs--0f217507bf7c--r3c.json",
+      "sealed_top1": 4.1,
+      "tied_images_involving_label": 1,
+      "tied_top1_images": 66,
+      "top1_expected": 4.05,
+      "top1_lowest_index": 4.1,
+      "top1_optimistic": 4.1,
+      "top1_strict": 4.0
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 11.489923872984946,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 88.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "v1_percentile_99_9",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int8--v1_percentile_99_9--be315e433ad2--r3c.json",
+      "sealed_top1": 68.9,
+      "tied_images_involving_label": 78,
+      "tied_top1_images": 94,
+      "top1_expected": 68.79166666666667,
+      "top1_lowest_index": 69.0,
+      "top1_optimistic": 72.8,
+      "top1_strict": 65.0
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 20.288461177027784,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 74.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int8--default--2483170b2bc6--r3c.json",
+      "sealed_top1": 69.0,
+      "tied_images_involving_label": 29,
+      "tied_top1_images": 42,
+      "top1_expected": 69.21666666666665,
+      "top1_lowest_index": 68.6,
+      "top1_optimistic": 70.7,
+      "top1_strict": 67.8
+    },
+    {
+      "format": "int6",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 8.891588352969848,
+      "largest_tie": 9,
+      "median_distinct_logit_values": 22.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int6--default--9f3a82e502f3--r3c.json",
+      "sealed_top1": 66.9,
+      "tied_images_involving_label": 101,
+      "tied_top1_images": 168,
+      "top1_expected": 65.89166666666667,
+      "top1_lowest_index": 65.2,
+      "top1_optimistic": 71.4,
+      "top1_strict": 61.3
+    },
+    {
+      "format": "int4",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 8.41345575102605,
+      "largest_tie": 23,
+      "median_distinct_logit_values": 5.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int4--default--728176a7c1ef--r3c.json",
+      "sealed_top1": 0.1,
+      "tied_images_involving_label": 9,
+      "tied_top1_images": 980,
+      "top1_expected": 0.12867826617826617,
+      "top1_lowest_index": 0.2,
+      "top1_optimistic": 0.9,
+      "top1_strict": 0.0
+    },
+    {
+      "format": "fp8_e4m3fn",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 9.630309724016115,
+      "largest_tie": 8,
+      "median_distinct_logit_values": 125.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--fp8_e4m3fn--default--ae7a425c65b9--r3c.json",
+      "sealed_top1": 68.5,
+      "tied_images_involving_label": 128,
+      "tied_top1_images": 186,
+      "top1_expected": 67.66583333333332,
+      "top1_lowest_index": 67.9,
+      "top1_optimistic": 74.7,
+      "top1_strict": 61.9
+    },
+    {
+      "format": "fp7_e3m3",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 8.583409659913741,
+      "largest_tie": 8,
+      "median_distinct_logit_values": 84.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--fp7_e3m3--default--53e9ea5af929--r3c.json",
+      "sealed_top1": 68.0,
+      "tied_images_involving_label": 118,
+      "tied_top1_images": 174,
+      "top1_expected": 67.4825,
+      "top1_lowest_index": 67.3,
+      "top1_optimistic": 73.9,
+      "top1_strict": 62.1
+    },
+    {
+      "format": "fp6_e2m3",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 8.618431711918674,
+      "largest_tie": 6,
+      "median_distinct_logit_values": 31.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--fp6_e2m3--default--4252a3eff18a--r3c.json",
+      "sealed_top1": 67.3,
+      "tied_images_involving_label": 119,
+      "tied_top1_images": 183,
+      "top1_expected": 66.65666666666665,
+      "top1_lowest_index": 66.8,
+      "top1_optimistic": 73.3,
+      "top1_strict": 61.4
+    },
+    {
+      "format": "log8",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 9.134511455893517,
+      "largest_tie": 6,
+      "median_distinct_logit_values": 124.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--log8--default--72fc7ebf8a43--r3c.json",
+      "sealed_top1": 68.0,
+      "tied_images_involving_label": 122,
+      "tied_top1_images": 181,
+      "top1_expected": 68.085,
+      "top1_lowest_index": 67.9,
+      "top1_optimistic": 74.8,
+      "top1_strict": 62.6
+    },
+    {
+      "format": "posit8_es1",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 10.948992151068524,
+      "largest_tie": 6,
+      "median_distinct_logit_values": 134.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--posit8_es1--default--b7c945daf929--r3c.json",
+      "sealed_top1": 69.8,
+      "tied_images_involving_label": 67,
+      "tied_top1_images": 102,
+      "top1_expected": 69.63333333333334,
+      "top1_lowest_index": 69.1,
+      "top1_optimistic": 73.1,
+      "top1_strict": 66.4
+    },
+    {
+      "format": "nf4",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 8.361176877981052,
+      "largest_tie": 68,
+      "median_distinct_logit_values": 6.0,
+      "model": "resnet18",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--nf4--default--4a202691ea0e--r3c.json",
+      "sealed_top1": 0.4,
+      "tied_images_involving_label": 14,
+      "tied_top1_images": 606,
+      "top1_expected": 0.25219092743005783,
+      "top1_lowest_index": 0.1,
+      "top1_optimistic": 1.5,
+      "top1_strict": 0.1
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 30.877414925955236,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 60.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int8--default--20906e6fa79e--r3c.json",
+      "sealed_top1": 72.0,
+      "tied_images_involving_label": 8,
+      "tied_top1_images": 14,
+      "top1_expected": 72.3,
+      "top1_lowest_index": 72.0,
+      "top1_optimistic": 72.7,
+      "top1_strict": 71.9
+    },
+    {
+      "format": "int6",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 13.027964183012955,
+      "largest_tie": 5,
+      "median_distinct_logit_values": 16.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int6--default--6a9e008b2389--r3c.json",
+      "sealed_top1": 70.5,
+      "tied_images_involving_label": 60,
+      "tied_top1_images": 104,
+      "top1_expected": 70.09833333333333,
+      "top1_lowest_index": 70.3,
+      "top1_optimistic": 73.4,
+      "top1_strict": 67.4
+    },
+    {
+      "format": "int4",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 19.29978162399493,
+      "largest_tie": 27,
+      "median_distinct_logit_values": 3.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int4--default--ac771f06692d--r3c.json",
+      "sealed_top1": 0.1,
+      "tied_images_involving_label": 20,
+      "tied_top1_images": 1000,
+      "top1_expected": 0.1,
+      "top1_lowest_index": 0.1,
+      "top1_optimistic": 2.0,
+      "top1_strict": 0.0
+    },
+    {
+      "format": "fp8_e4m3fn",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 14.717970018973574,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 129.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--fp8_e4m3fn--default--41aa80268e35--r3c.json",
+      "sealed_top1": 68.1,
+      "tied_images_involving_label": 77,
+      "tied_top1_images": 135,
+      "top1_expected": 67.70833333333334,
+      "top1_lowest_index": 67.9,
+      "top1_optimistic": 71.8,
+      "top1_strict": 64.1
+    },
+    {
+      "format": "fp7_e3m3",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 17.893078580964357,
+      "largest_tie": 5,
+      "median_distinct_logit_values": 62.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--fp7_e3m3--default--359105e3b7c5--r3c.json",
+      "sealed_top1": 67.9,
+      "tied_images_involving_label": 63,
+      "tied_top1_images": 115,
+      "top1_expected": 67.625,
+      "top1_lowest_index": 67.3,
+      "top1_optimistic": 70.9,
+      "top1_strict": 64.6
+    },
+    {
+      "format": "fp6_e2m3",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 13.695303049054928,
+      "largest_tie": 7,
+      "median_distinct_logit_values": 17.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--fp6_e2m3--default--4d284610ef87--r3c.json",
+      "sealed_top1": 66.9,
+      "tied_images_involving_label": 87,
+      "tied_top1_images": 152,
+      "top1_expected": 66.23499999999999,
+      "top1_lowest_index": 65.4,
+      "top1_optimistic": 71.0,
+      "top1_strict": 62.3
+    },
+    {
+      "format": "log8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 13.59081636602059,
+      "largest_tie": 6,
+      "median_distinct_logit_values": 122.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--log8--default--f17c9af62c25--r3c.json",
+      "sealed_top1": 67.8,
+      "tied_images_involving_label": 64,
+      "tied_top1_images": 111,
+      "top1_expected": 68.17333333333333,
+      "top1_lowest_index": 67.9,
+      "top1_optimistic": 71.6,
+      "top1_strict": 65.2
+    },
+    {
+      "format": "posit8_es1",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 13.807913734926842,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 112.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--posit8_es1--default--d184fc93ab5b--r3c.json",
+      "sealed_top1": 72.1,
+      "tied_images_involving_label": 37,
+      "tied_top1_images": 56,
+      "top1_expected": 72.39166666666665,
+      "top1_lowest_index": 71.9,
+      "top1_optimistic": 74.3,
+      "top1_strict": 70.6
+    },
+    {
+      "format": "nf4",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 10.661307581001893,
+      "largest_tie": 64,
+      "median_distinct_logit_values": 3.0,
+      "model": "mobilenet_v2",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--nf4--default--7e4d3d8c1667--r3c.json",
+      "sealed_top1": 0.1,
+      "tied_images_involving_label": 58,
+      "tied_top1_images": 1000,
+      "top1_expected": 0.10135773955283,
+      "top1_lowest_index": 0.2,
+      "top1_optimistic": 5.8,
+      "top1_strict": 0.0
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 42.640243811998516,
+      "largest_tie": 2,
+      "median_distinct_logit_values": 62.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int8--default--0c58078f4cb6--r3c.json",
+      "sealed_top1": 71.5,
+      "tied_images_involving_label": 6,
+      "tied_top1_images": 13,
+      "top1_expected": 71.6,
+      "top1_lowest_index": 71.5,
+      "top1_optimistic": 71.9,
+      "top1_strict": 71.3
+    },
+    {
+      "format": "int6",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 13.323125859955326,
+      "largest_tie": 59,
+      "median_distinct_logit_values": 8.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int6--default--5ddda738bae6--r3c.json",
+      "sealed_top1": 21.1,
+      "tied_images_involving_label": 125,
+      "tied_top1_images": 466,
+      "top1_expected": 20.995202096459447,
+      "top1_lowest_index": 20.9,
+      "top1_optimistic": 29.5,
+      "top1_strict": 17.0
+    },
+    {
+      "format": "int4",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 13.159100210061297,
+      "largest_tie": 80,
+      "median_distinct_logit_values": 3.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int4--default--70f4b9597858--r3c.json",
+      "sealed_top1": 0.1,
+      "tied_images_involving_label": 7,
+      "tied_top1_images": 1000,
+      "top1_expected": 0.10320512820512819,
+      "top1_lowest_index": 0.1,
+      "top1_optimistic": 0.7,
+      "top1_strict": 0.0
+    },
+    {
+      "format": "fp8_e4m3fn",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 16.49183069798164,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 134.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--fp8_e4m3fn--default--c37ab2eba88a--r3c.json",
+      "sealed_top1": 71.6,
+      "tied_images_involving_label": 77,
+      "tied_top1_images": 111,
+      "top1_expected": 71.65833333333333,
+      "top1_lowest_index": 71.5,
+      "top1_optimistic": 75.7,
+      "top1_strict": 68.0
+    },
+    {
+      "format": "fp7_e3m3",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 14.67003946902696,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 81.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--fp7_e3m3--default--fed425d41037--r3c.json",
+      "sealed_top1": 71.0,
+      "tied_images_involving_label": 72,
+      "tied_top1_images": 104,
+      "top1_expected": 71.125,
+      "top1_lowest_index": 71.3,
+      "top1_optimistic": 75.1,
+      "top1_strict": 67.9
+    },
+    {
+      "format": "fp6_e2m3",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 13.543312955996953,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 30.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--fp6_e2m3--default--637b7db07312--r3c.json",
+      "sealed_top1": 57.9,
+      "tied_images_involving_label": 80,
+      "tied_top1_images": 150,
+      "top1_expected": 58.425,
+      "top1_lowest_index": 58.5,
+      "top1_optimistic": 62.6,
+      "top1_strict": 54.6
+    },
+    {
+      "format": "log8",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 16.009213325101882,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 129.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--log8--default--3e291d121cc7--r3c.json",
+      "sealed_top1": 70.0,
+      "tied_images_involving_label": 73,
+      "tied_top1_images": 114,
+      "top1_expected": 69.83333333333333,
+      "top1_lowest_index": 69.5,
+      "top1_optimistic": 73.7,
+      "top1_strict": 66.4
+    },
+    {
+      "format": "posit8_es1",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 17.706851637922227,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 117.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--posit8_es1--default--8c7426f2f188--r3c.json",
+      "sealed_top1": 73.4,
+      "tied_images_involving_label": 29,
+      "tied_top1_images": 47,
+      "top1_expected": 73.35833333333333,
+      "top1_lowest_index": 72.8,
+      "top1_optimistic": 74.9,
+      "top1_strict": 72.0
+    },
+    {
+      "format": "nf4",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 13.104914174065925,
+      "largest_tie": 22,
+      "median_distinct_logit_values": 8.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "default",
+      "record": "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--nf4--default--9de247e3e6e5--r3c.json",
+      "sealed_top1": 2.2,
+      "tied_images_involving_label": 37,
+      "tied_top1_images": 616,
+      "top1_expected": 2.169339133089133,
+      "top1_lowest_index": 2.0,
+      "top1_optimistic": 4.8,
+      "top1_strict": 1.1
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 4,
+      "median_distinct_logit_values": 56.0,
+      "model": "resnet18",
+      "recipe": "vendor_x86_default",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/resnet18--x86_default--2000--r3c.json",
+      "sealed_top1": 69.4,
+      "tied_images_involving_label": 30,
+      "tied_top1_images": 52,
+      "top1_expected": 69.33333333333334,
+      "top1_lowest_index": 69.3,
+      "top1_optimistic": 70.9,
+      "top1_strict": 67.9
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 98.0,
+      "model": "resnet18",
+      "recipe": "vendor_x86_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/resnet18--x86_fullrange--2000--r3c.json",
+      "sealed_top1": 67.9,
+      "tied_images_involving_label": 14,
+      "tied_top1_images": 31,
+      "top1_expected": 67.6,
+      "top1_lowest_index": 67.5,
+      "top1_optimistic": 68.3,
+      "top1_strict": 66.9
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 70.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 2,
+      "median_distinct_logit_values": 99.0,
+      "model": "resnet18",
+      "recipe": "vendor_qnnpack_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/resnet18--qnnpack_fullrange--2000--r3c.json",
+      "sealed_top1": 69.4,
+      "tied_images_involving_label": 20,
+      "tied_top1_images": 31,
+      "top1_expected": 69.2,
+      "top1_lowest_index": 69.2,
+      "top1_optimistic": 70.2,
+      "top1_strict": 68.2
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 48.0,
+      "model": "mobilenet_v2",
+      "recipe": "vendor_x86_default",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_default--2000--r3c.json",
+      "sealed_top1": 66.5,
+      "tied_images_involving_label": 14,
+      "tied_top1_images": 43,
+      "top1_expected": 66.36666666666666,
+      "top1_lowest_index": 66.1,
+      "top1_optimistic": 67.1,
+      "top1_strict": 65.7
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 73.0,
+      "model": "mobilenet_v2",
+      "recipe": "vendor_x86_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_fullrange--2000--r3c.json",
+      "sealed_top1": 0.1,
+      "tied_images_involving_label": 0,
+      "tied_top1_images": 67,
+      "top1_expected": 0.1,
+      "top1_lowest_index": 0.1,
+      "top1_optimistic": 0.1,
+      "top1_strict": 0.1
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 20.0,
+      "model": "mobilenet_v2",
+      "recipe": "vendor_qnnpack_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_fullrange--2000--r3c.json",
+      "sealed_top1": 0.1,
+      "tied_images_involving_label": 0,
+      "tied_top1_images": 302,
+      "top1_expected": 0.1,
+      "top1_lowest_index": 0.1,
+      "top1_optimistic": 0.1,
+      "top1_strict": 0.1
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 5,
+      "median_distinct_logit_values": 54.0,
+      "model": "mobilenet_v2",
+      "recipe": "vendor_x86_minmax_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_minmax_fullrange--2000--r3c.json",
+      "sealed_top1": 0.2,
+      "tied_images_involving_label": 1,
+      "tied_top1_images": 201,
+      "top1_expected": 0.15,
+      "top1_lowest_index": 0.2,
+      "top1_optimistic": 0.2,
+      "top1_strict": 0.1
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 26,
+      "median_distinct_logit_values": 12.0,
+      "model": "mobilenet_v2",
+      "recipe": "vendor_qnnpack_minmax_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_minmax_fullrange--2000--r3c.json",
+      "sealed_top1": 0.1,
+      "tied_images_involving_label": 1,
+      "tied_top1_images": 779,
+      "top1_expected": 0.15,
+      "top1_lowest_index": 0.2,
+      "top1_optimistic": 0.2,
+      "top1_strict": 0.1
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 72.1,
+      "gpu_seconds": 0.0,
+      "largest_tie": 2,
+      "median_distinct_logit_values": 82.0,
+      "model": "mobilenet_v2",
+      "recipe": "vendor_qnnpack_fullrange_relu6fix",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_fullrange_relu6fix--2000--r3c.json",
+      "sealed_top1": 71.5,
+      "tied_images_involving_label": 12,
+      "tied_top1_images": 21,
+      "top1_expected": 71.5,
+      "top1_lowest_index": 71.7,
+      "top1_optimistic": 72.1,
+      "top1_strict": 70.9
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 0.0,
+      "largest_tie": 3,
+      "median_distinct_logit_values": 52.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "vendor_x86_default",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--x86_default--2000--r3c.json",
+      "sealed_top1": 65.7,
+      "tied_images_involving_label": 17,
+      "tied_top1_images": 28,
+      "top1_expected": 65.55,
+      "top1_lowest_index": 65.4,
+      "top1_optimistic": 66.4,
+      "top1_strict": 64.7
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 0.0,
+      "largest_tie": 2,
+      "median_distinct_logit_values": 92.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "vendor_x86_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--x86_fullrange--2000--r3c.json",
+      "sealed_top1": 64.7,
+      "tied_images_involving_label": 7,
+      "tied_top1_images": 13,
+      "top1_expected": 64.65,
+      "top1_lowest_index": 64.6,
+      "top1_optimistic": 65.0,
+      "top1_strict": 64.3
+    },
+    {
+      "format": "int8",
+      "fp32_top1": 75.0,
+      "gpu_seconds": 0.0,
+      "largest_tie": 2,
+      "median_distinct_logit_values": 91.0,
+      "model": "mobilenet_v3_large",
+      "recipe": "vendor_qnnpack_fullrange",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--qnnpack_fullrange--2000--r3c.json",
+      "sealed_top1": 69.5,
+      "tied_images_involving_label": 6,
+      "tied_top1_images": 10,
+      "top1_expected": 69.6,
+      "top1_lowest_index": 69.7,
+      "top1_optimistic": 69.9,
+      "top1_strict": 69.3
+    }
+  ],
+  "cost": {
+    "cpu_seconds_vendor_probes": 474.58999265008606,
+    "gpu_seconds_batch_sensitivity_and_tie_jobs": 464.71827649581246
+  },
+  "evidence": "development_evidence",
+  "exit_test_under_tie_rules": {
+    "mobilenet_v2": {
+      "expected": {
+        "b2_default_minus_fp32": {
+          "difference_pp": 0.2,
+          "left_percent": 72.3,
+          "pointwise_95_interval_pp": [
+            -0.6,
+            0.95
+          ],
+          "right_percent": 72.1
+        },
+        "b2_default_minus_v1_maxabs": {
+          "difference_pp": 5.75,
+          "left_percent": 72.3,
+          "pointwise_95_interval_pp": [
+            3.65,
+            7.9
+          ],
+          "right_percent": 66.55
+        },
+        "b2_default_minus_vendor_qnnpack_fullrange_relu6fix": {
+          "difference_pp": 0.8,
+          "left_percent": 72.3,
+          "pointwise_95_interval_pp": [
+            -0.6,
+            2.1999999999999997
+          ],
+          "right_percent": 71.5
+        },
+        "b2_default_minus_vendor_x86_default": {
+          "difference_pp": 5.9333333333333345,
+          "left_percent": 72.3,
+          "pointwise_95_interval_pp": [
+            3.7833333333333337,
+            8.200000000000001
+          ],
+          "right_percent": 66.36666666666667
+        }
+      },
+      "lowest_index": {
+        "b2_default_minus_fp32": {
+          "difference_pp": -0.1,
+          "left_percent": 72.0,
+          "pointwise_95_interval_pp": [
+            -0.8999999999999999,
+            0.7000000000000001
+          ],
+          "right_percent": 72.1
+        },
+        "b2_default_minus_v1_maxabs": {
+          "difference_pp": 5.7,
+          "left_percent": 72.0,
+          "pointwise_95_interval_pp": [
+            3.5999999999999996,
+            7.9
+          ],
+          "right_percent": 66.3
+        },
+        "b2_default_minus_vendor_qnnpack_fullrange_relu6fix": {
+          "difference_pp": 0.3,
+          "left_percent": 72.0,
+          "pointwise_95_interval_pp": [
+            -1.0999999999999999,
+            1.7000000000000002
+          ],
+          "right_percent": 71.7
+        },
+        "b2_default_minus_vendor_x86_default": {
+          "difference_pp": 5.8999999999999995,
+          "left_percent": 72.0,
+          "pointwise_95_interval_pp": [
+            3.6999999999999997,
+            8.200000000000001
+          ],
+          "right_percent": 66.10000000000001
+        }
+      }
+    },
+    "mobilenet_v3_large": {
+      "expected": {
+        "b2_default_minus_fp32": {
+          "difference_pp": -3.4000000000000004,
+          "left_percent": 71.6,
+          "pointwise_95_interval_pp": [
+            -5.25,
+            -1.5
+          ],
+          "right_percent": 75.0
+        },
+        "b2_default_minus_v1_maxabs": {
+          "difference_pp": 67.55,
+          "left_percent": 71.6,
+          "pointwise_95_interval_pp": [
+            64.5,
+            70.45
+          ],
+          "right_percent": 4.05
+        },
+        "b2_default_minus_vendor_qnnpack_fullrange": {
+          "difference_pp": 2.0,
+          "left_percent": 71.6,
+          "pointwise_95_interval_pp": [
+            0.0,
+            4.0
+          ],
+          "right_percent": 69.6
+        },
+        "b2_default_minus_vendor_x86_default": {
+          "difference_pp": 6.05,
+          "left_percent": 71.6,
+          "pointwise_95_interval_pp": [
+            3.75,
+            8.35
+          ],
+          "right_percent": 65.55
+        }
+      },
+      "lowest_index": {
+        "b2_default_minus_fp32": {
+          "difference_pp": -3.5000000000000004,
+          "left_percent": 71.5,
+          "pointwise_95_interval_pp": [
+            -5.4,
+            -1.6
+          ],
+          "right_percent": 75.0
+        },
+        "b2_default_minus_v1_maxabs": {
+          "difference_pp": 67.4,
+          "left_percent": 71.5,
+          "pointwise_95_interval_pp": [
+            64.4,
+            70.3
+          ],
+          "right_percent": 4.1000000000000005
+        },
+        "b2_default_minus_vendor_qnnpack_fullrange": {
+          "difference_pp": 1.7999999999999998,
+          "left_percent": 71.5,
+          "pointwise_95_interval_pp": [
+            -0.2,
+            3.8
+          ],
+          "right_percent": 69.69999999999999
+        },
+        "b2_default_minus_vendor_x86_default": {
+          "difference_pp": 6.1,
+          "left_percent": 71.5,
+          "pointwise_95_interval_pp": [
+            3.6999999999999997,
+            8.4
+          ],
+          "right_percent": 65.4
+        }
+      }
+    },
+    "resnet18": {
+      "expected": {
+        "b2_default_minus_fp32": {
+          "difference_pp": -0.8833333333333334,
+          "left_percent": 69.21666666666665,
+          "pointwise_95_interval_pp": [
+            -1.6,
+            -0.20000000000000004
+          ],
+          "right_percent": 70.1
+        },
+        "b2_default_minus_v1_maxabs": {
+          "difference_pp": -0.65,
+          "left_percent": 69.21666666666665,
+          "pointwise_95_interval_pp": [
+            -1.9,
+            0.6333333333333333
+          ],
+          "right_percent": 69.86666666666667
+        },
+        "b2_default_minus_vendor_qnnpack_fullrange": {
+          "difference_pp": 0.016666666666666607,
+          "left_percent": 69.21666666666665,
+          "pointwise_95_interval_pp": [
+            -0.8504166666666664,
+            0.8833333333333332
+          ],
+          "right_percent": 69.19999999999999
+        },
+        "b2_default_minus_vendor_x86_default": {
+          "difference_pp": -0.11666666666666663,
+          "left_percent": 69.21666666666665,
+          "pointwise_95_interval_pp": [
+            -1.0666666666666667,
+            0.8500000000000001
+          ],
+          "right_percent": 69.33333333333334
+        }
+      },
+      "lowest_index": {
+        "b2_default_minus_fp32": {
+          "difference_pp": -1.5,
+          "left_percent": 68.60000000000001,
+          "pointwise_95_interval_pp": [
+            -2.4,
+            -0.6
+          ],
+          "right_percent": 70.1
+        },
+        "b2_default_minus_v1_maxabs": {
+          "difference_pp": -1.2,
+          "left_percent": 68.60000000000001,
+          "pointwise_95_interval_pp": [
+            -2.7,
+            0.3
+          ],
+          "right_percent": 69.8
+        },
+        "b2_default_minus_vendor_qnnpack_fullrange": {
+          "difference_pp": -0.6,
+          "left_percent": 68.60000000000001,
+          "pointwise_95_interval_pp": [
+            -1.6,
+            0.4
+          ],
+          "right_percent": 69.19999999999999
+        },
+        "b2_default_minus_vendor_x86_default": {
+          "difference_pp": -0.7000000000000001,
+          "left_percent": 68.60000000000001,
+          "pointwise_95_interval_pp": [
+            -1.7999999999999998,
+            0.4
+          ],
+          "right_percent": 69.3
+        }
+      }
+    }
+  },
+  "interval": "pointwise 95 percent paired image bootstrap of the mean credit difference, 10000 resamples, seed 20260927; no multiplicity correction",
+  "records": [
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int8--v1_maxabs--dd9da5414987--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int8--v1_percentile_99_9--b49d9733dc6c--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int8--v1_maxabs--b08ca95009af--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int8--v1_percentile_99_9--3fb219292764--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int8--v1_maxabs--0f217507bf7c--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int8--v1_percentile_99_9--be315e433ad2--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int8--default--2483170b2bc6--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int6--default--9f3a82e502f3--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--int4--default--728176a7c1ef--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--fp8_e4m3fn--default--ae7a425c65b9--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--fp7_e3m3--default--53e9ea5af929--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--fp6_e2m3--default--4252a3eff18a--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--log8--default--72fc7ebf8a43--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--posit8_es1--default--b7c945daf929--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/resnet18--nf4--default--4a202691ea0e--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int8--default--20906e6fa79e--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int6--default--6a9e008b2389--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--int4--default--ac771f06692d--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--fp8_e4m3fn--default--41aa80268e35--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--fp7_e3m3--default--359105e3b7c5--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--fp6_e2m3--default--4d284610ef87--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--log8--default--f17c9af62c25--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--posit8_es1--default--d184fc93ab5b--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v2--nf4--default--7e4d3d8c1667--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int8--default--0c58078f4cb6--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int6--default--5ddda738bae6--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--int4--default--70f4b9597858--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--fp8_e4m3fn--default--c37ab2eba88a--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--fp7_e3m3--default--fed425d41037--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--fp6_e2m3--default--637b7db07312--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--log8--default--3e291d121cc7--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--posit8_es1--default--8c7426f2f188--r3c.json",
+    "artifacts/experiment_b2/verification/batch-sensitivity/mobilenet_v3_large--nf4--default--9de247e3e6e5--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/resnet18--x86_default--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/resnet18--x86_fullrange--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/resnet18--qnnpack_fullrange--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_default--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_fullrange--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_fullrange--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_minmax_fullrange--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_minmax_fullrange--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_fullrange_relu6fix--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--x86_default--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--x86_fullrange--2000--r3c.json",
+    "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--qnnpack_fullrange--2000--r3c.json"
+  ],
+  "rules": {
+    "expected": "credit 1/k for a k-way tie",
+    "lowest_index": "the smallest class index among the maxima wins",
+    "optimistic": "label among the maxima",
+    "sealed": "class returned first by topk in the sealed run (implementation-defined on ties)",
+    "strict": "label must be the unique maximum"
+  },
+  "tag": "r3c",
+  "vendor_probes": {
+    "mobilenet_v2/qnnpack_fullrange": {
+      "cpu_seconds": 57.43252954399213,
+      "kernel_audit": {
+        "audited": 99,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 52,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "relu6": {
+            "modules": 35,
+            "modules_with_code_error_above_1": 35
+          }
+        },
+        "largest_code_error": 114,
+        "wrong": 35
+      },
+      "prediction_digest": "6e0a41c403e491453a78225637bada8b1a31507f847811be7dbbd238e22674ec",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_fullrange--2000--r3c.json",
+      "top1_as_run": 0.1
+    },
+    "mobilenet_v2/qnnpack_fullrange_relu6fix": {
+      "cpu_seconds": 48.520058446913026,
+      "kernel_audit": {
+        "audited": 64,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 52,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 1,
+        "wrong": 0
+      },
+      "prediction_digest": "f3ef323f1cc597f1e94befdb3c74731b88cc1cf6b775e4734edf544269e9064a",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_fullrange_relu6fix--2000--r3c.json",
+      "top1_as_run": 71.5
+    },
+    "mobilenet_v2/qnnpack_minmax_fullrange": {
+      "cpu_seconds": 34.948840148048475,
+      "kernel_audit": {
+        "audited": 99,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 52,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "relu6": {
+            "modules": 35,
+            "modules_with_code_error_above_1": 35
+          }
+        },
+        "largest_code_error": 67,
+        "wrong": 35
+      },
+      "prediction_digest": "8360c763c3b06185c93b21cdd74dfe80feec1181f6b6966a63969c129e1668bd",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--qnnpack_minmax_fullrange--2000--r3c.json",
+      "top1_as_run": 0.1
+    },
+    "mobilenet_v2/x86_default": {
+      "cpu_seconds": 50.32103998097591,
+      "kernel_audit": {
+        "audited": 99,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 52,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "relu6": {
+            "modules": 35,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 1,
+        "wrong": 0
+      },
+      "prediction_digest": "9ccbe370ceada9a21d2392b999f7e26c5d8cbeedbcd78c43b1e160ef53ff29c3",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_default--2000--r3c.json",
+      "top1_as_run": 66.5
+    },
+    "mobilenet_v2/x86_fullrange": {
+      "cpu_seconds": 47.83680443209596,
+      "kernel_audit": {
+        "audited": 99,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 52,
+            "modules_with_code_error_above_1": 49
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 1
+          },
+          "pool": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "relu6": {
+            "modules": 35,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 255,
+        "wrong": 50
+      },
+      "prediction_digest": "8559713c9659f4816c8a9f3d3e8b6614a64dea118ca8c15a0c059af7fee57d21",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_fullrange--2000--r3c.json",
+      "top1_as_run": 0.1
+    },
+    "mobilenet_v2/x86_minmax_fullrange": {
+      "cpu_seconds": 35.26188723708037,
+      "kernel_audit": {
+        "audited": 99,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 52,
+            "modules_with_code_error_above_1": 41
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 1
+          },
+          "pool": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "relu6": {
+            "modules": 35,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 255,
+        "wrong": 42
+      },
+      "prediction_digest": "dc77413777bc270e7c790fda528072768b1e4f2ac776f4d3eb4386d2a7174fb3",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v2--x86_minmax_fullrange--2000--r3c.json",
+      "top1_as_run": 0.2
+    },
+    "mobilenet_v3_large/qnnpack_fullrange": {
+      "cpu_seconds": 32.18445145804435,
+      "kernel_audit": {
+        "audited": 120,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 62,
+            "modules_with_code_error_above_1": 1
+          },
+          "hardsigmoid": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "hardswish": {
+            "modules": 21,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 2,
+            "modules_with_code_error_above_1": 0
+          },
+          "mul": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 9,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 204,
+        "wrong": 1
+      },
+      "prediction_digest": "69dd103ba158f2823f7791ad72c70ec949db99e9cf9ff69a1bd66939c35c7fee",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--qnnpack_fullrange--2000--r3c.json",
+      "top1_as_run": 69.5
+    },
+    "mobilenet_v3_large/x86_default": {
+      "cpu_seconds": 28.904978484031744,
+      "kernel_audit": {
+        "audited": 120,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 62,
+            "modules_with_code_error_above_1": 0
+          },
+          "hardsigmoid": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "hardswish": {
+            "modules": 21,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 2,
+            "modules_with_code_error_above_1": 0
+          },
+          "mul": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 9,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 1,
+        "wrong": 0
+      },
+      "prediction_digest": "4bfa51c81297cf0c8a86484075b332d344b3bf6ca70656e1ebe421a042ee434b",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--x86_default--2000--r3c.json",
+      "top1_as_run": 65.7
+    },
+    "mobilenet_v3_large/x86_fullrange": {
+      "cpu_seconds": 31.629651520983316,
+      "kernel_audit": {
+        "audited": 120,
+        "by_kind": {
+          "add": {
+            "modules": 10,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 62,
+            "modules_with_code_error_above_1": 34
+          },
+          "hardsigmoid": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "hardswish": {
+            "modules": 21,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 2,
+            "modules_with_code_error_above_1": 0
+          },
+          "mul": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 9,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 125,
+        "wrong": 34
+      },
+      "prediction_digest": "8f6de53f07cb0f3d59c3060bfcf7ca7657bc9c3c59f960ec6d185d9a979f7d02",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/mobilenet_v3_large--x86_fullrange--2000--r3c.json",
+      "top1_as_run": 64.7
+    },
+    "resnet18/qnnpack_fullrange": {
+      "cpu_seconds": 36.81582648598123,
+      "kernel_audit": {
+        "audited": 31,
+        "by_kind": {
+          "add": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 20,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 2,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 1,
+        "wrong": 0
+      },
+      "prediction_digest": "84451cbcc27337115ea9004602a32046e31767f0ea261d5dfb90f47a94f40a06",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/resnet18--qnnpack_fullrange--2000--r3c.json",
+      "top1_as_run": 69.4
+    },
+    "resnet18/x86_default": {
+      "cpu_seconds": 37.639264130964875,
+      "kernel_audit": {
+        "audited": 31,
+        "by_kind": {
+          "add": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 20,
+            "modules_with_code_error_above_1": 0
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 2,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 1,
+        "wrong": 0
+      },
+      "prediction_digest": "1a60634a14939b5f45a5601157f40d2beaee1163f198f2bd2af7176d785d8acb",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/resnet18--x86_default--2000--r3c.json",
+      "top1_as_run": 69.4
+    },
+    "resnet18/x86_fullrange": {
+      "cpu_seconds": 33.094660780974664,
+      "kernel_audit": {
+        "audited": 31,
+        "by_kind": {
+          "add": {
+            "modules": 8,
+            "modules_with_code_error_above_1": 0
+          },
+          "conv": {
+            "modules": 20,
+            "modules_with_code_error_above_1": 10
+          },
+          "linear": {
+            "modules": 1,
+            "modules_with_code_error_above_1": 0
+          },
+          "pool": {
+            "modules": 2,
+            "modules_with_code_error_above_1": 0
+          }
+        },
+        "largest_code_error": 74,
+        "wrong": 10
+      },
+      "prediction_digest": "38f91a20e21e08c1cf5a7c82038c7062b9a5bc61903040f9cd66aef1bbe0c862",
+      "record": "artifacts/experiment_b2/verification/vendor-probe/resnet18--x86_fullrange--2000--r3c.json",
+      "top1_as_run": 67.9
+    }
+  },
+  "verify_source_sha256": "a17ce61588ef1f75cb07ae2a3324df53bd7d23043b5f61bacd5fd994ffff9d7c"
+}

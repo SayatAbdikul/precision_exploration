@@ -1,0 +1,322 @@
+{
+  "id": "accumulator-sweep-protocol-v1",
+  "lane": "L8 (CTXMARK-L8-accsweep-r1)",
+  "written": "2026-10-01 22:14:29 +0500",
+  "status": "frozen before any sweep measurement (location or 1k); deviations go to addendum files",
+  "evidence_class": "development evidence: ImageNet screen-1k list (imagenet_screen_1k), first 128 images for the location phase, images 0-1000 for the grid. No held-out image is run.",
+  "engine": {
+    "archive": "artifacts/scaled_bridge_v2/implementations/7c6344af732d1bf324c07b285921f63393150cdb3875356c86237d934fdc2f92",
+    "digest": "7c6344af732d1bf324c07b285921f63393150cdb3875356c86237d934fdc2f92",
+    "command": "artifacts/agent_orchestration/gpu_run.sh --min-free-mib 3000 --wait 7200 $A/run.sh predict CASE POLICY cuda START STOP --batch 8",
+    "contract": "scaled bridge contract 2.1 (docs/analysis/scaled-bridge-v2-contract-2026-10-01.md); policy names are complete specifications",
+    "reuse": "a result on images [0, N) is assembled from contiguous sealed predict files of the same case and policy (existing 32- and 64-image files and the 128-image location files included); the engine is exact and batch invariant, checked in step 1 (64-image file equals the 32-image file on its first 32 images)."
+  },
+  "cases": [
+    {
+      "case": "resnet18-int8-default-b2",
+      "recipe": "b2",
+      "integer": true,
+      "enters_sweep": true,
+      "float_sensitivity": true,
+      "W_cert_abs": 27,
+      "W_cert_struct": 26,
+      "W_node_min_abs": 21,
+      "ub": 26,
+      "fp16_policy": "fp16.x-11",
+      "f21_policy": "f21",
+      "location_ladder": [
+        25,
+        22,
+        19,
+        16,
+        13,
+        10,
+        7,
+        4
+      ]
+    },
+    {
+      "case": "resnet18-int6-default-b2",
+      "recipe": "b2",
+      "integer": true,
+      "enters_sweep": true,
+      "float_sensitivity": false,
+      "W_cert_abs": 23,
+      "W_cert_struct": 22,
+      "W_node_min_abs": 17,
+      "ub": 22,
+      "fp16_policy": "fp16.x-7",
+      "f21_policy": "f21",
+      "location_ladder": [
+        21,
+        18,
+        15,
+        12,
+        9,
+        6,
+        3
+      ]
+    },
+    {
+      "case": "resnet18-fp6_e2m3-default-b2",
+      "recipe": "b2",
+      "integer": false,
+      "enters_sweep": true,
+      "float_sensitivity": false,
+      "W_cert_abs": 23,
+      "W_cert_struct": 23,
+      "W_node_min_abs": 18,
+      "ub": 16,
+      "fp16_policy": "fp16.x-1",
+      "f21_policy": "f21",
+      "location_ladder": [
+        21,
+        18,
+        15,
+        12,
+        9,
+        6,
+        3
+      ]
+    },
+    {
+      "case": "resnet18-fp7_e3m3-default-b2",
+      "recipe": "b2",
+      "integer": false,
+      "enters_sweep": true,
+      "float_sensitivity": true,
+      "W_cert_abs": 31,
+      "W_cert_struct": 30,
+      "W_node_min_abs": 26,
+      "ub": 20,
+      "fp16_policy": "fp16.x-5",
+      "f21_policy": "f21",
+      "location_ladder": [
+        29,
+        26,
+        23,
+        20,
+        17,
+        14,
+        11,
+        8,
+        5,
+        2
+      ]
+    },
+    {
+      "case": "resnet18-fp8_e4m3fn-default-b2",
+      "recipe": "b2",
+      "integer": false,
+      "enters_sweep": true,
+      "float_sensitivity": false,
+      "W_cert_abs": 47,
+      "W_cert_struct": 46,
+      "W_node_min_abs": 42,
+      "ub": 28,
+      "fp16_policy": "fp16.x-13",
+      "f21_policy": "f21",
+      "location_ladder": [
+        45,
+        42,
+        39,
+        36,
+        33,
+        30,
+        27,
+        24,
+        21,
+        18,
+        15,
+        12
+      ]
+    },
+    {
+      "case": "resnet18-posit8_es1-default-b2",
+      "recipe": "b2",
+      "integer": false,
+      "enters_sweep": true,
+      "float_sensitivity": true,
+      "W_cert_abs": 50,
+      "W_cert_struct": 49,
+      "W_node_min_abs": 44,
+      "ub": 25,
+      "fp16_policy": "fp16.x-10",
+      "f21_policy": "f21",
+      "location_ladder": [
+        48,
+        45,
+        42,
+        39,
+        36,
+        33,
+        30,
+        27,
+        24,
+        21,
+        18,
+        15
+      ]
+    },
+    {
+      "case": "resnet18-int8-default_signed-b2",
+      "recipe": "b2",
+      "integer": true,
+      "enters_sweep": true,
+      "float_sensitivity": false,
+      "W_cert_abs": 26,
+      "W_cert_struct": 25,
+      "W_node_min_abs": 20,
+      "ub": 25,
+      "fp16_policy": "fp16.x-10",
+      "f21_policy": "f21",
+      "location_ladder": [
+        24,
+        21,
+        18,
+        15,
+        12,
+        9,
+        6,
+        3
+      ]
+    },
+    {
+      "case": "resnet18-int8-maxabs-b1",
+      "recipe": "b1",
+      "integer": true,
+      "enters_sweep": true,
+      "float_sensitivity": false,
+      "W_cert_abs": 26,
+      "W_cert_struct": 25,
+      "W_node_min_abs": 20,
+      "ub": 25,
+      "fp16_policy": "fp16.x-10",
+      "f21_policy": "f21",
+      "location_ladder": [
+        24,
+        21,
+        18,
+        15,
+        12,
+        9,
+        6,
+        3
+      ]
+    },
+    {
+      "case": "resnet18-fp7_e3m3-maxabs-b1",
+      "recipe": "b1",
+      "integer": false,
+      "enters_sweep": true,
+      "float_sensitivity": false,
+      "W_cert_abs": 31,
+      "W_cert_struct": 30,
+      "W_node_min_abs": 26,
+      "ub": 20,
+      "fp16_policy": "fp16.x-5",
+      "f21_policy": "f21",
+      "location_ladder": [
+        29,
+        26,
+        23,
+        20,
+        17,
+        14,
+        11,
+        8,
+        5,
+        2
+      ]
+    }
+  ],
+  "excluded_cases": [
+    {
+      "case": "resnet18-fp8_e5m2-default-b2",
+      "reason": "not yet exported or gated when this protocol was frozen (one B2 export/replay at a time; GPU memory). It enters through addendum 1 with exactly these rules (case_spec of tools/accumulator_sweep_v1/protocol.py) if its MB2 gate and four policy gates pass; L1 kept no per-image B2 predictions for it, so its replay is checked against the L1 matrix readout (top5_topk) instead of retained Top-5."
+    }
+  ],
+  "policies": {
+    "wide": "exact reference arm",
+    "control": "sequential binary32 FMA",
+    "sat.w<W>": "uniform family: signed saturating register of W bits at every MAC node",
+    "sat.struct-<d>": "per-node family: certified structural width of the node minus d",
+    "float": "fp16.x<e>, f21.x<e> (one rounding per multiply-add; binary point moved by e)"
+  },
+  "float_exponent_rule": {
+    "ub": "max over MAC nodes of bit_length(max_abs_prefix_units) - product_shift (certificate.json); every prefix sum satisfies |sum| < 2^ub in code-level units",
+    "rule": "e = 0 (plain policy name) when the plain format is proven overflow-free (ub <= emax) and every product step 2^-product_shift is a normal number (>= 2^emin); otherwise e = emax - ub, the largest shift the certificate proves overflow-free. fp16: emax 15, emin -14; f21: 127, -126. Implemented in tools/accumulator_sweep_v1/certs.py (unit tested).",
+    "sensitivity_location_phase": "cases int8-b2, fp7_e3m3-b2, posit8_es1-b2 (one integer, one minifloat, one posit; coarsened for the budget), 128 images: fp16.x<e+k> for k in [-3, 3]; f21.x<15-ub> next to the rule policy (expected identical to plain f21: no overflow, no subnormal)"
+  },
+  "location_phase": {
+    "images": [
+      0,
+      128
+    ],
+    "runs": "every case: wide; sat.w ladder W_cert_abs-2, then every 3 bits downward (at most 12 rungs), launched in descending order and stopped once a finished rung has expected Top-1 <= half of wide (rungs already started are kept). B2 cases also: the rule fp16 and f21 policies and the exponent sensitivity runs.",
+    "bracket_rule": "top = narrowest rung W such that no rung >= W has a saturation event on the 128 images (W_cert_abs - 1 if the widest rung has one); bottom = (widest rung with expected Top-1 <= half of wide) - 2 (narrowest rung - 2 if none reached half); clipped to [2, W_cert_abs - 1] (tools/accumulator_sweep_v1/plan.py: bracket)."
+  },
+  "screen_grid": {
+    "images": [
+      0,
+      1000
+    ],
+    "per_case": {
+      "priority_1": "wide; sat.w<W> for every integer W in [bottom, top]",
+      "priority_2": "control; the rule fp16 and f21 policies (B2 cases)",
+      "priority_3": "integer cases: sat.w<W> for W in [16, 20, 24, 28, 32] below the bracket and at or below W_cert_abs",
+      "priority_4": "sat.struct-<d>, d in [4, 8] (B2 cases)",
+      "priority_5": "original-recipe (b1) cases: wide and the uniform bracket (recipe-sensitivity check)",
+      "priority_6": "sat.struct-<d>, d in [2, 12] (B2 cases)"
+    },
+    "extension_rules": [
+      "top: while the 1k run at the widest bracket width has any saturation event, add the next wider width (below W_cert_abs)",
+      "bottom: while fewer than 2 bracket widths lie below W_half (1k), or no width reached half, add the next narrower width (down to 2)"
+    ],
+    "hardware_widths_above_bracket": "not run: a width above a width with no saturation event on the same 1000 images gives the exact arm bit for bit (no prefix sum leaves the narrower register, so none leaves the wider one); reported as derived",
+    "order": "priority-major across cases (B2 cases in the listed order), at most 3 jobs of this lane at a time, resumable runner tools/run/accumulator_sweep_run.py"
+  },
+  "definitions_uniform_family": {
+    "W_cert": "certified absolute width (network maximum)",
+    "W_noevent": "narrowest measured W from which upward no saturation event occurs on any of the 1000 images",
+    "W_same": "narrowest W from which upward all 1000 lowest-index Top-1 classes equal the exact arm (a failed image counts as changed)",
+    "W_acc(0.5), W_acc(1.0)": "narrowest W from which upward the expected-credit Top-1 is at least the exact arm minus 0.5 / 1.0 points",
+    "W_half": "widest W at which expected-credit Top-1 is at most half of the exact arm",
+    "from_upward": "the condition holds at W and at every measured wider width of the bracket; widths above the bracket top equal the exact arm when the top has no event"
+  },
+  "definitions_per_node_family": "d_noevent, d_same, d_acc(0.5), d_acc(1.0) = largest d from which downward (d smaller) the condition holds over the measured d set (0 = lossless by the gate); d_half = smallest measured d at or below half. Coarse: only the measured d values.",
+  "statistics": {
+    "scores": "expected credit (1/t when the label is among t tied maxima, failed image 0) and lowest-index Top-1 (contract tie order)",
+    "paired": "every policy against wide of the same case on the same images: tools.analysis.b2_ties.paired (expected credit) and tools.analysis.b_stage_balanced_comparisons.paired_outcomes (lowest index), 95% paired bootstrap intervals",
+    "counts": "images with a changed Top-1 class, with an accumulator event, failed; per-node event rates (share of images, share of outputs) at the widths around the transition",
+    "no_multiplicity_claims": "descriptive development evidence; no hypothesis is confirmed here"
+  },
+  "by_product": "exact wide arm against the B2 simulator's sealed 1k predictions (stage-1 per-image files or the L1 matrix readout), both tie rules, every B2 case that has them",
+  "join": "integer cases: Top-1 at hardware widths 16-32 beside core area from results/tables/ics55-integer-accwidth-v1.csv at the 8 ns target (all configurations meet it); preliminary (hardware sweep unreviewed, RTL work on hold); semantic differences listed",
+  "budget": {
+    "timing_basis": "step 1 smoke test, shared GPU at 100% use by other lanes: 64 images in 16.9 s of execution at batch 8 (0.26 s per image), 50 s wall including about 33 s of setup; batch-1 full-trace gate panels ran at 0.45-0.6 s per image at the same time. Indicative only.",
+    "per_run_estimate_s": {
+      "location_128_images": 70,
+      "screen_1000_images": 300,
+      "screen_872_images_after_location": 265
+    },
+    "assumed_bracket_widths_per_case": 8,
+    "location_runs": "about 100 (10 per case; in-bracket ones are reused by the 1k runs)",
+    "screen_runs": {
+      "priority_1": 64,
+      "priority_2": 21,
+      "priority_3": "0-4",
+      "priority_4": 14,
+      "priority_5": 18,
+      "priority_6": 14
+    },
+    "estimated_gpu_job_hours": {
+      "location": 1.9,
+      "priority_1_2": 7.0,
+      "priority_3_6": 4.0,
+      "total": 12.9
+    },
+    "exceeds_5_hour_plan": true,
+    "rule": "The location phase is already coarsened (ladder step 3 plus a two-width refinement; exponent sensitivity on three cases only). Priorities 1 and 2 are run in full whatever the cost (the 1k bracket is not coarsened). Priorities 3 to 6 are run only while the cumulative GPU job time of this lane (wall_seconds of its predict calls in the engine ledger) stays below 5 hours; whatever is not run is listed as deferred for the owner. At an uncontended rate of about 0.1 s per image the whole grid would take about 5.5 hours."
+  }
+}

@@ -1,0 +1,43 @@
+{
+ "id": "accumulator-sweep-protocol-v1-addendum-3",
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/accumulator-sweep-protocol-v1.json",
+  "sha256": "fb9c56248ea6473c104b9a71998512c7c807796e76f7838a8728fac92f2fd765"
+ },
+ "previous_addenda": [
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-protocol-v1-addendum-1.json",
+   "sha256": "f17547d3fe9ceeec39e807539adc253eb4fcceabf4dc1d332e35a3a10f75b746"
+  },
+  {
+   "path": "public/experiments/configs/breadth-study/accumulator-sweep-protocol-v1-addendum-2.json",
+   "sha256": "d3703516041a04e2d28b3e49628118730045784ba121e17eb4250aacdbba9310"
+  }
+ ],
+ "written": "2026-10-02 02:40 +0500",
+ "written_after": "every measurement of the lane and the write-once analysis; it answers review 1 (artifacts/agent_orchestration/handoffs/L8-accsweep-review.md). It changes no run, no result and no rule; it records a rule that was applied but not written in the frozen protocol, and two facts that were missing.",
+ "cases_added": [],
+ "deviations": [
+  {
+   "what": "The location refinement rule decides the 1k brackets but is not stated in the frozen protocol. The protocol's location_phase.runs and bracket_rule describe only the 3-bit ladder; the refinement is mentioned only as 'a two-width refinement' in budget.rule. The brackets of the 1k grid were computed from the ladder rungs AND the refinement widths.",
+   "rule_as_applied": "tools/accumulator_sweep_v1/plan.py refine(), used by tools/run/accumulator_sweep_run.py run_location(). After the ladder of a case has stopped (a finished rung at or below half of the exact arm's expected Top-1 on images 0-127, or all rungs measured) and no sat.w run of the case is still running, refine() is evaluated on the widths measured so far: (a) let W0 be the narrowest measured width such that no measured width >= W0 has a saturation event on the 128 images; if a narrower measured width exists, ask for W0-1 and W0-2; if every measured width has an event and the widest is below W_cert_abs-1, ask for every width from the widest measured + 1 to W_cert_abs-1 (capped at 63); (b) let Wh be the widest measured width with expected Top-1 <= half of the exact arm; if a wider width was measured, ask for Wh+1 and Wh+2. Widths already measured, widths below 2 and widths >= W_cert_abs are dropped. The runner launches the asked widths, widest first, while it has free job slots, waits until every sat.w run of the case has finished, and evaluates refine() again; the location phase of the case ends when refine() asks for nothing. A call that fails more than the runner's retry limit is not launched again; a failed width is measured later only if a new evaluation asks for it. At the end, the narrowest no-event width W0 has W0-1 measured with an event, so the bracket top equals the narrowest width without an event on the 128 images (events cannot appear at a wider width than one without events), and the bracket bottom is the widest measured width at or below half, with the two widths above it measured and above half, minus 2. The bracket is plan.bracket() of all measured widths (protocol bracket_rule).",
+   "effect": "With the refinement widths the 1k brackets are those that were run (B2: INT8 15-21, INT8 signed 14-21, INT6 11-17, FP6 E2M3 12-19, FP7 E3M3 19-26, FP8 E4M3FN 35-42, posit8 28-35, FP8 E5M2 61-63; B1 location only: INT8 14-21, FP7 20-27). With the ladder rungs alone, bracket_rule would give INT8 14-22, INT8 signed 13-21, INT6 10-18, FP6 10-21, FP7 18-26, FP8 E4M3FN 34-42, posit8 28-36, FP8 E5M2 59-63. The refinement narrows the brackets by 1 to 4 widths; every width it removes lies below the location W_half - 2 or above the location W_noevent, and every derived width (W_noevent, W_same, W_acc, W_half) of the 1k analysis lies inside the bracket that was run, with no upward or downward extension triggered.",
+   "evidence": "artifacts/accumulator_sweep_v1/addendum3_check.py (sha256 db6f6d256021785fca8ad6ab2a4b56283140ad31fb9b81b9056d5bfe05e1f101) -> artifacts/accumulator_sweep_v1/addendum3_check.json (sha256 276b8aa3fa993f89d0fbe48d8987572302ff47d6447cb7323c93d796eea7c538). For all 10 cases, replaying the rule one width at a time from the measured ladder rungs with the current plan.refine reproduces exactly the set of widths measured on images 0-127 (replay_equals_measured); the launch order in the ledger is the same except in the two B1 cases, where the runner launched two or three asked widths at once; refine() of all measured widths is empty; and for all 8 B2 cases the sat.w widths with a sealed 1k file are exactly the bracket. Review 1 rebuilt the same brackets independently (artifacts/accumulator_sweep_v1/review-scratch/brackets.py)."
+  },
+  {
+   "what": "plan.py has no hash recorded at the freeze. Its file time is 2026-10-01 23:32:24 +0500, after the freeze (22:14:29). Addendum 1 records the change made then: the 63-bit cap (MAX_WIDTH) in ladder(), refine(), bracket() and extend_top(), which binds only FP8 E5M2 (W_cert_abs 75).",
+   "evidence": "The location pass-1 runner started at 22:15 (first ledger launch 22:15:05) and imported plan.py once, so it used the code as it was before 23:32. All 78 location sat.w calls of the six B2 cases of the frozen protocol and the two B1 cases ended before 23:32:24 (addendum3_check.json, location_sat_calls_ended_before_plan_mtime), and the current refine() reproduces exactly the widths that runner measured (first deviation). The two cases located after 23:32 (int8 default_signed, fp8_e5m2; addendum 1) used the current code. Current sha256: plan.py 7773f49fc85a0a662910557c403881097813d9e635cf3478ef7d10b01d054bda; tools/run/accumulator_sweep_run.py a03f3c0d932136094dd291ff3cb469704b95e087352dba6ff8016676330a88fa (its round-2 change of 23:45 is recorded in addendum 2)."
+  },
+  {
+   "what": "Of the 6 engine calls that failed transiently (bridge v2 kernel error 2, CUDA allocation under contention), 4 were retried and sealed (FP6 E2M3 sat.w12 0-128, FP7 B1 wide 0-128, INT6 sat.w17 128-1000, INT8 signed sat.w19 128-1000). 2 location calls were not relaunched: FP6 E2M3 sat.w9 (0-128) and FP7 B1 sat.w28 (0-128). Revision 1 of the document said every failed call was retried.",
+   "effect": "None on any bracket. FP6 E2M3 sat.w9 is a ladder rung below sat.w12; when the retried sat.w12 gave 0.0 % Top-1 (events on 128/128), the ladder stopped and sat.w9 was no longer needed. FP7 B1 sat.w28 lies between sat.w27 and sat.w29, both without a saturation event on the 128 images; a register wider than one without an event cannot have one, so sat.w28 equals the exact arm on those images, and once sat.w27 was measured the rule no longer asked for sat.w28."
+  }
+ ],
+ "missing_facts": [
+  {
+   "what": "Lane L1's export command, run by this lane in its gates (task step 2), rewrote three L1 configuration files under artifacts/experiment_b2/configurations/ in place: b7c945daf929df2d0775bee136116d346bbe676ccad82116688f3905ef96cda8.json (posit8_es1 default, 2026-10-01 21:16:05), e0b942d097087b37605e75e0928fbbcedaf43559f5345e44264490f8d40d9bf3.json (int8 default_signed, 21:31:57) and 4068da0b9ca5b3d835c6d807f219705c073f160eaed49cdcc8b8e77941b3350b.json (fp8_e5m2 default, 23:28:35; L1's matrix keeps its own copy under matrix/configurations/).",
+   "effect": "Content identical: for each file the digest of its payload equals its file name and its seal (addendum3_check.json, configurations). The files are content-addressed, so nothing that refers to them changed. Recorded in the lane handoff, but not in the document or the earlier addenda."
+  }
+ ],
+ "document_corrections": "docs/analysis/accumulator-sweep-2026-10-01.md revision 2 corrects the sentences review 1 found wrong (list in the document's revision note); revision 1 is kept at artifacts/accumulator_sweep_v1/doc-revisions/accumulator-sweep-2026-10-01.r1.md. No number in results/summaries/accumulator-sweep-v1/ changes."
+}

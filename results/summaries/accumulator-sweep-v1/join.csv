@@ -1,0 +1,9 @@
+case,multiplier_bits,accumulator_bits,top1_expected,top1_lowest_index,source,core_area_8ns,W_cert_abs
+resnet18-int8-default-b2,8,16,0.18333333333333332,0.2,measured,1558.48,27
+resnet18-int8-default-b2,8,20,69.15,68.7,measured,1902.6,27
+resnet18-int8-default-b2,8,24,69.05,68.7,"derived: above W_noevent, equals exact arm",2230.48,27
+resnet18-int6-default-b2,6,16,66.35666666666667,65.5,measured,1290.24,23
+resnet18-int6-default-b2,6,20,65.90833333333333,65.0,"derived: above W_noevent, equals exact arm",1615.88,23
+resnet18-int8-default_signed-b2,8,16,2.3666666666666667,2.4,measured,1558.48,26
+resnet18-int8-default_signed-b2,8,20,68.94166666666666,68.60000000000001,measured,1902.6,26
+resnet18-int8-default_signed-b2,8,24,69.05833333333332,68.60000000000001,"derived: above W_noevent, equals exact arm",2230.48,26

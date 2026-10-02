@@ -1,0 +1,54 @@
+{
+  "id": "accumulator-sweep-protocol-v1-addendum-1",
+  "protocol": {
+    "path": "public/experiments/configs/breadth-study/accumulator-sweep-protocol-v1.json",
+    "sha256": "fb9c56248ea6473c104b9a71998512c7c807796e76f7838a8728fac92f2fd765"
+  },
+  "written": "2026-10-01 23:35:07 +0500",
+  "written_before": "any sweep run of resnet18-fp8_e5m2-default-b2 (pre-registered in the protocol, excluded_cases)",
+  "cases_added": [
+    {
+      "case": "resnet18-fp8_e5m2-default-b2",
+      "recipe": "b2",
+      "integer": false,
+      "enters_sweep": true,
+      "float_sensitivity": false,
+      "W_cert_abs": 75,
+      "W_cert_struct": 74,
+      "W_node_min_abs": 70,
+      "ub": 42,
+      "fp16_policy": "fp16.x-27",
+      "f21_policy": "f21",
+      "location_ladder": [
+        61,
+        58,
+        55,
+        52,
+        49,
+        46,
+        43,
+        40,
+        37,
+        34,
+        31,
+        28
+      ],
+      "struct_d_primary": [
+        12,
+        16
+      ],
+      "struct_d_secondary": [
+        20,
+        24
+      ]
+    }
+  ],
+  "gate_evidence_fp8_e5m2": "MB2 gate PASS (gate.json); B2 retained 0 of 32 (L1 kept no per-image predictions for this configuration); the replay Top-5 equals the L1 matrix readout top5_topk on 32 of 32 images and the replay inputs are bit-identical to the engine inputs on 32 of 32. Policy gates PASS: sat.w60, sat.struct-12, fp16.x-27, f21 (sat.w60 and sat.struct-12 saturate on 32 of 32 images at 21 of 21 nodes).",
+  "rule_changes_forced_by_the_contract": [
+    "Contract 2.1 admits saturating registers of 2 to 63 bits. fp8_e5m2 has W_cert_abs 75 (product grid 2^-32). Location ladder: the rungs W_cert_abs-2-3k above 63 are skipped and not counted (first admissible rung 61; at most 12 admissible rungs); bracket top and the upward extension are capped at 63; refinement above the widest rung is capped at 63. W_noevent can be undefined (reported as \"> 63\") when 63 bits still saturate. These caps do not bind for any case of the frozen protocol (W_cert_abs <= 50).",
+    "Per-node family: sat.struct-<d> needs W_struct(node) - d <= 63 at every node; the smallest admissible d is 11 (W_struct max 74). d set for this case: priority 4 {12, 16}, priority 6 {20, 24}."
+  ],
+  "deviations": [
+    "Runner order: within one priority the runner sorts runs by case name (alphabetical), not by the listed case order. No effect on which runs are made."
+  ]
+}

@@ -1,0 +1,14 @@
+view,entries,passing,selected,stress,added_vs_proposal,dropped_vs_proposal,identical_to_proposal
+default,14,5,posit8_es1 fp8_e4m3fn log8 mxfp8_e4m3 fp7_e3m3,fp6_e2m3 bfp6 int6 log6 posit6_es1 nf4 ternary,,,True
+default_signed,14,5,posit8_es1 fp8_e4m3fn log8 mxfp8_e4m3 fp7_e3m3,fp6_e2m3 bfp6 int6 log6 posit6_es1 nf4 ternary,,,True
+default_no_bias_correction,13,4,posit8_es1 fp8_e4m3fn log8 fp7_e3m3,mxfp8_e4m3 fp6_e2m3 posit6_es1 int6 log6 nf4 ternary,stress:mxfp8_e4m3,selected:mxfp8_e4m3 stress:bfp6,False
+default_weight_maxabs,13,4,fp8_e4m3fn log8 mxfp8_e4m3 fp7_e3m3,posit8_es1 fp6_e2m3 bfp6 int6 log6 nf4 ternary,stress:posit8_es1,selected:posit8_es1 stress:posit6_es1,False
+cum3_act_mse,12,3,log8 fp8_e4m3fn fp7_e3m3,mxfp8_e4m3 posit8_es1 fp6_e2m3 int6 log6 nf4 ternary,stress:mxfp8_e4m3 stress:posit8_es1,selected:posit8_es1 selected:mxfp8_e4m3 stress:bfp6 stress:posit6_es1,False
+rank_signed_no_bias_correction,13,4,posit8_es1 fp8_e4m3fn log8 fp7_e3m3,mxfp8_e4m3 fp6_e2m3 posit6_es1 int6 log6 nf4 ternary,stress:mxfp8_e4m3,selected:mxfp8_e4m3 stress:bfp6,False
+rank_signed_weight_maxabs,13,4,fp8_e4m3fn log8 mxfp8_e4m3 fp7_e3m3,posit8_es1 fp6_e2m3 bfp6 int6 log6 nf4 ternary,stress:posit8_es1,selected:posit8_es1 stress:posit6_es1,False
+minimal,12,3,log8 fp8_e4m3fn fp7_e3m3,mxfp8_e4m3 posit8_es1 fp6_e2m3 int6 log6 nf4 ternary,stress:mxfp8_e4m3 stress:posit8_es1,selected:posit8_es1 selected:mxfp8_e4m3 stress:bfp6 stress:posit6_es1,False
+default_unsigned,14,5,posit8_es1 log8 fp8_e4m3fn mxfp8_e4m3 fp7_e3m3,fp6_e2m3 bfp6 log6 posit6_es1 int6 nf4 ternary,,,True
+default_searched,14,5,posit8_es1 fp8_e4m3fn log8 mxfp8_e4m3 fp7_e3m3,fp6_e2m3 bfp6 int6 log6 posit6_es1 nf4 ternary,,,True
+default_no_bias_correction_searched,12,4,posit8_es1 fp8_e4m3fn log8 fp7_e3m3,fp6_e2m3 posit6_es1 int6 log6 nf4 ternary,,selected:mxfp8_e4m3 stress:bfp6,False
+default_weight_maxabs_searched,11,3,fp8_e4m3fn log8 fp7_e3m3,posit8_es1 fp6_e2m3 int6 log6 nf4 ternary,stress:posit8_es1,selected:posit8_es1 selected:mxfp8_e4m3 stress:bfp6 stress:posit6_es1,False
+minimal_searched,12,3,log8 fp8_e4m3fn fp7_e3m3,mxfp8_e4m3 posit8_es1 fp6_e2m3 int6 log6 nf4 ternary,stress:mxfp8_e4m3 stress:posit8_es1,selected:posit8_es1 selected:mxfp8_e4m3 stress:bfp6 stress:posit6_es1,False

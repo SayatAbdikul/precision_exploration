@@ -1,0 +1,59 @@
+{
+ "addendum": {
+  "path": "public/experiments/configs/breadth-study/b2-rank-protocol-v1-addendum-2.json",
+  "sha256": "d3170e01cb0176c4d3abfcbe9df71080a743aa490c05ed594d102907e71aa592"
+ },
+ "evidence": "development evidence, ImageNet 1k screen",
+ "reversal_switches": {
+  "rows": 28,
+  "rows_with_no_bias_correction": 22,
+  "rows_by_switches": {
+   "B": 7,
+   "B+S": 8,
+   "S": 2,
+   "U+W": 1,
+   "W": 1,
+   "W+B": 7,
+   "W+S": 2
+  },
+  "pairs": 15,
+  "pairs_with_no_bias_correction_row": 14,
+  "pairs_reversing_under_single_switch": {
+   "B": [
+    "mobilenet_v3_large/6/fp6_e2m3/posit6_es1",
+    "mobilenet_v3_large/6/fp6_e3m2/bfp6",
+    "mobilenet_v3_large/6/fp6_e3m2/fp6_e2m3",
+    "mobilenet_v3_large/6/fp6_e3m2/log6",
+    "mobilenet_v3_large/6/mxfp6_e3m2/log6",
+    "mobilenet_v3_large/6/posit6_es1/log6",
+    "resnet18/6/mxfp6_e3m2/log6"
+   ],
+   "S": [
+    "mobilenet_v3_large/6/mxfp6_e3m2/log6",
+    "mobilenet_v3_large/6/posit6_es1/log6"
+   ],
+   "W": [
+    "resnet18/le5/int5/fp5_e2m2"
+   ]
+  },
+  "pairs_only_under_combined_switches": [
+   "mobilenet_v2/6/fp6_e3m2/posit6_es1:B+S",
+   "mobilenet_v2/6/posit6_es1/log6:B+S",
+   "mobilenet_v3_large/6/fp6_e3m2/mxfp6_e3m2:B+S",
+   "mobilenet_v3_large/6/fp6_e3m2/posit6_es1:B+S",
+   "mobilenet_v3_large/6/mxfp6_e3m2/posit6_es1:B+S",
+   "resnet18/6/fp6_e3m2/log6:W+B",
+   "resnet18/le5/int4/nf4:W+B"
+  ]
+ },
+ "sources": {
+  "tools/experiment_b2_rank/addendum2.py": "07ca251ecfb83b0675f7402cce3e69695926295ea04d8a52469c950ae1f505aa",
+  "tools/experiment_b2_rank/analysis.py": "90681134e0df3d0a28699d3787f9460a166680ea03e2dfc44662aa810ee46b1d"
+ },
+ "tie_tolerant_tau": {
+  "rows": 2642,
+  "decimals": 10,
+  "rows_changed_by_more_than_0_005": 103,
+  "max_abs_change": 0.24080000000000001
+ }
+}

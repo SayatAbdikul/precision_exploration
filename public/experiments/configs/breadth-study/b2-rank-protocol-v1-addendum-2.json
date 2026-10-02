@@ -1,0 +1,49 @@
+{
+ "version": "b2-rank-protocol-v1-addendum-2",
+ "written": "2026-10-02T14:42:26Z",
+ "written_before": "any tie-tolerant rank statistic or reversal-switch classification was computed; no new cell is run by this addendum",
+ "parent": {
+  "path": "public/experiments/configs/breadth-study/b2-rank-protocol-v1.json",
+  "sha256": "af1405d7a11c25393b53ff60cf6b91246c2f327a3d8094a7394a2d2214e989a2"
+ },
+ "previous_addendum": {
+  "path": "public/experiments/configs/breadth-study/b2-rank-protocol-v1-addendum-1.json",
+  "sha256": "e1f1eeb4cb441509c3ef218d6e834cad52654a5ba8c17d04f50bbca2b9145965"
+ },
+ "evidence_class": "development evidence, ImageNet 1k screen (unchanged)",
+ "lane": "Q2 (format-ranking robustness), agent r3, responding to review 1 (artifacts/agent_orchestration/handoffs/Q2-rank-robustness-review.md)",
+ "changes": [
+  {
+   "what": "provenance record (review finding E): tools/experiment_b2_rank/cells.py versions seen in cell records",
+   "facts": {
+    "293b80f4": "version before addendum-1 (83 factorial cells; before the block-unsigned fix, no unsigned cell existed)",
+    "7ac9e5b4": "version recorded in addendum-1 (23 factorial cells, 8 searched cells)",
+    "a4221295": "current version, edited 2026-10-02 16:55 local: run_jobs/CLI accept a per-item part (fmt:recipe:variant:part) so one GPU process can run cells of several parts; no numerical change (92 factorial cells, all 51 unsigned cells)",
+    "tools/run/experiment_b2_rank_queue.py": "bb164195 at addendum-1, now 556b5f92 (job packing, memory declarations; a runner, not part of any cell)"
+   },
+   "why_no_effect": "own_sources is recorded in cell records but is not part of the configuration identity (tools/experiment_b2/matrix.run_cell); the reviewer re-checked that every cell's recipe dict matches its corner and reproduced one cell bit for bit; 39/39 runner records with the same identity give the same top-1"
+  },
+  {
+   "what": "tie-tolerant rank statistics (review finding B), added beside the v1 rank-correlation.csv which stays as written",
+   "rule": "before Kendall tau-b and Spearman, every mean expected credit (point estimate and each bootstrap resample mean, as a fraction) is rounded to 10 decimals, so formats whose means are equal up to floating-point summation order (e.g. six MNV2 formats at exactly chance 0.001) are exact ties and are handled by tau-b's and Spearman's tie corrections; all else as in the protocol (same views, subsets all / above_chance, seed 20260927, 10,000 paired resamples)",
+   "output": "results/summaries/b2-rank-v1/rank-correlation-tol-v2.csv (written once), with the v1 value beside each row",
+   "reporting": "headline ranges in the document are quoted from the above-chance subset (both tables are given)"
+  },
+  {
+   "what": "reversal-switch classification (review finding A), derived from the sealed reversals.csv without recomputation",
+   "rule": "for every strong-vs-strong, interval, non-chance reversal row, list the recipe switches that differ between its two views: B (bias correction), W (weight range), U (signed vs unsigned integer codes), S (unsigned sibling for non-integers / sibling view); a pair 'reverses under BC alone' when some row compares default with default_no_bias_correction",
+   "output": "results/summaries/b2-rank-v1/reversal-switches-v2.csv and addendum2-summary.json (written once)"
+  },
+  {
+   "what": "notes (review F, G)",
+   "F": "the proposal comparison 'identical' compares the set of (role, format); the order inside the selected list may differ (default_unsigned: log8 before fp8_e4m3fn)",
+   "G": "codebook.level_codes(name, 'unsigned') returns arange for the sibling tables, so the 'codes' field in occupancy/codebook metadata of unsigned scalar cells is not the sibling's bit pattern; quantized values and all readouts are unaffected"
+  }
+ ],
+ "sources_at_writing": {
+  "tools/experiment_b2_rank/cells.py": "a4221295797b390e282097527420f388339e9305d1025b7e1b094d6ad63e17d4",
+  "tools/experiment_b2_rank/analysis.py": "90681134e0df3d0a28699d3787f9460a166680ea03e2dfc44662aa810ee46b1d",
+  "tools/experiment_b2_rank/plan.py": "18f8315f37940e161cb35548b80668011ebb170220b12b9b61a03ecc7cbb5815",
+  "tools/run/experiment_b2_rank_queue.py": "556b5f9278ff26e13f3539c61350a8d87a7ff6bd628540cef3af54ba4a2f533c"
+ }
+}

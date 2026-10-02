@@ -1,0 +1,46 @@
+{
+ "version": "b2-rank-protocol-v1-addendum-1",
+ "written": "2026-10-02T10:43:56Z",
+ "lane": "Q2 (format-ranking robustness), agent r2",
+ "parent": {
+  "path": "public/experiments/configs/breadth-study/b2-rank-protocol-v1.json",
+  "sha256": "af1405d7a11c25393b53ff60cf6b91246c2f327a3d8094a7394a2d2214e989a2"
+ },
+ "evidence_class": "development evidence, ImageNet 1k screen (unchanged)",
+ "written_before": "any unsigned-variant cell existed (0 unsigned cells on disk); 83 factorial cells existed; no analysis output in results/",
+ "changes": [
+  {
+   "what": "bug fix, tools/experiment_b2_rank/cells.py unsigned_variant()",
+   "why": "under the unsigned variant of a BLOCK format, codebook.supports_unsigned returned True for that format, so B2's boundary analysis marked non-negative rows 'unsigned' and blocks.block_plan refused the plan (ValueError 'unsigned boundary in a shared-exponent plan', queue r1, resnet18 unsigned block group). Fixed: supports_unsigned is patched for scalar formats only; block formats get their unsigned activation blocks from blocks_unsigned.prepare_blocks via plan['nonnegative'] exactly as the protocol states. Regression test test_unsigned_variant_keeps_block_plan_signed.",
+   "effect_on_cells": "none computed before the fix (the failing job wrote no cell); the unsigned-variant identity carries the hashes of cells.py/unsigned.py/blocks_unsigned.py, so every unsigned cell is identified with the fixed source"
+  },
+  {
+   "what": "GPU memory declarations (tools/run/experiment_b2_rank_queue.py, not hashed)",
+   "why": "measured peak 4.8-4.9 GB allocated for bias-correction scalar cells on MobileNetV2 (non-BC 0.5 GB); a ResNet18 BC scalar cell and a ResNet18 BC block cell died of CUDA OOM at the light admission",
+   "rule": "scalar cells with bias correction: gpu_run.sh --heavy 6000, grouped per model and part up to 36 cells; scalar without: --min-free-mib 4500; blocks as before; a failed group is retried once with --heavy 8000. No effect on any result (deterministic cells, identities unchanged)."
+  },
+  {
+   "what": "existing earlier B2 runner records",
+   "finding": "artifacts/experiment_b2/runs/* hold default_no_bias_correction, default_weight_maxabs and default_signed records whose configuration identities equal those of cells in this plan, but they carry no per-image readout (top-1/top-5 only), so they cannot enter paired statistics. They are used as a reproduction cross-check: run metrics.top1_percent must equal the cell's readout top1_topk_percent (runs-crosscheck.csv)."
+  },
+  {
+   "what": "analysis clarifications (tools/experiment_b2_rank/analysis.py)",
+   "items": [
+    "chance flag: the protocol clause 'both formats below 1 percent under either recipe' cannot hold for a reversal beyond 1 pp; it is read as: a reversal is flagged chance_pair when EITHER format is below 1 percent under EITHER of the two recipes (stricter; such reversals never count as robust). Counts without the flag are reported too.",
+    "the literal-recipe ('searched') views of the block formats form their own tier 'searched' (protocol: sensitivity analysis) and category involves_searched_sensitivity; they are not strong recipes",
+    "a recipe view whose X and Y cells are the same records as an earlier view (e.g. default_signed for two non-integer formats) is not compared again (no double counting)",
+    "pair-level verdict per (model, class, X, Y): survives_among_strong / minimal_side / maxabs_percentile_only / searched_only / interval_only_with_chance_format / point_only (pair-reversals.csv)",
+    "the 7-bit class has one format (fp7_e3m3) and therefore no pair; Kendall/Spearman are computed for classes 8, 6, <=5 and all",
+    "percentile-bootstrap intervals of rank correlations can exclude the point estimate when formats tie at chance (resampling breaks exact ties); the above-chance subset is the interpretable one and is reported beside it"
+   ]
+  }
+ ],
+ "sources_at_writing": {
+  "tools/experiment_b2_rank/cells.py": "7ac9e5b448c4cbab10b2ff4296f55f4760ab2502d79999018950e7fa6048fcab",
+  "tools/experiment_b2_rank/plan.py": "18f8315f37940e161cb35548b80668011ebb170220b12b9b61a03ecc7cbb5815",
+  "tools/experiment_b2_rank/unsigned.py": "aa6f6b45772efd1f7a8eb09aa9bd7171d84dc796b757f94602ae6f2d9d243fdc",
+  "tools/experiment_b2_rank/blocks_unsigned.py": "35a84b679f19a59728869af58fd42562ca213da099ed1eeecd1dfe33c467036b",
+  "tools/experiment_b2_rank/analysis.py": "90681134e0df3d0a28699d3787f9460a166680ea03e2dfc44662aa810ee46b1d",
+  "tools/run/experiment_b2_rank_queue.py": "bb1641953c92fc52d14bb2580ab4fb3ab1f2dda74e81864b7500e3e6549978c9"
+ }
+}

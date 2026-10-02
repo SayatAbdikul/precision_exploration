@@ -1,0 +1,158 @@
+{
+ "protocol": {
+  "path": "public/experiments/configs/breadth-study/b2-rank-protocol-v1.json",
+  "sha256": "af1405d7a11c25393b53ff60cf6b91246c2f327a3d8094a7394a2d2214e989a2"
+ },
+ "evidence": "development evidence, ImageNet 1k screen",
+ "partial": false,
+ "own_cells": 257,
+ "adaround_arms": 30,
+ "q1_6_alias_int8_default_signed": {
+  "resnet18": true,
+  "mobilenet_v2": true,
+  "mobilenet_v3_large": true
+ },
+ "reversal_counts": {
+  "strong_vs_strong": {
+   "point": 115,
+   "interval": 74,
+   "interval_non_chance": 28
+  },
+  "strong_vs_other": {
+   "point": 145,
+   "interval": 87,
+   "interval_non_chance": 31
+  },
+  "other_vs_other": {
+   "point": 23,
+   "interval": 13,
+   "interval_non_chance": 2
+  },
+  "involves_weak": {
+   "point": 241,
+   "interval": 176,
+   "interval_non_chance": 80
+  },
+  "involves_searched_sensitivity": {
+   "point": 97,
+   "interval": 67,
+   "interval_non_chance": 25
+  }
+ },
+ "pair_verdicts": {
+  "interval_only_with_chance_format": 22,
+  "maxabs_percentile_only": 13,
+  "minimal_side": 5,
+  "point_only": 14,
+  "survives_among_strong": 15
+ },
+ "comparisons": {
+  "format_pairs": 261,
+  "recipe_pair_tests": 7996
+ },
+ "runs_crosscheck": {
+  "cells": 39,
+  "equal": 39
+ },
+ "robust_strong_reversals": [
+  [
+   "mobilenet_v2",
+   "6",
+   "fp6_e3m2",
+   "posit6_es1"
+  ],
+  [
+   "mobilenet_v2",
+   "6",
+   "posit6_es1",
+   "log6"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "fp6_e2m3",
+   "posit6_es1"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "fp6_e3m2",
+   "bfp6"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "fp6_e3m2",
+   "fp6_e2m3"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "fp6_e3m2",
+   "log6"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "fp6_e3m2",
+   "mxfp6_e3m2"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "fp6_e3m2",
+   "posit6_es1"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "mxfp6_e3m2",
+   "log6"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "mxfp6_e3m2",
+   "posit6_es1"
+  ],
+  [
+   "mobilenet_v3_large",
+   "6",
+   "posit6_es1",
+   "log6"
+  ],
+  [
+   "resnet18",
+   "6",
+   "fp6_e3m2",
+   "log6"
+  ],
+  [
+   "resnet18",
+   "6",
+   "mxfp6_e3m2",
+   "log6"
+  ],
+  [
+   "resnet18",
+   "le5",
+   "int4",
+   "nf4"
+  ],
+  [
+   "resnet18",
+   "le5",
+   "int5",
+   "fp5_e2m2"
+  ]
+ ],
+ "proposal_identical_under": [
+  "default",
+  "default_signed",
+  "default_unsigned",
+  "default_searched"
+ ],
+ "sources": {
+  "tools/experiment_b2_rank/analysis.py": "90681134e0df3d0a28699d3787f9460a166680ea03e2dfc44662aa810ee46b1d"
+ }
+}

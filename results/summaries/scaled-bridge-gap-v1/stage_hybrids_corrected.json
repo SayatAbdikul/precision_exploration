@@ -1,0 +1,1715 @@
+{
+  "payload": {
+    "cases": [
+      {
+        "format": "fp6_e2m3",
+        "hybrids": {
+          "Xstage2:head": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 65.5,
+              "top1_measured": 66.9
+            },
+            "fc_codes_differ_from_B_images": 0,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.4426260049464714,
+                "wrong_to_correct": 34,
+                "wrong_to_other_wrong": 52
+              },
+              "mcnemar_p": 0.4426260049464714,
+              "top1_95": [
+                -0.8,
+                2.2
+              ],
+              "top1_pp": 0.7000000000000001,
+              "top5_pp": -0.4
+            },
+            "propagated_flips_fc": [
+              0,
+              0
+            ],
+            "propagated_flips_nodes": [],
+            "propagated_flips_total": [
+              0,
+              0
+            ],
+            "top1_common_rule": 65.5,
+            "top1_measured": 66.9
+          },
+          "Xstage2:layer1": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 65.6,
+              "top1_measured": 66.0
+            },
+            "fc_codes_differ_from_B_images": 192,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 19,
+                "correct_to_wrong": 6,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 6
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.6,
+                0.8
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 25,
+                "correct_to_wrong": 7,
+                "sign_test_two_sided_p": 0.7744140625,
+                "wrong_to_correct": 5,
+                "wrong_to_other_wrong": 13
+              },
+              "mcnemar_p": 0.7744140625,
+              "top1_95": [
+                -0.9,
+                0.5
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              30333,
+              30320
+            ],
+            "propagated_flips_nodes": [
+              "add",
+              "add_1",
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer1_0_bn2",
+              "layer1_0_conv2",
+              "layer1_0_relu_1",
+              "layer1_1_bn1",
+              "layer1_1_bn2",
+              "layer1_1_conv1",
+              "layer1_1_conv2",
+              "layer1_1_relu",
+              "layer1_1_relu_1",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              8132541,
+              8094469
+            ],
+            "top1_common_rule": 65.6,
+            "top1_measured": 66.0
+          },
+          "Xstage2:layer2": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 65.5,
+              "top1_measured": 66.3
+            },
+            "fc_codes_differ_from_B_images": 78,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 7,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 2,
+                "wrong_to_other_wrong": 3
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.4,
+                0.4
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": -0.2
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 5,
+                "correct_to_wrong": 1,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 2,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.2,
+                0.5
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": -0.2
+            },
+            "propagated_flips_fc": [
+              11363,
+              11270
+            ],
+            "propagated_flips_nodes": [
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              2142184,
+              2143449
+            ],
+            "top1_common_rule": 65.5,
+            "top1_measured": 66.3
+          },
+          "Xstage2:layer3": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 65.6,
+              "top1_measured": 66.3
+            },
+            "fc_codes_differ_from_B_images": 30,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 1,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 1,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              2954,
+              2868
+            ],
+            "propagated_flips_nodes": [
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              226813,
+              236843
+            ],
+            "top1_common_rule": 65.6,
+            "top1_measured": 66.3
+          },
+          "Xstage2:layer4": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 65.5,
+              "top1_measured": 66.2
+            },
+            "fc_codes_differ_from_B_images": 14,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              361,
+              404
+            ],
+            "propagated_flips_nodes": [
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              6397,
+              6890
+            ],
+            "top1_common_rule": 65.5,
+            "top1_measured": 66.2
+          },
+          "Xstage2:stem": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 65.5,
+              "top1_measured": 66.2
+            },
+            "fc_codes_differ_from_B_images": 5,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 2,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 2,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              849,
+              874
+            ],
+            "propagated_flips_nodes": [
+              "add",
+              "add_1",
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "bn1",
+              "conv1",
+              "fc",
+              "flatten",
+              "layer1_0_bn1",
+              "layer1_0_bn2",
+              "layer1_0_conv1",
+              "layer1_0_conv2",
+              "layer1_0_relu",
+              "layer1_0_relu_1",
+              "layer1_1_bn1",
+              "layer1_1_bn2",
+              "layer1_1_conv1",
+              "layer1_1_conv2",
+              "layer1_1_relu",
+              "layer1_1_relu_1",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1",
+              "maxpool",
+              "relu"
+            ],
+            "propagated_flips_total": [
+              273717,
+              267147
+            ],
+            "top1_common_rule": 65.5,
+            "top1_measured": 66.2
+          }
+        },
+        "images": 1000,
+        "seconds": 197.57808770460542
+      },
+      {
+        "format": "fp6_e3m2",
+        "hybrids": {
+          "Xstage2:head": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 62.9,
+              "top1_measured": 64.1
+            },
+            "fc_codes_differ_from_B_images": 0,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 177,
+                "correct_to_wrong": 45,
+                "sign_test_two_sided_p": 0.21268281985080573,
+                "wrong_to_correct": 33,
+                "wrong_to_other_wrong": 99
+              },
+              "mcnemar_p": 0.21268281985080573,
+              "top1_95": [
+                -2.9,
+                0.5
+              ],
+              "top1_pp": -1.2,
+              "top5_pp": 0.3
+            },
+            "propagated_flips_fc": [
+              0,
+              0
+            ],
+            "propagated_flips_nodes": [],
+            "propagated_flips_total": [
+              0,
+              0
+            ],
+            "top1_common_rule": 62.9,
+            "top1_measured": 64.1
+          },
+          "Xstage2:layer1": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 62.6,
+              "top1_measured": 65.1
+            },
+            "fc_codes_differ_from_B_images": 462,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 33,
+                "correct_to_wrong": 11,
+                "sign_test_two_sided_p": 0.6476058959960938,
+                "wrong_to_correct": 8,
+                "wrong_to_other_wrong": 14
+              },
+              "mcnemar_p": 0.6476058959960938,
+              "top1_95": [
+                -1.2,
+                0.6
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 45,
+                "correct_to_wrong": 12,
+                "sign_test_two_sided_p": 0.8318119049072266,
+                "wrong_to_correct": 10,
+                "wrong_to_other_wrong": 23
+              },
+              "mcnemar_p": 0.8318119049072266,
+              "top1_95": [
+                -1.1,
+                0.7
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              101527,
+              102136
+            ],
+            "propagated_flips_nodes": [
+              "add",
+              "add_1",
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer1_0_bn1",
+              "layer1_0_bn2",
+              "layer1_0_conv1",
+              "layer1_0_conv2",
+              "layer1_0_relu",
+              "layer1_0_relu_1",
+              "layer1_1_bn1",
+              "layer1_1_bn2",
+              "layer1_1_conv1",
+              "layer1_1_conv2",
+              "layer1_1_relu",
+              "layer1_1_relu_1",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              31065214,
+              31021004
+            ],
+            "top1_common_rule": 62.6,
+            "top1_measured": 65.1
+          },
+          "Xstage2:layer2": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 62.7,
+              "top1_measured": 65.2
+            },
+            "fc_codes_differ_from_B_images": 302,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 20,
+                "correct_to_wrong": 6,
+                "sign_test_two_sided_p": 0.75390625,
+                "wrong_to_correct": 4,
+                "wrong_to_other_wrong": 10
+              },
+              "mcnemar_p": 0.75390625,
+              "top1_95": [
+                -0.8,
+                0.4
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": -0.1
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 31,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 16
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.8,
+                0.7
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": -0.1
+            },
+            "propagated_flips_fc": [
+              59959,
+              59598
+            ],
+            "propagated_flips_nodes": [
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              10816197,
+              10804971
+            ],
+            "top1_common_rule": 62.7,
+            "top1_measured": 65.2
+          },
+          "Xstage2:layer3": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 62.9,
+              "top1_measured": 65.5
+            },
+            "fc_codes_differ_from_B_images": 154,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 8,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 2,
+                "wrong_to_other_wrong": 4
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.4,
+                0.4
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.1
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 13,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 0.6875,
+                "wrong_to_correct": 4,
+                "wrong_to_other_wrong": 7
+              },
+              "mcnemar_p": 0.6875,
+              "top1_95": [
+                -0.3,
+                0.7
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": 0.1
+            },
+            "propagated_flips_fc": [
+              22649,
+              22537
+            ],
+            "propagated_flips_nodes": [
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              1940078,
+              1949338
+            ],
+            "top1_common_rule": 62.9,
+            "top1_measured": 65.5
+          },
+          "Xstage2:layer4": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 62.9,
+              "top1_measured": 65.4
+            },
+            "fc_codes_differ_from_B_images": 43,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 1,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 1
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 1,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              2509,
+              2365
+            ],
+            "propagated_flips_nodes": [
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              64108,
+              68210
+            ],
+            "top1_common_rule": 62.9,
+            "top1_measured": 65.4
+          },
+          "Xstage2:stem": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 63.0,
+              "top1_measured": 65.2
+            },
+            "fc_codes_differ_from_B_images": 53,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 6,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 5
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": -0.1
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 11,
+                "correct_to_wrong": 1,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 10
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.3,
+                0.0
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": -0.1
+            },
+            "propagated_flips_fc": [
+              11844,
+              11774
+            ],
+            "propagated_flips_nodes": [
+              "add",
+              "add_1",
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "bn1",
+              "conv1",
+              "fc",
+              "flatten",
+              "layer1_0_bn1",
+              "layer1_0_bn2",
+              "layer1_0_conv1",
+              "layer1_0_conv2",
+              "layer1_0_relu",
+              "layer1_0_relu_1",
+              "layer1_1_bn1",
+              "layer1_1_bn2",
+              "layer1_1_conv1",
+              "layer1_1_conv2",
+              "layer1_1_relu",
+              "layer1_1_relu_1",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1",
+              "maxpool",
+              "relu"
+            ],
+            "propagated_flips_total": [
+              4402214,
+              4369270
+            ],
+            "top1_common_rule": 63.0,
+            "top1_measured": 65.2
+          }
+        },
+        "images": 1000,
+        "seconds": 295.13582773006056
+      },
+      {
+        "format": "fp7_e3m3",
+        "hybrids": {
+          "Xstage2:head": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 68.3,
+              "top1_measured": 68.3
+            },
+            "fc_codes_differ_from_B_images": 3,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 102,
+                "correct_to_wrong": 39,
+                "sign_test_two_sided_p": 0.10342187831608088,
+                "wrong_to_correct": 25,
+                "wrong_to_other_wrong": 38
+              },
+              "mcnemar_p": 0.10342187831608088,
+              "top1_95": [
+                -3.0,
+                0.2
+              ],
+              "top1_pp": -1.4000000000000001,
+              "top5_pp": -0.3
+            },
+            "propagated_flips_fc": [
+              1,
+              2
+            ],
+            "propagated_flips_nodes": [
+              "fc"
+            ],
+            "propagated_flips_total": [
+              1,
+              2
+            ],
+            "top1_common_rule": 68.3,
+            "top1_measured": 68.3
+          },
+          "Xstage2:layer1": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 68.5,
+              "top1_measured": 69.9
+            },
+            "fc_codes_differ_from_B_images": 732,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 31,
+                "correct_to_wrong": 5,
+                "sign_test_two_sided_p": 0.7744140625,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 19
+              },
+              "mcnemar_p": 0.7744140625,
+              "top1_95": [
+                -0.5,
+                0.9
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": 0.3
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 41,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 0.8145294189453125,
+                "wrong_to_correct": 10,
+                "wrong_to_other_wrong": 23
+              },
+              "mcnemar_p": 0.8145294189453125,
+              "top1_95": [
+                -0.6,
+                1.0
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": 0.3
+            },
+            "propagated_flips_fc": [
+              168204,
+              167828
+            ],
+            "propagated_flips_nodes": [
+              "add",
+              "add_1",
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer1_0_bn1",
+              "layer1_0_bn2",
+              "layer1_0_conv1",
+              "layer1_0_conv2",
+              "layer1_0_relu",
+              "layer1_0_relu_1",
+              "layer1_1_bn1",
+              "layer1_1_bn2",
+              "layer1_1_conv1",
+              "layer1_1_conv2",
+              "layer1_1_relu",
+              "layer1_1_relu_1",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              57599484,
+              57588394
+            ],
+            "top1_common_rule": 68.5,
+            "top1_measured": 69.9
+          },
+          "Xstage2:layer2": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 68.5,
+              "top1_measured": 70.2
+            },
+            "fc_codes_differ_from_B_images": 495,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 22,
+                "correct_to_wrong": 3,
+                "sign_test_two_sided_p": 0.7265625,
+                "wrong_to_correct": 5,
+                "wrong_to_other_wrong": 14
+              },
+              "mcnemar_p": 0.7265625,
+              "top1_95": [
+                -0.3,
+                0.8
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 19,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 0.1796875,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 10
+              },
+              "mcnemar_p": 0.1796875,
+              "top1_95": [
+                0.0,
+                1.1
+              ],
+              "top1_pp": 0.5,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              99276,
+              100203
+            ],
+            "propagated_flips_nodes": [
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              19137706,
+              19072472
+            ],
+            "top1_common_rule": 68.5,
+            "top1_measured": 70.2
+          },
+          "Xstage2:layer3": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 68.5,
+              "top1_measured": 69.6
+            },
+            "fc_codes_differ_from_B_images": 314,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 5,
+                "correct_to_wrong": 1,
+                "sign_test_two_sided_p": 0.625,
+                "wrong_to_correct": 3,
+                "wrong_to_other_wrong": 1
+              },
+              "mcnemar_p": 0.625,
+              "top1_95": [
+                -0.2,
+                0.6
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 5,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.5,
+                0.2
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              46395,
+              46896
+            ],
+            "propagated_flips_nodes": [
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              4373906,
+              4338116
+            ],
+            "top1_common_rule": 68.5,
+            "top1_measured": 69.6
+          },
+          "Xstage2:layer4": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 68.3,
+              "top1_measured": 69.7
+            },
+            "fc_codes_differ_from_B_images": 105,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 1,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 1
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              6096,
+              6175
+            ],
+            "propagated_flips_nodes": [
+              "add_6",
+              "add_7",
+              "avgpool",
+              "fc",
+              "flatten",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1"
+            ],
+            "propagated_flips_total": [
+              149163,
+              148837
+            ],
+            "top1_common_rule": 68.3,
+            "top1_measured": 69.7
+          },
+          "Xstage2:stem": {
+            "as_run_diag1": {
+              "images_fc_hash_differs_from_corrected": 0,
+              "images_top1_differs_from_corrected": 0,
+              "top1_common_rule": 68.2,
+              "top1_measured": 69.8
+            },
+            "fc_codes_differ_from_B_images": 132,
+            "minus_B_common_rule": {
+              "changes": {
+                "changed_top1": 5,
+                "correct_to_wrong": 1,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 4
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.3,
+                0.0
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": 0.1
+            },
+            "minus_B_measured": {
+              "changes": {
+                "changed_top1": 7,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 6
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.1
+            },
+            "propagated_flips_fc": [
+              30035,
+              29932
+            ],
+            "propagated_flips_nodes": [
+              "add",
+              "add_1",
+              "add_2",
+              "add_3",
+              "add_4",
+              "add_5",
+              "add_6",
+              "add_7",
+              "avgpool",
+              "bn1",
+              "conv1",
+              "fc",
+              "flatten",
+              "layer1_0_bn1",
+              "layer1_0_bn2",
+              "layer1_0_conv1",
+              "layer1_0_conv2",
+              "layer1_0_relu",
+              "layer1_0_relu_1",
+              "layer1_1_bn1",
+              "layer1_1_bn2",
+              "layer1_1_conv1",
+              "layer1_1_conv2",
+              "layer1_1_relu",
+              "layer1_1_relu_1",
+              "layer2_0_bn1",
+              "layer2_0_bn2",
+              "layer2_0_conv1",
+              "layer2_0_conv2",
+              "layer2_0_downsample_0",
+              "layer2_0_downsample_1",
+              "layer2_0_relu",
+              "layer2_0_relu_1",
+              "layer2_1_bn1",
+              "layer2_1_bn2",
+              "layer2_1_conv1",
+              "layer2_1_conv2",
+              "layer2_1_relu",
+              "layer2_1_relu_1",
+              "layer3_0_bn1",
+              "layer3_0_bn2",
+              "layer3_0_conv1",
+              "layer3_0_conv2",
+              "layer3_0_downsample_0",
+              "layer3_0_downsample_1",
+              "layer3_0_relu",
+              "layer3_0_relu_1",
+              "layer3_1_bn1",
+              "layer3_1_bn2",
+              "layer3_1_conv1",
+              "layer3_1_conv2",
+              "layer3_1_relu",
+              "layer3_1_relu_1",
+              "layer4_0_bn1",
+              "layer4_0_bn2",
+              "layer4_0_conv1",
+              "layer4_0_conv2",
+              "layer4_0_downsample_0",
+              "layer4_0_downsample_1",
+              "layer4_0_relu",
+              "layer4_0_relu_1",
+              "layer4_1_bn1",
+              "layer4_1_bn2",
+              "layer4_1_conv1",
+              "layer4_1_conv2",
+              "layer4_1_relu",
+              "layer4_1_relu_1",
+              "maxpool",
+              "relu"
+            ],
+            "propagated_flips_total": [
+              11217690,
+              11230001
+            ],
+            "top1_common_rule": 68.2,
+            "top1_measured": 69.8
+          }
+        },
+        "images": 1000,
+        "seconds": 285.63858710974455
+      }
+    ],
+    "certification": "diagnostic harness; all-B endpoint and corrected head hybrid checked per batch",
+    "evidence_level": "development diagnostic; harness not bit-certified between endpoints; correction rerun written before it ran",
+    "protocol": {
+      "path": "artifacts/scaled_bridge_gap_v1/protocol-diag-1a-stagefix.json",
+      "sha256": "002a31487412e4234b74828369c155fe8240a1610bce773a735921d94f0dd560"
+    },
+    "sources": {
+      "tools/run/scaled_bridge_gap.py": "64a39225e3d423b34eb553f844d5bcd78fd13cfdd3b2a9f4ff2ad16b3a93e7b8",
+      "tools/run/scaled_bridge_gap.sh": "3814f4c9ed64c526b220fd0886574c7b9eda64aa8e392296a6f0a273f4ac56e7",
+      "tools/run/scaled_bridge_gap_chain.sh": "1a7fec3ef94749dcaf7bd6840af23266f551a4013e77094a643147e58501d260",
+      "tools/run/scaled_bridge_gap_diag_chain.sh": "bf26d5dfc3d0ff05a50419a911a151d2534240282c1cda2ef72d158274ef477d",
+      "tools/run/scaled_bridge_gap_stagefix_chain.sh": "e65fedcfa4cb6b33f30a271698563148e6c7cf41cda39986084803ef46a4c412",
+      "tools/run/scaled_bridge_gap_ties_chain.sh": "85eb7e59428028339af6b4b2f52ab7461695455bcd04d65db8ff3b3bfa203cbb",
+      "tools/scaled_bridge_gap_v1/__init__.py": "1c91ce4b9b91c263f713e2a0ed60e37390720bfc96266ad398330c0dcd718832",
+      "tools/scaled_bridge_gap_v1/analysis.py": "02f7d8ecb91265b1cd3fbd382baa1e1d84cbe824d05021237b450aa2e6974ed5",
+      "tools/scaled_bridge_gap_v1/arms.py": "f447a3503778ccbaa7ed1de56d04708a0f41848e18d72067c191b1655efdc2e3",
+      "tools/scaled_bridge_gap_v1/common.py": "c1f7010f6c6e7c2af9965ea49de5634053d52d2eff8d596fd6816a188d3a6715",
+      "tools/scaled_bridge_gap_v1/diag_summary.py": "4be8c7e8c33aeb97cead7c2284bf116cd9e1fe4491158080868be5ff40771c10",
+      "tools/scaled_bridge_gap_v1/diagnostics.py": "8576ad491bf018ed9ab9efdaf7c08c465f6e1354e3a6b9b2116d965863f13222",
+      "tools/scaled_bridge_gap_v1/stagefix.py": "d69a928c8ab00b4a17ab4108c95f06d64c94d31034b7ccaeb80033426db6f914",
+      "tools/scaled_bridge_gap_v1/ties.py": "abc086a25602e766e582b5bf943f3485bb2525a04c31bdebec0272b7860d6d70"
+    }
+  },
+  "sha256": "7cda96e91ebe1fb64ff1f5e877475f2480ceb88179b1790f7a4791d2efd3eaf3"
+}

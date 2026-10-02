@@ -1,0 +1,4811 @@
+{
+  "payload": {
+    "cases": [
+      {
+        "configs": {
+          "B": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 123,
+                "correct_to_wrong": 34,
+                "sign_test_two_sided_p": 0.8043170001933984,
+                "wrong_to_correct": 31,
+                "wrong_to_other_wrong": 58
+              },
+              "mcnemar_p": 0.8043170001933984,
+              "top1_95": [
+                -1.9,
+                1.3
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": 0.7000000000000001
+            },
+            "top1_percent": 66.2,
+            "top5_percent": 86.2
+          },
+          "B+in64": {
+            "local_flips": {
+              "down": 0,
+              "magnitude_down": 0,
+              "magnitude_test_p": 1.0,
+              "magnitude_up": 0,
+              "per_node": {},
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer2": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer3": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer4": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "stem": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sign_test_p": 1.0,
+              "up": 0
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 123,
+                "correct_to_wrong": 34,
+                "sign_test_two_sided_p": 0.8043170001933984,
+                "wrong_to_correct": 31,
+                "wrong_to_other_wrong": 58
+              },
+              "mcnemar_p": 0.8043170001933984,
+              "top1_95": [
+                -1.9,
+                1.3
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": 0.7000000000000001
+            },
+            "top1_percent": 66.2,
+            "top5_percent": 86.2
+          },
+          "B+mac64acc": {
+            "local_flips": {
+              "down": 396,
+              "magnitude_down": 472,
+              "magnitude_test_p": 0.017341203356539766,
+              "magnitude_up": 549,
+              "per_node": {
+                "conv1": [
+                  36,
+                  16,
+                  14,
+                  38
+                ],
+                "layer1_0_conv2": [
+                  76,
+                  12,
+                  38,
+                  50
+                ],
+                "layer1_1_conv1": [
+                  59,
+                  86,
+                  83,
+                  62
+                ],
+                "layer1_1_conv2": [
+                  103,
+                  1,
+                  104,
+                  0
+                ],
+                "layer2_0_conv1": [
+                  83,
+                  14,
+                  19,
+                  78
+                ],
+                "layer2_0_conv2": [
+                  73,
+                  98,
+                  99,
+                  72
+                ],
+                "layer2_1_conv1": [
+                  49,
+                  13,
+                  20,
+                  42
+                ],
+                "layer2_1_conv2": [
+                  3,
+                  0,
+                  3,
+                  0
+                ],
+                "layer3_0_conv1": [
+                  15,
+                  21,
+                  20,
+                  16
+                ],
+                "layer3_0_conv2": [
+                  39,
+                  2,
+                  17,
+                  24
+                ],
+                "layer3_0_downsample_0": [
+                  0,
+                  1,
+                  0,
+                  1
+                ],
+                "layer3_1_conv1": [
+                  27,
+                  26,
+                  24,
+                  29
+                ],
+                "layer3_1_conv2": [
+                  12,
+                  32,
+                  32,
+                  12
+                ],
+                "layer4_0_conv1": [
+                  20,
+                  15,
+                  14,
+                  21
+                ],
+                "layer4_0_conv2": [
+                  7,
+                  6,
+                  8,
+                  5
+                ],
+                "layer4_0_downsample_0": [
+                  7,
+                  24,
+                  30,
+                  1
+                ],
+                "layer4_1_conv1": [
+                  12,
+                  21,
+                  20,
+                  13
+                ],
+                "layer4_1_conv2": [
+                  4,
+                  8,
+                  4,
+                  8
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  238,
+                  99,
+                  225,
+                  112
+                ],
+                "layer2": [
+                  208,
+                  125,
+                  141,
+                  192
+                ],
+                "layer3": [
+                  93,
+                  82,
+                  93,
+                  82
+                ],
+                "layer4": [
+                  50,
+                  74,
+                  76,
+                  48
+                ],
+                "stem": [
+                  36,
+                  16,
+                  14,
+                  38
+                ]
+              },
+              "sign_test_p": 7.774906435500376e-13,
+              "up": 625
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 25,
+                "correct_to_wrong": 12,
+                "sign_test_two_sided_p": 0.076812744140625,
+                "wrong_to_correct": 4,
+                "wrong_to_other_wrong": 9
+              },
+              "mcnemar_p": 0.076812744140625,
+              "top1_95": [
+                -1.6,
+                0.0
+              ],
+              "top1_pp": -0.8,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 125,
+                "correct_to_wrong": 38,
+                "sign_test_two_sided_p": 0.2145391940081784,
+                "wrong_to_correct": 27,
+                "wrong_to_other_wrong": 60
+              },
+              "mcnemar_p": 0.2145391940081784,
+              "top1_95": [
+                -2.7,
+                0.5
+              ],
+              "top1_pp": -1.0999999999999999,
+              "top5_pp": 0.7000000000000001
+            },
+            "propagated_flips_fc": [
+              35608,
+              35441
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                57956,
+                57543
+              ],
+              "layer1": [
+                16444,
+                15787
+              ],
+              "layer2": [
+                319923,
+                317914
+              ],
+              "layer3": [
+                1526075,
+                1521926
+              ],
+              "layer4": [
+                5854687,
+                5807644
+              ],
+              "stem": [
+                80,
+                41
+              ]
+            },
+            "top1_percent": 65.4,
+            "top5_percent": 86.2
+          },
+          "B+macX": {
+            "local_flips": {
+              "down": 468,
+              "magnitude_down": 655,
+              "magnitude_test_p": 1.4062715620970018e-09,
+              "magnitude_up": 453,
+              "per_node": {
+                "conv1": [
+                  37,
+                  17,
+                  16,
+                  38
+                ],
+                "layer1_0_conv2": [
+                  38,
+                  135,
+                  0,
+                  173
+                ],
+                "layer1_1_conv1": [
+                  12,
+                  134,
+                  131,
+                  15
+                ],
+                "layer1_1_conv2": [
+                  103,
+                  1,
+                  104,
+                  0
+                ],
+                "layer2_0_conv1": [
+                  92,
+                  14,
+                  11,
+                  95
+                ],
+                "layer2_0_conv2": [
+                  163,
+                  1,
+                  2,
+                  162
+                ],
+                "layer2_1_conv1": [
+                  50,
+                  11,
+                  18,
+                  43
+                ],
+                "layer2_1_conv2": [
+                  3,
+                  0,
+                  3,
+                  0
+                ],
+                "layer3_0_conv1": [
+                  15,
+                  21,
+                  20,
+                  16
+                ],
+                "layer3_0_conv2": [
+                  39,
+                  2,
+                  17,
+                  24
+                ],
+                "layer3_0_downsample_0": [
+                  0,
+                  1,
+                  0,
+                  1
+                ],
+                "layer3_1_conv1": [
+                  27,
+                  26,
+                  24,
+                  29
+                ],
+                "layer3_1_conv2": [
+                  12,
+                  32,
+                  32,
+                  12
+                ],
+                "layer4_0_conv1": [
+                  19,
+                  16,
+                  15,
+                  20
+                ],
+                "layer4_0_conv2": [
+                  7,
+                  6,
+                  8,
+                  5
+                ],
+                "layer4_0_downsample_0": [
+                  7,
+                  24,
+                  30,
+                  1
+                ],
+                "layer4_1_conv1": [
+                  12,
+                  19,
+                  18,
+                  13
+                ],
+                "layer4_1_conv2": [
+                  4,
+                  8,
+                  4,
+                  8
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  153,
+                  270,
+                  235,
+                  188
+                ],
+                "layer2": [
+                  308,
+                  26,
+                  34,
+                  300
+                ],
+                "layer3": [
+                  93,
+                  82,
+                  93,
+                  82
+                ],
+                "layer4": [
+                  49,
+                  73,
+                  75,
+                  47
+                ],
+                "stem": [
+                  37,
+                  17,
+                  16,
+                  38
+                ]
+              },
+              "sign_test_p": 2.645544274335718e-07,
+              "up": 640
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 32,
+                "correct_to_wrong": 10,
+                "sign_test_two_sided_p": 0.629058837890625,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 15
+              },
+              "mcnemar_p": 0.629058837890625,
+              "top1_95": [
+                -1.1,
+                0.5
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": -0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 114,
+                "correct_to_wrong": 32,
+                "sign_test_two_sided_p": 0.5118423084381691,
+                "wrong_to_correct": 26,
+                "wrong_to_other_wrong": 56
+              },
+              "mcnemar_p": 0.5118423084381691,
+              "top1_95": [
+                -2.1,
+                0.9
+              ],
+              "top1_pp": -0.6,
+              "top5_pp": 0.6
+            },
+            "propagated_flips_fc": [
+              43067,
+              43054
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                70209,
+                70782
+              ],
+              "layer1": [
+                33812,
+                33688
+              ],
+              "layer2": [
+                606517,
+                604048
+              ],
+              "layer3": [
+                2251193,
+                2251735
+              ],
+              "layer4": [
+                7509872,
+                7492442
+              ],
+              "stem": [
+                85,
+                43
+              ]
+            },
+            "top1_percent": 65.9,
+            "top5_percent": 86.1
+          },
+          "B+nonmac64": {
+            "local_flips": {
+              "down": 0,
+              "magnitude_down": 0,
+              "magnitude_test_p": 1.0,
+              "magnitude_up": 0,
+              "per_node": {},
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer2": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer3": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer4": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "stem": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sign_test_p": 1.0,
+              "up": 0
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.4426260049464714,
+                "wrong_to_correct": 34,
+                "wrong_to_other_wrong": 52
+              },
+              "mcnemar_p": 0.4426260049464714,
+              "top1_95": [
+                -0.8,
+                2.2
+              ],
+              "top1_pp": 0.7000000000000001,
+              "top5_pp": -0.4
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 34,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 0.5034446716308594,
+                "wrong_to_correct": 12,
+                "wrong_to_other_wrong": 14
+              },
+              "mcnemar_p": 0.5034446716308594,
+              "top1_95": [
+                -0.4,
+                1.3
+              ],
+              "top1_pp": 0.4,
+              "top5_pp": 0.3
+            },
+            "top1_percent": 66.9,
+            "top5_percent": 85.8
+          },
+          "B+store64": {
+            "local_flips": {
+              "down": 74,
+              "magnitude_down": 66,
+              "magnitude_test_p": 7.704128022789182e-08,
+              "magnitude_up": 144,
+              "per_node": {
+                "conv1": [
+                  3,
+                  39,
+                  30,
+                  12
+                ],
+                "layer1_1_conv1": [
+                  8,
+                  0,
+                  0,
+                  8
+                ],
+                "layer1_1_conv2": [
+                  78,
+                  0,
+                  78,
+                  0
+                ],
+                "layer2_0_conv1": [
+                  3,
+                  6,
+                  2,
+                  7
+                ],
+                "layer2_1_conv1": [
+                  33,
+                  8,
+                  8,
+                  33
+                ],
+                "layer3_0_conv1": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "layer3_0_conv2": [
+                  7,
+                  0,
+                  5,
+                  2
+                ],
+                "layer3_1_conv1": [
+                  1,
+                  6,
+                  6,
+                  1
+                ],
+                "layer4_0_conv1": [
+                  1,
+                  2,
+                  2,
+                  1
+                ],
+                "layer4_0_conv2": [
+                  0,
+                  1,
+                  1,
+                  0
+                ],
+                "layer4_0_downsample_0": [
+                  0,
+                  11,
+                  11,
+                  0
+                ],
+                "layer4_1_conv1": [
+                  1,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  86,
+                  0,
+                  78,
+                  8
+                ],
+                "layer2": [
+                  36,
+                  14,
+                  10,
+                  40
+                ],
+                "layer3": [
+                  9,
+                  7,
+                  12,
+                  4
+                ],
+                "layer4": [
+                  2,
+                  14,
+                  14,
+                  2
+                ],
+                "stem": [
+                  3,
+                  39,
+                  30,
+                  12
+                ]
+              },
+              "sign_test_p": 2.2530245105886897e-05,
+              "up": 136
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 8,
+                "correct_to_wrong": 4,
+                "sign_test_two_sided_p": 0.6875,
+                "wrong_to_correct": 2,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 0.6875,
+              "top1_95": [
+                -0.7,
+                0.3
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 118,
+                "correct_to_wrong": 33,
+                "sign_test_two_sided_p": 0.6089207154048286,
+                "wrong_to_correct": 28,
+                "wrong_to_other_wrong": 57
+              },
+              "mcnemar_p": 0.6089207154048286,
+              "top1_95": [
+                -2.1,
+                1.0
+              ],
+              "top1_pp": -0.5,
+              "top5_pp": 0.7000000000000001
+            },
+            "propagated_flips_fc": [
+              13332,
+              13163
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                21714,
+                21677
+              ],
+              "layer1": [
+                9126,
+                8934
+              ],
+              "layer2": [
+                117412,
+                116080
+              ],
+              "layer3": [
+                582153,
+                584027
+              ],
+              "layer4": [
+                2220622,
+                2199665
+              ],
+              "stem": [
+                12,
+                97
+              ]
+            },
+            "top1_percent": 66.0,
+            "top5_percent": 86.2
+          },
+          "X": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 123,
+                "correct_to_wrong": 31,
+                "sign_test_two_sided_p": 0.8043170001933984,
+                "wrong_to_correct": 34,
+                "wrong_to_other_wrong": 58
+              },
+              "mcnemar_p": 0.8043170001933984,
+              "top1_95": [
+                -1.3,
+                1.9
+              ],
+              "top1_pp": 0.3,
+              "top5_pp": -0.7000000000000001
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              41986,
+              42000
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                68648,
+                68846
+              ],
+              "layer1": [
+                33812,
+                33688
+              ],
+              "layer2": [
+                606483,
+                604531
+              ],
+              "layer3": [
+                2252174,
+                2248528
+              ],
+              "layer4": [
+                7415559,
+                7381826
+              ],
+              "stem": [
+                85,
+                43
+              ]
+            },
+            "top1_percent": 66.5,
+            "top5_percent": 85.5
+          },
+          "X-in32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 123,
+                "correct_to_wrong": 31,
+                "sign_test_two_sided_p": 0.8043170001933984,
+                "wrong_to_correct": 34,
+                "wrong_to_other_wrong": 58
+              },
+              "mcnemar_p": 0.8043170001933984,
+              "top1_95": [
+                -1.3,
+                1.9
+              ],
+              "top1_pp": 0.3,
+              "top5_pp": -0.7000000000000001
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              41986,
+              42000
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                68648,
+                68846
+              ],
+              "layer1": [
+                33812,
+                33688
+              ],
+              "layer2": [
+                606483,
+                604531
+              ],
+              "layer3": [
+                2252174,
+                2248528
+              ],
+              "layer4": [
+                7415559,
+                7381826
+              ],
+              "stem": [
+                85,
+                43
+              ]
+            },
+            "top1_percent": 66.5,
+            "top5_percent": 85.5
+          },
+          "X-macB": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 117,
+                "correct_to_wrong": 30,
+                "sign_test_two_sided_p": 0.8013064925040663,
+                "wrong_to_correct": 33,
+                "wrong_to_other_wrong": 54
+              },
+              "mcnemar_p": 0.8013064925040663,
+              "top1_95": [
+                -1.3,
+                1.9
+              ],
+              "top1_pp": 0.3,
+              "top5_pp": -0.4
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 23,
+                "correct_to_wrong": 5,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 5,
+                "wrong_to_other_wrong": 13
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.6,
+                0.6
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.3
+            },
+            "propagated_flips_fc": [
+              13332,
+              13163
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                21714,
+                21677
+              ],
+              "layer1": [
+                9126,
+                8934
+              ],
+              "layer2": [
+                117412,
+                116080
+              ],
+              "layer3": [
+                582153,
+                584027
+              ],
+              "layer4": [
+                2220622,
+                2199665
+              ],
+              "stem": [
+                12,
+                97
+              ]
+            },
+            "top1_percent": 66.5,
+            "top5_percent": 85.8
+          },
+          "X-nonmac32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 32,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 8,
+                "wrong_to_other_wrong": 16
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.8,
+                0.8
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": -0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 110,
+                "correct_to_wrong": 29,
+                "sign_test_two_sided_p": 0.7877061896700431,
+                "wrong_to_correct": 26,
+                "wrong_to_other_wrong": 55
+              },
+              "mcnemar_p": 0.7877061896700431,
+              "top1_95": [
+                -1.7,
+                1.2
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": 0.6
+            },
+            "propagated_flips_fc": [
+              41986,
+              42000
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                68648,
+                68846
+              ],
+              "layer1": [
+                33812,
+                33688
+              ],
+              "layer2": [
+                606483,
+                604531
+              ],
+              "layer3": [
+                2252174,
+                2248528
+              ],
+              "layer4": [
+                7415559,
+                7381826
+              ],
+              "stem": [
+                85,
+                43
+              ]
+            },
+            "top1_percent": 66.2,
+            "top5_percent": 86.1
+          },
+          "X-store32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 127,
+                "correct_to_wrong": 33,
+                "sign_test_two_sided_p": 0.9035973456835127,
+                "wrong_to_correct": 35,
+                "wrong_to_other_wrong": 59
+              },
+              "mcnemar_p": 0.9035973456835127,
+              "top1_95": [
+                -1.4,
+                1.8
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": -0.5
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 12,
+                "correct_to_wrong": 4,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 3,
+                "wrong_to_other_wrong": 5
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.6,
+                0.4
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": 0.2
+            },
+            "propagated_flips_fc": [
+              43067,
+              43054
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                70209,
+                70782
+              ],
+              "layer1": [
+                33812,
+                33688
+              ],
+              "layer2": [
+                606517,
+                604048
+              ],
+              "layer3": [
+                2251193,
+                2251735
+              ],
+              "layer4": [
+                7509872,
+                7492442
+              ],
+              "stem": [
+                85,
+                43
+              ]
+            },
+            "top1_percent": 66.4,
+            "top5_percent": 85.7
+          },
+          "Xstage:head": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.4426260049464714,
+                "wrong_to_correct": 34,
+                "wrong_to_other_wrong": 52
+              },
+              "mcnemar_p": 0.4426260049464714,
+              "top1_95": [
+                -0.8,
+                2.2
+              ],
+              "top1_pp": 0.7000000000000001,
+              "top5_pp": -0.4
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 34,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 0.5034446716308594,
+                "wrong_to_correct": 12,
+                "wrong_to_other_wrong": 14
+              },
+              "mcnemar_p": 0.5034446716308594,
+              "top1_95": [
+                -0.4,
+                1.3
+              ],
+              "top1_pp": 0.4,
+              "top5_pp": 0.3
+            },
+            "top1_percent": 66.9,
+            "top5_percent": 85.8
+          },
+          "Xstage:layer1": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 25,
+                "correct_to_wrong": 7,
+                "sign_test_two_sided_p": 0.7744140625,
+                "wrong_to_correct": 5,
+                "wrong_to_other_wrong": 13
+              },
+              "mcnemar_p": 0.7744140625,
+              "top1_95": [
+                -0.9,
+                0.5
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 32,
+                "sign_test_two_sided_p": 0.6029232012571504,
+                "wrong_to_correct": 27,
+                "wrong_to_other_wrong": 54
+              },
+              "mcnemar_p": 0.6029232012571504,
+              "top1_95": [
+                -2.0,
+                1.0
+              ],
+              "top1_pp": -0.5,
+              "top5_pp": 0.7000000000000001
+            },
+            "propagated_flips_fc": [
+              30333,
+              30320
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                49939,
+                50118
+              ],
+              "layer1": [
+                24913,
+                24919
+              ],
+              "layer2": [
+                549783,
+                549657
+              ],
+              "layer3": [
+                1872778,
+                1875510
+              ],
+              "layer4": [
+                5635128,
+                5594265
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 66.0,
+            "top5_percent": 86.2
+          },
+          "Xstage:layer2": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 5,
+                "correct_to_wrong": 1,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 2,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.2,
+                0.5
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": -0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 121,
+                "correct_to_wrong": 32,
+                "sign_test_two_sided_p": 0.8990763136528589,
+                "wrong_to_correct": 30,
+                "wrong_to_other_wrong": 59
+              },
+              "mcnemar_p": 0.8990763136528589,
+              "top1_95": [
+                -1.8,
+                1.3
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.5
+            },
+            "propagated_flips_fc": [
+              11363,
+              11270
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                18341,
+                18304
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                19708,
+                19698
+              ],
+              "layer3": [
+                336244,
+                330971
+              ],
+              "layer4": [
+                1767891,
+                1774476
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 66.3,
+            "top5_percent": 86.0
+          },
+          "Xstage:layer3": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 1,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 122,
+                "correct_to_wrong": 33,
+                "sign_test_two_sided_p": 0.9006532462520334,
+                "wrong_to_correct": 31,
+                "wrong_to_other_wrong": 58
+              },
+              "mcnemar_p": 0.9006532462520334,
+              "top1_95": [
+                -1.8,
+                1.4
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.7000000000000001
+            },
+            "propagated_flips_fc": [
+              2954,
+              2868
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                4318,
+                4288
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                0,
+                0
+              ],
+              "layer3": [
+                7316,
+                6261
+              ],
+              "layer4": [
+                215179,
+                226294
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 66.3,
+            "top5_percent": 86.2
+          },
+          "Xstage:layer4": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 123,
+                "correct_to_wrong": 34,
+                "sign_test_two_sided_p": 0.8043170001933984,
+                "wrong_to_correct": 31,
+                "wrong_to_other_wrong": 58
+              },
+              "mcnemar_p": 0.8043170001933984,
+              "top1_95": [
+                -1.9,
+                1.3
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": 0.7000000000000001
+            },
+            "propagated_flips_fc": [
+              361,
+              404
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                435,
+                486
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                0,
+                0
+              ],
+              "layer3": [
+                0,
+                0
+              ],
+              "layer4": [
+                5962,
+                6404
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 66.2,
+            "top5_percent": 86.2
+          },
+          "Xstage:stem": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 2,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 124,
+                "correct_to_wrong": 34,
+                "sign_test_two_sided_p": 0.8043170001933984,
+                "wrong_to_correct": 31,
+                "wrong_to_other_wrong": 59
+              },
+              "mcnemar_p": 0.8043170001933984,
+              "top1_95": [
+                -1.9,
+                1.3
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": 0.7000000000000001
+            },
+            "propagated_flips_fc": [
+              849,
+              874
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                1495,
+                1454
+              ],
+              "layer1": [
+                8899,
+                8769
+              ],
+              "layer2": [
+                38410,
+                36765
+              ],
+              "layer3": [
+                63737,
+                63760
+              ],
+              "layer4": [
+                161091,
+                156356
+              ],
+              "stem": [
+                85,
+                43
+              ]
+            },
+            "top1_percent": 66.2,
+            "top5_percent": 86.2
+          }
+        },
+        "format": "fp6_e2m3",
+        "images": 1000,
+        "seconds": 685.7786589380121,
+        "stage_tallies": "per-stage flip tallies use the corrected execution-graph stages (residual adds in their block); the Xstage:<s> configurations are the diag-1 runs AS RUN, whose stem included all eight residual adds (see stage_hybrids_corrected.json for the rerun)"
+      },
+      {
+        "configs": {
+          "B": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 204,
+                "correct_to_wrong": 38,
+                "sign_test_two_sided_p": 0.064212806627131,
+                "wrong_to_correct": 57,
+                "wrong_to_other_wrong": 109
+              },
+              "mcnemar_p": 0.064212806627131,
+              "top1_95": [
+                0.0,
+                3.8
+              ],
+              "top1_pp": 1.9,
+              "top5_pp": -0.2
+            },
+            "top1_percent": 65.3,
+            "top5_percent": 86.0
+          },
+          "B+in64": {
+            "local_flips": {
+              "down": 0,
+              "magnitude_down": 0,
+              "magnitude_test_p": 1.0,
+              "magnitude_up": 0,
+              "per_node": {},
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer2": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer3": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer4": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "stem": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sign_test_p": 1.0,
+              "up": 0
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 204,
+                "correct_to_wrong": 38,
+                "sign_test_two_sided_p": 0.064212806627131,
+                "wrong_to_correct": 57,
+                "wrong_to_other_wrong": 109
+              },
+              "mcnemar_p": 0.064212806627131,
+              "top1_95": [
+                0.0,
+                3.8
+              ],
+              "top1_pp": 1.9,
+              "top5_pp": -0.2
+            },
+            "top1_percent": 65.3,
+            "top5_percent": 86.0
+          },
+          "B+mac64acc": {
+            "local_flips": {
+              "down": 1674,
+              "magnitude_down": 1700,
+              "magnitude_test_p": 0.0023571207718267387,
+              "magnitude_up": 1883,
+              "per_node": {
+                "conv1": [
+                  235,
+                  196,
+                  220,
+                  211
+                ],
+                "layer1_0_conv1": [
+                  139,
+                  162,
+                  122,
+                  179
+                ],
+                "layer1_0_conv2": [
+                  199,
+                  146,
+                  204,
+                  141
+                ],
+                "layer1_1_conv1": [
+                  214,
+                  120,
+                  175,
+                  159
+                ],
+                "layer1_1_conv2": [
+                  126,
+                  146,
+                  140,
+                  132
+                ],
+                "layer2_0_conv1": [
+                  162,
+                  129,
+                  160,
+                  131
+                ],
+                "layer2_0_conv2": [
+                  144,
+                  122,
+                  143,
+                  123
+                ],
+                "layer2_0_downsample_0": [
+                  53,
+                  39,
+                  64,
+                  28
+                ],
+                "layer2_1_conv1": [
+                  111,
+                  102,
+                  110,
+                  103
+                ],
+                "layer2_1_conv2": [
+                  65,
+                  72,
+                  84,
+                  53
+                ],
+                "layer3_0_conv1": [
+                  85,
+                  94,
+                  111,
+                  68
+                ],
+                "layer3_0_conv2": [
+                  48,
+                  57,
+                  56,
+                  49
+                ],
+                "layer3_0_downsample_0": [
+                  21,
+                  21,
+                  21,
+                  21
+                ],
+                "layer3_1_conv1": [
+                  67,
+                  62,
+                  65,
+                  64
+                ],
+                "layer3_1_conv2": [
+                  52,
+                  32,
+                  28,
+                  56
+                ],
+                "layer4_0_conv1": [
+                  44,
+                  48,
+                  47,
+                  45
+                ],
+                "layer4_0_conv2": [
+                  36,
+                  30,
+                  31,
+                  35
+                ],
+                "layer4_0_downsample_0": [
+                  17,
+                  17,
+                  20,
+                  14
+                ],
+                "layer4_1_conv1": [
+                  56,
+                  48,
+                  49,
+                  55
+                ],
+                "layer4_1_conv2": [
+                  35,
+                  31,
+                  33,
+                  33
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  678,
+                  574,
+                  641,
+                  611
+                ],
+                "layer2": [
+                  535,
+                  464,
+                  561,
+                  438
+                ],
+                "layer3": [
+                  273,
+                  266,
+                  281,
+                  258
+                ],
+                "layer4": [
+                  188,
+                  174,
+                  180,
+                  182
+                ],
+                "stem": [
+                  235,
+                  196,
+                  220,
+                  211
+                ]
+              },
+              "sign_test_p": 9.208938763976885e-05,
+              "up": 1909
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 65,
+                "correct_to_wrong": 13,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 13,
+                "wrong_to_other_wrong": 39
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -1.0,
+                1.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 196,
+                "correct_to_wrong": 38,
+                "sign_test_two_sided_p": 0.064212806627131,
+                "wrong_to_correct": 57,
+                "wrong_to_other_wrong": 101
+              },
+              "mcnemar_p": 0.064212806627131,
+              "top1_95": [
+                0.0,
+                3.8
+              ],
+              "top1_pp": 1.9,
+              "top5_pp": -0.2
+            },
+            "propagated_flips_fc": [
+              144175,
+              144116
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                227329,
+                227882
+              ],
+              "layer1": [
+                296482,
+                299540
+              ],
+              "layer2": [
+                3202802,
+                3194204
+              ],
+              "layer3": [
+                10403842,
+                10407559
+              ],
+              "layer4": [
+                26004545,
+                26024532
+              ],
+              "stem": [
+                679,
+                562
+              ]
+            },
+            "top1_percent": 65.3,
+            "top5_percent": 86.0
+          },
+          "B+macX": {
+            "local_flips": {
+              "down": 1667,
+              "magnitude_down": 1687,
+              "magnitude_test_p": 0.00025809321267899365,
+              "magnitude_up": 1907,
+              "per_node": {
+                "conv1": [
+                  242,
+                  203,
+                  233,
+                  212
+                ],
+                "layer1_0_conv1": [
+                  144,
+                  162,
+                  121,
+                  185
+                ],
+                "layer1_0_conv2": [
+                  209,
+                  133,
+                  189,
+                  153
+                ],
+                "layer1_1_conv1": [
+                  236,
+                  105,
+                  181,
+                  160
+                ],
+                "layer1_1_conv2": [
+                  109,
+                  154,
+                  142,
+                  121
+                ],
+                "layer2_0_conv1": [
+                  170,
+                  120,
+                  168,
+                  122
+                ],
+                "layer2_0_conv2": [
+                  150,
+                  123,
+                  147,
+                  126
+                ],
+                "layer2_0_downsample_0": [
+                  51,
+                  39,
+                  71,
+                  19
+                ],
+                "layer2_1_conv1": [
+                  97,
+                  115,
+                  111,
+                  101
+                ],
+                "layer2_1_conv2": [
+                  64,
+                  73,
+                  85,
+                  52
+                ],
+                "layer3_0_conv1": [
+                  88,
+                  90,
+                  108,
+                  70
+                ],
+                "layer3_0_conv2": [
+                  47,
+                  59,
+                  55,
+                  51
+                ],
+                "layer3_0_downsample_0": [
+                  21,
+                  20,
+                  21,
+                  20
+                ],
+                "layer3_1_conv1": [
+                  64,
+                  61,
+                  61,
+                  64
+                ],
+                "layer3_1_conv2": [
+                  50,
+                  35,
+                  31,
+                  54
+                ],
+                "layer4_0_conv1": [
+                  44,
+                  48,
+                  48,
+                  44
+                ],
+                "layer4_0_conv2": [
+                  34,
+                  32,
+                  33,
+                  33
+                ],
+                "layer4_0_downsample_0": [
+                  17,
+                  18,
+                  21,
+                  14
+                ],
+                "layer4_1_conv1": [
+                  56,
+                  45,
+                  47,
+                  54
+                ],
+                "layer4_1_conv2": [
+                  34,
+                  32,
+                  34,
+                  32
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  698,
+                  554,
+                  633,
+                  619
+                ],
+                "layer2": [
+                  532,
+                  470,
+                  582,
+                  420
+                ],
+                "layer3": [
+                  270,
+                  265,
+                  276,
+                  259
+                ],
+                "layer4": [
+                  185,
+                  175,
+                  183,
+                  177
+                ],
+                "stem": [
+                  242,
+                  203,
+                  233,
+                  212
+                ]
+              },
+              "sign_test_p": 1.545922768580199e-05,
+              "up": 1927
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 70,
+                "correct_to_wrong": 16,
+                "sign_test_two_sided_p": 0.711071103811264,
+                "wrong_to_correct": 13,
+                "wrong_to_other_wrong": 41
+              },
+              "mcnemar_p": 0.711071103811264,
+              "top1_95": [
+                -1.3,
+                0.8
+              ],
+              "top1_pp": -0.3,
+              "top5_pp": -0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 197,
+                "correct_to_wrong": 39,
+                "sign_test_two_sided_p": 0.12137111297242903,
+                "wrong_to_correct": 55,
+                "wrong_to_other_wrong": 103
+              },
+              "mcnemar_p": 0.12137111297242903,
+              "top1_95": [
+                -0.3,
+                3.5
+              ],
+              "top1_pp": 1.6,
+              "top5_pp": -0.3
+            },
+            "propagated_flips_fc": [
+              145595,
+              145766
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                229525,
+                230012
+              ],
+              "layer1": [
+                298467,
+                301073
+              ],
+              "layer2": [
+                3207949,
+                3203127
+              ],
+              "layer3": [
+                10479835,
+                10481957
+              ],
+              "layer4": [
+                26242835,
+                26262712
+              ],
+              "stem": [
+                700,
+                578
+              ]
+            },
+            "top1_percent": 65.0,
+            "top5_percent": 85.9
+          },
+          "B+nonmac64": {
+            "local_flips": {
+              "down": 0,
+              "magnitude_down": 0,
+              "magnitude_test_p": 1.0,
+              "magnitude_up": 0,
+              "per_node": {},
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer2": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer3": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer4": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "stem": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sign_test_p": 1.0,
+              "up": 0
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 177,
+                "correct_to_wrong": 45,
+                "sign_test_two_sided_p": 0.21268281985080573,
+                "wrong_to_correct": 33,
+                "wrong_to_other_wrong": 99
+              },
+              "mcnemar_p": 0.21268281985080573,
+              "top1_95": [
+                -2.9,
+                0.5
+              ],
+              "top1_pp": -1.2,
+              "top5_pp": 0.3
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 94,
+                "correct_to_wrong": 18,
+                "sign_test_two_sided_p": 0.3603776529357674,
+                "wrong_to_correct": 25,
+                "wrong_to_other_wrong": 51
+              },
+              "mcnemar_p": 0.3603776529357674,
+              "top1_95": [
+                -0.5,
+                2.0
+              ],
+              "top1_pp": 0.7000000000000001,
+              "top5_pp": 0.1
+            },
+            "top1_percent": 64.1,
+            "top5_percent": 86.3
+          },
+          "B+store64": {
+            "local_flips": {
+              "down": 299,
+              "magnitude_down": 324,
+              "magnitude_test_p": 0.8146658059474104,
+              "magnitude_up": 331,
+              "per_node": {
+                "conv1": [
+                  141,
+                  24,
+                  144,
+                  21
+                ],
+                "fc": [
+                  1,
+                  0,
+                  1,
+                  0
+                ],
+                "layer1_0_conv1": [
+                  74,
+                  104,
+                  19,
+                  159
+                ],
+                "layer1_0_conv2": [
+                  24,
+                  29,
+                  16,
+                  37
+                ],
+                "layer1_1_conv1": [
+                  21,
+                  6,
+                  13,
+                  14
+                ],
+                "layer1_1_conv2": [
+                  5,
+                  12,
+                  0,
+                  17
+                ],
+                "layer2_0_conv1": [
+                  16,
+                  10,
+                  20,
+                  6
+                ],
+                "layer2_0_conv2": [
+                  9,
+                  21,
+                  30,
+                  0
+                ],
+                "layer2_0_downsample_0": [
+                  16,
+                  26,
+                  13,
+                  29
+                ],
+                "layer2_1_conv2": [
+                  15,
+                  17,
+                  25,
+                  7
+                ],
+                "layer3_0_conv1": [
+                  12,
+                  14,
+                  12,
+                  14
+                ],
+                "layer3_0_conv2": [
+                  7,
+                  8,
+                  8,
+                  7
+                ],
+                "layer3_0_downsample_0": [
+                  5,
+                  1,
+                  3,
+                  3
+                ],
+                "layer3_1_conv1": [
+                  0,
+                  15,
+                  15,
+                  0
+                ],
+                "layer4_0_conv1": [
+                  1,
+                  2,
+                  3,
+                  0
+                ],
+                "layer4_0_conv2": [
+                  1,
+                  1,
+                  0,
+                  2
+                ],
+                "layer4_0_downsample_0": [
+                  2,
+                  1,
+                  1,
+                  2
+                ],
+                "layer4_1_conv1": [
+                  3,
+                  4,
+                  6,
+                  1
+                ],
+                "layer4_1_conv2": [
+                  3,
+                  4,
+                  2,
+                  5
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  1,
+                  0,
+                  1,
+                  0
+                ],
+                "layer1": [
+                  124,
+                  151,
+                  48,
+                  227
+                ],
+                "layer2": [
+                  56,
+                  74,
+                  88,
+                  42
+                ],
+                "layer3": [
+                  24,
+                  38,
+                  38,
+                  24
+                ],
+                "layer4": [
+                  10,
+                  12,
+                  12,
+                  10
+                ],
+                "stem": [
+                  141,
+                  24,
+                  144,
+                  21
+                ]
+              },
+              "sign_test_p": 0.028585362458961306,
+              "up": 356
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 18,
+                "correct_to_wrong": 10,
+                "sign_test_two_sided_p": 0.03857421875,
+                "wrong_to_correct": 2,
+                "wrong_to_other_wrong": 6
+              },
+              "mcnemar_p": 0.03857421875,
+              "top1_95": [
+                -1.5,
+                -0.2
+              ],
+              "top1_pp": -0.8,
+              "top5_pp": -0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 207,
+                "correct_to_wrong": 43,
+                "sign_test_two_sided_p": 0.30993353423900727,
+                "wrong_to_correct": 54,
+                "wrong_to_other_wrong": 110
+              },
+              "mcnemar_p": 0.30993353423900727,
+              "top1_95": [
+                -0.8,
+                3.0
+              ],
+              "top1_pp": 1.0999999999999999,
+              "top5_pp": -0.3
+            },
+            "propagated_flips_fc": [
+              45142,
+              45190
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                70474,
+                70808
+              ],
+              "layer1": [
+                155419,
+                157823
+              ],
+              "layer2": [
+                1326333,
+                1328144
+              ],
+              "layer3": [
+                3332789,
+                3314953
+              ],
+              "layer4": [
+                7724216,
+                7714672
+              ],
+              "stem": [
+                447,
+                68
+              ]
+            },
+            "top1_percent": 64.5,
+            "top5_percent": 85.9
+          },
+          "X": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 204,
+                "correct_to_wrong": 57,
+                "sign_test_two_sided_p": 0.064212806627131,
+                "wrong_to_correct": 38,
+                "wrong_to_other_wrong": 109
+              },
+              "mcnemar_p": 0.064212806627131,
+              "top1_95": [
+                -3.8,
+                0.0
+              ],
+              "top1_pp": -1.9,
+              "top5_pp": 0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              148599,
+              148889
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                235241,
+                235743
+              ],
+              "layer1": [
+                335876,
+                338014
+              ],
+              "layer2": [
+                3556484,
+                3549797
+              ],
+              "layer3": [
+                11205898,
+                11204085
+              ],
+              "layer4": [
+                27202510,
+                27169575
+              ],
+              "stem": [
+                731,
+                700
+              ]
+            },
+            "top1_percent": 63.4,
+            "top5_percent": 86.2
+          },
+          "X-in32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 204,
+                "correct_to_wrong": 57,
+                "sign_test_two_sided_p": 0.064212806627131,
+                "wrong_to_correct": 38,
+                "wrong_to_other_wrong": 109
+              },
+              "mcnemar_p": 0.064212806627131,
+              "top1_95": [
+                -3.8,
+                0.0
+              ],
+              "top1_pp": -1.9,
+              "top5_pp": 0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              148599,
+              148889
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                235241,
+                235743
+              ],
+              "layer1": [
+                335876,
+                338014
+              ],
+              "layer2": [
+                3556484,
+                3549797
+              ],
+              "layer3": [
+                11205898,
+                11204085
+              ],
+              "layer4": [
+                27202510,
+                27169575
+              ],
+              "stem": [
+                731,
+                700
+              ]
+            },
+            "top1_percent": 63.4,
+            "top5_percent": 86.2
+          },
+          "X-macB": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 186,
+                "correct_to_wrong": 47,
+                "sign_test_two_sided_p": 0.18207674694084314,
+                "wrong_to_correct": 34,
+                "wrong_to_other_wrong": 105
+              },
+              "mcnemar_p": 0.18207674694084314,
+              "top1_95": [
+                -3.0,
+                0.5
+              ],
+              "top1_pp": -1.3,
+              "top5_pp": 0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 96,
+                "correct_to_wrong": 19,
+                "sign_test_two_sided_p": 0.4513808323961257,
+                "wrong_to_correct": 25,
+                "wrong_to_other_wrong": 52
+              },
+              "mcnemar_p": 0.4513808323961257,
+              "top1_95": [
+                -0.7,
+                1.9
+              ],
+              "top1_pp": 0.6,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              45142,
+              45190
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                70474,
+                70808
+              ],
+              "layer1": [
+                155419,
+                157823
+              ],
+              "layer2": [
+                1326333,
+                1328144
+              ],
+              "layer3": [
+                3332789,
+                3314953
+              ],
+              "layer4": [
+                7724216,
+                7714672
+              ],
+              "stem": [
+                447,
+                68
+              ]
+            },
+            "top1_percent": 64.0,
+            "top5_percent": 86.2
+          },
+          "X-nonmac32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 67,
+                "correct_to_wrong": 12,
+                "sign_test_two_sided_p": 0.7011080384254456,
+                "wrong_to_correct": 15,
+                "wrong_to_other_wrong": 40
+              },
+              "mcnemar_p": 0.7011080384254456,
+              "top1_95": [
+                -0.7,
+                1.3
+              ],
+              "top1_pp": 0.3,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 190,
+                "correct_to_wrong": 35,
+                "sign_test_two_sided_p": 0.02801690195894671,
+                "wrong_to_correct": 57,
+                "wrong_to_other_wrong": 98
+              },
+              "mcnemar_p": 0.02801690195894671,
+              "top1_95": [
+                0.3,
+                4.1
+              ],
+              "top1_pp": 2.1999999999999997,
+              "top5_pp": -0.2
+            },
+            "propagated_flips_fc": [
+              148599,
+              148889
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                235241,
+                235743
+              ],
+              "layer1": [
+                335876,
+                338014
+              ],
+              "layer2": [
+                3556484,
+                3549797
+              ],
+              "layer3": [
+                11205898,
+                11204085
+              ],
+              "layer4": [
+                27202510,
+                27169575
+              ],
+              "stem": [
+                731,
+                700
+              ]
+            },
+            "top1_percent": 65.6,
+            "top5_percent": 86.0
+          },
+          "X-store32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 206,
+                "correct_to_wrong": 56,
+                "sign_test_two_sided_p": 0.12534569718849248,
+                "wrong_to_correct": 40,
+                "wrong_to_other_wrong": 110
+              },
+              "mcnemar_p": 0.12534569718849248,
+              "top1_95": [
+                -3.5,
+                0.3
+              ],
+              "top1_pp": -1.6,
+              "top5_pp": 0.3
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 46,
+                "correct_to_wrong": 7,
+                "sign_test_two_sided_p": 0.629058837890625,
+                "wrong_to_correct": 10,
+                "wrong_to_other_wrong": 29
+              },
+              "mcnemar_p": 0.629058837890625,
+              "top1_95": [
+                -0.5,
+                1.1
+              ],
+              "top1_pp": 0.3,
+              "top5_pp": 0.1
+            },
+            "propagated_flips_fc": [
+              145595,
+              145766
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                229525,
+                230012
+              ],
+              "layer1": [
+                298467,
+                301073
+              ],
+              "layer2": [
+                3207949,
+                3203127
+              ],
+              "layer3": [
+                10479835,
+                10481957
+              ],
+              "layer4": [
+                26242835,
+                26262712
+              ],
+              "stem": [
+                700,
+                578
+              ]
+            },
+            "top1_percent": 63.7,
+            "top5_percent": 86.3
+          },
+          "Xstage:head": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 177,
+                "correct_to_wrong": 45,
+                "sign_test_two_sided_p": 0.21268281985080573,
+                "wrong_to_correct": 33,
+                "wrong_to_other_wrong": 99
+              },
+              "mcnemar_p": 0.21268281985080573,
+              "top1_95": [
+                -2.9,
+                0.5
+              ],
+              "top1_pp": -1.2,
+              "top5_pp": 0.3
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 94,
+                "correct_to_wrong": 18,
+                "sign_test_two_sided_p": 0.3603776529357674,
+                "wrong_to_correct": 25,
+                "wrong_to_other_wrong": 51
+              },
+              "mcnemar_p": 0.3603776529357674,
+              "top1_95": [
+                -0.5,
+                2.0
+              ],
+              "top1_pp": 0.7000000000000001,
+              "top5_pp": 0.1
+            },
+            "top1_percent": 64.1,
+            "top5_percent": 86.3
+          },
+          "Xstage:layer1": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 45,
+                "correct_to_wrong": 12,
+                "sign_test_two_sided_p": 0.8318119049072266,
+                "wrong_to_correct": 10,
+                "wrong_to_other_wrong": 23
+              },
+              "mcnemar_p": 0.8318119049072266,
+              "top1_95": [
+                -1.1,
+                0.7
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 203,
+                "correct_to_wrong": 39,
+                "sign_test_two_sided_p": 0.10017333048675532,
+                "wrong_to_correct": 56,
+                "wrong_to_other_wrong": 108
+              },
+              "mcnemar_p": 0.10017333048675532,
+              "top1_95": [
+                -0.2,
+                3.6
+              ],
+              "top1_pp": 1.7000000000000002,
+              "top5_pp": -0.2
+            },
+            "propagated_flips_fc": [
+              101527,
+              102136
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                162933,
+                162764
+              ],
+              "layer1": [
+                217490,
+                219114
+              ],
+              "layer2": [
+                2833574,
+                2834118
+              ],
+              "layer3": [
+                8558978,
+                8559854
+              ],
+              "layer4": [
+                19292239,
+                19245154
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 65.1,
+            "top5_percent": 86.0
+          },
+          "Xstage:layer2": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 31,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 16
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.8,
+                0.7
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": -0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 201,
+                "correct_to_wrong": 40,
+                "sign_test_two_sided_p": 0.08541058911280444,
+                "wrong_to_correct": 58,
+                "wrong_to_other_wrong": 103
+              },
+              "mcnemar_p": 0.08541058911280444,
+              "top1_95": [
+                -0.2,
+                3.8
+              ],
+              "top1_pp": 1.7999999999999998,
+              "top5_pp": -0.3
+            },
+            "propagated_flips_fc": [
+              59959,
+              59598
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                90917,
+                91104
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                122224,
+                120304
+              ],
+              "layer3": [
+                1816090,
+                1822667
+              ],
+              "layer4": [
+                8786966,
+                8770896
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 65.2,
+            "top5_percent": 85.9
+          },
+          "Xstage:layer3": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 13,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 0.6875,
+                "wrong_to_correct": 4,
+                "wrong_to_other_wrong": 7
+              },
+              "mcnemar_p": 0.6875,
+              "top1_95": [
+                -0.3,
+                0.7
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": 0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 202,
+                "correct_to_wrong": 39,
+                "sign_test_two_sided_p": 0.043875293587015265,
+                "wrong_to_correct": 60,
+                "wrong_to_other_wrong": 103
+              },
+              "mcnemar_p": 0.043875293587015265,
+              "top1_95": [
+                0.1,
+                4.0
+              ],
+              "top1_pp": 2.1,
+              "top5_pp": -0.1
+            },
+            "propagated_flips_fc": [
+              22649,
+              22537
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                31053,
+                30941
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                0,
+                0
+              ],
+              "layer3": [
+                67204,
+                67193
+              ],
+              "layer4": [
+                1841821,
+                1851204
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 65.5,
+            "top5_percent": 86.1
+          },
+          "Xstage:layer4": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 1,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 204,
+                "correct_to_wrong": 38,
+                "sign_test_two_sided_p": 0.05191052214883844,
+                "wrong_to_correct": 58,
+                "wrong_to_other_wrong": 108
+              },
+              "mcnemar_p": 0.05191052214883844,
+              "top1_95": [
+                0.1,
+                3.9
+              ],
+              "top1_pp": 2.0,
+              "top5_pp": -0.2
+            },
+            "propagated_flips_fc": [
+              2509,
+              2365
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                2967,
+                2831
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                0,
+                0
+              ],
+              "layer3": [
+                0,
+                0
+              ],
+              "layer4": [
+                61141,
+                65379
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 65.4,
+            "top5_percent": 86.0
+          },
+          "Xstage:stem": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 11,
+                "correct_to_wrong": 1,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 10
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.3,
+                0.0
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": -0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 204,
+                "correct_to_wrong": 39,
+                "sign_test_two_sided_p": 0.08219306855694317,
+                "wrong_to_correct": 57,
+                "wrong_to_other_wrong": 108
+              },
+              "mcnemar_p": 0.08219306855694317,
+              "top1_95": [
+                -0.1,
+                3.7
+              ],
+              "top1_pp": 1.7999999999999998,
+              "top5_pp": -0.3
+            },
+            "propagated_flips_fc": [
+              11844,
+              11774
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                19244,
+                19390
+              ],
+              "layer1": [
+                118721,
+                119220
+              ],
+              "layer2": [
+                625607,
+                620841
+              ],
+              "layer3": [
+                1232144,
+                1223647
+              ],
+              "layer4": [
+                2405767,
+                2385472
+              ],
+              "stem": [
+                731,
+                700
+              ]
+            },
+            "top1_percent": 65.2,
+            "top5_percent": 85.9
+          }
+        },
+        "format": "fp6_e3m2",
+        "images": 1000,
+        "seconds": 581.6535281537799,
+        "stage_tallies": "per-stage flip tallies use the corrected execution-graph stages (residual adds in their block); the Xstage:<s> configurations are the diag-1 runs AS RUN, whose stem included all eight residual adds (see stage_hybrids_corrected.json for the rerun)"
+      },
+      {
+        "configs": {
+          "B": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.11425430684992327,
+                "wrong_to_correct": 41,
+                "wrong_to_other_wrong": 45
+              },
+              "mcnemar_p": 0.11425430684992327,
+              "top1_95": [
+                -0.2,
+                3.0
+              ],
+              "top1_pp": 1.4000000000000001,
+              "top5_pp": 0.2
+            },
+            "top1_percent": 69.7,
+            "top5_percent": 88.5
+          },
+          "B+in64": {
+            "local_flips": {
+              "down": 0,
+              "magnitude_down": 0,
+              "magnitude_test_p": 1.0,
+              "magnitude_up": 0,
+              "per_node": {},
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer2": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer3": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer4": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "stem": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sign_test_p": 1.0,
+              "up": 0
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.11425430684992327,
+                "wrong_to_correct": 41,
+                "wrong_to_other_wrong": 45
+              },
+              "mcnemar_p": 0.11425430684992327,
+              "top1_95": [
+                -0.2,
+                3.0
+              ],
+              "top1_pp": 1.4000000000000001,
+              "top5_pp": 0.2
+            },
+            "top1_percent": 69.7,
+            "top5_percent": 88.5
+          },
+          "B+mac64acc": {
+            "local_flips": {
+              "down": 4100,
+              "magnitude_down": 3939,
+              "magnitude_test_p": 0.5369267261111462,
+              "magnitude_up": 3995,
+              "per_node": {
+                "conv1": [
+                  689,
+                  809,
+                  723,
+                  775
+                ],
+                "fc": [
+                  1,
+                  2,
+                  2,
+                  1
+                ],
+                "layer1_0_conv1": [
+                  427,
+                  414,
+                  415,
+                  426
+                ],
+                "layer1_0_conv2": [
+                  237,
+                  308,
+                  286,
+                  259
+                ],
+                "layer1_1_conv1": [
+                  340,
+                  401,
+                  401,
+                  340
+                ],
+                "layer1_1_conv2": [
+                  293,
+                  261,
+                  261,
+                  293
+                ],
+                "layer2_0_conv1": [
+                  264,
+                  300,
+                  303,
+                  261
+                ],
+                "layer2_0_conv2": [
+                  245,
+                  256,
+                  249,
+                  252
+                ],
+                "layer2_0_downsample_0": [
+                  89,
+                  108,
+                  91,
+                  106
+                ],
+                "layer2_1_conv1": [
+                  176,
+                  215,
+                  193,
+                  198
+                ],
+                "layer2_1_conv2": [
+                  131,
+                  130,
+                  143,
+                  118
+                ],
+                "layer3_0_conv1": [
+                  177,
+                  193,
+                  183,
+                  187
+                ],
+                "layer3_0_conv2": [
+                  139,
+                  124,
+                  130,
+                  133
+                ],
+                "layer3_0_downsample_0": [
+                  43,
+                  35,
+                  22,
+                  56
+                ],
+                "layer3_1_conv1": [
+                  144,
+                  124,
+                  148,
+                  120
+                ],
+                "layer3_1_conv2": [
+                  80,
+                  74,
+                  71,
+                  83
+                ],
+                "layer4_0_conv1": [
+                  97,
+                  98,
+                  107,
+                  88
+                ],
+                "layer4_0_conv2": [
+                  79,
+                  76,
+                  78,
+                  77
+                ],
+                "layer4_0_downsample_0": [
+                  31,
+                  19,
+                  25,
+                  25
+                ],
+                "layer4_1_conv1": [
+                  91,
+                  91,
+                  91,
+                  91
+                ],
+                "layer4_1_conv2": [
+                  61,
+                  62,
+                  73,
+                  50
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  1,
+                  2,
+                  2,
+                  1
+                ],
+                "layer1": [
+                  1297,
+                  1384,
+                  1363,
+                  1318
+                ],
+                "layer2": [
+                  905,
+                  1009,
+                  979,
+                  935
+                ],
+                "layer3": [
+                  583,
+                  550,
+                  554,
+                  579
+                ],
+                "layer4": [
+                  359,
+                  346,
+                  374,
+                  331
+                ],
+                "stem": [
+                  689,
+                  809,
+                  723,
+                  775
+                ]
+              },
+              "sign_test_p": 0.0029267050707277357,
+              "up": 3834
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 44,
+                "correct_to_wrong": 10,
+                "sign_test_two_sided_p": 0.8145294189453125,
+                "wrong_to_correct": 8,
+                "wrong_to_other_wrong": 26
+              },
+              "mcnemar_p": 0.8145294189453125,
+              "top1_95": [
+                -1.0,
+                0.6
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 94,
+                "correct_to_wrong": 25,
+                "sign_test_two_sided_p": 0.16188140552559763,
+                "wrong_to_correct": 37,
+                "wrong_to_other_wrong": 32
+              },
+              "mcnemar_p": 0.16188140552559763,
+              "top1_95": [
+                -0.3,
+                2.7
+              ],
+              "top1_pp": 1.2,
+              "top5_pp": 0.3
+            },
+            "propagated_flips_fc": [
+              206815,
+              207975
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                341145,
+                340853
+              ],
+              "layer1": [
+                694647,
+                699104
+              ],
+              "layer2": [
+                7251133,
+                7256106
+              ],
+              "layer3": [
+                20957059,
+                20947123
+              ],
+              "layer4": [
+                43528675,
+                43372319
+              ],
+              "stem": [
+                1950,
+                2270
+              ]
+            },
+            "top1_percent": 69.5,
+            "top5_percent": 88.6
+          },
+          "B+macX": {
+            "local_flips": {
+              "down": 4204,
+              "magnitude_down": 3959,
+              "magnitude_test_p": 0.058728157966380916,
+              "magnitude_up": 4130,
+              "per_node": {
+                "conv1": [
+                  698,
+                  805,
+                  738,
+                  765
+                ],
+                "fc": [
+                  1,
+                  2,
+                  1,
+                  2
+                ],
+                "layer1_0_conv1": [
+                  444,
+                  411,
+                  414,
+                  441
+                ],
+                "layer1_0_conv2": [
+                  229,
+                  321,
+                  308,
+                  242
+                ],
+                "layer1_1_conv1": [
+                  342,
+                  425,
+                  426,
+                  341
+                ],
+                "layer1_1_conv2": [
+                  311,
+                  262,
+                  277,
+                  296
+                ],
+                "layer2_0_conv1": [
+                  255,
+                  319,
+                  313,
+                  261
+                ],
+                "layer2_0_conv2": [
+                  254,
+                  255,
+                  253,
+                  256
+                ],
+                "layer2_0_downsample_0": [
+                  84,
+                  142,
+                  117,
+                  109
+                ],
+                "layer2_1_conv1": [
+                  180,
+                  215,
+                  195,
+                  200
+                ],
+                "layer2_1_conv2": [
+                  134,
+                  136,
+                  147,
+                  123
+                ],
+                "layer3_0_conv1": [
+                  176,
+                  199,
+                  183,
+                  192
+                ],
+                "layer3_0_conv2": [
+                  140,
+                  124,
+                  133,
+                  131
+                ],
+                "layer3_0_downsample_0": [
+                  46,
+                  37,
+                  25,
+                  58
+                ],
+                "layer3_1_conv1": [
+                  143,
+                  129,
+                  148,
+                  124
+                ],
+                "layer3_1_conv2": [
+                  79,
+                  78,
+                  77,
+                  80
+                ],
+                "layer4_0_conv1": [
+                  98,
+                  101,
+                  109,
+                  90
+                ],
+                "layer4_0_conv2": [
+                  79,
+                  72,
+                  77,
+                  74
+                ],
+                "layer4_0_downsample_0": [
+                  32,
+                  18,
+                  25,
+                  25
+                ],
+                "layer4_1_conv1": [
+                  98,
+                  93,
+                  95,
+                  96
+                ],
+                "layer4_1_conv2": [
+                  62,
+                  60,
+                  69,
+                  53
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  1,
+                  2,
+                  1,
+                  2
+                ],
+                "layer1": [
+                  1326,
+                  1419,
+                  1425,
+                  1320
+                ],
+                "layer2": [
+                  907,
+                  1067,
+                  1025,
+                  949
+                ],
+                "layer3": [
+                  584,
+                  567,
+                  566,
+                  585
+                ],
+                "layer4": [
+                  369,
+                  344,
+                  375,
+                  338
+                ],
+                "stem": [
+                  698,
+                  805,
+                  738,
+                  765
+                ]
+              },
+              "sign_test_p": 0.00040599774160403644,
+              "up": 3885
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 41,
+                "correct_to_wrong": 9,
+                "sign_test_two_sided_p": 0.803619384765625,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 25
+              },
+              "mcnemar_p": 0.803619384765625,
+              "top1_95": [
+                -1.0,
+                0.6
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 91,
+                "correct_to_wrong": 24,
+                "sign_test_two_sided_p": 0.1550019040032606,
+                "wrong_to_correct": 36,
+                "wrong_to_other_wrong": 31
+              },
+              "mcnemar_p": 0.1550019040032606,
+              "top1_95": [
+                -0.3,
+                2.7
+              ],
+              "top1_pp": 1.2,
+              "top5_pp": 0.4
+            },
+            "propagated_flips_fc": [
+              207158,
+              207684
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                341398,
+                342058
+              ],
+              "layer1": [
+                697671,
+                700211
+              ],
+              "layer2": [
+                7369880,
+                7367879
+              ],
+              "layer3": [
+                21358509,
+                21348171
+              ],
+              "layer4": [
+                43987657,
+                43870860
+              ],
+              "stem": [
+                1989,
+                2244
+              ]
+            },
+            "top1_percent": 69.5,
+            "top5_percent": 88.7
+          },
+          "B+nonmac64": {
+            "local_flips": {
+              "down": 0,
+              "magnitude_down": 0,
+              "magnitude_test_p": 1.0,
+              "magnitude_up": 0,
+              "per_node": {},
+              "per_stage": {
+                "head": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer1": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer2": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer3": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "layer4": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "stem": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "sign_test_p": 1.0,
+              "up": 0
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 102,
+                "correct_to_wrong": 39,
+                "sign_test_two_sided_p": 0.10342187831608088,
+                "wrong_to_correct": 25,
+                "wrong_to_other_wrong": 38
+              },
+              "mcnemar_p": 0.10342187831608088,
+              "top1_95": [
+                -3.0,
+                0.2
+              ],
+              "top1_pp": -1.4000000000000001,
+              "top5_pp": -0.3
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 82,
+                "correct_to_wrong": 20,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 20,
+                "wrong_to_other_wrong": 42
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -1.2,
+                1.3
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": -0.1
+            },
+            "top1_percent": 68.3,
+            "top5_percent": 88.2
+          },
+          "B+store64": {
+            "local_flips": {
+              "down": 503,
+              "magnitude_down": 442,
+              "magnitude_test_p": 0.9732021064900716,
+              "magnitude_up": 444,
+              "per_node": {
+                "conv1": [
+                  85,
+                  173,
+                  121,
+                  137
+                ],
+                "fc": [
+                  1,
+                  0,
+                  0,
+                  1
+                ],
+                "layer1_0_conv1": [
+                  58,
+                  67,
+                  25,
+                  100
+                ],
+                "layer1_0_conv2": [
+                  36,
+                  44,
+                  30,
+                  50
+                ],
+                "layer1_1_conv1": [
+                  35,
+                  42,
+                  59,
+                  18
+                ],
+                "layer1_1_conv2": [
+                  45,
+                  42,
+                  58,
+                  29
+                ],
+                "layer2_0_conv1": [
+                  29,
+                  22,
+                  18,
+                  33
+                ],
+                "layer2_0_downsample_0": [
+                  19,
+                  7,
+                  21,
+                  5
+                ],
+                "layer2_1_conv1": [
+                  8,
+                  18,
+                  26,
+                  0
+                ],
+                "layer2_1_conv2": [
+                  16,
+                  21,
+                  18,
+                  19
+                ],
+                "layer3_0_conv1": [
+                  8,
+                  15,
+                  17,
+                  6
+                ],
+                "layer3_0_conv2": [
+                  9,
+                  10,
+                  5,
+                  14
+                ],
+                "layer3_0_downsample_0": [
+                  6,
+                  10,
+                  10,
+                  6
+                ],
+                "layer3_1_conv1": [
+                  7,
+                  7,
+                  7,
+                  7
+                ],
+                "layer4_0_conv1": [
+                  8,
+                  5,
+                  5,
+                  8
+                ],
+                "layer4_0_conv2": [
+                  2,
+                  9,
+                  9,
+                  2
+                ],
+                "layer4_0_downsample_0": [
+                  5,
+                  4,
+                  4,
+                  5
+                ],
+                "layer4_1_conv1": [
+                  1,
+                  7,
+                  7,
+                  1
+                ],
+                "layer4_1_conv2": [
+                  5,
+                  0,
+                  4,
+                  1
+                ]
+              },
+              "per_stage": {
+                "head": [
+                  1,
+                  0,
+                  0,
+                  1
+                ],
+                "layer1": [
+                  174,
+                  195,
+                  172,
+                  197
+                ],
+                "layer2": [
+                  72,
+                  68,
+                  83,
+                  57
+                ],
+                "layer3": [
+                  30,
+                  42,
+                  39,
+                  33
+                ],
+                "layer4": [
+                  21,
+                  25,
+                  29,
+                  17
+                ],
+                "stem": [
+                  85,
+                  173,
+                  121,
+                  137
+                ]
+              },
+              "sign_test_p": 6.23979034230937e-05,
+              "up": 383
+            },
+            "minus_B": {
+              "changes": {
+                "changed_top1": 5,
+                "correct_to_wrong": 1,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 3
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.3,
+                0.3
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 111,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.11425430684992327,
+                "wrong_to_correct": 41,
+                "wrong_to_other_wrong": 43
+              },
+              "mcnemar_p": 0.11425430684992327,
+              "top1_95": [
+                -0.2,
+                3.0
+              ],
+              "top1_pp": 1.4000000000000001,
+              "top5_pp": 0.3
+            },
+            "propagated_flips_fc": [
+              55214,
+              54892
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                88032,
+                87994
+              ],
+              "layer1": [
+                183832,
+                187043
+              ],
+              "layer2": [
+                1433078,
+                1426445
+              ],
+              "layer3": [
+                3840069,
+                3845964
+              ],
+              "layer4": [
+                9632439,
+                9643944
+              ],
+              "stem": [
+                264,
+                512
+              ]
+            },
+            "top1_percent": 69.7,
+            "top5_percent": 88.6
+          },
+          "X": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 41,
+                "sign_test_two_sided_p": 0.11425430684992327,
+                "wrong_to_correct": 27,
+                "wrong_to_other_wrong": 45
+              },
+              "mcnemar_p": 0.11425430684992327,
+              "top1_95": [
+                -3.0,
+                0.2
+              ],
+              "top1_pp": -1.4000000000000001,
+              "top5_pp": -0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              210205,
+              210342
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                345993,
+                346062
+              ],
+              "layer1": [
+                725621,
+                727931
+              ],
+              "layer2": [
+                7605804,
+                7605701
+              ],
+              "layer3": [
+                21821311,
+                21823681
+              ],
+              "layer4": [
+                44706688,
+                44587559
+              ],
+              "stem": [
+                2014,
+                2429
+              ]
+            },
+            "top1_percent": 68.3,
+            "top5_percent": 88.3
+          },
+          "X-in32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 41,
+                "sign_test_two_sided_p": 0.11425430684992327,
+                "wrong_to_correct": 27,
+                "wrong_to_other_wrong": 45
+              },
+              "mcnemar_p": 0.11425430684992327,
+              "top1_95": [
+                -3.0,
+                0.2
+              ],
+              "top1_pp": -1.4000000000000001,
+              "top5_pp": -0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "propagated_flips_fc": [
+              210205,
+              210342
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                345993,
+                346062
+              ],
+              "layer1": [
+                725621,
+                727931
+              ],
+              "layer2": [
+                7605804,
+                7605701
+              ],
+              "layer3": [
+                21821311,
+                21823681
+              ],
+              "layer4": [
+                44706688,
+                44587559
+              ],
+              "stem": [
+                2014,
+                2429
+              ]
+            },
+            "top1_percent": 68.3,
+            "top5_percent": 88.3
+          },
+          "X-macB": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 103,
+                "correct_to_wrong": 38,
+                "sign_test_two_sided_p": 0.051893895928921435,
+                "wrong_to_correct": 22,
+                "wrong_to_other_wrong": 43
+              },
+              "mcnemar_p": 0.051893895928921435,
+              "top1_95": [
+                -3.1,
+                -0.1
+              ],
+              "top1_pp": -1.6,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 79,
+                "correct_to_wrong": 20,
+                "sign_test_two_sided_p": 0.8714146793645341,
+                "wrong_to_correct": 18,
+                "wrong_to_other_wrong": 41
+              },
+              "mcnemar_p": 0.8714146793645341,
+              "top1_95": [
+                -1.4,
+                1.0
+              ],
+              "top1_pp": -0.2,
+              "top5_pp": 0.2
+            },
+            "propagated_flips_fc": [
+              55214,
+              54892
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                88032,
+                87994
+              ],
+              "layer1": [
+                183832,
+                187043
+              ],
+              "layer2": [
+                1433078,
+                1426445
+              ],
+              "layer3": [
+                3840069,
+                3845964
+              ],
+              "layer4": [
+                9632439,
+                9643944
+              ],
+              "stem": [
+                264,
+                512
+              ]
+            },
+            "top1_percent": 68.1,
+            "top5_percent": 88.5
+          },
+          "X-nonmac32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 46,
+                "correct_to_wrong": 10,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 9,
+                "wrong_to_other_wrong": 27
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.9,
+                0.8
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": 0.2
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 87,
+                "correct_to_wrong": 23,
+                "sign_test_two_sided_p": 0.11747735024505848,
+                "wrong_to_correct": 36,
+                "wrong_to_other_wrong": 28
+              },
+              "mcnemar_p": 0.11747735024505848,
+              "top1_95": [
+                -0.2,
+                2.8
+              ],
+              "top1_pp": 1.3,
+              "top5_pp": 0.4
+            },
+            "propagated_flips_fc": [
+              210205,
+              210342
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                345993,
+                346062
+              ],
+              "layer1": [
+                725621,
+                727931
+              ],
+              "layer2": [
+                7605804,
+                7605701
+              ],
+              "layer3": [
+                21821311,
+                21823681
+              ],
+              "layer4": [
+                44706688,
+                44587559
+              ],
+              "stem": [
+                2014,
+                2429
+              ]
+            },
+            "top1_percent": 69.6,
+            "top5_percent": 88.7
+          },
+          "X-store32": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 109,
+                "correct_to_wrong": 40,
+                "sign_test_two_sided_p": 0.1420713794263756,
+                "wrong_to_correct": 27,
+                "wrong_to_other_wrong": 42
+              },
+              "mcnemar_p": 0.1420713794263756,
+              "top1_95": [
+                -2.9,
+                0.3
+              ],
+              "top1_pp": -1.3,
+              "top5_pp": -0.3
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 27,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 9,
+                "wrong_to_other_wrong": 10
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.7,
+                0.9
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": -0.1
+            },
+            "propagated_flips_fc": [
+              207158,
+              207684
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                341398,
+                342058
+              ],
+              "layer1": [
+                697671,
+                700211
+              ],
+              "layer2": [
+                7369880,
+                7367879
+              ],
+              "layer3": [
+                21358509,
+                21348171
+              ],
+              "layer4": [
+                43987657,
+                43870860
+              ],
+              "stem": [
+                1989,
+                2244
+              ]
+            },
+            "top1_percent": 68.4,
+            "top5_percent": 88.2
+          },
+          "Xstage:head": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 102,
+                "correct_to_wrong": 39,
+                "sign_test_two_sided_p": 0.10342187831608088,
+                "wrong_to_correct": 25,
+                "wrong_to_other_wrong": 38
+              },
+              "mcnemar_p": 0.10342187831608088,
+              "top1_95": [
+                -3.0,
+                0.2
+              ],
+              "top1_pp": -1.4000000000000001,
+              "top5_pp": -0.3
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 82,
+                "correct_to_wrong": 20,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 20,
+                "wrong_to_other_wrong": 42
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -1.2,
+                1.3
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": -0.1
+            },
+            "propagated_flips_fc": [
+              1,
+              2
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                1,
+                2
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                0,
+                0
+              ],
+              "layer3": [
+                0,
+                0
+              ],
+              "layer4": [
+                0,
+                0
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 68.3,
+            "top5_percent": 88.2
+          },
+          "Xstage:layer1": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 41,
+                "correct_to_wrong": 8,
+                "sign_test_two_sided_p": 0.8145294189453125,
+                "wrong_to_correct": 10,
+                "wrong_to_other_wrong": 23
+              },
+              "mcnemar_p": 0.8145294189453125,
+              "top1_95": [
+                -0.6,
+                1.0
+              ],
+              "top1_pp": 0.2,
+              "top5_pp": 0.3
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 97,
+                "correct_to_wrong": 22,
+                "sign_test_two_sided_p": 0.051893895928921435,
+                "wrong_to_correct": 38,
+                "wrong_to_other_wrong": 37
+              },
+              "mcnemar_p": 0.051893895928921435,
+              "top1_95": [
+                0.1,
+                3.1
+              ],
+              "top1_pp": 1.6,
+              "top5_pp": 0.5
+            },
+            "propagated_flips_fc": [
+              168204,
+              167828
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                275320,
+                276108
+              ],
+              "layer1": [
+                373960,
+                375270
+              ],
+              "layer2": [
+                5720203,
+                5722634
+              ],
+              "layer3": [
+                16772471,
+                16763654
+              ],
+              "layer4": [
+                34457530,
+                34450728
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 69.9,
+            "top5_percent": 88.8
+          },
+          "Xstage:layer2": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 19,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 0.1796875,
+                "wrong_to_correct": 7,
+                "wrong_to_other_wrong": 10
+              },
+              "mcnemar_p": 0.1796875,
+              "top1_95": [
+                0.0,
+                1.1
+              ],
+              "top1_pp": 0.5,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 107,
+                "correct_to_wrong": 23,
+                "sign_test_two_sided_p": 0.024811974571552153,
+                "wrong_to_correct": 42,
+                "wrong_to_other_wrong": 42
+              },
+              "mcnemar_p": 0.024811974571552153,
+              "top1_95": [
+                0.3,
+                3.5
+              ],
+              "top1_pp": 1.9,
+              "top5_pp": 0.2
+            },
+            "propagated_flips_fc": [
+              99276,
+              100203
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                153614,
+                153401
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                231744,
+                229201
+              ],
+              "layer3": [
+                3348804,
+                3357828
+              ],
+              "layer4": [
+                15403544,
+                15332042
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 70.2,
+            "top5_percent": 88.5
+          },
+          "Xstage:layer3": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 5,
+                "correct_to_wrong": 2,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 2
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                -0.5,
+                0.2
+              ],
+              "top1_pp": -0.1,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 112,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.1420713794263756,
+                "wrong_to_correct": 40,
+                "wrong_to_other_wrong": 45
+              },
+              "mcnemar_p": 0.1420713794263756,
+              "top1_95": [
+                -0.3,
+                2.9
+              ],
+              "top1_pp": 1.3,
+              "top5_pp": 0.2
+            },
+            "propagated_flips_fc": [
+              46395,
+              46896
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                64787,
+                65178
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                0,
+                0
+              ],
+              "layer3": [
+                170384,
+                167144
+              ],
+              "layer4": [
+                4138735,
+                4105794
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 69.6,
+            "top5_percent": 88.5
+          },
+          "Xstage:layer4": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 0,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 0,
+                "wrong_to_other_wrong": 0
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.0
+              ],
+              "top1_pp": 0.0,
+              "top5_pp": 0.0
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 113,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.11425430684992327,
+                "wrong_to_correct": 41,
+                "wrong_to_other_wrong": 45
+              },
+              "mcnemar_p": 0.11425430684992327,
+              "top1_95": [
+                -0.2,
+                3.0
+              ],
+              "top1_pp": 1.4000000000000001,
+              "top5_pp": 0.2
+            },
+            "propagated_flips_fc": [
+              6096,
+              6175
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                7134,
+                7217
+              ],
+              "layer1": [
+                0,
+                0
+              ],
+              "layer2": [
+                0,
+                0
+              ],
+              "layer3": [
+                0,
+                0
+              ],
+              "layer4": [
+                142029,
+                141620
+              ],
+              "stem": [
+                0,
+                0
+              ]
+            },
+            "top1_percent": 69.7,
+            "top5_percent": 88.5
+          },
+          "Xstage:stem": {
+            "minus_B": {
+              "changes": {
+                "changed_top1": 7,
+                "correct_to_wrong": 0,
+                "sign_test_two_sided_p": 1.0,
+                "wrong_to_correct": 1,
+                "wrong_to_other_wrong": 6
+              },
+              "mcnemar_p": 1.0,
+              "top1_95": [
+                0.0,
+                0.3
+              ],
+              "top1_pp": 0.1,
+              "top5_pp": 0.1
+            },
+            "minus_X": {
+              "changes": {
+                "changed_top1": 110,
+                "correct_to_wrong": 27,
+                "sign_test_two_sided_p": 0.09118649056701154,
+                "wrong_to_correct": 42,
+                "wrong_to_other_wrong": 41
+              },
+              "mcnemar_p": 0.09118649056701154,
+              "top1_95": [
+                -0.1,
+                3.1
+              ],
+              "top1_pp": 1.5,
+              "top5_pp": 0.3
+            },
+            "propagated_flips_fc": [
+              30035,
+              29932
+            ],
+            "propagated_flips_per_stage": {
+              "head": [
+                49093,
+                49032
+              ],
+              "layer1": [
+                351976,
+                352998
+              ],
+              "layer2": [
+                1734037,
+                1733831
+              ],
+              "layer3": [
+                3131585,
+                3121495
+              ],
+              "layer4": [
+                5948985,
+                5970216
+              ],
+              "stem": [
+                2014,
+                2429
+              ]
+            },
+            "top1_percent": 69.8,
+            "top5_percent": 88.6
+          }
+        },
+        "format": "fp7_e3m3",
+        "images": 1000,
+        "seconds": 839.3704077829607,
+        "stage_tallies": "per-stage flip tallies use the corrected execution-graph stages (residual adds in their block); the Xstage:<s> configurations are the diag-1 runs AS RUN, whose stem included all eight residual adds (see stage_hybrids_corrected.json for the rerun)"
+      }
+    ],
+    "certification": "diagnostic harness; endpoints checked against B and wide records on every image (run_case raises otherwise); mixed configurations not certified",
+    "protocol": {
+      "path": "artifacts/scaled_bridge_gap_v1/protocol-diag-v1.json",
+      "sha256": "f1f2d8fd12a5609c9dc47141dd5d382f6c7f9694dc7840cb253c27b264bde21d"
+    },
+    "revision": "r2 (2026-10-01): per-stage tallies use corrected stages (independent review 1, nonblocking 2); r1 file kept at artifacts/scaled_bridge_gap_v1/superseded/diagnostics-pre-stage-fix.json",
+    "sources": {
+      "tools/run/scaled_bridge_gap.py": "64a39225e3d423b34eb553f844d5bcd78fd13cfdd3b2a9f4ff2ad16b3a93e7b8",
+      "tools/run/scaled_bridge_gap.sh": "3814f4c9ed64c526b220fd0886574c7b9eda64aa8e392296a6f0a273f4ac56e7",
+      "tools/run/scaled_bridge_gap_chain.sh": "1a7fec3ef94749dcaf7bd6840af23266f551a4013e77094a643147e58501d260",
+      "tools/run/scaled_bridge_gap_diag_chain.sh": "bf26d5dfc3d0ff05a50419a911a151d2534240282c1cda2ef72d158274ef477d",
+      "tools/run/scaled_bridge_gap_stagefix_chain.sh": "e65fedcfa4cb6b33f30a271698563148e6c7cf41cda39986084803ef46a4c412",
+      "tools/run/scaled_bridge_gap_ties_chain.sh": "85eb7e59428028339af6b4b2f52ab7461695455bcd04d65db8ff3b3bfa203cbb",
+      "tools/scaled_bridge_gap_v1/__init__.py": "1c91ce4b9b91c263f713e2a0ed60e37390720bfc96266ad398330c0dcd718832",
+      "tools/scaled_bridge_gap_v1/analysis.py": "02f7d8ecb91265b1cd3fbd382baa1e1d84cbe824d05021237b450aa2e6974ed5",
+      "tools/scaled_bridge_gap_v1/arms.py": "f447a3503778ccbaa7ed1de56d04708a0f41848e18d72067c191b1655efdc2e3",
+      "tools/scaled_bridge_gap_v1/common.py": "c1f7010f6c6e7c2af9965ea49de5634053d52d2eff8d596fd6816a188d3a6715",
+      "tools/scaled_bridge_gap_v1/diag_summary.py": "4be8c7e8c33aeb97cead7c2284bf116cd9e1fe4491158080868be5ff40771c10",
+      "tools/scaled_bridge_gap_v1/diagnostics.py": "8576ad491bf018ed9ab9efdaf7c08c465f6e1354e3a6b9b2116d965863f13222",
+      "tools/scaled_bridge_gap_v1/stagefix.py": "d69a928c8ab00b4a17ab4108c95f06d64c94d31034b7ccaeb80033426db6f914",
+      "tools/scaled_bridge_gap_v1/ties.py": "abc086a25602e766e582b5bf943f3485bb2525a04c31bdebec0272b7860d6d70"
+    }
+  },
+  "sha256": "201a26a92ec5bee4675d763ea62f25ef80247a6f5abf3616b30e3afd1c382320"
+}

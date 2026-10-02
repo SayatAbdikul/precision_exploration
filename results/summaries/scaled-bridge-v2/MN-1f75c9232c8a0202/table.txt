@@ -1,0 +1,23 @@
+case | gate | bits abs/range/struct/closure (max) | depthwise struct/closure | SE reduce/expand closure | mul product bits | n | wide top1 | B2 top1 retained/lowest | wide-B2 pp [95%] retained | wide-B2 pp lowest | tie-aware wide/B2 | ctl-wide pp | ctl!=wide top1 | changed codes vs B2 | CUDA s/img wide (indicative)
+mobilenet_v2-int8-default-b2 | True | 25/24/24/24 | 20/20 | - | - | 32 | 71.88 | 71.88/71.88 | +0.00 [+0.00,+0.00] | +0.00 | 71.88/71.88 | +0.00 | 0 | 16332626/225513728 (7.2424%) | 0.510
+mobilenet_v2-fp6_e2m3-default-b2 | True | 21/21/21/20 | 16/16 | - | - | 32 | 65.62 | 65.62/68.75 | +0.00 [-9.38,+9.38] | -3.12 | 60.42/63.02 | +0.00 | 0 | 7955095/225513728 (3.5275%) | 0.681
+mobilenet_v2-fp8_e4m3fn-default-b2 | True | 45/45/45/44 | 40/40 | - | - | 32 | 71.88 | 75.00/75.00 | -3.12 [-9.38,+0.00] | -3.12 | 70.31/70.31 | +0.00 | 0 | 10472103/225513728 (4.6437%) | 0.569
+mobilenet_v2-int6-default-b2 | True | 21/20/20/20 | 16/16 | - | - | 32 | 75.00 | 71.88/75.00 | +3.12 [+0.00,+9.38] | +0.00 | 75.00/73.44 | +0.00 | 0 | 4847049/225513728 (2.1493%) | 0.692
+mobilenet_v2-fp7_e3m3-default-b2 | True | 29/29/29/28 | 24/24 | - | - | 32 | 75.00 | 68.75/68.75 | +6.25 [+0.00,+15.62] | +6.25 | 70.31/66.67 | +0.00 | 0 | 13640163/225513728 (6.0485%) | 0.634
+mobilenet_v3_large-int8-default-b2 | True | 24/24/24/23 | 20/20 | 23/22 | 17 | 32 | 68.75 | 65.62/62.50 | +3.12 [+0.00,+9.38] | +6.25 | 68.75/64.06 | +0.00 | 0 | 38652363/227161600 (17.0154%) | 0.493
+mobilenet_v3_large-fp6_e2m3-default-b2 | True | 21/21/21/21 | 17/17 | 20/19 | 13 | 32 | 62.50 | 59.38/62.50 | +3.12 [-6.25,+12.50] | +0.00 | 62.50/60.94 | +0.00 | 0 | 26543851/227161600 (11.6850%) | 0.468
+mobilenet_v3_large-fp8_e4m3fn-default-b2 | True | 45/45/45/45 | 41/41 | 44/43 | 37 | 32 | 62.50 | 65.62/65.62 | -3.12 [-9.38,+0.00] | -3.12 | 65.62/65.62 | +0.00 | 0 | 53051586/227161600 (23.3541%) | 0.683
+mobilenet_v3_large-int6-default-b2 | True | 20/20/20/19 | 16/16 | 19/18 | 13 | 32 | 15.62 | 15.62/15.62 | +0.00 [-9.38,+9.38] | +0.00 | 15.17/16.97 | +0.00 | 0 | 9653762/227161600 (4.2497%) | 0.477
+mobilenet_v3_large-fp7_e3m3-default-b2 | True | 29/29/29/29 | 25/25 | 28/27 | 21 | 32 | 68.75 | 68.75/68.75 | +0.00 [+0.00,+0.00] | +0.00 | 69.79/68.23 | +0.00 | 0 | 44803398/227161600 (19.7231%) | 0.564
+
+policy gates (8 images CPU = CUDA): case | policy | gate | lossless width check | failed/8 | top1 (wide) | top1 class != wide | images with event | nodes with event | graph witness
+mobilenet_v2-int8-default-b2 | f21 | True | - | 0/8 | 87.50 (87.50) | 0 | 0 | 0 | pass
+mobilenet_v2-int8-default-b2 | fp16.x-9 | True | - | 0/8 | 87.50 (87.50) | 0 | 0 | 0 | pass
+mobilenet_v2-int8-default-b2 | sat.struct-0 | True | identical to wide, 0 saturations | 0/8 | 87.50 (87.50) | 0 | 0 | 0 | pass
+mobilenet_v2-int8-default-b2 | sat.struct-4 | True | - | 0/8 | 0.00 (87.50) | 8 | 8 | 38 | pass
+mobilenet_v3_large-int8-default-b2 | f21 | True | - | 0/8 | 62.50 (75.00) | 1 | 0 | 0 | pass
+mobilenet_v3_large-int8-default-b2 | fp16.x-8 | True | - | 0/8 | 62.50 (75.00) | 1 | 0 | 0 | pass
+mobilenet_v3_large-int8-default-b2 | sat.struct-0 | True | identical to wide, 0 saturations | 0/8 | 75.00 (75.00) | 0 | 0 | 0 | pass
+mobilenet_v3_large-int8-default-b2 | sat.struct-4 | True | - | 0/8 | 0.00 (75.00) | 8 | 8 | 44 | pass
+
+regression against 7c6344af: 64/64 record sets identical on 8 images; original recipe: 18/18

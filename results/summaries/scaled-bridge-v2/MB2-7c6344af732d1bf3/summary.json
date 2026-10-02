@@ -1,0 +1,3629 @@
+{
+  "payload": {
+    "bounds": {
+      "gate_images_cpu": 8,
+      "ledger_cutoff_epoch": 1790864059.7781281,
+      "note": "records and ledger entries beyond these bounds are not read",
+      "panel_images_cuda": 32,
+      "replay_images": 32
+    },
+    "cases": [
+      {
+        "B2_configuration_sha256": "2483170b2bc68d583fc67f598ab001e8028b43fe4e032ce1ef491902590a5c0a",
+        "B2_recipe": {
+          "activation_range": "mse",
+          "bias_correction": "empirical",
+          "boundaries": "fused_relu",
+          "equalization": "none",
+          "quantize_input": true,
+          "quantize_logits": true,
+          "unsigned": true,
+          "weight_range": "mse"
+        },
+        "B2_replayed": 32,
+        "boundaries": {
+          "code_forwarding_maxpool": 1,
+          "storing": 31,
+          "unstored_arithmetic": 17
+        },
+        "case": "resnet18-int8-default-b2",
+        "clipping_wide": 2313,
+        "codebooks": [
+          "int8",
+          "int8.unsigned"
+        ],
+        "comparisons": {
+          "control_minus_wide": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          },
+          "wide_minus_B2_lowest_index": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [
+              1,
+              3,
+              8,
+              10,
+              11,
+              18,
+              19,
+              28
+            ],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          },
+          "wide_minus_B2_retained_order": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [
+              1,
+              5,
+              6,
+              8,
+              10,
+              11,
+              12,
+              15,
+              16,
+              19,
+              20,
+              23,
+              26,
+              28,
+              29
+            ],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          }
+        },
+        "control_vs_wide": {
+          "ordered_top5_changed_images": 0,
+          "raw_dot": {
+            "first_differing_node_images": {},
+            "images_differing": 0
+          },
+          "stored_codes": {
+            "first_differing_node_images": {},
+            "images_differing": 0
+          },
+          "top1_class_changed_images": 0
+        },
+        "counts": {
+          "control-cpp": 8,
+          "control-cuda": 32,
+          "wide-cpp": 8,
+          "wide-cuda": 32
+        },
+        "export": {
+          "path": "artifacts/scaled_bridge_v2/exports/9ecfd61292dc72b1c37e8955b29e054ea9b056c52538d562a3785d407d8e135f/resnet18-int8-default-b2/export.json",
+          "sha256": "5aacee8e7cbac6ed83bbf6d5adf8ca2e036d60af8ccfbe916cba2f06b855d3aa"
+        },
+        "format": "int8",
+        "gate": true,
+        "indicative_seconds_per_image": {
+          "control-cpp": 1.2401056464295834,
+          "control-cuda": 0.2428306345245801,
+          "wide-cpp": 1.4237250275327824,
+          "wide-cuda": 0.2512352420017123
+        },
+        "layers": [
+          {
+            "K": 147,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8",
+            "input_range_units": [
+              -128,
+              127
+            ],
+            "max_abs_prefix_units": 1105280,
+            "node": "conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              -128,
+              127
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 512,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 3664095,
+            "node": "fc",
+            "product_shift": 0,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 3752580,
+            "node": "layer1_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 5159415,
+            "node": "layer1_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 24,
+            "signed_bits_range": 23,
+            "signed_bits_structural": 23,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 4115955,
+            "node": "layer1_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 23,
+            "signed_bits_structural": 23,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 4380900,
+            "node": "layer1_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 24,
+            "signed_bits_range": 23,
+            "signed_bits_structural": 23,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 4358970,
+            "node": "layer2_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 24,
+            "signed_bits_range": 23,
+            "signed_bits_structural": 23,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 8210745,
+            "node": "layer2_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 24,
+            "signed_bits_range": 24,
+            "signed_bits_structural": 24,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 64,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 868785,
+            "node": "layer2_0_downsample_0",
+            "product_shift": 0,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 8710290,
+            "node": "layer2_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 25,
+            "signed_bits_range": 24,
+            "signed_bits_structural": 24,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 9404400,
+            "node": "layer2_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 25,
+            "signed_bits_range": 24,
+            "signed_bits_structural": 24,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 9462540,
+            "node": "layer3_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 25,
+            "signed_bits_range": 24,
+            "signed_bits_structural": 24,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 15674850,
+            "node": "layer3_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 25,
+            "signed_bits_range": 25,
+            "signed_bits_structural": 25,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 128,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 1449675,
+            "node": "layer3_0_downsample_0",
+            "product_shift": 0,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 15913020,
+            "node": "layer3_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 25,
+            "signed_bits_range": 25,
+            "signed_bits_structural": 25,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 18364335,
+            "node": "layer3_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 26,
+            "signed_bits_range": 25,
+            "signed_bits_structural": 25,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 18405645,
+            "node": "layer4_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 26,
+            "signed_bits_range": 25,
+            "signed_bits_structural": 25,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 34961775,
+            "node": "layer4_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 27,
+            "signed_bits_range": 26,
+            "signed_bits_structural": 26,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 256,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 2614005,
+            "node": "layer4_0_downsample_0",
+            "product_shift": 0,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 36858210,
+            "node": "layer4_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 27,
+            "signed_bits_range": 26,
+            "signed_bits_structural": 26,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int8.unsigned",
+            "input_range_units": [
+              0,
+              255
+            ],
+            "max_abs_prefix_units": 33246900,
+            "node": "layer4_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 26,
+            "signed_bits_range": 25,
+            "signed_bits_structural": 25,
+            "structural_input_range_units": [
+              0,
+              255
+            ],
+            "weight_codebook": "int8"
+          }
+        ],
+        "layers_exact_in_binary64": 21,
+        "layers_two_limb": 0,
+        "mac_layers": 21,
+        "max_signed_bits": {
+          "signed_bits_absolute": 27,
+          "signed_bits_range": 26,
+          "signed_bits_structural": 26
+        },
+        "oracle_dot_checks_first_image": {
+          "control-cpp": 83,
+          "wide-cpp": 83
+        },
+        "paired_images": 32,
+        "recipe": "default",
+        "tie_aware": {
+          "B2_images_where_the_two_orders_give_another_top1": 0,
+          "B2_images_where_the_two_orders_give_another_top5": 13,
+          "B2_images_with_tied_top1": 0,
+          "B2_top1": 68.75,
+          "control_top1": 68.75,
+          "wide_images_with_tied_top1": 0,
+          "wide_top1": 68.75
+        },
+        "wide_vs_B2": {
+          "B2_retained_top5_reproduced_images": 32,
+          "changed_codes": 1061599,
+          "changed_fraction": 0.0097907705926587,
+          "changed_fraction_by_boundary": {
+            "avgpool": 0.17877197265625,
+            "fc": 0.1731875,
+            "layer1_0_conv2": 0.000143245774872449,
+            "layer1_0_relu": 2.1331164301658165e-05,
+            "layer1_0_relu_1": 0.00011553083147321428,
+            "layer1_1_conv2": 0.0011082863321109694,
+            "layer1_1_relu": 0.0005712703782684949,
+            "layer1_1_relu_1": 0.0009040054009885204,
+            "layer2_0_conv2": 0.004486395388233418,
+            "layer2_0_downsample_0": 0.0017332738759566326,
+            "layer2_0_relu": 0.002062739158163265,
+            "layer2_0_relu_1": 0.0027487618582589285,
+            "layer2_1_conv2": 0.01357627401546556,
+            "layer2_1_relu": 0.0050936329121492345,
+            "layer2_1_relu_1": 0.007614758549904337,
+            "layer3_0_conv2": 0.021590252311862245,
+            "layer3_0_downsample_0": 0.01692915935905612,
+            "layer3_0_relu": 0.012832330197704082,
+            "layer3_0_relu_1": 0.01178352200255102,
+            "layer3_1_conv2": 0.05484943000637755,
+            "layer3_1_relu": 0.02403414979272959,
+            "layer3_1_relu_1": 0.02681000378667092,
+            "layer4_0_conv2": 0.17895258689413265,
+            "layer4_0_downsample_0": 0.13725311902104592,
+            "layer4_0_relu": 0.03798877949617347,
+            "layer4_0_relu_1": 0.04938242386798469,
+            "layer4_1_conv2": 0.20448022959183673,
+            "layer4_1_relu": 0.07377531090561225,
+            "layer4_1_relu_1": 0.12002625757334184,
+            "relu": 3.2308150310905614e-06,
+            "x": 0.0
+          },
+          "compared_codes": 108428544,
+          "first_differing_boundary": {
+            "first_differing_node_images": {
+              "layer1_0_conv2": 3,
+              "relu": 29
+            },
+            "images_differing": 32
+          },
+          "images_with_identical_codes_everywhere": 0,
+          "images_with_identical_logit_codes": 2,
+          "inputs_bit_identical_images": 32,
+          "max_abs_logit_difference": 0.20752620697021484
+        },
+        "widest_nodes": {
+          "signed_bits_absolute": [
+            "layer4_0_conv2",
+            "layer4_1_conv1"
+          ],
+          "signed_bits_range": [
+            "layer4_0_conv2",
+            "layer4_1_conv1"
+          ],
+          "signed_bits_structural": [
+            "layer4_0_conv2",
+            "layer4_1_conv1"
+          ]
+        }
+      },
+      {
+        "B2_configuration_sha256": "9f3a82e502f3fc389683051de662fdce2193eac1b2a4bfd5d78bd15801c71f59",
+        "B2_recipe": {
+          "activation_range": "mse",
+          "bias_correction": "empirical",
+          "boundaries": "fused_relu",
+          "equalization": "none",
+          "quantize_input": true,
+          "quantize_logits": true,
+          "unsigned": true,
+          "weight_range": "mse"
+        },
+        "B2_replayed": 32,
+        "boundaries": {
+          "code_forwarding_maxpool": 1,
+          "storing": 31,
+          "unstored_arithmetic": 17
+        },
+        "case": "resnet18-int6-default-b2",
+        "clipping_wide": 77540,
+        "codebooks": [
+          "int6",
+          "int6.unsigned"
+        ],
+        "comparisons": {
+          "control_minus_wide": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 81.25,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 81.25
+            }
+          },
+          "wide_minus_B2_lowest_index": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [
+              0,
+              3,
+              11,
+              13,
+              17,
+              20,
+              22,
+              25
+            ],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 81.25,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 81.25
+            }
+          },
+          "wide_minus_B2_retained_order": {
+            "changed_top1_indices": [
+              4,
+              13
+            ],
+            "changed_top5_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              25,
+              26,
+              27,
+              28,
+              30
+            ],
+            "top1": {
+              "delta_pp": -3.125,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                -9.375,
+                0.0
+              ],
+              "right_only_correct": 1,
+              "right_percent": 71.875
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 81.25,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 81.25
+            }
+          }
+        },
+        "control_vs_wide": {
+          "ordered_top5_changed_images": 0,
+          "raw_dot": {
+            "first_differing_node_images": {},
+            "images_differing": 0
+          },
+          "stored_codes": {
+            "first_differing_node_images": {},
+            "images_differing": 0
+          },
+          "top1_class_changed_images": 0
+        },
+        "counts": {
+          "control-cpp": 8,
+          "control-cuda": 32,
+          "wide-cpp": 8,
+          "wide-cuda": 32
+        },
+        "export": {
+          "path": "artifacts/scaled_bridge_v2/exports/9ecfd61292dc72b1c37e8955b29e054ea9b056c52538d562a3785d407d8e135f/resnet18-int6-default-b2/export.json",
+          "sha256": "f9a134130d39d16e346539516c14bd58c414b1e409d3b53b10129ee38822bcb4"
+        },
+        "format": "int6",
+        "gate": true,
+        "indicative_seconds_per_image": {
+          "control-cpp": 1.3182319509796798,
+          "control-cuda": 0.22794147301465273,
+          "wide-cpp": 1.3963299461756833,
+          "wide-cuda": 0.22744333499576896
+        },
+        "layers": [
+          {
+            "K": 147,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6",
+            "input_range_units": [
+              -32,
+              31
+            ],
+            "max_abs_prefix_units": 71200,
+            "node": "conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 18,
+            "signed_bits_range": 18,
+            "signed_bits_structural": 18,
+            "structural_input_range_units": [
+              -32,
+              31
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 512,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 228312,
+            "node": "fc",
+            "product_shift": 0,
+            "signed_bits_absolute": 19,
+            "signed_bits_range": 18,
+            "signed_bits_structural": 18,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 230706,
+            "node": "layer1_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 19,
+            "signed_bits_range": 18,
+            "signed_bits_structural": 18,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 324513,
+            "node": "layer1_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 19,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 261891,
+            "node": "layer1_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 19,
+            "signed_bits_range": 19,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 291879,
+            "node": "layer1_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 19,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 288414,
+            "node": "layer2_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 19,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 545202,
+            "node": "layer2_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 64,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 52227,
+            "node": "layer2_0_downsample_0",
+            "product_shift": 0,
+            "signed_bits_absolute": 17,
+            "signed_bits_range": 17,
+            "signed_bits_structural": 17,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 559881,
+            "node": "layer2_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 591696,
+            "node": "layer2_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 628425,
+            "node": "layer3_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 1099161,
+            "node": "layer3_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 128,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 92358,
+            "node": "layer3_0_downsample_0",
+            "product_shift": 0,
+            "signed_bits_absolute": 18,
+            "signed_bits_range": 17,
+            "signed_bits_structural": 17,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 1070685,
+            "node": "layer3_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 1205442,
+            "node": "layer3_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 1194480,
+            "node": "layer4_0_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 2271843,
+            "node": "layer4_0_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 256,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 160650,
+            "node": "layer4_0_downsample_0",
+            "product_shift": 0,
+            "signed_bits_absolute": 19,
+            "signed_bits_range": 18,
+            "signed_bits_structural": 18,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 2421090,
+            "node": "layer4_1_conv1",
+            "product_shift": 0,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "int6.unsigned",
+            "input_range_units": [
+              0,
+              63
+            ],
+            "max_abs_prefix_units": 2232216,
+            "node": "layer4_1_conv2",
+            "product_shift": 0,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              63
+            ],
+            "weight_codebook": "int6"
+          }
+        ],
+        "layers_exact_in_binary64": 21,
+        "layers_two_limb": 0,
+        "mac_layers": 21,
+        "max_signed_bits": {
+          "signed_bits_absolute": 23,
+          "signed_bits_range": 22,
+          "signed_bits_structural": 22
+        },
+        "oracle_dot_checks_first_image": {
+          "control-cpp": 83,
+          "wide-cpp": 83
+        },
+        "paired_images": 32,
+        "recipe": "default",
+        "tie_aware": {
+          "B2_images_where_the_two_orders_give_another_top1": 2,
+          "B2_images_where_the_two_orders_give_another_top5": 25,
+          "B2_images_with_tied_top1": 3,
+          "B2_top1": 68.75,
+          "control_top1": 68.75,
+          "wide_images_with_tied_top1": 3,
+          "wide_top1": 68.75
+        },
+        "wide_vs_B2": {
+          "B2_retained_top5_reproduced_images": 32,
+          "changed_codes": 270707,
+          "changed_fraction": 0.00249663963024349,
+          "changed_fraction_by_boundary": {
+            "avgpool": 0.063720703125,
+            "fc": 0.057625,
+            "layer1_0_conv2": 3.129608777104592e-05,
+            "layer1_0_relu": 5.6052694515306125e-06,
+            "layer1_0_relu_1": 2.288818359375e-05,
+            "layer1_1_conv2": 0.00026095643335459186,
+            "layer1_1_relu": 0.00010556590800382653,
+            "layer1_1_relu_1": 0.00020163399832589285,
+            "layer2_0_conv2": 0.0011780407963966836,
+            "layer2_0_downsample_0": 0.000454338229432398,
+            "layer2_0_relu": 0.0005172418088329082,
+            "layer2_0_relu_1": 0.0007121806242028062,
+            "layer2_1_conv2": 0.003247008031728316,
+            "layer2_1_relu": 0.0011627820073341836,
+            "layer2_1_relu_1": 0.0017949318399234694,
+            "layer3_0_conv2": 0.007311139787946429,
+            "layer3_0_downsample_0": 0.003938013193558673,
+            "layer3_0_relu": 0.003030582350127551,
+            "layer3_0_relu_1": 0.003666469029017857,
+            "layer3_1_conv2": 0.01397705078125,
+            "layer3_1_relu": 0.004606908681441327,
+            "layer3_1_relu_1": 0.007034613161670918,
+            "layer4_0_conv2": 0.04533666493941327,
+            "layer4_0_downsample_0": 0.03365154655612245,
+            "layer4_0_relu": 0.007516043526785714,
+            "layer4_0_relu_1": 0.01151446906887755,
+            "layer4_1_conv2": 0.05636658960459184,
+            "layer4_1_relu": 0.013222207828443877,
+            "layer4_1_relu_1": 0.03750921755420918,
+            "relu": 1.985199597417092e-06,
+            "x": 0.0
+          },
+          "compared_codes": 108428544,
+          "first_differing_boundary": {
+            "first_differing_node_images": {
+              "layer1_0_conv2": 2,
+              "layer2_0_relu": 1,
+              "relu": 25
+            },
+            "images_differing": 28
+          },
+          "images_with_identical_codes_everywhere": 4,
+          "images_with_identical_logit_codes": 17,
+          "inputs_bit_identical_images": 32,
+          "max_abs_logit_difference": 0.588289737701416
+        },
+        "widest_nodes": {
+          "signed_bits_absolute": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_range": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_structural": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ]
+        }
+      },
+      {
+        "B2_configuration_sha256": "4252a3eff18a8f54db4b862736ae794ee9a912880b23490883ddc7b6664fe33d",
+        "B2_recipe": {
+          "activation_range": "mse",
+          "bias_correction": "empirical",
+          "boundaries": "fused_relu",
+          "equalization": "none",
+          "quantize_input": true,
+          "quantize_logits": true,
+          "unsigned": true,
+          "weight_range": "mse"
+        },
+        "B2_replayed": 32,
+        "boundaries": {
+          "code_forwarding_maxpool": 1,
+          "storing": 31,
+          "unstored_arithmetic": 17
+        },
+        "case": "resnet18-fp6_e2m3-default-b2",
+        "clipping_wide": 51737,
+        "codebooks": [
+          "fp6_e2m3"
+        ],
+        "comparisons": {
+          "control_minus_wide": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 78.125,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 78.125
+            }
+          },
+          "wide_minus_B2_lowest_index": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [
+              0,
+              10,
+              16,
+              21,
+              25,
+              26,
+              27
+            ],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 78.125,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 78.125
+            }
+          },
+          "wide_minus_B2_retained_order": {
+            "changed_top1_indices": [
+              7
+            ],
+            "changed_top5_indices": [
+              1,
+              2,
+              3,
+              4,
+              6,
+              7,
+              8,
+              9,
+              10,
+              12,
+              14,
+              15,
+              16,
+              17,
+              19,
+              20,
+              21,
+              22,
+              23,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "top1": {
+              "delta_pp": 3.125,
+              "left_only_correct": 1,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                9.375
+              ],
+              "right_only_correct": 0,
+              "right_percent": 65.625
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 78.125,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 78.125
+            }
+          }
+        },
+        "control_vs_wide": {
+          "ordered_top5_changed_images": 0,
+          "raw_dot": {
+            "first_differing_node_images": {},
+            "images_differing": 0
+          },
+          "stored_codes": {
+            "first_differing_node_images": {},
+            "images_differing": 0
+          },
+          "top1_class_changed_images": 0
+        },
+        "counts": {
+          "control-cpp": 8,
+          "control-cuda": 32,
+          "wide-cpp": 8,
+          "wide-cuda": 32
+        },
+        "export": {
+          "path": "artifacts/scaled_bridge_v2/exports/9ecfd61292dc72b1c37e8955b29e054ea9b056c52538d562a3785d407d8e135f/resnet18-fp6_e2m3-default-b2/export.json",
+          "sha256": "c65e9f90f6bab55a8e196d766938cf30e7ab132ccc7560238dad4b9b91c6408d"
+        },
+        "format": "fp6_e2m3",
+        "gate": true,
+        "indicative_seconds_per_image": {
+          "control-cpp": 1.3133744284859858,
+          "control-cuda": 0.2355426285066642,
+          "wide-cpp": 1.4222283279523253,
+          "wide-cuda": 0.2311176840448752
+        },
+        "layers": [
+          {
+            "K": 147,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 202720,
+            "node": "conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 19,
+            "signed_bits_range": 19,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              -56,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 512,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 352352,
+            "node": "fc",
+            "product_shift": 6,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              -56,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 362880,
+            "node": "layer1_0_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 494088,
+            "node": "layer1_0_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 397880,
+            "node": "layer1_1_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 430080,
+            "node": "layer1_1_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 419944,
+            "node": "layer2_0_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 20,
+            "signed_bits_range": 20,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 777000,
+            "node": "layer2_0_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 64,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 80304,
+            "node": "layer2_0_downsample_0",
+            "product_shift": 6,
+            "signed_bits_absolute": 18,
+            "signed_bits_range": 18,
+            "signed_bits_structural": 17,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 850920,
+            "node": "layer2_1_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 902160,
+            "node": "layer2_1_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 977312,
+            "node": "layer3_0_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 21,
+            "signed_bits_range": 21,
+            "signed_bits_structural": 20,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 1516760,
+            "node": "layer3_0_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 128,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 139104,
+            "node": "layer3_0_downsample_0",
+            "product_shift": 6,
+            "signed_bits_absolute": 19,
+            "signed_bits_range": 19,
+            "signed_bits_structural": 18,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 1542072,
+            "node": "layer3_1_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 1833776,
+            "node": "layer3_1_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 1765064,
+            "node": "layer4_0_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 22,
+            "signed_bits_range": 22,
+            "signed_bits_structural": 21,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 3490312,
+            "node": "layer4_0_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 23,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 256,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 237832,
+            "node": "layer4_0_downsample_0",
+            "product_shift": 6,
+            "signed_bits_absolute": 19,
+            "signed_bits_range": 19,
+            "signed_bits_structural": 19,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 3566248,
+            "node": "layer4_1_conv1",
+            "product_shift": 6,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 23,
+            "signed_bits_structural": 23,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp6_e2m3",
+            "input_range_units": [
+              -56,
+              56
+            ],
+            "max_abs_prefix_units": 3324720,
+            "node": "layer4_1_conv2",
+            "product_shift": 6,
+            "signed_bits_absolute": 23,
+            "signed_bits_range": 23,
+            "signed_bits_structural": 22,
+            "structural_input_range_units": [
+              0,
+              56
+            ],
+            "weight_codebook": "fp6_e2m3"
+          }
+        ],
+        "layers_exact_in_binary64": 21,
+        "layers_two_limb": 0,
+        "mac_layers": 21,
+        "max_signed_bits": {
+          "signed_bits_absolute": 23,
+          "signed_bits_range": 23,
+          "signed_bits_structural": 23
+        },
+        "oracle_dot_checks_first_image": {
+          "control-cpp": 83,
+          "wide-cpp": 83
+        },
+        "paired_images": 32,
+        "recipe": "default",
+        "tie_aware": {
+          "B2_images_where_the_two_orders_give_another_top1": 1,
+          "B2_images_where_the_two_orders_give_another_top5": 26,
+          "B2_images_with_tied_top1": 1,
+          "B2_top1": 67.1875,
+          "control_top1": 67.1875,
+          "wide_images_with_tied_top1": 1,
+          "wide_top1": 67.1875
+        },
+        "wide_vs_B2": {
+          "B2_retained_top5_reproduced_images": 32,
+          "changed_codes": 298360,
+          "changed_fraction": 0.002751673950357574,
+          "changed_fraction_by_boundary": {
+            "avgpool": 0.052490234375,
+            "fc": 0.0925625,
+            "layer1_0_conv2": 2.2109673947704082e-05,
+            "layer1_0_relu": 3.5811443718112247e-06,
+            "layer1_0_relu_1": 1.3857471699617347e-05,
+            "layer1_1_conv2": 0.00012051329320790816,
+            "layer1_1_relu": 3.285310706313775e-05,
+            "layer1_1_relu_1": 8.516895527742347e-05,
+            "layer2_0_conv2": 0.000530632174744898,
+            "layer2_0_downsample_0": 0.000189022142059949,
+            "layer2_0_relu": 0.00011553083147321428,
+            "layer2_0_relu_1": 0.0002593994140625,
+            "layer2_1_conv2": 0.0023112394371811226,
+            "layer2_1_relu": 0.00038458376514668367,
+            "layer2_1_relu_1": 0.0009040054009885204,
+            "layer3_0_conv2": 0.0064697265625,
+            "layer3_0_downsample_0": 0.003061099928252551,
+            "layer3_0_relu": 0.0012705277423469387,
+            "layer3_0_relu_1": 0.0027266521843112247,
+            "layer3_1_conv2": 0.017931879783163265,
+            "layer3_1_relu": 0.0032174246651785715,
+            "layer3_1_relu_1": 0.007341657366071429,
+            "layer4_0_conv2": 0.06600516183035714,
+            "layer4_0_downsample_0": 0.03621377750318878,
+            "layer4_0_relu": 0.0054794622927295915,
+            "layer4_0_relu_1": 0.010534169722576531,
+            "layer4_1_conv2": 0.08520881497130102,
+            "layer4_1_relu": 0.011210538903061224,
+            "layer4_1_relu_1": 0.04718017578125,
+            "relu": 2.724783761160714e-07,
+            "x": 0.0
+          },
+          "compared_codes": 108428544,
+          "first_differing_boundary": {
+            "first_differing_node_images": {
+              "layer1_0_conv2": 2,
+              "layer1_1_conv2": 5,
+              "layer1_1_relu": 2,
+              "layer2_0_conv2": 1,
+              "layer2_0_downsample_0": 1,
+              "layer2_0_relu": 5,
+              "layer2_1_relu": 1,
+              "layer4_0_conv2": 1,
+              "relu": 7
+            },
+            "images_differing": 25
+          },
+          "images_with_identical_codes_everywhere": 7,
+          "images_with_identical_logit_codes": 16,
+          "inputs_bit_identical_images": 32,
+          "max_abs_logit_difference": 0.7745557427406311
+        },
+        "widest_nodes": {
+          "signed_bits_absolute": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_range": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_structural": [
+            "layer4_1_conv1"
+          ]
+        }
+      },
+      {
+        "B2_configuration_sha256": "53e9ea5af9299b7a0e172d48a4569dec9776d7bfbfa11c196ea5570c07f9ee06",
+        "B2_recipe": {
+          "activation_range": "mse",
+          "bias_correction": "empirical",
+          "boundaries": "fused_relu",
+          "equalization": "none",
+          "quantize_input": true,
+          "quantize_logits": true,
+          "unsigned": true,
+          "weight_range": "mse"
+        },
+        "B2_replayed": 32,
+        "boundaries": {
+          "code_forwarding_maxpool": 1,
+          "storing": 31,
+          "unstored_arithmetic": 17
+        },
+        "case": "resnet18-fp7_e3m3-default-b2",
+        "clipping_wide": 102,
+        "codebooks": [
+          "fp7_e3m3"
+        ],
+        "comparisons": {
+          "control_minus_wide": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 65.625,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 65.625
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          },
+          "wide_minus_B2_lowest_index": {
+            "changed_top1_indices": [
+              4,
+              13
+            ],
+            "changed_top5_indices": [
+              1,
+              3,
+              4,
+              6,
+              7,
+              8,
+              9,
+              13,
+              16,
+              17,
+              18,
+              20,
+              25,
+              28
+            ],
+            "top1": {
+              "delta_pp": -3.125,
+              "left_only_correct": 0,
+              "left_percent": 65.625,
+              "paired_pointwise95_pp": [
+                -9.375,
+                0.0
+              ],
+              "right_only_correct": 1,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          },
+          "wide_minus_B2_retained_order": {
+            "changed_top1_indices": [
+              4,
+              13,
+              17
+            ],
+            "changed_top5_indices": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "top1": {
+              "delta_pp": -3.125,
+              "left_only_correct": 0,
+              "left_percent": 65.625,
+              "paired_pointwise95_pp": [
+                -9.375,
+                0.0
+              ],
+              "right_only_correct": 1,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          }
+        },
+        "control_vs_wide": {
+          "ordered_top5_changed_images": 0,
+          "raw_dot": {
+            "first_differing_node_images": {
+              "conv1": 7
+            },
+            "images_differing": 7
+          },
+          "stored_codes": {
+            "first_differing_node_images": {},
+            "images_differing": 0
+          },
+          "top1_class_changed_images": 0
+        },
+        "counts": {
+          "control-cpp": 8,
+          "control-cuda": 32,
+          "wide-cpp": 8,
+          "wide-cuda": 32
+        },
+        "export": {
+          "path": "artifacts/scaled_bridge_v2/exports/9ecfd61292dc72b1c37e8955b29e054ea9b056c52538d562a3785d407d8e135f/resnet18-fp7_e3m3-default-b2/export.json",
+          "sha256": "a1c95f2ed855c752ef2fd4e8ff165c5616617ac125164e6c248553b631ef7bc1"
+        },
+        "format": "fp7_e3m3",
+        "gate": true,
+        "indicative_seconds_per_image": {
+          "control-cpp": 1.1501619080663659,
+          "control-cuda": 0.24583474948303774,
+          "wide-cpp": 1.1972991904476658,
+          "wide-cuda": 0.2472596270381473
+        },
+        "layers": [
+          {
+            "K": 147,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 51875712,
+            "node": "conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 27,
+            "signed_bits_range": 27,
+            "signed_bits_structural": 27,
+            "structural_input_range_units": [
+              -896,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 512,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 90160000,
+            "node": "fc",
+            "product_shift": 10,
+            "signed_bits_absolute": 28,
+            "signed_bits_range": 28,
+            "signed_bits_structural": 28,
+            "structural_input_range_units": [
+              -896,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 92853376,
+            "node": "layer1_0_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 28,
+            "signed_bits_range": 28,
+            "signed_bits_structural": 27,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 90977152,
+            "node": "layer1_0_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 28,
+            "signed_bits_range": 28,
+            "signed_bits_structural": 27,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 88044544,
+            "node": "layer1_1_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 28,
+            "signed_bits_range": 28,
+            "signed_bits_structural": 27,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 110152448,
+            "node": "layer1_1_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 28,
+            "signed_bits_range": 28,
+            "signed_bits_structural": 27,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 94012800,
+            "node": "layer2_0_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 28,
+            "signed_bits_range": 28,
+            "signed_bits_structural": 27,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 179067392,
+            "node": "layer2_0_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 29,
+            "signed_bits_range": 29,
+            "signed_bits_structural": 28,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 64,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 18567808,
+            "node": "layer2_0_downsample_0",
+            "product_shift": 10,
+            "signed_bits_absolute": 26,
+            "signed_bits_range": 26,
+            "signed_bits_structural": 25,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 197700608,
+            "node": "layer2_1_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 29,
+            "signed_bits_range": 29,
+            "signed_bits_structural": 28,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 212715776,
+            "node": "layer2_1_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 29,
+            "signed_bits_range": 29,
+            "signed_bits_structural": 28,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 197738240,
+            "node": "layer3_0_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 29,
+            "signed_bits_range": 29,
+            "signed_bits_structural": 28,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 329986944,
+            "node": "layer3_0_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 30,
+            "signed_bits_range": 30,
+            "signed_bits_structural": 29,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 128,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 35577472,
+            "node": "layer3_0_downsample_0",
+            "product_shift": 10,
+            "signed_bits_absolute": 27,
+            "signed_bits_range": 27,
+            "signed_bits_structural": 26,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 368351872,
+            "node": "layer3_1_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 30,
+            "signed_bits_range": 30,
+            "signed_bits_structural": 29,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 398702976,
+            "node": "layer3_1_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 30,
+            "signed_bits_range": 30,
+            "signed_bits_structural": 29,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 406011648,
+            "node": "layer4_0_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 30,
+            "signed_bits_range": 30,
+            "signed_bits_structural": 29,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 787835776,
+            "node": "layer4_0_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 31,
+            "signed_bits_range": 31,
+            "signed_bits_structural": 30,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 256,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 60871552,
+            "node": "layer4_0_downsample_0",
+            "product_shift": 10,
+            "signed_bits_absolute": 27,
+            "signed_bits_range": 27,
+            "signed_bits_structural": 26,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 783812736,
+            "node": "layer4_1_conv1",
+            "product_shift": 10,
+            "signed_bits_absolute": 31,
+            "signed_bits_range": 31,
+            "signed_bits_structural": 30,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp7_e3m3",
+            "input_range_units": [
+              -896,
+              896
+            ],
+            "max_abs_prefix_units": 761008640,
+            "node": "layer4_1_conv2",
+            "product_shift": 10,
+            "signed_bits_absolute": 31,
+            "signed_bits_range": 31,
+            "signed_bits_structural": 30,
+            "structural_input_range_units": [
+              0,
+              896
+            ],
+            "weight_codebook": "fp7_e3m3"
+          }
+        ],
+        "layers_exact_in_binary64": 21,
+        "layers_two_limb": 0,
+        "mac_layers": 21,
+        "max_signed_bits": {
+          "signed_bits_absolute": 31,
+          "signed_bits_range": 31,
+          "signed_bits_structural": 30
+        },
+        "oracle_dot_checks_first_image": {
+          "control-cpp": 83,
+          "wide-cpp": 83
+        },
+        "paired_images": 32,
+        "recipe": "default",
+        "tie_aware": {
+          "B2_images_where_the_two_orders_give_another_top1": 2,
+          "B2_images_where_the_two_orders_give_another_top5": 28,
+          "B2_images_with_tied_top1": 3,
+          "B2_top1": 67.8125,
+          "control_top1": 65.625,
+          "wide_images_with_tied_top1": 3,
+          "wide_top1": 65.625
+        },
+        "wide_vs_B2": {
+          "B2_retained_top5_reproduced_images": 32,
+          "changed_codes": 1692479,
+          "changed_fraction": 0.01560916468637631,
+          "changed_fraction_by_boundary": {
+            "avgpool": 0.25152587890625,
+            "fc": 0.40596875,
+            "layer1_0_conv2": 0.00015772605428890306,
+            "layer1_0_relu": 1.4947385204081632e-05,
+            "layer1_0_relu_1": 5.776541573660714e-05,
+            "layer1_1_conv2": 0.001573212292729592,
+            "layer1_1_relu": 0.0003196560606664541,
+            "layer1_1_relu_1": 0.0006528581891741071,
+            "layer2_0_conv2": 0.008301404057716837,
+            "layer2_0_downsample_0": 0.0024554194236288264,
+            "layer2_0_relu": 0.0017236203563456632,
+            "layer2_0_relu_1": 0.003181301817602041,
+            "layer2_1_conv2": 0.026181590800382654,
+            "layer2_1_relu": 0.0053019620934311226,
+            "layer2_1_relu_1": 0.009436159717793368,
+            "layer3_0_conv2": 0.06053628726881378,
+            "layer3_0_downsample_0": 0.030389279735331634,
+            "layer3_0_relu": 0.01535407864317602,
+            "layer3_0_relu_1": 0.024713010204081634,
+            "layer3_1_conv2": 0.11264100366709184,
+            "layer3_1_relu": 0.025928730867346938,
+            "layer3_1_relu_1": 0.046597850566007654,
+            "layer4_0_conv2": 0.2650520169005102,
+            "layer4_0_downsample_0": 0.16526078204719388,
+            "layer4_0_relu": 0.04268350406568878,
+            "layer4_0_relu_1": 0.05085723254145408,
+            "layer4_1_conv2": 0.4066635443239796,
+            "layer4_1_relu": 0.06759954958545919,
+            "layer4_1_relu_1": 0.20784463687818877,
+            "relu": 1.4402428451849489e-06,
+            "x": 0.0
+          },
+          "compared_codes": 108428544,
+          "first_differing_boundary": {
+            "first_differing_node_images": {
+              "layer1_0_conv2": 2,
+              "layer1_0_relu": 5,
+              "layer1_1_conv2": 1,
+              "layer1_1_relu": 2,
+              "layer3_1_conv2": 1,
+              "relu": 21
+            },
+            "images_differing": 32
+          },
+          "images_with_identical_codes_everywhere": 0,
+          "images_with_identical_logit_codes": 2,
+          "inputs_bit_identical_images": 32,
+          "max_abs_logit_difference": 1.532423734664917
+        },
+        "widest_nodes": {
+          "signed_bits_absolute": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_range": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_structural": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ]
+        }
+      },
+      {
+        "B2_configuration_sha256": "ae7a425c65b9176357fa5440d60957cdaddd5c90f1657693ba52dc83c9670892",
+        "B2_recipe": {
+          "activation_range": "mse",
+          "bias_correction": "empirical",
+          "boundaries": "fused_relu",
+          "equalization": "none",
+          "quantize_input": true,
+          "quantize_logits": true,
+          "unsigned": true,
+          "weight_range": "mse"
+        },
+        "B2_replayed": 32,
+        "boundaries": {
+          "code_forwarding_maxpool": 1,
+          "storing": 31,
+          "unstored_arithmetic": 17
+        },
+        "case": "resnet18-fp8_e4m3fn-default-b2",
+        "clipping_wide": 54,
+        "codebooks": [
+          "fp8_e4m3fn"
+        ],
+        "comparisons": {
+          "control_minus_wide": {
+            "changed_top1_indices": [],
+            "changed_top5_indices": [
+              9
+            ],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          },
+          "wide_minus_B2_lowest_index": {
+            "changed_top1_indices": [
+              4
+            ],
+            "changed_top5_indices": [
+              2,
+              3,
+              4,
+              6,
+              7,
+              10,
+              11,
+              13,
+              14,
+              18,
+              22,
+              23,
+              28,
+              29
+            ],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          },
+          "wide_minus_B2_retained_order": {
+            "changed_top1_indices": [
+              4
+            ],
+            "changed_top5_indices": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ],
+            "top1": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 68.75,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 68.75
+            },
+            "top5": {
+              "delta_pp": 0.0,
+              "left_only_correct": 0,
+              "left_percent": 84.375,
+              "paired_pointwise95_pp": [
+                0.0,
+                0.0
+              ],
+              "right_only_correct": 0,
+              "right_percent": 84.375
+            }
+          }
+        },
+        "control_vs_wide": {
+          "ordered_top5_changed_images": 1,
+          "raw_dot": {
+            "first_differing_node_images": {
+              "conv1": 32
+            },
+            "images_differing": 32
+          },
+          "stored_codes": {
+            "first_differing_node_images": {
+              "layer1_0_conv2": 1,
+              "layer1_0_relu": 3,
+              "layer1_1_conv2": 2,
+              "layer1_1_relu": 1,
+              "layer2_0_conv2": 3,
+              "layer2_1_conv2": 1,
+              "layer2_1_relu": 2,
+              "layer3_0_conv2": 1,
+              "layer4_1_conv2": 1,
+              "layer4_1_relu": 1
+            },
+            "images_differing": 16
+          },
+          "top1_class_changed_images": 0
+        },
+        "counts": {
+          "control-cpp": 8,
+          "control-cuda": 32,
+          "wide-cpp": 8,
+          "wide-cuda": 32
+        },
+        "export": {
+          "path": "artifacts/scaled_bridge_v2/exports/9ecfd61292dc72b1c37e8955b29e054ea9b056c52538d562a3785d407d8e135f/resnet18-fp8_e4m3fn-default-b2/export.json",
+          "sha256": "5b5032bb9d93a325469b9270fd05e89e758d2ed898d042caf325e311017eda52"
+        },
+        "format": "fp8_e4m3fn",
+        "gate": true,
+        "indicative_seconds_per_image": {
+          "control-cpp": 1.217703438422177,
+          "control-cuda": 0.21598710544640198,
+          "wide-cpp": 1.2524658840266056,
+          "wide-cuda": 0.2245441440027207
+        },
+        "layers": [
+          {
+            "K": 147,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 3399756021760,
+            "node": "conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 43,
+            "signed_bits_range": 43,
+            "signed_bits_structural": 43,
+            "structural_input_range_units": [
+              -229376,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 512,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 5908761542656,
+            "node": "fc",
+            "product_shift": 18,
+            "signed_bits_absolute": 44,
+            "signed_bits_range": 44,
+            "signed_bits_structural": 44,
+            "structural_input_range_units": [
+              -229376,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 6085147328512,
+            "node": "layer1_0_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 44,
+            "signed_bits_range": 44,
+            "signed_bits_structural": 43,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 5962330013696,
+            "node": "layer1_0_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 44,
+            "signed_bits_range": 44,
+            "signed_bits_structural": 43,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 5770100080640,
+            "node": "layer1_1_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 44,
+            "signed_bits_range": 44,
+            "signed_bits_structural": 43,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 7218847612928,
+            "node": "layer1_1_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 44,
+            "signed_bits_range": 44,
+            "signed_bits_structural": 43,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 576,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 6161362321408,
+            "node": "layer2_0_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 44,
+            "signed_bits_range": 44,
+            "signed_bits_structural": 43,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 11735283531776,
+            "node": "layer2_0_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 45,
+            "signed_bits_range": 45,
+            "signed_bits_structural": 44,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 64,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 1216859865088,
+            "node": "layer2_0_downsample_0",
+            "product_shift": 18,
+            "signed_bits_absolute": 42,
+            "signed_bits_range": 42,
+            "signed_bits_structural": 41,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 12956652470272,
+            "node": "layer2_1_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 45,
+            "signed_bits_range": 45,
+            "signed_bits_structural": 44,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 13940512194560,
+            "node": "layer2_1_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 45,
+            "signed_bits_range": 45,
+            "signed_bits_structural": 44,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 1152,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 12958773280768,
+            "node": "layer3_0_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 45,
+            "signed_bits_range": 45,
+            "signed_bits_structural": 44,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 21626323468288,
+            "node": "layer3_0_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 46,
+            "signed_bits_range": 46,
+            "signed_bits_structural": 45,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 128,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 2331590524928,
+            "node": "layer3_0_downsample_0",
+            "product_shift": 18,
+            "signed_bits_absolute": 43,
+            "signed_bits_range": 43,
+            "signed_bits_structural": 42,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 24140267454464,
+            "node": "layer3_1_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 46,
+            "signed_bits_range": 46,
+            "signed_bits_structural": 45,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 26129479204864,
+            "node": "layer3_1_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 46,
+            "signed_bits_range": 46,
+            "signed_bits_structural": 45,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 2304,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 26608335093760,
+            "node": "layer4_0_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 46,
+            "signed_bits_range": 46,
+            "signed_bits_structural": 45,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 51631218229248,
+            "node": "layer4_0_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 47,
+            "signed_bits_range": 47,
+            "signed_bits_structural": 46,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 256,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 3989388132352,
+            "node": "layer4_0_downsample_0",
+            "product_shift": 18,
+            "signed_bits_absolute": 43,
+            "signed_bits_range": 43,
+            "signed_bits_structural": 42,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 51367732641792,
+            "node": "layer4_1_conv1",
+            "product_shift": 18,
+            "signed_bits_absolute": 47,
+            "signed_bits_range": 47,
+            "signed_bits_structural": 46,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          },
+          {
+            "K": 4608,
+            "binary64_exact_dot": true,
+            "exact_accumulator": "int64",
+            "input_codebook": "fp8_e4m3fn",
+            "input_range_units": [
+              -229376,
+              229376
+            ],
+            "max_abs_prefix_units": 49873719590912,
+            "node": "layer4_1_conv2",
+            "product_shift": 18,
+            "signed_bits_absolute": 47,
+            "signed_bits_range": 47,
+            "signed_bits_structural": 46,
+            "structural_input_range_units": [
+              0,
+              229376
+            ],
+            "weight_codebook": "fp8_e4m3fn"
+          }
+        ],
+        "layers_exact_in_binary64": 21,
+        "layers_two_limb": 0,
+        "mac_layers": 21,
+        "max_signed_bits": {
+          "signed_bits_absolute": 47,
+          "signed_bits_range": 47,
+          "signed_bits_structural": 46
+        },
+        "oracle_dot_checks_first_image": {
+          "control-cpp": 83,
+          "wide-cpp": 83
+        },
+        "paired_images": 32,
+        "recipe": "default",
+        "tie_aware": {
+          "B2_images_where_the_two_orders_give_another_top1": 0,
+          "B2_images_where_the_two_orders_give_another_top5": 25,
+          "B2_images_with_tied_top1": 0,
+          "B2_top1": 68.75,
+          "control_top1": 69.375,
+          "wide_images_with_tied_top1": 1,
+          "wide_top1": 69.375
+        },
+        "wide_vs_B2": {
+          "B2_retained_top5_reproduced_images": 32,
+          "changed_codes": 2148865,
+          "changed_fraction": 0.01981825929526454,
+          "changed_fraction_by_boundary": {
+            "avgpool": 0.32989501953125,
+            "fc": 0.4545,
+            "layer1_0_conv2": 0.00032946528220663266,
+            "layer1_0_relu": 4.6087771045918364e-05,
+            "layer1_0_relu_1": 0.00010665582150829081,
+            "layer1_1_conv2": 0.0030978455835459183,
+            "layer1_1_relu": 0.000603500677614796,
+            "layer1_1_relu_1": 0.001062042859135842,
+            "layer2_0_conv2": 0.012616527323820154,
+            "layer2_0_downsample_0": 0.00392337721221301,
+            "layer2_0_relu": 0.0024697440011160715,
+            "layer2_0_relu_1": 0.00426872409119898,
+            "layer2_1_conv2": 0.037084151287468115,
+            "layer2_1_relu": 0.0076418506855867345,
+            "layer2_1_relu_1": 0.01342181770169005,
+            "layer3_0_conv2": 0.08846485371492346,
+            "layer3_0_downsample_0": 0.042250029894770405,
+            "layer3_0_relu": 0.02010111906090561,
+            "layer3_0_relu_1": 0.0324333346619898,
+            "layer3_1_conv2": 0.1609447245695153,
+            "layer3_1_relu": 0.03399533641581633,
+            "layer3_1_relu_1": 0.05979514608577806,
+            "layer4_0_conv2": 0.28932657047193877,
+            "layer4_0_downsample_0": 0.1820305026307398,
+            "layer4_0_relu": 0.04902617785395408,
+            "layer4_0_relu_1": 0.05348174426020408,
+            "layer4_1_conv2": 0.49854262994260207,
+            "layer4_1_relu": 0.0768295599489796,
+            "layer4_1_relu_1": 0.25881023796237246,
+            "relu": 3.892548230229592e-06,
+            "x": 0.0
+          },
+          "compared_codes": 108428544,
+          "first_differing_boundary": {
+            "first_differing_node_images": {
+              "layer1_0_conv2": 1,
+              "relu": 31
+            },
+            "images_differing": 32
+          },
+          "images_with_identical_codes_everywhere": 0,
+          "images_with_identical_logit_codes": 0,
+          "inputs_bit_identical_images": 32,
+          "max_abs_logit_difference": 1.5324242115020752
+        },
+        "widest_nodes": {
+          "signed_bits_absolute": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_range": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ],
+          "signed_bits_structural": [
+            "layer4_0_conv2",
+            "layer4_1_conv1",
+            "layer4_1_conv2"
+          ]
+        }
+      }
+    ],
+    "cases_total": 5,
+    "cost": {
+      "by_label": {
+        "b2-replay": 70.70970630645752,
+        "conformance": 18.579657316207886,
+        "panel": 238.21189045906067
+      },
+      "invocations": 60,
+      "ledger_cutoff_epoch": 1790864059.7781281,
+      "wall_seconds": 327.5012540817261,
+      "wall_seconds_under_gpu_lock": 0
+    },
+    "engine_sources": {
+      "public/formats/manifests/accumulators/fp16_e5m10_accumulator.json": "23f02b9836c96bf53a52d0efc365da4bbc6ec45150f45222c2387ec8fbe009e8",
+      "public/formats/manifests/accumulators/fp32_e8m23_accumulator.json": "ca7477e69568df8817fdbc98754daee1f1b5f950da84c3df3fe56a3f687e43e7",
+      "public/formats/manifests/accumulators/fp64_e11m52_accumulator.json": "b3e1f0dc2fb23f06ddfc9e776aad60c1a4331329f8dd6e8a9af95ab3efb5fe23",
+      "public/inference/reference/arithmetic.py": "d54e047335ec416afdffac6d0e2438f4ad07c7332014d05cea28d32b0aedc402",
+      "tools/scaled_bridge_v1/common.py": "f49689d5505da345eb3f404016fb80f677e304f3f38b1a50faeadf0aeec4e6e0",
+      "tools/scaled_bridge_v2/__init__.py": "1ddaead242b0aa0b37fbbf7c1b2c23a8682432c4a1c1a93f7ce27c763fde8be5",
+      "tools/scaled_bridge_v2/__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+      "tools/scaled_bridge_v2/accumulators.py": "8200eabb756ccc0ac19c74c78a25005cb73b3eb35b24c031b220998606c63269",
+      "tools/scaled_bridge_v2/certificates.py": "4fdb52576a7010f12fce66fe4a091ce0c20f3e7444fc0401d40ac86882009e8b",
+      "tools/scaled_bridge_v2/cli.py": "54f16325a26544a923f2ef104df0c74a87bb49f8223c0974ed504b3cde0250a8",
+      "tools/scaled_bridge_v2/codebooks.py": "139fe53ab15eda38eb86e529d67ccf62f7e92001047943e3913a58a0d97413bb",
+      "tools/scaled_bridge_v2/common.py": "562a47ab26fa2f7f18eb337da864712cf6d3e01afa2335d44f8abade56efbe5c",
+      "tools/scaled_bridge_v2/conformance.py": "233383c50ca53e1bd0fe04def19f65673456aad76e2b6adbe8b9113cdc39cf94",
+      "tools/scaled_bridge_v2/contract.py": "3852cda92bfbea999534868ac7f27c285c8c1492e18108efea8fb9165f1f8da5",
+      "tools/scaled_bridge_v2/engine.py": "1e7bd16e2328fe80b6c2f6d0f21b0547269c92183361392a98b13589d779dcef",
+      "tools/scaled_bridge_v2/export.py": "4d272eb250bc1bf1c408d6564eef670f0bf5c2a592b61bf6c4ce3ccf8ac3c933",
+      "tools/scaled_bridge_v2/kernel.h": "2fb29b0d13af764dd5b5f7fca3df31e0e8656c80e696246f5e2d739f29ef4cec",
+      "tools/scaled_bridge_v2/manifests/fp21_e8m12_accumulator.json": "ba45d1719be5ce6b9664dd1e2198be2fa6b50f2a23543dc094b812b6e2148775",
+      "tools/scaled_bridge_v2/native.cpp": "1e8929cf86b0162d90b9e6b604a461440ed4793e6e4b1cbbd8d8615d05aab0bd",
+      "tools/scaled_bridge_v2/native.cu": "4a46ac317bb75e3bb08cc3986ae69bc49e737e1c86eccd55963791a293c491a7",
+      "tools/scaled_bridge_v2/native.py": "3ca61027097f51037b10b25a75d822051e49381d15912bff636a0e17dc7653e0",
+      "tools/scaled_bridge_v2/oracles.py": "2c1809154d0a210cac43f980528b2bec442bcb8f522da88974eb452be75748e2",
+      "tools/scaled_bridge_v2/reference.py": "bf81398e34e4f70677f533b56e3cdafbbc727968c3dd9ac56a3249c8aa810d5b",
+      "tools/scaled_bridge_v2/replay.py": "c73fc1c928cdc40e8ef21f95edadb15c8122bb4a4b5c38a931e97103202354b8",
+      "tools/scaled_bridge_v2/worker.py": "910637ac46841641ba30303388875cd6a0c4504ec49172cfcaa16ed96f4ace49"
+    },
+    "engine_sources_digest": "7c6344af732d1bf324c07b285921f63393150cdb3875356c86237d934fdc2f92",
+    "gates_passed": 5,
+    "milestone": "MB2",
+    "primitive_conformance_checks": {
+      "fp6_e2m3": 18286,
+      "fp7_e3m3": 66926,
+      "fp8_e4m3fn": 262510,
+      "int6": 19834,
+      "int6.unsigned": 19834,
+      "int8": 268666,
+      "int8.unsigned": 268666
+    },
+    "tie_rule": "contract order: descending value, lowest class index first. B2 retained order: torch.topk on CUDA FP32 logits. Both are reported for the B2 side; the engine side always uses the contract order"
+  },
+  "sha256": "9e4f8929896f120e3928f808c9e3f05b9725797d5f7da1a784f2e1a15ddd5e46"
+}

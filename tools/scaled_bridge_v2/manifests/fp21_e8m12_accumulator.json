@@ -1,0 +1,24 @@
+{
+  "bits": 21,
+  "encoding": "sign_e8m12",
+  "family": "float",
+  "float": {
+    "bias": 127,
+    "exp_bits": 8,
+    "infinity": true,
+    "mantissa_bits": 12,
+    "nan": true,
+    "subnormals": true
+  },
+  "name": "fp21_e8m12_accumulator",
+  "overflow": "infinity",
+  "rounding": "rne",
+  "scaling": {
+    "granularity": "none",
+    "mode": "none"
+  },
+  "schema_version": "1.0.0",
+  "signed": true,
+  "underflow": "subnormal",
+  "zero": "signed_zero"
+}

@@ -1,0 +1,2333 @@
+{
+ "evidence": "development_evidence_screen1k",
+ "four_bit_rescue": {
+  "criterion": "INT4 (W4/A4) is called rescued for a model if a learned arm is within 5 points of FP32; otherwise the figure is reported as it is, with W4/A8 and W4/A32 beside it to say which side fails",
+  "models": {
+   "mobilenet_v2": {
+    "best_learned_w4a4": {
+     "arm": "LQ-nobc W4/A4 (adaptation: activation-aware input)",
+     "top1_expected": 50.265
+    },
+    "cells": {
+     "L-A32 W4/A32": {
+      "label": "L-A32--w-int4--a-fp32--mse_per_channel--fit-mse_per_channel-fp32in-s0",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -0.4,
+        "interval_pp": [
+         -1.8,
+         1.0
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -0.4,
+        "interval_pp": [
+         -1.8,
+         1.0
+        ]
+       },
+       "topk": {
+        "difference_pp": -0.4,
+        "interval_pp": [
+         -1.8,
+         1.0
+        ]
+       }
+      },
+      "top1_expected": 71.7,
+      "top1_lowest_index": 71.7
+     },
+     "L-bc W4/A4": {
+      "label": "L-bc--w-int4--a-int4--default--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 0.131,
+        "interval_pp": [
+         0.069,
+         0.216
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.3,
+        "interval_pp": [
+         0.0,
+         0.7
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.4,
+        "interval_pp": [
+         0.1,
+         0.8
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -71.869,
+        "interval_pp": [
+         -74.643,
+         -68.987
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -71.7,
+        "interval_pp": [
+         -74.5,
+         -68.8
+        ]
+       },
+       "topk": {
+        "difference_pp": -71.6,
+        "interval_pp": [
+         -74.4,
+         -68.7
+        ]
+       }
+      },
+      "top1_expected": 0.231,
+      "top1_lowest_index": 0.4
+     },
+     "L-bc W4/A8": {
+      "label": "L-bc--w-int4--a-int8--default--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 46.76,
+        "interval_pp": [
+         43.745,
+         49.77
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 46.1,
+        "interval_pp": [
+         42.9,
+         49.2
+        ]
+       },
+       "topk": {
+        "difference_pp": 46.9,
+        "interval_pp": [
+         43.8,
+         50.0
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -17.867,
+        "interval_pp": [
+         -20.517,
+         -15.283
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -17.9,
+        "interval_pp": [
+         -20.6,
+         -15.2
+        ]
+       },
+       "topk": {
+        "difference_pp": -18.2,
+        "interval_pp": [
+         -21.0,
+         -15.498
+        ]
+       }
+      },
+      "top1_expected": 54.233,
+      "top1_lowest_index": 54.2
+     },
+     "L-nobc W4/A4": {
+      "label": "L-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 27.081,
+        "interval_pp": [
+         25.363,
+         28.821
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 25.5,
+        "interval_pp": [
+         22.8,
+         28.2
+        ]
+       },
+       "topk": {
+        "difference_pp": 27.5,
+        "interval_pp": [
+         24.8,
+         30.3
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -44.919,
+        "interval_pp": [
+         -47.603,
+         -42.174
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -46.5,
+        "interval_pp": [
+         -49.9,
+         -43.1
+        ]
+       },
+       "topk": {
+        "difference_pp": -44.5,
+        "interval_pp": [
+         -47.9,
+         -41.2
+        ]
+       }
+      },
+      "top1_expected": 27.181,
+      "top1_lowest_index": 25.6
+     },
+     "L-nobc W4/A8": {
+      "label": "L-nobc--w-int4--a-int8--default_no_bias_correction--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 64.01,
+        "interval_pp": [
+         61.002,
+         66.912
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 63.2,
+        "interval_pp": [
+         60.1,
+         66.2
+        ]
+       },
+       "topk": {
+        "difference_pp": 64.5,
+        "interval_pp": [
+         61.5,
+         67.4
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -0.617,
+        "interval_pp": [
+         -1.967,
+         0.733
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -0.8,
+        "interval_pp": [
+         -2.2,
+         0.6
+        ]
+       },
+       "topk": {
+        "difference_pp": -0.6,
+        "interval_pp": [
+         -2.0,
+         0.7
+        ]
+       }
+      },
+      "top1_expected": 71.483,
+      "top1_lowest_index": 71.3
+     },
+     "LQ-bc W4/A4 (adaptation: activation-aware input)": {
+      "label": "LQ-bc--w-int4--a-int4--default--fit-mse_per_channel-b2in-int4-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 7.5,
+        "interval_pp": [
+         6.096,
+         8.953
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 8.2,
+        "interval_pp": [
+         6.5,
+         9.9
+        ]
+       },
+       "topk": {
+        "difference_pp": 9.0,
+        "interval_pp": [
+         7.3,
+         10.8
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -64.5,
+        "interval_pp": [
+         -67.407,
+         -61.542
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -63.8,
+        "interval_pp": [
+         -66.802,
+         -60.7
+        ]
+       },
+       "topk": {
+        "difference_pp": -63.0,
+        "interval_pp": [
+         -66.1,
+         -59.9
+        ]
+       }
+      },
+      "top1_expected": 7.6,
+      "top1_lowest_index": 8.3
+     },
+     "LQ-nobc W4/A4 (adaptation: activation-aware input)": {
+      "label": "LQ-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-b2in-int4-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 50.165,
+        "interval_pp": [
+         47.528,
+         52.796
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 49.7,
+        "interval_pp": [
+         46.5,
+         52.8
+        ]
+       },
+       "topk": {
+        "difference_pp": 50.3,
+        "interval_pp": [
+         47.2,
+         53.4
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -21.835,
+        "interval_pp": [
+         -24.494,
+         -19.199
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -22.3,
+        "interval_pp": [
+         -25.3,
+         -19.3
+        ]
+       },
+       "topk": {
+        "difference_pp": -21.7,
+        "interval_pp": [
+         -24.9,
+         -18.5
+        ]
+       }
+      },
+      "top1_expected": 50.265,
+      "top1_lowest_index": 49.8
+     },
+     "N-A32 W4/A32": {
+      "label": "N-A32--w-int4--a-fp32--mse_per_channel",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -69.8,
+        "interval_pp": [
+         -72.7,
+         -66.8
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -69.8,
+        "interval_pp": [
+         -72.7,
+         -66.8
+        ]
+       },
+       "topk": {
+        "difference_pp": -69.8,
+        "interval_pp": [
+         -72.7,
+         -66.8
+        ]
+       }
+      },
+      "top1_expected": 2.3,
+      "top1_lowest_index": 2.3
+     },
+     "N-default W4/A4": {
+      "label": "N-default--w-int4--a-int4--default",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -72.0,
+        "interval_pp": [
+         -74.79,
+         -69.115
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -72.0,
+        "interval_pp": [
+         -74.8,
+         -69.1
+        ]
+       },
+       "topk": {
+        "difference_pp": -72.0,
+        "interval_pp": [
+         -74.8,
+         -69.1
+        ]
+       }
+      },
+      "top1_expected": 0.1,
+      "top1_lowest_index": 0.1
+     },
+     "N-default W4/A8": {
+      "label": "N-default--w-int4--a-int8--default",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -64.627,
+        "interval_pp": [
+         -67.593,
+         -61.572
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -64.0,
+        "interval_pp": [
+         -67.0,
+         -60.9
+        ]
+       },
+       "topk": {
+        "difference_pp": -65.1,
+        "interval_pp": [
+         -68.1,
+         -62.0
+        ]
+       }
+      },
+      "top1_expected": 7.473,
+      "top1_lowest_index": 8.1
+     },
+     "N-minimal W4/A4": {
+      "label": "N-minimal--w-int4--a-int4--minimal",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 0.368,
+        "interval_pp": [
+         0.011,
+         0.818
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.3,
+        "interval_pp": [
+         -0.1,
+         0.8
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.4,
+        "interval_pp": [
+         0.0,
+         0.9
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -71.632,
+        "interval_pp": [
+         -74.414,
+         -68.744
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -71.7,
+        "interval_pp": [
+         -74.5,
+         -68.8
+        ]
+       },
+       "topk": {
+        "difference_pp": -71.6,
+        "interval_pp": [
+         -74.4,
+         -68.7
+        ]
+       }
+      },
+      "top1_expected": 0.468,
+      "top1_lowest_index": 0.4
+     },
+     "N-minimal W4/A8": {
+      "label": "N-minimal--w-int4--a-int8--minimal",
+      "minus_default": {
+       "expected": {
+        "difference_pp": -6.373,
+        "interval_pp": [
+         -8.087,
+         -4.745
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -7.1,
+        "interval_pp": [
+         -8.9,
+         -5.4
+        ]
+       },
+       "topk": {
+        "difference_pp": -5.9,
+        "interval_pp": [
+         -7.6,
+         -4.2
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -71.0,
+        "interval_pp": [
+         -73.8,
+         -68.1
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -71.1,
+        "interval_pp": [
+         -73.9,
+         -68.2
+        ]
+       },
+       "topk": {
+        "difference_pp": -71.0,
+        "interval_pp": [
+         -73.8,
+         -68.1
+        ]
+       }
+      },
+      "top1_expected": 1.1,
+      "top1_lowest_index": 1.0
+     },
+     "N-nobc W4/A4": {
+      "label": "N-nobc--w-int4--a-int4--default_no_bias_correction",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 1.012,
+        "interval_pp": [
+         0.458,
+         1.655
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 1.1,
+        "interval_pp": [
+         0.4,
+         1.8
+        ]
+       },
+       "topk": {
+        "difference_pp": 1.0,
+        "interval_pp": [
+         0.3,
+         1.7
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -70.988,
+        "interval_pp": [
+         -73.813,
+         -68.113
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -70.9,
+        "interval_pp": [
+         -73.7,
+         -68.0
+        ]
+       },
+       "topk": {
+        "difference_pp": -71.0,
+        "interval_pp": [
+         -73.8,
+         -68.1
+        ]
+       }
+      },
+      "top1_expected": 1.112,
+      "top1_lowest_index": 1.2
+     },
+     "N-nobc W4/A8": {
+      "label": "N-nobc--w-int4--a-int8--default_no_bias_correction",
+      "minus_default": {
+       "expected": {
+        "difference_pp": -5.223,
+        "interval_pp": [
+         -7.125,
+         -3.417
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -5.8,
+        "interval_pp": [
+         -7.8,
+         -3.9
+        ]
+       },
+       "topk": {
+        "difference_pp": -4.7,
+        "interval_pp": [
+         -6.6,
+         -2.9
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -69.85,
+        "interval_pp": [
+         -72.75,
+         -66.9
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -69.8,
+        "interval_pp": [
+         -72.7,
+         -66.8
+        ]
+       },
+       "topk": {
+        "difference_pp": -69.8,
+        "interval_pp": [
+         -72.7,
+         -66.8
+        ]
+       }
+      },
+      "top1_expected": 2.25,
+      "top1_lowest_index": 2.3
+     }
+    },
+    "fp32": 72.1,
+    "w4a4_rescued": false
+   },
+   "mobilenet_v3_large": {
+    "best_learned_w4a4": {
+     "arm": "LQ-nobc W4/A4 (adaptation: activation-aware input)",
+     "top1_expected": 0.2
+    },
+    "cells": {
+     "L-A32 W4/A32": {
+      "label": "L-A32--w-int4--a-fp32--mse_per_channel--fit-mse_per_channel-fp32in-s0",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -1.9,
+        "interval_pp": [
+         -3.4,
+         -0.5
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -1.9,
+        "interval_pp": [
+         -3.4,
+         -0.5
+        ]
+       },
+       "topk": {
+        "difference_pp": -1.9,
+        "interval_pp": [
+         -3.4,
+         -0.5
+        ]
+       }
+      },
+      "top1_expected": 73.1,
+      "top1_lowest_index": 73.1
+     },
+     "L-bc W4/A4": {
+      "label": "L-bc--w-int4--a-int4--default--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 0.026,
+        "interval_pp": [
+         -0.041,
+         0.091
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.2,
+        "interval_pp": [
+         0.0,
+         0.5
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.0,
+        "interval_pp": [
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -74.871,
+        "interval_pp": [
+         -77.568,
+         -72.175
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -74.7,
+        "interval_pp": [
+         -77.4,
+         -72.0
+        ]
+       },
+       "topk": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       }
+      },
+      "top1_expected": 0.129,
+      "top1_lowest_index": 0.3
+     },
+     "L-bc W4/A8": {
+      "label": "L-bc--w-int4--a-int8--default--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 20.383,
+        "interval_pp": [
+         17.483,
+         23.267
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 20.0,
+        "interval_pp": [
+         17.0,
+         22.9
+        ]
+       },
+       "topk": {
+        "difference_pp": 20.0,
+        "interval_pp": [
+         17.1,
+         22.9
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -5.867,
+        "interval_pp": [
+         -7.934,
+         -3.85
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -6.0,
+        "interval_pp": [
+         -8.1,
+         -3.9
+        ]
+       },
+       "topk": {
+        "difference_pp": -6.0,
+        "interval_pp": [
+         -8.1,
+         -4.0
+        ]
+       }
+      },
+      "top1_expected": 69.133,
+      "top1_lowest_index": 69.0
+     },
+     "L-nobc W4/A4": {
+      "label": "L-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": -0.053,
+        "interval_pp": [
+         -0.175,
+         0.09
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -0.1,
+        "interval_pp": [
+         -0.3,
+         0.0
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.0,
+        "interval_pp": [
+         -0.3,
+         0.3
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -74.95,
+        "interval_pp": [
+         -77.65,
+         -72.25
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -75.0,
+        "interval_pp": [
+         -77.7,
+         -72.3
+        ]
+       },
+       "topk": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       }
+      },
+      "top1_expected": 0.05,
+      "top1_lowest_index": 0.0
+     },
+     "L-nobc W4/A8": {
+      "label": "L-nobc--w-int4--a-int8--default_no_bias_correction--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 20.6,
+        "interval_pp": [
+         17.767,
+         23.433
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 20.4,
+        "interval_pp": [
+         17.5,
+         23.3
+        ]
+       },
+       "topk": {
+        "difference_pp": 20.6,
+        "interval_pp": [
+         17.7,
+         23.5
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -5.65,
+        "interval_pp": [
+         -7.75,
+         -3.65
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -5.6,
+        "interval_pp": [
+         -7.7,
+         -3.6
+        ]
+       },
+       "topk": {
+        "difference_pp": -5.4,
+        "interval_pp": [
+         -7.5,
+         -3.3
+        ]
+       }
+      },
+      "top1_expected": 69.35,
+      "top1_lowest_index": 69.4
+     },
+     "LQ-bc W4/A4 (adaptation: activation-aware input)": {
+      "label": "LQ-bc--w-int4--a-int4--default--fit-mse_per_channel-b2in-int4-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 0.027,
+        "interval_pp": [
+         -0.068,
+         0.122
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.1,
+        "interval_pp": [
+         0.0,
+         0.3
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.1,
+        "interval_pp": [
+         0.0,
+         0.3
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -74.87,
+        "interval_pp": [
+         -77.553,
+         -72.171
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -74.8,
+        "interval_pp": [
+         -77.5,
+         -72.1
+        ]
+       },
+       "topk": {
+        "difference_pp": -74.8,
+        "interval_pp": [
+         -77.5,
+         -72.1
+        ]
+       }
+      },
+      "top1_expected": 0.13,
+      "top1_lowest_index": 0.2
+     },
+     "LQ-nobc W4/A4 (adaptation: activation-aware input)": {
+      "label": "LQ-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-b2in-int4-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 0.096,
+        "interval_pp": [
+         -0.053,
+         0.272
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.0,
+        "interval_pp": [
+         -0.3,
+         0.3
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.2,
+        "interval_pp": [
+         -0.2,
+         0.6
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -74.8,
+        "interval_pp": [
+         -77.515,
+         -72.103
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       },
+       "topk": {
+        "difference_pp": -74.7,
+        "interval_pp": [
+         -77.4,
+         -72.0
+        ]
+       }
+      },
+      "top1_expected": 0.2,
+      "top1_lowest_index": 0.1
+     },
+     "N-A32 W4/A32": {
+      "label": "N-A32--w-int4--a-fp32--mse_per_channel",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -68.1,
+        "interval_pp": [
+         -71.1,
+         -65.1
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -68.1,
+        "interval_pp": [
+         -71.1,
+         -65.1
+        ]
+       },
+       "topk": {
+        "difference_pp": -68.1,
+        "interval_pp": [
+         -71.1,
+         -65.1
+        ]
+       }
+      },
+      "top1_expected": 6.9,
+      "top1_lowest_index": 6.9
+     },
+     "N-default W4/A4": {
+      "label": "N-default--w-int4--a-int4--default",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -74.897,
+        "interval_pp": [
+         -77.597,
+         -72.198
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       },
+       "topk": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       }
+      },
+      "top1_expected": 0.103,
+      "top1_lowest_index": 0.1
+     },
+     "N-default W4/A8": {
+      "label": "N-default--w-int4--a-int8--default",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -26.25,
+        "interval_pp": [
+         -29.25,
+         -23.283
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -26.0,
+        "interval_pp": [
+         -29.0,
+         -23.0
+        ]
+       },
+       "topk": {
+        "difference_pp": -26.0,
+        "interval_pp": [
+         -29.1,
+         -23.0
+        ]
+       }
+      },
+      "top1_expected": 48.75,
+      "top1_lowest_index": 49.0
+     },
+     "N-minimal W4/A4": {
+      "label": "N-minimal--w-int4--a-int4--minimal",
+      "minus_default": {
+       "expected": {
+        "difference_pp": -0.003,
+        "interval_pp": [
+         -0.172,
+         0.236
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.0,
+        "interval_pp": [
+         -0.3,
+         0.3
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.0,
+        "interval_pp": [
+         -0.3,
+         0.3
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       },
+       "topk": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       }
+      },
+      "top1_expected": 0.1,
+      "top1_lowest_index": 0.1
+     },
+     "N-minimal W4/A8": {
+      "label": "N-minimal--w-int4--a-int8--minimal",
+      "minus_default": {
+       "expected": {
+        "difference_pp": -47.4,
+        "interval_pp": [
+         -50.5,
+         -44.35
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -47.6,
+        "interval_pp": [
+         -50.7,
+         -44.5
+        ]
+       },
+       "topk": {
+        "difference_pp": -47.6,
+        "interval_pp": [
+         -50.8,
+         -44.5
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -73.65,
+        "interval_pp": [
+         -76.4,
+         -70.9
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -73.6,
+        "interval_pp": [
+         -76.4,
+         -70.8
+        ]
+       },
+       "topk": {
+        "difference_pp": -73.6,
+        "interval_pp": [
+         -76.4,
+         -70.8
+        ]
+       }
+      },
+      "top1_expected": 1.35,
+      "top1_lowest_index": 1.4
+     },
+     "N-nobc W4/A4": {
+      "label": "N-nobc--w-int4--a-int4--default_no_bias_correction",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 0.1,
+        "interval_pp": [
+         -0.11,
+         0.373
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.0,
+        "interval_pp": [
+         -0.3,
+         0.3
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.1,
+        "interval_pp": [
+         -0.2,
+         0.5
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -74.797,
+        "interval_pp": [
+         -77.5,
+         -72.113
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -74.9,
+        "interval_pp": [
+         -77.6,
+         -72.2
+        ]
+       },
+       "topk": {
+        "difference_pp": -74.8,
+        "interval_pp": [
+         -77.5,
+         -72.1
+        ]
+       }
+      },
+      "top1_expected": 0.203,
+      "top1_lowest_index": 0.1
+     },
+     "N-nobc W4/A8": {
+      "label": "N-nobc--w-int4--a-int8--default_no_bias_correction",
+      "minus_default": {
+       "expected": {
+        "difference_pp": -42.817,
+        "interval_pp": [
+         -46.0,
+         -39.6
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -43.1,
+        "interval_pp": [
+         -46.3,
+         -39.9
+        ]
+       },
+       "topk": {
+        "difference_pp": -43.1,
+        "interval_pp": [
+         -46.3,
+         -39.8
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -69.067,
+        "interval_pp": [
+         -72.033,
+         -66.033
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -69.1,
+        "interval_pp": [
+         -72.1,
+         -66.1
+        ]
+       },
+       "topk": {
+        "difference_pp": -69.1,
+        "interval_pp": [
+         -72.1,
+         -66.1
+        ]
+       }
+      },
+      "top1_expected": 5.933,
+      "top1_lowest_index": 5.9
+     }
+    },
+    "fp32": 75.0,
+    "w4a4_rescued": false
+   },
+   "resnet18": {
+    "best_learned_w4a4": {
+     "arm": "LQ-nobc W4/A4 (adaptation: activation-aware input)",
+     "top1_expected": 27.757
+    },
+    "cells": {
+     "L-A32 W4/A32": {
+      "label": "L-A32--w-int4--a-fp32--mse_per_channel--fit-mse_per_channel-fp32in-s0",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": 0.4,
+        "interval_pp": [
+         -0.9,
+         1.7
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 0.4,
+        "interval_pp": [
+         -0.9,
+         1.7
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.4,
+        "interval_pp": [
+         -0.9,
+         1.7
+        ]
+       }
+      },
+      "top1_expected": 70.5,
+      "top1_lowest_index": 70.5
+     },
+     "L-bc W4/A4": {
+      "label": "L-bc--w-int4--a-int4--default--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 2.869,
+        "interval_pp": [
+         2.145,
+         3.672
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 5.0,
+        "interval_pp": [
+         3.7,
+         6.4
+        ]
+       },
+       "topk": {
+        "difference_pp": 3.8,
+        "interval_pp": [
+         2.6,
+         5.0
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -67.103,
+        "interval_pp": [
+         -69.944,
+         -64.105
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -64.9,
+        "interval_pp": [
+         -67.9,
+         -61.7
+        ]
+       },
+       "topk": {
+        "difference_pp": -66.2,
+        "interval_pp": [
+         -69.1,
+         -63.2
+        ]
+       }
+      },
+      "top1_expected": 2.997,
+      "top1_lowest_index": 5.2
+     },
+     "L-bc W4/A8": {
+      "label": "L-bc--w-int4--a-int8--default--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 67.658,
+        "interval_pp": [
+         64.725,
+         70.467
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 67.6,
+        "interval_pp": [
+         64.6,
+         70.5
+        ]
+       },
+       "topk": {
+        "difference_pp": 67.7,
+        "interval_pp": [
+         64.7,
+         70.6
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -2.342,
+        "interval_pp": [
+         -3.917,
+         -0.825
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -2.4,
+        "interval_pp": [
+         -3.9,
+         -0.9
+        ]
+       },
+       "topk": {
+        "difference_pp": -2.3,
+        "interval_pp": [
+         -3.9,
+         -0.7
+        ]
+       }
+      },
+      "top1_expected": 67.758,
+      "top1_lowest_index": 67.7
+     },
+     "L-nobc W4/A4": {
+      "label": "L-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 24.697,
+        "interval_pp": [
+         22.94,
+         26.507
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 23.5,
+        "interval_pp": [
+         20.9,
+         26.1
+        ]
+       },
+       "topk": {
+        "difference_pp": 23.7,
+        "interval_pp": [
+         21.0,
+         26.4
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -45.274,
+        "interval_pp": [
+         -48.021,
+         -42.385
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -46.4,
+        "interval_pp": [
+         -49.8,
+         -42.998
+        ]
+       },
+       "topk": {
+        "difference_pp": -46.3,
+        "interval_pp": [
+         -49.6,
+         -42.8
+        ]
+       }
+      },
+      "top1_expected": 24.826,
+      "top1_lowest_index": 23.7
+     },
+     "L-nobc W4/A8": {
+      "label": "L-nobc--w-int4--a-int8--default_no_bias_correction--fit-mse_per_channel-fp32in-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 70.333,
+        "interval_pp": [
+         67.5,
+         73.133
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 69.8,
+        "interval_pp": [
+         66.9,
+         72.6
+        ]
+       },
+       "topk": {
+        "difference_pp": 69.7,
+        "interval_pp": [
+         66.8,
+         72.5
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": 0.333,
+        "interval_pp": [
+         -0.9,
+         1.567
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -0.2,
+        "interval_pp": [
+         -1.5,
+         1.1
+        ]
+       },
+       "topk": {
+        "difference_pp": -0.3,
+        "interval_pp": [
+         -1.6,
+         1.0
+        ]
+       }
+      },
+      "top1_expected": 70.433,
+      "top1_lowest_index": 69.9
+     },
+     "LQ-bc W4/A4 (adaptation: activation-aware input)": {
+      "label": "LQ-bc--w-int4--a-int4--default--fit-mse_per_channel-b2in-int4-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 0.704,
+        "interval_pp": [
+         0.369,
+         1.112
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 1.4,
+        "interval_pp": [
+         0.7,
+         2.2
+        ]
+       },
+       "topk": {
+        "difference_pp": 0.9,
+        "interval_pp": [
+         0.4,
+         1.5
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -69.268,
+        "interval_pp": [
+         -72.117,
+         -66.345
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -68.5,
+        "interval_pp": [
+         -71.4,
+         -65.5
+        ]
+       },
+       "topk": {
+        "difference_pp": -69.1,
+        "interval_pp": [
+         -72.0,
+         -66.1
+        ]
+       }
+      },
+      "top1_expected": 0.832,
+      "top1_lowest_index": 1.6
+     },
+     "LQ-nobc W4/A4 (adaptation: activation-aware input)": {
+      "label": "LQ-nobc--w-int4--a-int4--default_no_bias_correction--fit-mse_per_channel-b2in-int4-s0",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 27.628,
+        "interval_pp": [
+         25.768,
+         29.504
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 27.0,
+        "interval_pp": [
+         24.1,
+         29.8
+        ]
+       },
+       "topk": {
+        "difference_pp": 27.1,
+        "interval_pp": [
+         24.3,
+         29.8
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -42.343,
+        "interval_pp": [
+         -45.055,
+         -39.54
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -42.9,
+        "interval_pp": [
+         -46.3,
+         -39.5
+        ]
+       },
+       "topk": {
+        "difference_pp": -42.9,
+        "interval_pp": [
+         -46.4,
+         -39.4
+        ]
+       }
+      },
+      "top1_expected": 27.757,
+      "top1_lowest_index": 27.2
+     },
+     "N-A32 W4/A32": {
+      "label": "N-A32--w-int4--a-fp32--mse_per_channel",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -16.2,
+        "interval_pp": [
+         -18.9,
+         -13.6
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -16.2,
+        "interval_pp": [
+         -18.9,
+         -13.6
+        ]
+       },
+       "topk": {
+        "difference_pp": -16.2,
+        "interval_pp": [
+         -18.9,
+         -13.6
+        ]
+       }
+      },
+      "top1_expected": 53.9,
+      "top1_lowest_index": 53.9
+     },
+     "N-default W4/A4": {
+      "label": "N-default--w-int4--a-int4--default",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -69.971,
+        "interval_pp": [
+         -72.791,
+         -67.082
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -69.9,
+        "interval_pp": [
+         -72.7,
+         -67.0
+        ]
+       },
+       "topk": {
+        "difference_pp": -70.0,
+        "interval_pp": [
+         -72.8,
+         -67.1
+        ]
+       }
+      },
+      "top1_expected": 0.129,
+      "top1_lowest_index": 0.2
+     },
+     "N-default W4/A8": {
+      "label": "N-default--w-int4--a-int8--default",
+      "minus_default": null,
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -70.0,
+        "interval_pp": [
+         -72.8,
+         -67.1
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -70.0,
+        "interval_pp": [
+         -72.8,
+         -67.1
+        ]
+       },
+       "topk": {
+        "difference_pp": -70.0,
+        "interval_pp": [
+         -72.8,
+         -67.1
+        ]
+       }
+      },
+      "top1_expected": 0.1,
+      "top1_lowest_index": 0.1
+     },
+     "N-minimal W4/A4": {
+      "label": "N-minimal--w-int4--a-int4--minimal",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 17.011,
+        "interval_pp": [
+         15.263,
+         18.805
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 17.8,
+        "interval_pp": [
+         15.4,
+         20.2
+        ]
+       },
+       "topk": {
+        "difference_pp": 15.3,
+        "interval_pp": [
+         13.1,
+         17.6
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -52.96,
+        "interval_pp": [
+         -55.866,
+         -49.988
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -52.1,
+        "interval_pp": [
+         -55.4,
+         -48.7
+        ]
+       },
+       "topk": {
+        "difference_pp": -54.7,
+        "interval_pp": [
+         -57.9,
+         -51.4
+        ]
+       }
+      },
+      "top1_expected": 17.14,
+      "top1_lowest_index": 18.0
+     },
+     "N-minimal W4/A8": {
+      "label": "N-minimal--w-int4--a-int8--minimal",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 46.383,
+        "interval_pp": [
+         43.267,
+         49.4
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 46.6,
+        "interval_pp": [
+         43.5,
+         49.7
+        ]
+       },
+       "topk": {
+        "difference_pp": 46.7,
+        "interval_pp": [
+         43.6,
+         49.7
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -23.617,
+        "interval_pp": [
+         -26.633,
+         -20.533
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -23.4,
+        "interval_pp": [
+         -26.4,
+         -20.3
+        ]
+       },
+       "topk": {
+        "difference_pp": -23.3,
+        "interval_pp": [
+         -26.3,
+         -20.2
+        ]
+       }
+      },
+      "top1_expected": 46.483,
+      "top1_lowest_index": 46.7
+     },
+     "N-nobc W4/A4": {
+      "label": "N-nobc--w-int4--a-int4--default_no_bias_correction",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 27.655,
+        "interval_pp": [
+         25.502,
+         29.805
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 28.3,
+        "interval_pp": [
+         25.5,
+         31.1
+        ]
+       },
+       "topk": {
+        "difference_pp": 28.2,
+        "interval_pp": [
+         25.4,
+         30.9
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -42.317,
+        "interval_pp": [
+         -45.139,
+         -39.458
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -41.6,
+        "interval_pp": [
+         -44.9,
+         -38.2
+        ]
+       },
+       "topk": {
+        "difference_pp": -41.8,
+        "interval_pp": [
+         -45.1,
+         -38.4
+        ]
+       }
+      },
+      "top1_expected": 27.783,
+      "top1_lowest_index": 28.5
+     },
+     "N-nobc W4/A8": {
+      "label": "N-nobc--w-int4--a-int8--default_no_bias_correction",
+      "minus_default": {
+       "expected": {
+        "difference_pp": 53.367,
+        "interval_pp": [
+         50.25,
+         56.383
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": 53.5,
+        "interval_pp": [
+         50.3,
+         56.6
+        ]
+       },
+       "topk": {
+        "difference_pp": 53.7,
+        "interval_pp": [
+         50.5,
+         56.8
+        ]
+       }
+      },
+      "minus_fp32": {
+       "expected": {
+        "difference_pp": -16.633,
+        "interval_pp": [
+         -19.233,
+         -14.083
+        ]
+       },
+       "lowest_index": {
+        "difference_pp": -16.5,
+        "interval_pp": [
+         -19.2,
+         -13.8
+        ]
+       },
+       "topk": {
+        "difference_pp": -16.3,
+        "interval_pp": [
+         -19.0,
+         -13.7
+        ]
+       }
+      },
+      "top1_expected": 53.467,
+      "top1_lowest_index": 53.6
+     }
+    },
+    "fp32": 70.1,
+    "w4a4_rescued": false
+   }
+  }
+ },
+ "mobilenet_v3_int8_gap": {
+  "L-bc_minus_L-nobc": {
+   "expected": {
+    "difference_pp": 1.767,
+    "interval_pp": [
+     0.167,
+     3.35
+    ]
+   },
+   "lowest_index": {
+    "difference_pp": 1.8,
+    "interval_pp": [
+     0.1,
+     3.4
+    ]
+   },
+   "topk": {
+    "difference_pp": 1.9,
+    "interval_pp": [
+     0.2,
+     3.5
+    ]
+   }
+  },
+  "arms": {
+   "L-A32--w-int8--a-fp32--mse_per_channel--fit-mse_per_channel-fp32in-s0": {
+    "label": "L-A32--w-int8--a-fp32--mse_per_channel--fit-mse_per_channel-fp32in-s0",
+    "minus_default": null,
+    "minus_fp32": {
+     "expected": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       0.0,
+       0.7
+      ]
+     },
+     "lowest_index": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       0.0,
+       0.7
+      ]
+     },
+     "topk": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       0.0,
+       0.7
+      ]
+     }
+    },
+    "top1_expected": 75.3,
+    "top1_lowest_index": 75.3
+   },
+   "L-bc--w-int8--a-int8--default--fit-mse_per_channel-fp32in-s0": {
+    "label": "L-bc--w-int8--a-int8--default--fit-mse_per_channel-fp32in-s0",
+    "minus_default": {
+     "expected": {
+      "difference_pp": 1.35,
+      "interval_pp": [
+       0.05,
+       2.7
+      ]
+     },
+     "lowest_index": {
+      "difference_pp": 1.6,
+      "interval_pp": [
+       0.2,
+       3.0
+      ]
+     },
+     "topk": {
+      "difference_pp": 1.6,
+      "interval_pp": [
+       0.2,
+       3.0
+      ]
+     }
+    },
+    "minus_fp32": {
+     "expected": {
+      "difference_pp": -2.05,
+      "interval_pp": [
+       -3.85,
+       -0.25
+      ]
+     },
+     "lowest_index": {
+      "difference_pp": -1.9,
+      "interval_pp": [
+       -3.7,
+       -0.1
+      ]
+     },
+     "topk": {
+      "difference_pp": -1.9,
+      "interval_pp": [
+       -3.7,
+       -0.1
+      ]
+     }
+    },
+    "top1_expected": 72.95,
+    "top1_lowest_index": 73.1
+   },
+   "L-nobc--w-int8--a-int8--default_no_bias_correction--fit-mse_per_channel-fp32in-s0": {
+    "label": "L-nobc--w-int8--a-int8--default_no_bias_correction--fit-mse_per_channel-fp32in-s0",
+    "minus_default": {
+     "expected": {
+      "difference_pp": -0.417,
+      "interval_pp": [
+       -2.017,
+       1.167
+      ]
+     },
+     "lowest_index": {
+      "difference_pp": -0.2,
+      "interval_pp": [
+       -1.8,
+       1.4
+      ]
+     },
+     "topk": {
+      "difference_pp": -0.3,
+      "interval_pp": [
+       -1.9,
+       1.3
+      ]
+     }
+    },
+    "minus_fp32": {
+     "expected": {
+      "difference_pp": -3.817,
+      "interval_pp": [
+       -5.717,
+       -2.0
+      ]
+     },
+     "lowest_index": {
+      "difference_pp": -3.7,
+      "interval_pp": [
+       -5.6,
+       -1.8
+      ]
+     },
+     "topk": {
+      "difference_pp": -3.8,
+      "interval_pp": [
+       -5.7,
+       -1.9
+      ]
+     }
+    },
+    "top1_expected": 71.183,
+    "top1_lowest_index": 71.3
+   },
+   "N-A32--w-int8--a-fp32--mse_per_channel": {
+    "label": "N-A32--w-int8--a-fp32--mse_per_channel",
+    "minus_default": null,
+    "minus_fp32": {
+     "expected": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       -0.5,
+       1.1
+      ]
+     },
+     "lowest_index": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       -0.5,
+       1.1
+      ]
+     },
+     "topk": {
+      "difference_pp": 0.3,
+      "interval_pp": [
+       -0.5,
+       1.1
+      ]
+     }
+    },
+    "top1_expected": 75.3,
+    "top1_lowest_index": 75.3
+   },
+   "N-default--w-int8--a-int8--default": {
+    "label": "N-default--w-int8--a-int8--default",
+    "minus_default": null,
+    "minus_fp32": {
+     "expected": {
+      "difference_pp": -3.4,
+      "interval_pp": [
+       -5.25,
+       -1.5
+      ]
+     },
+     "lowest_index": {
+      "difference_pp": -3.5,
+      "interval_pp": [
+       -5.4,
+       -1.6
+      ]
+     },
+     "topk": {
+      "difference_pp": -3.5,
+      "interval_pp": [
+       -5.4,
+       -1.6
+      ]
+     }
+    },
+    "top1_expected": 71.6,
+    "top1_lowest_index": 71.5
+   }
+  },
+  "criterion": "closed if L-bc or L-nobc is within 1.0 point of FP32 (expected credit) with the interval of the difference to N-default excluding zero; both arms are reported and a difference between them is stated",
+  "decision": [
+   {
+    "arm": "L-nobc",
+    "closed": false
+   },
+   {
+    "arm": "L-bc",
+    "closed": false
+   }
+  ]
+ },
+ "protocol": "public/experiments/configs/breadth-study/b2-recon-protocol-v1.json",
+ "six_bit_order": {
+  "criterion": "paired difference INT6 minus fp6_e2m3 per model under N-default and under each learned arm; the order is said to change only if the sign changes and the new interval excludes zero",
+  "models": {
+   "mobilenet_v2": {
+    "int6_minus_fp6_expected": {
+     "L-A32": {
+      "difference_pp": 0.6,
+      "interval_pp": [
+       -0.102,
+       1.4
+      ]
+     },
+     "L-bc": {
+      "difference_pp": 1.608,
+      "interval_pp": [
+       0.033,
+       3.175
+      ]
+     },
+     "L-nobc": {
+      "difference_pp": -1.247,
+      "interval_pp": [
+       -2.638,
+       0.137
+      ]
+     },
+     "N-A32": {
+      "difference_pp": -0.6,
+      "interval_pp": [
+       -2.7,
+       1.5
+      ]
+     },
+     "N-default": {
+      "difference_pp": 3.863,
+      "interval_pp": [
+       2.35,
+       5.412
+      ]
+     },
+     "N-minimal": {
+      "difference_pp": -0.323,
+      "interval_pp": [
+       -2.195,
+       1.542
+      ]
+     },
+     "N-nobc": {
+      "difference_pp": 0.125,
+      "interval_pp": [
+       -1.842,
+       2.075
+      ]
+     }
+    },
+    "order_changes_against_N-default": {
+     "L-A32": false,
+     "L-bc": false,
+     "L-nobc": false,
+     "N-A32": false,
+     "N-minimal": false,
+     "N-nobc": false
+    }
+   },
+   "mobilenet_v3_large": {
+    "int6_minus_fp6_expected": {
+     "L-A32": {
+      "difference_pp": 0.2,
+      "interval_pp": [
+       -0.7,
+       1.1
+      ]
+     },
+     "L-bc": {
+      "difference_pp": -34.378,
+      "interval_pp": [
+       -37.341,
+       -31.396
+      ]
+     },
+     "L-nobc": {
+      "difference_pp": -40.132,
+      "interval_pp": [
+       -43.215,
+       -37.083
+      ]
+     },
+     "N-A32": {
+      "difference_pp": -0.6,
+      "interval_pp": [
+       -2.5,
+       1.3
+      ]
+     },
+     "N-default": {
+      "difference_pp": -37.43,
+      "interval_pp": [
+       -40.447,
+       -34.473
+      ]
+     },
+     "N-minimal": {
+      "difference_pp": -34.217,
+      "interval_pp": [
+       -37.158,
+       -31.233
+      ]
+     },
+     "N-nobc": {
+      "difference_pp": -31.358,
+      "interval_pp": [
+       -34.134,
+       -28.591
+      ]
+     }
+    },
+    "order_changes_against_N-default": {
+     "L-A32": false,
+     "L-bc": false,
+     "L-nobc": false,
+     "N-A32": false,
+     "N-minimal": false,
+     "N-nobc": false
+    }
+   },
+   "resnet18": {
+    "int6_minus_fp6_expected": {
+     "L-A32": {
+      "difference_pp": -1.1,
+      "interval_pp": [
+       -2.0,
+       -0.3
+      ]
+     },
+     "L-bc": {
+      "difference_pp": 0.288,
+      "interval_pp": [
+       -0.85,
+       1.392
+      ]
+     },
+     "L-nobc": {
+      "difference_pp": -1.675,
+      "interval_pp": [
+       -2.932,
+       -0.372
+      ]
+     },
+     "N-A32": {
+      "difference_pp": -0.4,
+      "interval_pp": [
+       -1.7,
+       0.8
+      ]
+     },
+     "N-default": {
+      "difference_pp": -0.765,
+      "interval_pp": [
+       -1.92,
+       0.418
+      ]
+     },
+     "N-minimal": {
+      "difference_pp": -2.169,
+      "interval_pp": [
+       -3.768,
+       -0.663
+      ]
+     },
+     "N-nobc": {
+      "difference_pp": -1.475,
+      "interval_pp": [
+       -2.9,
+       -0.067
+      ]
+     }
+    },
+    "order_changes_against_N-default": {
+     "L-A32": false,
+     "L-bc": false,
+     "L-nobc": false,
+     "N-A32": false,
+     "N-minimal": false,
+     "N-nobc": false
+    }
+   }
+  }
+ },
+ "statistics": "left minus right; pointwise 95 percent paired image bootstrap, 10000 resamples, seed 20260927 (tools.analysis.b2_ties.paired); no multiplicity correction"
+}

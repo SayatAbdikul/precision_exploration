@@ -1,0 +1,24 @@
+{
+  "id": "b2-recon-protocol-v1-addendum-2",
+  "extends": "public/experiments/configs/breadth-study/b2-recon-protocol-v1.json",
+  "supersedes_in_part": "public/experiments/configs/breadth-study/b2-recon-protocol-v1-addendum-1.json (step_2 collapse readout only; its collapse share, cells and criterion are kept)",
+  "date": "2026-10-02",
+  "run": "r4 (CTXMARK-L6b-recon-r3)",
+  "written_before": "the r4 outputs below. Disclosure: before writing this file r4 ran one exploratory CPU script in its session scratchpad that printed, for the INT4 records, the share of images whose stored top-5 maxima contain the most frequent such class; independent review 2 had already published the same numbers for four cells. No other number below was computed before this file.",
+  "reason": "Independent review 2 (artifacts/agent_orchestration/handoffs/L6-recon-review.md), finding 1 (must fix): the r3 collapse readout used top5_topk[:,0], i.e. the first index torch.topk returns, whose order among tied maxima is unspecified, in cells where up to 100 percent of the images are tied. Finding 2 (must fix): the results document must report the criterion's verdicts as computed before giving a reading. Finding 3: MobileNetV2 W4/A4 L-bc belongs in short answer 2.",
+  "inputs": "the existing sealed evaluation records artifacts/experiment_b2_recon/evals/<model>/*.json and their npz (1k screen, development evidence). For image i, tie_i = tie_size[i] and M_i = top5_topk[i, :min(tie_i, 5)]: every listed class of M_i attains the maximum logit (topk sorts by value), and M_i is the full set of maxima when tie_i <= 5, a 5-element subset of it otherwise.",
+  "tie_aware_shares_per_class_c": {
+    "among_maxima (PRIMARY)": "share of images where c attains the maximum logit. Lower bound: #{i: c in M_i}. Upper bound: lower bound + #{i: tie_i > 5, c not in M_i}. Reason for primary: the question is whether the output stops depending on the image; a class that is a maximum on almost every image is that, whatever the tie rule. Equals the top-1 share when no image is tied.",
+    "expected": "expected share of images on which c is predicted under uniform random tie-breaking (the expected-credit tie rule). Lower bound: sum over i with c in M_i of 1/tie_i. Upper bound: lower bound + sum over i with tie_i > 5 and c not in M_i of 1/tie_i.",
+    "lowest_index": "share of images on which c is the lowest-index maximum (the lowest-class-index argmax rule). Lower bound: #{i: tie_i <= 5, c = min M_i}. Upper bound: lower bound + #{i: tie_i > 5, c = min M_i} + #{i: tie_i > 5, c not in M_i, c < min M_i}."
+  },
+  "collapse_status_per_share": "collapsed if max over c of the lower bound >= 0.90; not_collapsed if max over c of the upper bound < 0.90; undetermined otherwise (the stored top-5 lists cannot decide).",
+  "criterion": "addendum-1 rule unchanged, applied per share to the same INT4 cells (N-default vs N-nobc and L-bc vs L-nobc, W4/A4 and W4/A8, per-channel default grid, FP32-input fits): supported if the with-bias-correction arm is collapsed and the without arm is not_collapsed; not_supported if the with arm is not_collapsed; undecided otherwise. The PRIMARY verdict is the one under among_maxima; the other two are reported beside it. The r3 verdicts (topk first index) are reported as superseded, not deleted.",
+  "conditional_exact_step_gpu": {
+    "when": "only for records of the verdict cells whose status is undetermined under any share",
+    "what": "re-evaluate that arm with the unchanged evaluation path (tools.experiment_b2_recon.evaluate: same fit, same engine, same batch 8) through gpu_run.sh, and store the full set of maxima per image as np.packbits of the 1000-class boolean mask (uint8, compressed) in a new file artifacts/experiment_b2_recon/diagnostics/maxima-r4/<model>/<label>.npz. The rerun must reproduce the stored top5_topk and tie_size exactly; if it does not, the exact file is not used and the mismatch is reported. With the full set the three shares are exact (lower bound = upper bound) for that record.",
+    "limit": "at most two such GPU jobs at once; each under 15 minutes"
+  },
+  "output": "artifacts/experiment_b2_recon/diagnostics/prediction-collapse-ties-r4.json (sealed, new file); prediction-collapse-r3.json is kept and marked superseded in the results document",
+  "module": "tools/experiment_b2_recon/collapse_ties.py (new; CPU readout, plus a GPU subcommand for the conditional exact step)"
+}

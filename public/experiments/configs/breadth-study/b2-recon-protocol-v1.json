@@ -1,0 +1,96 @@
+{
+  "protocol": "experiment-b2-recon-1.0.0",
+  "written": "2026-10-01, before any reconstruction or evaluation of this lane was run",
+  "lane": "L6-recon",
+  "purpose": "A faithful published post-training-quantization baseline (AdaRound) on top of the repaired B2 simulator. Weights only: the rounding of every conv/linear weight between its two neighbouring codebook levels is learned by layer-wise output reconstruction on calibration images. No retraining of the network, no change to scales, codebooks, boundaries or to what the hardware has to do.",
+  "evidence_label": "development_evidence: everything is measured on imagenet_screen_1k (1000 images), which contains dev512, the panel on which the B2 default recipe was selected. The ImageNet 10k evaluation list beyond the screen is not read.",
+  "method": {
+    "name": "AdaRound",
+    "source": "Nagel, Amjad, van Baalen, Louizos, Blankevoort: Up or Down? Adaptive Rounding for Post-Training Quantization, ICML 2020, arXiv 2004.10568v2 (PDF read on 2026-10-01)",
+    "from_the_paper": {
+      "soft_weight": "eq. 22: W_soft = s * clip(floor(W/s) + h(V), n, p)",
+      "rectified_sigmoid": "eq. 23: h(V) = clip(sigmoid(V) * (zeta - gamma) + gamma, 0, 1), zeta = 1.1, gamma = -0.1",
+      "regulariser": "eq. 24: f_reg(V) = sum_ij 1 - |2 h(V_ij) - 1|^beta, beta annealed from a high to a low value",
+      "objective": "eq. 25 (asymmetric reconstruction with the activation function): argmin_V || f_a(W x) - f_a(W_soft x_hat) ||_F^2 + lambda f_reg(V); x is the layer input in the FP32 network, x_hat the input of the same layer when all preceding layers are quantized, f_a the activation function",
+      "order": "layer by layer, sequentially (section 3.3)",
+      "batch_norm": "absorbed in the weights of the adjacent layers (section 5)",
+      "grid": "symmetric 4-bit weight quantization with a per-layer scale s fixed before AdaRound, s minimising ||W - W_bar||_F^2 with W_bar rounded to nearest (section 5); scale and rounding are not optimised jointly",
+      "which_layers": "the weights of the whole network, including the first and the last layer (section 5 and the remark in 5.2 that competing methods do not quantize first and last layer)",
+      "activations": "FP32 unless stated; for the W4/A8 rows activations are quantized to 8 bits with the scale set from the observed minimum and maximum (section 5.2)",
+      "optimiser": "Adam with default hyper-parameters, 10000 iterations, batch size 32, 1024 unlabelled ImageNet training images (section 5); Table 7 uses 2048 images and 20000 iterations",
+      "bias": "no bias correction; AdaRound is compared against empirical bias correction (Table 8)",
+      "initialisation": "Figure 3: the initial h(V) corresponds to the floating-point weight, i.e. h(V_init) = W/s - floor(W/s)",
+      "published_numbers_resnet18": {"fp32": 69.68, "w4_a32_nearest": 23.99, "w4_a32_bias_correction": 38.87,
+                                     "w4_a32_adaround_1024_images_10k_iterations": "68.60 +- 0.09 (Tables 4, 5, 6, 8; 5 seeds)",
+                                     "w4_a32_adaround_2048_images_20k_iterations": "68.71 +- 0.06 (Table 7)",
+                                     "w4_a8_adaround": "68.55 +- 0.01 (Table 7)"},
+      "published_numbers_mobilenet_v2": {"fp32": 71.72, "w4_a32_nearest": 8.09, "w4_a32_adaround_with_CLE": "69.78 +- 0.05", "w4_a8_adaround_with_CLE": "69.25 +- 0.06"}
+    },
+    "not_stated_in_the_paper_taken_from_memory_of_the_authors_public_implementation_AIMET": {
+      "lambda": 0.01,
+      "beta_schedule": "no regulariser during the first 20 percent of the iterations (warm start); then beta = 2 + 0.5 * (20 - 2) * (1 + cos(pi * r)), r the fraction of the remaining iterations done (20 down to 2)",
+      "loss_normalisation": "squared error summed over the output channels and averaged over batch and spatial positions; f_reg summed over all weights of the layer",
+      "hard_decision": "after the last iteration a weight is rounded up when h(V) >= 0.5 (V >= 0)",
+      "activations_during_reconstruction": "FP32 (activation quantizers are not active while the rounding is learned); activation scales are set independently",
+      "caveat": "these five items were not re-read from the AIMET source in this session (no copy on this machine); they are stated from memory and are the most likely source of a disagreement with the published numbers"
+    },
+    "implemented_here": {
+      "module": "tools/experiment_b2_recon (new); imports tools/experiment_b2 read-only",
+      "soft_variable": "one V per weight; W_soft = s * (lo + h(V) * (hi - lo)), lo and hi the two neighbouring codebook levels of W/s (lo the largest level <= W/s); for the integer codebooks this is eq. 22 exactly, including the clip (a weight outside the grid has lo = hi = the end level)",
+      "rectified_sigmoid": "eq. 23 with zeta 1.1, gamma -0.1",
+      "regulariser": "eq. 24, lambda 0.01, warm start 20 percent, beta 20 -> 2 cosine",
+      "objective": "eq. 25: FP32 target f_a(W x + b) from the folded FP32 graph; quantized side f_a(W_soft x_hat + b) with x_hat taken from the graph in which every preceding conv/linear (FX topological order) carries its learned hard-rounded weight; original folded bias on both sides",
+      "f_a": "the nonlinearity that is the only consumer of the layer output (through identity/dropout/flatten): ReLU, ReLU6, Hardswish or Hardsigmoid; identity otherwise (residual add, squeeze-excite product, logits)",
+      "layers": "every Conv2d and Linear, first and last included",
+      "calibration_images": "the first 1024 images of imagenet_calibration_2k in ascending sha256 order (frozen ImageNet training images; labels are not used); they contain the 256 images B2 uses for bias correction",
+      "iterations": 10000, "batch_size": 32, "optimizer": "Adam, lr 0.001, betas (0.9, 0.999), eps 1e-8",
+      "sampling": "epochs of a seeded random permutation of the 1024 images, 32 per step; the seed of a layer is derived from the fit seed and the layer index, so a resumed fit equals an uninterrupted one",
+      "scale": "fixed before learning and never changed. Matrix fits: the B2 per-output-channel MSE scale search (the default recipe's weight scale). Faithfulness fit: one scale per layer from the same search applied to the whole tensor",
+      "activations_during_reconstruction": "FP32 in the primary fits, so one fit per (model, weight format, scale rule) serves every activation format",
+      "hard_decision": "V >= 0 rounds up; no fallback to nearest when a layer's reconstruction error is higher than with nearest (that count is reported)",
+      "storage": "per layer one compressed npz: packed up/down bits, the float32 scales, statistics; resumable per layer"
+    }
+  },
+  "faithfulness_check": {
+    "setting": "ResNet18 (torchvision checkpoint frozen in this repository), 4-bit weights on the int4 codebook (-8..7) with one MSE scale per layer, every layer including first and last, activations FP32, 1024 calibration images, 10000 iterations, batch 32; seeds 0, 1, 2",
+    "also": "nearest rounding on the same grid (paper: 23.99) and empirical bias correction on it are measured as setup checks; the same fits evaluated with INT8 activations under B2 activation handling are compared with the W4/A8 row (68.55)",
+    "comparison": "top-1 drop against FP32 on the 1k screen (paired) against the published drop on the 50k validation set: 69.68 - 68.60 = 1.08 points (nearest: 45.69 points)",
+    "criterion_written_before_measuring": "consistent when the published drop of 1.08 points lies inside the pointwise 95 percent paired interval of the measured drop of the seed-0 fit and the three seeds agree within 1 point; otherwise the disagreement is reported with the list of differences and nothing is tuned",
+    "known_differences": ["evaluation on the 1000-image screen, not the 50000-image validation set", "FP32 baseline on the screen is 70.1, the paper reports 69.68 (torchvision reports 69.76 for this checkpoint)", "3 seeds instead of 5; the seed changes the mini-batch order only", "scale from the B2 grid search (8 points per octave plus local refinement) instead of an unspecified minimiser", "lambda, beta schedule, warm start and loss normalisation from memory of AIMET", "calibration images are this repository's frozen list", "own batch-norm folding and FX graph"]
+  },
+  "matrix": {
+    "models": ["resnet18", "mobilenet_v2", "mobilenet_v3_large"],
+    "weight_formats": ["int8", "int6", "int4", "fp6_e2m3", "posit8_es1"],
+    "fits": "one per model and weight format, per-channel MSE scales, seed 0 (15 fits)",
+    "arms_per_model_and_format": {
+      "N-default": "B2 default recipe, nearest rounding, empirical bias correction (sealed B2 configuration, re-evaluated to obtain the logits; must reproduce the sealed top-5 lists)",
+      "N-nobc": "B2 default_no_bias_correction, nearest (sealed, re-evaluated)",
+      "N-minimal": "B2 minimal, nearest (sealed, re-evaluated)",
+      "L-nobc": "default_no_bias_correction with the learned rounding in place of nearest: the published method on the B2 grid",
+      "L-bc": "default with the learned rounding in place of nearest: the B2 bias correction is applied after the rounding is fixed; exactly one switch away from N-default"
+    },
+    "mixed_precision_for_the_literature": "INT4 weights with INT8 activations (B2 activation handling, unsigned where proven non-negative): the five arms above with weight format int4 and activation format int8; the int4 fits are reused because activations are FP32 during reconstruction",
+    "weights_only": "every nearest and learned weight set is also evaluated with FP32 activations (W-k/A32), which separates weight damage from activation damage; FP32 logits, no ties",
+    "adaptation_not_in_the_published_method": "fp6_e2m3 and posit8_es1: the same variable interpolates between the two neighbouring levels of a non-uniform codebook. The published method is defined for a uniform grid only; these rows are labelled as an adaptation.",
+    "secondary_if_gpu_time_allows": ["INT4 fits on the minimal recipe's max-abs per-channel weight scales (minimal is the stronger nearest arm at 4 bits), evaluated on the minimal recipe", "activation-aware reconstruction input for INT4 and INT6: x_hat is taken from the B2 engine with the activation boundaries quantized (not what the paper states; an adaptation)"]
+  },
+  "readout_and_statistics": {
+    "batch": "batch 8 on the GPU as in B2; top-5 by topk as in the B2 runner; logits kept per image",
+    "tie_rules": "expected credit (1/k when the label is among the k classes tied for the maximum) and lowest-class-index argmax, computed with tools.experiment_b2.verify.tie_statistics; the topk figure is reported beside them",
+    "intervals": "pointwise 95 percent paired image bootstrap of the mean credit difference, 10000 resamples, seed 20260927 (tools.analysis.b2_ties.paired), against FP32 and against N-default; no multiplicity correction",
+    "questions": {
+      "mobilenet_v3_int8_gap": "closed if L-bc or L-nobc is within 1.0 point of FP32 (expected credit) with the interval of the difference to N-default excluding zero; both arms are reported and a difference between them is stated",
+      "four_bit_rescue": "INT4 (W4/A4) is called rescued for a model if a learned arm is within 5 points of FP32; otherwise the figure is reported as it is, with W4/A8 and W4/A32 beside it to say which side fails",
+      "six_bit_order": "paired difference INT6 minus fp6_e2m3 per model under N-default and under each learned arm; the order is said to change only if the sign changes and the new interval excludes zero"
+    }
+  },
+  "rules": {
+    "fit_data": "only imagenet_calibration_2k (first 1024 images, plus B2's existing calibration observations and its first 256 images for bias correction)",
+    "no_tuning": "no hyper-parameter of the method is chosen on the screen; every setting above is fixed here. A setting changed later needs an addendum written before it is measured and is labelled post hoc",
+    "write_rule": "fit and evaluation records are written once; an existing record is never replaced",
+    "gpu": "every GPU job through artifacts/agent_orchestration/gpu_run.sh, at most two reconstruction jobs at once, each job stops starting new layers after 10 minutes and is resumed",
+    "disk": "at most about 0.5 GB for the whole lane; no activation cache on disk",
+    "null_results": "reported as measured"
+  },
+  "out_of_scope": ["block-wise reconstruction (BRECQ)", "retraining or fine-tuning of the network", "the detector", "any change to tools/experiment_b2"]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "b2-recon-protocol-v1-addendum-1",
+  "extends": "public/experiments/configs/breadth-study/b2-recon-protocol-v1.json",
+  "date": "2026-10-02",
+  "run": "r3 (CTXMARK-L6b-recon-r2)",
+  "written_before": "any of the computations below",
+  "reason": "Independent review 1 (artifacts/agent_orchestration/handoffs/L6-recon-review.md): approve_with_fixes, no blocking finding. Findings 1-3 are text corrections of the results document. Finding 4 (the claim that the B2 default recipe is at chance at INT4 because of the same bias-correction collapse was only diagnosed for one scale per layer with FP32 activations) and finding 5 (the r2 diagnostic JSON is not sealed) are answered by the two steps below. No model is run, no fit is changed, no existing file is modified.",
+  "step_1_seal_r2_diagnostic": {
+    "what": "write a new sealed attestation (tools.experiment_b.common.seal) next to artifacts/experiment_b2_recon/diagnostics/bias-correction-resnet18-int4-per-layer-r2.json, holding the sha256 of that file's bytes, its parsed content, the sha256 of tools/experiment_b2_recon/diagnose_bias.py, tools.experiment_b2.common.source_identity() and the modification times of the script and the JSON",
+    "limit": "the seal is written after the fact (r3), so it fixes the content from now on; it cannot prove the content at 04:43 on 2026-10-02. The script's modification time (04:35) precedes the JSON's (04:43); that is the only evidence that the recorded script hash is the one that produced it."
+  },
+  "step_2_collapse_check": {
+    "inputs": "the existing sealed evaluation records artifacts/experiment_b2_recon/evals/<model>/*.json and their npz (1k screen, development evidence); every record is unsealed and its npz must have 1000 rows",
+    "computed_per_record": "number of distinct top-1 classes (top5_topk[:,0]), the most frequent top-1 class and its share of the 1000 images, mean and maximum tie size, expected-credit top-1",
+    "collapse_definition": "one class is the top-1 prediction for at least 90 percent of the 1000 screen images",
+    "criterion_finding_4": "For each model and each INT4-weight cell under B2 activation handling (W4/A4 and W4/A8): the statement 'the default recipe is at chance because bias correction collapses the network' is SUPPORTED for that cell if N-default collapses and N-nobc (identical except bias_correction='none', tools/experiment_b2/frozen.py) does not; NOT SUPPORTED if N-default does not collapse; UNDECIDED otherwise. The same rule is applied to L-bc against L-nobc. A supported cell shows that bias correction is the switch that causes the collapse; it does not show that the mechanism is the one diagnosed per layer with FP32 activations.",
+    "output": "artifacts/experiment_b2_recon/diagnostics/prediction-collapse-r3.json (sealed, new file)",
+    "module": "tools/experiment_b2_recon/collapse_check.py (new, CPU only)"
+  }
+}

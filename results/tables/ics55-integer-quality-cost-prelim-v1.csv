@@ -1,0 +1,9 @@
+model,format,images,top1,top1_delta_interval_95,top5,fp32_top1,screen_label,accumulator_in_accuracy_run,required_acc_bits_static_bound,required_acc_bits_dot_only,binding_node,covering_synthesised_acc_bits,mac_core_area_at_8ns,mac_core_area_at_12ns,smallest_valid_period_ns,tightest_target_met_ns,covering_acc_bits_if_dot_only,mac_core_area_at_8ns_if_dot_only,status
+resnet18,int4,1000,0.123,"[-0.609, -0.546]",0.333,0.701,UNCERTAIN,int32_accumulator,26,20,conv1,28,1863.68,1863.68,3.754596,4,20,1351.56,preliminary
+resnet18,int5,1000,0.483,"[-0.247, -0.188]",0.75,0.701,UNCERTAIN,int32_accumulator,28,22,conv1,28,2066.12,2066.12,3.804422,4,24,1785.0,preliminary
+resnet18,int6,1000,0.625,"[-0.100, -0.052]",0.854,0.701,UNCERTAIN,int32_accumulator,30,24,conv1,32,2490.04,2490.04,3.887764,4,24,1904.28,preliminary
+resnet18,int8,1000,0.684,"[-0.030, -0.004]",0.891,0.701,UNCERTAIN,int64_accumulator,34,28,conv1,40,3558.24,3558.24,4.6082,5,28,2562.84,preliminary
+mobilenet_v2,int4,1000,0.002,"[-0.747, -0.691]",0.009,0.721,UNCERTAIN,int64_accumulator,54,18,features_0_0,56,3672.76,3673.6,5.837987,6,20,1351.56,preliminary
+mobilenet_v2,int5,1000,0.064,"[-0.687, -0.627]",0.148,0.721,UNCERTAIN,int64_accumulator,56,20,features_0_0,56,4194.4,4153.52,5.986576,6,20,1493.24,preliminary
+mobilenet_v2,int6,1000,0.46,"[-0.291, -0.230]",0.687,0.721,UNCERTAIN,int64_accumulator,58,22,features_0_0,64,4914.84,4893.28,6.260886,8,24,1904.28,preliminary
+mobilenet_v2,int8,1000,0.706,"[-0.030, -0.001]",0.897,0.721,UNCERTAIN,int64_accumulator,62,26,features_0_0,64,5710.88,5545.4,6.443756,8,28,2562.84,preliminary

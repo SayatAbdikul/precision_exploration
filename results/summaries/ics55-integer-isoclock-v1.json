@@ -1,0 +1,3017 @@
+{
+  "constraints": {
+    "abc_delay_ps_rule": "target_ns*1000 - 450",
+    "abc_driving_cell": "BUFX2H7R",
+    "abc_output_load_ff": 10,
+    "clock_uncertainty_ns": 0.1,
+    "input_delay_ns": 0.2,
+    "output_delay_ns": 0.2,
+    "output_load_pf": 0.01,
+    "time_unit": "ns"
+  },
+  "curves": {
+    "int4-acc32": {
+      "curve": [
+        {
+          "achieved_period_ns": 5.707856,
+          "core_area": 2130.24,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 2717.12,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.707855,
+          "core_area": 2130.24,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 2717.12,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.707856,
+          "core_area": 2130.24,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 2717.12,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.411393,
+          "core_area": 2129.96,
+          "meets": true,
+          "target_ns": 6,
+          "total_area": 2716.84,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 4.786649,
+          "core_area": 2161.04,
+          "meets": true,
+          "target_ns": 5,
+          "total_area": 2747.92,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.820787,
+          "core_area": 2325.4,
+          "meets": true,
+          "target_ns": 4,
+          "total_area": 2912.28,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.820787,
+          "core_area": 2325.4,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 2912.28,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.820787,
+          "core_area": 2325.4,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 2912.28,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 3.820787,
+          "target_ns": 4,
+          "total_area": 2912.28
+        },
+        {
+          "achieved_period_ns": 3.820787,
+          "target_ns": 3,
+          "total_area": 2912.28
+        },
+        {
+          "achieved_period_ns": 3.820787,
+          "target_ns": 2,
+          "total_area": 2912.28
+        },
+        {
+          "achieved_period_ns": 4.786649,
+          "target_ns": 5,
+          "total_area": 2747.92
+        },
+        {
+          "achieved_period_ns": 5.411393,
+          "target_ns": 6,
+          "total_area": 2716.84
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 3.820787,
+      "smallest_valid_at_target_ns": 4,
+      "smallest_valid_point_meets_its_target": true
+    },
+    "int4-acc64": {
+      "curve": [
+        {
+          "achieved_period_ns": 9.009428,
+          "core_area": 4217.36,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 5298.16,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 9.009427,
+          "core_area": 4217.36,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 5298.16,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 7.755859,
+          "core_area": 4279.24,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 5360.04,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.105458,
+          "core_area": 4540.48,
+          "meets": false,
+          "target_ns": 6,
+          "total_area": 5621.28,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.1054580000000005,
+          "core_area": 4540.48,
+          "meets": false,
+          "target_ns": 5,
+          "total_area": 5621.28,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.1054580000000005,
+          "core_area": 4540.48,
+          "meets": false,
+          "target_ns": 4,
+          "total_area": 5621.28,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.1054580000000005,
+          "core_area": 4540.48,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 5621.28,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.105458,
+          "core_area": 4540.48,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 5621.28,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 6.105458,
+          "target_ns": 6,
+          "total_area": 5621.28
+        },
+        {
+          "achieved_period_ns": 6.105458,
+          "target_ns": 2,
+          "total_area": 5621.28
+        },
+        {
+          "achieved_period_ns": 7.755859,
+          "target_ns": 8,
+          "total_area": 5360.04
+        },
+        {
+          "achieved_period_ns": 9.009427,
+          "target_ns": 10,
+          "total_area": 5298.16
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 6.105458,
+      "smallest_valid_at_target_ns": 6,
+      "smallest_valid_point_meets_its_target": false
+    },
+    "int5-acc32": {
+      "curve": [
+        {
+          "achieved_period_ns": 5.525108,
+          "core_area": 2385.6,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 2987.6,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.525107,
+          "core_area": 2385.6,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 2987.6,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.5251079999999995,
+          "core_area": 2385.6,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 2987.6,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.307771,
+          "core_area": 2385.6,
+          "meets": true,
+          "target_ns": 6,
+          "total_area": 2987.6,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 4.762416,
+          "core_area": 2408.56,
+          "meets": true,
+          "target_ns": 5,
+          "total_area": 3010.56,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.968292,
+          "core_area": 2572.92,
+          "meets": true,
+          "target_ns": 4,
+          "total_area": 3174.92,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.968292,
+          "core_area": 2572.92,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 3174.92,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.968292,
+          "core_area": 2572.92,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 3174.92,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 3.968292,
+          "target_ns": 4,
+          "total_area": 3174.92
+        },
+        {
+          "achieved_period_ns": 3.968292,
+          "target_ns": 3,
+          "total_area": 3174.92
+        },
+        {
+          "achieved_period_ns": 3.968292,
+          "target_ns": 2,
+          "total_area": 3174.92
+        },
+        {
+          "achieved_period_ns": 4.762416,
+          "target_ns": 5,
+          "total_area": 3010.56
+        },
+        {
+          "achieved_period_ns": 5.307771,
+          "target_ns": 6,
+          "total_area": 2987.6
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 3.968292,
+      "smallest_valid_at_target_ns": 4,
+      "smallest_valid_point_meets_its_target": true
+    },
+    "int5-acc64": {
+      "curve": [
+        {
+          "achieved_period_ns": 9.544425,
+          "core_area": 4762.24,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 5858.44,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 9.544424,
+          "core_area": 4762.24,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 5858.44,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 7.806692,
+          "core_area": 4826.92,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 5923.12,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.675433,
+          "core_area": 5166.56,
+          "meets": false,
+          "target_ns": 6,
+          "total_area": 6262.76,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.675432,
+          "core_area": 5166.56,
+          "meets": false,
+          "target_ns": 5,
+          "total_area": 6262.76,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.675432,
+          "core_area": 5166.56,
+          "meets": false,
+          "target_ns": 4,
+          "total_area": 6262.76,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.675433,
+          "core_area": 5166.56,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 6262.76,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.675433,
+          "core_area": 5166.56,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 6262.76,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 6.675432,
+          "target_ns": 5,
+          "total_area": 6262.76
+        },
+        {
+          "achieved_period_ns": 6.675432,
+          "target_ns": 4,
+          "total_area": 6262.76
+        },
+        {
+          "achieved_period_ns": 7.806692,
+          "target_ns": 8,
+          "total_area": 5923.12
+        },
+        {
+          "achieved_period_ns": 9.544424,
+          "target_ns": 10,
+          "total_area": 5858.44
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 6.675432,
+      "smallest_valid_at_target_ns": 5,
+      "smallest_valid_point_meets_its_target": false
+    },
+    "int6-acc32": {
+      "curve": [
+        {
+          "achieved_period_ns": 5.73051,
+          "core_area": 2490.04,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 3107.44,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.730509,
+          "core_area": 2490.04,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 3107.44,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.730509,
+          "core_area": 2490.04,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 3107.44,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.529124,
+          "core_area": 2490.04,
+          "meets": true,
+          "target_ns": 6,
+          "total_area": 3107.44,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 4.801068,
+          "core_area": 2552.2,
+          "meets": true,
+          "target_ns": 5,
+          "total_area": 3169.6,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.8877639999999998,
+          "core_area": 2676.8,
+          "meets": true,
+          "target_ns": 4,
+          "total_area": 3294.2,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.887765,
+          "core_area": 2676.8,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 3294.2,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 3.887763,
+          "core_area": 2676.8,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 3294.2,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 3.887763,
+          "target_ns": 2,
+          "total_area": 3294.2
+        },
+        {
+          "achieved_period_ns": 4.801068,
+          "target_ns": 5,
+          "total_area": 3169.6
+        },
+        {
+          "achieved_period_ns": 5.529124,
+          "target_ns": 6,
+          "total_area": 3107.44
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 3.887763,
+      "smallest_valid_at_target_ns": 2,
+      "smallest_valid_point_meets_its_target": false
+    },
+    "int6-acc64": {
+      "curve": [
+        {
+          "achieved_period_ns": 9.342766000000001,
+          "core_area": 4893.28,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 6004.88,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 9.342765,
+          "core_area": 4893.28,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 6004.88,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 7.75791,
+          "core_area": 4914.84,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 6026.44,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "core_area": 5233.2,
+          "meets": false,
+          "target_ns": 6,
+          "total_area": 6344.8,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "core_area": 5233.2,
+          "meets": false,
+          "target_ns": 5,
+          "total_area": 6344.8,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "core_area": 5233.2,
+          "meets": false,
+          "target_ns": 4,
+          "total_area": 6344.8,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "core_area": 5233.2,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 6344.8,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "core_area": 5233.2,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 6344.8,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 6.260886,
+          "target_ns": 6,
+          "total_area": 6344.8
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "target_ns": 5,
+          "total_area": 6344.8
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "target_ns": 4,
+          "total_area": 6344.8
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "target_ns": 3,
+          "total_area": 6344.8
+        },
+        {
+          "achieved_period_ns": 6.260886,
+          "target_ns": 2,
+          "total_area": 6344.8
+        },
+        {
+          "achieved_period_ns": 7.75791,
+          "target_ns": 8,
+          "total_area": 6026.44
+        },
+        {
+          "achieved_period_ns": 9.342765,
+          "target_ns": 10,
+          "total_area": 6004.88
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 6.260886,
+      "smallest_valid_at_target_ns": 6,
+      "smallest_valid_point_meets_its_target": false
+    },
+    "int8-acc32": {
+      "curve": [
+        {
+          "achieved_period_ns": 5.784671,
+          "core_area": 2931.04,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 3578.96,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.78467,
+          "core_area": 2931.04,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 3578.96,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.7846709999999995,
+          "core_area": 2931.04,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 3578.96,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 5.426338,
+          "core_area": 2931.32,
+          "meets": true,
+          "target_ns": 6,
+          "total_area": 3579.24,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 4.756273,
+          "core_area": 3041.36,
+          "meets": true,
+          "target_ns": 5,
+          "total_area": 3689.28,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 4.164235,
+          "core_area": 3088.96,
+          "meets": false,
+          "target_ns": 4,
+          "total_area": 3736.88,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 4.164235,
+          "core_area": 3088.96,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 3736.88,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 4.164234,
+          "core_area": 3088.96,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 3736.88,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 4.164234,
+          "target_ns": 2,
+          "total_area": 3736.88
+        },
+        {
+          "achieved_period_ns": 4.756273,
+          "target_ns": 5,
+          "total_area": 3689.28
+        },
+        {
+          "achieved_period_ns": 5.426338,
+          "target_ns": 6,
+          "total_area": 3579.24
+        },
+        {
+          "achieved_period_ns": 5.78467,
+          "target_ns": 10,
+          "total_area": 3578.96
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 4.164234,
+      "smallest_valid_at_target_ns": 2,
+      "smallest_valid_point_meets_its_target": false
+    },
+    "int8-acc64": {
+      "curve": [
+        {
+          "achieved_period_ns": 9.777436,
+          "core_area": 5545.4,
+          "meets": true,
+          "target_ns": 12,
+          "total_area": 6688.08,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 9.065648,
+          "core_area": 5545.12,
+          "meets": true,
+          "target_ns": 10,
+          "total_area": 6687.8,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 7.815913,
+          "core_area": 5710.88,
+          "meets": true,
+          "target_ns": 8,
+          "total_area": 6853.56,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.443757,
+          "core_area": 5995.64,
+          "meets": false,
+          "target_ns": 6,
+          "total_area": 7138.32,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.4437560000000005,
+          "core_area": 5995.64,
+          "meets": false,
+          "target_ns": 5,
+          "total_area": 7138.32,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.4437560000000005,
+          "core_area": 5995.64,
+          "meets": false,
+          "target_ns": 4,
+          "total_area": 7138.32,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.4437560000000005,
+          "core_area": 5995.64,
+          "meets": false,
+          "target_ns": 3,
+          "total_area": 7138.32,
+          "valid": true
+        },
+        {
+          "achieved_period_ns": 6.443756,
+          "core_area": 5995.64,
+          "meets": false,
+          "target_ns": 2,
+          "total_area": 7138.32,
+          "valid": true
+        }
+      ],
+      "pareto_front": [
+        {
+          "achieved_period_ns": 6.443756,
+          "target_ns": 2,
+          "total_area": 7138.32
+        },
+        {
+          "achieved_period_ns": 7.815913,
+          "target_ns": 8,
+          "total_area": 6853.56
+        },
+        {
+          "achieved_period_ns": 9.065648,
+          "target_ns": 10,
+          "total_area": 6687.8
+        }
+      ],
+      "smallest_valid_achieved_period_ns": 6.443756,
+      "smallest_valid_at_target_ns": 2,
+      "smallest_valid_point_meets_its_target": false
+    }
+  },
+  "hashes": {
+    "cells_lef": "6e8a3b88db7427269f683f5a321bdf295c41092c36d8a770926751103be13a0c",
+    "liberty": "38a9f9056a7e4417451e0aaa137efaf0461ee1fc574a8b2ad53622def34bb2b7",
+    "matrix_script": "7c4e45adcbc078e409d8521b41163d8afdf15504586e63b29b35ea641642c837",
+    "rtl": {
+      "public/generic_rtl/mac/integer_mac.sv": "ac046ffdc7a88f073f04c9bcd9f981eab56e0284bd2274f3c4086d9567fdbe81",
+      "public/generic_rtl/mac/integer_mac_harness.sv": "36dc8fa59f55984987d740833872f1082f67a3623353e106c8ca479f1e896d05"
+    },
+    "tech_lef": "c33b8b7d4ce1d105735e461f31eaa80256c51cc29cc3fa2512ca514d125fe31f",
+    "wrapper": "99c2ba0d13692b91de404caafe059f56d3715bda425b04935dc6969fdcf9d5a1"
+  },
+  "iso_clock": {
+    "accumulator_effect_int4_acc64_over_acc32": [
+      {
+        "core_ratio": 1.979758149316509,
+        "target_ns": 12,
+        "total_ratio": 1.9499175597691674
+      },
+      {
+        "core_ratio": 1.979758149316509,
+        "target_ns": 10,
+        "total_ratio": 1.9499175597691674
+      },
+      {
+        "core_ratio": 2.0088065194532074,
+        "target_ns": 8,
+        "total_ratio": 1.972691673536686
+      }
+    ],
+    "accumulator_effect_int5_acc64_over_acc32": [
+      {
+        "core_ratio": 1.9962441314553991,
+        "target_ns": 12,
+        "total_ratio": 1.9609184629803185
+      },
+      {
+        "core_ratio": 1.9962441314553991,
+        "target_ns": 10,
+        "total_ratio": 1.9609184629803185
+      },
+      {
+        "core_ratio": 2.023356807511737,
+        "target_ns": 8,
+        "total_ratio": 1.982567947516401
+      }
+    ],
+    "accumulator_effect_int6_acc64_over_acc32": [
+      {
+        "core_ratio": 1.965141122230968,
+        "target_ns": 12,
+        "total_ratio": 1.9324202559019643
+      },
+      {
+        "core_ratio": 1.965141122230968,
+        "target_ns": 10,
+        "total_ratio": 1.9324202559019643
+      },
+      {
+        "core_ratio": 1.9737996176768247,
+        "target_ns": 8,
+        "total_ratio": 1.9393584429626958
+      }
+    ],
+    "accumulator_effect_int8_acc64_over_acc32": [
+      {
+        "core_ratio": 1.891956438670233,
+        "target_ns": 12,
+        "total_ratio": 1.8687216398059772
+      },
+      {
+        "core_ratio": 1.891860909438288,
+        "target_ns": 10,
+        "total_ratio": 1.8686434047879832
+      },
+      {
+        "core_ratio": 1.9484142147497134,
+        "target_ns": 8,
+        "total_ratio": 1.9149585354404632
+      }
+    ],
+    "all_main_common_targets": [
+      12,
+      10,
+      8
+    ],
+    "multiplier_effect_int4_over_int8_acc32": [
+      {
+        "core_ratio": 0.726786396637371,
+        "target_ns": 12,
+        "total_ratio": 0.7591926146143013
+      },
+      {
+        "core_ratio": 0.726786396637371,
+        "target_ns": 10,
+        "total_ratio": 0.7591926146143013
+      },
+      {
+        "core_ratio": 0.726786396637371,
+        "target_ns": 8,
+        "total_ratio": 0.7591926146143013
+      },
+      {
+        "core_ratio": 0.7266214538160283,
+        "target_ns": 6,
+        "total_ratio": 0.7590549949151217
+      },
+      {
+        "core_ratio": 0.7105505431780519,
+        "target_ns": 5,
+        "total_ratio": 0.7448391013964785
+      }
+    ]
+  },
+  "records": [
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 32,
+      "core_area": 2130.24,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.707856,
+      "netlist_sha256": "beaa11b4c982955ced562e291aaf9ca21e1c3100d2547614f34eca13ce4fb812",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.205521,
+      "report_sha256": "baa71b0b9238c139dbdc039217514ea2c8dc02a928e1bf93409dc7cfb78e9f53",
+      "resizer": null,
+      "stat_sha256": "8a826b6cb8211171fa0f6308a3aef9d62fe32762969708f34222d3f8481c1219",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 2717.12,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 6.292144,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 32,
+      "core_area": 2130.24,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.707855,
+      "netlist_sha256": "beaa11b4c982955ced562e291aaf9ca21e1c3100d2547614f34eca13ce4fb812",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.205521,
+      "report_sha256": "abd40393c8a748ea8ce248e83eab9f9ec2328e3b218f374509016d4c60822fb9",
+      "resizer": null,
+      "stat_sha256": "8a826b6cb8211171fa0f6308a3aef9d62fe32762969708f34222d3f8481c1219",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 2717.12,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 4.292145,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 32,
+      "core_area": 2130.24,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.707856,
+      "netlist_sha256": "beaa11b4c982955ced562e291aaf9ca21e1c3100d2547614f34eca13ce4fb812",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.205521,
+      "report_sha256": "e8808eb1df9b68533e17371d077993300d8a55de134d16467d818f3782458d05",
+      "resizer": null,
+      "stat_sha256": "8a826b6cb8211171fa0f6308a3aef9d62fe32762969708f34222d3f8481c1219",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 2717.12,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 2.292144,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 32,
+      "core_area": 2129.96,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.411393,
+      "netlist_sha256": "51e26060c8676f0d1d120bc3c143280e5c5a097a5166110bed59c060372b0a65",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.197228,
+      "report_sha256": "2e7aaeaca33ae7e06cba3739e7a539bd0774f73fcfd2f6945d39fb678a9ad61d",
+      "resizer": null,
+      "stat_sha256": "7220f020484a95b523cb399fe3b9111d3807ab1464b1b7d956dd01aa0bfb4ad7",
+      "target_ns": 6,
+      "tns_ns": 0.0,
+      "total_area": 2716.84,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 0.588607,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 32,
+      "core_area": 2161.04,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 4.786649,
+      "netlist_sha256": "062d280f56163e3c435dcac400a4937ad827338a2b62e3a64b1e5bf24769c5b5",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.197228,
+      "report_sha256": "e0479316fa67631c94ea851fbd649d0e7863d52292a41f5cac845f18b41ade5c",
+      "resizer": null,
+      "stat_sha256": "942335817f7a000ebd7cee9d423a69e3f8a8aeb670960a64d4ae950aa9b666e8",
+      "target_ns": 5,
+      "tns_ns": 0.0,
+      "total_area": 2747.92,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 0.213351,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 32,
+      "core_area": 2325.4,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.820787,
+      "netlist_sha256": "da6d7ed29ff19c31d0ee4045a7fcf01054606f0b0aaa398df749491ad3e6a43b",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.120468,
+      "report_sha256": "050b0e3261956be7451dbcab93c3b98512ead5fd6e2c28f94e03497c89a4c2b5",
+      "resizer": null,
+      "stat_sha256": "d1fc2f4b9afe91a4cbc9094ef426381a24bf7eef67abf8b0d2b7805a65d4a0ad",
+      "target_ns": 4,
+      "tns_ns": 0.0,
+      "total_area": 2912.28,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 0.179213,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 32,
+      "core_area": 2325.4,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.820787,
+      "netlist_sha256": "da6d7ed29ff19c31d0ee4045a7fcf01054606f0b0aaa398df749491ad3e6a43b",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.120468,
+      "report_sha256": "fb8fba1e20c85497e6ac9a06150178cf6220c69ad8a4759713d5d109276cdbde",
+      "resizer": null,
+      "stat_sha256": "d1fc2f4b9afe91a4cbc9094ef426381a24bf7eef67abf8b0d2b7805a65d4a0ad",
+      "target_ns": 3,
+      "tns_ns": -25.973804,
+      "total_area": 2912.28,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": -0.820787,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 32,
+      "core_area": 2325.4,
+      "core_cells": 1083,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.820787,
+      "netlist_sha256": "da6d7ed29ff19c31d0ee4045a7fcf01054606f0b0aaa398df749491ad3e6a43b",
+      "path_cells": 51,
+      "path_worst_slew_ns": 0.120468,
+      "report_sha256": "b880dbc7a24b503fc1a007fb394c8181dce45d0c63a04240e428b84dc2257d9d",
+      "resizer": null,
+      "stat_sha256": "d1fc2f4b9afe91a4cbc9094ef426381a24bf7eef67abf8b0d2b7805a65d4a0ad",
+      "target_ns": 2,
+      "tns_ns": -75.22126,
+      "total_area": 2912.28,
+      "total_cells": 1244,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": -1.820787,
+      "wrapper_area": 586.88
+    },
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 32,
+      "core_area": 2385.6,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.525108,
+      "netlist_sha256": "cf7910e641c6747df8acd8f35ed03d0d4e4f6569a37e85ea7d941dfb308d3521",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.204753,
+      "report_sha256": "567a9a063296a4b490c696750e60f09d8cb12f57b683ec877e43257327465608",
+      "resizer": null,
+      "stat_sha256": "8176212c5bcfd6b233cc7c62a02b8e04fa09b67b5376cc5364c8938e96b19f10",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 2987.6,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 6.474892,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 32,
+      "core_area": 2385.6,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.525107,
+      "netlist_sha256": "cf7910e641c6747df8acd8f35ed03d0d4e4f6569a37e85ea7d941dfb308d3521",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.204753,
+      "report_sha256": "594545a8365a4482d94d69a973cd090181837da97d95bcf4a2a744a1f5d4ffc3",
+      "resizer": null,
+      "stat_sha256": "8176212c5bcfd6b233cc7c62a02b8e04fa09b67b5376cc5364c8938e96b19f10",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 2987.6,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 4.474893,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 32,
+      "core_area": 2385.6,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.5251079999999995,
+      "netlist_sha256": "cf7910e641c6747df8acd8f35ed03d0d4e4f6569a37e85ea7d941dfb308d3521",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.204753,
+      "report_sha256": "d49e76f6f05367b430427c391ff5434b7c7920cc0ff82f75940940e61886dff5",
+      "resizer": null,
+      "stat_sha256": "8176212c5bcfd6b233cc7c62a02b8e04fa09b67b5376cc5364c8938e96b19f10",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 2987.6,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 2.474892,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 32,
+      "core_area": 2385.6,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.307771,
+      "netlist_sha256": "c4a28ce45817a7b4285dd099b771f0a9305d841d9a9ccc6dc472712dabd7a1e2",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.204753,
+      "report_sha256": "3227bd11a108aadedc40bc7ca982ab14e18a0d93c4844d4c69723408df17e961",
+      "resizer": null,
+      "stat_sha256": "4b683dd1300a87c391daf4ab3d826fc0e377e0780b390e71d4cbc1559498b0f5",
+      "target_ns": 6,
+      "tns_ns": 0.0,
+      "total_area": 2987.6,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 0.692229,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 32,
+      "core_area": 2408.56,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 4.762416,
+      "netlist_sha256": "a4b3ae0b08c14795e8cc088aa4844397f888f21b863b790831d5c52fc6c96f09",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.140575,
+      "report_sha256": "be8c9a5e17e2bcc13f46ed8877d297aa0369e9c41fdf28a7d0188325f4648f78",
+      "resizer": null,
+      "stat_sha256": "03817bb167735229da6713a9b0e6cba4c0126f99fa9add8786f9f69592dd7b15",
+      "target_ns": 5,
+      "tns_ns": 0.0,
+      "total_area": 3010.56,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 0.237584,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 32,
+      "core_area": 2572.92,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.968292,
+      "netlist_sha256": "cda0e591e27f43029f7c6abd3ba74bc9cb1b465e7138ba081405432462f02d12",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.108079,
+      "report_sha256": "6cbaad9e52caa730b9518a79fb906d1806f2e0b707b3ad8fcf1fa3596ac1b087",
+      "resizer": null,
+      "stat_sha256": "fc577ed4a5993279e1440ff02cf042940df4d44ad681dadeb71986e8f16454e9",
+      "target_ns": 4,
+      "tns_ns": 0.0,
+      "total_area": 3174.92,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 0.031708,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 32,
+      "core_area": 2572.92,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.968292,
+      "netlist_sha256": "cda0e591e27f43029f7c6abd3ba74bc9cb1b465e7138ba081405432462f02d12",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.108079,
+      "report_sha256": "2eaeeba27205dbcf5a5c3da434d1594a62d9ae496c49917bed4a947c16149c89",
+      "resizer": null,
+      "stat_sha256": "fc577ed4a5993279e1440ff02cf042940df4d44ad681dadeb71986e8f16454e9",
+      "target_ns": 3,
+      "tns_ns": -30.838266,
+      "total_area": 3174.92,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": -0.968292,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 32,
+      "core_area": 2572.92,
+      "core_cells": 1236,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.968292,
+      "netlist_sha256": "cda0e591e27f43029f7c6abd3ba74bc9cb1b465e7138ba081405432462f02d12",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.108079,
+      "report_sha256": "b34d7d399e6e5b61add84a2251cdf1090474320017d7f76e9fa88b6101bdd264",
+      "resizer": null,
+      "stat_sha256": "fc577ed4a5993279e1440ff02cf042940df4d44ad681dadeb71986e8f16454e9",
+      "target_ns": 2,
+      "tns_ns": -82.132523,
+      "total_area": 3174.92,
+      "total_cells": 1401,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": -1.968292,
+      "wrapper_area": 602.0
+    },
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 32,
+      "core_area": 2490.04,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.73051,
+      "netlist_sha256": "908f56b1948d82fc16e52a0706cb77bb7db2a443ed63a18e8c309d2e4d2007ef",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.201006,
+      "report_sha256": "189b4b904df0aec3366e567e5b2bef0971ba86642fdee9e2dfd57a2d601a1fbd",
+      "resizer": null,
+      "stat_sha256": "0f3470d4be153e03593341f05893899a7e3ef6b6739dc49343788898aeb4cebb",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 3107.44,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 6.26949,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 32,
+      "core_area": 2490.04,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.730509,
+      "netlist_sha256": "908f56b1948d82fc16e52a0706cb77bb7db2a443ed63a18e8c309d2e4d2007ef",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.201006,
+      "report_sha256": "903f39c0dc3c9e9dbfcd1e7b8f852357aaca9441fe9b56154cc0d3e6f683b4f4",
+      "resizer": null,
+      "stat_sha256": "0f3470d4be153e03593341f05893899a7e3ef6b6739dc49343788898aeb4cebb",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 3107.44,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 4.269491,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 32,
+      "core_area": 2490.04,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.730509,
+      "netlist_sha256": "908f56b1948d82fc16e52a0706cb77bb7db2a443ed63a18e8c309d2e4d2007ef",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.201006,
+      "report_sha256": "209e00369c51a6bb5973fb4b9b7a046e93632912ea0bcde8a9bf98b33c533c6e",
+      "resizer": null,
+      "stat_sha256": "0f3470d4be153e03593341f05893899a7e3ef6b6739dc49343788898aeb4cebb",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 3107.44,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 2.269491,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 32,
+      "core_area": 2490.04,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.529124,
+      "netlist_sha256": "18141b13c1bf4e0ad88a8291b7d85d99bee5f1ef82b3a1520dc9b5d8713676bc",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.20562,
+      "report_sha256": "3fe86ca8e5be86b1b65695e72085122842da2fc1a762ca71e51149de271cde40",
+      "resizer": null,
+      "stat_sha256": "246425097f5b50d5c2971a9d6f3e4336fdabaad012f0cee0e423b8b7a03c2a8f",
+      "target_ns": 6,
+      "tns_ns": 0.0,
+      "total_area": 3107.44,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 0.470876,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 32,
+      "core_area": 2552.2,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 4.801068,
+      "netlist_sha256": "41624d3add39e8bd0474cf79207d8d8ce47f248bed1a82dde2df47ca8aa62fb3",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.201006,
+      "report_sha256": "8696b7bfde15121642f4882a7ad2b68088daed12be22d58ddb3dc1d7722f1d59",
+      "resizer": null,
+      "stat_sha256": "b484c366771ee3e07b4a05dc83cbccf5b2c75b8d0b6b44b234cf38c1cf5d3cd3",
+      "target_ns": 5,
+      "tns_ns": 0.0,
+      "total_area": 3169.6,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 0.198932,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 32,
+      "core_area": 2676.8,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.8877639999999998,
+      "netlist_sha256": "43e6a4e314905c4cbcc5287dc3e1a118a9d325c238ebc0b08d57777dcf556ffa",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.100393,
+      "report_sha256": "d7bbedcc6f1a56e507a02ad4a38eb0d10f4262291cb55330d6e711cf79517981",
+      "resizer": null,
+      "stat_sha256": "365aa98abb48435cb3226acd90802929b01a4abafc875515071f63a864d240b8",
+      "target_ns": 4,
+      "tns_ns": 0.0,
+      "total_area": 3294.2,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 0.112236,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 32,
+      "core_area": 2676.8,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.887765,
+      "netlist_sha256": "43e6a4e314905c4cbcc5287dc3e1a118a9d325c238ebc0b08d57777dcf556ffa",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.100393,
+      "report_sha256": "e93cb5e9fce1c9b00075d6bb033f31372d4b0917fdeca57cfead39c74b043f58",
+      "resizer": null,
+      "stat_sha256": "365aa98abb48435cb3226acd90802929b01a4abafc875515071f63a864d240b8",
+      "target_ns": 3,
+      "tns_ns": -28.261843,
+      "total_area": 3294.2,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": -0.887765,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 32,
+      "core_area": 2676.8,
+      "core_cells": 1283,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 3.887763,
+      "netlist_sha256": "43e6a4e314905c4cbcc5287dc3e1a118a9d325c238ebc0b08d57777dcf556ffa",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.100393,
+      "report_sha256": "4e846bbfb8eecaa2066d940c586eba78c64872def8ced83f79836278334f97b6",
+      "resizer": null,
+      "stat_sha256": "365aa98abb48435cb3226acd90802929b01a4abafc875515071f63a864d240b8",
+      "target_ns": 2,
+      "tns_ns": -80.52607,
+      "total_area": 3294.2,
+      "total_cells": 1452,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": -1.887763,
+      "wrapper_area": 617.4
+    },
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 32,
+      "core_area": 2931.04,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.784671,
+      "netlist_sha256": "7d9c468de06e38eae49bd4bfe48691aaa35ee645e2b95b0a80037360c2e1b2d4",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.266564,
+      "report_sha256": "e578eb75346439374b556e7a4e00ab3e4bcf7b8eb95559811ff53a4343da0fc4",
+      "resizer": null,
+      "stat_sha256": "9f6fdccbabc75eef836112c90b307876d0a17ae66dc06f2944f435badba17f86",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 3578.96,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 6.215329,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 32,
+      "core_area": 2931.04,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.78467,
+      "netlist_sha256": "7d9c468de06e38eae49bd4bfe48691aaa35ee645e2b95b0a80037360c2e1b2d4",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.266564,
+      "report_sha256": "103bd2464ccdbd924a6a667bb27d4833ad70df25188b619f11f49b7ef75448f4",
+      "resizer": null,
+      "stat_sha256": "9f6fdccbabc75eef836112c90b307876d0a17ae66dc06f2944f435badba17f86",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 3578.96,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 4.21533,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 32,
+      "core_area": 2931.04,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.7846709999999995,
+      "netlist_sha256": "7d9c468de06e38eae49bd4bfe48691aaa35ee645e2b95b0a80037360c2e1b2d4",
+      "path_cells": 52,
+      "path_worst_slew_ns": 0.266564,
+      "report_sha256": "7a7949f525ad42f5ea120f2653e0e8b37198987a830a97bf02574edbfeac349b",
+      "resizer": null,
+      "stat_sha256": "9f6fdccbabc75eef836112c90b307876d0a17ae66dc06f2944f435badba17f86",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 3578.96,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 2.215329,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 32,
+      "core_area": 2931.32,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 5.426338,
+      "netlist_sha256": "9ea65fa96d2b30e0918d8e42f83df2b0e9b85fafdf1e4a6458346ddaafbc9b11",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.266564,
+      "report_sha256": "2a1dee2e32abc7fdc4463af8beb8a6203aea60f13476b837549d63251a64e112",
+      "resizer": null,
+      "stat_sha256": "2a185e05ff2601db069bc4923d9f28750f4899dff2e18bdb9de96cddd82a9e59",
+      "target_ns": 6,
+      "tns_ns": 0.0,
+      "total_area": 3579.24,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 0.573662,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 32,
+      "core_area": 3041.36,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 4.756273,
+      "netlist_sha256": "6fc434997f66525298f76f3d6a6a0278c15a2d653fec75068148a39152f3e541",
+      "path_cells": 53,
+      "path_worst_slew_ns": 0.171738,
+      "report_sha256": "536221130b03692590228e29c1ef7ece8b403b287ecd9092fd6b4080cd79be91",
+      "resizer": null,
+      "stat_sha256": "f4005a613f7576c9d8d83dc8f4d978857f2a2ee0196aab239611043e9dcf7c19",
+      "target_ns": 5,
+      "tns_ns": 0.0,
+      "total_area": 3689.28,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 0.243727,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 32,
+      "core_area": 3088.96,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 4.164235,
+      "netlist_sha256": "7bbd58b9db3cf6a995cde2cbab9d582557abd5d51aff08cbca990c5257e341a8",
+      "path_cells": 54,
+      "path_worst_slew_ns": 0.089585,
+      "report_sha256": "c6123a6caea086d0737515a08ba5297476581f09a89ef9c236566156d27b76e8",
+      "resizer": null,
+      "stat_sha256": "401e138fff9043bdebc7a4f4b62ee0baefe2de755d4031fcd4cb9012cb47fff3",
+      "target_ns": 4,
+      "tns_ns": -5.046511,
+      "total_area": 3736.88,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -0.164235,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 32,
+      "core_area": 3088.96,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 4.164235,
+      "netlist_sha256": "7bbd58b9db3cf6a995cde2cbab9d582557abd5d51aff08cbca990c5257e341a8",
+      "path_cells": 54,
+      "path_worst_slew_ns": 0.089585,
+      "report_sha256": "585ee68f20d41a13dd7fc9e8bc71dc0807c7f01b485a643ad6b9ec71c2b0e450",
+      "resizer": null,
+      "stat_sha256": "401e138fff9043bdebc7a4f4b62ee0baefe2de755d4031fcd4cb9012cb47fff3",
+      "target_ns": 3,
+      "tns_ns": -37.046513,
+      "total_area": 3736.88,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -1.164235,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 32,
+      "core_area": 3088.96,
+      "core_cells": 1497,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 4.164234,
+      "netlist_sha256": "7bbd58b9db3cf6a995cde2cbab9d582557abd5d51aff08cbca990c5257e341a8",
+      "path_cells": 54,
+      "path_worst_slew_ns": 0.089585,
+      "report_sha256": "7e7940c4a4cfdff6c5c4313eb6c5eae6683b6d2775bd58c190badefd5e701dd1",
+      "resizer": null,
+      "stat_sha256": "401e138fff9043bdebc7a4f4b62ee0baefe2de755d4031fcd4cb9012cb47fff3",
+      "target_ns": 2,
+      "tns_ns": -94.030838,
+      "total_area": 3736.88,
+      "total_cells": 1674,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -2.164234,
+      "wrapper_area": 647.92
+    },
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 64,
+      "core_area": 5545.4,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.777436,
+      "netlist_sha256": "f25872ea6bd227770ac1d124c26d150eb2d95653b32bd25ffa1f02cb907a23ab",
+      "path_cells": 91,
+      "path_worst_slew_ns": 0.231421,
+      "report_sha256": "5b07b0e9d937e7dd0076e15b5f6e102f8b508ac8bf7d1e62d910e13a1a233a5b",
+      "resizer": null,
+      "stat_sha256": "abe1ea6c083866f8461d57616238e83de315fd0194872444c95e20f7592c2fb9",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 6688.08,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 2.222564,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 64,
+      "core_area": 5545.12,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.065648,
+      "netlist_sha256": "3a0d840e3f0417f5e84cd8ccafac29610d9690ab69ecd6ec5920f728858987b7",
+      "path_cells": 91,
+      "path_worst_slew_ns": 0.230497,
+      "report_sha256": "064bdc79d15620fa35526f3adfd009daae60395191fe225779a0b61e21c17c00",
+      "resizer": null,
+      "stat_sha256": "b749631d85132f7a3ce2f4cc428977311107d651bea9f01105a22907db730a66",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 6687.8,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 0.934352,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 64,
+      "core_area": 5710.88,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 7.815913,
+      "netlist_sha256": "287b26b29918c3d2919448c0922d161b2cbe52c2377a1610cd5e9899c6699fde",
+      "path_cells": 92,
+      "path_worst_slew_ns": 0.17704,
+      "report_sha256": "059e58bf51cbde811795abce24e7d23837e91e12b8dd74194f983d08f7235b8c",
+      "resizer": null,
+      "stat_sha256": "994745d11d418b67982b8cc7517fe1759096018dc6a1862124b1fd52a74a8788",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 6853.56,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": 0.184087,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 64,
+      "core_area": 5995.64,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.443757,
+      "netlist_sha256": "86111d9ba54a3d7baf4bd8ad1152d8a53eafb4649e7474deb7bad927cea429d0",
+      "path_cells": 93,
+      "path_worst_slew_ns": 0.120456,
+      "report_sha256": "53a93ba2153c899dc7d7ebfc725fb24cfcaac730f9d5e26999cc63a6bf357f86",
+      "resizer": null,
+      "stat_sha256": "b3a68d0073e15cecb7747b7be9edcdd4d634cc5321a1df9e9e7c5eb1a332b2dc",
+      "target_ns": 6,
+      "tns_ns": -27.679241,
+      "total_area": 7138.32,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -0.443757,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 64,
+      "core_area": 5995.64,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.4437560000000005,
+      "netlist_sha256": "86111d9ba54a3d7baf4bd8ad1152d8a53eafb4649e7474deb7bad927cea429d0",
+      "path_cells": 93,
+      "path_worst_slew_ns": 0.120456,
+      "report_sha256": "2e8c0a6369dcb562f76872cf26cd0fcb0c546953a5a32e683688f8746f2123b2",
+      "resizer": null,
+      "stat_sha256": "b3a68d0073e15cecb7747b7be9edcdd4d634cc5321a1df9e9e7c5eb1a332b2dc",
+      "target_ns": 5,
+      "tns_ns": -91.679222,
+      "total_area": 7138.32,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -1.443756,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 64,
+      "core_area": 5995.64,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.4437560000000005,
+      "netlist_sha256": "86111d9ba54a3d7baf4bd8ad1152d8a53eafb4649e7474deb7bad927cea429d0",
+      "path_cells": 93,
+      "path_worst_slew_ns": 0.120456,
+      "report_sha256": "256bee95a6735761c1ac7cd033912e2d81d867d1fdd68fe07012fd312d1f8849",
+      "resizer": null,
+      "stat_sha256": "b3a68d0073e15cecb7747b7be9edcdd4d634cc5321a1df9e9e7c5eb1a332b2dc",
+      "target_ns": 4,
+      "tns_ns": -156.298157,
+      "total_area": 7138.32,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -2.443756,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 64,
+      "core_area": 5995.64,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.4437560000000005,
+      "netlist_sha256": "86111d9ba54a3d7baf4bd8ad1152d8a53eafb4649e7474deb7bad927cea429d0",
+      "path_cells": 93,
+      "path_worst_slew_ns": 0.120456,
+      "report_sha256": "7fed74bd6dc3d1672e93f51020ccca943b1a4fb3c1e359652efac8a8c348117f",
+      "resizer": null,
+      "stat_sha256": "b3a68d0073e15cecb7747b7be9edcdd4d634cc5321a1df9e9e7c5eb1a332b2dc",
+      "target_ns": 3,
+      "tns_ns": -273.219177,
+      "total_area": 7138.32,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -3.443756,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 64,
+      "core_area": 5995.64,
+      "core_cells": 2983,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.443756,
+      "netlist_sha256": "86111d9ba54a3d7baf4bd8ad1152d8a53eafb4649e7474deb7bad927cea429d0",
+      "path_cells": 93,
+      "path_worst_slew_ns": 0.120456,
+      "report_sha256": "71e3f26da418c92518cc1062d84784d1c7bf1a9220fede9d90e4d3e60ad3be06",
+      "resizer": null,
+      "stat_sha256": "b3a68d0073e15cecb7747b7be9edcdd4d634cc5321a1df9e9e7c5eb1a332b2dc",
+      "target_ns": 2,
+      "tns_ns": -401.219177,
+      "total_area": 7138.32,
+      "total_cells": 3296,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 8,
+      "worst_slack_ns": -4.443756,
+      "wrapper_area": 1142.68
+    },
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 64,
+      "core_area": 4217.36,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.009428,
+      "netlist_sha256": "6c60f703a7fb9ac15bbca091de07c9fb2dbb41c92078d27acc8bd20730200fbb",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.216319,
+      "report_sha256": "e9e40c01bcbffc5b560eb678962c46672520362c85d3e69d3a9ee4838000b7b2",
+      "resizer": null,
+      "stat_sha256": "11b6107b65d4e2a2ad4ac62bc8824d0c3e9b9e141a383ab38e501aa52c3bfd49",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 5298.16,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 2.990572,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 64,
+      "core_area": 4217.36,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.009427,
+      "netlist_sha256": "6c60f703a7fb9ac15bbca091de07c9fb2dbb41c92078d27acc8bd20730200fbb",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.216319,
+      "report_sha256": "2012a8e67b9efa49ebe0f323dbe880877fa50b9911d39484654ae6e35990dc28",
+      "resizer": null,
+      "stat_sha256": "11b6107b65d4e2a2ad4ac62bc8824d0c3e9b9e141a383ab38e501aa52c3bfd49",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 5298.16,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 0.990573,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 64,
+      "core_area": 4279.24,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 7.755859,
+      "netlist_sha256": "09e76593a0535f9e2f12e633a13f0e74a75f9adf1e8fd2c578c07003ca7e824b",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.220134,
+      "report_sha256": "03d7bb1257c4c11d882c62953084b7319fee5a468f501c4b7a5dc24d5cde37b5",
+      "resizer": null,
+      "stat_sha256": "59698adad0fb731f91b288c94099c16821c854bf178be3b70a25ed2ef399a430",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 5360.04,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": 0.244141,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 64,
+      "core_area": 4540.48,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.105458,
+      "netlist_sha256": "68bf5467b412accbb51f32571fd017f454c4f396e81054209704e17e42518f97",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.110508,
+      "report_sha256": "8c8ae8c0e2ebe00fd7b9b0169fb22a9dc905470bc1efaedb17c50589226af7f5",
+      "resizer": null,
+      "stat_sha256": "57edfa8443f0f231d3586fb008aa8d87a46d315dcde16437686ab34010f244b3",
+      "target_ns": 6,
+      "tns_ns": -5.944976,
+      "total_area": 5621.28,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": -0.105458,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 64,
+      "core_area": 4540.48,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.1054580000000005,
+      "netlist_sha256": "68bf5467b412accbb51f32571fd017f454c4f396e81054209704e17e42518f97",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.110508,
+      "report_sha256": "7ed05bdc1210bfe89d91d49d80ca157134e0d21cfe819a231edef54748930c5b",
+      "resizer": null,
+      "stat_sha256": "57edfa8443f0f231d3586fb008aa8d87a46d315dcde16437686ab34010f244b3",
+      "target_ns": 5,
+      "tns_ns": -69.935341,
+      "total_area": 5621.28,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": -1.105458,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 64,
+      "core_area": 4540.48,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.1054580000000005,
+      "netlist_sha256": "68bf5467b412accbb51f32571fd017f454c4f396e81054209704e17e42518f97",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.110508,
+      "report_sha256": "90faab31d3f3dd3eb4bcd94e9aeae4aa6c0da984c5c2478823ee176431ad00b9",
+      "resizer": null,
+      "stat_sha256": "57edfa8443f0f231d3586fb008aa8d87a46d315dcde16437686ab34010f244b3",
+      "target_ns": 4,
+      "tns_ns": -133.935349,
+      "total_area": 5621.28,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": -2.105458,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 64,
+      "core_area": 4540.48,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.1054580000000005,
+      "netlist_sha256": "68bf5467b412accbb51f32571fd017f454c4f396e81054209704e17e42518f97",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.110508,
+      "report_sha256": "f978ae2c91ed01c07cdde31c6dd4c0910344f4c252a1a71fd9c651bd34ba2b85",
+      "resizer": null,
+      "stat_sha256": "57edfa8443f0f231d3586fb008aa8d87a46d315dcde16437686ab34010f244b3",
+      "target_ns": 3,
+      "tns_ns": -238.402649,
+      "total_area": 5621.28,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": -3.105458,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 64,
+      "core_area": 4540.48,
+      "core_cells": 2231,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.105458,
+      "netlist_sha256": "68bf5467b412accbb51f32571fd017f454c4f396e81054209704e17e42518f97",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.110508,
+      "report_sha256": "bbb320d826a6624e571a91e0835b1eff04349fc3a9ad3f5de5faa34eb5646067",
+      "resizer": null,
+      "stat_sha256": "57edfa8443f0f231d3586fb008aa8d87a46d315dcde16437686ab34010f244b3",
+      "target_ns": 2,
+      "tns_ns": -366.402618,
+      "total_area": 5621.28,
+      "total_cells": 2527,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 4,
+      "worst_slack_ns": -4.105458,
+      "wrapper_area": 1080.8
+    },
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 64,
+      "core_area": 4762.24,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.544425,
+      "netlist_sha256": "38f2b6fb437c7ac780d37fea017a11bc2139aa5dd11faeb4a319fbb6ae1c071e",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.242993,
+      "report_sha256": "472ff832c06a45216838f1a59a629ea93cc76df594df4103fb3bf7c5c3bb7b69",
+      "resizer": null,
+      "stat_sha256": "d5153152a6f890e3cd45185d3ffd8f85009bafed51f9e699c99bc145953d3b4d",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 5858.44,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 2.455575,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 64,
+      "core_area": 4762.24,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.544424,
+      "netlist_sha256": "38f2b6fb437c7ac780d37fea017a11bc2139aa5dd11faeb4a319fbb6ae1c071e",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.242993,
+      "report_sha256": "63f5d0d3acec9defdef2c7f9db57675b41cb27307d0ace99b829df2b33eabd6d",
+      "resizer": null,
+      "stat_sha256": "d5153152a6f890e3cd45185d3ffd8f85009bafed51f9e699c99bc145953d3b4d",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 5858.44,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 0.455576,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 64,
+      "core_area": 4826.92,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 7.806692,
+      "netlist_sha256": "0462e4e6ac66a04c8c1a86f7ca6bdd279a7579e781f918231ce7c777e9c7535b",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.197034,
+      "report_sha256": "2cf293c120018edcb225210e522680de405943573f3f1c388d9a1d8a8f50ab70",
+      "resizer": null,
+      "stat_sha256": "9e8ef68b1d75b218f261e2ab3d4b0ed0e228cc7acaa0f80d12e5422b6076a4fb",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 5923.12,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": 0.193308,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 64,
+      "core_area": 5166.56,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.675433,
+      "netlist_sha256": "d810b570e354efda653bf64553181b4cf92da26d470bc18ab07e7eb6db06d2a4",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.111988,
+      "report_sha256": "34f25adf45ce49438a642a70f4d62bc15c106c91dcde509c9ff731fce24426aa",
+      "resizer": null,
+      "stat_sha256": "f2918fa23d8f730cd15dc7da94837635e87712aef4f9bd0d93f6c1d62539971d",
+      "target_ns": 6,
+      "tns_ns": -42.015259,
+      "total_area": 6262.76,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": -0.675433,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 64,
+      "core_area": 5166.56,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.675432,
+      "netlist_sha256": "d810b570e354efda653bf64553181b4cf92da26d470bc18ab07e7eb6db06d2a4",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.111988,
+      "report_sha256": "058ce375e9aaa350d4633cb4b17ae34e0426e7d51b94d9721b0ab1b4da52eb50",
+      "resizer": null,
+      "stat_sha256": "f2918fa23d8f730cd15dc7da94837635e87712aef4f9bd0d93f6c1d62539971d",
+      "target_ns": 5,
+      "tns_ns": -106.015236,
+      "total_area": 6262.76,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": -1.675432,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 64,
+      "core_area": 5166.56,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.675432,
+      "netlist_sha256": "d810b570e354efda653bf64553181b4cf92da26d470bc18ab07e7eb6db06d2a4",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.111988,
+      "report_sha256": "d02a7414a7e2762e71b1dd7e1c54d870b8eb59728a1cb0dc313ac22031b180c7",
+      "resizer": null,
+      "stat_sha256": "f2918fa23d8f730cd15dc7da94837635e87712aef4f9bd0d93f6c1d62539971d",
+      "target_ns": 4,
+      "tns_ns": -170.634521,
+      "total_area": 6262.76,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": -2.675432,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 64,
+      "core_area": 5166.56,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.675433,
+      "netlist_sha256": "d810b570e354efda653bf64553181b4cf92da26d470bc18ab07e7eb6db06d2a4",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.111988,
+      "report_sha256": "7981892d2c8ce23933be154477bbaa63e5ad95e739d425f319fb0f4ab33eed6a",
+      "resizer": null,
+      "stat_sha256": "f2918fa23d8f730cd15dc7da94837635e87712aef4f9bd0d93f6c1d62539971d",
+      "target_ns": 3,
+      "tns_ns": -290.367554,
+      "total_area": 6262.76,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": -3.675433,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 64,
+      "core_area": 5166.56,
+      "core_cells": 2618,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.675433,
+      "netlist_sha256": "d810b570e354efda653bf64553181b4cf92da26d470bc18ab07e7eb6db06d2a4",
+      "path_cells": 90,
+      "path_worst_slew_ns": 0.111988,
+      "report_sha256": "9926373961209561456a2a6532de14f22a64f39c317c78d4f106cac0a8a4822d",
+      "resizer": null,
+      "stat_sha256": "f2918fa23d8f730cd15dc7da94837635e87712aef4f9bd0d93f6c1d62539971d",
+      "target_ns": 2,
+      "tns_ns": -418.367554,
+      "total_area": 6262.76,
+      "total_cells": 2918,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 5,
+      "worst_slack_ns": -4.675433,
+      "wrapper_area": 1096.2
+    },
+    {
+      "abc_delay_ps": 11550,
+      "accumulator_bits": 64,
+      "core_area": 4893.28,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.342766000000001,
+      "netlist_sha256": "0cf0a8d4409ed9533b91ed4c2ffeb6a68c34e608287253637b1c55517ec572a9",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.222688,
+      "report_sha256": "e924e65c38ee44c5aba1966b8ec43a20e1de41bea0ec302be8498b7db70f6189",
+      "resizer": null,
+      "stat_sha256": "95bbe4150787f94bea97ece7b760fedf60b380a74f634da3fe10da76e02050e5",
+      "target_ns": 12,
+      "tns_ns": 0.0,
+      "total_area": 6004.88,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 2.657234,
+      "wrapper_area": 1111.6
+    },
+    {
+      "abc_delay_ps": 9550,
+      "accumulator_bits": 64,
+      "core_area": 4893.28,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 9.342765,
+      "netlist_sha256": "0cf0a8d4409ed9533b91ed4c2ffeb6a68c34e608287253637b1c55517ec572a9",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.222688,
+      "report_sha256": "1c3489163f496e91da202cabb8f7290bd911a890806f1dab71fa690ae867e192",
+      "resizer": null,
+      "stat_sha256": "95bbe4150787f94bea97ece7b760fedf60b380a74f634da3fe10da76e02050e5",
+      "target_ns": 10,
+      "tns_ns": 0.0,
+      "total_area": 6004.88,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 0.657235,
+      "wrapper_area": 1111.6
+    },
+    {
+      "abc_delay_ps": 7550,
+      "accumulator_bits": 64,
+      "core_area": 4914.84,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 7.75791,
+      "netlist_sha256": "d7f599dd7be3339604fd078fba31ea99d7971f057de3229c85ea6018c20f3060",
+      "path_cells": 85,
+      "path_worst_slew_ns": 0.230636,
+      "report_sha256": "a2226c9b7da7e97eecf9faf1b708f864c9df47911ba357b1b28e65d752af0089",
+      "resizer": null,
+      "stat_sha256": "37f43787b19045659a79f246483511851e2f4c1bb5661f4a406366a3f4df5c04",
+      "target_ns": 8,
+      "tns_ns": 0.0,
+      "total_area": 6026.44,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": 0.24209,
+      "wrapper_area": 1111.6
+    },
+    {
+      "abc_delay_ps": 5550,
+      "accumulator_bits": 64,
+      "core_area": 5233.2,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.260886,
+      "netlist_sha256": "ce513dec4d5f5a4512744a91b48a19291e4e9ee0b18049f7cef4bd6fe3ec55df",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.143438,
+      "report_sha256": "809f64396d812eee4ea054bab1729ebaec8ae839beebc9a1c0d5b96188a37db0",
+      "resizer": null,
+      "stat_sha256": "f6b674fda7208eb9f3ec292fadf54b3851181238fd9dbfa8f6caea9fbfc7680b",
+      "target_ns": 6,
+      "tns_ns": -16.28212,
+      "total_area": 6344.8,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": -0.260886,
+      "wrapper_area": 1111.6
+    },
+    {
+      "abc_delay_ps": 4550,
+      "accumulator_bits": 64,
+      "core_area": 5233.2,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.260886,
+      "netlist_sha256": "ce513dec4d5f5a4512744a91b48a19291e4e9ee0b18049f7cef4bd6fe3ec55df",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.143438,
+      "report_sha256": "a23a5aeb2bd4d6241665193287ff3dabbacd3ec0c35cb693ca2b1b53c61e3add",
+      "resizer": null,
+      "stat_sha256": "f6b674fda7208eb9f3ec292fadf54b3851181238fd9dbfa8f6caea9fbfc7680b",
+      "target_ns": 5,
+      "tns_ns": -80.282097,
+      "total_area": 6344.8,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": -1.260886,
+      "wrapper_area": 1111.6
+    },
+    {
+      "abc_delay_ps": 3550,
+      "accumulator_bits": 64,
+      "core_area": 5233.2,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.260886,
+      "netlist_sha256": "ce513dec4d5f5a4512744a91b48a19291e4e9ee0b18049f7cef4bd6fe3ec55df",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.143438,
+      "report_sha256": "3c0f2f8b28dd74c9277faf6603d694fc570de8d07694bd4a296fbc39ee585843",
+      "resizer": null,
+      "stat_sha256": "f6b674fda7208eb9f3ec292fadf54b3851181238fd9dbfa8f6caea9fbfc7680b",
+      "target_ns": 4,
+      "tns_ns": -144.282104,
+      "total_area": 6344.8,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": -2.260886,
+      "wrapper_area": 1111.6
+    },
+    {
+      "abc_delay_ps": 2550,
+      "accumulator_bits": 64,
+      "core_area": 5233.2,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.260886,
+      "netlist_sha256": "ce513dec4d5f5a4512744a91b48a19291e4e9ee0b18049f7cef4bd6fe3ec55df",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.143438,
+      "report_sha256": "04cbe6aea78560d1aefe00d67ed0f48d600676007e19b0bb5bdd786e510ddf9f",
+      "resizer": null,
+      "stat_sha256": "f6b674fda7208eb9f3ec292fadf54b3851181238fd9dbfa8f6caea9fbfc7680b",
+      "target_ns": 3,
+      "tns_ns": -252.81012,
+      "total_area": 6344.8,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": -3.260886,
+      "wrapper_area": 1111.6
+    },
+    {
+      "abc_delay_ps": 1550,
+      "accumulator_bits": 64,
+      "core_area": 5233.2,
+      "core_cells": 2596,
+      "drv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "min_period_ns": 6.260886,
+      "netlist_sha256": "ce513dec4d5f5a4512744a91b48a19291e4e9ee0b18049f7cef4bd6fe3ec55df",
+      "path_cells": 87,
+      "path_worst_slew_ns": 0.143438,
+      "report_sha256": "7a59662a501e80c578e4541957558ede86aa422d46592af39aa223d63592008b",
+      "resizer": null,
+      "stat_sha256": "f6b674fda7208eb9f3ec292fadf54b3851181238fd9dbfa8f6caea9fbfc7680b",
+      "target_ns": 2,
+      "tns_ns": -380.810089,
+      "total_area": 6344.8,
+      "total_cells": 2900,
+      "valid": true,
+      "variant": "abc",
+      "violations": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "violations_on_critical_path": {
+        "max_capacitance": 0,
+        "max_fanout": 0,
+        "max_slew": 0
+      },
+      "width_bits": 6,
+      "worst_slack_ns": -4.260886,
+      "wrapper_area": 1111.6
+    }
+  ],
+  "schema_version": "1.0.0",
+  "scope": "timing-driven iso-clock synthesis + OpenSTA for the existing integer MAC; no new RTL",
+  "targets_ns": [
+    12,
+    10,
+    8,
+    6,
+    5,
+    4,
+    3,
+    2
+  ],
+  "tool_versions": {
+    "openroad_wrapper": "image openroad/orfs@sha256:6da005d1c3447799f7401215174196c75ba9ec7e28417624d0c20225f85d594c\nOpenSTA 3.1.0\nOpenROAD unknown",
+    "yosys": "Yosys 0.53+67 (git sha1 4f968c669, clang++ 18.1.8 -fPIC -O3)"
+  },
+  "validity_rule": "worst setup path has no pin violating max_transition, max_capacitance or max_fanout"
+}

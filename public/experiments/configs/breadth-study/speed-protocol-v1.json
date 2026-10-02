@@ -1,0 +1,31 @@
+{
+  "protocol": "speed-protocol-v1",
+  "lane": "S1",
+  "written": "2026-10-02T11:58+05:00, before any new measurement of this lane",
+  "scope": "Faster execution paths that must give bit-identical results to existing tools. No result of the study changes; only the time to compute it. Every measurement here is development evidence on the frozen 1k screen lists (ImageNet screen-1k, COCO screen-1k) and on the first 256 calibration images already in the B2 input cache; no held-out image is read.",
+  "part1_exact_engine": {
+    "reference": "archives artifacts/scaled_bridge_v2/implementations/7c6344af732d1bf324c07b285921f63393150cdb3875356c86237d934fdc2f92 (ResNet18 cases) and 1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863 (MobileNet cases); read-only, never edited, never written into",
+    "fast_path": "tools/scaled_bridge_fast: imports the 1f75c923 archive package unchanged for export loading, codebooks, certificates and policies; the native reduction kernels are the archived kernel.h (byte-identical copy, hash asserted) compiled with the archive's nvcc flags but launched on device pointers; host NumPy post-operations, stores and reductions are replaced by torch CUDA float64/int64 operations (no CPU-scalar divisors, no fused multiply-add)",
+    "identity": "For every case, policy and image tested: the fast record equals the archive record field by field with no tolerance: predict items (top5 in contract tie order, output hash, top1_tied_classes, failure record, non-zero per-node event counts) and the node constants; for full-trace comparisons numerical(record) (every layer's code, state, raw and dot hash, diagnostics, accumulator statistics, output, top-5, tie data).",
+    "test_sets": {
+      "regression": "the 82 record sets that lane L2c regressed in MN-R (runs/1f75c923.../regress/*.json): the fast path with full trace on their 8 images must reproduce numerical() of the sealed records of the named old run root",
+      "gated_cases": "every gated case of both archives (ResNet18 B2 cases and the two b1 cases on 7c6344af, the 10 MobileNet cases on 1f75c923), policy families wide, control, sat.w<W> at a width with events and at one past collapse, sat.struct-<d>, fp16 with the rule exponent, f21: at least 64 images per (case, policy) compared with existing sealed predict files of the archives (read-only) or with fresh archive runs written only under artifacts/speed_v1/",
+      "batch_invariance": "batch 1, 8 and 32 give identical records on the same images"
+    },
+    "timing": "seconds per image of the predict loop (preprocessing included, process setup excluded and reported separately), archive and fast path back to back on the same images and batch size under gpu_run.sh --exclusive, each run under 2 minutes, at most 10 minutes of exclusive time for the lane; batch 8 and the best batch, one ResNet18 and one MobileNetV3 case; plus throughput with 2-3 concurrent shared jobs (shared mode, indicative). Profile of the archives: per-stage wall time of predict at batch 8, trace none, 64 images, wide and one saturating policy, measured in shared mode (indicative shares, not throughput claims)."
+  },
+  "part2_block_bias_correction": {
+    "reference": "tools/experiment_b2/blocks.bias_correct_blocks (read-only)",
+    "fast_path": "tools/experiment_b2_fastblocks: same per-chunk GPU operations in the same order; per-chunk activations of the FP32 and the quantised graph held in pinned host memory, one chunk on the GPU at a time",
+    "identity": "bias deltas and correction report bit-identical; cell configuration sha256, every readout array and logits_sha256 equal to lane L1's sealed cell records",
+    "test_set": "default recipe: mxfp8_e4m3 and bfp6 on mobilenet_v2 and mobilenet_v3_large, mxfp6_e3m2 on mobilenet_v2, one resnet18 block cell; outputs written only under artifacts/speed_v1/",
+    "measurement": "torch.cuda.max_memory_allocated and wall time, original path (gpu_run.sh --heavy 8000) against the fast path"
+  },
+  "part3_detector_bootstrap": {
+    "reference": "tools/experiment_b2_det/stats.py Evaluated.metrics / bootstrap (pycocotools COCOeval.accumulate restricted to area all, maxDets 100) with seed 310911, 2000 resamples",
+    "fast_path": "tools/analysis/fast_cocoeval: the same per-image evaluation rows (CocoImageCache), accumulate vectorised over resamples, identical draw sequence (same generator and calls)",
+    "identity": "point estimates equal to pycocotools on every stored 1k detector configuration of lane L7 (report identical, or the maximum absolute difference, required below 1e-12); for a sample of configurations the 2000-draw arrays and the reported intervals equal those stored by stats.py",
+    "timing": "CPU seconds per configuration for 2,000 and 10,000 resamples against stats.py (stats.py at 10,000 extrapolated from a measured run if a full run would exceed the lane's CPU budget; stated as such); run under nice -n 10"
+  },
+  "failure_rule": "Any difference is reported as a failure of the fast path, never tolerated or tuned away; null results and failures are reported as they are."
+}

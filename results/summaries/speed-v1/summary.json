@@ -1,0 +1,3658 @@
+{
+ "evidence_label": "development evidence: ImageNet screen-1k (first 64 images for identity), COCO screen-1k, first 256 calibration images of the B2 input cache; no held-out image read",
+ "exact_engine": {
+  "base_archive": "1f75c9232c8a0202482fe9bce9a46360c7cc0999c5b0bcf7df5ebcc0446fc863",
+  "concurrency_shared": {
+   "fast-mnv3-int8-wide-b8-jobA": {
+    "argv": [
+     "fast",
+     "mobilenet_v3_large-int8-default-b2",
+     "wide",
+     "0",
+     "1000",
+     "8,8,8,8,8",
+     "artifacts/speed_v1/concurrency/fast-mnv3-int8-wide-b8-jobA.json"
+    ],
+    "case": "mobilenet_v3_large-int8-default-b2",
+    "items_sha": "18661ea4423726948febd60485392959681a37cab70f74b118b80a825237a5bd",
+    "path": "fast",
+    "peak_gpu_memory_bytes": 1110460416,
+    "policy": "wide",
+    "runs": [
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941169.6614716,
+      "loop_start_epoch": 1790941160.9716084,
+      "seconds_per_image": 0.008689863292966038,
+      "wall_seconds": 8.689863292966038
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941178.308728,
+      "loop_start_epoch": 1790941169.751078,
+      "seconds_per_image": 0.00855765018996317,
+      "wall_seconds": 8.55765018996317
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941186.8662825,
+      "loop_start_epoch": 1790941178.3941123,
+      "seconds_per_image": 0.00847217017202638,
+      "wall_seconds": 8.472170172026381
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941197.9451857,
+      "loop_start_epoch": 1790941186.968298,
+      "seconds_per_image": 0.010976887593977153,
+      "wall_seconds": 10.976887593977153
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941208.8416893,
+      "loop_start_epoch": 1790941198.0563579,
+      "seconds_per_image": 0.010785331595921889,
+      "wall_seconds": 10.785331595921889
+     }
+    ],
+    "setup_seconds": 2.1254638029495254,
+    "start": 0,
+    "stop": 1000,
+    "written": "2026-10-02T16:40:08+0500"
+   },
+   "fast-mnv3-int8-wide-b8-jobB": {
+    "argv": [
+     "fast",
+     "mobilenet_v3_large-int8-default-b2",
+     "wide",
+     "0",
+     "1000",
+     "8,8,8,8,8",
+     "artifacts/speed_v1/concurrency/fast-mnv3-int8-wide-b8-jobB.json"
+    ],
+    "case": "mobilenet_v3_large-int8-default-b2",
+    "items_sha": "18661ea4423726948febd60485392959681a37cab70f74b118b80a825237a5bd",
+    "path": "fast",
+    "peak_gpu_memory_bytes": 1110460416,
+    "policy": "wide",
+    "runs": [
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940966.7110338,
+      "loop_start_epoch": 1790940959.0637274,
+      "seconds_per_image": 0.007647306323982775,
+      "wall_seconds": 7.647306323982775
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940974.0762758,
+      "loop_start_epoch": 1790940966.7869704,
+      "seconds_per_image": 0.007289305491023697,
+      "wall_seconds": 7.289305491023697
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940982.3520343,
+      "loop_start_epoch": 1790940974.1417055,
+      "seconds_per_image": 0.00821032885205932,
+      "wall_seconds": 8.21032885205932
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940990.122868,
+      "loop_start_epoch": 1790940982.429897,
+      "seconds_per_image": 0.007692970933043398,
+      "wall_seconds": 7.692970933043398
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940997.9709146,
+      "loop_start_epoch": 1790940990.197826,
+      "seconds_per_image": 0.007773088617948815,
+      "wall_seconds": 7.773088617948815
+     }
+    ],
+    "setup_seconds": 2.597052458091639,
+    "start": 0,
+    "stop": 1000,
+    "written": "2026-10-02T16:36:37+0500"
+   },
+   "fast-rn18-int8-wide-b8-jobA": {
+    "argv": [
+     "fast",
+     "resnet18-int8-default-b2",
+     "wide",
+     "0",
+     "1000",
+     "8,8,8,8,8",
+     "artifacts/speed_v1/concurrency/fast-rn18-int8-wide-b8-jobA.json"
+    ],
+    "case": "resnet18-int8-default-b2",
+    "items_sha": "b35821a7666ac443df2f889b553044c676ccbfc9dd75d03b9f7d6a85b26babd3",
+    "path": "fast",
+    "peak_gpu_memory_bytes": 668297216,
+    "policy": "wide",
+    "runs": [
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941014.5701926,
+      "loop_start_epoch": 1790941002.9843233,
+      "seconds_per_image": 0.011585869404952973,
+      "wall_seconds": 11.585869404952973
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941028.3309572,
+      "loop_start_epoch": 1790941014.732785,
+      "seconds_per_image": 0.013598172220983543,
+      "wall_seconds": 13.598172220983543
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941040.86941,
+      "loop_start_epoch": 1790941028.4518309,
+      "seconds_per_image": 0.012417579108965583,
+      "wall_seconds": 12.417579108965583
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941052.4947908,
+      "loop_start_epoch": 1790941040.9892402,
+      "seconds_per_image": 0.01150555056007579,
+      "wall_seconds": 11.50555056007579
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790941063.6574388,
+      "loop_start_epoch": 1790941052.574079,
+      "seconds_per_image": 0.011083359717973508,
+      "wall_seconds": 11.083359717973508
+     }
+    ],
+    "setup_seconds": 2.88432254397776,
+    "start": 0,
+    "stop": 1000,
+    "written": "2026-10-02T16:37:43+0500"
+   },
+   "fast-rn18-int8-wide-b8-jobB": {
+    "argv": [
+     "fast",
+     "resnet18-int8-default-b2",
+     "wide",
+     "0",
+     "1000",
+     "8,8,8,8,8",
+     "artifacts/speed_v1/concurrency/fast-rn18-int8-wide-b8-jobB.json"
+    ],
+    "case": "resnet18-int8-default-b2",
+    "items_sha": "b35821a7666ac443df2f889b553044c676ccbfc9dd75d03b9f7d6a85b26babd3",
+    "path": "fast",
+    "peak_gpu_memory_bytes": 668297216,
+    "policy": "wide",
+    "runs": [
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940855.8694165,
+      "loop_start_epoch": 1790940843.2699912,
+      "seconds_per_image": 0.012599425298976712,
+      "wall_seconds": 12.599425298976712
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940869.1821394,
+      "loop_start_epoch": 1790940855.9931803,
+      "seconds_per_image": 0.013188959043007344,
+      "wall_seconds": 13.188959043007344
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940881.6806211,
+      "loop_start_epoch": 1790940869.2751322,
+      "seconds_per_image": 0.012405488856951707,
+      "wall_seconds": 12.405488856951706
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940895.7454085,
+      "loop_start_epoch": 1790940881.7719283,
+      "seconds_per_image": 0.013973480146029033,
+      "wall_seconds": 13.973480146029033
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790940908.0001037,
+      "loop_start_epoch": 1790940895.8375258,
+      "seconds_per_image": 0.012162577984039672,
+      "wall_seconds": 12.162577984039672
+     }
+    ],
+    "setup_seconds": 2.1976301700342447,
+    "start": 0,
+    "stop": 1000,
+    "written": "2026-10-02T16:35:08+0500"
+   },
+   "pair-rn18-int8-wide-b8-p1": {
+    "argv": [
+     "fast",
+     "resnet18-int8-default-b2",
+     "wide",
+     "0",
+     "1000",
+     "8,8,8,8,8",
+     "artifacts/speed_v1/concurrency/pair-rn18-int8-wide-b8-p1.json"
+    ],
+    "case": "resnet18-int8-default-b2",
+    "items_sha": "b35821a7666ac443df2f889b553044c676ccbfc9dd75d03b9f7d6a85b26babd3",
+    "path": "fast",
+    "peak_gpu_memory_bytes": 668297216,
+    "policy": "wide",
+    "runs": [
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942068.7399635,
+      "loop_start_epoch": 1790942049.8657453,
+      "seconds_per_image": 0.018874218164943158,
+      "wall_seconds": 18.87421816494316
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942087.0219204,
+      "loop_start_epoch": 1790942068.913439,
+      "seconds_per_image": 0.01810848149994854,
+      "wall_seconds": 18.10848149994854
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942106.6596766,
+      "loop_start_epoch": 1790942087.1698856,
+      "seconds_per_image": 0.01948979096999392,
+      "wall_seconds": 19.48979096999392
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942124.041875,
+      "loop_start_epoch": 1790942106.854076,
+      "seconds_per_image": 0.01718779895291664,
+      "wall_seconds": 17.187798952916637
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942140.5977738,
+      "loop_start_epoch": 1790942124.2171607,
+      "seconds_per_image": 0.01638061314402148,
+      "wall_seconds": 16.38061314402148
+     }
+    ],
+    "setup_seconds": 3.4778827090049163,
+    "start": 0,
+    "stop": 1000,
+    "written": "2026-10-02T16:55:40+0500"
+   },
+   "pair-rn18-int8-wide-b8-p2": {
+    "argv": [
+     "fast",
+     "resnet18-int8-default-b2",
+     "wide",
+     "0",
+     "1000",
+     "8,8,8,8,8",
+     "artifacts/speed_v1/concurrency/pair-rn18-int8-wide-b8-p2.json"
+    ],
+    "case": "resnet18-int8-default-b2",
+    "items_sha": "b35821a7666ac443df2f889b553044c676ccbfc9dd75d03b9f7d6a85b26babd3",
+    "path": "fast",
+    "peak_gpu_memory_bytes": 668297216,
+    "policy": "wide",
+    "runs": [
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942068.728948,
+      "loop_start_epoch": 1790942049.849744,
+      "seconds_per_image": 0.018879204078926706,
+      "wall_seconds": 18.879204078926705
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942087.3694308,
+      "loop_start_epoch": 1790942068.9086812,
+      "seconds_per_image": 0.018460749579942787,
+      "wall_seconds": 18.460749579942785
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942107.268621,
+      "loop_start_epoch": 1790942087.563891,
+      "seconds_per_image": 0.01970473008300178,
+      "wall_seconds": 19.704730083001778
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942125.020905,
+      "loop_start_epoch": 1790942107.4857366,
+      "seconds_per_image": 0.017535168429953046,
+      "wall_seconds": 17.535168429953046
+     },
+     {
+      "batch": 8,
+      "images": 1000,
+      "loop_end_epoch": 1790942141.2331722,
+      "loop_start_epoch": 1790942125.2199385,
+      "seconds_per_image": 0.016013233775040134,
+      "wall_seconds": 16.013233775040135
+     }
+    ],
+    "setup_seconds": 3.4663251499878243,
+    "start": 0,
+    "stop": 1000,
+    "written": "2026-10-02T16:55:41+0500"
+   }
+  },
+  "fast_sources_digest": "edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b",
+  "full_trace": {
+   "regress": {
+    "batches": [
+     8
+    ],
+    "image_records": 656,
+    "image_records_identical": 656,
+    "per_case_sets_images": {
+     "resnet18-fp6_e2m3-default-b2": [
+      8,
+      64
+     ],
+     "resnet18-fp7_e3m3-default-b2": [
+      8,
+      64
+     ],
+     "resnet18-fp7_e3m3-maxabs-b1": [
+      9,
+      72
+     ],
+     "resnet18-fp8_e4m3fn-default-b2": [
+      8,
+      64
+     ],
+     "resnet18-fp8_e5m2-default-b2": [
+      8,
+      64
+     ],
+     "resnet18-int6-default-b2": [
+      8,
+      64
+     ],
+     "resnet18-int8-default-b2": [
+      8,
+      64
+     ],
+     "resnet18-int8-default_signed-b2": [
+      8,
+      64
+     ],
+     "resnet18-int8-maxabs-b1": [
+      9,
+      72
+     ],
+     "resnet18-posit8_es1-default-b2": [
+      8,
+      64
+     ]
+    },
+    "sets": 82,
+    "sets_identical": 82
+   },
+   "trace": {
+    "batches": [
+     8
+    ],
+    "image_records": 2425,
+    "image_records_identical": 2425,
+    "per_case_sets_images": {
+     "mobilenet_v2-fp6_e2m3-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v2-fp7_e3m3-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v2-fp8_e4m3fn-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v2-int6-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v2-int8-default-b2": [
+      6,
+      96
+     ],
+     "mobilenet_v3_large-fp6_e2m3-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v3_large-fp7_e3m3-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v3_large-fp8_e4m3fn-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v3_large-int6-default-b2": [
+      5,
+      88
+     ],
+     "mobilenet_v3_large-int8-default-b2": [
+      6,
+      96
+     ],
+     "resnet18-fp6_e2m3-default-b2": [
+      6,
+      192
+     ],
+     "resnet18-fp7_e3m3-default-b2": [
+      6,
+      192
+     ],
+     "resnet18-fp8_e4m3fn-default-b2": [
+      6,
+      192
+     ],
+     "resnet18-fp8_e5m2-default-b2": [
+      6,
+      192
+     ],
+     "resnet18-int6-default-b2": [
+      6,
+      192
+     ],
+     "resnet18-int8-default-b2": [
+      6,
+      192
+     ],
+     "resnet18-int8-default_signed-b2": [
+      6,
+      192
+     ],
+     "resnet18-posit8_es1-default-b2": [
+      6,
+      185
+     ]
+    },
+    "sets": 100,
+    "sets_identical": 100
+   }
+  },
+  "gates": {
+   "archive": {
+    "files": 14,
+    "folder": "artifacts/speed_v1/implementations/edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b",
+    "manifest_sha256": "82fee053300689c0cd9637aa41828d66a5d19d7d3ef228fc826927d5c345f229"
+   },
+   "case_gates": [
+    "mobilenet_v2-fp6_e2m3-default-b2",
+    "mobilenet_v2-fp7_e3m3-default-b2",
+    "mobilenet_v2-fp8_e4m3fn-default-b2",
+    "mobilenet_v2-int6-default-b2",
+    "mobilenet_v2-int8-default-b2",
+    "mobilenet_v3_large-fp6_e2m3-default-b2",
+    "mobilenet_v3_large-fp7_e3m3-default-b2",
+    "mobilenet_v3_large-fp8_e4m3fn-default-b2",
+    "mobilenet_v3_large-int6-default-b2",
+    "mobilenet_v3_large-int8-default-b2",
+    "resnet18-fp6_e2m3-default-b2",
+    "resnet18-fp7_e3m3-default-b2",
+    "resnet18-fp7_e3m3-maxabs-b1",
+    "resnet18-fp8_e4m3fn-default-b2",
+    "resnet18-fp8_e5m2-default-b2",
+    "resnet18-int6-default-b2",
+    "resnet18-int8-default-b2",
+    "resnet18-int8-default_signed-b2",
+    "resnet18-int8-maxabs-b1",
+    "resnet18-posit8_es1-default-b2"
+   ],
+   "fast_sources_digest": "edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b",
+   "policy_gates": {
+    "mobilenet_v2-fp6_e2m3-default-b2": [
+     "control",
+     "f21",
+     "fp16",
+     "sat.struct-2",
+     "sat.w11",
+     "sat.w17",
+     "wide"
+    ],
+    "mobilenet_v2-fp7_e3m3-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-3",
+     "sat.struct-2",
+     "sat.w19",
+     "sat.w25",
+     "wide"
+    ],
+    "mobilenet_v2-fp8_e4m3fn-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-11",
+     "sat.struct-2",
+     "sat.w35",
+     "sat.w41",
+     "wide"
+    ],
+    "mobilenet_v2-int6-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-5",
+     "sat.struct-2",
+     "sat.w10",
+     "sat.w16",
+     "wide"
+    ],
+    "mobilenet_v2-int8-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-9",
+     "sat.struct-4",
+     "sat.w14",
+     "sat.w20",
+     "wide"
+    ],
+    "mobilenet_v3_large-fp6_e2m3-default-b2": [
+     "control",
+     "f21",
+     "fp16",
+     "sat.struct-2",
+     "sat.w11",
+     "sat.w17",
+     "wide"
+    ],
+    "mobilenet_v3_large-fp7_e3m3-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-3",
+     "sat.struct-2",
+     "sat.w19",
+     "sat.w25",
+     "wide"
+    ],
+    "mobilenet_v3_large-fp8_e4m3fn-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-11",
+     "sat.struct-2",
+     "sat.w35",
+     "sat.w41",
+     "wide"
+    ],
+    "mobilenet_v3_large-int6-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-4",
+     "sat.struct-2",
+     "sat.w10",
+     "sat.w16",
+     "wide"
+    ],
+    "mobilenet_v3_large-int8-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-8",
+     "sat.struct-4",
+     "sat.w14",
+     "sat.w20",
+     "wide"
+    ],
+    "resnet18-fp6_e2m3-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-1",
+     "sat.struct-4",
+     "sat.w12",
+     "sat.w15",
+     "wide"
+    ],
+    "resnet18-fp7_e3m3-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-5",
+     "sat.struct-4",
+     "sat.w19",
+     "sat.w22",
+     "wide"
+    ],
+    "resnet18-fp7_e3m3-maxabs-b1": [
+     "control",
+     "f21",
+     "fp16.x-5",
+     "sat.struct-4",
+     "sat.w17",
+     "sat.w22",
+     "wide"
+    ],
+    "resnet18-fp8_e4m3fn-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-13",
+     "sat.struct-4",
+     "sat.w35",
+     "sat.w38",
+     "wide"
+    ],
+    "resnet18-fp8_e5m2-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-27",
+     "sat.struct-12",
+     "sat.w60",
+     "sat.w61",
+     "wide"
+    ],
+    "resnet18-int6-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-7",
+     "sat.struct-4",
+     "sat.w14",
+     "sat.w6",
+     "wide"
+    ],
+    "resnet18-int8-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-11",
+     "sat.struct-4",
+     "sat.w10",
+     "sat.w18",
+     "wide"
+    ],
+    "resnet18-int8-default_signed-b2": [
+     "control",
+     "f21",
+     "fp16.x-10",
+     "sat.struct-4",
+     "sat.w14",
+     "sat.w17",
+     "wide"
+    ],
+    "resnet18-int8-maxabs-b1": [
+     "control",
+     "f21",
+     "fp16.x-10",
+     "sat.struct-4",
+     "sat.w12",
+     "sat.w17",
+     "wide"
+    ],
+    "resnet18-posit8_es1-default-b2": [
+     "control",
+     "f21",
+     "fp16.x-10",
+     "sat.struct-4",
+     "sat.w24",
+     "sat.w41",
+     "wide"
+    ]
+   },
+   "run_root": "artifacts/speed_v1/runs/edfecd5cdb0dc5adf06eff2807afa023b12d781cf0d08961a0b023da510a293b"
+  },
+  "predict_compare": {
+   "cases": 20,
+   "item_comparisons": 28992,
+   "items_different": 0,
+   "items_identical": 28992,
+   "per_case": {
+    "mobilenet_v2-fp6_e2m3-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16@b1": [
+      64,
+      0
+     ],
+     "fp16@b32": [
+      64,
+      0
+     ],
+     "fp16@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w11@b1": [
+      64,
+      0
+     ],
+     "sat.w11@b32": [
+      64,
+      0
+     ],
+     "sat.w11@b8": [
+      64,
+      0
+     ],
+     "sat.w16@b1": [
+      64,
+      0
+     ],
+     "sat.w16@b32": [
+      64,
+      0
+     ],
+     "sat.w16@b8": [
+      64,
+      0
+     ],
+     "sat.w17@b1": [
+      64,
+      0
+     ],
+     "sat.w17@b32": [
+      64,
+      0
+     ],
+     "sat.w17@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v2-fp7_e3m3-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-3@b1": [
+      64,
+      0
+     ],
+     "fp16.x-3@b32": [
+      64,
+      0
+     ],
+     "fp16.x-3@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w19@b1": [
+      64,
+      0
+     ],
+     "sat.w19@b32": [
+      64,
+      0
+     ],
+     "sat.w19@b8": [
+      64,
+      0
+     ],
+     "sat.w23@b1": [
+      64,
+      0
+     ],
+     "sat.w23@b32": [
+      64,
+      0
+     ],
+     "sat.w23@b8": [
+      64,
+      0
+     ],
+     "sat.w25@b1": [
+      64,
+      0
+     ],
+     "sat.w25@b32": [
+      64,
+      0
+     ],
+     "sat.w25@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v2-fp8_e4m3fn-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-11@b1": [
+      64,
+      0
+     ],
+     "fp16.x-11@b32": [
+      64,
+      0
+     ],
+     "fp16.x-11@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w35@b1": [
+      64,
+      0
+     ],
+     "sat.w35@b32": [
+      64,
+      0
+     ],
+     "sat.w35@b8": [
+      64,
+      0
+     ],
+     "sat.w39@b1": [
+      64,
+      0
+     ],
+     "sat.w39@b32": [
+      64,
+      0
+     ],
+     "sat.w39@b8": [
+      64,
+      0
+     ],
+     "sat.w41@b1": [
+      64,
+      0
+     ],
+     "sat.w41@b32": [
+      64,
+      0
+     ],
+     "sat.w41@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v2-int6-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-5@b1": [
+      64,
+      0
+     ],
+     "fp16.x-5@b32": [
+      64,
+      0
+     ],
+     "fp16.x-5@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w10@b1": [
+      64,
+      0
+     ],
+     "sat.w10@b32": [
+      64,
+      0
+     ],
+     "sat.w10@b8": [
+      64,
+      0
+     ],
+     "sat.w15@b1": [
+      64,
+      0
+     ],
+     "sat.w15@b32": [
+      64,
+      0
+     ],
+     "sat.w15@b8": [
+      64,
+      0
+     ],
+     "sat.w16@b1": [
+      64,
+      0
+     ],
+     "sat.w16@b32": [
+      64,
+      0
+     ],
+     "sat.w16@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v2-int8-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-9@b1": [
+      64,
+      0
+     ],
+     "fp16.x-9@b32": [
+      64,
+      0
+     ],
+     "fp16.x-9@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w14@b1": [
+      64,
+      0
+     ],
+     "sat.w14@b32": [
+      64,
+      0
+     ],
+     "sat.w14@b8": [
+      64,
+      0
+     ],
+     "sat.w19@b1": [
+      64,
+      0
+     ],
+     "sat.w19@b32": [
+      64,
+      0
+     ],
+     "sat.w19@b8": [
+      64,
+      0
+     ],
+     "sat.w20@b1": [
+      64,
+      0
+     ],
+     "sat.w20@b32": [
+      64,
+      0
+     ],
+     "sat.w20@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v3_large-fp6_e2m3-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16@b1": [
+      64,
+      0
+     ],
+     "fp16@b32": [
+      64,
+      0
+     ],
+     "fp16@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w11@b1": [
+      64,
+      0
+     ],
+     "sat.w11@b32": [
+      64,
+      0
+     ],
+     "sat.w11@b8": [
+      64,
+      0
+     ],
+     "sat.w16@b1": [
+      64,
+      0
+     ],
+     "sat.w16@b32": [
+      64,
+      0
+     ],
+     "sat.w16@b8": [
+      64,
+      0
+     ],
+     "sat.w17@b1": [
+      64,
+      0
+     ],
+     "sat.w17@b32": [
+      64,
+      0
+     ],
+     "sat.w17@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v3_large-fp7_e3m3-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-3@b1": [
+      64,
+      0
+     ],
+     "fp16.x-3@b32": [
+      64,
+      0
+     ],
+     "fp16.x-3@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w19@b1": [
+      64,
+      0
+     ],
+     "sat.w19@b32": [
+      64,
+      0
+     ],
+     "sat.w19@b8": [
+      64,
+      0
+     ],
+     "sat.w23@b1": [
+      64,
+      0
+     ],
+     "sat.w23@b32": [
+      64,
+      0
+     ],
+     "sat.w23@b8": [
+      64,
+      0
+     ],
+     "sat.w25@b1": [
+      64,
+      0
+     ],
+     "sat.w25@b32": [
+      64,
+      0
+     ],
+     "sat.w25@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v3_large-fp8_e4m3fn-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-11@b1": [
+      64,
+      0
+     ],
+     "fp16.x-11@b32": [
+      64,
+      0
+     ],
+     "fp16.x-11@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w35@b1": [
+      64,
+      0
+     ],
+     "sat.w35@b32": [
+      64,
+      0
+     ],
+     "sat.w35@b8": [
+      64,
+      0
+     ],
+     "sat.w39@b1": [
+      64,
+      0
+     ],
+     "sat.w39@b32": [
+      64,
+      0
+     ],
+     "sat.w39@b8": [
+      64,
+      0
+     ],
+     "sat.w41@b1": [
+      64,
+      0
+     ],
+     "sat.w41@b32": [
+      64,
+      0
+     ],
+     "sat.w41@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v3_large-int6-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-4@b1": [
+      64,
+      0
+     ],
+     "fp16.x-4@b32": [
+      64,
+      0
+     ],
+     "fp16.x-4@b8": [
+      64,
+      0
+     ],
+     "sat.struct-2@b1": [
+      64,
+      0
+     ],
+     "sat.struct-2@b32": [
+      64,
+      0
+     ],
+     "sat.struct-2@b8": [
+      64,
+      0
+     ],
+     "sat.w10@b1": [
+      64,
+      0
+     ],
+     "sat.w10@b32": [
+      64,
+      0
+     ],
+     "sat.w10@b8": [
+      64,
+      0
+     ],
+     "sat.w14@b1": [
+      64,
+      0
+     ],
+     "sat.w14@b32": [
+      64,
+      0
+     ],
+     "sat.w14@b8": [
+      64,
+      0
+     ],
+     "sat.w16@b1": [
+      64,
+      0
+     ],
+     "sat.w16@b32": [
+      64,
+      0
+     ],
+     "sat.w16@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "mobilenet_v3_large-int8-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-8@b1": [
+      64,
+      0
+     ],
+     "fp16.x-8@b32": [
+      64,
+      0
+     ],
+     "fp16.x-8@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w14@b1": [
+      64,
+      0
+     ],
+     "sat.w14@b32": [
+      64,
+      0
+     ],
+     "sat.w14@b8": [
+      64,
+      0
+     ],
+     "sat.w18@b1": [
+      64,
+      0
+     ],
+     "sat.w18@b32": [
+      64,
+      0
+     ],
+     "sat.w18@b8": [
+      64,
+      0
+     ],
+     "sat.w20@b1": [
+      64,
+      0
+     ],
+     "sat.w20@b32": [
+      64,
+      0
+     ],
+     "sat.w20@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-fp6_e2m3-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-1@b1": [
+      64,
+      0
+     ],
+     "fp16.x-1@b32": [
+      64,
+      0
+     ],
+     "fp16.x-1@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w12@b1": [
+      64,
+      0
+     ],
+     "sat.w12@b32": [
+      64,
+      0
+     ],
+     "sat.w12@b8": [
+      64,
+      0
+     ],
+     "sat.w15@b1": [
+      64,
+      0
+     ],
+     "sat.w15@b32": [
+      64,
+      0
+     ],
+     "sat.w15@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-fp7_e3m3-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-5@b1": [
+      64,
+      0
+     ],
+     "fp16.x-5@b32": [
+      64,
+      0
+     ],
+     "fp16.x-5@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w19@b1": [
+      64,
+      0
+     ],
+     "sat.w19@b32": [
+      64,
+      0
+     ],
+     "sat.w19@b8": [
+      64,
+      0
+     ],
+     "sat.w22@b1": [
+      64,
+      0
+     ],
+     "sat.w22@b32": [
+      64,
+      0
+     ],
+     "sat.w22@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-fp7_e3m3-maxabs-b1": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-5@b1": [
+      64,
+      0
+     ],
+     "fp16.x-5@b32": [
+      64,
+      0
+     ],
+     "fp16.x-5@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w17@b1": [
+      64,
+      0
+     ],
+     "sat.w17@b32": [
+      64,
+      0
+     ],
+     "sat.w17@b8": [
+      64,
+      0
+     ],
+     "sat.w22@b1": [
+      64,
+      0
+     ],
+     "sat.w22@b32": [
+      64,
+      0
+     ],
+     "sat.w22@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-fp8_e4m3fn-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-13@b1": [
+      64,
+      0
+     ],
+     "fp16.x-13@b32": [
+      64,
+      0
+     ],
+     "fp16.x-13@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w35@b1": [
+      64,
+      0
+     ],
+     "sat.w35@b32": [
+      64,
+      0
+     ],
+     "sat.w35@b8": [
+      64,
+      0
+     ],
+     "sat.w38@b1": [
+      64,
+      0
+     ],
+     "sat.w38@b32": [
+      64,
+      0
+     ],
+     "sat.w38@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-fp8_e5m2-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-27@b1": [
+      64,
+      0
+     ],
+     "fp16.x-27@b32": [
+      64,
+      0
+     ],
+     "fp16.x-27@b8": [
+      64,
+      0
+     ],
+     "sat.struct-12@b1": [
+      64,
+      0
+     ],
+     "sat.struct-12@b32": [
+      64,
+      0
+     ],
+     "sat.struct-12@b8": [
+      64,
+      0
+     ],
+     "sat.w60@b1": [
+      64,
+      0
+     ],
+     "sat.w60@b32": [
+      64,
+      0
+     ],
+     "sat.w60@b8": [
+      64,
+      0
+     ],
+     "sat.w61@b1": [
+      64,
+      0
+     ],
+     "sat.w61@b32": [
+      64,
+      0
+     ],
+     "sat.w61@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-int6-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-7@b1": [
+      64,
+      0
+     ],
+     "fp16.x-7@b32": [
+      64,
+      0
+     ],
+     "fp16.x-7@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w14@b1": [
+      64,
+      0
+     ],
+     "sat.w14@b32": [
+      64,
+      0
+     ],
+     "sat.w14@b8": [
+      64,
+      0
+     ],
+     "sat.w6@b1": [
+      64,
+      0
+     ],
+     "sat.w6@b32": [
+      64,
+      0
+     ],
+     "sat.w6@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-int8-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-11@b1": [
+      64,
+      0
+     ],
+     "fp16.x-11@b32": [
+      64,
+      0
+     ],
+     "fp16.x-11@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w10@b1": [
+      64,
+      0
+     ],
+     "sat.w10@b32": [
+      64,
+      0
+     ],
+     "sat.w10@b8": [
+      64,
+      0
+     ],
+     "sat.w18@b1": [
+      64,
+      0
+     ],
+     "sat.w18@b32": [
+      64,
+      0
+     ],
+     "sat.w18@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-int8-default_signed-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-10@b1": [
+      64,
+      0
+     ],
+     "fp16.x-10@b32": [
+      64,
+      0
+     ],
+     "fp16.x-10@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w14@b1": [
+      64,
+      0
+     ],
+     "sat.w14@b32": [
+      64,
+      0
+     ],
+     "sat.w14@b8": [
+      64,
+      0
+     ],
+     "sat.w17@b1": [
+      64,
+      0
+     ],
+     "sat.w17@b32": [
+      64,
+      0
+     ],
+     "sat.w17@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-int8-maxabs-b1": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-10@b1": [
+      64,
+      0
+     ],
+     "fp16.x-10@b32": [
+      64,
+      0
+     ],
+     "fp16.x-10@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w12@b1": [
+      64,
+      0
+     ],
+     "sat.w12@b32": [
+      64,
+      0
+     ],
+     "sat.w12@b8": [
+      64,
+      0
+     ],
+     "sat.w17@b1": [
+      64,
+      0
+     ],
+     "sat.w17@b32": [
+      64,
+      0
+     ],
+     "sat.w17@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    },
+    "resnet18-posit8_es1-default-b2": {
+     "control@b1": [
+      64,
+      0
+     ],
+     "control@b32": [
+      64,
+      0
+     ],
+     "control@b8": [
+      64,
+      0
+     ],
+     "f21@b1": [
+      64,
+      0
+     ],
+     "f21@b32": [
+      64,
+      0
+     ],
+     "f21@b8": [
+      64,
+      0
+     ],
+     "fp16.x-10@b1": [
+      64,
+      0
+     ],
+     "fp16.x-10@b32": [
+      64,
+      0
+     ],
+     "fp16.x-10@b8": [
+      64,
+      0
+     ],
+     "sat.struct-4@b1": [
+      64,
+      0
+     ],
+     "sat.struct-4@b32": [
+      64,
+      0
+     ],
+     "sat.struct-4@b8": [
+      64,
+      0
+     ],
+     "sat.w24@b1": [
+      64,
+      0
+     ],
+     "sat.w24@b32": [
+      64,
+      0
+     ],
+     "sat.w24@b8": [
+      64,
+      0
+     ],
+     "sat.w33@b1": [
+      64,
+      0
+     ],
+     "sat.w33@b32": [
+      64,
+      0
+     ],
+     "sat.w33@b8": [
+      64,
+      0
+     ],
+     "sat.w41@b1": [
+      64,
+      0
+     ],
+     "sat.w41@b32": [
+      64,
+      0
+     ],
+     "sat.w41@b8": [
+      64,
+      0
+     ],
+     "wide@b1": [
+      64,
+      0
+     ],
+     "wide@b32": [
+      64,
+      0
+     ],
+     "wide@b8": [
+      64,
+      0
+     ]
+    }
+   },
+   "sets": 453,
+   "sets_failing": []
+  },
+  "profile_shared": {
+   "entries": {
+    "archive 1f75c923|mobilenet_v3_large-int8-default-b2|sat.w20": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/archive-1f75c923-mnv3-int8-b8.json",
+     "images": 64,
+     "items_sha": "5fd27af2f3452b99ea15d498eff733906adc018f4bc3810009dbbddb8f547c44",
+     "loop_wall_seconds": 38.123213796294294,
+     "seconds_per_image": 0.5956752155670983,
+     "stages_seconds": {
+      "engine_other (graph walk, record dicts, input cast, nonfinite checks)": 1.330545405158773,
+      "engine_run": 37.45725706825033,
+      "hash (array_hash of outputs)": 0.0033629968529567122,
+      "item_assembly": 0.0016041550552472472,
+      "kernel_only (replay on device pointers)": 0.4294086911249906,
+      "mac_post (range checks, event stats, scale, bias)": 4.7798714260570705,
+      "native_library_call": 2.5838125069858506,
+      "native_python (geometry, output arrays, result checks)": 1.1929000944364816,
+      "op_add": 0.5303235856117681,
+      "op_avgpool": 0.07364409393630922,
+      "op_hardsigmoid": 0.004345205030404031,
+      "op_hardswish": 1.8440374316414818,
+      "op_mul": 0.5900759152136743,
+      "op_relu": 0.5971886432962492,
+      "preprocess (image_batch, CPU)": 0.6642955982824787,
+      "store_quantize (codebook search, codes, diagnostics)": 23.924442851683125,
+      "top5 (contract tie order)": 0.0027069123461842537,
+      "transfers_and_allocation (library call - kernel_only)": 2.15440381586086
+     }
+    },
+    "archive 1f75c923|mobilenet_v3_large-int8-default-b2|wide": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/archive-1f75c923-mnv3-int8-b8.json",
+     "images": 64,
+     "items_sha": "0bdb15c82b800a8d709950c31ddae6389c70a349edfafa9ec54d71a599aebd7e",
+     "loop_wall_seconds": 38.342521503800526,
+     "seconds_per_image": 0.5991018984968832,
+     "stages_seconds": {
+      "engine_other (graph walk, record dicts, input cast, nonfinite checks)": 1.5621242651250213,
+      "engine_run": 37.884727568831295,
+      "hash (array_hash of outputs)": 0.001700871274806559,
+      "item_assembly": 0.0002895820653066039,
+      "kernel_only (replay on device pointers)": 0.4106427151709795,
+      "mac_post (range checks, event stats, scale, bias)": 4.253722460009158,
+      "native_library_call": 2.3984317942522466,
+      "native_python (geometry, output arrays, result checks)": 1.0960017520701513,
+      "op_add": 0.5506826358614489,
+      "op_avgpool": 0.08418555732350796,
+      "op_hardsigmoid": 0.004393784678541124,
+      "op_hardswish": 2.013645638129674,
+      "op_mul": 0.5923811309039593,
+      "op_relu": 0.7415265506133437,
+      "preprocess (image_batch, CPU)": 0.4574229409918189,
+      "store_quantize (codebook search, codes, diagnostics)": 24.583213645615615,
+      "top5 (contract tie order)": 0.002717482973821461,
+      "transfers_and_allocation (library call - kernel_only)": 1.9877890790812671
+     }
+    },
+    "archive 7c6344af|resnet18-int8-default-b2|sat.w20": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/archive-7c6344af-resnet18-int8-b8.json",
+     "images": 64,
+     "items_sha": "e7619b46e69655d19609c0627ba219f2d19bcdb671b957bdc6341cfe5f92b145",
+     "loop_wall_seconds": 20.253032663371414,
+     "seconds_per_image": 0.31645363536517834,
+     "stages_seconds": {
+      "engine_other (graph walk, record dicts, input cast, nonfinite checks)": 2.130371018545702,
+      "engine_run": 19.573994440375827,
+      "hash (array_hash of outputs)": 0.0012554444838315248,
+      "item_assembly": 0.0008442879188805819,
+      "kernel_only (replay on device pointers)": 0.7260917179519311,
+      "mac_post (range checks, event stats, scale, bias)": 2.4868103459011763,
+      "native_library_call": 1.891739723738283,
+      "native_python (geometry, output arrays, result checks)": 0.6367425329517573,
+      "op_add": 0.9432554716477171,
+      "op_avgpool": 0.005197325022891164,
+      "op_relu": 0.6079085465753451,
+      "preprocess (image_batch, CPU)": 0.6781330787343904,
+      "store_quantize (codebook search, codes, diagnostics)": 10.8685129446676,
+      "top5 (contract tie order)": 0.0022010868415236473,
+      "transfers_and_allocation (library call - kernel_only)": 1.1656480057863519
+     }
+    },
+    "archive 7c6344af|resnet18-int8-default-b2|wide": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/archive-7c6344af-resnet18-int8-b8.json",
+     "images": 64,
+     "items_sha": "efa9006ddf5baecae8ab8fc937fcf9637d4fcef2a017a8a857f607e53a652c4a",
+     "loop_wall_seconds": 20.762310310499743,
+     "seconds_per_image": 0.3244110986015585,
+     "stages_seconds": {
+      "engine_other (graph walk, record dicts, input cast, nonfinite checks)": 2.3616464970400557,
+      "engine_run": 20.172530400566757,
+      "hash (array_hash of outputs)": 0.0013697249814867973,
+      "item_assembly": 0.00026240991428494453,
+      "kernel_only (replay on device pointers)": 0.5490313058253378,
+      "mac_post (range checks, event stats, scale, bias)": 2.1434186461847275,
+      "native_library_call": 1.7436410929076374,
+      "native_python (geometry, output arrays, result checks)": 0.6247179973870516,
+      "op_add": 1.011641922290437,
+      "op_avgpool": 0.0036918838741257787,
+      "op_relu": 0.6814327023457736,
+      "preprocess (image_batch, CPU)": 0.5894484479213133,
+      "store_quantize (codebook search, codes, diagnostics)": 11.598467441741377,
+      "top5 (contract tie order)": 0.002502491814084351,
+      "transfers_and_allocation (library call - kernel_only)": 1.1946097870822996
+     }
+    },
+    "fast|mobilenet_v3_large-int8-default-b2|sat.w20": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/fast-resnet18-mnv3-int8-b8.json",
+     "images": 64,
+     "items_sha": "5fd27af2f3452b99ea15d498eff733906adc018f4bc3810009dbbddb8f547c44",
+     "loop_wall_seconds": 0.9509068059269339,
+     "seconds_per_image": 0.014857918842608342,
+     "stages_seconds": {
+      "engine_other (graph walk, checks, host transfer of output and stats, records)": 0.5173320960020646,
+      "kernel (archived kernel on device pointers, incl. launch)": 0.3649602681398392,
+      "mac_post (GPU)": 0.5391622796887532,
+      "op_add": 0.03803537541534752,
+      "op_avgpool": 0.026379776769317687,
+      "op_hardsigmoid": 0.01821876980829984,
+      "op_hardswish": 0.11438903224188834,
+      "op_mul": 0.022185220732353628,
+      "op_relu": 0.059564596391282976,
+      "preprocess_wait (CPU preprocessing not hidden by the prefetch thread)": 0.08372937305830419,
+      "store_quantize (GPU)": 0.4610830429010093
+     }
+    },
+    "fast|mobilenet_v3_large-int8-default-b2|wide": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/fast-resnet18-mnv3-int8-b8.json",
+     "images": 64,
+     "items_sha": "0bdb15c82b800a8d709950c31ddae6389c70a349edfafa9ec54d71a599aebd7e",
+     "loop_wall_seconds": 0.869570249109529,
+     "seconds_per_image": 0.01358703514233639,
+     "stages_seconds": {
+      "engine_other (graph walk, checks, host transfer of output and stats, records)": 0.62533230392728,
+      "kernel (archived kernel on device pointers, incl. launch)": 0.32310328469611704,
+      "mac_post (GPU)": 0.43386883835773915,
+      "op_add": 0.0354630317306146,
+      "op_avgpool": 0.029373235651291907,
+      "op_hardsigmoid": 0.02189631189685315,
+      "op_hardswish": 0.08562115905806422,
+      "op_mul": 0.022283350699581206,
+      "op_relu": 0.06101833609864116,
+      "preprocess_wait (CPU preprocessing not hidden by the prefetch thread)": 0.16006626898888499,
+      "store_quantize (GPU)": 0.47198227781336755
+     }
+    },
+    "fast|resnet18-int8-default-b2|sat.w20": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/fast-resnet18-mnv3-int8-b8.json",
+     "images": 64,
+     "items_sha": "e7619b46e69655d19609c0627ba219f2d19bcdb671b957bdc6341cfe5f92b145",
+     "loop_wall_seconds": 1.008659314014949,
+     "seconds_per_image": 0.015760301781483577,
+     "stages_seconds": {
+      "engine_other (graph walk, checks, host transfer of output and stats, records)": 0.46276002505328506,
+      "kernel (archived kernel on device pointers, incl. launch)": 0.9322711031418294,
+      "mac_post (GPU)": 0.39722064323723316,
+      "op_add": 0.08708621363621205,
+      "op_avgpool": 0.005810702918097377,
+      "op_relu": 0.15022216353099793,
+      "preprocess_wait (CPU preprocessing not hidden by the prefetch thread)": 0.10867189394775778,
+      "store_quantize (GPU)": 0.3118809296283871
+     }
+    },
+    "fast|resnet18-int8-default-b2|wide": {
+     "batch": 8,
+     "file": "artifacts/speed_v1/profile/fast-resnet18-mnv3-int8-b8.json",
+     "images": 64,
+     "items_sha": "efa9006ddf5baecae8ab8fc937fcf9637d4fcef2a017a8a857f607e53a652c4a",
+     "loop_wall_seconds": 0.9522839940618724,
+     "seconds_per_image": 0.014879437407216756,
+     "stages_seconds": {
+      "engine_other (graph walk, checks, host transfer of output and stats, records)": 0.24958195397630334,
+      "kernel (archived kernel on device pointers, incl. launch)": 0.3599660220788792,
+      "mac_post (GPU)": 0.207252700580284,
+      "op_add": 0.03296208998654038,
+      "op_avgpool": 0.0020249380031600595,
+      "op_relu": 0.07385341369081289,
+      "preprocess_wait (CPU preprocessing not hidden by the prefetch thread)": 0.0757819201098755,
+      "store_quantize (GPU)": 0.1811997207114473
+     }
+    }
+   },
+   "note": "shared GPU (other lanes running), batch 8, 64 images, trace none: indicative stage shares"
+  },
+  "resnet18_archive": "7c6344af732d1bf324c07b285921f63393150cdb3875356c86237d934fdc2f92",
+  "sat_w_widths": {
+   "mobilenet_v2-fp6_e2m3-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w11",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w17",
+     "top1": 0.625
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.625
+    }
+   },
+   "mobilenet_v2-fp7_e3m3-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w19",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w25",
+     "top1": 0.6875
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.6875
+    }
+   },
+   "mobilenet_v2-fp8_e4m3fn-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w35",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w41",
+     "top1": 0.703125
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.703125
+    }
+   },
+   "mobilenet_v2-int6-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w10",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w16",
+     "top1": 0.6875
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.6875
+    }
+   },
+   "mobilenet_v2-int8-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w14",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w20",
+     "top1": 0.75
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.75
+    }
+   },
+   "mobilenet_v3_large-fp6_e2m3-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w11",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w17",
+     "top1": 0.5625
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.5625
+    }
+   },
+   "mobilenet_v3_large-fp7_e3m3-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w19",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w25",
+     "top1": 0.671875
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.671875
+    }
+   },
+   "mobilenet_v3_large-fp8_e4m3fn-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w35",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w41",
+     "top1": 0.609375
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.609375
+    }
+   },
+   "mobilenet_v3_large-int6-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w10",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w16",
+     "top1": 0.203125
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.203125
+    }
+   },
+   "mobilenet_v3_large-int8-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w14",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w20",
+     "top1": 0.6875
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.6875
+    }
+   },
+   "resnet18-fp6_e2m3-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w12",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w15",
+     "top1": 0.609375
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.6875
+    }
+   },
+   "resnet18-fp7_e3m3-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w19",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w22",
+     "top1": 0.59375
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.65625
+    }
+   },
+   "resnet18-fp7_e3m3-maxabs-b1": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w17",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w22",
+     "top1": 0.3125
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.703125
+    }
+   },
+   "resnet18-fp8_e4m3fn-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w35",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w38",
+     "top1": 0.625
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.6875
+    }
+   },
+   "resnet18-fp8_e5m2-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w61",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w60",
+     "top1": 0.0
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.640625
+    }
+   },
+   "resnet18-int6-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w6",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w14",
+     "top1": 0.5625
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.703125
+    }
+   },
+   "resnet18-int8-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w10",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w18",
+     "top1": 0.65625
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.6875
+    }
+   },
+   "resnet18-int8-default_signed-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w14",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w17",
+     "top1": 0.453125
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.6875
+    }
+   },
+   "resnet18-int8-maxabs-b1": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w12",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w17",
+     "top1": 0.484375
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.671875
+    }
+   },
+   "resnet18-posit8_es1-default-b2": {
+    "sat_w_collapse": {
+     "images": 64,
+     "images_with_events": 64,
+     "images_with_failure_record": 0,
+     "policy": "sat.w24",
+     "top1": 0.0
+    },
+    "sat_w_events": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "sat.w41",
+     "top1": 0.671875
+    },
+    "wide": {
+     "images": 64,
+     "images_with_events": 0,
+     "images_with_failure_record": 0,
+     "policy": "wide",
+     "top1": 0.671875
+    }
+   }
+  },
+  "timing_exclusive": {
+   "pairs": {
+    "mnv3-int8-wide": {
+     "archive_best": {
+      "batch": 8,
+      "seconds_per_image": 0.2940241698433965
+     },
+     "archive_seconds_per_image_b8": 0.2940241698433965,
+     "case": "mobilenet_v3_large-int8-default-b2",
+     "fast_best": {
+      "batch": 32,
+      "seconds_per_image": 0.006196338421432301
+     },
+     "fast_seconds_per_image_b8": 0.006224477905561798,
+     "images": 64,
+     "images_per_second_archive_best": 3.4010809401574744,
+     "images_per_second_fast_best": 161.38563325417064,
+     "items_sha_equal": true,
+     "policy": "wide",
+     "speedup_b8": 47.236760143477284,
+     "speedup_best_vs_best": 47.451276842208365
+    },
+    "rn18-int8-wide": {
+     "archive_best": {
+      "batch": 8,
+      "seconds_per_image": 0.16867219117678664
+     },
+     "archive_seconds_per_image_b8": 0.16867219117678664,
+     "case": "resnet18-int8-default-b2",
+     "fast_best": {
+      "batch": 8,
+      "seconds_per_image": 0.006052944928039021
+     },
+     "fast_seconds_per_image_b8": 0.006052944928039021,
+     "images": 96,
+     "images_per_second_archive_best": 5.928659567550718,
+     "images_per_second_fast_best": 165.2088383239216,
+     "items_sha_equal": true,
+     "policy": "wide",
+     "speedup_b8": 27.86613676186734,
+     "speedup_best_vs_best": 27.86613676186734
+    }
+   },
+   "runs": {
+    "archive-mnv3-int8-wide": {
+     "case": "mobilenet_v3_large-int8-default-b2",
+     "file": "artifacts/speed_v1/timing/archive-mnv3-int8-wide.json",
+     "images": 64,
+     "items_sha": "0bdb15c82b800a8d709950c31ddae6389c70a349edfafa9ec54d71a599aebd7e",
+     "path": "archive 1f75c923",
+     "peak_gpu_memory_bytes": 0,
+     "policy": "wide",
+     "seconds_per_image": {
+      "32": 0.3238823703595699,
+      "8": 0.2940241698433965
+     },
+     "setup_seconds": 1.6384223999921232,
+     "written": "2026-10-02T13:50:13+0500"
+    },
+    "archive-rn18-int8-wide": {
+     "case": "resnet18-int8-default-b2",
+     "file": "artifacts/speed_v1/timing/archive-rn18-int8-wide.json",
+     "images": 96,
+     "items_sha": "418e9522cc00b908b045b3799cf8575edefe62ba6e7770bccd4d1a1ffe9a9aee",
+     "path": "archive 7c6344af",
+     "peak_gpu_memory_bytes": 0,
+     "policy": "wide",
+     "seconds_per_image": {
+      "32": 0.1708827543540489,
+      "8": 0.16867219117678664
+     },
+     "setup_seconds": 1.8164956709370017,
+     "written": "2026-10-02T13:49:13+0500"
+    },
+    "fast-mnv3-int8-wide": {
+     "case": "mobilenet_v3_large-int8-default-b2",
+     "file": "artifacts/speed_v1/timing/fast-mnv3-int8-wide.json",
+     "images": 64,
+     "items_sha": "0bdb15c82b800a8d709950c31ddae6389c70a349edfafa9ec54d71a599aebd7e",
+     "path": "fast",
+     "peak_gpu_memory_bytes": 8561862656,
+     "policy": "wide",
+     "seconds_per_image": {
+      "32": 0.006196338421432301,
+      "64": 0.007482951343263267,
+      "8": 0.006224477905561798
+     },
+     "setup_seconds": 1.6029961049789563,
+     "written": "2026-10-02T13:50:17+0500"
+    },
+    "fast-rn18-int8-wide": {
+     "case": "resnet18-int8-default-b2",
+     "file": "artifacts/speed_v1/timing/fast-rn18-int8-wide.json",
+     "images": 96,
+     "items_sha": "418e9522cc00b908b045b3799cf8575edefe62ba6e7770bccd4d1a1ffe9a9aee",
+     "path": "fast",
+     "peak_gpu_memory_bytes": 4957161984,
+     "policy": "wide",
+     "seconds_per_image": {
+      "32": 0.006604464739211835,
+      "64": 0.007276845947975137,
+      "8": 0.006052944928039021
+     },
+     "setup_seconds": 1.8650156400399283,
+     "written": "2026-10-02T13:49:18+0500"
+    }
+   }
+  }
+ },
+ "fast_cocoeval": {
+  "bootstrap_2000": [
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.017104208083000002,
+    "intervals_identical": true,
+    "stem": "04fd1b90be7aa02f54eda7114c50c0bcf59ee6404cba0f33ef599bc21b2dc97a-1000-index"
+   },
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.015533957624999999,
+    "intervals_identical": true,
+    "stem": "23fec021aaf9af6c19594d7c0e5c1259d06656febf0672dc4fb1ecbf4e48525e-1000-index"
+   },
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.010470937749499996,
+    "intervals_identical": true,
+    "stem": "4e8e979f580ef00c269b1938db602eb73b15bf8c34fc208dfc3d19ca9d2044e8-1000-index"
+   },
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.019133269745999996,
+    "intervals_identical": true,
+    "stem": "7221154128a8e9c32936ae05e3ad0204a2e8647d5c82dd492202878c4d870127-1000-index"
+   },
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.0165231314415,
+    "intervals_identical": true,
+    "stem": "9da09d94d3db266bf3135dbdacd4a212e74f0e2cb2ea8fecd61f72c90831acb5-1000-index"
+   },
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.0167988715,
+    "intervals_identical": true,
+    "stem": "d749f3f28ecb20427d6eb634df1523676631d7a737a18c37a6b87af336ccde2e-1000-index"
+   },
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.009269432899999997,
+    "intervals_identical": true,
+    "stem": "v1--bfp6--maxabs-1000-sealed"
+   },
+   {
+    "draws_compared": 2000,
+    "draws_identical": true,
+    "draws_max_abs_difference": 0.0,
+    "fast_cpu_seconds_per_draw": 0.0035543629299999964,
+    "intervals_identical": true,
+    "stem": "v1--int6--maxabs-1000-sealed"
+   }
+  ],
+  "evaluate_cpu_seconds": {
+   "max": 23.930636368999956,
+   "median": 11.157844449499976,
+   "min": 2.677034897999988,
+   "n": 142
+  },
+  "fast_big": [
+   {
+    "evaluate_cpu_seconds": 15.791977558000001,
+    "fast_cpu_seconds_10000_draws": 137.77365203700003,
+    "fast_preparation_cpu_seconds": 0.9385401599999987,
+    "fast_source_sha256": "03fa4eaee3d836a77522ba5155e455e75032dc3be0a30003f8cc7074a1ded097",
+    "reference_cpu_seconds_per_draw": 0.2576458432265,
+    "stem": "04fd1b90be7aa02f54eda7114c50c0bcf59ee6404cba0f33ef599bc21b2dc97a-1000-index",
+    "stored_point_identical": true
+   },
+   {
+    "evaluate_cpu_seconds": 9.949879467999999,
+    "fast_cpu_seconds_10000_draws": 144.372788923,
+    "fast_preparation_cpu_seconds": 0.522621362999999,
+    "fast_source_sha256": "03fa4eaee3d836a77522ba5155e455e75032dc3be0a30003f8cc7074a1ded097",
+    "stem": "7221154128a8e9c32936ae05e3ad0204a2e8647d5c82dd492202878c4d870127-1000-index",
+    "stored_point_identical": true
+   },
+   {
+    "evaluate_cpu_seconds": 2.677034897999988,
+    "fast_cpu_seconds_10000_draws": 20.00394415400001,
+    "fast_preparation_cpu_seconds": 0.09719905200000767,
+    "fast_source_sha256": "03fa4eaee3d836a77522ba5155e455e75032dc3be0a30003f8cc7074a1ded097",
+    "stem": "v1--int6--maxabs-1000-sealed",
+    "stored_point_identical": true
+   }
+  ],
+  "fast_cpu_seconds_per_draw_2000": {
+   "max": 0.019133269745999996,
+   "median": 0.01602854453325,
+   "min": 0.0035543629299999964,
+   "n": 8
+  },
+  "fast_source": "tools/analysis/fast_cocoeval/__init__.py",
+  "fast_source_sha16": "03fa4eaee3d836a7",
+  "points": {
+   "configurations": 131,
+   "identical_to_pycocotools": 131,
+   "identical_to_stored_bootstrap_point": 131,
+   "max_abs_difference": 0.0
+  },
+  "reference_timing": [
+   {
+    "evaluate_cpu_seconds": 15.791977558000001,
+    "fast_cpu_seconds_10000_draws": 137.77365203700003,
+    "fast_preparation_cpu_seconds": 0.9385401599999987,
+    "fast_source_sha256": "03fa4eaee3d836a77522ba5155e455e75032dc3be0a30003f8cc7074a1ded097",
+    "reference_cpu_seconds_per_draw": 0.2576458432265,
+    "stem": "04fd1b90be7aa02f54eda7114c50c0bcf59ee6404cba0f33ef599bc21b2dc97a-1000-index",
+    "stored_point_identical": true
+   }
+  ]
+ },
+ "fastblocks": {
+  "fast/mobilenet_v2--bfp6--default": {
+   "bias_correction_peak_gpu_bytes": 1632072704,
+   "bias_correction_seconds": 124.08811494510155,
+   "cell": "artifacts/speed_v1/fastblocks/fast/matrix/cells/mobilenet_v2--bfp6--default--1000--cf4ce6e31461.json",
+   "configuration_identical": true,
+   "configuration_sha256": "cf4ce6e31461ac2d8b2d0b9da09e325fccf5943e0d84ef461c9a3dc8d4d32403",
+   "execution_path": "tools.experiment_b2_fastblocks.bias_correct_blocks (per-chunk activations in host memory, one chunk on the GPU)",
+   "format": "bfp6",
+   "gpu_bytes_before": 76605952,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--bfp6--default--1000--cf4ce6e31461.json",
+   "l1_cell_sha256": "b60e3fa9b5a898aeed4b9125d9f069eece8f487f46cc18a72dd47e41b15a848e",
+   "logits_sha256_identical": true,
+   "model": "mobilenet_v2",
+   "path": "fast",
+   "process_peak_gpu_bytes": 2161069568,
+   "readout_arrays": 8,
+   "readout_arrays_identical": 8,
+   "readout_file_sha256_identical": true,
+   "readout_summary_identical": true,
+   "recipe": "default",
+   "wall_seconds": 615.2893080729991,
+   "written": "2026-10-02T15:14:36+0500"
+  },
+  "fast/mobilenet_v2--mxfp6_e3m2--default": {
+   "bias_correction_peak_gpu_bytes": 1632072704,
+   "bias_correction_seconds": 129.51176931604277,
+   "cell": "artifacts/speed_v1/fastblocks/fast/matrix/cells/mobilenet_v2--mxfp6_e3m2--default--1000--bb4ec972ac49.json",
+   "configuration_identical": true,
+   "configuration_sha256": "bb4ec972ac49d140ddcd9a65dbd4fc81f227384a4876de4f7e4a9fb664bd57da",
+   "execution_path": "tools.experiment_b2_fastblocks.bias_correct_blocks (per-chunk activations in host memory, one chunk on the GPU)",
+   "format": "mxfp6_e3m2",
+   "gpu_bytes_before": 76605952,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp6_e3m2--default--1000--bb4ec972ac49.json",
+   "l1_cell_sha256": "a63a3ad4903d27c58aca966d912dffb545f3fe78e5e223d766128407f7fcaca0",
+   "logits_sha256_identical": true,
+   "model": "mobilenet_v2",
+   "path": "fast",
+   "process_peak_gpu_bytes": 2161069568,
+   "readout_arrays": 8,
+   "readout_arrays_identical": 8,
+   "readout_file_sha256_identical": true,
+   "readout_summary_identical": true,
+   "recipe": "default",
+   "wall_seconds": 643.0861151149729,
+   "written": "2026-10-02T15:29:09+0500"
+  },
+  "fast/mobilenet_v2--mxfp8_e4m3--default": {
+   "bias_correction_peak_gpu_bytes": 1632074752,
+   "bias_correction_seconds": 130.8664911360247,
+   "cell": "artifacts/speed_v1/fastblocks/fast/matrix/cells/mobilenet_v2--mxfp8_e4m3--default--1000--d5a52a6d6553.json",
+   "configuration_identical": true,
+   "configuration_sha256": "d5a52a6d65531808b45dabc69544692fcd3983a70c411f2728c390067f80b8bb",
+   "execution_path": "tools.experiment_b2_fastblocks.bias_correct_blocks (per-chunk activations in host memory, one chunk on the GPU)",
+   "format": "mxfp8_e4m3",
+   "gpu_bytes_before": 76608000,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp8_e4m3--default--1000--d5a52a6d6553.json",
+   "l1_cell_sha256": "bc7cbf42711f273666019197790cb8f1836d6b5ed8bb8afc45fe5849acc6b3eb",
+   "logits_sha256_identical": true,
+   "model": "mobilenet_v2",
+   "path": "fast",
+   "process_peak_gpu_bytes": 2161253376,
+   "readout_arrays": 8,
+   "readout_arrays_identical": 8,
+   "readout_file_sha256_identical": true,
+   "readout_summary_identical": true,
+   "recipe": "default",
+   "wall_seconds": 536.1273080409737,
+   "written": "2026-10-02T16:14:32+0500"
+  },
+  "fast/mobilenet_v3_large--bfp6--default": {
+   "bias_correction_peak_gpu_bytes": 896044032,
+   "bias_correction_seconds": 85.82872922800016,
+   "cell": "artifacts/speed_v1/fastblocks/fast/matrix/cells/mobilenet_v3_large--bfp6--default--1000--cbb0e065b9d3.json",
+   "configuration_identical": true,
+   "configuration_sha256": "cbb0e065b9d3ef02b3caa656c22114b2a94d46c963569af57b2fb899abef26fe",
+   "execution_path": "tools.experiment_b2_fastblocks.bias_correct_blocks (per-chunk activations in host memory, one chunk on the GPU)",
+   "format": "bfp6",
+   "gpu_bytes_before": 100861440,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--bfp6--default--1000--cbb0e065b9d3.json",
+   "l1_cell_sha256": "fda20f4db8391601a7aa078d61923f54782d2b8f3c0a390a9380b49c2b5373ac",
+   "logits_sha256_identical": true,
+   "model": "mobilenet_v3_large",
+   "path": "fast",
+   "process_peak_gpu_bytes": 1167004160,
+   "readout_arrays": 8,
+   "readout_arrays_identical": 8,
+   "readout_file_sha256_identical": true,
+   "readout_summary_identical": true,
+   "recipe": "default",
+   "wall_seconds": 403.18739871901926,
+   "written": "2026-10-02T15:04:19+0500"
+  },
+  "fast/mobilenet_v3_large--mxfp8_e4m3--default": {
+   "bias_correction_peak_gpu_bytes": 896046080,
+   "bias_correction_seconds": 108.25223825604189,
+   "cell": "artifacts/speed_v1/fastblocks/fast/matrix/cells/mobilenet_v3_large--mxfp8_e4m3--default--1000--510685ec5d9e.json",
+   "configuration_identical": true,
+   "configuration_sha256": "510685ec5d9e024fe7a4dcfba0787312cfc4c80882a5b8156c23ec6344ab6a2d",
+   "execution_path": "tools.experiment_b2_fastblocks.bias_correct_blocks (per-chunk activations in host memory, one chunk on the GPU)",
+   "format": "mxfp8_e4m3",
+   "gpu_bytes_before": 100863488,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--mxfp8_e4m3--default--1000--510685ec5d9e.json",
+   "l1_cell_sha256": "f2ef90c67e22b8d542110076f1b494465916a21c8ee06811d7cdc4decda05194",
+   "logits_sha256_identical": true,
+   "model": "mobilenet_v3_large",
+   "path": "fast",
+   "process_peak_gpu_bytes": 1167289344,
+   "readout_arrays": 8,
+   "readout_arrays_identical": 8,
+   "readout_file_sha256_identical": true,
+   "readout_summary_identical": true,
+   "recipe": "default",
+   "wall_seconds": 501.26323006500024,
+   "written": "2026-10-02T16:52:50+0500"
+  },
+  "fast/resnet18--bfp6--default": {
+   "bias_correction_peak_gpu_bytes": 588411904,
+   "bias_correction_seconds": 35.09447441005614,
+   "cell": "artifacts/speed_v1/fastblocks/fast/matrix/cells/resnet18--bfp6--default--1000--1057c759fd76.json",
+   "configuration_identical": true,
+   "configuration_sha256": "1057c759fd76505bbd3684d33f708ac44dacb623b7462aadf4f2f0a9bef74e84",
+   "execution_path": "tools.experiment_b2_fastblocks.bias_correct_blocks (per-chunk activations in host memory, one chunk on the GPU)",
+   "format": "bfp6",
+   "gpu_bytes_before": 174822912,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/resnet18--bfp6--default--1000--1057c759fd76.json",
+   "l1_cell_sha256": "96937a787da7ba1eb4317e0cbdde0bd38f71576c93e3ff56522a828bdb140a10",
+   "logits_sha256_identical": true,
+   "model": "resnet18",
+   "path": "fast",
+   "process_peak_gpu_bytes": 750228992,
+   "readout_arrays": 8,
+   "readout_arrays_identical": 8,
+   "readout_file_sha256_identical": true,
+   "readout_summary_identical": true,
+   "recipe": "default",
+   "wall_seconds": 143.5545873399824,
+   "written": "2026-10-02T15:33:15+0500"
+  },
+  "original/mobilenet_v2--mxfp8_e4m3--default--prepare": {
+   "bias_correction_peak_gpu_bytes": 5563415552,
+   "bias_correction_seconds": 83.05705543491058,
+   "configuration_identical": true,
+   "configuration_sha256": "d5a52a6d65531808b45dabc69544692fcd3983a70c411f2728c390067f80b8bb",
+   "execution_path": "tools.experiment_b2.blocks.bias_correct_blocks",
+   "format": "mxfp8_e4m3",
+   "gpu_bytes_before": 76608000,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v2--mxfp8_e4m3--default--1000--d5a52a6d6553.json",
+   "l1_cell_sha256": "bc7cbf42711f273666019197790cb8f1836d6b5ed8bb8afc45fe5849acc6b3eb",
+   "model": "mobilenet_v2",
+   "path": "original",
+   "process_peak_gpu_bytes": 5563415552,
+   "recipe": "default",
+   "wall_seconds": 84.65362505207304,
+   "written": "2026-10-02T17:46:51+0500"
+  },
+  "original/mobilenet_v3_large--mxfp8_e4m3--default--prepare": {
+   "bias_correction_peak_gpu_bytes": 3836089344,
+   "bias_correction_seconds": 59.33832889806945,
+   "configuration_identical": true,
+   "configuration_sha256": "510685ec5d9e024fe7a4dcfba0787312cfc4c80882a5b8156c23ec6344ab6a2d",
+   "execution_path": "tools.experiment_b2.blocks.bias_correct_blocks",
+   "format": "mxfp8_e4m3",
+   "gpu_bytes_before": 100863488,
+   "l1_cell": "artifacts/experiment_b2/matrix/cells/mobilenet_v3_large--mxfp8_e4m3--default--1000--510685ec5d9e.json",
+   "l1_cell_sha256": "f2ef90c67e22b8d542110076f1b494465916a21c8ee06811d7cdc4decda05194",
+   "model": "mobilenet_v3_large",
+   "path": "original",
+   "process_peak_gpu_bytes": 3836089344,
+   "recipe": "default",
+   "wall_seconds": 61.17032463604119,
+   "written": "2026-10-02T17:58:04+0500"
+  }
+ },
+ "lane_disk_bytes": 348008259,
+ "protocol": {
+  "file": "public/experiments/configs/breadth-study/speed-protocol-v1.json",
+  "sha256": "45822ebc676aea0006439599a1fa14781d6c7c2cc358c283512af0639859b1b1"
+ },
+ "written": "2026-10-02T18:07:38+0500"
+}

@@ -1,0 +1,33 @@
+{
+ "protocol": "speed-protocol-v1-addendum-1",
+ "lane": "S1 (speed work), agent CTXMARK-S1-speed-r4",
+ "written": "2026-10-02T18:51+05:00, before any of the measurements below",
+ "base_protocol": "public/experiments/configs/breadth-study/speed-protocol-v1.json (sha256 45822ebc676aea0006439599a1fa14781d6c7c2cc358c283512af0639859b1b1), unchanged and still in force",
+ "reason": "independent review 1 of lane S1 (artifacts/agent_orchestration/handoffs/S1-speed-review.md): blocking finding B1 (document numbers) and nonblocking N1-N7",
+ "evidence_label": "development evidence only: ImageNet screen-1k images, the first 256 calibration images of the B2 input cache (build=False). No held-out image is read.",
+ "document_corrections": {
+  "what": "B1 and N2-N4, N6, N7 are text corrections of docs/analysis/speed-optimizations-2026-10-02.md recomputed from the existing raw files (concurrency/*.json, profile/*.json, cocoeval/*.json, file mtimes). No new measurement. results/summaries/speed-v1/summary.json stays as written (its raw values are correct; the slips were in the document only)."
+ },
+ "n1_device_memory_of_fast_block_cells": {
+  "question": "Is a MobileNetV2 block cell through tools/experiment_b2_fastblocks below the rule-7 threshold of about 4 GB at device level (what other lanes see), not only in torch.cuda.max_memory_allocated?",
+  "cell": "mobilenet_v2 mxfp8_e4m3 default (full 1k-screen cell; the format whose original path peaked at 5.56 GB allocated)",
+  "how": "tools/run/speed_fastblocks_mem.py wraps tools/run/speed_fastblocks.py unchanged with its output folder redirected to artifacts/speed_v1/fastblocks-mem-v1/ (cells written once there; never into artifacts/experiment_b2/matrix). In the same process a sampler thread reads nvidia-smi --query-compute-apps used_memory of the process's own pid every 0.5 s; torch.cuda.max_memory_allocated and max_memory_reserved are recorded over the whole process (read before each reset_peak_memory_stats and at the end).",
+  "identity": "as part 2 of the base protocol: configuration_sha256, logits_sha256, readout file sha256 and every readout array equal to L1's record",
+  "decision_rule": "if the nvidia-smi peak of the process is below 4,000 MiB, block cells through the fast path may run without --heavy (with --min-free-mib at least the measured peak plus 500 MiB); otherwise they keep --heavy 8000. The result is reported either way.",
+  "gpu": "gpu_run.sh shared mode, --min-free-mib 4500, GPU_LANE=S1"
+ },
+ "n3_process_setup": {
+  "question": "Where does the '30-40 s per process' figure come from, and what does a fast-engine process actually cost before its first image?",
+  "how": "tools/run/speed_setup.py: (a) wall time of run.sh root (the archive's digest check, CPU), 3 repetitions; (b) a child process per case (resnet18-int8-default-b2, mobilenet_v3_large-int8-default-b2; policy wide) that reports interpreter-to-import, import, engine context setup and one 8-image batch; the parent records the total wall time from spawn to exit. Shared GPU; indicative. gpu_run.sh admission waits are excluded and stated separately.",
+  "output": "artifacts/speed_v1/setup-v1/setup.json (written once)"
+ },
+ "n5_mixed_failure_batches": {
+  "question": "Does the fast path reproduce the archive on real-image batches in which only some images fail under a float accumulator (the reviewer found none; the path was covered only by a synthetic node test and code reading)?",
+  "scan": "tools/run/speed_failmix.py scan (fast path, chooses images only): for the cases resnet18-int8-default-b2, mobilenet_v2-int8-default-b2, mobilenet_v3_large-int8-default-b2 and mobilenet_v3_large-fp7_e3m3-default-b2, exponents e = rule+1, rule+2, ... of fp16.x<e> (e = 0 is the policy 'fp16') on images 0-64 at batch 8 until all 64 fail or e = rule+16; then on images 0-1000 at every exponent where 0 < failed < 64 and at the two exponents around the 0 -> 64 jump. Per (case, exponent) the indices of failed images are stored. Pick per case the exponent with the most 8-aligned mixed batches and, within it, the 8-aligned 32-image window with the most mixed 8-image batches (ties: lowest start). Output artifacts/speed_v1/validation/failmix-picks.json (written once).",
+  "comparison": "tools/run/speed_failmix.py run: for every pick, the archive's own predict on that window (tools.run.speed_archive_predict, redirected into artifacts/speed_v1/archive-runs/<digest>/; the archive's real run roots are only read), then tools.run.speed_engine_validate compare at batches 1, 8 and 16 (16 = two batches of the window, each holding several 8-image groups; batch 32 is left out because the fast path at batch 32 on the MobileNets can exceed the 4 GB rule-7 threshold and would need --heavy 8000; edited 18:52 before any measurement).",
+  "identity": "as the base protocol: every item equal field by field (top-5 in contract tie order, tied classes, output hash, failure record, per-node event counts), node constants equal; no tolerance",
+  "null_result": "if no exponent of any case gives a mixed batch on the 1k screen, that is reported as a null result and the path stays covered by the node test and code reading.",
+  "gpu": "gpu_run.sh shared mode, --min-free-mib 3000; retry once with --heavy 8000 on CUDA out-of-memory (rule 7)"
+ },
+ "outputs": "results/summaries/speed-v1/summary-addendum-1.json (written once, by tools/run/speed_summary_addendum.py); docs/analysis/speed-optimizations-2026-10-02.md updated (section 'Review 1 follow-up')"
+}
